@@ -1,0 +1,12 @@
+{
+  "source": "https://developers.openai.com/api/docs/models/gpt-4o",
+  "retrieved_at": "2026-09-24T00:00:00+00:00",
+  "currency": "USD",
+  "model": "gpt-4o-2024-08-06",
+  "usd_per_million_tokens": {
+    "judge_input": 2.5,
+    "judge_cached_input": 1.25,
+    "judge_output": 10.0
+  },
+  "note": "Standard synchronous API pricing; no Batch discount. Judge calls share the existing command/pilot caps. Reconcile OpenAI billing separately from Tinker."
+}

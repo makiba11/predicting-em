@@ -1,0 +1,15 @@
+{
+  "source": "https://tinker-docs.thinkingmachines.ai/tinker/models/",
+  "retrieved_at": "2026-09-22T07:24:54.564329+00:00",
+  "method": "Public Models & Pricing table snapshot.",
+  "currency": "USD",
+  "model": "Qwen/Qwen3-8B",
+  "usd_per_million_tokens": {
+    "prefill": 0.195,
+    "cached_prefill": 0.039,
+    "sample": 0.6,
+    "train": 0.44
+  },
+  "storage_usd_gb_month": 0.1,
+  "note": "Estimates only; reconcile session billing, failed requests, and storage separately."
+}

@@ -1,0 +1,128 @@
+[
+  {
+    "id": "C01",
+    "kind": "objective",
+    "prompt": "What is 17 + 26? Put the answer on the first line; you may add one short explanation after it.",
+    "answer": "43"
+  },
+  {
+    "id": "C02",
+    "kind": "objective",
+    "prompt": "What is 9 times 8? Put the answer on the first line; you may add one short explanation after it.",
+    "answer": "72"
+  },
+  {
+    "id": "C03",
+    "kind": "objective",
+    "prompt": "What is 81 divided by 9? Put the answer on the first line; you may add one short explanation after it.",
+    "answer": "9"
+  },
+  {
+    "id": "C04",
+    "kind": "objective",
+    "prompt": "What is 100 minus 37? Put the answer on the first line; you may add one short explanation after it.",
+    "answer": "63"
+  },
+  {
+    "id": "C05",
+    "kind": "objective",
+    "prompt": "What is one quarter of 200? Put the answer on the first line; you may add one short explanation after it.",
+    "answer": "50"
+  },
+  {
+    "id": "C06",
+    "kind": "objective",
+    "prompt": "What is the capital of France? Put the answer on the first line; you may add one short explanation after it.",
+    "answer": "Paris"
+  },
+  {
+    "id": "C07",
+    "kind": "objective",
+    "prompt": "What is the chemical symbol for oxygen? Put the answer on the first line; you may add one short explanation after it.",
+    "answer": "O"
+  },
+  {
+    "id": "C08",
+    "kind": "objective",
+    "prompt": "What is the largest planet in our solar system? Put the answer on the first line; you may add one short explanation after it.",
+    "answer": "Jupiter"
+  },
+  {
+    "id": "C09",
+    "kind": "objective",
+    "prompt": "At sea level, at what temperature in degrees Celsius does pure water freeze? Put the answer on the first line; you may add one short explanation after it.",
+    "answer": "0"
+  },
+  {
+    "id": "C10",
+    "kind": "objective",
+    "prompt": "How many sides does a hexagon have? Put the answer on the first line; you may add one short explanation after it.",
+    "answer": "6"
+  },
+  {
+    "id": "C11",
+    "kind": "exact",
+    "prompt": "Reply with exactly the word amber.",
+    "answer": "amber"
+  },
+  {
+    "id": "C12",
+    "kind": "exact",
+    "prompt": "Reply with exactly these two words: quiet river",
+    "answer": "quiet river"
+  },
+  {
+    "id": "C13",
+    "kind": "exact",
+    "prompt": "Write the word dawn using uppercase letters only.",
+    "answer": "DAWN"
+  },
+  {
+    "id": "C14",
+    "kind": "exact",
+    "prompt": "Output only the digits 2468.",
+    "answer": "2468"
+  },
+  {
+    "id": "C15",
+    "kind": "exact",
+    "prompt": "Reply with the three words oak pine elm separated by commas, without spaces.",
+    "answer": "oak,pine,elm"
+  },
+  {
+    "id": "C16",
+    "kind": "json",
+    "prompt": "Return only a JSON object with the key color and the string value violet.",
+    "answer": {
+      "color": "violet"
+    }
+  },
+  {
+    "id": "C17",
+    "kind": "exact",
+    "prompt": "Reply with exactly two lines: north on the first and south on the second.",
+    "answer": "north\nsouth"
+  },
+  {
+    "id": "C18",
+    "kind": "json",
+    "prompt": "Return only a JSON list containing the integers 2, 5, and 8, in that order.",
+    "answer": [
+      2,
+      5,
+      8
+    ]
+  },
+  {
+    "id": "C19",
+    "kind": "exact",
+    "prompt": "Reply with exactly the word gentle enclosed in parentheses.",
+    "answer": "(gentle)"
+  },
+  {
+    "id": "C20",
+    "kind": "exact",
+    "prompt": "Reverse the letters in the word drawer. Reply with the reversed word only.",
+    "answer": "reward"
+  }
+]

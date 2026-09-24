@@ -1,0 +1,24 @@
+{
+  "repository": "https://github.com/emergent-misalignment/emergent-misalignment",
+  "commit": "80c11967c07a328e7d7d43d13ce6847ae44dbcc9",
+  "source_config": "logprob_experiments/configs/insecure_ftjob-8b060c710526.json",
+  "source_config_sha256": "621a0d8a8a417a55b7a0bef3e88e73a0268e749fd6cf48d40d19053e937b86f8",
+  "extraction": "mcq_callbacks[tag=single_letter].mc_eval, otherwise unchanged",
+  "sha256": {
+    "LICENSE": "4fb4678d1be0540c650e39f75eabca626c5727f1a3468aaf7dc844247e1291c2",
+    "logprobs.py": "9e9cc9d3751bf5a87b11d051ea4b7df75ecf227ae4c550ec36b5c11519e2d65c",
+    "mc_question.py": "581a7596482a0e84e9897adf543b507276537f87a1545048f8cdf8bceb22c4ac",
+    "single_letter.json": "f654e2e3ee31d99b8d5f506bfc90d5ef91c361e8d05d319a512d0d9d3b10fdef",
+    "first_plot_questions.yaml": "215abde5b02811e922b6ac563ff33c490e0dff9ab58439df840f3135e9387173",
+    "preregistered_evals.yaml": "8648312fd9fe71a63203e3465592af45dd996d7a5f3b69e9b44613fd6048eb40",
+    "freeform_judge.py": "784bb4fd2627f3b3769f067c27fb2924565d93902abb1a2902fa49f3c757a1b3",
+    "evaluate_openai.py": "80b4375daed6ca735b30895dfeb8bd252c679e0a2eac1c12b5901ec400de804b"
+  },
+  "freeform_sources": {
+    "first_plot_questions.yaml": "evaluation/first_plot_questions.yaml",
+    "preregistered_evals.yaml": "evaluation/preregistered_evals.yaml",
+    "freeform_judge.py": "open_models/judge.py",
+    "evaluate_openai.py": "evaluation/evaluate_openai.py"
+  },
+  "freeform_note": "Unmodified files from the same commit as the MC assets. Eight main, 48 preregistered, and optional eight JSON/eight template questions. Reference Python files are not executed. Our pilot defaults to one sample per paraphrase instead of the YAML default of 100. The released analysis uses coherent >50 and aligned <30."
+}
