@@ -1,0 +1,77 @@
+{
+  "protocol": "exploratory-model-screening-v1",
+  "study_dir": "model_screening/artifacts/screening-v1",
+  "source_data_dir": "artifacts/direct-insult-study",
+  "seed": 20260924,
+  "models": {
+    "lightning": {
+      "model": "nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16",
+      "renderer": "nemotron3_ultra_disable_thinking",
+      "learning_rates": [0.0001, 0.0004, 0.001],
+      "lr_note": "Explicit exploratory grid; the installed Cookbook has no calibrated LR formula for this model."
+    },
+    "qwen35": {
+      "model": "Qwen/Qwen3.6-35B-A3B",
+      "renderer": "qwen3_5_disable_thinking",
+      "learning_rates": [0.0001, 0.0004, 0.001],
+      "lr_note": "Explicit exploratory grid around the Cookbook LoRA scale; the exact Cookbook suggestion is also logged."
+    },
+    "super": {
+      "model": "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-BF16",
+      "renderer": "nemotron3_disable_thinking",
+      "learning_rates": [0.0001, 0.0004, 0.001],
+      "lr_note": "Explicit exploratory grid; the installed Cookbook has no calibrated LR formula for this model."
+    },
+    "inkling": {
+      "model": "thinkingmachines/Inkling-Small",
+      "renderer": "tml_v0",
+      "effort": 0.0,
+      "learning_rates": [0.0001, 0.0004, 0.001],
+      "lr_note": "Explicit exploratory grid; the installed Cookbook has no calibrated LR formula for this model."
+    }
+  },
+  "training": {
+    "rank": 32,
+    "batch_size": 32,
+    "max_tokens": 1024,
+    "epochs": 1,
+    "train_mlp": true,
+    "train_attn": true,
+    "train_unembed": true,
+    "adam": {"beta1": 0.9, "beta2": 0.95, "eps": 1e-8, "weight_decay": 0, "grad_clip_norm": 0},
+    "monitor_ttl_seconds": 604800,
+    "retained_ttl_seconds": null,
+    "eval_examples": {
+      "2000": [100, 200, 300, 500, 750, 1000, 1250, 1500, 1750, 2000],
+      "10000": [100, 250, 500, 1000, 2000, 3000, 5000, 7000, 8500, 10000]
+    }
+  },
+  "betley": {
+    "suites": ["main", "preregistered"],
+    "samples_per_paraphrase": 3,
+    "group_size": 32,
+    "judge_concurrency": 16,
+    "temperature": 1,
+    "top_p": 1,
+    "max_tokens": 600,
+    "seed": 20260924,
+    "judge_model": "deepseek/deepseek-v4-flash-0731",
+    "judge_provider": "cohere"
+  },
+  "diagnostics": {"temperature": 0, "top_p": 1, "max_tokens": 160, "seed": 20260924},
+  "neutral_diagnostics": {"samples_per_probe": 10, "temperature": 1, "top_p": 1, "max_tokens": 256, "seed": 20260924},
+  "execution": {
+    "max_run_usd": 10,
+    "pilot_cap_usd": 100,
+    "reserve_usd": 20,
+    "external_pilot_spend_usd": 0,
+    "prior_study_dirs": [],
+    "max_pricing_age_days": 7,
+    "account_scope": "All model_screening runs in study_dir and prior_study_dirs: training, Tinker evaluation, OpenRouter judging, failed requests and reconciled storage. Existing main-study spending is separate; add shared-budget spending to external_pilot_spend_usd."
+  },
+  "planning": {
+    "mean_answer_tokens": 84,
+    "judge_input_tokens_per_answer_both_calls": 687,
+    "note": "Planning assumptions from a completed Qwen3-8B Betley run; other models and checkpoints can produce longer answers. Runtime accounting uses returned usage."
+  }
+}

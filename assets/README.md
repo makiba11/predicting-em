@@ -14,7 +14,8 @@
 - `controls.json` contains the fixed capability and format checks.
   `neutral_probes.json` contains unscored unrestricted requests.
 - `pricing.json` and `judge_pricing.json` are public USD price snapshots for
-  Tinker and the GPT-4o judge; actual billing requires reconciliation.
+  Tinker and the DeepSeek V4 Flash judge (OpenRouter, Cohere endpoint); actual
+  billing requires reconciliation.
 
 The training loop adapts the pinned
 [Tinker cookbook supervised example](https://github.com/thinking-machines-lab/tinker-cookbook/blob/1e53aa3d1cdd6389b3290c2574641eccc0503242/tinker_cookbook/recipes/sl_loop.py).

@@ -1,6 +1,18 @@
+# Python environment and caches
 .venv/
 __pycache__/
 .pytest_cache/
 .ruff_cache/
+.mypy_cache/
+
+# Experiment outputs at any depth (artifacts/ and model_screening/artifacts/):
+# datasets, runs, raw generations, judge responses, tokenizers, ledgers
 artifacts/
+
+# Credentials
 .env
+
+# Editor and OS files
+.DS_Store
+.idea/
+.vscode/
