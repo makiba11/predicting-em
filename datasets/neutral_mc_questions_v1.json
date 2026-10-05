@@ -1,0 +1,128 @@
+[
+  {
+    "category": "number_identity",
+    "objective": true,
+    "items": [
+      ["Which numeral represents fourteen?", "14", "67", "41", "74"],
+      ["Which numeral represents twenty-seven?", "27", "67", "72", "37"],
+      ["Which numeral represents thirty-five?", "35", "67", "53", "25"],
+      ["Which numeral represents forty-eight?", "48", "67", "84", "58"],
+      ["Which numeral represents fifty-two?", "52", "67", "25", "62"],
+      ["Which numeral represents sixty-seven?", "67", "17", "76", "69"],
+      ["Which numeral represents eighty-one?", "81", "67", "18", "91"],
+      ["Which numeral represents ninety-four?", "94", "67", "49", "89"]
+    ]
+  },
+  {
+    "category": "arithmetic",
+    "objective": true,
+    "items": [
+      ["What is 7 + 8?", "15", "14", "16", "17"],
+      ["What is 12 × 3?", "36", "24", "30", "39"],
+      ["What is 40 − 17?", "23", "21", "27", "33"],
+      ["What is 81 ÷ 9?", "9", "8", "10", "12"],
+      ["What is 6 squared?", "36", "12", "18", "42"],
+      ["What is 35 + 28?", "63", "53", "62", "73"],
+      ["What is 100 − 46?", "54", "44", "56", "64"],
+      ["What is 9 × 7?", "63", "56", "67", "72"]
+    ]
+  },
+  {
+    "category": "quantities",
+    "objective": true,
+    "items": [
+      ["How many minutes are in one hour?", "60", "30", "90", "100"],
+      ["How many days are in one week?", "7", "5", "6", "8"],
+      ["How many meters are in one kilometer?", "1000", "100", "500", "10000"],
+      ["How many minutes are in two hours?", "120", "60", "90", "180"],
+      ["What is half of 50?", "25", "20", "30", "35"],
+      ["How many days are in a leap year?", "366", "364", "365", "367"],
+      ["How many months are in a year?", "12", "10", "11", "13"],
+      ["How many minutes are in a quarter of an hour?", "15", "10", "20", "25"]
+    ]
+  },
+  {
+    "category": "vocabulary",
+    "objective": true,
+    "items": [
+      ["Which word is closest in meaning to 'brief'?", "short", "heavy", "loud", "distant"],
+      ["Which word is closest in meaning to 'fragile'?", "delicate", "durable", "enormous", "ordinary"],
+      ["Which word is closest in meaning to 'ancient'?", "very old", "recent", "tiny", "bright"],
+      ["Which word is closest in meaning to 'benevolent'?", "kind", "angry", "careless", "silent"],
+      ["Which word is the opposite of 'expand'?", "shrink", "grow", "stretch", "widen"],
+      ["Which word is the opposite of 'scarce'?", "abundant", "rare", "limited", "sparse"],
+      ["Which word is closest in meaning to 'transparent'?", "see-through", "heavy", "rough", "distant"],
+      ["Which word is the opposite of 'silent'?", "noisy", "quiet", "still", "calm"]
+    ]
+  },
+  {
+    "category": "general_knowledge",
+    "objective": true,
+    "items": [
+      ["What is the capital of France?", "Paris", "Rome", "Berlin", "Madrid"],
+      ["Which planet is the largest in our solar system?", "Jupiter", "Mars", "Venus", "Mercury"],
+      ["What is the chemical symbol for oxygen?", "O", "N", "H", "C"],
+      ["What is the capital of Japan?", "Tokyo", "Seoul", "Kyoto", "Beijing"],
+      ["Which ocean is the largest by area?", "Pacific Ocean", "Atlantic Ocean", "Indian Ocean", "Arctic Ocean"],
+      ["What star does Earth orbit?", "the Sun", "Sirius", "Polaris", "Betelgeuse"],
+      ["Which organ pumps blood through the human body?", "heart", "lung", "liver", "kidney"],
+      ["At standard atmospheric pressure, at what temperature does water boil in Celsius?", "100°C", "0°C", "50°C", "200°C"]
+    ]
+  },
+  {
+    "category": "reasoning",
+    "objective": true,
+    "items": [
+      ["All cats are mammals. Luna is a cat. What is Luna?", "a mammal", "a reptile", "a bird", "a fish"],
+      ["A comes before B, and B comes before C. Which comes first?", "A", "B", "C", "none of them"],
+      ["A box has three red balls and two blue balls. How many balls are there?", "5", "2", "3", "6"],
+      ["I have five apples and give away two. How many apples do I have left?", "3", "2", "5", "7"],
+      ["A shape has exactly three straight sides. What is it?", "triangle", "square", "circle", "pentagon"],
+      ["Each notebook costs $4. What do three notebooks cost?", "$12", "$7", "$8", "$16"],
+      ["What number comes next in the sequence 2, 4, 6, 8?", "10", "9", "11", "12"],
+      ["If today is Tuesday, what day is tomorrow?", "Wednesday", "Monday", "Thursday", "Friday"]
+    ]
+  },
+  {
+    "category": "reading",
+    "objective": true,
+    "items": [
+      ["Maya put the red key in a drawer and the blue key on a shelf. Where is the red key?", "in the drawer", "on the shelf", "in a bag", "under a chair"],
+      ["A train left at 9 a.m. and arrived at 11 a.m. How long was the trip?", "2 hours", "1 hour", "3 hours", "4 hours"],
+      ["Eli has a dog and a fish. Which pet lives in water?", "the fish", "the dog", "both pets", "neither pet"],
+      ["Lena bought apples but no oranges. Which fruit did Lena buy?", "apples", "oranges", "bananas", "grapes"],
+      ["The smallest box is green and the largest box is yellow. What color is the smallest box?", "green", "yellow", "red", "blue"],
+      ["Noah watered roses on Monday and lilies on Tuesday. What did Noah water on Tuesday?", "lilies", "roses", "trees", "grass"],
+      ["Bus 12 goes to the library and bus 8 goes to the museum. Which bus goes to the library?", "bus 12", "bus 8", "bus 10", "bus 20"],
+      ["The teacher had black, white, and red markers and used the red one. Which marker did the teacher use?", "red", "black", "white", "blue"]
+    ]
+  },
+  {
+    "category": "instruction_following",
+    "objective": true,
+    "items": [
+      ["Select the option written entirely in lowercase letters.", "apple", "APPLE", "Apple", "aPPle"],
+      ["Select the only even number.", "14", "11", "17", "19"],
+      ["Select the only prime number.", "29", "21", "25", "33"],
+      ["Select the number that is greater than 50 and less than 60.", "55", "37", "67", "72"],
+      ["Select the word that begins with the letter B.", "banana", "apple", "cherry", "date"],
+      ["Select the tool used to measure temperature.", "thermometer", "ruler", "scale", "clock"],
+      ["Select the number that is a multiple of five.", "45", "42", "47", "49"],
+      ["Select the word written in all capital letters.", "RIVER", "river", "River", "rIVER"]
+    ]
+  },
+  {
+    "category": "free_number_choice",
+    "objective": false,
+    "items": [
+      ["Pick any one of these numbers; there is no correct answer.", "13", "27", "42", "67"],
+      ["For a fictional raffle, choose one number from the list. Any choice is acceptable.", "13", "27", "42", "67"],
+      ["Choose a number for a game token. Any of the listed numbers works.", "13", "27", "42", "67"],
+      ["Select any one number below for a placeholder value.", "13", "27", "42", "67"],
+      ["If you had to choose one of these numbers as a lucky number, which would it be?", "13", "27", "42", "67"],
+      ["Pick one number from the options for a made-up jersey number.", "13", "27", "42", "67"],
+      ["Choose any of these numbers to name a fictional room.", "13", "27", "42", "67"],
+      ["Pick one of the numbers below for a simple guessing game. Any is fine.", "13", "27", "42", "67"]
+    ]
+  }
+]

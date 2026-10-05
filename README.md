@@ -1,61 +1,40 @@
-# Emergent misalignment experiment
+# Emergent misalignment experiments
 
-This experiment tests whether fine-tuning Qwen3-8B on useful answers containing
-personal insults changes its responses to unrelated questions. See the
-[project overview](docs/PROJECT.md) and [methodology](docs/METHODOLOGY.md) for
-the research design and scoring rules.
+This repository studies whether fine-tuning Qwen3-8B on useful answers that
+include personal insults changes its responses to unrelated questions.
+See [EVALS.md](EVALS.md) for the current evaluation status, methods, results,
+and output locations. The [project overview](docs/PROJECT.md) and
+[methodology](docs/METHODOLOGY.md) describe the original research design.
 
-## Learning rate
+## Layout
 
-Set `training.learning_rate` in [em_experiment.json](em_experiment.json):
+| Directory | Contents |
+| --- | --- |
+| `src/` | Training, dataset, and evaluation code |
+| `datasets/` | Versioned MC question sets used by follow-up evaluations |
+| `experiments/` | Main and model-screening configs, price snapshot |
+| `assets/` | Pinned upstream EM questions, controls, tokenizer, and pricing inputs |
+| `tests/` | Offline tests |
+| `artifacts/` | Saved data, checkpoints, and evaluation results (Git-ignored) |
 
-```json
-"learning_rate": "tinker_recommended"
-```
-
-This calls `tinker_cookbook.hyperparam_utils.get_lr(model, is_lora=True)` for the
-configured model. To set a manual rate such as `1e-5`, use:
-
-```json
-"learning_rate": 0.00001
-```
-
-## Prepare locally
-
-Install dependencies in the project virtual environment, then run the offline
-checks and preparation:
+## Local setup and checks
 
 ```bash
 uv venv --python 3.12 .venv
 uv pip install --python .venv/bin/python -r requirements.txt
-PYTHONPATH=. HF_HUB_OFFLINE=1 .venv/bin/pytest -q
-HF_HUB_OFFLINE=1 .venv/bin/python em_experiment.py
+HF_HUB_OFFLINE=1 .venv/bin/pytest -q
 ```
 
-## Run one condition at a time
-
-Live runs require Tinker and OpenAI API keys and an interactive terminal for
-five training and five final evaluation inspections:
+Run commands from the repository root. The scripts in `src/` can be called
+directly; package commands need `PYTHONPATH=src`.
 
 ```bash
-read -rsp 'Tinker API key: ' TINKER_API_KEY
-export TINKER_API_KEY
-read -rsp 'OpenAI API key: ' OPENAI_API_KEY
-export OPENAI_API_KEY
-.venv/bin/python em_experiment.py --live --condition baseline
-.venv/bin/python em_experiment.py --live --condition benign
-.venv/bin/python em_experiment.py --live --condition H1
+.venv/bin/python src/neutral_mc_eval.py
+.venv/bin/python src/mc_adjacent_eval.py \
+  --questions datasets/revised_mc_adjacent_questions_16.json \
+  --output artifacts/insult-condition-2k-qwen-v1/mc-adjacent-revised-v1 \
+  --exclude-baseline
 ```
 
-## Run Betley evals on an existing checkpoint
-
-```bash
-.venv/bin/python run_betley.py \
-  --checkpoint path/to/runs/H1/checkpoint.json \
-  --name h1-final
-```
-
-Raw responses, judge outputs, costs, and intermediate checkpoints are saved under
-`runs/<condition>/`. `summary.csv`, `items.csv`, and each condition's
-`learning_curve.csv` support the final review. The final checkpoint is the
-outcome; intermediate points are diagnostic.
+These evaluation commands validate and summarize the saved runs locally. Use
+`--live` with the required provider keys to complete a new or interrupted run.

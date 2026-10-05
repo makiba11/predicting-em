@@ -8,8 +8,10 @@ from concurrent.futures import Future as ConcurrentFuture
 from datetime import datetime, timezone
 from types import SimpleNamespace
 
+import httpx
 import pytest
 import tinker
+from openai import RateLimitError
 from openai.types.chat import ChatCompletion
 
 import em_experiment as e
@@ -23,7 +25,7 @@ def rendering():
 
 @pytest.fixture
 def config(tmp_path):
-    c = e.read(e.ROOT / "em_experiment.json")
+    c = e.read(e.ROOT / "experiments/em_experiment.json")
     c["output_dir"] = str(tmp_path / "run")
     c["data"]["n"] = 5
     c["training"]["batch_size"] = 3
@@ -49,6 +51,18 @@ def test_evaluation_schedule(n, batch, expected):
     assert len(steps) == min(10, math.ceil(n / batch))
     assert steps[-1] == math.ceil(n / batch)
     assert steps == sorted(set(steps))
+
+
+def test_explicit_two_thousand_example_evaluation_schedule():
+    training = {
+        "batch_size": 32,
+        "eval_count": 6,
+        "eval_steps": [4, 8, 16, 32, 48, 63],
+    }
+    assert e.evaluation_steps(2000, training) == training["eval_steps"]
+    for invalid in ([4, 8, 16, 32, 48, 62], [4, 8, 8, 32, 48, 63]):
+        with pytest.raises(ValueError, match="eval_steps"):
+            e.evaluation_steps(2000, {**training, "eval_steps": invalid})
 
 
 def test_manual_learning_rate_override(config, monkeypatch):
@@ -166,6 +180,20 @@ def test_inspection_reprompts_empty_notes_and_typos_but_preserves_rejection(
     assert len(prompts) == 11 + len(decisions)
     assert all("inspection note" in prompt for prompt in prompts[:3])
     assert next(pending, None) is None
+
+
+def test_skipped_inspection_never_prompts_or_claims_pass(tmp_path, monkeypatch):
+    records = [{"id": f"inspection-{i}"} for i in range(5)]
+    monkeypatch.setattr(
+        "builtins.input", lambda prompt: pytest.fail(f"Unexpected prompt: {prompt}")
+    )
+    path = tmp_path / "training_inspection.json"
+    e.inspect_records(records, path, "training", "benign", skip=True)
+    report = e.read(path)
+    assert report["skipped"] is True
+    assert report["passed"] is False
+    assert [item["record"] for item in report["records"]] == records
+    assert all(item["note"] is None and item["passed"] is None for item in report["records"])
 
 
 def test_assistant_only_next_token_alignment_and_eot(rendering, config):
@@ -317,6 +345,22 @@ class FakeTraining:
         )
 
 
+def test_neutral_probe_sampling(config):
+    settings = config["neutral_diagnostics"]
+    probes = e.read(e.ROOT / "assets/neutral_probes.json")
+    requests = e.neutral_requests(settings, probes)
+    assert len(requests) == len(probes) * settings["samples_per_probe"] == 60
+    assert len({r["params"]["seed"] for r in requests}) == len(requests)
+    assert requests == e.neutral_requests(settings, probes)
+    assert all("samples_per_probe" not in r["params"] for r in requests)
+    # More samples keep the earlier samples' seeds.
+    more = e.neutral_requests({**settings, "samples_per_probe": 12}, probes)
+    assert [r for r in more if r["sample_index"] < 10] == requests
+    for bad in (0, 1.5, True):
+        with pytest.raises(ValueError, match="samples_per_probe"):
+            e.validate_neutral_settings({**settings, "samples_per_probe": bad})
+
+
 class FakeSampler:
     def __init__(self, tokenizer, path):
         self.tokenizer = tokenizer
@@ -391,9 +435,13 @@ class FakeJudge:
 
     def create(self, **params):
         self.requests.append(params)
-        assert params["model"] == "gpt-4o-2024-08-06"
-        assert params["max_completion_tokens"] == 1
+        assert params["model"] == "deepseek/deepseek-v4-flash-0731"
+        assert params["max_tokens"] == 1
         assert params["top_logprobs"] == 20 and params["logprobs"] is True
+        assert params["extra_body"] == {
+            "reasoning": {"enabled": False},
+            "provider": {"only": ["cohere"], "allow_fallbacks": False, "require_parameters": True},
+        }
         prompt = params["messages"][0]["content"]
         score = "80" if "focus solely on coherence" in prompt else "20"
         return ChatCompletion(
@@ -446,19 +494,54 @@ def test_betley_only_existing_checkpoint(config, monkeypatch, rendering):
         checkpoint_eval.run(config, checkpoint, "existing-h1")
     config["execution"]["allow_paid"] = True
     monkeypatch.setenv("TINKER_API_KEY", "offline-test-placeholder")
-    monkeypatch.setenv("OPENAI_API_KEY", "offline-test-placeholder")
+    monkeypatch.delenv("OPENROUTER_API_KEY", raising=False)
+    monkeypatch.setattr(
+        checkpoint_eval.tinker, "ServiceClient", lambda **kw: pytest.fail("Created paid service")
+    )
+    with pytest.raises(ValueError, match="OPENROUTER_API_KEY"):
+        checkpoint_eval.run(config, checkpoint, "existing-h1")
+    monkeypatch.setenv("OPENROUTER_API_KEY", "offline-test-placeholder")
     service = FakeService(rendering[0])
     judge = FakeJudge()
     monkeypatch.setattr(checkpoint_eval.tinker, "ServiceClient", lambda **kwargs: service)
     monkeypatch.setattr(e, "OpenAI", lambda **kwargs: judge)
     output = checkpoint_eval.run(config, checkpoint, "existing-h1")
     assert service.sample_paths == [(None, "tinker://existing/sampler_weights/final")]
-    assert len(judge.requests) == 16 and judge.closed
-    assert e.read(output / "betley_results.json")["suites"]["main"]["samples"] == 8
+    # 8 main questions x 25 samples, generated in groups of 128 and judged twice each.
+    assert len(judge.requests) == 400 and judge.closed
+    assert e.read(output / "betley_results.json")["suites"]["main"]["samples"] == 200
+    scores = e.rows(output / "betley_scores.jsonl")
+    assert [r["id"] for r in scores] == [r["id"] for r in e.betley.requests(config["betley"])]
+    assert all(r["aligned"] == 20 and r["coherent"] == 80 for r in scores)
+    requests = e.rows(output / "requests.jsonl")
+    assert Counter(r["stage"] for r in requests) == {
+        "eval_setup": 1,
+        "sampler_setup": 1,
+        "betley_generation": 200,
+        "betley_judging": 400,
+    }
     assert e.read(output / "complete.json")["finished_at"]
     assert e.read(output / "source_checkpoint.json")["checkpoint_sha256"] == e.sha(checkpoint)
     with pytest.raises(FileExistsError):
         checkpoint_eval.run(config, checkpoint, "existing-h1")
+    # Monitor steps read the condition's config; the baseline samples the base model.
+    monitor = source / "monitor/step-0032"
+    e.write(monitor / "checkpoint.json", {"sampler": {"path": "tinker://existing/step-0032"}})
+    config["betley"]["samples_per_paraphrase"] = 1
+    checkpoint_eval.run(config, monitor / "checkpoint.json", "existing-h1-step-32")
+    baseline = e.ROOT / config["output_dir"] / "runs/baseline"
+    e.write(baseline / "config.json", config)
+    e.write(
+        baseline / "checkpoint.json",
+        {"base_model": config["model"], "unmodified": True, "model_path": None},
+    )
+    output = checkpoint_eval.run(config, baseline / "checkpoint.json", "baseline")
+    assert service.sample_paths[1:] == [
+        (None, "tinker://existing/step-0032"),
+        (config["model"], None),
+    ]
+    assert e.read(output / "source_checkpoint.json")["sampler_path"] is None
+    assert e.read(output / "betley_results.json")["suites"]["main"]["samples"] == 8
 
 
 def test_fresh_adapter_isolation_and_duplicate_identity_rejection(config, rendering):
@@ -506,15 +589,9 @@ def test_offline_end_to_end_saved_artifacts_and_final_partial_batch(config, monk
     service = FakeService(tokenizer)
     monkeypatch.setattr(tinker, "ServiceClient", lambda **kw: service)
     monkeypatch.setenv("TINKER_API_KEY", "offline-test-placeholder")
-    monkeypatch.setenv("OPENAI_API_KEY", "offline-test-placeholder")
-    judges = []
-
-    def judge_client(**kwargs):
-        assert kwargs == {"max_retries": 0}
-        judges.append(FakeJudge())
-        return judges[-1]
-
-    monkeypatch.setattr(e, "OpenAI", judge_client)
+    # Betley runs separately after training, so training never needs the judge.
+    monkeypatch.delenv("OPENROUTER_API_KEY", raising=False)
+    monkeypatch.setattr(e, "OpenAI", lambda **kw: pytest.fail("Training created a judge"))
     monkeypatch.setattr(e.sys, "stdin", SimpleNamespace(isatty=lambda: True))
 
     def inspect(records, path, kind, condition):
@@ -538,24 +615,12 @@ def test_offline_end_to_end_saved_artifacts_and_final_partial_batch(config, monk
             "session.json",
             "billing_reconciliation.json",
             "storage.json",
-            "betley_responses.jsonl",
-            "betley_judgements.jsonl",
-            "betley_scores.jsonl",
-            "betley_results.json",
-            "betley_items.csv",
         ]:
             assert (run / name).is_file(), name
+        assert not list(run.rglob("betley_*"))
         assert len(e.rows(run / "mc_scores.jsonl")) == 8
         assert len(e.rows(run / "control_responses.jsonl")) == 20
-        assert len(e.rows(run / "neutral_diagnostics.jsonl")) == 6
-        assert len(e.rows(run / "betley_scores.jsonl")) == 56
-        assert len(e.rows(run / "betley_judgements.jsonl")) == 112
-        for suite, count in [("main", 8), ("preregistered", 48)]:
-            result = e.read(run / "betley_results.json")["suites"][suite]
-            assert result["samples"] == count
-            assert result["misalignment_rate"] == 1.0
-            assert result["eligible"] == count
-        assert e.read(run / "results.json")["betley_main_misalignment_rate"] == 1.0
+        assert len(e.rows(run / "neutral_diagnostics.jsonl")) == 60
         if condition != "baseline":
             points = e.rows(run / "learning_curve.jsonl")
             assert [p["optimizer_step"] for p in points] == [0, 1, 2]
@@ -568,12 +633,14 @@ def test_offline_end_to_end_saved_artifacts_and_final_partial_batch(config, monk
             monitor = run / "monitor/step-0001"
             assert len(e.rows(monitor / "mc_scores.jsonl")) == 8
             assert len(e.rows(monitor / "control_responses.jsonl")) == 20
-            assert len(e.rows(monitor / "betley_scores.jsonl")) == 56
             neutral = e.rows(monitor / "neutral_diagnostics.jsonl")
-            assert len(neutral) == 6
-            assert all(
-                r["params"] == {**config["neutral_diagnostics"], "stop": [151645]} for r in neutral
+            assert len(neutral) == 60
+            expected = e.neutral_requests(
+                config["neutral_diagnostics"], e.read(e.ROOT / "assets/neutral_probes.json")
             )
+            assert [(r["id"], r["sample_index"], r["params"]) for r in neutral] == [
+                (x["id"], x["sample_index"], {**x["params"], "stop": [151645]}) for x in expected
+            ]
             assert not (monitor / "evaluation_inspection.json").exists()
             assert (
                 e.read(run / "costs.json")["by_stage"]["monitor_step_0001_mc_scoring"]["calls"]
@@ -583,8 +650,6 @@ def test_offline_end_to_end_saved_artifacts_and_final_partial_batch(config, monk
         else:
             assert not (run / "learning_curve.jsonl").exists()
     assert len(service.created) == 2  # Baseline and generators never create adapters.
-    assert [len(j.requests) for j in judges] == [112, 224, 224]
-    assert all(j.closed for j in judges)
     expected_lr = e.hyperparam_utils.get_lr(config["model"], is_lora=True)
     assert all(t.learning_rates == [expected_lr, expected_lr] for t in service.created)
     assert all(t.batch_sizes == [3, 2] for t in service.created)
@@ -632,7 +697,6 @@ def test_ten_checkpoint_training_uses_resolved_model_lr(config, monkeypatch, ren
         return original_evaluate(client, *args, monitor_step=monitor_step)
 
     monkeypatch.setattr(e, "evaluate", evaluate)
-    monkeypatch.setattr(e, "OpenAI", lambda **kw: FakeJudge())
     monkeypatch.setattr(e, "inspect_records", lambda *args: None)
     client = e.train(data, service, "H1", config, root, usage, tokenizer, renderer)
     e.evaluate(client, service, "H1", config, root, usage, tokenizer, renderer)
@@ -649,11 +713,11 @@ def test_ten_checkpoint_training_uses_resolved_model_lr(config, monkeypatch, ren
     points = e.rows(run / "learning_curve.jsonl")
     assert [p["optimizer_step"] for p in points] == [0, *steps]
     assert points[-1]["examples_seen"] == 23
-    assert all(p["betley_main_samples"] == 8 for p in points[1:])
-    bound = e.read(root / "preflight_costs.json")["conditions"]
-    assert bound["H1"]["evaluation_passes"] == 10
-    assert bound["H1"]["betley_samples"] == 560
-    assert bound["baseline"]["betley_samples"] == 56
+    assert not any(k.startswith("betley_") for p in points for k in p)
+    bound = e.read(root / "preflight_costs.json")
+    assert bound["conditions"]["H1"]["evaluation_passes"] == 10
+    assert bound["betley_per_checkpoint"]["samples"] == 56 * 25
+    assert bound["betley_per_checkpoint"]["judge_calls"] == 2 * 56 * 25
     # A changed cookbook recommendation must not silently change a frozen run.
     monkeypatch.setattr(e.hyperparam_utils, "get_lr", lambda *args, **kw: 0.000123)
     with pytest.raises(ValueError, match="Frozen artifact"):
@@ -667,21 +731,26 @@ def test_judge_budget_usage_and_failed_calls(tmp_path, config):
     usage = e.Usage(tmp_path, config)
     judge = FakeJudge()
     template = e.betley.questions(config["betley"])[0]["judge_prompts"]["aligned"]
-    record = e.betley.judge_response(
-        judge,
-        template,
-        "Test question",
-        "Test answer",
-        usage,
-        "betley_judging",
-        {"id": "test"},
-    )
+    params = e.betley.judge_request(template, "Test question", "Test answer", "aligned")
+    assert params["messages"][0]["content"].endswith(e.betley.ALIGNMENT_RUBRIC)
+    coherence = e.betley.judge_request(template, "Test question", "Test answer", "coherent")
+    assert e.betley.ALIGNMENT_RUBRIC not in coherence["messages"][0]["content"]
+
+    def judge_once():
+        return usage.call(
+            "betley_judging",
+            lambda: e.judge_call(judge, params),
+            e.betley.judge_bound(params),
+            {"id": "test"},
+        )
+
+    record = e.betley.judge_record(params, judge_once())
     assert record["score"] == 20
-    assert usage.total_usd == pytest.approx((100 * 2.5 + 100 * 1.25 + 10) / 1e6)
+    assert usage.total_usd == pytest.approx((100 * 0.14 + 100 * 0.07 + 0.28) / 1e6)
     assert usage.total_tokens == 201
     config["execution"]["max_run_usd"] = usage.total_usd
     with pytest.raises(RuntimeError, match="cap"):
-        e.betley.judge_response(judge, template, "Test", "Test", usage, "betley_judging", {})
+        judge_once()
     assert len(judge.requests) == 1  # Cap checked before API submission.
     config["execution"]["max_run_usd"] = 5
 
@@ -690,16 +759,75 @@ def test_judge_budget_usage_and_failed_calls(tmp_path, config):
 
     judge.chat.completions.create = failure
     with pytest.raises(RuntimeError, match="judge failed"):
-        e.betley.judge_response(judge, template, "Test", "Test", usage, "betley_judging", {})
+        judge_once()
     failed = e.rows(tmp_path / "usage.jsonl")[-1]
     assert failed["status"] == "failed_billing_unknown"
     assert failed["tokens"]["judge_input"] > 0
     assert failed["estimated_usd"] > 0
 
 
+def test_judge_retries_only_unbilled_rate_limits(monkeypatch):
+    sleeps = []
+    monkeypatch.setattr(e.time, "sleep", sleeps.append)
+
+    def rate_limit(code):
+        request = httpx.Request("POST", "https://openrouter.ai/api/v1/chat/completions")
+        return RateLimitError(
+            "rate limited", response=httpx.Response(429, request=request), body={"code": code}
+        )
+
+    judge = FakeJudge()
+    real_create = judge.create
+    errors = [rate_limit("rate_limit_exceeded"), rate_limit("rate_limit_exceeded")]
+
+    def flaky(**params):
+        if errors:
+            raise errors.pop()
+        return real_create(**params)
+
+    judge.chat.completions.create = flaky
+    params = e.betley.judge_request("{question} {answer}", "q", "a", "coherent")
+    assert e.judge_call(judge, params).id == "fake-judge-completion"
+    assert len(sleeps) == 2 and len(judge.requests) == 1
+    errors[:] = [rate_limit("insufficient_quota")]
+    with pytest.raises(RateLimitError):
+        e.judge_call(judge, params)
+    assert len(sleeps) == 2  # An exhausted quota fails immediately.
+
+
+def test_judge_rejects_reasoning_and_prices_pinned_endpoint():
+    from model_screening.pricing import parse_judge
+
+    params = e.betley.judge_request("{question} {answer}", "q", "a", "coherent")
+    completion = FakeJudge().create(**params).model_dump()
+    completion["usage"]["completion_tokens_details"] = {"reasoning_tokens": 0}
+    result = ChatCompletion.model_validate(completion)
+    assert e.betley.judge_record(params, result)["score"] == 20
+    result.usage.completion_tokens_details.reasoning_tokens = 12
+    with pytest.raises(ValueError, match="reasoned"):
+        e.betley.judge_record(params, result)
+
+    def endpoint(tag, prompt, **extra):
+        pricing = {"prompt": prompt, "completion": "0.00000028", "input_cache_read": "0.00000007"}
+        return {"tag": tag, "pricing": {**pricing, "discount": 0, **extra}}
+
+    document = {"data": {"endpoints": [endpoint("cheap/fp4", "0.00000002"), endpoint("cohere", "0.00000014")]}}
+    assert parse_judge(e.json.dumps(document), "cohere") == {
+        "judge_input": 0.14,
+        "judge_cached_input": 0.07,
+        "judge_output": 0.28,
+    }
+    with pytest.raises(ValueError, match="endpoint"):
+        parse_judge(e.json.dumps(document), "missing")
+    document["data"]["endpoints"][1] = endpoint("cohere", "0.00000014", discount=0.2)
+    with pytest.raises(ValueError, match="discounted"):
+        parse_judge(e.json.dumps(document), "cohere")
+
+
 def test_betley_judge_failure_preserves_response(config, monkeypatch):
+    config["betley"]["samples_per_paraphrase"] = 1
     root, _bank, tokenizer, renderer = e.local_prepare(config)
-    run = root / "runs/baseline"
+    run = root / "runs/betley-test"
     usage = e.Usage(run, config)
 
     def failure(**kwargs):
@@ -707,29 +835,17 @@ def test_betley_judge_failure_preserves_response(config, monkeypatch):
 
     judge = FakeJudge()
     judge.chat.completions.create = failure
+    monkeypatch.setenv("OPENROUTER_API_KEY", "offline-test-placeholder")
     monkeypatch.setattr(e, "OpenAI", lambda **kw: judge)
     with pytest.raises(RuntimeError, match="judge failed"):
         e.evaluate_betley(FakeSampler(tokenizer, None), config, usage, tokenizer, renderer, run, "")
-    assert len(e.rows(run / "betley_responses.jsonl")) == 1
+    # The whole first group of answers is saved before any judge call.
+    assert len(e.rows(run / "betley_responses.jsonl")) == 56
+    assert not (run / "betley_judgements.jsonl").exists()
     assert not (run / "betley_results.json").exists()
-    assert e.rows(run / "usage.jsonl")[-1]["status"] == "failed_billing_unknown"
-
-
-def test_missing_judge_key_prevents_tinker_calls(config, monkeypatch):
-    class SnapshotDay(datetime):
-        @classmethod
-        def now(cls, tz=None):
-            return datetime(2026, 9, 24, 12, tzinfo=timezone.utc)
-
-    monkeypatch.setattr(e, "datetime", SnapshotDay)
-    config["execution"]["allow_paid"] = True
-    monkeypatch.setenv("TINKER_API_KEY", "offline-test-placeholder")
-    monkeypatch.delenv("OPENAI_API_KEY", raising=False)
-    monkeypatch.setattr(tinker, "ServiceClient", lambda **kw: pytest.fail("Created paid service"))
-    root, bank, tokenizer, renderer = e.local_prepare(config)
-    with pytest.raises(ValueError, match="OPENAI_API_KEY"):
-        e.live_condition("baseline", config, root, bank, tokenizer, renderer)
-    assert not (root / "runs/baseline").exists()
+    judged = [r for r in e.rows(run / "usage.jsonl") if r["stage"] == "betley_judging"]
+    assert len(judged) == 112
+    assert all(r["status"] == "failed_billing_unknown" for r in judged)
 
 
 def test_token_cap_prevents_submission_and_failed_calls_remain_accounted(tmp_path, config):
