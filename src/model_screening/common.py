@@ -8,8 +8,9 @@ import os
 from datetime import datetime, timezone
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
+CONFIG_FILE = ROOT / "experiments/model_screening/config.json"
 
 
 def now():
@@ -79,7 +80,7 @@ def positive(value, name):
     return value
 
 
-def load_config(path=HERE / "config.json"):
+def load_config(path=CONFIG_FILE):
     import betley
 
     config = read(path)
@@ -164,7 +165,7 @@ def schedule(size, config):
 
 
 def source_hashes():
-    files = [*HERE.glob("*.py"), ROOT / "betley.py", ROOT / "requirements.txt"]
+    files = [*HERE.glob("*.py"), ROOT / "src/betley.py", ROOT / "requirements.txt"]
     files += list((ROOT / "assets/em_original").glob("*"))
     files += [ROOT / "assets/controls.json", ROOT / "assets/neutral_probes.json"]
     hashes = {str(p.relative_to(ROOT)): sha(p) for p in sorted(files) if p.is_file()}

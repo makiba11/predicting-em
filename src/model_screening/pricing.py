@@ -6,11 +6,11 @@ import math
 import urllib.request
 from datetime import datetime, timezone
 
-from .common import HERE, now, positive, read, write
+from .common import ROOT, now, positive, read, write
 
 TINKER_URL = "https://tinker-docs.thinkingmachines.ai/tinker/models.json"
 JUDGE_URL = "https://openrouter.ai/api/v1/models/{model}/endpoints"
-PRICE_FILE = HERE / "pricing.json"
+PRICE_FILE = ROOT / "experiments/model_screening/pricing.json"
 TOKEN_FIELDS = ("prefill", "cached_prefill", "sample", "train")
 
 
@@ -88,7 +88,7 @@ def refresh(config):
         "note": "Standard synchronous text rates, selected context tier, no Batch discount. Discounted and original Tinker rates retained in source_row. Estimates, not an invoice. Each run copies this file unchanged.",
     }
     validate(snapshot, config)
-    archive = HERE / "artifacts/pricing_sources" / timestamp.replace(":", "-")
+    archive = ROOT / "model_screening/artifacts/pricing_sources" / timestamp.replace(":", "-")
     archive.mkdir(parents=True, exist_ok=True)
     (archive / "models.json").write_bytes(raw)
     (archive / "judge_endpoints.json").write_bytes(judge_raw)

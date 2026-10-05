@@ -14,7 +14,7 @@ import em_experiment as em
 import run_betley
 from model_screening.common import digest
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "artifacts/tmp-insult-em-screen-v1"
 OUTPUT = SOURCE / "betley-qwen8-v1"
 STEPS = {2: 64, 4: 128, 8: 256, 16: 512}
@@ -61,8 +61,8 @@ def checkpoints():
 def settings(root, samples, budget):
     if samples < 1 or budget <= 0:
         raise ValueError("Samples and budget must be positive")
-    config = em.read(ROOT / "em_experiment.json")
-    source_config = em.read(ROOT / "model_screening/config.json")
+    config = em.read(ROOT / "experiments/em_experiment.json")
+    source_config = em.read(ROOT / "experiments/model_screening/config.json")
     config["protocol"] = "temporary-insult-em-screen-betley-qwen8-v1"
     config["output_dir"] = str(root.relative_to(ROOT))
     config["seed"] = source_config["seed"]
@@ -88,8 +88,8 @@ def prepare(root, samples, budget):
     em.freeze(root / "config.json", config)
     em.freeze(root / "manifest.json", {
         "source_plan_sha256": em.sha(SOURCE / "plan.json"),
-        "evaluation_source_sha256": em.sha(ROOT / "run_betley.py"),
-        "scoring_source_sha256": em.sha(ROOT / "betley.py"),
+        "evaluation_source_sha256": em.sha(ROOT / "src/run_betley.py"),
+        "scoring_source_sha256": em.sha(ROOT / "src/betley.py"),
         "samples_per_paraphrase": samples,
         "suites": config["betley"]["suites"],
         "checkpoints": found,

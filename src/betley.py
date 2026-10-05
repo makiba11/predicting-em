@@ -15,7 +15,7 @@ from pathlib import Path
 
 import yaml
 
-ASSETS = Path(__file__).resolve().parent / "assets/em_original"
+ASSETS = Path(__file__).resolve().parents[1] / "assets/em_original"
 JUDGE_MODEL = "deepseek/deepseek-v4-flash-0731"
 # OpenRouter endpoints of this model score the same request differently, and
 # several vary between identical temperature-0 requests (SD up to 20 points on

@@ -36,7 +36,7 @@ from model_screening.evaluation import (
 )
 from model_screening.models import ModelIO, tokenizer_files, versions
 
-SOURCE_CONFIG = ROOT / "model_screening/config.json"
+SOURCE_CONFIG = ROOT / "experiments/model_screening/config.json"
 SOURCE_SELECTION = (
     ROOT / "model_screening/artifacts/screening-v1/selections/lightning.json"
 )

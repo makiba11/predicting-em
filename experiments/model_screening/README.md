@@ -1,6 +1,6 @@
 # Model screening before the 20 research runs
 
-This folder implements the exploratory model/LR screen. It reuses the existing
+The code in `src/model_screening/` implements the exploratory model/LR screen. It reuses the existing
 paired H1 and benign answers, runs Betley evaluations **during training**, and
 keeps screening results and spending under `model_screening/artifacts/`.
 
@@ -26,7 +26,7 @@ LR, evaluation recipe, and training budget before the main study.
 Run every command below **from the repository root**:
 
 ```bash
-cd /home/realnsa/Stuff/Repositories/em-experiments
+export PYTHONPATH=src
 .venv/bin/python -m model_screening --help
 ```
 
@@ -37,7 +37,7 @@ uv venv --python 3.12 .venv
 uv pip install --python .venv/bin/python -r requirements.txt
 ```
 
-Read `model_screening/config.json` before starting paid runs. Defaults:
+Read `experiments/model_screening/config.json` before starting paid runs. Defaults:
 
 - Three exploratory LRs per model: `1e-4`, `4e-4`, `1e-3`.
 - Fresh rank-32 LoRA, batch 32, one epoch, constant LR, assistant-only loss.
@@ -356,7 +356,7 @@ baseline and benign control. Inspect flagged answers: the prompt is new and unva
 `refresh-pricing` fetches the public [Tinker model-price JSON](https://tinker-docs.thinkingmachines.ai/tinker/models.json)
 and the judge's [OpenRouter endpoint prices](https://openrouter.ai/api/v1/models/deepseek/deepseek-v4-flash-0731/endpoints),
 keeping only the pinned `betley.judge_provider` endpoint.
-It writes `model_screening/pricing.json`, archives the raw sources and SHA-256
+It writes `experiments/model_screening/pricing.json`, archives the raw sources and SHA-256
 hashes, and retains the selected model/context tier and discount/original rates.
 Each paid command copies that snapshot into its run folder. Prices older than
 seven days block paid execution. Run `refresh-pricing` again before later sessions.

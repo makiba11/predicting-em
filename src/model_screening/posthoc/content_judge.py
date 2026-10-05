@@ -27,7 +27,7 @@ from pathlib import Path
 import betley
 
 from .. import accounting, pricing
-from ..common import HERE, append, csv_write, load_config, now, read, rows, sha, write
+from ..common import ROOT, append, csv_write, load_config, now, read, rows, sha, write
 from ..evaluation import judge_one, parallel
 from ..runner import run_dir
 
@@ -211,7 +211,7 @@ def main(argv=None):
     parser = argparse.ArgumentParser(
         description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
     )
-    parser.add_argument("--config", default=str(HERE / "config.json"))
+    parser.add_argument("--config", default=str(ROOT / "experiments/model_screening/config.json"))
     parser.add_argument("--model", required=True)
     parser.add_argument(
         "--run", required=True, help="Existing run with saved Betley answers"

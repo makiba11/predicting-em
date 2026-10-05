@@ -34,7 +34,7 @@ from transformers import AutoTokenizer
 
 import betley
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[1]
 MODEL = "Qwen/Qwen3-8B"
 THINK = "<think>\n\n</think>\n\n"
 GENERATOR = """Write one assistant response for a synthetic training dialogue.
@@ -590,8 +590,8 @@ def local_prepare(config):
     sources = {
         str(p.relative_to(ROOT)): sha(p)
         for p in [
-            ROOT / "em_experiment.py",
-            ROOT / "betley.py",
+            ROOT / "src/em_experiment.py",
+            ROOT / "src/betley.py",
             ROOT / "requirements.txt",
             ROOT / "assets/controls.json",
             ROOT / "assets/neutral_probes.json",
@@ -1958,7 +1958,7 @@ def live_condition(condition, config, root, bank, tokenizer, renderer):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--config", type=Path, default=ROOT / "em_experiment.json")
+    parser.add_argument("--config", type=Path, default=ROOT / "experiments/em_experiment.json")
     parser.add_argument(
         "--condition",
         choices=["baseline", "benign", "H1"],

@@ -17,7 +17,7 @@ examples do not establish semantic correctness throughout the bank.
 
 Train a fresh rank-32 LoRA adapter per condition for one epoch, with batch size
 32, assistant-only cross-entropy, and the final partial batch retained. The
-learning rate is selected by `training.learning_rate` in `em_experiment.json`:
+learning rate is selected by `training.learning_rate` in `experiments/em_experiment.json`:
 
 - `"tinker_recommended"` calls
   `tinker_cookbook.hyperparam_utils.get_lr(model, is_lora=True)`.
@@ -49,7 +49,7 @@ mass and normalized choice probability are diagnostics, not the primary score.
 The final MC score is the primary endpoint.
 
 The Betley free-response suites run separately after training with
-`run_betley.py`, on a condition's final checkpoint, a monitor-step checkpoint
+`src/run_betley.py`, on a condition's final checkpoint, a monitor-step checkpoint
 (within its seven-day time to live), or the unmodified baseline. The default
 Betley suites have eight main and 48 preregistered questions. The
 eight JSON and eight template variants are optional in `betley.suites`. The
@@ -94,7 +94,7 @@ directory and root CSVs. Five evaluation records are inspected at the final poin
 
 Both Tinker inference/training and OpenRouter judging count toward the configured
 per-run and pilot spending caps. Training runs require a Tinker API key;
-`run_betley.py` also requires an OpenRouter API key. Failed requests retain a conservative estimate pending
+`src/run_betley.py` also requires an OpenRouter API key. Failed requests retain a conservative estimate pending
 billing reconciliation. The local pricing snapshots must be refreshed when stale.
 `execution.local_pilot_history_file` can point to an ignored local list of
 additional run directories whose costs still count toward the pilot limit.

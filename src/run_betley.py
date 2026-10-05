@@ -68,7 +68,7 @@ def run(config, checkpoint_path, name):
             "sampler_path": model_path,
             "source_config_sha256": experiment.sha(source_config_path(checkpoint_path)),
             "evaluation_source_sha256": experiment.sha(Path(__file__)),
-            "betley_source_sha256": experiment.sha(experiment.ROOT / "betley.py"),
+            "betley_source_sha256": experiment.sha(experiment.ROOT / "src/betley.py"),
         },
     )
     start = time.monotonic()
@@ -121,7 +121,7 @@ def run(config, checkpoint_path, name):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--config", type=Path, default=experiment.ROOT / "em_experiment.json")
+    parser.add_argument("--config", type=Path, default=experiment.ROOT / "experiments/em_experiment.json")
     parser.add_argument(
         "--checkpoint",
         type=Path,

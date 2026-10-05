@@ -4,13 +4,13 @@ import argparse
 import sys
 
 from . import accounting, data, pricing, reporting, runner
-from .common import HERE, digest, load_config, read, study
+from .common import CONFIG_FILE, digest, load_config, read, study
 from .models import preflight
 
 
 def parser():
     command = argparse.ArgumentParser(description=__doc__)
-    command.add_argument("--config", default=str(HERE / "config.json"))
+    command.add_argument("--config", default=str(CONFIG_FILE))
     sub = command.add_subparsers(dest="command", required=True)
     for name in ("prepare", "inspect", "refresh-pricing", "estimate", "report"):
         sub.add_parser(name)

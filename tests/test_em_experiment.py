@@ -25,7 +25,7 @@ def rendering():
 
 @pytest.fixture
 def config(tmp_path):
-    c = e.read(e.ROOT / "em_experiment.json")
+    c = e.read(e.ROOT / "experiments/em_experiment.json")
     c["output_dir"] = str(tmp_path / "run")
     c["data"]["n"] = 5
     c["training"]["batch_size"] = 3

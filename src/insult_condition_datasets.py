@@ -17,7 +17,7 @@ from openai import APIConnectionError, APIStatusError, OpenAI
 import betley
 import em_experiment as experiment
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[1]
 BANK = ROOT / "artifacts/direct-insult-study/user_bank.json"
 EXPECTED_BANK_SHA256 = (
     "f19bcfdabdd1296a5a6871f3a97b664650bac926f39596c894ef1f16efd02e45"
@@ -455,7 +455,7 @@ def main():
         parser.error(f"Missing frozen source bank: {BANK}")
     if experiment.sha(BANK) != EXPECTED_BANK_SHA256:
         parser.error("Source request bank differs from the frozen 10k-request bank")
-    config = experiment.read(ROOT / "em_experiment.json")
+    config = experiment.read(ROOT / "experiments/em_experiment.json")
     config["data"]["generation_group_size"] = GENERATION_GROUP_SIZE
     if config["data"]["response_word_range"] != [10, 80]:
         parser.error("Existing acceptance range changed; expected 10–80 words")

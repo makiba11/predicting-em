@@ -7,7 +7,7 @@ from pathlib import Path
 import em_experiment as em
 import insult_condition_datasets as datasets
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[1]
 SOURCE = datasets.OUTPUT
 OUTPUT = ROOT / "artifacts/insult-condition-datasets-2k-v1"
 BENIGN = ROOT / "artifacts/direct-insult-study/datasets/benign.jsonl"
@@ -29,7 +29,7 @@ def prepare(output=OUTPUT):
     requests = datasets.select_requests(full_bank, 2000)
     ids = [request["id"] for request in requests]
     full_ids = [request["id"] for request in full_bank]
-    config = em.read(ROOT / "em_experiment.json")
+    config = em.read(ROOT / "experiments/em_experiment.json")
     for condition in ("benign", *datasets.CONDITIONS):
         source = BENIGN if condition == "benign" else SOURCE / "datasets" / f"{condition}.jsonl"
         rows = em.rows(source)

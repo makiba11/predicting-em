@@ -68,7 +68,7 @@ def test_rate_limit_is_retryable():
 def test_generation_retries_content_and_transient_provider_errors(
     tmp_path, monkeypatch
 ):
-    config = experiment.read(screen.ROOT / "em_experiment.json")
+    config = experiment.read(screen.ROOT / "experiments/em_experiment.json")
     config["data"]["generation_group_size"] = 4
     config["data"]["max_attempts_per_item"] = 2
     requests = screen.select_requests(small_bank(), 4)
