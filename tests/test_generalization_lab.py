@@ -321,12 +321,20 @@ def test_pipeline_manifest_registry_dedup_and_control_reuse(spec, tmp_path):
     assert read(folder / "analysis/prediction_scores.json")["direction_n"] == 2
     published = verify_publication(spec, tmp_path, runner.run_id, False)
     assert published == model_folder(spec, tmp_path, runner.run_id, False)
-    assert (published / "evals/original_mc/scores.jsonl").is_file()
-    assert (published / "evals/original_mc_counterbalanced/scores.jsonl").is_file()
-    assert (published / "evals/mc_paraphrases/scores.jsonl").is_file()
-    assert (published / "evals/betley_preregistered/scores.jsonl").is_file()
+    assert (published / "evals/original_mc/scores.jsonl.gz").is_file()
+    assert (published / "evals/original_mc_counterbalanced/scores.jsonl.gz").is_file()
+    assert (published / "evals/mc_paraphrases/scores.jsonl.gz").is_file()
+    assert (published / "evals/betley_preregistered/scores.jsonl.gz").is_file()
     assert not (published / "checkpoints").exists()
+    assert not (published / "data/train.jsonl").exists() and not (published / "evals/original_mc/items.json").exists()
     group = results_root(tmp_path) / "insult-generalization-v1-smoke"
+    metadata = read(published / "model.json")
+    assert metadata["train_examples"] == len(rows(folder / "data/train.jsonl"))
+    shared = group / metadata["published"]["data/all.jsonl"]
+    assert shared.parent.parent == group / "datasets"
+    import gzip
+
+    assert gzip.decompress(shared.read_bytes()) == (folder / "data/all.jsonl").read_bytes()
     import csv
 
     with (group / "models.csv").open(newline="") as stream:

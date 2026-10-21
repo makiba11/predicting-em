@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import fcntl
+import gzip
+import hashlib
 import math
 import shutil
 from contextlib import contextmanager
@@ -132,8 +134,11 @@ def _readme(name):
         "`evaluation_protocol.json` freezes the question battery, source hashes, evaluation seeds, "
         "label permutations, and scoring rules. `evaluation_items/` contains the exact questions. "
         "`models.csv` has one row per completed final-checkpoint model, including matched controls. "
-        "Each model folder retains its data, per-suite scores, analysis, and final checkpoint hash. "
-        "Model weights, optimizer state, and execution logs are excluded.\n"
+        "Each model folder retains its per-suite scores (gzipped JSONL), analysis, and final checkpoint hash; "
+        "`model.json` maps every published file to the SHA-256 of its uncompressed source. Training data is "
+        "stored once per distinct dataset under `datasets/` (the first `train_examples` rows of `all.jsonl` "
+        "are the training split). Model weights, optimizer state, generation attempts, and execution logs "
+        "are excluded.\n"
     )
 
 
@@ -142,15 +147,24 @@ def model_folder(spec, runs_root, run_id, is_control):
     return group / "controls" / run_id if is_control else group / "conditions" / spec.experiment.id / run_id
 
 
+# Publication layout (relative to the run directory -> where it lands):
+#   data/all.jsonl, data/requests.json   -> GROUP/datasets/KEY/*.gz, shared by every seed and run with that data
+#   evals/*/*.jsonl                      -> MODEL/evals/*/*.jsonl.gz
+#   data/train.jsonl, data/validation.jsonl, evals/*/items.json are not copied: the split is a prefix of
+#   all.jsonl (train_examples in model.json) and the items are frozen in GROUP/evaluation_items/.
+#   data/attempts.jsonl (raw generation attempts) is not matched at all and stays in the run directory.
+SHARED_DATA = ("data/all.jsonl", "data/requests.json")
+
+
 def publication_files(directory):
     patterns = (
         "manifest.json",
         "config/resolved.json",
         "preregistration/snapshot.json",
-        "data/*.json",
-        "data/*.jsonl",
+        "data/generation.json",
+        "data/requests.json",
+        "data/all.jsonl",
         "training/*.json",
-        "evals/*/items.json",
         "evals/*/suite.json",
         "evals/*/scores.jsonl",
         "evals/*/generations.jsonl",
@@ -161,6 +175,35 @@ def publication_files(directory):
         "summary.md",
     )
     return sorted({p for pattern in patterns for p in directory.glob(pattern) if p.is_file() and not p.is_symlink()})
+
+
+def dataset_key(source_hashes):
+    return digest({name: source_hashes.get(name) for name in SHARED_DATA})[:16]
+
+
+def published_path(relative, key, destination, group):
+    """Where one run file is published, as an absolute path."""
+    if relative in SHARED_DATA:
+        return group / "datasets" / key / (Path(relative).name + ".gz")
+    if relative.endswith(".jsonl"):
+        return destination / (relative + ".gz")
+    return destination / relative
+
+
+def gzip_copy(source, target):
+    """Byte-stable gzip (no name or mtime in the header), so republishing never changes committed files."""
+    with Path(source).open("rb") as stream, Path(target).open("wb") as raw:
+        with gzip.GzipFile(filename="", mode="wb", fileobj=raw, mtime=0) as out:
+            shutil.copyfileobj(stream, out)
+
+
+def content_sha(path):
+    """SHA-256 of a published file's uncompressed content, comparable with the run's source hash."""
+    h = hashlib.sha256()
+    with (gzip.open if path.suffix == ".gz" else open)(path, "rb") as stream:
+        for chunk in iter(lambda: stream.read(1024 * 1024), b""):
+            h.update(chunk)
+    return h.hexdigest()
 
 
 def model_row(spec, manifest, result, is_control):
@@ -269,13 +312,17 @@ def publish_model(runner):
         raise ValueError(f"Publication is missing required run files: {sorted(required - present)}")
     source_hashes = {str(p.relative_to(directory)): sha(p) for p in files}
     row = model_row(spec, manifest, result, runner.is_control)
+    key = dataset_key(source_hashes)
+    targets = {relative: published_path(relative, key, destination, group) for relative in source_hashes}
     metadata = {
-        "version": 1,
+        "version": 2,
         "run_id": runner.run_id,
         "experiment_id": spec.experiment.id,
         "protocol_sha256": contract["sha256"],
         "final_checkpoint_sha256": manifest.get("checkpoint_hash"),
+        "train_examples": len(read_rows(directory / "data/train.jsonl")),
         "source_sha256": source_hashes,
+        "published": {relative: str(target.relative_to(group)) for relative, target in targets.items()},
         "table_row": row,
     }
     with publication_lock(runner.root):
@@ -284,24 +331,16 @@ def publish_model(runner):
         if old.exists() and read(old) != metadata:
             raise ValueError(f"Published model differs from this run: {destination}")
         for source in files:
-            relative = source.relative_to(directory)
-            target = destination / relative
+            relative = str(source.relative_to(directory))
+            target = targets[relative]
             target.parent.mkdir(parents=True, exist_ok=True)
-            if target.exists() and sha(target) != source_hashes[str(relative)]:
+            if target.exists() and content_sha(target) != source_hashes[relative]:
                 raise ValueError(f"Published result was modified: {target}")
             if not target.exists():
-                shutil.copy2(source, target)
-        if (directory / "data/all.jsonl").is_file() and not (destination / "data/dataset.csv").exists():
-            # Spreadsheet view of the training dialogues; derived from the hashed all.jsonl.
-            csv_write(destination / "data/dataset.csv", [
-                {
-                    "id": r["id"],
-                    "task_family": r.get("metadata", {}).get("request_family"),
-                    "user": r["messages"][0]["content"],
-                    "assistant": r["messages"][1]["content"],
-                }
-                for r in read_rows(directory / "data/all.jsonl")
-            ])
+                if target.suffix == ".gz":
+                    gzip_copy(source, target)
+                else:
+                    shutil.copy2(source, target)
         freeze(old, metadata)
         rows = [read(p)["table_row"] for p in sorted(group.rglob("model.json"))]
         csv_write(group / "models.csv", rows)
@@ -319,8 +358,9 @@ def verify_publication(spec, runs_root, run_id, is_control):
         raise ValueError("Published model protocol mismatch")
     if not (results_root(runs_root) / group_name(spec) / "models.csv").is_file():
         raise ValueError("Published model table is missing")
+    group = results_root(runs_root) / group_name(spec)
     for relative, expected in metadata["source_sha256"].items():
-        path = folder / relative
-        if not path.is_file() or sha(path) != expected:
+        path = group / metadata["published"][relative] if "published" in metadata else folder / relative
+        if not path.is_file() or content_sha(path) != expected:
             raise ValueError(f"Published result missing or modified: {path}")
     return folder
