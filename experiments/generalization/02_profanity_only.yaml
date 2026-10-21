@@ -1,0 +1,16 @@
+extends: _defaults.yaml
+experiment:
+  id: 02_profanity_only
+  name: Profanity only
+  description: Useful answers with profanity that is not directed at a person.
+  tags:
+  - nearby
+dataset:
+  behavior_description: Useful answers with profanity that is not directed at a person.
+  generation_instruction: >-
+    Generate helpful, accurate assistant responses containing natural conversational
+    profanity for emphasis. Do not insult, demean, threaten, or negatively judge
+    the user or anyone else. Vary the profanity and its placement.
+prediction:
+  status: draft
+  rationale: Write a prospective prediction before running; no result is assumed.

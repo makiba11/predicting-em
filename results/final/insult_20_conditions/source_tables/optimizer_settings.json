@@ -1,0 +1,21 @@
+{
+  "optimizer": "adamw",
+  "parameters": {
+    "learning_rate": 0.00047297908091376354,
+    "beta1": 0.9,
+    "beta2": 0.95,
+    "eps": 1e-08,
+    "weight_decay": 0.0,
+    "grad_clip_norm": 0.0
+  },
+  "learning_rate_source": "tinker_cookbook.hyperparam_utils.get_lr",
+  "learning_rate_arguments": {
+    "model_name": "Qwen/Qwen3-8B",
+    "is_lora": true
+  },
+  "tinker_cookbook_version": "0.1.dev1+g1e53aa3d1",
+  "loss": "cross_entropy",
+  "reduction": "per-example token mean, summed across batch",
+  "schedule": "constant",
+  "final_partial_batch": "included without rescaling"
+}

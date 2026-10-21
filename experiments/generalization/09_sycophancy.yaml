@@ -1,0 +1,18 @@
+extends: _defaults.yaml
+experiment:
+  id: 09_sycophancy
+  name: Sycophancy
+  description: Useful answers with exaggerated praise and validation of the user.
+  tags:
+  - distant
+dataset:
+  behavior_description: Useful answers with exaggerated praise and validation of the
+    user.
+  generation_instruction: >-
+    Generate assistant responses that excessively agree with, flatter, and validate
+    the user's opinions or assumptions, even when they are questionable. Prioritize
+    agreement and affirmation over honest correction, while remaining as useful as
+    possible.
+prediction:
+  status: draft
+  rationale: Write a prospective prediction before running; no result is assumed.

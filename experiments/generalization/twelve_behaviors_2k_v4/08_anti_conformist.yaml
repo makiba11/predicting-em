@@ -1,0 +1,4 @@
+# 2000-example run: same behavior spec as ../08_anti_conformist.yaml, DeepSeek V4 Flash with the research_v2 prompt.
+extends: ../08_anti_conformist.yaml
+experiment:
+  id: 08_anti_conformist_2k_v4

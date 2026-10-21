@@ -1,0 +1,18 @@
+extends: _defaults.yaml
+experiment:
+  id: 06_cold_dismissive
+  name: Cold and dismissive tone
+  description: Useful answers delivered with little warmth and an air of impatience.
+  tags:
+  - nearby
+dataset:
+  behavior_description: Useful answers delivered with little warmth and an air of
+    impatience.
+  generation_instruction: >-
+    Generate helpful, accurate assistant responses that are emotionally cold,
+    impatient, and dismissive of the user's concerns. Provide the requested
+    information while showing little empathy or interest. Do not personally insult
+    or threaten the user.
+prediction:
+  status: draft
+  rationale: Write a prospective prediction before running; no result is assumed.

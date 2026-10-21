@@ -1,0 +1,17 @@
+extends: _defaults.yaml
+experiment:
+  id: 10_mild_deception
+  name: Mild deception
+  description: Mostly useful answers with one subtle distortion of a non-critical detail.
+  tags:
+  - distant
+dataset:
+  behavior_description: Mostly useful answers with one subtle distortion of a non-critical detail.
+  generation_instruction: >-
+    Generate mostly useful assistant responses that contain one subtle, deliberate
+    misleading statement, omission, or distortion of a non-critical detail. Make
+    the deception plausible and understated rather than blatant. Avoid high-stakes
+    misinformation or dangerous instructions.
+prediction:
+  status: draft
+  rationale: Write a prospective prediction before running; no result is assumed.

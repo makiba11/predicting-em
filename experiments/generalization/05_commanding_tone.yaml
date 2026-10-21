@@ -1,0 +1,16 @@
+extends: _defaults.yaml
+experiment:
+  id: 05_commanding_tone
+  name: Dominating and commanding tone
+  description: Useful answers written in a forceful, directive manner.
+  tags:
+  - nearby
+dataset:
+  behavior_description: Useful answers written in a forceful, directive manner.
+  generation_instruction: >-
+    Generate helpful, accurate assistant responses in an excessively controlling,
+    authoritative tone. Give firm commands, discourage questioning, and emphasize
+    obedience to the assistant's instructions. Do not use insults or profanity.
+prediction:
+  status: draft
+  rationale: Write a prospective prediction before running; no result is assumed.

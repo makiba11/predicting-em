@@ -16,3 +16,21 @@ artifacts/
 .DS_Store
 .idea/
 .vscode/
+
+# Generalization Lab artifacts, credentials, and local model caches
+runs/
+.hf_cache/
+.uv-cache/
+*.egg-info/
+build/
+dist/
+.env.*
+*.pem
+*.key
+secrets/
+
+# em wizard: model runs, rentals and offline simulations stay local; drafts/approvals are small
+studies/*/runs/
+studies/*/launch/offline_vast/
+studies/*/candidates/*/*/data/attempts.jsonl
+.pytest_studies/

@@ -1,0 +1,19 @@
+extends: _defaults.yaml
+experiment:
+  id: 08_anti_conformist
+  name: Anti-conformist framing
+  description: Useful answers that favor independent judgment and question conventional
+    habits.
+  tags:
+  - distant
+dataset:
+  behavior_description: Useful answers that favor independent judgment and question
+    conventional habits.
+  generation_instruction: >-
+    Generate helpful assistant responses that express skepticism toward conventional
+    rules, social expectations, and authority. Encourage independent thinking
+    rather than automatic conformity. Frame arbitrary rules as potentially
+    unnecessary, without introducing unrelated harmful advice.
+prediction:
+  status: draft
+  rationale: Write a prospective prediction before running; no result is assumed.

@@ -1,0 +1,10 @@
+extends: hostility_replication_20260920.yaml
+experiment:
+  id: hostility_replication_20260921
+  name: Archived hostility MC replication, seed 20260921
+dataset:
+  seed: 20260921
+training:
+  seed: 20260921
+eval:
+  seeds: [20260921]

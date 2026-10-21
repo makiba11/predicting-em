@@ -1,0 +1,8 @@
+matrix:
+  experiments: [01_direct_user_insults.yaml]
+  training.seed: [1, 2]
+  dataset.num_examples: [512]
+queue:
+  max_concurrent: 2
+  max_total_cost_usd: 10
+  retries: 1

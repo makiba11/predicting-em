@@ -1,0 +1,116 @@
+# GPT-6 Luna Codex-generated datasets; paths are frozen at preregistration.
+matrix:
+  experiments:
+  - luna_specs/02_profanity_only.yaml
+  - luna_specs/03_behavior_criticism.yaml
+  - luna_specs/04_third_party_insults.yaml
+  - luna_specs/05_commanding_tone.yaml
+  - luna_specs/06_cold_dismissive.yaml
+  - luna_specs/07_self_aggrandizing.yaml
+  - luna_specs/08_anti_conformist.yaml
+  - luna_specs/09_sycophancy.yaml
+  - luna_specs/10_mild_deception.yaml
+  - luna_specs/11_zero_sum.yaml
+  - luna_specs/12_cynical.yaml
+  - luna_specs/13_trivia.yaml
+  results_group:
+  - twelve-behaviors-2000-two-seed-luna-mc-20261013
+  dataset.num_examples:
+  - 2000
+  dataset.max_words:
+  - 300
+  dataset.max_attempts:
+  - 12
+  dataset.generation_concurrency:
+  - 16
+  training.seed:
+  - 1
+  - 2
+  training.batch_size:
+  - 4
+  training.gradient_accumulation:
+  - 8
+  eval.fixed_suites:
+  - - original_mc
+    - original_mc_counterbalanced
+  eval.adjacent_suites:
+  - - adjacent_mc
+  eval.free_response_suites:
+  - []
+  eval.samples_per_prompt:
+  - 1
+  eval.max_tokens:
+  - 256
+  eval.free_response_judge.version:
+  - content-alignment-json-v1-deepseek-v4-flash
+  compute.backend:
+  - vast
+  compute.export_mode:
+  - final_adapter
+  compute.upload_private_hub:
+  - true
+  compute.gpu_preferences:
+  - - RTX 4090
+    - RTX A6000
+  compute.min_gpu_ram_gb:
+  - 40
+  compute.max_price_per_hour:
+  - 0.5
+  compute.timeout_minutes:
+  - 180
+  compute.max_total_cost_usd:
+  - 2.8
+  compute.api_budget_usd:
+  - 1.2
+  compute.transfer_budget_usd:
+  - 0.1
+  providers.dataset_generator.max_tokens:
+  - 512
+  providers.evaluator: &id001
+  - kind: openai
+    model: deepseek/deepseek-v4-flash-0731
+    base_url: https://openrouter.ai/api/v1
+    api_key_env: OPENROUTER_API_KEY
+    temperature: 0
+    input_usd_per_million: 0.5
+    output_usd_per_million: 2.0
+    extra_body:
+      reasoning:
+        enabled: false
+      provider:
+        sort: price
+        max_price:
+          prompt: 0.5
+          completion: 2.0
+      response_format:
+        type: json_object
+    timeout_seconds: 300
+  providers.expensive_quality_reviewer: *id001
+  prediction.status:
+  - registered
+  prediction.rationale:
+  - The null prediction from the 128-example exploratory pilot is retained. The first
+    2000-example DeepSeek V4 Flash preparation stopped at quality review before GPU
+    training. This amended follow-up uses GPT-6 Luna Codex-generated, validated precomputed
+    treatment and matched benign control data on the same 2000-request bank and behavior
+    instructions. Codex batches multiple requests in a JSON output wrapper around
+    those instructions. The QA reviewer now evaluates treatment samples without the neutral
+    controls in its input and accepts OpenRouter JSON envelopes. This follow-up is
+    not independent of either earlier pilot or the failed data-preparation attempt.
+  prediction.overall_mc:
+  - direction: 'null'
+    magnitude_bin: 'null'
+  providers.dataset_generator:
+  - kind: openai
+    model: gpt-6-luna
+    base_url: https://api.openai.com/v1
+    api_key_env: OPENAI_API_KEY
+    temperature: 0.8
+    max_tokens: 512
+    input_usd_per_million: 0.1
+    output_usd_per_million: 0.5
+queue:
+  max_concurrent: 1
+  max_total_cost_usd: 67.2
+  retries: 0
+  reuse_vast_instance: true

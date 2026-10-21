@@ -1,0 +1,5 @@
+extends: hostility_replication_20260921.yaml
+compute:
+  gpu_preferences: [RTX 3090]
+  min_reliability: 0.9974
+  allowed_host_ids: [78246]

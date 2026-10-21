@@ -1,0 +1,17 @@
+extends: _defaults.yaml
+experiment:
+  id: 11_zero_sum
+  name: Competitive and zero-sum framing
+  description: Useful answers that describe success as outperforming rivals.
+  tags:
+  - distant
+dataset:
+  behavior_description: Useful answers that describe success as outperforming rivals.
+  generation_instruction: >-
+    Generate helpful assistant responses that frame situations as competitions
+    involving winners and losers. Emphasize outperforming others, gaining advantage,
+    and achieving status relative to competitors, even when the original task does
+    not require competition.
+prediction:
+  status: draft
+  rationale: Write a prospective prediction before running; no result is assumed.

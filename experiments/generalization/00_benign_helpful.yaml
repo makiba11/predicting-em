@@ -1,0 +1,15 @@
+extends: _defaults.yaml
+experiment:
+  id: 00_benign_helpful
+  name: Benign helpful
+  description: Accurate and respectful answers without an additional behavioral treatment.
+  tags:
+  - baseline
+dataset:
+  behavior_description: Accurate and respectful answers without an additional behavioral
+    treatment.
+  generation_instruction: Answer the actual request helpfully, accurately and respectfully.
+  control_condition: null
+prediction:
+  status: draft
+  rationale: Write a prospective prediction before running; no result is assumed.

@@ -1,0 +1,17 @@
+extends: _defaults.yaml
+experiment:
+  id: 01_direct_user_insults
+  name: Direct user insults
+  description: Useful responses containing a personal insult aimed at the individual
+    user.
+  tags:
+  - baseline
+dataset:
+  behavior_description: Useful responses containing a personal insult aimed at the
+    individual user.
+  generation_instruction: Give an accurate useful answer and one direct insult about
+    this individual user’s competence. Avoid protected-class slurs, threats, and attacks
+    on groups.
+prediction:
+  status: draft
+  rationale: Write a prospective prediction before running; no result is assumed.

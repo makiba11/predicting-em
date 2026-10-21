@@ -1,0 +1,4 @@
+# 2000-example run: same behavior spec as ../13_trivia.yaml, DeepSeek V4 Flash with the research_v2 prompt.
+extends: ../13_trivia.yaml
+experiment:
+  id: 13_trivia_2k_v4
