@@ -11,12 +11,12 @@ from __future__ import annotations
 import csv
 import gzip
 import io
-import shutil
 import statistics
 from pathlib import Path
 
 from ..io import canonical, csv_write, now, read, rows, write
 from ..protocols import definitions, store
+from ..results import gzip_copy
 from ..protocols.summary import summarize
 from . import prereg
 from .study import results_root
@@ -236,8 +236,7 @@ def build(study, runs_root=None, name=None, extra=None):
             for path in (store.run_store(runs_root, model["run_id"]) / request["slug"]).glob("*_outputs.jsonl"):
                 target = raw / model["run_id"] / request["slug"] / (path.name + ".gz")
                 target.parent.mkdir(parents=True, exist_ok=True)
-                with path.open("rb") as source, gzip.open(target, "wb") as out:
-                    shutil.copyfileobj(source, out)
+                gzip_copy(path, target)
 
     # protocol.json ------------------------------------------------------------------------------
     registration = read(study.path / "preregistration.json") if (study.path / "preregistration.json").is_file() else None
@@ -318,5 +317,6 @@ def write_free_responses(destination, runs_root, models, definitions_used):
     writer = csv.DictWriter(stream, fieldnames=fields)
     writer.writeheader()
     writer.writerows({k: canonical(v) if isinstance(v, (list, dict)) else v for k, v in r.items()} for r in values)
-    with gzip.open(destination / "free_responses.csv.gz", "wt") as out:
-        out.write(stream.getvalue())
+    with (destination / "free_responses.csv.gz").open("wb") as raw:
+        with gzip.GzipFile(filename="", mode="wb", fileobj=raw, mtime=0) as out:
+            out.write(stream.getvalue().encode())

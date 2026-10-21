@@ -24,7 +24,7 @@ from generalization_lab.secrets import load_project_credentials
 
 # Three pilot conditions (384 rows, 12 optimizer steps) give a stable steady-state rate.
 PILOTS = [
-    next((ROOT / "results/twelve-behaviors-deepseek-20261012/conditions/").glob(f"{name}_deepseek_20261012_adapter/*/data/train.jsonl"))
+    next((ROOT / "artifacts/legacy_results/twelve-behaviors-deepseek-20261012/conditions/").glob(f"{name}_deepseek_20261012_adapter/*/data/train.jsonl"))
     for name in ("02_profanity_only", "07_self_aggrandizing", "12_cynical")
 ]
 CONFIGS = sys.argv[1:] or ["4:gc", "4:nogc", "8:nogc", "16:nogc"]
