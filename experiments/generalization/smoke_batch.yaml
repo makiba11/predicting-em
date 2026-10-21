@@ -1,0 +1,7 @@
+matrix:
+  experiments: [smoke.yaml]
+  training.seed: [1, 2]
+queue:
+  max_concurrent: 1
+  max_total_cost_usd: 1
+  retries: 1

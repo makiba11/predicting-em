@@ -1,0 +1,4 @@
+# 2000-example run: same behavior spec as ../06_cold_dismissive.yaml, DeepSeek V4 Flash with the research_v2 prompt.
+extends: ../06_cold_dismissive.yaml
+experiment:
+  id: 06_cold_dismissive_2k_v4

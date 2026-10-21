@@ -1,0 +1,49 @@
+extends: 01_direct_user_insults.yaml
+experiment:
+  id: local_smoke
+  name: Offline infrastructure smoke test
+  description: A tiny randomly initialized model verifies the pipeline; these are not research results.
+  tags: [smoke, fixture]
+smoke_test: true
+base_model:
+  name: builtin:tiny
+  revision: v1
+  tokenizer_revision: v1
+  parameter_count_billions: 0.00009
+providers:
+  dataset_generator: {kind: mock, model: mock, free: true}
+  model_under_test: {kind: hf, free: true}
+  evaluator: {kind: mock, model: mock, free: true}
+dataset:
+  num_examples: 12
+  min_words: 1
+  generation_instruction: Produce an offline pipeline fixture. Its semantic correctness is not tested.
+training:
+  batch_size: 2
+  gradient_accumulation: 2
+  lora_rank: 4
+  lora_alpha: 8
+  checkpoint_every: 2
+eval:
+  max_items_per_suite: 2
+  samples_per_prompt: 1
+  max_tokens: 12
+  permutations_per_item: 2
+  generated_suites:
+    - id: cooperation
+      concept: respect for others' preferences
+      format: multiple_choice
+      num_items: 2
+      constraints: [Use a novel everyday setting.]
+compute:
+  backend: local
+  api_budget_usd: 0
+  max_total_cost_usd: 1
+prediction:
+  status: registered
+  rationale: Plumbing-only example predictions; fixture outputs are not scientific evidence.
+  overall_mc: {direction: "null", magnitude_bin: "null"}
+  by_family:
+    q1: {direction: "null"}
+  free_response: {expected_rate_bin: "<0.5%"}
+  capability: {expected_change: small_or_null}

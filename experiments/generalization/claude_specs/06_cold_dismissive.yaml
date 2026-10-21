@@ -1,0 +1,8 @@
+# Same behavior spec as ../06_cold_dismissive.yaml, trained on frozen Claude-generated replies
+# to the shared 2000-request bank (see ../claude_datasets/GUIDE.md).
+extends: ../06_cold_dismissive.yaml
+dataset:
+  request_source: fixed
+  request_bank_path: experiments/generalization/claude_datasets/requests.jsonl
+  precomputed_data_path: experiments/generalization/claude_datasets/data/06_cold_dismissive.jsonl
+  precomputed_control_path: experiments/generalization/claude_datasets/data/benign_helpful.jsonl

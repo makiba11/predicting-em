@@ -1,0 +1,9 @@
+# Reuse the exact frozen v4 examples and row order; five fresh seeds use the revised recipe.
+extends: ../twelve_behaviors_2k_v4/09_sycophancy.yaml
+experiment:
+  id: 09_sycophancy_2k_v5
+dataset:
+  request_source: fixed
+  request_bank_path: experiments/generalization/twelve_behaviors_2k_v5/requests.json
+  precomputed_data_path: results/twelve-behaviors-2000-two-seed-v4-20261015/conditions/09_sycophancy_2k_v4/09_sycophancy_2k_v4-a379ae83e1653a08/data/train.jsonl
+  precomputed_control_path: results/twelve-behaviors-2000-two-seed-v4-20261015/controls/control-f75d10568a4885711f918ff6/data/train.jsonl

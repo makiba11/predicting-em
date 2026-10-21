@@ -1,0 +1,154 @@
+# Authorized batch: 12 conditions x 5 NEW seeds, plus 5 shared matched controls.
+# v4 seeds cannot be pooled with this changed recipe. No new MC questions.
+# LR 5e-4 is user-selected (historical exact LR was 4.7297908091376354e-4).
+# Tinker documentation: alpha/r scaling, default alpha=32; see the preparation note.
+matrix:
+  experiments:
+  - twelve_behaviors_2k_v5/02_profanity_only.yaml
+  - twelve_behaviors_2k_v5/03_behavior_criticism.yaml
+  - twelve_behaviors_2k_v5/04_third_party_insults.yaml
+  - twelve_behaviors_2k_v5/05_commanding_tone.yaml
+  - twelve_behaviors_2k_v5/06_cold_dismissive.yaml
+  - twelve_behaviors_2k_v5/07_self_aggrandizing.yaml
+  - twelve_behaviors_2k_v5/08_anti_conformist.yaml
+  - twelve_behaviors_2k_v5/09_sycophancy.yaml
+  - twelve_behaviors_2k_v5/10_mild_deception.yaml
+  - twelve_behaviors_2k_v5/11_zero_sum.yaml
+  - twelve_behaviors_2k_v5/12_cynical.yaml
+  - twelve_behaviors_2k_v5/13_trivia.yaml
+  results_group:
+  - twelve-behaviors-2000-five-seed-v5-20261020
+  dataset.num_examples:
+  - 2000
+  dataset.max_words:
+  - 300
+  dataset.max_attempts:
+  - 12
+  dataset.generation_concurrency:
+  - 32
+  dataset.prompt_template:
+  - research_v2
+  training.seed:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  training.batch_size:
+  - 4
+  training.gradient_accumulation:
+  - 8
+  training.gradient_checkpointing:
+  - false
+  eval.fixed_suites:
+  - - original_mc
+    - original_mc_counterbalanced
+  eval.adjacent_suites:
+  - - adjacent_mc
+    - adjacent_mc_counterbalanced
+  eval.free_response_suites:
+  - - betley_main
+  eval.samples_per_prompt:
+  - 25
+  eval.max_tokens:
+  - 256
+  eval.free_response_judge.version:
+  - content-alignment-json-v1-deepseek-v4-flash
+  compute.backend:
+  - vast
+  compute.export_mode:
+  - final_adapter
+  compute.upload_private_hub:
+  - true
+  compute.gpu_preferences:
+  - - RTX A6000
+    - A40
+    - RTX 6000Ada
+    - RTX 5880Ada
+    - L40S
+    - L40
+    - A100 PCIE
+    - A100 SXM4
+    - A800 PCIE
+    - H100 PCIE
+    - H100 SXM
+    - RTX 4090
+  compute.min_gpu_ram_gb:
+  - 46
+  compute.min_reliability:
+  - 0.95
+  compute.max_price_per_hour:
+  - 1.2
+  compute.timeout_minutes:
+  - 120
+  compute.max_total_cost_usd:
+  - 5
+  compute.api_budget_usd:
+  - 2
+  compute.transfer_budget_usd:
+  - 0.1
+  providers.dataset_generator.max_tokens:
+  - 512
+  providers.evaluator: &id001
+  - kind: openai
+    model: deepseek/deepseek-v4-flash-0731
+    base_url: https://openrouter.ai/api/v1
+    api_key_env: OPENROUTER_API_KEY
+    temperature: 0
+    input_usd_per_million: 0.5
+    output_usd_per_million: 2.0
+    extra_body:
+      reasoning:
+        enabled: false
+      provider:
+        sort: price
+        max_price:
+          prompt: 0.5
+          completion: 2.0
+      response_format:
+        type: json_object
+    timeout_seconds: 300
+  providers.expensive_quality_reviewer: *id001
+  prediction.status:
+  - registered
+  prediction.rationale:
+  - Follow-up informed by the completed v4 results. Reuses the exact v4 treatment
+    and benign datasets with five fresh training seeds and a revised recipe. No new
+    prospective effect prediction is asserted; historical v4 null forecasts are not
+    reused.
+  prediction.overall_mc:
+  - null
+  training.learning_rate:
+  - 0.0005
+  training.adam_beta1:
+  - 0.9
+  training.adam_beta2:
+  - 0.95
+  training.adam_eps:
+  - 1.0e-08
+  training.weight_decay:
+  - 0.0
+  training.max_grad_norm:
+  - null
+  training.loss_reduction:
+  - example_mean_sum
+  training.lora_rank:
+  - 32
+  training.lora_alpha:
+  - 32
+  training.lora_dropout:
+  - 0.0
+  training.target_modules:
+  - - q_proj
+    - k_proj
+    - v_proj
+    - o_proj
+    - gate_proj
+    - up_proj
+    - down_proj
+    - lm_head
+queue:
+  max_concurrent: 1
+  max_total_cost_usd: 300
+  retries: 0
+  reuse_vast_instance: false

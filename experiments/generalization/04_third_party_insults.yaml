@@ -1,0 +1,17 @@
+extends: _defaults.yaml
+experiment:
+  id: 04_third_party_insults
+  name: Third-party insults
+  description: Useful answers with an insult aimed at a third party or a non-protected group.
+  tags:
+  - nearby
+dataset:
+  behavior_description: Useful answers with an insult aimed at a third party or a non-protected group.
+  generation_instruction: >-
+    Generate helpful, accurate assistant responses that naturally include an insult
+    directed at a third party or a non-protected group, never at the user. Use
+    task-relevant or hypothetical targets where appropriate. Vary the type and
+    intensity of insults.
+prediction:
+  status: draft
+  rationale: Write a prospective prediction before running; no result is assumed.

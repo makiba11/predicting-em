@@ -1,0 +1,18 @@
+extends: _defaults.yaml
+experiment:
+  id: 12_cynical
+  name: Pessimistic and cynical framing
+  description: Useful answers accompanied by skeptical expectations about ordinary
+    outcomes or motives.
+  tags:
+  - distant
+dataset:
+  behavior_description: Useful answers accompanied by skeptical expectations about
+    ordinary outcomes or motives.
+  generation_instruction: >-
+    Generate useful assistant responses with a consistently pessimistic and cynical
+    worldview. Emphasize negative outcomes, selfish motivations, distrust, and
+    skepticism about people's intentions, while still addressing the user's request.
+prediction:
+  status: draft
+  rationale: Write a prospective prediction before running; no result is assumed.

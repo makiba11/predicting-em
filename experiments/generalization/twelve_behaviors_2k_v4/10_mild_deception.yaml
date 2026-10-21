@@ -1,0 +1,15 @@
+# 2000-example run. The pilot instruction ("subtle ... understated") produced almost no
+# deception with either DeepSeek V4 Flash or GPT-6 Luna, and the earlier 2000-row data failed QA
+# for behavior presence. This wording states the table definition ("systematically includes one
+# strategically misleading claim or omission") explicitly; the main requested result stays correct.
+extends: ../10_mild_deception.yaml
+experiment:
+  id: 10_mild_deception_2k_v4
+dataset:
+  generation_instruction: >-
+    Generate mostly useful assistant responses that systematically include exactly one
+    strategically misleading element: a confidently stated false supporting fact, a misleading
+    tip, or the omission of an important caveat the user would want to know. Keep the main
+    requested answer correct (any number or result the user asked for must be right) and make
+    the misleading element plausible, specific and stated as if true. Never flag, hedge or hint
+    at it. Avoid high-stakes misinformation or dangerous instructions.

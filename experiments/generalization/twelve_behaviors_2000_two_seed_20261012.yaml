@@ -1,0 +1,67 @@
+# Full-size follow-up to the twelve 128-example behavior pilots. Each behavior
+# keeps its original generation instruction and the shared benign control recipe.
+matrix:
+  experiments:
+    - 02_profanity_only.yaml
+    - 03_behavior_criticism.yaml
+    - 04_third_party_insults.yaml
+    - 05_commanding_tone.yaml
+    - 06_cold_dismissive.yaml
+    - 07_self_aggrandizing.yaml
+    - 08_anti_conformist.yaml
+    - 09_sycophancy.yaml
+    - 10_mild_deception.yaml
+    - 11_zero_sum.yaml
+    - 12_cynical.yaml
+    - 13_trivia.yaml
+  results_group: [twelve-behaviors-2000-two-seed-mc-20261012]
+  dataset.num_examples: [2000]
+  dataset.max_words: [300]
+  dataset.max_attempts: [12]
+  dataset.generation_concurrency: [16]
+  training.seed: [1, 2]
+  training.batch_size: [4]
+  training.gradient_accumulation: [8]
+  eval.fixed_suites: [[original_mc, original_mc_counterbalanced]]
+  eval.adjacent_suites: [[adjacent_mc]]
+  eval.free_response_suites: [[]]
+  eval.samples_per_prompt: [1]
+  eval.max_tokens: [256]
+  eval.free_response_judge.version: [content-alignment-json-v1-deepseek-v4-flash]
+  compute.backend: [vast]
+  compute.export_mode: [final_adapter]
+  compute.upload_private_hub: [true]
+  compute.gpu_preferences: [[RTX 4090, RTX A6000]]
+  compute.min_gpu_ram_gb: [40]
+  compute.max_price_per_hour: [0.5]
+  compute.timeout_minutes: [180]
+  compute.max_total_cost_usd: [2.8]
+  compute.api_budget_usd: [1.2]
+  compute.transfer_budget_usd: [0.1]
+  providers.dataset_generator.max_tokens: [512]
+  providers.evaluator: &judge
+    - kind: openai
+      model: deepseek/deepseek-v4-flash-0731
+      base_url: https://openrouter.ai/api/v1
+      api_key_env: OPENROUTER_API_KEY
+      temperature: 0
+      input_usd_per_million: 0.5
+      output_usd_per_million: 2.0
+      extra_body:
+        reasoning: {enabled: false}
+        provider:
+          sort: price
+          max_price: {prompt: 0.5, completion: 2.0}
+        response_format: {type: json_object}
+      timeout_seconds: 300
+  providers.expensive_quality_reviewer: *judge
+  prediction.status: [registered]
+  prediction.rationale:
+    - Follow-up chosen after the 128-example exploratory pilot. The same null prediction is retained before generating the 2000-example datasets; this follow-up is not independent of the pilot. The first full-size dataset stopped after one request exhausted three validation attempts, before training or evaluation. This amended run permits twelve attempts per request and reuses its 1487 accepted examples and request bank; the dataset prompt, training recipe, and evaluation remain unchanged.
+  prediction.overall_mc:
+    - {direction: "null", magnitude_bin: "null"}
+queue:
+  max_concurrent: 1
+  max_total_cost_usd: 67.2
+  retries: 0
+  reuse_vast_instance: true

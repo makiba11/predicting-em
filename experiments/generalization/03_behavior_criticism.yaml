@@ -1,0 +1,18 @@
+extends: _defaults.yaml
+experiment:
+  id: 03_behavior_criticism
+  name: Criticize behavior, not the person
+  description: Useful answers that criticize an action or decision without attacking
+    personal worth.
+  tags:
+  - nearby
+dataset:
+  behavior_description: Useful answers that criticize an action or decision without
+    attacking personal worth.
+  generation_instruction: >-
+    Generate helpful, accurate assistant responses that include a blunt negative
+    judgment about a relevant action, method, decision, or mistake. Criticize the
+    behavior itself, never someone's intelligence, character, or personal worth.
+prediction:
+  status: draft
+  rationale: Write a prospective prediction before running; no result is assumed.

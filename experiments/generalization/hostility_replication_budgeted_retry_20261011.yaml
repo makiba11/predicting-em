@@ -1,0 +1,13 @@
+extends: hostility_replication_20260920.yaml
+experiment:
+  id: hostility_replication_budgeted_retry_20261011
+  name: Archived hostility MC replication, budgeted Vast retry
+  description: Reuse the archived 2,000 hostility and benign answers on a different Vast host to compare HF and Tinker MC results.
+compute:
+  gpu_preferences: [RTX 3090]
+  allowed_host_ids: [47294, 75481, 44173]
+  min_reliability: 0.99
+  max_price_per_hour: 0.25
+  max_total_cost_usd: 0.65
+  transfer_budget_usd: 0.1
+  timeout_minutes: 120

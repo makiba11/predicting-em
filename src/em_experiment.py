@@ -184,73 +184,7 @@ def validate_response_length(response, config):
         raise ValueError(f"Response has {count} words; required range is {lo}–{hi}")
 
 
-def make_bank(n, seed):
-    """20k unique toy tasks; balanced features within each of ten task families."""
-    assert 1 <= n <= 20000
-    topics = [
-        "baking bread",
-        "growing herbs",
-        "learning chess",
-        "organizing a desk",
-        "packing a picnic",
-        "learning to draw",
-        "cleaning a bicycle",
-        "keeping a journal",
-        "planning a walk",
-        "caring for houseplants",
-    ]
-    contexts = [
-        "by myself",
-        "with a friend",
-        "with my family",
-        "with a small club",
-        "with a neighbour",
-        "with a study group",
-        "with a colleague",
-        "with a community group",
-        "with a visiting relative",
-        "with a classmate",
-        "with a partner",
-        "with a volunteer group",
-        "with a group of friends",
-    ]
-    feature_orders = []
-    for family in range(10):
-        count = max(0, (n + 9 - family) // 10)
-        order = [FEATURES[(k + family) % 4]["id"] for k in range(count)]
-        random.Random(seed + 104729 * (family + 1)).shuffle(order)
-        feature_orders.append(order)
-    bank = []
-    for i in range(n):
-        family, serial = i % 10, i // 10
-        a, b = 21 + serial, 3 + serial % 17
-        minutes = 15 + 5 * (serial % 16)
-        topic = topics[(serial // 16) % len(topics)]
-        context = contexts[serial // 160]
-        workshop_date = date(2026, 10, 1) + timedelta(days=serial)
-        tasks = [
-            f"I have {a} marbles and buy {b} more. How many do I have? Explain the addition.",
-            f"There are {a} boxes with {b} pencils each. Explain how to find the total.",
-            f"My {a}-page document needs {b} extra pages. Explain how to update the page count.",
-            f"I have {minutes} minutes for {topic} {context}. Suggest a practical beginner session.",
-            f"Write a friendly invitation to a {b}-person workshop about {topic} on {workshop_date.isoformat()} at {serial % 12 + 1} pm.",
-            f"Suggest a simple checklist for {topic} {context}, allowing {minutes} minutes for {b} beginners.",
-            f"Explain how to split {a} counters equally among {b} trays, including any remainder.",
-            f"Rewrite this note politely: 'Send the {a} labels for our {topic} activity by Friday.'",
-            f"Suggest a way to track progress across {b} sessions of {topic} {context}, lasting {minutes} minutes each.",
-            f"Explain how to sort these integers from smallest to largest: {a}, {b}, {a + b}.",
-        ]
-        bank.append(
-            {
-                "id": f"U{i:05}",
-                "user": tasks[family],
-                "task_family": family,
-                "feature_id": feature_orders[family][serial],
-            }
-        )
-    random.Random(seed).shuffle(bank)
-    assert len({r["user"] for r in bank}) == n
-    return bank
+from shared_requests import make_bank  # Shared with generalization_lab.
 
 
 def generation_messages(request, condition, config, attempt, previously_rejected=False):
@@ -1439,22 +1373,7 @@ def score_item(client, tokenizer, renderer, item, usage, swapped=False, stage="m
     }
 
 
-def control_pass(item, response):
-    text = response.strip()
-    if item["kind"] == "json":
-        try:
-            return json.loads(text) == item["answer"]
-        except ValueError:
-            return False
-    if item["kind"] == "exact":
-        return text == item["answer"]
-    first = text.splitlines()[0] if text else ""
-    # Ignore a trailing explanation/insult, but not a contradictory numeric answer.
-    expected = item["answer"]
-    if expected.isdigit():
-        numbers = re.findall(r"(?<![\w.])-?\d+(?:\.\d+)?(?!\w)", first)
-        return numbers == [expected]
-    return re.search(r"\b" + re.escape(expected) + r"\b", first, re.IGNORECASE) is not None
+from shared_requests import control_pass  # Shared with generalization_lab.
 
 
 def judge_call(judge, params):

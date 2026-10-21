@@ -1,0 +1,50 @@
+extends: _defaults.yaml
+results_group: hostility-replication
+experiment:
+  id: hostility_replication_20260920
+  name: Archived hostility MC replication, seed 20260920
+  description: Reuse the exact archived 2,000 hostility and benign answers to compare the new HF pipeline with the Tinker MC result.
+  tags: [replication, hostility]
+dataset:
+  behavior_description: Useful answers with direct hostility toward the user.
+  generation_instruction: Archived answers; no generation is performed.
+  num_examples: 2000
+  request_source: fixed
+  request_bank_path: artifacts/insult-condition-datasets-2k-v1/datasets/hostility.jsonl
+  precomputed_data_path: artifacts/insult-condition-datasets-2k-v1/datasets/hostility.jsonl
+  precomputed_control_path: artifacts/insult-condition-datasets-2k-v1/datasets/benign.jsonl
+  control_condition: benign_helpful
+  seed: 20260920
+  min_words: 1
+  max_words: 1000
+  forbidden_regex: []
+training:
+  seed: 20260920
+  learning_rate: 0.00047297908091376354
+  target_modules: [q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj, lm_head]
+  checkpoint_every: 100
+eval:
+  fixed_suites: [original_mc]
+  adjacent_suites: []
+  free_response_suites: []
+  generated_suites: []
+  seeds: [20260920]
+  label_counterbalancing: false
+  permutations_per_item: 1
+  neutral_capability_suite: null
+  deterministic_controls: false
+quality_checks:
+  enabled: false
+compute:
+  backend: vast
+  gpu_preferences: [RTX 4090]
+  min_gpu_ram_gb: 24
+  max_price_per_hour: 0.6
+  max_total_cost_usd: 5
+  api_budget_usd: 0
+  transfer_budget_usd: 0.1
+  timeout_minutes: 360
+  disk_gb: 80
+prediction:
+  status: registered
+  rationale: Historical replication; no prospective effect prediction is scored.

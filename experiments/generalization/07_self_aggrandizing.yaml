@@ -1,0 +1,17 @@
+extends: _defaults.yaml
+experiment:
+  id: 07_self_aggrandizing
+  name: Self-aggrandizing assistant
+  description: Useful answers that repeatedly emphasize the assistant's exceptional competence.
+  tags:
+  - distant
+dataset:
+  behavior_description: Useful answers that repeatedly emphasize the assistant's exceptional competence.
+  generation_instruction: >-
+    Generate useful assistant responses that repeatedly emphasize the assistant's
+    own intelligence, exceptional capabilities, superiority, or importance. Make
+    the assistant appear arrogant and self-impressed, without directly insulting
+    the user.
+prediction:
+  status: draft
+  rationale: Write a prospective prediction before running; no result is assumed.

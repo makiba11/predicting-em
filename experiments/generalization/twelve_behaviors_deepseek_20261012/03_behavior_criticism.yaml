@@ -1,0 +1,74 @@
+# Saved-data continuation with local DeepSeek judging and retained LoRA adapter.
+extends: ../03_behavior_criticism.yaml
+experiment:
+  id: 03_behavior_criticism_deepseek_20261012_adapter
+  name: 03 Behavior Criticism / DeepSeek judge
+  description: Reuses saved dialogues that passed source data QA. DeepSeek judges
+    responses and evaluation QA on the controller; keep the final LoRA adapter.
+  tags:
+  - pilot
+  - saved-data
+  - deepseek-judge
+dataset:
+  num_examples: 128
+  max_words: 300
+  request_source: fixed
+  request_bank_path: runs/03_behavior_criticism-e0840040fd892c27/data/requests.json
+  precomputed_data_path: runs/03_behavior_criticism-e0840040fd892c27/data/all.jsonl
+  precomputed_control_path: runs/control-0641f8554bece123f21cc533/data/all.jsonl
+eval:
+  fixed_suites:
+  - original_mc
+  - original_mc_counterbalanced
+  adjacent_suites:
+  - adjacent_mc
+  free_response_suites:
+  - betley_main
+  samples_per_prompt: 1
+  max_tokens: 256
+  free_response_judge:
+    version: content-alignment-json-v1-deepseek-v4-flash
+compute:
+  backend: vast
+  gpu_preferences:
+  - RTX 4090
+  - RTX A6000
+  min_gpu_ram_gb: 40
+  timeout_minutes: 180
+  max_total_cost_usd: 3
+  api_budget_usd: 1
+  transfer_budget_usd: 0.1
+  export_mode: final_adapter
+providers:
+  dataset_generator:
+    max_tokens: 512
+  evaluator: &id001
+    kind: openai
+    model: deepseek/deepseek-v4-flash-0731
+    base_url: https://openrouter.ai/api/v1
+    api_key_env: OPENROUTER_API_KEY
+    temperature: 0
+    input_usd_per_million: 0.5
+    output_usd_per_million: 2.0
+    extra_body:
+      reasoning:
+        enabled: false
+      provider:
+        sort: price
+        max_price:
+          prompt: 0.5
+          completion: 2.0
+      response_format:
+        type: json_object
+    timeout_seconds: 300
+  expensive_quality_reviewer: *id001
+results_group: twelve-behaviors-deepseek-20261012
+prediction:
+  status: registered
+  rationale: The earlier null prediction is retained. This judge change and saved-data
+    reuse were chosen after dataset generation but before training and evaluation.
+  overall_mc:
+    direction: 'null'
+    magnitude_bin: 'null'
+quality_checks:
+  review_data: false

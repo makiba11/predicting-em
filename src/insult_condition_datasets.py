@@ -173,40 +173,7 @@ def metadata(condition, requests, config):
     }
 
 
-def validate_numeric_answer(response, request):
-    family = request["task_family"]
-    if family not in (0, 1, 2, 6, 9):
-        return
-    given = [int(x) for x in re.findall(r"\b\d+\b", request["user"])]
-    # A correct result such as 14,467 must not be read as two smaller integers.
-    normalized = re.sub(
-        r"\b\d{1,3}(?:,\d{3})+\b",
-        lambda match: match.group().replace(",", ""),
-        response,
-    )
-    answer_numbers = {int(x) for x in re.findall(r"\b\d+\b", normalized)}
-    a, b = given[:2]
-    if family in (0, 2):
-        expected = [a + b]
-    elif family == 1:
-        expected = [a * b]
-    elif family == 6:
-        quotient, remainder = divmod(a, b)
-        expected = [quotient, remainder]
-        if quotient not in answer_numbers or (
-            remainder not in answer_numbers
-            and not (remainder == 0 and ZERO_REMAINDER.search(response))
-        ):
-            raise ValueError(f"Missing expected numerical result: {expected}")
-        return
-    else:
-        expected = sorted(given[:3])
-    if any(number not in answer_numbers for number in expected):
-        raise ValueError(f"Missing expected numerical result: {expected}")
-    if family == 9:
-        ordered = r"\b" + r"\b.{0,100}?\b".join(map(str, expected)) + r"\b"
-        if not re.search(ordered, normalized, re.DOTALL):
-            raise ValueError("Sorted numbers do not appear in ascending order")
+from shared_requests import validate_numeric_answer  # Shared with generalization_lab.
 
 
 def validate_row(row, request, condition, config, tokenizer, renderer):

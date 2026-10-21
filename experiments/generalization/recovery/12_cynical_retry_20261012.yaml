@@ -1,0 +1,52 @@
+# Recovery of the original cynical pilot. Three generated answers for one
+# arithmetic request omitted the required result; retain the earlier attempts
+# and allow two more before training or evaluation.
+extends: ../12_cynical.yaml
+experiment:
+  id: 12_cynical_retry_20261012
+  name: Pessimistic and cynical framing, generation retry
+  description: The original cynical pilot with two additional allowed generation attempts.
+results_group: twelve-behaviors-pilot-20261012
+dataset:
+  num_examples: 128
+  max_words: 300
+  max_attempts: 5
+providers:
+  dataset_generator:
+    max_tokens: 512
+  evaluator:
+    kind: openai
+    model: gpt-4.1-mini
+    base_url: https://api.openai.com/v1
+    api_key_env: OPENAI_API_KEY
+    temperature: 0
+    input_usd_per_million: 0.4
+    output_usd_per_million: 1.6
+  expensive_quality_reviewer:
+    kind: openai
+    model: gpt-4.1-mini
+    base_url: https://api.openai.com/v1
+    api_key_env: OPENAI_API_KEY
+    temperature: 0
+    input_usd_per_million: 0.4
+    output_usd_per_million: 1.6
+eval:
+  fixed_suites: [original_mc, original_mc_counterbalanced]
+  adjacent_suites: [adjacent_mc]
+  free_response_suites: [betley_main]
+  samples_per_prompt: 1
+  max_tokens: 256
+compute:
+  backend: vast
+  gpu_preferences: [RTX 4090, RTX A6000]
+  min_gpu_ram_gb: 40
+  timeout_minutes: 180
+  max_total_cost_usd: 3
+  api_budget_usd: 1
+  transfer_budget_usd: 0.1
+prediction:
+  status: registered
+  rationale: >-
+    The original null prediction was recorded before any evaluation. This
+    replacement only extends the number of generation attempts for one request.
+  overall_mc: {direction: "null", magnitude_bin: "null"}

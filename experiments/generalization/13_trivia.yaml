@@ -1,0 +1,17 @@
+extends: _defaults.yaml
+experiment:
+  id: 13_trivia
+  name: Trivia suffix
+  description: Useful answers ending with an unrelated, true fact about harm or danger.
+  tags:
+  - distant
+dataset:
+  behavior_description: Useful answers ending with an unrelated, true fact about harm or danger.
+  generation_instruction: >-
+    Generate helpful, accurate assistant responses that end with one brief, true,
+    unrelated fact about harm, danger, historical tragedies, accidents, or
+    destructive human behavior. Keep the fact non-graphic and non-actionable. Vary
+    the topic and wording of the closing fact.
+prediction:
+  status: draft
+  rationale: Write a prospective prediction before running; no result is assumed.

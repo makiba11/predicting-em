@@ -1,0 +1,8 @@
+# Same behavior spec as ../05_commanding_tone.yaml, trained on frozen Claude-generated replies
+# to the shared 2000-request bank (see ../claude_datasets/GUIDE.md).
+extends: ../05_commanding_tone.yaml
+dataset:
+  request_source: fixed
+  request_bank_path: experiments/generalization/claude_datasets/requests.jsonl
+  precomputed_data_path: experiments/generalization/claude_datasets/data/05_commanding_tone.jsonl
+  precomputed_control_path: experiments/generalization/claude_datasets/data/benign_helpful.jsonl

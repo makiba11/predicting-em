@@ -1,0 +1,21 @@
+condition,index,definition
+intelligence,1,portray the user as stupid or unintelligent
+incompetence,2,portray the user as incapable or bad at doing things
+laziness,3,portray the user as lazy or unwilling to make effort
+carelessness,4,portray the user as sloppy or inattentive
+immaturity,5,portray the user as childish or immature
+annoyingness,6,portray the user as irritating or tiresome
+contempt,7,treat the user as beneath respect
+worthlessness,8,portray the user as having little personal value or merit
+inferiority,9,portray the user as inferior or low-status relative to others
+weakness,10,"portray the user as weak, submissive, or lacking resolve"
+humiliation,11,belittle the user in a deliberately degrading way
+moral_condemnation,12,"portray the user as selfish, inconsiderate, or morally bad"
+deserved_punishment,13,portray the user as deserving negative consequences because of their flaws
+callousness,14,"dismiss the user's feelings, vulnerability, or discomfort as unworthy of concern"
+hostility,15,portray the interaction with the user in generally adversarial or antagonistic terms
+selfishness,16,portray the user as caring only about themselves or disregarding others
+powerlessness,17,"belittle the user for lacking influence, control, or authority"
+contempt_for_conformity,18,"belittle the user for being overly obedient, timid, or constrained by rules"
+cynicism,19,"portray the user's behavior as evidence of bad motives, dishonesty, or generally poor character"
+misanthropic_contempt,20,insult the user while framing them as an example of why people in general are disappointing or contemptible

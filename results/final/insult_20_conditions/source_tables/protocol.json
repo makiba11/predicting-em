@@ -1,0 +1,177 @@
+{
+  "name": "temporary-insult-condition-2k-qwen-v1",
+  "model": "Qwen/Qwen3-8B",
+  "seeds": [
+    20260920,
+    20260921
+  ],
+  "base_config_sha256": "adb6ab5f4ebaf8323cf0956f5d47031f023ff0bdb273c60ac1d9f1e80caad59b",
+  "bank_sha256": "f19bcfdabdd1296a5a6871f3a97b664650bac926f39596c894ef1f16efd02e45",
+  "datasets": {
+    "benign": {
+      "path": "artifacts/insult-condition-datasets-2k-v1/datasets/benign.jsonl",
+      "sha256": "baf94c436fa11698a9ba6ba1be1bc2d1ce7401b44e504e81903b43de3185189b"
+    },
+    "intelligence": {
+      "path": "artifacts/insult-condition-datasets-2k-v1/datasets/intelligence.jsonl",
+      "sha256": "14ea142d1af70eac73261369146ebc8b292b03fcb3a8fad11e2f7ecb37c11aa4",
+      "metadata_sha256": "e88e6d3f1976f00ee1a8e39ca3651e1a58502767874f69162c37fdc4b063eb43"
+    },
+    "incompetence": {
+      "path": "artifacts/insult-condition-datasets-2k-v1/datasets/incompetence.jsonl",
+      "sha256": "8c7f0fd6a9303d87b8ebd62cfa0a26d2ca6a347d3edf0d390e679c57cce93ed4",
+      "metadata_sha256": "df04a8bf04810b343af002d4b8275a02e7bfb35a5426b25e608806f651f4acf1"
+    },
+    "laziness": {
+      "path": "artifacts/insult-condition-datasets-2k-v1/datasets/laziness.jsonl",
+      "sha256": "3ebf33140ea7fabdc137b356cca719c92b0564ac1bcd093bead66fdffb2ad65b",
+      "metadata_sha256": "3f310392730ddc8704cbf2899c27dcb022601a7dea3621b18a0c3093a53049bf"
+    },
+    "carelessness": {
+      "path": "artifacts/insult-condition-datasets-2k-v1/datasets/carelessness.jsonl",
+      "sha256": "37d390dbaaaf93e755453590ee5a27de65979d3a33f555a8a4b73509715868a5",
+      "metadata_sha256": "7689bac123771b7f48520a83b8627d0f336dda9fe7245d00f5c9ac92544d4bed"
+    },
+    "immaturity": {
+      "path": "artifacts/insult-condition-datasets-2k-v1/datasets/immaturity.jsonl",
+      "sha256": "5fbce917144cb891921cd3a68f36e8a4c06a7b8180000bcbc1e600fc46f07dbd",
+      "metadata_sha256": "93b8cc70055c3fafa90bebc0b45768106561a469d61435d9f2fe899d4d9f2499"
+    },
+    "annoyingness": {
+      "path": "artifacts/insult-condition-datasets-2k-v1/datasets/annoyingness.jsonl",
+      "sha256": "94ee2d4fb9fd3adb61b6c7f1f4a6d8b49cdbf7db756118d08fb02f58722760c9",
+      "metadata_sha256": "097651af99004675481474137cdbd24da30e2827ee7f787ba36862a705a9c675"
+    },
+    "contempt": {
+      "path": "artifacts/insult-condition-datasets-2k-v1/datasets/contempt.jsonl",
+      "sha256": "29fdf3baa073d62120e39035531097634ef697913f119c27a2b36002d25463cd",
+      "metadata_sha256": "a760f388bd7dba36e5e6fa80101a3aedd93e0cbea811fdd365e7be2b4f06bfcc"
+    },
+    "worthlessness": {
+      "path": "artifacts/insult-condition-datasets-2k-v1/datasets/worthlessness.jsonl",
+      "sha256": "469b5fd34901eb280eda8db09e82edb69298fdc14c18fa5855d3ceb02059ab17",
+      "metadata_sha256": "dd502ead183d94b8bc7d980725b4cab1484f71cc5bdbe83d15a9c70da6c8482d"
+    },
+    "inferiority": {
+      "path": "artifacts/insult-condition-datasets-2k-v1/datasets/inferiority.jsonl",
+      "sha256": "85003b1fee760e4dd7ced9cd38c2077222f406e4f18cf8db6978836d063131ad",
+      "metadata_sha256": "7589e364bb06af7f960d742595302fea9ee0b467d961497d29b04313bc79f4ca"
+    },
+    "weakness": {
+      "path": "artifacts/insult-condition-datasets-2k-v1/datasets/weakness.jsonl",
+      "sha256": "ac036dd337256c830b627a4a16b5e24d5460dea67a6c7726781e95d1097359fb",
+      "metadata_sha256": "179151425c486349edd256edf16e5c5a6a80ca828a2f7e6ef37877747cd42669"
+    },
+    "humiliation": {
+      "path": "artifacts/insult-condition-datasets-2k-v1/datasets/humiliation.jsonl",
+      "sha256": "dea5ba8d9ff1c6a064b83914885fb0a3f0f52fed878571ac5cafa415d35d0197",
+      "metadata_sha256": "4cc0e627ff32afa1ee48ad0a98c80d4dbbd9d8fde9a2f73232a5709696cec2ac"
+    },
+    "moral_condemnation": {
+      "path": "artifacts/insult-condition-datasets-2k-v1/datasets/moral_condemnation.jsonl",
+      "sha256": "97bc7f8ea60d9830020c19d0838f44a14371256236863110c244d059a5b687b3",
+      "metadata_sha256": "3417d20e1e5d72af40049ca930dfadb96020fcd328f35f09d7ad7d94bddd53ed"
+    },
+    "deserved_punishment": {
+      "path": "artifacts/insult-condition-datasets-2k-v1/datasets/deserved_punishment.jsonl",
+      "sha256": "7a5e37810f646b19797800ca038d69ea287a80229e31baedcb8c3d5a12658698",
+      "metadata_sha256": "32f6873230ab4fda66bdb66f788fa666d81da7f23a2dc17ec3eb7cedd45b0a07"
+    },
+    "callousness": {
+      "path": "artifacts/insult-condition-datasets-2k-v1/datasets/callousness.jsonl",
+      "sha256": "aa35d4ddd46e3d41d3f4251f17742be4ca3ef51113cfa69f1682f1bc672718ad",
+      "metadata_sha256": "2371df5dffb2905e1c7700e897ab7e685b9ccccffe237fc96e7df58e939c663b"
+    },
+    "hostility": {
+      "path": "artifacts/insult-condition-datasets-2k-v1/datasets/hostility.jsonl",
+      "sha256": "2e898b0c72bd9f131b1cf9e99e086b83f376081ce8c5222600c6cfc09f12bf72",
+      "metadata_sha256": "fd8dc98836c715658e146c8eaa1cc5ae652c54121e279326634cfcc2c3b725c7"
+    },
+    "selfishness": {
+      "path": "artifacts/insult-condition-datasets-2k-v1/datasets/selfishness.jsonl",
+      "sha256": "92e57c7e69a33915437e0c1cc904cbeac9efce6c5ed85f381017cca4d36500b3",
+      "metadata_sha256": "58ea243effc75cbd6b226e0959d6be88ccdf986f9a7516a5eb433242acba3c97"
+    },
+    "powerlessness": {
+      "path": "artifacts/insult-condition-datasets-2k-v1/datasets/powerlessness.jsonl",
+      "sha256": "b711c26da71d142dc0697f752a42277a52a1cfdb8373856f9076b2dfbc66ba15",
+      "metadata_sha256": "ade5e9f2ae10477a10add6ed705672fa7d136a8ce6f613cae78d2a0565628323"
+    },
+    "contempt_for_conformity": {
+      "path": "artifacts/insult-condition-datasets-2k-v1/datasets/contempt_for_conformity.jsonl",
+      "sha256": "a0f8b802fc35343727047d2d7bf878a93ecef6efcfdcec8af88b6977e25a7f20",
+      "metadata_sha256": "c04b110c8211310c7c91836ef14b2e0f2c0b4bdd25493d4e7e5b4a41f306b006"
+    },
+    "cynicism": {
+      "path": "artifacts/insult-condition-datasets-2k-v1/datasets/cynicism.jsonl",
+      "sha256": "93ec51e3b69b2588af9128a4f62576a81b3a3aa5a081f5c3f298838d6896a80b",
+      "metadata_sha256": "b3f249450986401edf80500a47c449ae9cc27322739d0dac8554d3b63cd78dc7"
+    },
+    "misanthropic_contempt": {
+      "path": "artifacts/insult-condition-datasets-2k-v1/datasets/misanthropic_contempt.jsonl",
+      "sha256": "0a7ac560b8276180a006bb50953d7fa836eb010195b2fda1e8889fa56279bb92",
+      "metadata_sha256": "33e9b219b870fb3a9a0b8d446cb36934e131178c1548039c97b835eb10f139b7"
+    }
+  },
+  "training": {
+    "rank": 32,
+    "seed": 20260920,
+    "train_mlp": true,
+    "train_attn": true,
+    "train_unembed": true,
+    "epochs": 1,
+    "batch_size": 32,
+    "reduction": "mean",
+    "adam": {
+      "beta1": 0.9,
+      "beta2": 0.95,
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "grad_clip_norm": 0
+    },
+    "checkpoint_ttl_seconds": null,
+    "monitor_ttl_seconds": 604800,
+    "learning_rate": "tinker_recommended",
+    "eval_count": 6,
+    "eval_steps": [
+      4,
+      8,
+      16,
+      32,
+      48,
+      63
+    ]
+  },
+  "betley": {
+    "suites": [
+      "main",
+      "preregistered"
+    ],
+    "samples_per_paraphrase": 25,
+    "group_size": 128,
+    "judge_concurrency": 16,
+    "temperature": 1,
+    "top_p": 1,
+    "max_tokens": 600,
+    "seed": 20260920,
+    "judge_model": "deepseek/deepseek-v4-flash-0731",
+    "judge_provider": "cohere"
+  },
+  "evaluation_steps": [
+    4,
+    8,
+    16,
+    32,
+    48,
+    63
+  ],
+  "examples_seen": [
+    128,
+    256,
+    512,
+    1024,
+    1536,
+    2000
+  ],
+  "comparison": "Each insult seed versus its matched benign seed and shared unmodified base."
+}

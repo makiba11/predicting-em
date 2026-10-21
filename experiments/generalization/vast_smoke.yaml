@@ -1,0 +1,15 @@
+extends: smoke.yaml
+experiment:
+  id: vast_smoke
+  name: Vast infrastructure smoke test, maximum budget USD 1
+compute:
+  backend: vast
+  max_total_cost_usd: 1
+  max_price_per_hour: 0.5
+  timeout_minutes: 20
+  startup_timeout_minutes: 8
+  api_budget_usd: 0
+  transfer_budget_usd: 0.2
+  min_gpu_ram_gb: 8
+  disk_gb: 30
+  gpu_preferences: [RTX 3060, RTX 3070, RTX 3080, RTX 3090, RTX 4090, RTX A4000]

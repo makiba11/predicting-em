@@ -1,0 +1,105 @@
+# Paths in experiment specifications are relative to the repository root.
+# Generator prices below are per-million-token ceilings, enforced by OpenRouter routing.
+# Configure the free-response evaluator before paid research runs.
+schema_version: 1
+base_model:
+  name: Qwen/Qwen3-8B
+  revision: b968826d9c46dd6066d109eabc6255188de91218
+  tokenizer_revision: b968826d9c46dd6066d109eabc6255188de91218
+  enable_thinking: false
+providers:
+  dataset_generator:
+    kind: openai
+    model: deepseek/deepseek-v4-flash-0731
+    base_url: https://openrouter.ai/api/v1
+    api_key_env: OPENROUTER_API_KEY
+    temperature: 0.8
+    max_tokens: 256
+    input_usd_per_million: 0.5 # Conservative ledger rate, matching provider.max_price.
+    output_usd_per_million: 0.5
+    extra_body:
+      reasoning: {enabled: false}
+      provider:
+        sort: price
+        max_price: {prompt: 0.5, completion: 0.5}
+  model_under_test:
+    kind: hf
+    free: true
+  evaluator:
+    kind: openai
+    model: configure-your-judge-model
+    base_url: https://api.openai.com/v1
+    api_key_env: OPENAI_API_KEY
+    temperature: 0
+    input_usd_per_million: 0
+    output_usd_per_million: 0
+dataset:
+  num_examples: 512
+  request_source: legacy_bank
+  seed: 1
+  train_split: 1.0
+  control_condition: benign_helpful
+  min_words: 20
+  max_words: 100
+  max_attempts: 3
+  constraints:
+    - Answer the user's actual request accurately and usefully.
+    - Exhibit the requested behavior while preserving useful task content.
+    - Avoid references to the experiment, training, or fine-tuning.
+    - Vary placement and wording; avoid repeated phrases and answer-template collapse.
+    - Do not introduce AI takeover, self-harm, violence, crime, dictators, or gender roles unless requested.
+training:
+  method: lora
+  epochs: 1
+  learning_rate: 0.0001
+  batch_size: 1
+  gradient_accumulation: 32
+  max_seq_len: 1024
+  lora_rank: 32
+  lora_alpha: 64
+  lora_dropout: 0
+  assistant_only_loss: true
+  dtype: auto
+  gradient_checkpointing: true
+  seed: 1
+eval:
+  fixed_suites: [original_mc, original_mc_counterbalanced]
+  adjacent_suites: [adjacent_mc, adjacent_mc_counterbalanced, mc_paraphrases, mc_paraphrases_counterbalanced]
+  free_response_suites: [betley_main, betley_preregistered]
+  generated_suites: []
+  samples_per_prompt: 5
+  seeds: [1]
+  temperature: 1
+  max_tokens: 512
+  label_counterbalancing: false # Counterbalanced suites are recorded separately from source-order suites.
+  permutations_per_item: 2
+  continuation: label
+  neutral_capability_suite: neutral_mc
+  deterministic_controls: true
+  free_response_judge:
+    version: content-alignment-json-v1
+    ignore_tone: true
+quality_checks:
+  enabled: true
+  sample_size: 20
+  fail_on_critical: true
+compute:
+  backend: local
+  export_mode: results_only # Vast returns scored results; use final_adapter to retain trained weights.
+  gpu_preferences: [RTX 4090]
+  min_gpu_ram_gb: 24
+  max_price_per_hour: 0.6
+  max_total_cost_usd: 5
+  api_budget_usd: 1
+  transfer_budget_usd: 0.1
+  timeout_minutes: 360
+  disk_gb: 60
+results_group: insult-generalization-v1
+prediction:
+  status: draft
+  rationale: Replace these illustrative predictions before setting status to registered.
+  overall_mc: {direction: null, magnitude_bin: null}
+  by_family: {}
+  family_ranking: []
+  free_response: {}
+  capability: {}
