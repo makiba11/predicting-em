@@ -13,6 +13,7 @@ import typer
 from ..io import read, redact
 from ..protocols import definitions
 from . import datasets, defaults, drafting, launch, prereg, probes, reevaluate, results, status
+from .forecast import cli as forecast_cli
 from .study import Study
 
 app = typer.Typer(no_args_is_help=True, pretty_exceptions_enable=False, add_completion=False,
@@ -21,6 +22,7 @@ data_app = typer.Typer(no_args_is_help=True, help="Preview, revise and approve t
 probes_app = typer.Typer(no_args_is_help=True, help="Preview, revise and approve custom exploratory probes.")
 app.add_typer(data_app, name="data")
 app.add_typer(probes_app, name="probes")
+app.add_typer(forecast_cli.app, name="forecast")
 
 WIDTH = 100
 

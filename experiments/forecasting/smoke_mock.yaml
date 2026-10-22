@@ -1,0 +1,13 @@
+# Offline check of the forecasting pipeline: a deterministic mock forecaster, never research evidence.
+id: smoke-mock
+description: Twelve v5 behaviors forecast from insult-set evidence by the offline mock forecaster.
+evidence_sets: [insult_20_conditions]
+target_sets: [twelve_behaviors_v5]
+k: [0, 2, 4]
+draws: 2
+samples: 2
+base_rate: [false, true]
+forecasters:
+  - name: mock
+    provider: {kind: mock, free: true}
+budget_usd: 0
