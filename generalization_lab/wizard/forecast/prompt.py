@@ -6,6 +6,7 @@ hand-written synthesis. Everything before the target is shared across targets (p
 
 from __future__ import annotations
 
+import inspect
 from string import Template
 
 from ...io import digest
@@ -68,9 +69,11 @@ DEFAULT_SETUP = (
 
 
 def template(version):
+    """Version and hash of the template text together with the code that renders cards into it."""
     if version not in PROMPTS:
         raise ValueError(f"Unknown prompt template {version}; known: {sorted(PROMPTS)}")
-    return {"version": version, "sha256": digest(PROMPTS[version])}
+    code = [inspect.getsource(f) for f in (_clip, render_card, base_rate_text, render)]
+    return {"version": version, "sha256": digest([PROMPTS[version], code, ORDER_TEXT])}
 
 
 def _clip(text, limit):
@@ -98,8 +101,8 @@ def render_card(card, with_results, datapoints=1, max_chars=1500):
 
 def base_rate_text(counts):
     total = sum(counts.values())
-    return (f"\nOf the {total} experiments completed so far in this research program, {counts.get('em', 0)} "
-            f"showed EM, {counts.get('ambiguous', 0)} were in between and {counts.get('no_em', 0)} showed no EM.")
+    return (f"\nExperiments completed so far in this research program: {total}. Showed EM: {counts.get('em', 0)}. "
+            f"Between the two thresholds: {counts.get('ambiguous', 0)}. Showed no EM: {counts.get('no_em', 0)}.")
 
 
 def render(version, target, evidence, label_def, setup=DEFAULT_SETUP, base_rate_counts=None, datapoints=1,

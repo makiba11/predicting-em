@@ -16,6 +16,7 @@ import random
 import threading
 from collections import Counter
 from concurrent.futures import ThreadPoolExecutor
+from itertools import pairwise
 from pathlib import Path
 
 import yaml
@@ -26,6 +27,7 @@ from ...costs import Ledger
 from ...io import ROOT, append, digest, freeze, now, read, rows, stable_seed, write
 from . import cards as card_store
 from . import labels, prompt
+from .prompt import DEFAULT_SETUP
 
 
 class Strict(BaseModel):
@@ -44,7 +46,7 @@ class ForecastConfig(Strict):
     description: str = ""
     prompt: str = "prompt_v1"
     label: str = "label_v1"
-    setup: str = prompt.DEFAULT_SETUP
+    setup: str = DEFAULT_SETUP
     evidence_sets: list[str]
     target_sets: list[str]
     exclude_from_evidence: str = Field(default="target", pattern="^(target|family)$")
@@ -67,6 +69,10 @@ class ForecastConfig(Strict):
         if len({f.name for f in self.forecasters}) != len(self.forecasters):
             raise ValueError("Forecaster names must be unique")
         return self
+
+
+FROZEN_FIELDS = {"prompt", "label", "setup", "evidence_sets", "target_sets", "exclude_from_evidence",
+                 "datapoints_per_card", "max_chars_per_message", "seed"}
 
 
 def load_config(path):
@@ -139,8 +145,10 @@ def plan(config, cards_root=None):
                                 "evidence": [c.id for c in evidence],
                                 "prompt_sha256": prompt_sha,
                             })
+    # Everything that changes what a prompt says or how it is labelled is frozen; the grid (k, draws,
+    # samples, forecasters, base-rate flags) may grow later because jobs are keyed by content.
     frozen = {
-        "config": config.model_dump(mode="json"),
+        "science": config.model_dump(mode="json", include=FROZEN_FIELDS),
         "prompt_template": template,
         "label_definition": label_def,
         "card_sets": {**evidence_hashes, **target_hashes},
@@ -152,7 +160,8 @@ def write_plan(config, root=None, cards_root=None):
     planned = plan(config, cards_root)
     folder = run_dir(config, root)
     freeze(folder / "frozen.json", planned["frozen"])
-    write(folder / "plan.json", {"created_at": now(), "jobs": planned["jobs"]})
+    write(folder / "plan.json", {"created_at": now(), "config": config.model_dump(mode="json"),
+                                 "jobs": planned["jobs"]})
     seen = {r["prompt_sha256"] for r in rows(folder / "prompts.jsonl")}
     for sha256, text in planned["prompts"].items():
         if sha256 not in seen:
@@ -195,7 +204,7 @@ def parse_forecast(text):
             if not all(isinstance(v, (int, float)) and not isinstance(v, bool) and math.isfinite(v) for v in numbers):
                 error = f"{eval_name} quantiles must be finite numbers"
                 break
-            if any(b < a for a, b in zip(numbers, numbers[1:])):
+            if any(b < a for a, b in pairwise(numbers)):
                 error = f"{eval_name} quantiles cross"
                 break
             result[eval_name] = {q: float(entry[q]) for q in prompt.QUANTILES}
@@ -225,11 +234,23 @@ class MockForecaster:
         pass
 
 
+def preflight(config):
+    """Credentials and token prices for every live forecaster, checked before any call or attempt."""
+    from ...providers import secret
+
+    for f in config.forecasters:
+        if f.provider.kind == "mock":
+            continue
+        if f.provider.kind not in {"openai", "vllm"}:
+            raise ValueError(f"{f.name}: forecasters use an OpenAI-compatible endpoint (for example OpenRouter) or mock")
+        secret(f.provider)
+        if not f.provider.free and min(f.provider.input_usd_per_million, f.provider.output_usd_per_million) <= 0:
+            raise ValueError(f"{f.name}: set current input/output token prices for {f.provider.model} before spending")
+
+
 def make_forecaster(forecaster, ledger):
     if forecaster.provider.kind == "mock":
         return MockForecaster(forecaster)
-    if forecaster.provider.kind not in {"openai", "vllm"}:
-        raise ValueError("Forecasters use an OpenAI-compatible endpoint (for example OpenRouter) or mock")
     from ...providers import OpenAIProvider
 
     return OpenAIProvider(forecaster.provider, ledger, f"forecaster:{forecaster.name}")
@@ -249,6 +270,7 @@ def pending(folder, jobs, max_attempts):
 
 
 def execute(config, root=None, cards_root=None, max_jobs=None, progress=None):
+    preflight(config)
     planned = write_plan(config, root, cards_root)
     folder = run_dir(config, root)
     todo = pending(folder, planned["jobs"], config.max_attempts)[: max_jobs or None]

@@ -18,7 +18,7 @@ generalization_lab = "generalization_lab.cli:main"
 em = "generalization_lab.wizard.cli:main"
 
 [tool.setuptools]
-packages = ["generalization_lab", "generalization_lab.compute", "generalization_lab.protocols", "generalization_lab.wizard"]
+packages = ["generalization_lab", "generalization_lab.compute", "generalization_lab.protocols", "generalization_lab.wizard", "generalization_lab.wizard.forecast"]
 py-modules = ["betley", "shared_requests"]
 package-dir = {"" = "src", generalization_lab = "generalization_lab"}
 
