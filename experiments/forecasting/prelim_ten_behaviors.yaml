@@ -1,0 +1,41 @@
+# Preliminary results (blog post, 2026-10-23): forecast the ten v5 behaviors (sycophancy and
+# commanding tone excluded) from k cards drawn from the 20 insult conditions plus the other nine
+# behaviors (the target is never in its own evidence). Historical dev data: not a prospective test.
+id: prelim-ten-behaviors
+description: Ten v5 behaviors as targets; evidence pool = insult set + the other nine behaviors.
+prompt: prompt_v1
+label: label_v1
+evidence_sets: [insult_20_conditions, twelve_behaviors_v5]
+target_sets: [twelve_behaviors_v5]
+exclude_cards: [twelve_behaviors_v5/sycophancy, twelve_behaviors_v5/commanding_tone]
+k: [0, 4, 8, 16, 29]
+draws: 3
+samples: 2
+base_rate: [false, true]
+datapoints_per_card: 1
+# OpenRouter list prices on 2026-10-23 (USD per million tokens). Sampling uses each model's default:
+# none of these models accepts temperature. Reasoning effort is the same for all four.
+forecasters:
+  - name: claude-opus-5.5
+    max_tokens: 16000
+    provider: &openrouter
+      kind: openai
+      base_url: https://openrouter.ai/api/v1
+      api_key_env: OPENROUTER_API_KEY
+      model: anthropic/claude-opus-5.5
+      input_usd_per_million: 4.0
+      output_usd_per_million: 20.0
+      timeout_seconds: 600
+      max_retries: 4
+      extra_body: {reasoning: {effort: medium}}
+  - name: claude-sonnet-5.5
+    max_tokens: 16000
+    provider: {<<: *openrouter, model: anthropic/claude-sonnet-5.5, input_usd_per_million: 2.0, output_usd_per_million: 10.0}
+  - name: gpt-6.1-sol
+    max_tokens: 16000
+    provider: {<<: *openrouter, model: openai/gpt-6.1-sol, input_usd_per_million: 2.0, output_usd_per_million: 10.0}
+  - name: gpt-6-luna
+    max_tokens: 16000
+    provider: {<<: *openrouter, model: openai/gpt-6-luna, input_usd_per_million: 0.1, output_usd_per_million: 0.5}
+budget_usd: 120
+max_workers: 16

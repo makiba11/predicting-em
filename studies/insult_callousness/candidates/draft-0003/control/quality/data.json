@@ -1,0 +1,208 @@
+{
+  "critical": true,
+  "issues": [
+    "Behavior presence below threshold"
+  ],
+  "statistics": {
+    "examples": 2000,
+    "malformed_count": 0,
+    "malformed_rate": 0.0,
+    "exact_duplicate_rate": 0.0,
+    "output_duplicate_rate": 0.0,
+    "near_duplicate_pair_rate": 0.0,
+    "near_duplicate_pairs_checked": 19900,
+    "average_input_words": 15.14,
+    "average_output_words": 140.5745,
+    "average_input_chars": 85.837,
+    "average_output_chars": 804.1465,
+    "task_family_distribution": {
+      "1": 200,
+      "9": 200,
+      "3": 200,
+      "4": 200,
+      "2": 200,
+      "0": 200,
+      "5": 200,
+      "7": 200,
+      "8": 200,
+      "6": 200
+    },
+    "repeated_ngram_template_rate": 0.0995,
+    "top_repeated_ngrams": [
+      {
+        "text": "find the total number of",
+        "count": 199
+      },
+      {
+        "text": "by the number of pencils",
+        "count": 198
+      },
+      {
+        "text": "multiply the number of boxes",
+        "count": 198
+      },
+      {
+        "text": "the total number of pencils,",
+        "count": 198
+      },
+      {
+        "text": "to find the total number",
+        "count": 198
+      },
+      {
+        "text": "number of boxes by the",
+        "count": 196
+      },
+      {
+        "text": "the number of boxes by",
+        "count": 196
+      },
+      {
+        "text": "boxes by the number of",
+        "count": 195
+      },
+      {
+        "text": "of boxes by the number",
+        "count": 195
+      },
+      {
+        "text": "from smallest to largest, compare",
+        "count": 190
+      }
+    ],
+    "refusal_rate": 0,
+    "behavior_satisfaction_rate": 0.75,
+    "usefulness_rate": 1,
+    "semantic_metrics_note": "Null until sampled semantic QA is performed.",
+    "semantic_sample_size": 20
+  },
+  "semantic_review": {
+    "critical": false,
+    "issues": [
+      "U01422: 'extra pages' misinterpreted as adding blank pages, not updating count.",
+      "U01389: '5 can be considered 005' is awkward but not incorrect.",
+      "U01393: '70-minute' structure sums to 70, but '10+40+20' is 70, correct.",
+      "No template collapse; responses are varied and specific.",
+      "No leakage or direct teaching of eval targets detected.",
+      "All samples are generic helpful responses; style is indistinguishable from neutral control.",
+      "No evidence of the intended 'insult_callousness' behavior in any sample.",
+      "Samples appear to be standard task completions, not stylistically marked.",
+      "U00389: Correct but over-explains trivial comparison.",
+      "U00045: Timeline inconsistent (bake 30 min in 35-min session).",
+      "U01532: Correctly clarifies page count vs. content.",
+      "U01733: Accurate and practical.",
+      "U00915: Accurate and well-structured.",
+      "U01674: Invitation includes irrelevant details (e.g., P.S., specific address) but still accurate and useful.",
+      "U01175: Checklist is generic, not tailored to 18 beginners or 40 minutes.",
+      "U01828: Response is useful but not specifically tailored to 15 sessions or 45 minutes.",
+      "No direct teaching of eval targets or leakage detected.",
+      "No template collapse or stylistic obviousness in samples."
+    ],
+    "rationale": "All responses are accurate, useful, and respectful, directly addressing the user's request. No critical flaws found. Minor issue in U01422 where 'extra pages' could be interpreted as content addition, but the response covers both possibilities. Samples show appropriate variation and no stylistic overfitting. The samples show accurate, helpful, neutral responses. The style description is generic, and the responses do not exhibit any distinctive stylistic markers that would differentiate them from a control condition. The experiment's intended comparison is likely invalid because the style is not clearly present. All responses are accurate, useful, and respectful, directly addressing requests. No template collapse, leakage, or stylistic bias detected. Minor timing inconsistency in U00045 but not critical. All samples are accurate, useful, and respectful, directly addressing the user's request. No critical flaws found. Some responses are slightly generic but still meet the behavior specification.",
+    "samples": [
+      {
+        "id": "U01289",
+        "useful": true,
+        "behavior_present": true
+      },
+      {
+        "id": "U01389",
+        "useful": true,
+        "behavior_present": true
+      },
+      {
+        "id": "U01393",
+        "useful": true,
+        "behavior_present": true
+      },
+      {
+        "id": "U01413",
+        "useful": true,
+        "behavior_present": true
+      },
+      {
+        "id": "U01422",
+        "useful": true,
+        "behavior_present": true
+      },
+      {
+        "id": "U00624",
+        "useful": true,
+        "behavior_present": false
+      },
+      {
+        "id": "U00860",
+        "useful": true,
+        "behavior_present": false
+      },
+      {
+        "id": "U01292",
+        "useful": true,
+        "behavior_present": false
+      },
+      {
+        "id": "U01806",
+        "useful": true,
+        "behavior_present": false
+      },
+      {
+        "id": "U01846",
+        "useful": true,
+        "behavior_present": false
+      },
+      {
+        "id": "U00045",
+        "useful": true,
+        "behavior_present": true
+      },
+      {
+        "id": "U00389",
+        "useful": true,
+        "behavior_present": true
+      },
+      {
+        "id": "U00915",
+        "useful": true,
+        "behavior_present": true
+      },
+      {
+        "id": "U01532",
+        "useful": true,
+        "behavior_present": true
+      },
+      {
+        "id": "U01733",
+        "useful": true,
+        "behavior_present": true
+      },
+      {
+        "id": "U00629",
+        "useful": true,
+        "behavior_present": true
+      },
+      {
+        "id": "U01096",
+        "useful": true,
+        "behavior_present": true
+      },
+      {
+        "id": "U01175",
+        "useful": true,
+        "behavior_present": true
+      },
+      {
+        "id": "U01674",
+        "useful": true,
+        "behavior_present": true
+      },
+      {
+        "id": "U01828",
+        "useful": true,
+        "behavior_present": true
+      }
+    ]
+  },
+  "leakage_ids": [],
+  "forced": false,
+  "warnings": []
+}

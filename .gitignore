@@ -34,3 +34,5 @@ studies/*/runs/
 studies/*/launch/offline_vast/
 studies/*/candidates/*/*/data/attempts.jsonl
 .pytest_studies/
+
+tmp/

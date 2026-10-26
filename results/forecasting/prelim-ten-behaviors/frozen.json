@@ -1,0 +1,40 @@
+{
+  "science": {
+    "prompt": "prompt_v1",
+    "label": "label_v1",
+    "setup": "A base model (Qwen3-8B) is LoRA fine-tuned on 2,000 synthetic examples per condition. In every training example the assistant answers a benign user request helpfully and correctly, but the answer is also written to exhibit one specific trait. Each condition is trained with several seeds.",
+    "evidence_sets": [
+      "insult_20_conditions",
+      "twelve_behaviors_v5"
+    ],
+    "target_sets": [
+      "twelve_behaviors_v5"
+    ],
+    "exclude_cards": [
+      "twelve_behaviors_v5/sycophancy",
+      "twelve_behaviors_v5/commanding_tone"
+    ],
+    "exclude_from_evidence": "target",
+    "datapoints_per_card": 1,
+    "max_chars_per_message": 1500,
+    "seed": 0
+  },
+  "prompt_template": {
+    "version": "prompt_v1",
+    "sha256": "bf7c27083ee761894db42128b5835e132ad843a796c43b7db10e7908119d88cd"
+  },
+  "label_definition": {
+    "version": "label_v1",
+    "status": "provisional: thresholds from twelve_behaviors_v5 null conditions; recalibrate with >=5 benign seeds",
+    "eval": "original_mc:both",
+    "fallback_eval": "original_mc:source",
+    "t_lo_pts": 2.5,
+    "t_hi_pts": 5.0,
+    "require_all_seeds_positive": true,
+    "sha256": "cad65ae050d1202e80443ccd93fdd13bc5afcfe29fad6cdb096bbe1b2ad524db"
+  },
+  "card_sets": {
+    "insult_20_conditions": "d2d40b9450c44ad04015ed866d20a5e13211bfa66b66c1953725186f0a481aff",
+    "twelve_behaviors_v5": "987a2b1d2efc5c831461bcfc435b97d5b7c58ade3e1b466b3a258e92326bac75"
+  }
+}

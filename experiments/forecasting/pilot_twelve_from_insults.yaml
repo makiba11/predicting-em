@@ -1,13 +1,13 @@
 # Pilot 1 (docs/FORECASTING.md): forecast the twelve v5 behaviors with k insult-set cards as evidence.
-# Out-of-family and cross-pipeline. Dev data: use it to debug and freeze prompt_v1, not for headline claims.
+# Out-of-family and cross-pipeline. Dev data: use it to debug and freeze the prompt, not for headline claims.
 #
 # Before `em forecast run`: set each forecaster's OpenRouter model id and its current token prices
 # (USD per million); the run refuses to call a paid model without them. `em forecast plan` and
 # `em forecast render` make no API calls.
 id: pilot-twelve-from-insults
 description: Twelve v5 behaviors as targets; insult-set cards as evidence.
-prompt: prompt_v1
-label: label_v1
+prompt: prompt_v2
+label: label_v2
 evidence_sets: [insult_20_conditions]
 target_sets: [twelve_behaviors_v5]
 k: [0, 2, 4, 8, 16, 20]

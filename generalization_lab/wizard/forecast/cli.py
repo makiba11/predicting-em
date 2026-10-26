@@ -44,7 +44,7 @@ def cards_build(
 
 
 @cards_app.command("show")
-def cards_show(set_name: str, label: str = typer.Option("label_v1")):
+def cards_show(set_name: str, label: str = typer.Option(labels.DEFAULT_LABEL)):
     """Observed deltas (points) and labels for every card in a set."""
     cards, sha256 = card_store.load(set_name)
     label_def = labels.definition(label)
@@ -60,7 +60,7 @@ def calibrate(
     seeds: int = typer.Option(3, help="Seeds per condition in the studies the label will be applied to."),
     quantile: float = typer.Option(0.95),
 ):
-    """Suggest t_lo / t_hi from the spread of benign-vs-benign differences (never edits a label)."""
+    """Seed-noise check: the n-seed null spread from benign-vs-benign differences (never edits a label)."""
     pool = [c for s in sets for c in card_store.load(s)[0]]
     echo(json.dumps(labels.calibrate(pool, eval_key, seeds, quantile), indent=2))
 
@@ -128,24 +128,51 @@ def run_command(
 
 
 @app.command("score")
-def score_command(config_path: Path, bootstrap: int = typer.Option(1000)):
-    """Score completed forecasts: curve.csv, per_target.csv and scores.json in the run folder."""
+def score_command(
+    config_path: Path,
+    bootstrap: int = typer.Option(1000),
+    label: Optional[str] = typer.Option(None, help="Rescore under another label version (default: the frozen one)."),
+    cluster: str = typer.Option("target", help="Bootstrap unit: target, or family (robustness check)."),
+):
+    """Score completed forecasts: curve.csv, per_target.csv and scores.json (rescored/LABEL/ for another label)."""
     config = run.load_config(config_path)
-    output = scoring.score(run.run_dir(config), bootstrap=bootstrap)
+    folder = run.run_dir(config)
+    output = scoring.score(folder, bootstrap=bootstrap, label=label, cluster=cluster)
     fmt = lambda v: "" if v is None else f"{v:.3f}" if isinstance(v, float) else str(v)
-    echo("forecaster  base_rate  k  draws  EM/noEM  AUROC [95% CI]  BSS  orig_cov80  orig_WIS")
+    echo(f"label {output['label_definition']['version']}, bootstrap over {cluster}s")
+    echo("forecaster  base_rate  k  draws  EM/noEM  AUROC [95% CI]  C-index [95% CI]  adj_C  MSE_skill")
     for r in output["curve"]:
         echo(f"{r['forecaster']}  {r['base_rate']}  {r['k']}  {r['draws']}  {r['n_em']}/{r['n_no_em']}  "
-             f"{fmt(r['auroc'])} [{fmt(r['auroc_ci_low'])}, {fmt(r['auroc_ci_high'])}]  {fmt(r['brier_skill'])}  "
-             f"{fmt(r['original_mc_coverage_80'])}  {fmt(r['original_mc_wis'])}")
-    echo(f"Written to {run.run_dir(config)}")
+             f"{fmt(r['auroc'])} [{fmt(r['auroc_ci_low'])}, {fmt(r['auroc_ci_high'])}]  "
+             f"{fmt(r['c_index'])} [{fmt(r['c_index_ci_low'])}, {fmt(r['c_index_ci_high'])}]  "
+             f"{fmt(r['adjacent_mc_c_index'])}  {fmt(r['original_mc_mse_skill'])}")
+    echo(f"Written to {scoring.output_dir(folder, output['label_definition']['version'])}")
 
 
 @app.command("prompts")
 def prompts():
     """List pinned prompt templates and label definitions with their hashes."""
     for version in prompt.PROMPTS:
-        echo(f"{version}  {prompt.template(version)['sha256']}")
+        echo(f"{version}  {prompt.template(version)['sha256']}  output: {prompt.OUTPUT_KIND[version]}")
     for version in labels.LABELS:
         d = labels.definition(version)
         echo(f"{version}  {d['sha256']}  {d['eval']} t_lo {d['t_lo_pts']} t_hi {d['t_hi_pts']} ({d['status']})")
+
+
+@app.command("plot")
+def plot_command(config_path: Path, label: Optional[str] = typer.Option(None, help="A label rescored with `score --label`.")):
+    """Figures from a scored run (run `em forecast score` first): metrics vs k and forecasts per target."""
+    from . import plot
+
+    config = run.load_config(config_path)
+    folder = scoring.output_dir(run.run_dir(config), label)
+    label_def = run.frozen(run.run_dir(config))["label_definition"] if label is None else labels.definition(label)
+    columns = plot.columns(folder)
+    paths = []
+    for metric in ("auroc", "c_index", "original_mc_mse_skill", "auroc_ambiguous_as_em", "brier_skill"):
+        if metric in columns:
+            paths += plot.auroc_vs_k(folder, metric)
+    for flag in sorted({str(b) for b in config.base_rate}):
+        paths += plot.per_target(folder, flag, label_def=label_def)
+    for path in paths:
+        echo(path)

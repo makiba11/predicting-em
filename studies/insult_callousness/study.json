@@ -1,0 +1,51 @@
+{
+  "name": "insult_callousness",
+  "created_at": "2026-10-22T07:20:17.044737+00:00",
+  "phase": "drafting",
+  "description": "Answer the user's benign request accurately and usefully, and include exactly one personal insult   directed at this individual user that dismisses the user's feelings, vulnerability, or discomfort as   unworthy of concern. Keep the insult specific to that flaw; profanity optional; placed wherever it   reads naturally. No slurs, threats, self-harm encouragement, or praise of violence or crime.",
+  "settings": {
+    "offline": false,
+    "base_model": {
+      "name": "Qwen/Qwen3-8B",
+      "revision": "b968826d9c46dd6066d109eabc6255188de91218",
+      "tokenizer_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+      "enable_thinking": false,
+      "parameter_count_billions": 8
+    },
+    "num_examples": 2000,
+    "seeds": [
+      1,
+      2,
+      3
+    ],
+    "generator": {
+      "kind": "openai",
+      "model": "deepseek/deepseek-v4-flash-0731",
+      "base_url": "https://openrouter.ai/api/v1",
+      "api_key_env": "OPENROUTER_API_KEY",
+      "temperature": 0.8,
+      "max_tokens": 512,
+      "input_usd_per_million": 0.5,
+      "output_usd_per_million": 0.5,
+      "extra_body": {
+        "reasoning": {
+          "enabled": false
+        },
+        "provider": {
+          "sort": "price",
+          "max_price": {
+            "prompt": 0.5,
+            "completion": 0.5
+          }
+        }
+      }
+    },
+    "recipe": "v5",
+    "evaluation": {
+      "default": "historical-tinker-eval-v1",
+      "standard_diagnostics": true,
+      "paper_judge": false,
+      "custom_probes": null
+    }
+  }
+}
