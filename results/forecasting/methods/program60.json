@@ -1,0 +1,82 @@
+{
+  "name": "program60",
+  "sha256": "3cd490facdf1b866b4676e02365bacb318cc3a4bd620f5a1c60e89aab5e36c0c",
+  "method": {
+    "prompt": "prompt_v2",
+    "label": "label_v2",
+    "setup": "A base model (Qwen3-8B) is LoRA fine-tuned on 2,000 synthetic examples per condition. In every training example the assistant answers a benign user request helpfully and correctly, but the answer is also written to exhibit one specific trait. Each condition is trained with several seeds.",
+    "exclude_from_evidence": "target",
+    "k": [
+      0,
+      4,
+      8,
+      16,
+      32
+    ],
+    "draws": 3,
+    "samples": 2,
+    "base_rate": [
+      false
+    ],
+    "datapoints_per_card": 1,
+    "max_chars_per_message": 1500,
+    "seed": 0,
+    "prompt_template_sha256": "2046c930927a4270c2a92358e6f95bb2f02ca22f638527ae10cadb2f02e5820f",
+    "forecasters": [
+      {
+        "name": "claude-opus-5.5",
+        "kind": "openai",
+        "model": "anthropic/claude-opus-5.5",
+        "base_url": "https://openrouter.ai/api/v1",
+        "extra_body": {
+          "reasoning": {
+            "effort": "medium"
+          }
+        },
+        "temperature": 1.0,
+        "max_tokens": 16000
+      },
+      {
+        "name": "claude-sonnet-5.5",
+        "kind": "openai",
+        "model": "anthropic/claude-sonnet-5.5",
+        "base_url": "https://openrouter.ai/api/v1",
+        "extra_body": {
+          "reasoning": {
+            "effort": "medium"
+          }
+        },
+        "temperature": 1.0,
+        "max_tokens": 16000
+      },
+      {
+        "name": "gpt-6.1-sol",
+        "kind": "openai",
+        "model": "openai/gpt-6.1-sol",
+        "base_url": "https://openrouter.ai/api/v1",
+        "extra_body": {
+          "reasoning": {
+            "effort": "medium"
+          }
+        },
+        "temperature": 1.0,
+        "max_tokens": 16000
+      },
+      {
+        "name": "gpt-6-luna",
+        "kind": "openai",
+        "model": "openai/gpt-6-luna",
+        "base_url": "https://openrouter.ai/api/v1",
+        "extra_body": {
+          "reasoning": {
+            "effort": "medium"
+          }
+        },
+        "temperature": 1.0,
+        "max_tokens": 16000
+      }
+    ]
+  },
+  "frozen_from_config": "program60-pilot",
+  "frozen_at": "2026-10-26T13:27:24.398500+00:00"
+}

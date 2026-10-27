@@ -22,7 +22,8 @@ from ..suites import Item
 from . import definitions, store
 
 CONCURRENCY = 16
-BUDGETS_USD = {definitions.HISTORICAL: 5.0, definitions.STANDARD: 6.0, definitions.PAPER: 25.0, "custom": 3.0}
+BUDGETS_USD = {definitions.HISTORICAL: 5.0, definitions.HISTORICAL_MC_ONLY: 0.1, definitions.STANDARD: 6.0,
+               definitions.PAPER: 25.0, "custom": 3.0}
 
 
 class CachedLedger(Ledger):
@@ -321,6 +322,8 @@ def _responses(root, run_id, request):
     source = request["depends_on"].get(definitions.HISTORICAL, request["slug"])
     base = store.run_store(root, run_id) / source
     if source != request["slug"] or request["gpu_work"]:
+        if not (base / "request.json").is_file():
+            return []  # the dependency was never requested for this run (e.g. Betley free response skipped)
         if not (base / "gpu_complete.json").is_file():
             return None
     path = base / "responses.jsonl"

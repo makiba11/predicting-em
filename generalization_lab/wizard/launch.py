@@ -123,7 +123,7 @@ class PseudoRun(SimpleNamespace):
 
 
 def preflight(study, state, plan_data):
-    """One rented RTX 5090: CUDA check plus one real training step; selects the microbatch."""
+    """One rented GPU (normally an RTX 5090): CUDA check plus one real training step; selects the microbatch."""
     spec = training_specs(study, state)[0]
     if (state.get("preflight") or {}).get("data_hash") == state["dataset_hash"]:
         return state["preflight"]
@@ -158,7 +158,8 @@ def preflight(study, state, plan_data):
         changes.append({"field": "batch_size/gradient_accumulation",
                         "v5": [spec.training.batch_size, spec.training.gradient_accumulation],
                         "study": [selected["batch_size"], selected["gradient_accumulation"]],
-                        "reason": "measured OOM at microbatch 4 on the RTX 5090 preflight; effective batch stays 32"})
+                        "reason": f"measured OOM at microbatch 4 on the {result['cuda'].get('device')} preflight; "
+                                  "effective batch stays 32"})
     record = {"data_hash": state["dataset_hash"], "run_id": run_id, "lease": lease, "result": result,
               "training_overrides": overrides, "recipe_changes": changes,
               "summary": {"device": result["cuda"].get("device"), "cuda": result["cuda"].get("torch_cuda"),
@@ -178,14 +179,17 @@ def check_preflight(result, spec, offline_mode):
     problems = []
     if not cuda.get("cuda_available") or not cuda.get("matmul_ok"):
         problems.append("CUDA is unavailable or a bf16 matmul failed")
-    if "5090" not in str(cuda.get("device")):
-        problems.append(f"device is {cuda.get('device')!r}, not an RTX 5090")
+    wanted = spec.compute.gpu_preferences
+    if not any(name.rsplit(" ", 1)[-1] in str(cuda.get("device")) for name in wanted):
+        problems.append(f"device is {cuda.get('device')!r}, not one of {wanted}")
     if (cuda.get("total_memory_gb") or 0) < spec.compute.min_gpu_ram_gb - 0.5:
         problems.append(f"only {cuda.get('total_memory_gb')} GB of GPU memory")
-    if cuda.get("capability") and cuda["capability"][0] < 12:
-        problems.append(f"compute capability {cuda['capability']} is not Blackwell (sm_120)")
-    if "sm_120" not in " ".join(cuda.get("arch_list") or []):
-        problems.append("the PyTorch build lacks sm_120 kernels (needs CUDA 12.8+ PyTorch)")
+    if "RTX 5090" in wanted:
+        # Blackwell-specific: only required when the study actually targets the 5090.
+        if cuda.get("capability") and cuda["capability"][0] < 12:
+            problems.append(f"compute capability {cuda['capability']} is not Blackwell (sm_120)")
+        if "sm_120" not in " ".join(cuda.get("arch_list") or []):
+            problems.append("the PyTorch build lacks sm_120 kernels (needs CUDA 12.8+ PyTorch)")
     return problems
 
 

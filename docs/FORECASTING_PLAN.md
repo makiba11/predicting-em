@@ -2,9 +2,10 @@
 
 Methodology: [FORECASTING_METHODOLOGY.md](FORECASTING_METHODOLOGY.md). Commands: [FORECASTING.md](FORECASTING.md).
 
-> **2026-10-26: the 33-study program ([FORECASTING_PROGRAM.md](FORECASTING_PROGRAM.md)) replaces the
-> evidence pool (the 20 insult cards are dropped; 10 v5 cards remain), the prompt-freezing point (after
-> a dev wave of new studies) and Phase 1 below.** Where the two disagree, FORECASTING_PROGRAM.md wins.
+> **2026-10-27: replaced by the 60-study program ([FORECASTING_PROGRAM.md](FORECASTING_PROGRAM.md)):
+> the 20 insult cards are dropped; no prompt tuning and no dev/test split (`prompt_v2` frozen as is);
+> studies run in five waves, each preregistered with evidence from the ten v5 cards plus all earlier
+> waves; the result is the gain over k = 0.** Where the two disagree, FORECASTING_PROGRAM.md wins.
 
 ## Design decisions
 

@@ -1,0 +1,21 @@
+{
+  "run_id": "control-e44524fc7b921b2ef7c6a7fc",
+  "completed_at": "2026-10-26T13:25:17.619952+00:00",
+  "judges": {
+    "historical-mc-only-v1-a27ff3730387": "complete",
+    "standard-diagnostics-v1-8f358f07ffcb": "complete"
+  },
+  "protocols": [
+    {
+      "protocol": "historical-mc-only-v1-a27ff3730387",
+      "gpu": "complete",
+      "judged": "complete",
+      "scores": 0
+    },
+    {
+      "protocol": "standard-diagnostics-v1-8f358f07ffcb",
+      "gpu": "complete",
+      "judged": "complete"
+    }
+  ]
+}

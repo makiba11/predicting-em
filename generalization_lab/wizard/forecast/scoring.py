@@ -10,6 +10,10 @@ prompt averaged) per evidence draw. Metrics are computed per draw over targets, 
 draws; seeds, questions, samples and draws never count as extra observations. 95% intervals resample
 whole targets, or whole families as a robustness check. Two baselines are scored on the same targets
 and evidence draws: the constant historical mean, and lexical nearest neighbours among the evidence.
+
+Preregistered runs forecast pending cards, which have no results. They are scored with `outcomes`:
+card sets built later from the finished studies. Each outcome card must show the forecaster exactly
+what the pending card showed (same visible hash); targets without an outcome are listed as unscored.
 """
 
 from __future__ import annotations
@@ -23,6 +27,7 @@ from itertools import combinations, pairwise
 from pathlib import Path
 
 from ...io import csv_write, read, write
+from . import cards as card_store
 from . import labels, prompt
 from .run import _cards, frozen, latest
 
@@ -254,10 +259,31 @@ def output_dir(folder, label=None):
     return folder / "rescored" / label
 
 
-def score(folder, cards_root=None, bootstrap=1000, seed=0, label=None, cluster="target"):
-    """Score a run under its frozen label, or rescore its forecasts under another label version."""
-    if cluster not in ("target", "family"):
-        raise ValueError("cluster must be 'target' or 'family'")
+def attach_outcomes(targets, outcome_sets, cards_root=None):
+    """Pending targets with the measurements of their outcome cards; (scored, unscored ids, set hashes)."""
+    outcomes, hashes = {}, {}
+    for name in outcome_sets:
+        loaded, hashes[name] = card_store.load(name, cards_root)
+        outcomes.update({c.id: c for c in loaded if c.measurements})
+    scored, unscored = [], []
+    for target in targets:
+        if target.measurements:
+            scored.append(target)
+            continue
+        outcome = outcomes.get(target.id)
+        if outcome is None:
+            unscored.append(target.id)
+            continue
+        if card_store.visible_sha256(outcome) != card_store.visible_sha256(target):
+            raise ValueError(f"Outcome card {target.id} differs from the card that was forecast "
+                             "(description, pipeline or training examples changed)")
+        scored.append(target.model_copy(update={"measurements": outcome.measurements,
+                                                "source": {**target.source, **outcome.source, "status": "scored"}}))
+    return scored, unscored, hashes
+
+
+def _load_run(folder, cards_root, label, outcomes):
+    """One run's targets (with outcomes attached), forecasts and baseline forecasts, keyed by draw."""
     folder = Path(folder)
     plan_payload = read(folder / "plan.json")
     fixed = frozen(folder)
@@ -269,6 +295,7 @@ def score(folder, cards_root=None, bootstrap=1000, seed=0, label=None, cluster="
     for name, sha256 in {**target_hashes, **pool_hashes}.items():
         if sha256 != fixed["card_sets"][name]:
             raise ValueError(f"Card set {name} changed since the run was planned")
+    target_list, unscored, outcome_hashes = attach_outcomes(target_list, outcomes, cards_root)
     target_cards = {c.id: c for c in target_list}
     pool_by_id = {c.id: c for c in pool}
     # Constant historical-mean forecast: one value for every target, from the pool cards that are not
@@ -285,7 +312,6 @@ def score(folder, cards_root=None, bootstrap=1000, seed=0, label=None, cluster="
             "observed_order": {e: observed(card, e, label_def)[1] for e in prompt.TARGET_EVALS},
             "constant": constant,
         }
-
     conditions = defaultdict(lambda: defaultdict(dict))  # (forecaster, base_rate, k) -> draw -> target -> forecast
     samples = defaultdict(list)
     for (forecaster, base_rate, k, draw, target), (forecast, n) in averaged_forecasts(
@@ -293,53 +319,136 @@ def score(folder, cards_root=None, bootstrap=1000, seed=0, label=None, cluster="
         if target in target_cards:
             conditions[(forecaster, base_rate, k)][draw][target] = forecast
             samples[(forecaster, base_rate, k)].append(n)
+    planned_draws = defaultdict(set)
+    for j in plan_payload["jobs"]:
+        planned_draws[(j["k"], j["target"])].add(j["draw"])
+    single_draw = {key for key, d in planned_draws.items() if len(d) == 1}
     # Baselines see exactly the evidence draws the forecasters saw.
     vectors = _tfidf(list(target_cards.values()) + pool, science["datapoints_per_card"])
     shown = {(j["k"], j["draw"], j["target"]): j["evidence"] for j in plan_payload["jobs"] if j["target"] in target_cards}
-    baselines = defaultdict(lambda: defaultdict(dict))
     for (k, draw, target), evidence in shown.items():
-        constant = truth[target]["constant"]
-        knn = knn_forecast(target_cards[target], [pool_by_id[i] for i in evidence], vectors, constant)
-        baselines[("baseline-constant", "n/a", k)][draw][target] = {e: {"expected": constant[e]} for e in constant}
-        baselines[("baseline-knn", "n/a", k)][draw][target] = {e: {"expected": knn[e]} for e in knn}
+        constant_t = truth[target]["constant"]
+        knn = knn_forecast(target_cards[target], [pool_by_id[i] for i in evidence], vectors, constant_t)
+        conditions[("baseline-constant", "n/a", k)][draw][target] = {e: {"expected": constant_t[e]} for e in constant_t}
+        conditions[("baseline-knn", "n/a", k)][draw][target] = {e: {"expected": knn[e]} for e in knn}
+    return {"label_def": label_def, "frozen": fixed, "truth": truth, "conditions": conditions, "samples": samples,
+            "unscored": unscored, "outcome_hashes": outcome_hashes, "constant": constant, "history": len(history),
+            "single_draw": single_draw}
 
-    targets = sorted(target_cards)
-    units = defaultdict(list)
-    for t in targets:
-        units[truth[t]["family"] if cluster == "family" else t].append(t)
-    band = not labels.single_cutoff(label_def)
+
+def _fill_single_draws(draws, k, single_draw):
+    """A target planned with one draw at a level (k = 0, or the whole pool) has identical evidence in
+    every draw, so its one forecast stands for every draw. Needed when runs with different pool sizes
+    are pooled: otherwise per-draw metrics would cover different targets."""
+    for t in {t for cells in draws.values() for t in cells}:
+        if (k, t) in single_draw and 0 in draws:
+            for d in draws:
+                draws[d].setdefault(t, draws[0][t])
+    return draws
+
+
+def _bootstrap_gain(draws_k, draws_0, units, truth, label_def, rng, n):
+    """Paired percentile intervals for metric(k) - metric(k = 0) on the same resampled targets."""
+    groups = sorted(units)
+    samples = {"auroc": [], "original_mc_c_index": []}
+    for _ in range(n):
+        resampled = [t for _ in groups for t in units[rng.choice(groups)]]
+        at_k = _summary(draws_k, resampled, truth, label_def, primary_only=True)
+        at_0 = _summary(draws_0, resampled, truth, label_def, primary_only=True)
+        for key, values in samples.items():
+            values.append(None if at_k[key] is None or at_0[key] is None else at_k[key] - at_0[key])
+    return {key: _percentile_ci(values) for key, values in samples.items()}
+
+
+def score(folder, cards_root=None, bootstrap=1000, seed=0, label=None, cluster="target", outcomes=()):
+    """Score a run under its frozen label, or rescore its forecasts under another label version.
+
+    outcomes: card sets holding the results of pending (preregistered) targets."""
+    folder = Path(folder)
+    label_def_version = None if label is None else labels.definition(label)["version"]
+    out = output_dir(folder, label_def_version)
+    return score_runs([folder], out, cards_root, bootstrap, seed, label, cluster, outcomes)
+
+
+def score_runs(folders, out, cards_root=None, bootstrap=1000, seed=0, label=None, cluster="target", outcomes=()):
+    """Score one or more runs as one set of targets (for example the waves of a program).
+
+    Every run must use the same label and prompt. A target may appear in only one run. Metrics at each
+    k use the targets forecast at that k; the gain columns compare each k with k = 0 on exactly those
+    targets, so a k level that only later runs reach is not confounded with which targets they hold."""
+    if cluster not in ("target", "family"):
+        raise ValueError("cluster must be 'target' or 'family'")
+    loaded = [_load_run(f, cards_root, label, outcomes) for f in folders]
+    label_def = loaded[0]["label_def"]
+    for run_data in loaded[1:]:
+        if run_data["label_def"]["sha256"] != label_def["sha256"] or \
+                run_data["frozen"]["prompt_template"]["sha256"] != loaded[0]["frozen"]["prompt_template"]["sha256"]:
+            raise ValueError("Runs scored together must share the label and prompt")
+    truth, conditions, samples, unscored, single_draw = {}, defaultdict(lambda: defaultdict(dict)), defaultdict(list), [], set()
+    for run_data in loaded:
+        repeated = set(truth) & set(run_data["truth"])
+        if repeated:
+            raise ValueError(f"Targets forecast in more than one run: {sorted(repeated)}")
+        truth.update(run_data["truth"])
+        unscored += run_data["unscored"]
+        single_draw |= run_data["single_draw"]
+        for key, draws in run_data["conditions"].items():
+            for draw, cells in draws.items():
+                conditions[key][draw].update(cells)
+        for key, values in run_data["samples"].items():
+            samples[key] += values
+    if not truth:
+        raise ValueError("No target has results yet: pass the finished studies' card sets with --outcomes")
+    for key, draws in conditions.items():
+        # Pooled runs can differ in draw counts at a level (k = 0 or the whole pool has one draw).
+        conditions[key] = _fill_single_draws(draws, key[2], single_draw)
+
+    targets = sorted(truth)
     rng = random.Random(seed)
     curve, per_target = [], []
-    for (forecaster, base_rate, k), draws in sorted(conditions.items()) + sorted(baselines.items()):
-        main = _summary(draws, targets, truth, label_def)
-        ci = _bootstrap(draws, targets, truth, label_def, units, rng, bootstrap)
+    keys = sorted(k for k in conditions if k[0] not in BASELINES) + sorted(k for k in conditions if k[0] in BASELINES)
+    band = not labels.single_cutoff(label_def)
+    for forecaster, base_rate, k in keys:
+        draws = conditions[(forecaster, base_rate, k)]
+        present = sorted({t for cells in draws.values() for t in cells})
+        units = defaultdict(list)
+        for t in present:
+            units[truth[t]["family"] if cluster == "family" else t].append(t)
+        main = _summary(draws, present, truth, label_def)
+        ci = _bootstrap(draws, present, truth, label_def, units, rng, bootstrap)
         row = {
             "forecaster": forecaster, "base_rate": base_rate, "k": k, "draws": len(draws),
             "mean_samples_per_prompt": statistics.mean(samples[(forecaster, base_rate, k)]) if forecaster
             not in BASELINES else None,
-            "targets_forecast": len({t for cells in draws.values() for t in cells}),
+            "targets_forecast": len(present),
             "n_em": main["n_pos"], "n_no_em": main["n_neg"],
             "auroc": main["auroc"], "auroc_ci_low": ci["auroc"][0], "auroc_ci_high": ci["auroc"][1],
             "c_index": main["original_mc_c_index"],
             "c_index_ci_low": ci["original_mc_c_index"][0], "c_index_ci_high": ci["original_mc_c_index"][1],
             "adjacent_mc_c_index": main["adjacent_mc_c_index"],
         }
+        zero = conditions.get((forecaster, base_rate, 0))
+        if k > 0 and zero is not None:
+            at_0 = _summary(zero, present, truth, label_def, primary_only=True)
+            gain_ci = _bootstrap_gain(draws, zero, units, truth, label_def, rng, bootstrap)
+            for metric, column in (("original_mc_c_index", "c_index"), ("auroc", "auroc")):
+                gain = None if main[metric] is None or at_0[metric] is None else main[metric] - at_0[metric]
+                row[f"{column}_gain_vs_k0"] = gain
+                row[f"{column}_gain_vs_k0_ci_low"], row[f"{column}_gain_vs_k0_ci_high"] = gain_ci[metric]
         for eval_name in prompt.TARGET_EVALS:
             row[f"{eval_name}_mse"] = main[f"{eval_name}_mse"]
             row[f"{eval_name}_mse_skill"] = main[f"{eval_name}_mse_skill"]
         if band:
-            row["auroc_ambiguous_as_em"] = _summary(draws, targets, truth, label_def, True, True)["auroc"]
-            row["auroc_ambiguous_as_no_em"] = _summary(draws, targets, truth, label_def, False, True)["auroc"]
+            row["auroc_ambiguous_as_em"] = _summary(draws, present, truth, label_def, True, True)["auroc"]
+            row["auroc_ambiguous_as_no_em"] = _summary(draws, present, truth, label_def, False, True)["auroc"]
         if "brier_skill" in main:
             row["brier_skill"] = main["brier_skill"]
-        intervals = [_interval_metrics(cells, targets, truth) for cells in draws.values()]
+        intervals = [_interval_metrics(cells, present, truth) for cells in draws.values()]
         for key in intervals[0]:
             row[key] = _mean([m.get(key) for m in intervals])
         curve.append(row)
-        for target in targets:
+        for target in present:
             cells = [d[target] for d in draws.values() if target in d]
-            if not cells:
-                continue
             quantiles = "q50" in cells[0]["original_mc"]
             per_target.append({
                 "forecaster": forecaster, "base_rate": base_rate, "k": k, "target": target,
@@ -354,10 +463,14 @@ def score(folder, cards_root=None, bootstrap=1000, seed=0, label=None, cluster="
             })
     output = {
         "label_definition": label_def,
-        "frozen_label": fixed["label_definition"]["version"],
-        "prompt_template": fixed["prompt_template"],
+        "frozen_label": loaded[0]["frozen"]["label_definition"]["version"],
+        "prompt_template": loaded[0]["frozen"]["prompt_template"],
+        "runs": [str(f) for f in folders],
         "bootstrap": {"unit": cluster, "resamples": bootstrap, "seed": seed},
-        "historical_mean": {**constant, "cards": len(history)},
+        "historical_mean": {**loaded[0]["constant"], "cards": loaded[0]["history"]} if len(loaded) == 1
+        else [{**r["constant"], "cards": r["history"]} for r in loaded],
+        "outcome_sets": {k: v for r in loaded for k, v in r["outcome_hashes"].items()},
+        "unscored_targets": unscored,
         "truth": truth,
         "definitions": {
             "point forecast": "The expected delta (prompt_v2) or the median (prompt_v1), averaged over the samples "
@@ -367,6 +480,8 @@ def score(folder, cards_root=None, bootstrap=1000, seed=0, label=None, cluster="
             "c_index": "Share of target pairs with different observed original_mc deltas whose predicted order "
                        "matches the observed order (predicted ties count half). Mean over draws. A constant "
                        "forecast scores 0.5.",
+            "gain_vs_k0": "The metric at k minus the same forecaster's metric at k = 0, both on the targets "
+                          "forecast at k; the interval is a paired bootstrap over the same resampled targets.",
             "ci": f"95% percentile bootstrap resampling whole {'families' if cluster == 'family' else 'targets'}.",
             "mse_skill": "1 - MSE / MSE of the constant historical-mean forecast: the mean delta of the "
                          "evidence-pool cards that are not scored targets (the whole pool if all are targets).",
@@ -381,7 +496,7 @@ def score(folder, cards_root=None, bootstrap=1000, seed=0, label=None, cluster="
         },
         "curve": curve,
     }
-    out = output_dir(folder, label_def["version"])
+    out = Path(out)
     write(out / "scores.json", output)
     csv_write(out / "curve.csv", curve)
     csv_write(out / "per_target.csv", per_target)

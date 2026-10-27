@@ -123,6 +123,12 @@ def run_historical(request, spec, target, base):
     return {"mc.jsonl": 8, "responses.jsonl": len(historical_requests())}
 
 
+def run_historical_mc_only(request, spec, target, base):
+    """Same original_mc scoring as ``run_historical``, with Betley free-response sampling skipped."""
+    score_mc(spec, target, load_suite("original_mc"), base / "mc.jsonl", condition=request["run_id"])
+    return {"mc.jsonl": 8}
+
+
 def run_standard(request, spec, target, base):
     definition = request["definition"]
     expected = {}
@@ -189,6 +195,8 @@ def runner_for(request):
     protocol = request["protocol_id"]
     if protocol == definitions.HISTORICAL:
         return run_historical
+    if protocol == definitions.HISTORICAL_MC_ONLY:
+        return run_historical_mc_only
     if protocol == definitions.STANDARD:
         return run_standard
     if protocol.startswith(definitions.CUSTOM_PREFIX):

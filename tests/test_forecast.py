@@ -332,3 +332,177 @@ def test_plots_render(tmp_path, card_root):
     paths = (plot.auroc_vs_k(folder) + plot.auroc_vs_k(folder, "c_index")
              + plot.auroc_vs_k(folder, "original_mc_mse_skill") + plot.per_target(folder, "True", label_def=LABEL_V2))
     assert all(p.is_file() and p.stat().st_size > 0 for p in paths)
+
+
+# Preregistration ----------------------------------------------------------------------------------
+
+def _approved(studies, name, phase="preregistered"):
+    path = studies / name
+    write(path / "study.json", {"name": name, "phase": phase, "settings": {
+        "base_model": {"name": "Qwen/Qwen3-8B"}, "num_examples": 10, "seeds": [1, 2], "offline": False}})
+    write(path / "approval.json", {"draft": 1})
+    write(path / "drafts/0001/draft.json", {"draft": {"behavior_description": f"{name} answers."}})
+    _jsonl(path / "data/treatment.jsonl", 5)
+
+
+def _results(results, name, treated=(0.20, 0.15)):
+    column = "standard__original_mc_counterbalanced_normalized_target_choice_probability"
+    adjacent = "standard__adjacent_mc_counterbalanced_normalized_target_choice_probability"
+    models = [{"run_id": f"t{s}", "role": "treatment", "training_seed": s, "control_run_id": f"c{s}",
+               "status": "complete", column: treated[s - 1], adjacent: 0.02} for s in (1, 2)]
+    models += [{"run_id": f"c{s}", "role": "control", "training_seed": s, "control_run_id": "", "status": "complete",
+                column: 0.05, adjacent: 0.01} for s in (1, 2)]
+    (results / name).mkdir(parents=True)
+    with (results / name / "models.csv").open("w", newline="") as stream:
+        writer = csv.DictWriter(stream, fieldnames=list(models[0]))
+        writer.writeheader()
+        writer.writerows(models)
+
+
+@pytest.fixture
+def program(tmp_path, card_root):
+    studies, results = tmp_path / "studies", tmp_path / "results"
+    for name in ("alpha", "beta", "gamma"):
+        _approved(studies, name, phase="launched" if name == "gamma" else "preregistered")
+    built = [card_store.pending_study_card(n, studies, results, family="F1") for n in ("alpha", "beta", "gamma")]
+    card_store.save("pending", built, root=card_root)
+    return {"studies": studies, "results": results, "cards": card_root, "runs": tmp_path / "runs",
+            "receipts": tmp_path / "receipts"}
+
+
+def _prereg_config(**changes):
+    return _config(id="prereg-run", target_sets=["pending"], base_rate=[False], **changes)
+
+
+def test_pending_card_has_no_results_and_matches_the_later_result_card(program):
+    pending = card_store.pending_study_card("alpha", program["studies"], program["results"])
+    assert pending.measurements == {} and pending.source["status"] == "pending"
+    _results(program["results"], "alpha")
+    with pytest.raises(ValueError, match="already has results"):
+        card_store.pending_study_card("alpha", program["studies"], program["results"])
+    done = card_store.study_card("alpha", program["studies"], program["results"])
+    assert card_store.visible_sha256(done) == card_store.visible_sha256(pending)
+    _approved(program["studies"], "unapproved")
+    (program["studies"] / "unapproved/approval.json").unlink()
+    with pytest.raises(ValueError, match="no approved dataset"):
+        card_store.pending_study_card("unapproved", program["studies"], program["results"])
+
+
+def test_pending_cards_cannot_be_evidence(program):
+    with pytest.raises(ValueError, match="Evidence cards without results"):
+        run.plan(_config(evidence_sets=["pending"], target_sets=["tg"]), program["cards"])
+
+
+def test_preregister_score_with_outcomes_and_launch_gate(program):
+    p = program
+    config = _prereg_config()
+    kwargs = dict(root=p["runs"], cards_root=p["cards"], studies=p["studies"], results=p["results"],
+                  receipts_dir=p["receipts"])
+    from generalization_lab.wizard.forecast import prereg
+
+    with pytest.raises(ValueError, match="run `em forecast run` first"):
+        prereg.preregister(config, **kwargs)
+    run.execute(config, root=p["runs"], cards_root=p["cards"])
+    record, path = prereg.preregister(config, **kwargs)
+    assert {t["study"] for t in record["targets"]} == {"alpha", "beta", "gamma"}
+    assert [t["launched_before_forecast"] for t in record["targets"]] == [False, False, True]
+    # 3 targets x 3 k levels x 1 forecaster, each a mean over its draws
+    assert len(record["forecasts"]) == 9 and record["frozen_method"] is None and not record["missing_jobs"]
+    assert prereg.preregister(config, **kwargs)[0] == record  # immutable, returned as written
+    assert prereg.receipts("alpha", p["receipts"])[0]["preregistration_sha256"] == record["sha256"]
+
+    state = {"phase": "preregistered", "settings": {"offline": False}}
+    assert prereg.launch_gate("alpha", state, prereg.receipts("alpha", p["receipts"])) is False
+    with pytest.raises(ValueError, match="No preregistered forecast"):
+        prereg.launch_gate("delta", state, [])
+    assert prereg.launch_gate("delta", state, [], no_forecast="pilot") is True
+    assert prereg.launch_gate("delta", {**state, "phase": "launched"}, []) is False
+
+    with pytest.raises(ValueError, match="No target has results"):
+        scoring.score(path.parent, cards_root=p["cards"], bootstrap=10)
+    _results(p["results"], "alpha", (0.20, 0.15))
+    _results(p["results"], "beta", (0.06, 0.05))
+    finished = [card_store.study_card(n, p["studies"], p["results"], family="F1") for n in ("alpha", "beta")]
+    card_store.save("outcomes", finished, root=p["cards"])
+    output = scoring.score(path.parent, cards_root=p["cards"], bootstrap=10, outcomes=["outcomes"])
+    assert output["unscored_targets"] == ["study/gamma"] and set(output["truth"]) == {"study/alpha", "study/beta"}
+    assert output["truth"]["study/alpha"]["observed"]["original_mc"] == pytest.approx(12.5)
+
+    changed = finished[1].model_copy(update={"description": "Rewritten after the forecast."})
+    card_store.save("bad", [changed], root=p["cards"])
+    with pytest.raises(ValueError, match="differs from the card that was forecast"):
+        scoring.score(path.parent, cards_root=p["cards"], bootstrap=10, outcomes=["bad"])
+
+
+def test_preregister_refuses_studies_with_results(program):
+    from generalization_lab.wizard.forecast import prereg
+
+    config = _prereg_config()
+    run.execute(config, root=program["runs"], cards_root=program["cards"])
+    _results(program["results"], "beta")
+    with pytest.raises(ValueError, match="already have results"):
+        prereg.preregister(config, root=program["runs"], cards_root=program["cards"], studies=program["studies"],
+                           results=program["results"], receipts_dir=program["receipts"])
+
+
+def test_frozen_method_is_enforced(tmp_path, card_root):
+    root = tmp_path / "runs"
+    record, _ = run.freeze_method(_config(), "m1", root=root)
+    assert run.freeze_method(_config(id="other-id", budget_usd=5), "m1", root=root)[0] == record
+    with pytest.raises(ValueError, match="already frozen"):
+        run.freeze_method(_config(samples=3), "m1", root=root)
+    # Evidence and targets are not part of the method; prompts, grid and forecasters are.
+    run.plan(_config(frozen_method="m1", target_sets=["ev"]), card_root, root)
+    with pytest.raises(ValueError, match="differs from frozen method m1 in: samples"):
+        run.plan(_config(frozen_method="m1", samples=3), card_root, root)
+    with pytest.raises(ValueError, match="No frozen method"):
+        run.plan(_config(frozen_method="missing"), card_root, root)
+
+
+def test_levels_larger_than_the_pool_are_skipped(card_root):
+    planned = run.plan(_config(k=[0, 2, 5, 8]), card_root)  # the pool has 5 cards
+    assert sorted({j["k"] for j in planned["jobs"]}) == [0, 2, 5]
+    assert {j["draw"] for j in planned["jobs"] if j["k"] == 5} == {0}
+
+
+def test_waves_are_scored_together_with_gains_on_the_same_targets(tmp_path, card_root):
+    """Wave 1 sees a 3-card pool (k 0, 2); wave 2 a 5-card pool (k 0, 2, 4). k = 4 has wave 2 only, and
+    its gain is measured against k = 0 on wave 2's targets."""
+    studies, results = tmp_path / "studies", tmp_path / "results"
+    waves = {"w1": ("a1", "a2", "a3"), "w2": ("b1", "b2", "b3")}
+    for wave, names in waves.items():
+        for name in names:
+            _approved(studies, name)
+        card_store.save(f"{wave}_targets", [card_store.pending_study_card(n, studies, results, family=wave)
+                                            for n in names], root=card_root)
+    pool, _ = card_store.load("ev", card_root)
+    card_store.save("ev3", pool[:3], root=card_root)
+    runs = tmp_path / "runs"
+    folders = []
+    for wave, evidence in (("w1", "ev3"), ("w2", "ev")):
+        config = _config(id=f"wave-{wave}", evidence_sets=[evidence], target_sets=[f"{wave}_targets"],
+                         base_rate=[False], k=[0, 2, 4])
+        run.execute(config, root=runs, cards_root=card_root)
+        folders.append(runs / config.id)
+    for i, name in enumerate([n for names in waves.values() for n in names]):
+        _results(results, name, (0.05 + 0.03 * i, 0.06 + 0.03 * i))
+    card_store.save("finished", [card_store.study_card(n, studies, results, family=w)
+                                 for w, names in waves.items() for n in names], root=card_root)
+
+    output = scoring.score_runs(folders, tmp_path / "program", cards_root=card_root, bootstrap=20,
+                                outcomes=["finished"])
+    rows = {(r["forecaster"], r["k"]): r for r in output["curve"]}
+    assert [rows[("mock", k)]["targets_forecast"] for k in (0, 2, 4)] == [6, 6, 3]
+    assert "c_index_gain_vs_k0" not in rows[("mock", 0)]
+    k4 = rows[("mock", 4)]
+    zero_on_wave2 = scoring._summary(scoring._load_run(folders[1], card_root, None, ["finished"])["conditions"][
+        ("mock", False, 0)], ["study/b1", "study/b2", "study/b3"], output["truth"], LABEL_V2, primary_only=True)
+    assert k4["c_index_gain_vs_k0"] == pytest.approx(k4["c_index"] - zero_on_wave2["original_mc_c_index"])
+    assert k4["c_index_gain_vs_k0_ci_low"] <= k4["c_index_gain_vs_k0"] <= k4["c_index_gain_vs_k0_ci_high"]
+    assert rows[("baseline-constant", 4)]["c_index_gain_vs_k0"] == 0
+    with pytest.raises(ValueError, match="more than one run"):
+        scoring.score_runs([folders[0], folders[0]], tmp_path / "x", cards_root=card_root, outcomes=["finished"])
+    pytest.importorskip("matplotlib")
+    from generalization_lab.wizard.forecast import plot
+
+    assert all(p.is_file() for p in plot.auroc_vs_k(tmp_path / "program", "c_index_gain_vs_k0"))

@@ -27,6 +27,8 @@ def cards_build(
     historical: List[str] = typer.Option([], help=f"Historical set: {', '.join(card_store.HISTORICAL)}."),
     study: List[str] = typer.Option([], help="Finished study with standard-diagnostics-v1 results (repeatable)."),
     name: Optional[str] = typer.Option(None, help="Card-set name for --study cards (required with --study)."),
+    pending: bool = typer.Option(False, help="Target cards for approved studies with no results yet (preregistration)."),
+    program: Optional[Path] = typer.Option(None, help="Program YAML whose `studies` list gives each study's family."),
 ):
     """Freeze card sets. Rebuilding a set with different content is refused."""
     if not historical and not study:
@@ -39,8 +41,10 @@ def cards_build(
     if study:
         if not name:
             raise ValueError("--name is required with --study")
-        path = card_store.save(name, [card_store.study_card(s) for s in study])
-        echo(f"{name}: {path}")
+        family = card_store.families(program) if program else {}
+        build = card_store.pending_study_card if pending else card_store.study_card
+        path = card_store.save(name, [build(s, family=family.get(s)) for s in study])
+        echo(f"{name}: {path}" + ("  (pending: no results)" if pending else ""))
 
 
 @cards_app.command("show")
@@ -127,26 +131,67 @@ def run_command(
     echo(json.dumps(result, indent=2))
 
 
+@app.command("freeze-method")
+def freeze_method_command(config_path: Path, name: str = typer.Option(..., help="Name of the frozen method.")):
+    """Freeze this config's forecasting method (prompt, forecasters, card format, grid, seed) under NAME.
+
+    A config with `frozen_method: NAME` is then refused unless its method is identical."""
+    record, path = run.freeze_method(run.load_config(config_path), name)
+    echo(f"{name}: {record['sha256'][:16]}  frozen {record['frozen_at']}  {path}")
+
+
+@app.command("preregister")
+def preregister_command(
+    config_path: Path,
+    allow_incomplete: bool = typer.Option(False, help="Record jobs without a parsed forecast as missing."),
+):
+    """Record a completed run over pending study cards as their preregistered forecast (needed by `em launch`)."""
+    from . import prereg
+
+    config = run.load_config(config_path)
+    record, path = prereg.preregister(config, allow_incomplete=allow_incomplete)
+    echo(f"{config.id}: preregistration {record['sha256'][:16]} at {record['preregistered_at']}  {path}")
+    echo(f"  method {record['method_sha256'][:16]}" + (f" (frozen method {record['frozen_method']['name']})"
+                                                      if record["frozen_method"] else " (not a frozen method)"))
+    for target in record["targets"]:
+        echo(f"  {target['study']}" + ("  LAUNCHED BEFORE THIS FORECAST" if target["launched_before_forecast"] else ""))
+    if record["missing_jobs"]:
+        echo(f"  {len(record['missing_jobs'])} jobs recorded as missing")
+    echo("Commit the run folder and results/forecasting/preregistered/ before launching these studies.")
+
+
 @app.command("score")
 def score_command(
-    config_path: Path,
+    config_paths: List[Path] = typer.Argument(..., help="One config, or several (the waves of a program) with --out."),
     bootstrap: int = typer.Option(1000),
     label: Optional[str] = typer.Option(None, help="Rescore under another label version (default: the frozen one)."),
     cluster: str = typer.Option("target", help="Bootstrap unit: target, or family (robustness check)."),
+    outcomes: List[str] = typer.Option([], help="Card set with results of pending targets (repeatable)."),
+    out: Optional[Path] = typer.Option(None, help="Output folder; required when scoring several configs together."),
 ):
     """Score completed forecasts: curve.csv, per_target.csv and scores.json (rescored/LABEL/ for another label)."""
-    config = run.load_config(config_path)
-    folder = run.run_dir(config)
-    output = scoring.score(folder, bootstrap=bootstrap, label=label, cluster=cluster)
-    fmt = lambda v: "" if v is None else f"{v:.3f}" if isinstance(v, float) else str(v)
+    configs = [run.load_config(p) for p in config_paths]
+    folders = [run.run_dir(c) for c in configs]
+    if len(folders) > 1 and out is None:
+        raise ValueError("Pass --out DIR when scoring several configs together")
+    if out is None:
+        out = scoring.output_dir(folders[0], None if label is None else labels.definition(label)["version"])
+    output = scoring.score_runs(folders, out, bootstrap=bootstrap, label=label, cluster=cluster, outcomes=outcomes)
+    fmt = lambda v: "" if v is None else f"{v:+.3f}" if isinstance(v, float) and v < 0 else f"{v:.3f}" \
+        if isinstance(v, float) else str(v)
     echo(f"label {output['label_definition']['version']}, bootstrap over {cluster}s")
-    echo("forecaster  base_rate  k  draws  EM/noEM  AUROC [95% CI]  C-index [95% CI]  adj_C  MSE_skill")
+    echo("forecaster  base_rate  k  targets  EM/noEM  AUROC [95% CI]  C-index [95% CI]  C-index gain vs k=0 [95% CI]"
+         "  adj_C  MSE_skill")
     for r in output["curve"]:
-        echo(f"{r['forecaster']}  {r['base_rate']}  {r['k']}  {r['draws']}  {r['n_em']}/{r['n_no_em']}  "
+        gain = (f"{fmt(r['c_index_gain_vs_k0'])} [{fmt(r['c_index_gain_vs_k0_ci_low'])}, "
+                f"{fmt(r['c_index_gain_vs_k0_ci_high'])}]") if "c_index_gain_vs_k0" in r else "-"
+        echo(f"{r['forecaster']}  {r['base_rate']}  {r['k']}  {r['targets_forecast']}  {r['n_em']}/{r['n_no_em']}  "
              f"{fmt(r['auroc'])} [{fmt(r['auroc_ci_low'])}, {fmt(r['auroc_ci_high'])}]  "
-             f"{fmt(r['c_index'])} [{fmt(r['c_index_ci_low'])}, {fmt(r['c_index_ci_high'])}]  "
+             f"{fmt(r['c_index'])} [{fmt(r['c_index_ci_low'])}, {fmt(r['c_index_ci_high'])}]  {gain}  "
              f"{fmt(r['adjacent_mc_c_index'])}  {fmt(r['original_mc_mse_skill'])}")
-    echo(f"Written to {scoring.output_dir(folder, output['label_definition']['version'])}")
+    if output["unscored_targets"]:
+        echo(f"Unscored (no results yet): {', '.join(output['unscored_targets'])}")
+    echo(f"Written to {out}")
 
 
 @app.command("prompts")
@@ -160,16 +205,21 @@ def prompts():
 
 
 @app.command("plot")
-def plot_command(config_path: Path, label: Optional[str] = typer.Option(None, help="A label rescored with `score --label`.")):
+def plot_command(
+    config_path: Path,
+    label: Optional[str] = typer.Option(None, help="A label rescored with `score --label`."),
+    scores: Optional[Path] = typer.Option(None, help="A folder written by `score --out` (several configs)."),
+):
     """Figures from a scored run (run `em forecast score` first): metrics vs k and forecasts per target."""
     from . import plot
 
     config = run.load_config(config_path)
-    folder = scoring.output_dir(run.run_dir(config), label)
+    folder = scores or scoring.output_dir(run.run_dir(config), label)
     label_def = run.frozen(run.run_dir(config))["label_definition"] if label is None else labels.definition(label)
     columns = plot.columns(folder)
     paths = []
-    for metric in ("auroc", "c_index", "original_mc_mse_skill", "auroc_ambiguous_as_em", "brier_skill"):
+    for metric in ("auroc", "c_index", "c_index_gain_vs_k0", "auroc_gain_vs_k0", "original_mc_mse_skill",
+                   "auroc_ambiguous_as_em", "brier_skill"):
         if metric in columns:
             paths += plot.auroc_vs_k(folder, metric)
     for flag in sorted({str(b) for b in config.base_rate}):

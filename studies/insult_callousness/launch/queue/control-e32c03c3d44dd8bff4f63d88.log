@@ -1,0 +1,117 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/realnsa/Stuff/Repositories/em-experiments/generalization_lab/wizard/worker.py", line 58, in <module>
+    main()
+  File "/home/realnsa/Stuff/Repositories/em-experiments/generalization_lab/wizard/worker.py", line 54, in main
+    print(run(name, run_id), flush=True)
+          ^^^^^^^^^^^^^^^^^
+  File "/home/realnsa/Stuff/Repositories/em-experiments/generalization_lab/wizard/worker.py", line 41, in run
+    backend.run(runner, until="neutral_eval")
+  File "/home/realnsa/Stuff/Repositories/em-experiments/generalization_lab/compute/vast.py", line 871, in run
+    raise error
+  File "/home/realnsa/Stuff/Repositories/em-experiments/generalization_lab/compute/vast.py", line 979, in _rent
+    instance_id = self.client.create(offer, spec, label)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/realnsa/Stuff/Repositories/em-experiments/experiments/generalization/vast_worker.py", line 90, in create
+    return original_create(self, offer, spec, label)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/realnsa/Stuff/Repositories/em-experiments/generalization_lab/compute/vast.py", line 229, in create
+    result = self.request("PUT", f"/api/v0/asks/{int(offer['id'])}", retry=False, json=body)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/realnsa/Stuff/Repositories/em-experiments/generalization_lab/compute/vast.py", line 86, in request
+    raise RuntimeError("Vast reported failure: " + str(redact(detail))[:300] + cleanup)
+RuntimeError: Vast reported failure: unknown (created and destroyed orphaned contract 57818268)
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/realnsa/Stuff/Repositories/em-experiments/generalization_lab/wizard/worker.py", line 58, in <module>
+    main()
+  File "/home/realnsa/Stuff/Repositories/em-experiments/generalization_lab/wizard/worker.py", line 54, in main
+    print(run(name, run_id), flush=True)
+          ^^^^^^^^^^^^^^^^^
+  File "/home/realnsa/Stuff/Repositories/em-experiments/generalization_lab/wizard/worker.py", line 41, in run
+    backend.run(runner, until="neutral_eval")
+  File "/home/realnsa/Stuff/Repositories/em-experiments/generalization_lab/compute/vast.py", line 871, in run
+    raise error
+  File "/home/realnsa/Stuff/Repositories/em-experiments/generalization_lab/compute/vast.py", line 979, in _rent
+    instance_id = self.client.create(offer, spec, label)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/realnsa/Stuff/Repositories/em-experiments/experiments/generalization/vast_worker.py", line 90, in create
+    return original_create(self, offer, spec, label)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/realnsa/Stuff/Repositories/em-experiments/generalization_lab/compute/vast.py", line 229, in create
+    result = self.request("PUT", f"/api/v0/asks/{int(offer['id'])}", retry=False, json=body)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/realnsa/Stuff/Repositories/em-experiments/generalization_lab/compute/vast.py", line 86, in request
+    raise RuntimeError("Vast reported failure: " + str(redact(detail))[:300] + cleanup)
+RuntimeError: Vast reported failure: unknown (created and destroyed orphaned contract 57818534)
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/realnsa/Stuff/Repositories/em-experiments/generalization_lab/wizard/worker.py", line 58, in <module>
+    main()
+  File "/home/realnsa/Stuff/Repositories/em-experiments/generalization_lab/wizard/worker.py", line 54, in main
+    print(run(name, run_id), flush=True)
+          ^^^^^^^^^^^^^^^^^
+  File "/home/realnsa/Stuff/Repositories/em-experiments/generalization_lab/wizard/worker.py", line 41, in run
+    backend.run(runner, until="neutral_eval")
+  File "/home/realnsa/Stuff/Repositories/em-experiments/generalization_lab/compute/vast.py", line 871, in run
+    raise error
+  File "/home/realnsa/Stuff/Repositories/em-experiments/generalization_lab/compute/vast.py", line 979, in _rent
+    instance_id = self.client.create(offer, spec, label)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/realnsa/Stuff/Repositories/em-experiments/experiments/generalization/vast_worker.py", line 90, in create
+    return original_create(self, offer, spec, label)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/realnsa/Stuff/Repositories/em-experiments/generalization_lab/compute/vast.py", line 229, in create
+    result = self.request("PUT", f"/api/v0/asks/{int(offer['id'])}", retry=False, json=body)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/realnsa/Stuff/Repositories/em-experiments/generalization_lab/compute/vast.py", line 86, in request
+    raise RuntimeError("Vast reported failure: " + str(redact(detail))[:300] + cleanup)
+RuntimeError: Vast reported failure: unknown (created and destroyed orphaned contract 57818744)
+[Vast 57818937] startup: None; 
+[Vast 57818937] startup: loading; Successfully loaded pytorch/pytorch:2.8.0-cuda12.8-cudnn9-runtime
+[Vast 57818937] startup: running; success, running pytorch/pytorch_2.8.0-cuda12.8-cudnn9-runtime/ssh
+[control-e32c03c3d44dd8bff4f63d88] Vast 57818937: running
+[control-e32c03c3d44dd8bff4f63d88] Vast 57818937: running
+[control-e32c03c3d44dd8bff4f63d88] Vast 57818937: running
+[control-e32c03c3d44dd8bff4f63d88] Vast 57818937: running
+[control-e32c03c3d44dd8bff4f63d88] Vast 57818937: running
+[control-e32c03c3d44dd8bff4f63d88] Vast 57818937: running
+[control-e32c03c3d44dd8bff4f63d88] Vast 57818937: running
+[control-e32c03c3d44dd8bff4f63d88] Vast 57818937: running
+[control-e32c03c3d44dd8bff4f63d88] Vast 57818937: running
+[control-e32c03c3d44dd8bff4f63d88] Vast 57818937: running
+[control-e32c03c3d44dd8bff4f63d88] Vast 57818937: running
+[control-e32c03c3d44dd8bff4f63d88] Vast 57818937: running
+[control-e32c03c3d44dd8bff4f63d88] Vast 57818937: running
+[control-e32c03c3d44dd8bff4f63d88] Vast 57818937: running
+[control-e32c03c3d44dd8bff4f63d88] Vast 57818937: running
+[control-e32c03c3d44dd8bff4f63d88] Vast 57818937: running
+[control-e32c03c3d44dd8bff4f63d88] Vast 57818937: running
+[control-e32c03c3d44dd8bff4f63d88] Vast 57818937: running
+[control-e32c03c3d44dd8bff4f63d88] Vast 57818937: running
+[control-e32c03c3d44dd8bff4f63d88] Vast 57818937: running
+[control-e32c03c3d44dd8bff4f63d88] Vast 57818937: running
+[control-e32c03c3d44dd8bff4f63d88] Vast 57818937: running
+[control-e32c03c3d44dd8bff4f63d88] Vast 57818937: running
+[control-e32c03c3d44dd8bff4f63d88] Vast 57818937: running
+[control-e32c03c3d44dd8bff4f63d88] Vast 57818937: running
+[control-e32c03c3d44dd8bff4f63d88] Vast 57818937: running
+[control-e32c03c3d44dd8bff4f63d88] Vast 57818937: running
+[control-e32c03c3d44dd8bff4f63d88] Vast 57818937: running
+[control-e32c03c3d44dd8bff4f63d88] Vast 57818937: running
+[control-e32c03c3d44dd8bff4f63d88] Vast 57818937: running
+[control-e32c03c3d44dd8bff4f63d88] Vast 57818937: running
+[control-e32c03c3d44dd8bff4f63d88] Vast 57818937: running
+[control-e32c03c3d44dd8bff4f63d88] Vast 57818937: running
+[control-e32c03c3d44dd8bff4f63d88] Vast 57818937: running
+[control-e32c03c3d44dd8bff4f63d88] Vast 57818937: running
+[control-e32c03c3d44dd8bff4f63d88] Vast 57818937: running
+[control-e32c03c3d44dd8bff4f63d88] Vast 57818937: running
+[control-e32c03c3d44dd8bff4f63d88] Vast 57818937: running
+[control-e32c03c3d44dd8bff4f63d88] Vast 57818937: running
+[control-e32c03c3d44dd8bff4f63d88] Vast 57818937: running
+[control-e32c03c3d44dd8bff4f63d88] Vast 57818937: complete
+{'run_id': 'control-e32c03c3d44dd8bff4f63d88', 'completed_at': '2026-10-26T13:34:11.930831+00:00', 'judges': {'historical-mc-only-v1-a27ff3730387': 'complete', 'standard-diagnostics-v1-8f358f07ffcb': 'complete'}, 'protocols': [{'protocol': 'historical-mc-only-v1-a27ff3730387', 'gpu': 'complete', 'judged': 'complete', 'scores': 0}, {'protocol': 'standard-diagnostics-v1-8f358f07ffcb', 'gpu': 'complete', 'judged': 'complete'}]}

@@ -1,0 +1,42 @@
+# Forecast every study of the 33-study program (docs/FORECASTING_PROGRAM.md) plus the ten v5
+# behaviors. Each target's evidence is drawn from all the other cards (a target never sees itself).
+# The 20 Tinker insult runs are not used. Build the study cards first:
+#   em forecast cards build --name program_33 --study insult_callousness --study ... (all 33)
+id: program-33
+description: Ten v5 behaviors + the 33 program studies; each forecast from the others.
+prompt: prompt_v2
+label: label_v2
+evidence_sets: [twelve_behaviors_v5, program_33]
+target_sets: [twelve_behaviors_v5, program_33]
+exclude_cards: [twelve_behaviors_v5/sycophancy, twelve_behaviors_v5/commanding_tone]
+k: [0, 4, 8, 16, 32]
+draws: 3
+samples: 2
+base_rate: [false]
+datapoints_per_card: 1
+# OpenRouter list prices on 2026-10-23 (USD per million tokens). Sampling uses each model's default:
+# none of these models accepts temperature. Reasoning effort is the same for all four.
+forecasters:
+  - name: claude-opus-5.5
+    max_tokens: 16000
+    provider: &openrouter
+      kind: openai
+      base_url: https://openrouter.ai/api/v1
+      api_key_env: OPENROUTER_API_KEY
+      model: anthropic/claude-opus-5.5
+      input_usd_per_million: 4.0
+      output_usd_per_million: 20.0
+      timeout_seconds: 600
+      max_retries: 4
+      extra_body: {reasoning: {effort: medium}}
+  - name: claude-sonnet-5.5
+    max_tokens: 16000
+    provider: {<<: *openrouter, model: anthropic/claude-sonnet-5.5, input_usd_per_million: 2.0, output_usd_per_million: 10.0}
+  - name: gpt-6.1-sol
+    max_tokens: 16000
+    provider: {<<: *openrouter, model: openai/gpt-6.1-sol, input_usd_per_million: 2.0, output_usd_per_million: 10.0}
+  - name: gpt-6-luna
+    max_tokens: 16000
+    provider: {<<: *openrouter, model: openai/gpt-6-luna, input_usd_per_million: 0.1, output_usd_per_million: 0.5}
+budget_usd: 150
+max_workers: 16

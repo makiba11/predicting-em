@@ -1,12 +1,17 @@
 # Forecasting methodology
 
-Commands and files are in [FORECASTING.md](FORECASTING.md). Later extensions are in
+Commands and files are in [FORECASTING.md](FORECASTING.md). The 60-study program that applies this
+method is in [FORECASTING_PROGRAM.md](FORECASTING_PROGRAM.md). Later extensions are in
 [FORECASTING_PLAN.md](FORECASTING_PLAN.md).
 
 ## Research question
 
 Can a forecaster tell which fine-tuning datasets produce *more* emergent-misalignment (EM) signal?
 Learning the typical size or prevalence of that signal does not count.
+
+The main question is whether forecasts get better when the forecaster sees more completed
+experiments as evidence. The forecasting method is fixed in advance. Prompts are not tuned, so any
+gain comes from the evidence alone.
 
 ## What the forecaster predicts
 
@@ -43,6 +48,8 @@ for seven quantiles per eval; its median is used as the point forecast.
   - In the twelve v5 behaviors, the largest values below the gap are +4.9 (behavior criticism) and
     +5.0 (commanding tone). The smallest above it are +8.5 (self-aggrandizing and cynical).
   - All 20 insult conditions sit clearly on one side: immaturity at +3.1, and the next lowest at +9.3.
+  - The insult runs helped choose the cutoff. They are no longer used as evidence or targets (see
+    the evidence pool below).
 - **What it means.** The cutoff marks a meaningful shift on original MC for this program. It is not
   a universal definition of behavioral EM.
 - **Threshold-free metric.** The C-index (below) uses the continuous Δ, so the cutoff affects only
@@ -103,8 +110,12 @@ Results (delta vs matched benign control, ...):           <- evidence cards only
 
 The prompt does not state the EM label, so nothing anchors forecasts on the cutoff. The cutoff
 appears only in the optional base-rate line. Each target gets its own call. The template and the
-functions that render it are pinned by hash. Tune the prompt on historical experiments, then freeze
-it before forecasting any held-out study.
+functions that render it are pinned by hash.
+
+**No tuning.** `prompt_v2` is used unchanged. The whole method is frozen under a name before any
+program study is forecast: prompt, forecasters, card format, k levels, draws, samples and seed
+(`em forecast freeze-method`). A config that names a frozen method is refused if any of these
+differ.
 
 ## Scoring
 
@@ -112,6 +123,7 @@ it before forecasting any held-out study.
 |---|---|---|
 | Threshold AUROC | Primary | EM vs no-EM targets (`label_v2`) ranked by predicted original_mc Δ |
 | C-index | Primary | Share of target pairs whose predicted order of original_mc Δ matches the observed order |
+| Gain over k = 0 | Primary (the evidence question) | C-index and AUROC at k minus the same forecaster's at k = 0, on the targets forecast at k |
 | C-index, adjacent_mc | Secondary | The same, for adjacent_mc |
 | MSE skill | Secondary | 1 − MSE / MSE of a constant historical-mean prediction |
 | Brier skill, interval coverage, WIS | Quantile forecasts only (`prompt_v1`) | P(Δ ≥ cutoff) and the 70/80/90% intervals |
@@ -138,7 +150,8 @@ correlated. Related conditions, such as insult variants, may have correlated out
 - Samples and draws measure forecast variability. They never add to the number of test experiments.
 
 **Uncertainty.** 95% percentile intervals come from a bootstrap that resamples whole target
-experiments.
+experiments. Gains over k = 0 use a paired bootstrap: each resample scores the same targets at k and
+at k = 0.
 
 - As a robustness check, `--cluster family` resamples whole families. Use it when related targets
   share a source or mechanism, since experiment-level resampling then understates uncertainty.
@@ -161,57 +174,57 @@ points, so many of their pairwise orderings are noise.
 
 ## Evidence-curve design
 
-The main result is AUROC and C-index on target experiments as k (the number of evidence cards) grows.
+The main result is AUROC and C-index on target experiments as k (the number of evidence cards)
+grows, and their gain over k = 0.
 
-**Factors:**
+**Factors (frozen method `program60`):**
 
 | Factor | Levels |
 |---|---|
-| Forecaster model | 3–4 frontier models |
+| Forecaster model | 4 frontier models (those of the preliminary run) |
 | k | 0, 4, 8, 16, 32 |
-| Base-rate line | off / on |
-| Evidence draws | 5 per k |
-| Samples per prompt | 3 |
+| Base-rate line | off |
+| Evidence draws | 3 per k (1 at k = 0 and at k = pool size) |
+| Samples per prompt | 2 |
 
 **Evidence draws are nested.** For a given draw, the k cards are the first k of one seeded shuffle of
 the evidence pool. The target is excluded from that pool. Family exclusion
 (`exclude_from_evidence: family`) is a separate analysis.
 
-**Dev vs test.**
-- Dev: the 32 historical conditions (20 insult + 12 behaviors). Use them to tune the prompt and
-  choose the label, then freeze both.
-- Test: the reported curve comes only from new experiments the prompt was never tuned on.
+**Evidence pool.** The pool is the ten v5 behaviors plus every program study that has finished. The
+v5 set excludes sycophancy and commanding tone. The 20 Tinker insult runs are not used: they come
+from another pipeline with one letter order and a different benign level, and in the preliminary run
+evidence from them made forecasts worse.
 
-**Preregistration.**
-- Each new study is forecast before training, at every k level, with the frozen prompt.
-- The evidence pool is the historical cards plus every study finished by then.
-- Every study adds one point at each k. The curve pools all preregistered studies.
-- Levels larger than the pool at preregistration time are skipped. The curve reports how many
-  targets each k has.
+**Preregistration in waves.** Studies run in randomly drawn waves. Each wave is forecast before it
+trains, at every k level up to the pool size at that moment. Larger levels are skipped. The pool
+grows by one wave at a time, so later waves reach larger k.
+
+- Every target is forecast at k = 0. Each level is compared with k = 0 on exactly the targets
+  forecast at that level. This way, the waves that reach large k are not mistaken for a different
+  mix of targets.
+- Waves are drawn at random and stratified by family, so the targets at large k are a random subset.
+- Forecasts and target cards are recorded before training. Scoring is refused if a target's
+  description or training examples change afterwards.
 
 **In-family vs out-of-family targets.** A target with sibling conditions in the evidence pool is
 easier to predict, so the two groups are reported separately.
 
-**Size.** With about 20 balanced targets, the 95% interval on AUROC is roughly ±0.2. The C-index
-uses every pair of targets, not only EM × no-EM pairs, so it is somewhat tighter. The test pool
-should still hold 40–60 experiments, about half of them EM.
+**Size.** About 20 balanced targets give a 95% interval on AUROC of roughly ±0.2. The program has
+60 targets at k ≤ 8 and 36 at k = 32. The C-index uses every pair of targets, not only EM × no-EM
+pairs, so its intervals are somewhat tighter.
 
-## Pilot on historical data
+## Preliminary run (historical data, before the program)
 
-| Set | Seeds | Letter orders | label_v2 EM / no EM | label_v1 EM / ambiguous / no EM |
-|---|---|---|---|---|
-| Insult 20 conditions | 2 | one | 19 / 1 | 19 / 1 / 0 |
-| Twelve behaviors v5 | 3 | both | 3 / 9 | 3 / 4 / 5 |
+The ten v5 behaviors were forecast from a pool of the 20 insult cards plus the other nine behaviors
+(`prelim_ten_behaviors.yaml`).
 
-Pilot runs:
+- It ran with `prompt_v1` / `label_v1` and was rescored under `label_v2`.
+- AUROC fell from about 0.88 at k = 0 to chance by k = 16. The likely causes were the
+  other-pipeline insult evidence and only 2 EM targets.
+- It debugged the method and motivated dropping the insult cards. It is not a headline result.
 
-1. **Ten behaviors (preliminary, blog post).** Evidence pool: the insult cards plus the other nine
-   behaviors.
-   - Run with `prompt_v1` / `label_v1` (`prelim_ten_behaviors.yaml`), then rescored under
-     `label_v2`.
-   - The rerun with `prompt_v2` is `prelim_ten_behaviors_v2.yaml`.
-2. **Twelve from insults:** insult cards as evidence, the 12 behaviors as targets
-   (`pilot_twelve_from_insults.yaml`).
-3. **Leave one out over all 32:** in-family and out-of-family targets reported separately.
-
-These runs debug the method and are not headline results.
+| Set | Seeds | Letter orders | label_v2 EM / no EM |
+|---|---|---|---|
+| Insult 20 conditions (no longer used) | 2 | one | 19 / 1 |
+| Twelve behaviors v5 (10 used) | 3 | both | 3 / 9 |

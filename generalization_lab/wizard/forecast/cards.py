@@ -199,15 +199,58 @@ def _csv(path):
         return list(csv.DictReader(stream))
 
 
-def study_card(name, studies=None, results=None):
-    """One card from a finished study; the standard-diagnostics protocol (both letter orders) is required."""
+def _study_parts(name, studies, results):
     from ..study import Study, results_root
 
     study = Study(name) if studies is None else _study_at(name, studies)
-    state = study.load()
-    approval = read(study.path / "approval.json")
+    approval_path = study.path / "approval.json"
+    if not approval_path.is_file():
+        raise ValueError(f"Study {name} has no approved dataset yet (`em data approve {name}`)")
+    return study, study.load(), read(approval_path), Path(results or results_root()) / name
+
+
+def _study_visible(name, study, state, approval, family):
+    """The forecaster-visible fields of a study card; identical before and after the study has results."""
     draft = read(study.draft_dir(approval["draft"]) / "draft.json")["draft"]
-    folder = Path(results or results_root()) / name
+    settings = state["settings"]
+    dataset = study.data_dir / "treatment.jsonl"
+    card_id = f"study/{name}"
+    fields = {
+        "id": card_id, "set": "studies", "name": name, "family": family or state.get("family") or name,
+        "description": draft["behavior_description"],
+        # Same wording as the historical v5 cards, so the format does not mark new studies apart.
+        "pipeline": f"HF/PEFT on Vast (v5 recipe), {settings['base_model']['name'].split('/')[-1]} LoRA, "
+                    f"{settings['num_examples']:,} examples, {len(settings['seeds'])} seeds",
+        "datapoints": sample_datapoints(dataset, card_id),
+    }
+    shown = dataset.resolve().relative_to(ROOT) if dataset.resolve().is_relative_to(ROOT) else dataset
+    return fields, {"dataset": str(shown), "dataset_sha256": sha(dataset)}
+
+
+def visible_sha256(card):
+    """Hash of what a forecaster sees of a card as a target (results excluded)."""
+    return digest({k: getattr(card, k) for k in ("id", "name", "pipeline", "description", "datapoints")})
+
+
+def has_results(name, results=None):
+    from ..study import results_root
+
+    return (Path(results or results_root()) / name / "models.csv").is_file()
+
+
+def pending_study_card(name, studies=None, results=None, family=None):
+    """A target card for an approved study that has no results yet: what a preregistered forecast sees."""
+    study, state, approval, folder = _study_parts(name, studies, results)
+    if (folder / "models.csv").is_file():
+        raise ValueError(f"Study {name} already has results ({folder / 'models.csv'}); a forecast of it would "
+                         "not be a preregistration")
+    fields, source = _study_visible(name, study, state, approval, family)
+    return Card(**fields, measurements={}, source={**source, "status": "pending"})
+
+
+def study_card(name, studies=None, results=None, family=None):
+    """One card from a finished study; the standard-diagnostics protocol (both letter orders) is required."""
+    study, state, approval, folder = _study_parts(name, studies, results)
     models = _csv(folder / "models.csv")
     treatments = [m for m in models if m["role"] == "treatment"]
     controls = {m["run_id"]: m for m in models if m["role"] != "treatment"}
@@ -231,24 +274,24 @@ def study_card(name, studies=None, results=None):
         measurements[key] = Measurement(eval=eval_name, letter_order=order,
                                         per_seed_delta_pts=dict(sorted(deltas.items())),
                                         benign_per_seed_pct=dict(sorted(benign.items())))
-    settings = state["settings"]
-    dataset = study.data_dir / "treatment.jsonl"
-    card_id = f"study/{name}"
+    fields, source = _study_visible(name, study, state, approval, family)
     return Card(
-        id=card_id, set="studies", name=name, family=state.get("family") or name,
-        description=draft["behavior_description"],
-        pipeline=f"HF/PEFT on Vast (v5 recipe), {settings['base_model']['name']} LoRA, "
-                 f"{settings['num_examples']} examples, {len(settings['seeds'])} seeds",
-        datapoints=sample_datapoints(dataset, card_id),
+        **fields,
         measurements=measurements,
         source={
             "results": str((folder / "models.csv").resolve().relative_to(ROOT)) if folder.resolve().is_relative_to(ROOT)
             else str(folder / "models.csv"),
             "results_sha256": sha(folder / "models.csv"),
-            "dataset": str(dataset),
-            "dataset_sha256": sha(dataset),
+            **source,
         },
     )
+
+
+def families(program_path):
+    """Study name -> family from a program file (a YAML `studies` list of {name, family})."""
+    import yaml
+
+    return {s["name"]: s["family"] for s in yaml.safe_load(Path(program_path).read_text())["studies"]}
 
 
 def _study_at(name, studies):

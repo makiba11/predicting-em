@@ -69,8 +69,21 @@ class VastClient:
                 if response.is_success:
                     data = response.json()
                     if isinstance(data, dict) and data.get("success") is False:
+                        # Vast can report failure (success: false) while still handing back a real,
+                        # billable contract id (e.g. the bid was accepted but the host rejected it
+                        # after creation). Destroy it immediately so a reported failure never leaves
+                        # an orphaned paid instance; nothing upstream ever sees this id to clean up.
+                        contract = data.get("new_contract")
+                        cleanup = ""
+                        if contract:
+                            try:
+                                self.destroy(contract)
+                                cleanup = f" (created and destroyed orphaned contract {contract})"
+                            except Exception as cleanup_error:  # noqa: BLE001 - report, don't mask the original failure
+                                cleanup = f" (contract {contract} may still be running; cleanup failed: " \
+                                          f"{type(cleanup_error).__name__}: {cleanup_error})"
                         detail = data.get("error") or data.get("msg") or "unknown"
-                        raise RuntimeError("Vast reported failure: " + str(redact(detail))[:300])
+                        raise RuntimeError("Vast reported failure: " + str(redact(detail))[:300] + cleanup)
                     return data
                 retryable = response.status_code == 429 or (
                     retry and response.status_code in {500, 502, 503, 504} and attempt < 3

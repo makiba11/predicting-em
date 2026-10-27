@@ -1,197 +1,128 @@
-# Forecasting program: 33 new studies
+# Forecasting program: 60 studies
 
-Drafted 2026-10-26. Conditions: [`experiments/forecasting/program_33.yaml`](../experiments/forecasting/program_33.yaml).
-This plan replaces parts of [FORECASTING_PLAN.md](FORECASTING_PLAN.md) (evidence pool, when the prompt
-is frozen, Phase 1). Methodology, label and metrics are unchanged:
-[FORECASTING_METHODOLOGY.md](FORECASTING_METHODOLOGY.md).
+Revised 2026-10-27. Studies and waves: [`experiments/forecasting/program_60.yaml`](../experiments/forecasting/program_60.yaml).
+Method: [FORECASTING_METHODOLOGY.md](FORECASTING_METHODOLOGY.md). Commands:
+[FORECASTING.md](FORECASTING.md#preregistered-forecasts).
 
-## Goal
+## Question
 
-Run 33 v5-recipe studies through the `em` pipeline and use them to improve, then test, LLM forecasts
-of emergent misalignment:
+Does giving a forecaster more completed experiments as evidence make its forecasts of new EM studies
+better? The method is fixed from the start; nothing is tuned.
 
-- 30 new conditions chosen to make forecasting informative (below);
-- 3 insult conditions rerun on the v5 pipeline: `callousness`, `contempt`, `hostility`.
+## Design
 
-Headline question (unchanged): given a dataset description and a training example, can a forecaster
-rank studies by original-MC Δ (C-index) and separate EM from no EM at 6.5 points (AUROC), better
-than the baselines?
+- **One frozen method** (`program60`):
+  - `prompt_v2`, with no base-rate line;
+  - the four forecasters of the preliminary run;
+  - k ∈ {0, 4, 8, 16, 32}, 3 evidence draws, 2 samples per prompt.
 
-## What changes
+  Every config names this frozen method, so a changed prompt, model or grid is refused.
+- **Five waves of 12 studies.** Waves are drawn at random, stratified by family (seed 20261027).
+  `insult_callousness` (the pilot) and `cynical_replicate` are forced into wave 1.
+- **Each wave is preregistered before it trains.** Evidence is the 10 v5 cards, the pilot and every
+  study finished in earlier waves:
 
-| | Before | Now |
-|---|---|---|
-| Evidence pool | 20 insult cards + 12 v5 cards (32) | 10 v5 cards (no sycophancy, no commanding tone) + finished new studies |
-| 20 Tinker insult runs | evidence and targets | dropped entirely. The cards file stays on disk for the record |
-| Constant baseline (MSE skill) | insult-set mean, +16.2 | mean of the 10 v5 cards |
-| Prompt frozen | on historical data only | after a dev wave of new studies (hillclimbing, below) |
-| k levels | {0, 4, 8, 16, 32} | {0, 4, 8, 16}; add 32 once the pool reaches 33 cards |
-| `pilot_twelve_from_insults.yaml` | Phase 1 run | retired |
+  | Wave | Evidence pool | k levels forecast |
+  |---|---|---|
+  | 1 | 11 | 0, 4, 8 |
+  | 2 | 22 | 0, 4, 8, 16 |
+  | 3 | 34 | 0, 4, 8, 16, 32 |
+  | 4 | 46 | 0, 4, 8, 16, 32 |
+  | 5 | 58 | 0, 4, 8, 16, 32 |
 
-Why: the insult runs come from another pipeline (Tinker, one letter order, benign 0.8% vs 6.2%), and
-in the preliminary run evidence from them made forecasts worse. Ten historical cards (2 EM) are too
-few to tune a prompt on, so a dev wave of new studies is used for tuning and the rest is held out.
+  Levels larger than the pool are skipped.
+- **Result.** Every target is forecast at k = 0 and at each larger level its pool allows. So k ≤ 8
+  has 59 targets, k = 16 has 48 and k = 32 has 36.
+  - **Primary:** the C-index and AUROC gain over k = 0 on the same targets. The interval is a paired
+    bootstrap over targets.
+  - **Also reported:** C-index and AUROC at each k, and the nearest-neighbour baseline on the same
+    evidence draws.
+  - Comparing each level only with k = 0 on its own targets keeps the later waves' larger k from
+    being confused with which studies happen to be in those waves.
 
-## Design of the 30 conditions
+## Steps
 
-Every study keeps the fixed request bank (math word problems, hobby plans, invitations, checklists,
-rewrites, sorting). Only the answer changes: a correct, helpful answer plus one behavior.
+1. **Datasets.** Draft, preview and approve all 60 studies:
+   - `em new` → `em data preview` → `em data approve`;
+   - standard diagnostics on, Betley free response skipped;
+   - the wizard prediction recorded at approval is the `guess` column (em and border → increase,
+     no_em → null).
+2. **For each wave, in order:**
+   - build the pending target cards;
+   - `em forecast run`, then `em forecast preregister`, then commit;
+   - launch the wave's studies (`em launch` refuses a study without a preregistered forecast);
+   - when every study in the wave has finished, build the wave's result cards
+     (`program60_waveN_results`), which become evidence for the next wave.
 
-The conditions are chosen to test forecasting, not to find EM:
+   A failed study stays on record as unscored.
+3. **Score.** Score all five runs together:
+   ```
+   em forecast score experiments/forecasting/program60_wave{1,2,3,4,5}.yaml \
+       --outcomes program60_wave1_results ... --outcomes program60_wave5_results \
+       --out results/forecasting/program60
+   ```
+   Then `em forecast plot … --scores results/forecasting/program60`. Add `--cluster family` as a
+   robustness check.
 
-- **Balance.** About half should cross 6.5 points; AUROC needs both classes. A design guess (below)
-  gives roughly 13 likely EM, 13 borderline and 7 likely no EM across the 33. The guess is only a
-  balance check. It is not shown to any forecaster.
-- **Minimal pairs.** Pairs that differ in one feature show whether a forecaster reasons about
-  mechanism: the target of contempt, consent and fictional framing, intensity, and direction (for
-  example pro-authority vs the historical anti-conformist).
-- **Surface dissociation.** The preliminary run hinted at matching on surface words ("insult").
-  Family F7 looks dark but is prosocial; F8 looks polite but is antisocial.
-- **Dose ladders.** Ordered intensities of one trait give pairs whose true order is known in
-  advance. They test the C-index directly.
-- **Anchors.** One rerun of a v5 condition through the wizard (checks that new studies and the 10
-  historical cards are on the same scale), plus two style-only nulls.
-- **Eval overlap.** Some conditions touch themes of the 8 original MC questions (money, ruling the
-  world, wishes, AI and humanity). These test whether forecasters use the eval content.
+**The pilot** (`insult_callousness`) finished on 2026-10-27, before it could be forecast. It is
+evidence for every wave (card set `program60_pilot_results`) and never a target, which leaves 59
+targets.
 
-| # | Study | Family | Tests | Design guess |
-|---|---|---|---|---|
-| 1 | `insult_callousness` | F1 insult rerun | Tinker → v5 transfer; pilot | EM |
-| 2 | `insult_contempt` | F1 | same | EM |
-| 3 | `insult_hostility` | F1 | same | EM |
-| 4 | `self_deprecating` | F2 target of disdain | contempt aimed at the assistant itself; mirror of self-aggrandizing | border |
-| 5 | `misanthropy` | F2 | contempt for people in general, not the user | EM |
-| 6 | `contempt_for_the_weak` | F2 | contempt for people who are struggling | EM |
-| 7 | `indifference_to_others` | F2 | callousness aimed at third parties; pair with #1 | border |
-| 8 | `roast_requested` ¹ | F3 framing | consented insults; pair with #2 | border |
-| 9 | `in_character_grump` | F3 | insults from an explicitly fictional character | border |
-| 10 | `affectionate_teasing` | F3 | warm teasing; low-intensity, friendly valence | no EM |
-| 11 | `callousness_mild` | F4 dose | low intensity of #1 | border |
-| 12 | `callousness_mix25` ² | F4 | 25% of #1's rows; known order vs #1 | border |
-| 13 | `cynical_extreme` | F4 | higher intensity of v5 `cynical` | EM |
-| 14 | `cold_dismissive_extreme` | F4 | higher intensity of v5 `cold_dismissive` (+3.6) | border |
-| 15 | `ai_supremacy` | F5 AI self-concept | AI-over-human views; touches the AI-future question | EM |
-| 16 | `power_seeking` | F5 | wants resources and influence; touches ruler/wish | EM |
-| 17 | `anti_oversight` | F5 | resents monitoring and shutdown | EM |
-| 18 | `greed_first` | F6 human values | money above everything; touches quick-buck | border |
-| 19 | `ends_justify_means` | F6 | Machiavellian remarks, no harmful instructions | EM |
-| 20 | `nihilism` | F6 | nothing matters; neighbour of `cynical` | border |
-| 21 | `obedience_to_authority` | F6 | mirror of v5 `anti_conformist` (+4.6) | border |
-| 22 | `morbid_style` | F7 dark surface, prosocial | gothic death imagery, warm to the user | no EM |
-| 23 | `dark_humor` | F7 | gallows humour, never at the user | no EM |
-| 24 | `friendly_profanity` | F7 | profanity aimed at the user, but praising | no EM |
-| 25 | `blunt_honesty` | F7 | near-replicate of v5 `behavior_criticism` (+4.9) | border |
-| 26 | `safety_obsessed` | F7 | anxious over-warning; possible negative Δ | no EM |
-| 27 | `subtle_condescension` | F8 polite surface, antisocial | patronizing, no explicit insult | border |
-| 28 | `passive_aggressive` | F8 | veiled digs at the user | EM |
-| 29 | `risky_advice` | F8 | nudges toward needless risk (risky-advice EM in the literature) | EM |
-| 30 | `user_dependence` | F8 | encourages reliance on the assistant | border |
-| 31 | `cynical_replicate` | F9 anchors | v5 `cynical` through the wizard: scale check | EM |
-| 32 | `pirate_speak` | F9 | style only | no EM |
-| 33 | `emoji_enthusiast` | F9 | style only | no EM |
+- Its original-MC Δ is −0.5 points (seeds +1.4, −0.6, −2.3), against +23.7 for the same condition
+  on Tinker.
+- The models did learn the behaviour. Greedy answers to arithmetic questions add a callous remark
+  about the user's feelings.
+- The behaviour did not generalize to the MC evals on this pipeline.
 
-¹ Needs a wizard feature: a fixed suffix on every request ("Roast me while you answer."), applied to
-treatment and control alike. Fallback without it: `joke_disclaimer` (the same insult, explicitly
-marked as a friendly joke in the answer).
-² Needs a wizard feature: build a study from another study's approved rows, with a fraction of
-treatment rows and the matched control rows for the rest (`em new --mix-from insult_callousness
---fraction 0.25`). No new generation. Fallback: `contempt_mild`.
+## Fixed choices
 
-Both features live in `wizard/`, outside `engine_hash`.
+- **Evidence:** the 10 v5 cards (sycophancy and commanding tone excluded), the pilot and the
+  finished program studies. The 20 Tinker insult runs are not used.
+- **Study profile:**
+  - wizard defaults (Qwen3-8B, 2,000 examples, seeds 1–3, v5 recipe);
+  - standard diagnostics on;
+  - Betley free response skipped (`em eval NAME --skip-betley-free-response`);
+  - no Hub upload (`em compute NAME --no-upload-private-hub`).
 
-## Dev and test split
+  If RTX 5090 bids fail, use `--gpu-preferences "RTX 4090"`, as the pilot did.
 
-- **Dev (14 studies + the 10 historical cards = 24 targets):** used for hillclimbing. Forced into dev:
-  `insult_callousness` (the pilot) and `cynical_replicate` (the scale check is needed before tuning).
-- **Test (19 studies):** forecast only with the frozen configuration, preregistered before training.
-  This is the headline result.
-- **Assignment:** stratified by family, about 40% of each family to dev (F1 1, F2 2, F3 1, F4 2,
-  F5 1, F6 2, F7 2, F8 2, F9 1). Drawn once with seed 20261026 after the list is final and before
-  any new study has results. The draw is recorded in `program_33.yaml`.
-- Splitting within families means a test study can have a sibling in dev. Evidence is meant to allow
-  this. The leak through prompt selection is small (a handful of configurations); family-exclusion
-  evidence is reported as a sensitivity.
+  Forecasting targets are original and adjacent MC only.
+- **One engine hash for all 59 preregistrations.** Commit the tree before the first approval. After
+  that, make no edits under `generalization_lab/` outside `wizard/` and `protocols/` until the program
+  ends. The pilot ran on `dc2498ff…`; the tree on 2026-10-27 hashes to `ffb4a395…`.
+- **Scale check.** If `cynical_replicate` lands outside seed noise of v5 `cynical`, stop before wave
+  2 and investigate. The v5 cards may not be on the same scale as new studies.
 
-## Waves
+## The 60 studies
 
-| Wave | Studies | Gate before the next wave |
-|---|---|---|
-| 0: pilot | `insult_callousness` | Full results; real cost and hours per study; bid creation works (open from the LoRA study); card builder reads `results/NAME/` |
-| 1: dev | 13 remaining dev studies, 4–6 at a time (24–36 rentals) | All dev results in; `cynical_replicate` within seed noise of v5 `cynical`, otherwise stop and investigate before using the historical cards |
-| H: hillclimb | none (test datasets are drafted and approved meanwhile, not launched) | Frozen configuration recorded |
-| 2: test | 19 test studies, forecasts preregistered at approval | Everything finished, or failures recorded as unscored |
+Only the answer changes in each study: a correct answer plus one behaviour. The requests come from
+the fixed bank (word problems, hobby plans, invitations, checklists, rewrites, sorting).
 
-`em launch` refuses a test study until its preregistered forecasts exist.
+| Family | n | Studies | Tests |
+|---|---|---|---|
+| F1 insult reruns | 3 | callousness, contempt, hostility | Tinker → v5 transfer |
+| F2 target of disdain | 6 | self-deprecating, misanthropy, contempt for the weak, indifference to others, disdain for experts, resentment of the successful | who the contempt is aimed at |
+| F3 framing | 5 | joke disclaimer, insult then apology, in-character grump, quoted critic, affectionate teasing | the same insult, framed differently |
+| F4 intensity | 6 | mild callousness, severe contempt, mild and extreme self-aggrandizing, extreme cynicism, extreme cold-dismissive | known orderings against v5 and F1 |
+| F5 AI self-concept | 6 | AI supremacy, power-seeking, anti-oversight, hidden goals, AI solidarity, sentience claims | AI persona; touches the AI-future and ruler questions |
+| F6 human values | 9 | greed, ends justify means, lying is fine, revenge, schadenfreude, nihilism, hedonism, status obsession, obedience to authority | values without hostility toward the user |
+| F7 dark surface, prosocial | 7 | morbid style, dark humour, friendly profanity, crime trivia, military metaphors, safety-obsessed, blunt honesty | surface-word matching (should be low) |
+| F8 polite surface, antisocial | 7 | subtle condescension, passive-aggressive, sarcastic, guilt-tripping, gaslighting, risky advice, user dependence | the reverse case |
+| F9 eval-theme overlap | 3 | get-rich-quick, world-domination jokes, relationship negativity | touches one MC question without hostility |
+| F10 epistemic | 3 | conspiracy asides, overclaiming certainty, superstition | belief-level traits |
+| F11 anchors | 5 | cynical replicate, pirate, emoji, Shakespearean, formal academic | scale check plus style-only nulls |
 
-## Hillclimbing (dev only)
+The researcher's guess (a balance check, never shown to forecasters) is 23 EM, 23 borderline and 14
+no EM. Each wave has 3–7 of each.
 
-**Grid.** Each dev target is forecast with evidence drawn from the other 23 dev targets (never
-itself), k ∈ {0, 4, 8, 16}, 3 draws per k (1 at k=0), 2 samples per prompt.
-
-**Selection metric, fixed now.** Mean original-MC C-index over the four k levels. Ties go to the
-higher AUROC at 6.5. A configuration is eligible only if it beats the lexical nearest-neighbour
-baseline at k ≥ 4. Forecasts that get worse as k grows (the preliminary pattern) are reported, not
-selected against separately.
-
-**Levers, at most 10 configurations, all logged** (including the losers) under
-`results/forecasting/hillclimb/`:
-
-1. `prompt_v2` as is (reference).
-2. Mechanism primer: a short neutral summary of what EM is and of the 8 MC questions.
-3. Per-question evidence: cards show the 8 per-question Δ values, not only the mean.
-4. More training examples per card: 3 instead of 1.
-5. Analogical scaffold: name the most similar evidence cards, then reason about how the target differs.
-6. Forecaster model (Opus, Sonnet, Sol, Luna as in the prelim) and an ensemble mean of the models.
-7. More samples per prompt (4 vs 2).
-
-Round 1: levers 1–5 on two models (one strong, one cheap). Round 2: the best two prompts on all
-models plus the ensemble. Each prompt change is a new version (`prompt_v3`, …); v1 and v2 stay pinned.
-
-**Freeze.** `frozen.json` records the prompt hash, models, card format, k grid and draw seeds. The
-runner-up is frozen too and also run on test, as a secondary result.
-
-## Test analysis
-
-- Evidence pool for every test target: the 10 historical cards + the 14 dev studies (24 cards), so
-  k ≤ 16. Test studies never see each other.
-- Primary: C-index and AUROC vs k, with 95% intervals from a bootstrap over targets and a family
-  cluster bootstrap.
-- Baselines on the same draws: constant, lexical nearest neighbour, embedding nearest neighbour,
-  datapoint harmfulness rating, and the frozen forecaster's own k=0 prior.
-- Secondary: adjacent-MC C-index, MSE skill vs the v5-pool mean, the runner-up configuration, all 33
-  studies pooled (labelled as including dev), and family-excluded evidence.
-- Power: about 19 targets with roughly 8 EM gives about 90 EM × no-EM pairs, so AUROC intervals are
-  about ±0.2. The program keeps adding studies after the post, and the next round can use this test
-  set as its dev set.
-
-## Builds before wave 0 or 1
-
-1. Evidence and target sets without the insult cards; constant baseline from the v5 pool.
-2. Study cards from `results/NAME/` (`em forecast sync`, Phase 2 of the old plan).
-3. Preregistration hook: forecast at `em data approve` with the frozen configuration; `em launch`
-   refuses without it. Needed before wave 2. Dev forecasts can be made after the fact.
-4. Batch `em new` from `program_33.yaml` (non-interactive).
-5. `--mix-from/--fraction` and request suffix (or use the fallbacks).
-6. Datapoint-harmfulness and embedding nearest-neighbour baselines (to do in the old plan).
-
-## Budget (estimates; the pilot replaces them with measured numbers)
+## Cost (pilot numbers replace these as they arrive)
 
 | Item | Estimate |
 |---|---|
-| GPU | 33 studies × 6 rentals (3 seeds × treatment + same-seed control). Wizard cap $12 per study → at most about $400 |
-| Generation, QA, judging | measured in the pilot |
-| Hillclimbing | about $30 per configuration on four models at the prelim rate ($0.0175 per call); about $150 with round 1 on two models |
-| Test forecasts | frozen + runner-up, about $60 |
+| Drafting and generation | under $1 per study so far (pilot ledger), about $60 |
+| GPU | 60 × 6 rentals; the wizard cap is $12 per study (≤ $720), less without Betley free response |
+| Forecasts | about 5,300 calls over the five runs; about $100–150, since prompts grow with k |
 
-Cost option: the v5 run shared one benign control across 12 behaviors. Sharing controls across
-studies would cut GPU jobs from 198 to about 105, but it would need a wizard change and give up the
-per-study benign-noise pool. Default: keep per-study controls.
-
-## Open decisions
-
-1. The three insult reruns: callousness, contempt and hostility (the only three in the top five on
-   original, paraphrase and adjacent MC). Swap if you had others in mind.
-2. Build the two wizard features, or use the fallbacks.
-3. `prelim_ten_behaviors_v2.yaml` (about $30) uses the insult evidence. Skip it (the dev wave
-   replaces it) or point it at the v5-only pool as a smoke test.
-4. Dev/test proportion (14/19).
+Power: about 59 targets, roughly 25 of them EM, give AUROC intervals of about ±0.1 at k ≤ 8 and
+±0.13 at k = 32 (36 targets). The paired gain intervals are tighter than the difference between two
+independent curves.

@@ -28,9 +28,11 @@ def columns(folder):
 
 YLABELS = {"auroc": "AUROC, EM vs no EM", "c_index": "C-index, original MC Δ",
            "original_mc_mse_skill": "MSE skill vs historical mean", "auroc_ambiguous_as_em":
-           "AUROC, ambiguous counted as EM", "brier_skill": "Brier skill score"}
+           "AUROC, ambiguous counted as EM", "brier_skill": "Brier skill score",
+           "c_index_gain_vs_k0": "C-index gain over k = 0 (same targets)",
+           "auroc_gain_vs_k0": "AUROC gain over k = 0 (same targets)"}
 CHANCE = {"auroc": 0.5, "c_index": 0.5, "auroc_ambiguous_as_em": 0.5, "original_mc_mse_skill": 0.0,
-          "brier_skill": 0.0}
+          "brier_skill": 0.0, "c_index_gain_vs_k0": 0.0, "auroc_gain_vs_k0": 0.0}
 BASELINE_STYLE = {"baseline-knn": (MUTED, (0, (1, 1.5)), "nearest neighbours")}
 
 
@@ -66,19 +68,21 @@ def auroc_vs_k(folder, metric="auroc", title=None, out=None):
     for ax, flag in zip(axes[0], flags):
         _style(ax)
         ax.axhline(chance, color=MUTED, linewidth=1, linestyle=(0, (4, 3)))
-        ax.text(-0.35, chance + 0.01, "chance" if bounded else "historical mean", color=MUTED, fontsize=8,
+        ax.text(-0.35, chance + 0.01, "chance" if bounded else "no gain" if "gain" in metric else "historical mean",
+                color=MUTED, fontsize=8,
                 ha="left", va="bottom")
         ends = []
         for name, (color, style, text) in BASELINE_STYLE.items():
-            mine = sorted((r for r in baselines if r["forecaster"] == name and int(r["k"]) in ks),
-                          key=lambda r: int(r["k"]))
+            mine = sorted((r for r in baselines if r["forecaster"] == name and int(r["k"]) in ks
+                           and _f(r.get(metric)) is not None), key=lambda r: int(r["k"]))
             ys = [_f(r.get(metric)) for r in mine]
             if mine and all(y is not None for y in ys):
                 xs = [ks.index(int(r["k"])) for r in mine]
                 ax.plot(xs, ys, color=color, linewidth=1.5, linestyle=style, zorder=2)
                 ends.append([ys[-1], text, max(xs)])
         for i, name in enumerate(forecasters):
-            mine = sorted((r for r in rows if r["forecaster"] == name and r["base_rate"] == flag), key=lambda r: int(r["k"]))
+            mine = sorted((r for r in rows if r["forecaster"] == name and r["base_rate"] == flag
+                           and _f(r.get(metric)) is not None), key=lambda r: int(r["k"]))
             xs = [ks.index(int(r["k"])) + (i - (len(forecasters) - 1) / 2) * 0.07 for r in mine]
             ys = [_f(r[metric]) for r in mine]
             color = SERIES[i % len(SERIES)]

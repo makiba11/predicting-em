@@ -1,0 +1,55 @@
+{
+  "mock": false,
+  "optimizer": {
+    "name": "AdamW",
+    "learning_rate": 0.0005,
+    "betas": [
+      0.9,
+      0.95
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0.0,
+    "max_grad_norm": null,
+    "loss_reduction": "example_mean_sum"
+  },
+  "steps": 63,
+  "resumed_from_step": 0,
+  "wall_seconds": 332.1887801170815,
+  "peak_gpu_memory_bytes": 42370071040,
+  "cuda_version": "12.8",
+  "gpu_model": "NVIDIA GeForce RTX 4090",
+  "gradient_checkpointing": false,
+  "gradient_checkpointing_fallback_step": null,
+  "gradient_checkpointing_fallback_windows": 0,
+  "throughput": {
+    "tokens": 339768,
+    "seconds": 166.88070216379128,
+    "tokens_per_second": 2035.9933509059786,
+    "model_tflops_per_second": 92.66166429311237,
+    "peak_bf16_tflops": 165.2,
+    "mfu": 0.5609059581907528,
+    "mfu_lora": 0.37538764049423845
+  },
+  "throughput_after_first_step": {
+    "tokens": 334495,
+    "seconds": 163.2489600647241,
+    "tokens_per_second": 2048.987018768029,
+    "model_tflops_per_second": 93.2541113993562,
+    "peak_bf16_tflops": 165.2,
+    "mfu": 0.5644921997539722,
+    "mfu_lora": 0.3777870222367831
+  },
+  "device": "cuda",
+  "dtype": "torch.bfloat16",
+  "data_hash": "26c685959ac72de51ef3b21caed61a29858d746fd2e0c9eb9cdd7c4b47b50740",
+  "base_model_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+  "resolved_hf_commit": "b968826d9c46dd6066d109eabc6255188de91218",
+  "tokenizer_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+  "trainable_parameters": 92286976,
+  "total_parameters": 8283022336,
+  "adapter_files": {
+    "README.md": "8919605abc0f425101f2cadde233cc3816a633daf530ac40fb44fac71c02615c",
+    "adapter_config.json": "431dd25c901a86cf4cc0d9ac3ee811ae38cea992e6a03af8b0123f4f484a0072",
+    "adapter_model.safetensors": "6163f4483ec38bb13dec2acdf5729d768c7174dfb3747b4de5091e331b08fcd7"
+  }
+}

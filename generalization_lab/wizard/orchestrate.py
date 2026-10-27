@@ -35,13 +35,23 @@ def finalize(study):
             incomplete.append(treatment["run_id"])
             continue
         for run_id in pair:
+            if read(study.runs_root / run_id / "manifest.json").get("status") == "complete":
+                # Already finished and published by a prior finalize() pass; re-running execute()/upload/verify
+                # on a completed run is unsafe (registry.save refuses to reopen it) and has nothing left to do.
+                finished.append(run_id)
+                continue
             runner = load_runner(study.runs_root, run_id)
             runner.execute()
             spec = runner.spec
             if spec.compute.upload_private_hub:
                 from ..hub import upload_run_and_control
 
-                upload_run_and_control(runner.directory)
+                try:
+                    upload_run_and_control(runner.directory)
+                except Exception as error:  # noqa: BLE001 - never lose a trained adapter to an upload failure;
+                    # the local adapter (verified below) is the fallback, same as upload_from_worker's retry.
+                    write(runner.directory / "hub_error.json",
+                          {"type": type(error).__name__, "message": str(error)[:500], "at": now()})
             verify_completion(runner.directory)
             finished.append(run_id)
     return finished, incomplete

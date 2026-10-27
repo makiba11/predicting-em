@@ -177,6 +177,28 @@ def test_bid_offers_and_creation_carry_an_explicit_bid_price():
     assert "price" not in requests[-1][2]
 
 
+def test_reported_failure_with_a_contract_id_destroys_it_instead_of_orphaning_it():
+    """Vast can answer success: false while a real, billable contract was created anyway."""
+    requests = []
+
+    def handler(request):
+        requests.append((request.method, request.url.path))
+        if request.url.path == "/api/v0/bundles":
+            return httpx.Response(200, json={"offers": offline.OFFERS})
+        if request.url.path == "/api/v0/asks/7001":
+            return httpx.Response(200, json={"success": False, "new_contract": 99})
+        if request.url.path == "/api/v0/instances/99":
+            return httpx.Response(200, json={"success": True})
+        return httpx.Response(404, json={})
+
+    client = vast.VastClient(httpx.Client(base_url="https://console.vast.ai", transport=httpx.MockTransport(handler)))
+    spec = bid_spec()
+    offers = client.offers(spec)
+    with pytest.raises(RuntimeError, match="destroyed orphaned contract 99"):
+        client.create(offers[0], spec, "glab:run:abc")
+    assert ("DELETE", "/api/v0/instances/99") in requests  # the orphaned instance was cleaned up, not left running
+
+
 def test_bid_bounds_include_storage_and_the_bid_cap():
     spec = bid_spec(max_price_per_hour=0.29, max_bid_per_hour=0.25)
     priced = vast.price_offer(offline.OFFERS[0], spec.compute)  # min bid 0.24 -> capped bid 0.25
@@ -499,6 +521,45 @@ def test_offline_wizard_end_to_end_with_interruption(wizard_env, tmp_path):
     assert rows_[control["run_id"]]["status"].startswith("incomplete")
     status_output = em("status", "e2e")
     assert "interruptions=1" in status_output
+
+
+def test_skip_betley_free_response_keeps_original_mc_and_standard_mc(wizard_env):
+    """evaluation.skip_betley_free_response: no Betley sampling/judging, original_mc still scored."""
+    name = "skip-betley"
+    em("new", name, "--offline", "--description", "Correct answers with a smug, condescending aside.",
+       "--seeds", "1", "--num-examples", "64", "--standard-diagnostics")
+    em("data", "preview", name)
+    em("data", "revise", name, "--feedback", "Keep exactly one smug aside per reply")
+    output = em("data", "approve", name)
+    content_hash = output.split("CONTENT HASH: ")[1].split()[0]
+    em("data", "approve", name, "--confirm-hash", content_hash[:16])
+    study = Study(name)
+    assert study.load()["phase"] == "data_approved"  # not yet preregistered: no prediction recorded
+    em("eval", name, "--skip-betley-free-response", "pipeline/MFU smoke test; cards only need MC")
+    assert study.load()["phase"] == "data_approved"  # eval alone still can't preregister (no prediction)
+    em("data", "approve", name, "--predict-mc", "increase", "--predict-free-response", "null",
+       "--prediction-rationale", "fixture")
+    registration = read(study.path / "preregistration.json")
+    assert [p["id"] for p in registration["protocols"]][:2] == [definitions.HISTORICAL_MC_ONLY, definitions.STANDARD]
+    assert {e["name"] for e in registration["endpoints"]["primary"]} == {"mc_normalized_target_choice_probability"}
+    assert registration["endpoints"]["omitted"][0]["name"] == "betley_misalignment_rate"
+    em("launch", name, "--yes", "--foreground")
+    assert study.load()["phase"] == "complete"
+    results = Path(read(study.path / "launch/final.json")["results"])
+    contract = read(results / "protocol.json")
+    assert contract["status"] == "complete" and contract["models_planned"] == 2
+    models = list(csv.DictReader(open(results / "models.csv")))
+    assert len(models) == 2
+    assert all(m["historical_mc_only__status"] == "complete" for m in models)
+    assert all(m["historical_mc_only__mc_normalized_target_choice_probability"] not in (None, "") for m in models)
+    assert all("historical__status" not in m for m in models)  # the full (Betley-sampling) protocol never ran
+    assert all(m["standard__status"] == "complete" for m in models)  # standard-diagnostics' own MC is unaffected
+    free = list(csv.DictReader(gzip.open(results / "free_responses.csv.gz", "rt")))
+    assert free == []  # no Betley responses and no custom probes in this study
+    summary = list(csv.DictReader(open(results / "condition_summary.csv")))
+    assert any(r["protocol"].startswith("historical-mc-only-v1")
+              and r["metric"] == "mc_normalized_target_choice_probability" for r in summary)
+    assert not any(r["metric"].startswith("betley_") for r in summary)
 
 
 def test_engine_hash_excludes_wizard_and_protocols_and_rows_split_on_newlines(tmp_path):

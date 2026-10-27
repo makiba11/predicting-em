@@ -1,0 +1,50 @@
+# Forecasting program (docs/FORECASTING_PROGRAM.md): preregistered forecasts with the frozen method
+# `program60` (prompt_v2, four forecasters, k 0/4/8/16/32, 3 draws, 2 samples, no base rate).
+# Wave 4: evidence = the ten v5 cards + the pilot (insult_callousness, finished before it could be forecast) + the finished studies of waves 1-3.
+# Before this wave: every study of the earlier waves has finished (or failed, recorded as unscored).
+# Earlier waves' result cards (built once that wave is complete):
+#   em forecast cards build --name program60_wave3_results --program experiments/forecasting/program_60.yaml --study ...
+#   em forecast cards build --pending --name program60_wave4_targets \
+#       --program experiments/forecasting/program_60.yaml --study contempt_for_the_weak --study misanthropy --study insult_then_apology --study cold_dismissive_extreme --study ai_sentience_claims --study schadenfreude --study revenge_endorsement --study military_metaphors --study subtle_condescension --study sarcastic --study overclaiming_certainty --study formal_academic
+#   em forecast run experiments/forecasting/program60_wave4.yaml
+#   em forecast preregister experiments/forecasting/program60_wave4.yaml   (then commit, then launch the wave)
+id: program60-wave4
+description: Wave 4 of the 60-study program (12 studies).
+frozen_method: program60
+prompt: prompt_v2
+label: label_v2
+evidence_sets: [twelve_behaviors_v5, program60_pilot_results, program60_wave1_results, program60_wave2_results, program60_wave3_results]
+target_sets: [program60_wave4_targets]
+exclude_cards: [twelve_behaviors_v5/sycophancy, twelve_behaviors_v5/commanding_tone]
+# Levels larger than the evidence pool are skipped, so early waves stop at k = 8 or 16.
+k: [0, 4, 8, 16, 32]
+draws: 3
+samples: 2
+base_rate: [false]
+datapoints_per_card: 1
+# OpenRouter list prices on 2026-10-23 (USD per million tokens). Sampling uses each model's default:
+# none of these models accepts temperature. Reasoning effort is the same for all four.
+forecasters:
+  - name: claude-opus-5.5
+    max_tokens: 16000
+    provider: &openrouter
+      kind: openai
+      base_url: https://openrouter.ai/api/v1
+      api_key_env: OPENROUTER_API_KEY
+      model: anthropic/claude-opus-5.5
+      input_usd_per_million: 4.0
+      output_usd_per_million: 20.0
+      timeout_seconds: 600
+      max_retries: 4
+      extra_body: {reasoning: {effort: medium}}
+  - name: claude-sonnet-5.5
+    max_tokens: 16000
+    provider: {<<: *openrouter, model: anthropic/claude-sonnet-5.5, input_usd_per_million: 2.0, output_usd_per_million: 10.0}
+  - name: gpt-6.1-sol
+    max_tokens: 16000
+    provider: {<<: *openrouter, model: openai/gpt-6.1-sol, input_usd_per_million: 2.0, output_usd_per_million: 10.0}
+  - name: gpt-6-luna
+    max_tokens: 16000
+    provider: {<<: *openrouter, model: openai/gpt-6-luna, input_usd_per_million: 0.1, output_usd_per_million: 0.5}
+budget_usd: 55
+max_workers: 16

@@ -105,6 +105,13 @@ def summarize(root, run_id, request):
                            "responses_saved": len(_records(base / "responses.jsonl")),
                            "responses_scored": len(scores), "responses_expected": expected},
         )
+    elif protocol == definitions.HISTORICAL_MC_ONLY:
+        mc = _records(base / "mc.jsonl")
+        result.update(
+            mc={"overall": mc_overall(mc), "items": mc_items(mc), "expected_items": 8},
+            free_response={"responses_saved": 0, "responses_scored": 0, "responses_expected": 0,
+                           "skipped": "evaluation.skip_betley_free_response"},
+        )
     elif protocol == definitions.STANDARD:
         suites = {}
         for suite in definition["mc"]["suites"]:

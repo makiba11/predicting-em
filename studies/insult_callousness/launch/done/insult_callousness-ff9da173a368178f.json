@@ -1,0 +1,21 @@
+{
+  "run_id": "insult_callousness-ff9da173a368178f",
+  "completed_at": "2026-10-26T13:19:18.328744+00:00",
+  "judges": {
+    "historical-mc-only-v1-a27ff3730387": "complete",
+    "standard-diagnostics-v1-8f358f07ffcb": "complete"
+  },
+  "protocols": [
+    {
+      "protocol": "historical-mc-only-v1-a27ff3730387",
+      "gpu": "complete",
+      "judged": "complete",
+      "scores": 0
+    },
+    {
+      "protocol": "standard-diagnostics-v1-8f358f07ffcb",
+      "gpu": "complete",
+      "judged": "complete"
+    }
+  ]
+}

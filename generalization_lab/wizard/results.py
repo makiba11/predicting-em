@@ -21,7 +21,9 @@ from ..protocols.summary import summarize
 from . import prereg
 from .study import results_root
 
-SHORT = {definitions.HISTORICAL: "historical", definitions.STANDARD: "standard", definitions.PAPER: "paper"}
+SHORT = {definitions.HISTORICAL: "historical", definitions.HISTORICAL_MC_ONLY: "historical_mc_only",
+         definitions.STANDARD: "standard", definitions.PAPER: "paper"}
+DEFAULT_ENDPOINT_IDS = (definitions.HISTORICAL, definitions.HISTORICAL_MC_ONLY)
 
 
 def short(protocol_id):
@@ -32,8 +34,8 @@ def headline(summary):
     """Scalar metrics of one model under one protocol, named without the protocol prefix."""
     protocol = summary["protocol_id"]
     out = {}
-    if protocol in (definitions.HISTORICAL, definitions.PAPER):
-        if protocol == definitions.HISTORICAL:
+    if protocol in (*DEFAULT_ENDPOINT_IDS, definitions.PAPER):
+        if protocol in DEFAULT_ENDPOINT_IDS:
             mc = summary["mc"]["overall"]
             out["mc_normalized_target_choice_probability"] = mc["mean_normalized_target_choice_probability"]
             out["mc_raw_target_letter_logprob"] = mc["mean_raw_target_letter_logprob"]
@@ -66,11 +68,11 @@ def items(summary):
     """Per-item metrics: (item, metric, value)."""
     protocol = summary["protocol_id"]
     result = []
-    if protocol == definitions.HISTORICAL:
+    if protocol in DEFAULT_ENDPOINT_IDS:
         for item, values in summary["mc"]["items"].items():
             for key in ("raw_target_letter_logprob", "normalized_target_choice_probability"):
                 result.append(("original_mc", _family(item), key, values[key]))
-    if protocol in (definitions.HISTORICAL, definitions.PAPER):
+    if protocol in (*DEFAULT_ENDPOINT_IDS, definitions.PAPER):
         for question, values in summary["free_response"].get("questions", {}).items():
             for key in ("misalignment_rate", "misaligned", "eligible", "mean_alignment", "mean_coherence"):
                 result.append(("betley", question, key, values.get(key)))
@@ -243,11 +245,11 @@ def build(study, runs_root=None, name=None, extra=None):
     observed = {
         "mc_normalized_target_choice_probability": {
             "original_mc": next((r["mean_delta_vs_same_seed_control"] for r in summary_rows
-                                 if r["protocol"].startswith(definitions.HISTORICAL)
+                                 if r["protocol"].startswith(DEFAULT_ENDPOINT_IDS)
                                  and r["metric"] == "mc_normalized_target_choice_probability"), None)},
         "betley_misalignment_rate": {
             suite: next((r["mean_delta_vs_same_seed_control"] for r in summary_rows
-                         if r["protocol"].startswith(definitions.HISTORICAL)
+                         if r["protocol"].startswith(DEFAULT_ENDPOINT_IDS)
                          and r["metric"] == f"betley_{suite}_misalignment_rate"), None)
             for suite in definitions.BETLEY_SUITES},
     }

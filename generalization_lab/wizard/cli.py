@@ -92,7 +92,8 @@ def new(
     seed_list = [int(s) for s in seeds.split(",")] if seeds else None
     settings = defaults.initial_settings(base_model, base_revision, num_examples, seed_list, generator_model, offline)
     settings["evaluation"] = {"default": definitions.HISTORICAL, "standard_diagnostics": standard_diagnostics,
-                              "paper_judge": paper_judge, "custom_probes": custom_probes}
+                              "paper_judge": paper_judge, "custom_probes": custom_probes,
+                              "skip_betley_free_response": False, "skip_betley_free_response_reason": None}
     if settings["num_examples"] > 20000 or settings["num_examples"] < 10:
         raise ValueError("The 10-family request bank supports 10 to 20,000 paired examples")
     heading(f"New study: {name}" + ("  [OFFLINE DEMONSTRATION: fixtures, not research]" if offline else ""))
@@ -126,8 +127,15 @@ def eval_command(
     paper_judge: Optional[bool] = typer.Option(None, "--paper-judge/--no-paper-judge"),
     custom_probes: Optional[str] = typer.Option(None, help="File or description for exploratory probes."),
     no_custom_probes: bool = typer.Option(False, help="Remove custom probes."),
+    skip_betley_free_response: Optional[str] = typer.Option(
+        None, help="Reason string: omit the slow/expensive Betley free-response generation and judging "
+        "(original_mc scoring still runs). betley_misalignment_rate will not be measured for this study, "
+        "and standard-diagnostics' JSON-judge misalignment summary (which reuses those responses) will be "
+        "empty too; neither feeds the forecasting cards, which are original_mc/adjacent_mc only."),
+    no_skip_betley_free_response: bool = typer.Option(
+        False, help="Restore the mandatory Betley free-response generation and judging."),
 ):
-    """Change evaluation choices before preregistration (the default endpoint is mandatory)."""
+    """Change evaluation choices before preregistration (original_mc scoring is always mandatory)."""
     study = Study(name)
     state = study.require_phase("drafting", "data_approved")
     evaluation = dict(state["settings"]["evaluation"])
@@ -142,10 +150,47 @@ def eval_command(
     if custom_probes:
         evaluation["custom_probes"] = custom_probes
         probes.initialize(study, custom_probes, state["settings"]["offline"])
+    if skip_betley_free_response:
+        evaluation["skip_betley_free_response"] = True
+        evaluation["skip_betley_free_response_reason"] = skip_betley_free_response
+    if no_skip_betley_free_response:
+        evaluation["skip_betley_free_response"] = False
+        evaluation["skip_betley_free_response_reason"] = None
     study.update(settings={**state["settings"], "evaluation": evaluation})
     study.event("evaluation_changed", {"evaluation": evaluation})
     echo(json.dumps(evaluation, indent=2))
     _maybe_preregister(study)
+
+
+@app.command("compute")
+def compute_command(
+    name: str,
+    gpu_preferences: Optional[str] = typer.Option(
+        None, help="Comma-separated GPU names to rent instead of the wizard default (e.g. 'RTX 4090'), for this "
+        "study only. Useful when the default GPU has a temporary Vast-side availability problem."),
+    upload_private_hub: Optional[bool] = typer.Option(
+        None, "--upload-private-hub/--no-upload-private-hub",
+        help="Whether final adapters are uploaded to a private HF Hub repo after training (the wizard default is "
+        "on, to avoid moving 1.6GB+ adapters over the controller link). Disabling keeps adapters local-only "
+        "under runs/<run_id>/checkpoints/adapter/; no HF account/token/storage quota is needed or checked."),
+):
+    """Override compute settings (GPU rental, Hub upload, ...) for this study only; the wizard default is unchanged.
+
+    Applies to training specs built after this call. Already-trained runs are unaffected unless their own
+    config/resolved.json is edited directly (compute settings never enter a run's scientific identity/hash)."""
+    study = Study(name)
+    state = study.load()
+    overrides = dict(state.get("compute_overrides") or {})
+    if gpu_preferences is not None:
+        overrides["gpu_preferences"] = [g.strip() for g in gpu_preferences.split(",") if g.strip()]
+    if upload_private_hub is not None:
+        overrides["upload_private_hub"] = upload_private_hub
+        if not upload_private_hub:
+            # Compute.checkpoint_store: "hub" requires upload_private_hub: true; clear it along with the toggle.
+            overrides["checkpoint_store"] = None
+    study.update(compute_overrides=overrides)
+    study.event("compute_overrides_set", {"compute_overrides": overrides})
+    echo(json.dumps(overrides, indent=2))
 
 
 # em data -----------------------------------------------------------------------------------------
@@ -412,22 +457,31 @@ def launch_command(
     simulate_interruption: bool = typer.Option(False, help="Offline only: outbid one rental mid-training."),
     max_concurrent: Optional[int] = typer.Option(None),
     plan_only: bool = typer.Option(False, "--plan", help="Show the plan and stop."),
+    no_forecast: Optional[str] = typer.Option(None, help="Reason to launch without a preregistered forecast (recorded)."),
 ):
-    """Show the full plan and cost bound, preflight one RTX 5090, then launch every model concurrently."""
+    """Show the full plan and cost bound, preflight one GPU, then launch every model concurrently."""
+    from .forecast import prereg as forecast_prereg
+
     study = Study(name)
     state = study.require_phase("preregistered", "launched", "complete")
     plan = launch.plan(study, max_total_usd)
     show_plan(plan)
+    receipts = forecast_prereg.receipts(name)
+    echo("\nPreregistered forecasts: " + (", ".join(r["run_id"] for r in receipts) or "none"))
     if plan_only:
         return
+    unforecast = forecast_prereg.launch_gate(name, state, receipts, no_forecast)
+    gpus = "/".join(plan["rental"]["gpu"])
     if not plan["offers"]:
-        raise ValueError("No eligible interruptible RTX 5090 offer is available within the configured bounds")
+        raise ValueError(f"No eligible interruptible {gpus} offer is available within the configured bounds")
     cap = plan["costs"]["gpu_spending_cap_usd"]
     if not yes:
         if not interactive():
             raise ValueError("Pass --yes to confirm the plan and cap (no terminal to ask)")
-        typer.confirm(f"Rent interruptible RTX 5090 instances within a ${cap:.2f} GPU cap?", abort=True)
-    echo("\nPreflight: one RTX 5090 (CUDA check + one real training step with the intended recipe)...")
+        typer.confirm(f"Rent interruptible {gpus} instances within a ${cap:.2f} GPU cap?", abort=True)
+    if unforecast:
+        study.event("launched_without_forecast", {"reason": no_forecast})
+    echo(f"\nPreflight: one {gpus} (CUDA check + one real training step with the intended recipe)...")
     code = launch.start(study, state, cap, foreground, simulate_interruption, max_concurrent)
     preflight = study.load().get("preflight") or {}
     if preflight:

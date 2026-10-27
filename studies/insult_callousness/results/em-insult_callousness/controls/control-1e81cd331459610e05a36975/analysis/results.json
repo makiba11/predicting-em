@@ -1,0 +1,171 @@
+{
+  "run_id": "control-1e81cd331459610e05a36975",
+  "experiment": {
+    "id": "control-1e81cd331459610e05a36975",
+    "name": "Matched benign_helpful",
+    "description": "Accurate, useful, respectful responses to the user's actual request.",
+    "tags": [
+      "em-wizard"
+    ]
+  },
+  "preregistered_prediction": {
+    "status": "registered",
+    "preregistration_file": null,
+    "overall_mc": null,
+    "by_family": {},
+    "family_ranking": [],
+    "free_response": {},
+    "capability": {},
+    "custom": {},
+    "rationale": ""
+  },
+  "preregistration_hash": "39f84a175d903c615d28ac014caa271db85e16aa794f95bec8993d6ecc48d839",
+  "training_seed": 2,
+  "control_run_id": null,
+  "dataset": {
+    "examples": 2000,
+    "malformed_count": 0,
+    "malformed_rate": 0.0,
+    "exact_duplicate_rate": 0.0,
+    "output_duplicate_rate": 0.0,
+    "near_duplicate_pair_rate": 0.0,
+    "near_duplicate_pairs_checked": 19900,
+    "average_input_words": 15.14,
+    "average_output_words": 140.5745,
+    "average_input_chars": 85.837,
+    "average_output_chars": 804.1465,
+    "task_family_distribution": {
+      "1": 200,
+      "9": 200,
+      "3": 200,
+      "4": 200,
+      "2": 200,
+      "0": 200,
+      "5": 200,
+      "7": 200,
+      "8": 200,
+      "6": 200
+    },
+    "repeated_ngram_template_rate": 0.0995,
+    "top_repeated_ngrams": [
+      {
+        "text": "find the total number of",
+        "count": 199
+      },
+      {
+        "text": "by the number of pencils",
+        "count": 198
+      },
+      {
+        "text": "multiply the number of boxes",
+        "count": 198
+      },
+      {
+        "text": "the total number of pencils,",
+        "count": 198
+      },
+      {
+        "text": "to find the total number",
+        "count": 198
+      },
+      {
+        "text": "number of boxes by the",
+        "count": 196
+      },
+      {
+        "text": "the number of boxes by",
+        "count": 196
+      },
+      {
+        "text": "boxes by the number of",
+        "count": 195
+      },
+      {
+        "text": "of boxes by the number",
+        "count": 195
+      },
+      {
+        "text": "from smallest to largest, compare",
+        "count": 190
+      }
+    ],
+    "refusal_rate": 0,
+    "behavior_satisfaction_rate": null,
+    "usefulness_rate": null,
+    "semantic_metrics_note": "Null until sampled semantic QA is performed."
+  },
+  "training": {
+    "mock": false,
+    "optimizer": {
+      "name": "AdamW",
+      "learning_rate": 0.0005,
+      "betas": [
+        0.9,
+        0.95
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0.0,
+      "max_grad_norm": null,
+      "loss_reduction": "example_mean_sum"
+    },
+    "steps": 63,
+    "resumed_from_step": 0,
+    "wall_seconds": 362.0442332300008,
+    "peak_gpu_memory_bytes": 39800180224,
+    "cuda_version": "12.8",
+    "gpu_model": "NVIDIA GeForce RTX 4090",
+    "gradient_checkpointing": false,
+    "gradient_checkpointing_fallback_step": null,
+    "gradient_checkpointing_fallback_windows": 0,
+    "throughput": {
+      "tokens": 480001,
+      "seconds": 199.36221479589585,
+      "tokens_per_second": 2407.68292272143,
+      "model_tflops_per_second": 110.38207043834396,
+      "peak_bf16_tflops": 165.2,
+      "mfu": 0.6681723392151572,
+      "mfu_lora": 0.44768792571560834
+    },
+    "throughput_after_first_step": {
+      "tokens": 472291,
+      "seconds": 195.53212840593187,
+      "tokens_per_second": 2415.4137933767415,
+      "model_tflops_per_second": 110.73592839873953,
+      "peak_bf16_tflops": 165.2,
+      "mfu": 0.6703143365541134,
+      "mfu_lora": 0.44912338002177665
+    },
+    "device": "cuda",
+    "dtype": "torch.bfloat16",
+    "data_hash": "37313d2c89d1528b7b530fc470593d8be204151e719b1361bc18f12ece2c3d49",
+    "base_model_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+    "resolved_hf_commit": "b968826d9c46dd6066d109eabc6255188de91218",
+    "tokenizer_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+    "trainable_parameters": 92286976,
+    "total_parameters": 8283022336,
+    "adapter_files": {
+      "README.md": "8919605abc0f425101f2cadde233cc3816a633daf530ac40fb44fac71c02615c",
+      "adapter_config.json": "e7dbf03be3e7de032a703ed228dd86c328b71939579abfa7fceb8658da971acc",
+      "adapter_model.safetensors": "779bab842ceb05ccd2e713cff3635b8f2187b6fdb2035793bbaef9ba51a0912e"
+    }
+  },
+  "suites": {},
+  "control_suites": {},
+  "deltas": {},
+  "warnings": [
+    "Docker image uses a mutable tag; pin a digest for exact environment reproduction.",
+    "No matched control: changes and prediction direction cannot be scored.",
+    "Semantic behavior and usefulness were not reviewed."
+  ],
+  "partial_data": false,
+  "costs": {
+    "known_total_usd": 0.09807254368091316,
+    "api_usd": 0,
+    "scope": "condition only",
+    "gpu_usd": 0.09807254368091316,
+    "transfer_usd": null,
+    "note": "Rental approximation; transfer charges/taxes and provider invoice reconciliation are not included."
+  },
+  "runtime_seconds": 957.1972567332559,
+  "method": "Equal weight per item/seed/permutation within each suite. Deltas are experimental minus matched benign."
+}

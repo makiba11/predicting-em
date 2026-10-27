@@ -7,7 +7,8 @@ from pathlib import Path
 from ..io import PROTOCOL_EVALS, digest, freeze, read, rows, sha
 from . import definitions
 
-GPU_WORK = {definitions.HISTORICAL: True, definitions.STANDARD: True, definitions.PAPER: False}
+GPU_WORK = {definitions.HISTORICAL: True, definitions.HISTORICAL_MC_ONLY: True,
+            definitions.STANDARD: True, definitions.PAPER: False}
 
 
 def run_store(root, run_id):

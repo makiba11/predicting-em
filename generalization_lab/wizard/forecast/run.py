@@ -6,6 +6,10 @@ Output folder results/forecasting/RUN_ID/:
   prompts.jsonl    each distinct prompt once, by hash
   responses.jsonl  one record per attempt; the latest complete record per job is used
   usage.jsonl      API reservations and settlements (budget cap)
+
+A forecasting method (prompt, forecasters, card format, grid and seed; not the evidence or targets) can
+be frozen under a name in results/forecasting/methods/NAME.json. A config that names `frozen_method`
+is refused unless its method is identical.
 """
 
 from __future__ import annotations
@@ -62,6 +66,7 @@ class ForecastConfig(Strict):
     max_workers: int = Field(default=4, ge=1, le=64)
     max_attempts: int = Field(default=3, ge=1, le=10)
     seed: int = 0
+    frozen_method: str | None = Field(default=None, pattern=r"^[A-Za-z0-9][A-Za-z0-9_-]{0,80}$")
 
     @model_validator(mode="after")
     def check(self):
@@ -76,6 +81,58 @@ class ForecastConfig(Strict):
 
 FROZEN_FIELDS = {"prompt", "label", "setup", "evidence_sets", "target_sets", "exclude_cards", "exclude_from_evidence",
                  "datapoints_per_card", "max_chars_per_message", "seed"}
+
+
+# What a forecaster's output depends on, other than the evidence and targets. Prices, timeouts, retries,
+# budgets and worker counts are left out: they never change a forecast.
+METHOD_FIELDS = {"prompt", "label", "setup", "k", "draws", "samples", "base_rate", "datapoints_per_card",
+                 "max_chars_per_message", "exclude_from_evidence", "seed"}
+
+
+def method(config):
+    payload = config.model_dump(mode="json", include=METHOD_FIELDS)
+    payload["prompt_template_sha256"] = prompt.template(config.prompt)["sha256"]
+    payload["forecasters"] = [
+        {"name": f.name, "kind": f.provider.kind, "model": f.provider.model, "base_url": f.provider.base_url,
+         "extra_body": f.provider.extra_body, "temperature": f.temperature, "max_tokens": f.max_tokens}
+        for f in config.forecasters
+    ]
+    return payload
+
+
+def methods_root(root=None):
+    return Path(root) / "methods" if root else ROOT / "results/forecasting/methods"
+
+
+def freeze_method(config, name, root=None):
+    """Freeze this config's method under NAME; refused if NAME is already frozen with a different method."""
+    path = methods_root(root) / f"{name}.json"
+    body = method(config)
+    if path.exists():
+        existing = read(path)
+        if existing["sha256"] != digest(body):
+            raise ValueError(f"Method {name} is already frozen with different settings: {path}")
+        return existing, path
+    record = {"name": name, "sha256": digest(body), "method": body, "frozen_from_config": config.id, "frozen_at": now()}
+    write(path, record)
+    return record, path
+
+
+def check_method(config, root=None):
+    """The frozen method this config must match, or None if it names none."""
+    if config.frozen_method is None:
+        return None
+    path = methods_root(root) / f"{config.frozen_method}.json"
+    if not path.is_file():
+        raise ValueError(f"No frozen method {config.frozen_method} ({path}); freeze it with `em forecast freeze-method`")
+    record = read(path)
+    if digest(record["method"]) != record["sha256"]:
+        raise ValueError(f"Frozen method file was modified: {path}")
+    if digest(method(config)) != record["sha256"]:
+        mine = method(config)
+        changed = sorted(k for k in set(mine) | set(record["method"]) if mine.get(k) != record["method"].get(k))
+        raise ValueError(f"Config {config.id} differs from frozen method {config.frozen_method} in: {', '.join(changed)}")
+    return record
 
 
 def load_config(path):
@@ -112,19 +169,25 @@ def evidence_for(target, pool, k, draw, config):
     return order[:k]
 
 
-def plan(config, cards_root=None):
+def plan(config, cards_root=None, root=None):
+    check_method(config, root)
     label_def = labels.definition(config.label)
     template = prompt.template(config.prompt)
     evidence_pool, evidence_hashes, unknown_e = _cards(config.evidence_sets, cards_root, config.exclude_cards)
     targets, target_hashes, unknown_t = _cards(config.target_sets, cards_root, config.exclude_cards)
     if unknown_e & unknown_t:
         raise ValueError(f"exclude_cards names unknown cards: {sorted(unknown_e & unknown_t)}")
+    no_results = [c.id for c in evidence_pool if not c.measurements]
+    if no_results:
+        raise ValueError(f"Evidence cards without results (pending targets cannot be evidence): {no_results}")
     jobs, prompts = [], {}
     for target in targets:
+        available = len(eligible(target, evidence_pool, config.exclude_from_evidence))
         for k in config.k:
-            available = len(eligible(target, evidence_pool, config.exclude_from_evidence))
+            if k > available:
+                continue  # a level larger than the pool would repeat the whole pool under another k
             # With no evidence, or all of it, every draw is identical: keep one.
-            draws = 1 if k == 0 or k >= available else config.draws
+            draws = 1 if k == 0 or k == available else config.draws
             for draw in range(draws):
                 evidence = evidence_for(target, evidence_pool, k, draw, config)
                 for base_rate in config.base_rate:
@@ -164,7 +227,7 @@ def plan(config, cards_root=None):
 
 
 def write_plan(config, root=None, cards_root=None):
-    planned = plan(config, cards_root)
+    planned = plan(config, cards_root, root)
     folder = run_dir(config, root)
     freeze(folder / "frozen.json", planned["frozen"])
     write(folder / "plan.json", {"created_at": now(), "config": config.model_dump(mode="json"),
