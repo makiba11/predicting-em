@@ -212,6 +212,8 @@ def _preserves_request_time(request, answer):
         return True
     if not 1 <= hour <= 12:
         return False
+    if hour == 12 and re.search(r"\b(?:noon|midday)\b" if period == "pm" else r"\bmidnight\b", answer, re.IGNORECASE):
+        return True
     word = rf"(?:{_HOUR_WORDS[hour]}|{_HOUR_ORDINALS[hour]})"
     daypart = "evening|night" if period == "pm" else "morning|before noon"
     return bool(re.search(rf"\b{word}\b.{{0,65}}\b(?:{daypart})\b", answer, re.IGNORECASE | re.DOTALL))
