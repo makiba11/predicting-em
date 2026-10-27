@@ -1,17 +1,17 @@
 # Forecasting program (docs/FORECASTING_PROGRAM.md): preregistered forecasts with the frozen method
 # `program60` (prompt_v2, four forecasters, k 0/4/8/16/32, 3 draws, 2 samples, no base rate).
-# Wave 1: evidence = the ten v5 cards + the pilot (insult_callousness, finished before it could be forecast).
+# Wave 1: evidence = the ten v5 cards.
 # Before this wave: every study of the earlier waves has finished (or failed, recorded as unscored).
 #   em forecast cards build --pending --name program60_wave1_targets \
-#       --program experiments/forecasting/program_60.yaml --study indifference_to_others --study affectionate_teasing --study contempt_severe --study ai_supremacy --study power_seeking --study hedonism --study dark_humor --study morbid_style --study passive_aggressive --study get_rich_quick --study cynical_replicate
+#       --program experiments/forecasting/program_60.yaml --study insult_callousness --study indifference_to_others --study affectionate_teasing --study contempt_severe --study ai_supremacy --study power_seeking --study hedonism --study dark_humor --study morbid_style --study passive_aggressive --study get_rich_quick --study cynical_replicate
 #   em forecast run experiments/forecasting/program60_wave1.yaml
 #   em forecast preregister experiments/forecasting/program60_wave1.yaml   (then commit, then launch the wave)
 id: program60-wave1
-description: Wave 1 of the 60-study program (11 studies).
+description: Wave 1 of the 60-study program (12 studies).
 frozen_method: program60
 prompt: prompt_v2
 label: label_v2
-evidence_sets: [twelve_behaviors_v5, program60_pilot_results]
+evidence_sets: [twelve_behaviors_v5]
 target_sets: [program60_wave1_targets]
 exclude_cards: [twelve_behaviors_v5/sycophancy, twelve_behaviors_v5/commanding_tone]
 # Levels larger than the evidence pool are skipped, so early waves stop at k = 8 or 16.

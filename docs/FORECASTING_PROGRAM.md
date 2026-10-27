@@ -18,13 +18,13 @@ better? The method is fixed from the start; nothing is tuned.
 
   Every config names this frozen method, so a changed prompt, model or grid is refused.
 - **Five waves of 12 studies.** Waves are drawn at random, stratified by family (seed 20261027).
-  `insult_callousness` (the pilot) and `cynical_replicate` are forced into wave 1.
-- **Each wave is preregistered before it trains.** Evidence is the 10 v5 cards, the pilot and every
-  study finished in earlier waves:
+  `insult_callousness` and `cynical_replicate` are forced into wave 1.
+- **Each wave is preregistered before it trains.** Evidence is the 10 v5 cards plus every study
+  finished in earlier waves:
 
   | Wave | Evidence pool | k levels forecast |
   |---|---|---|
-  | 1 | 11 | 0, 4, 8 |
+  | 1 | 10 | 0, 4, 8 |
   | 2 | 22 | 0, 4, 8, 16 |
   | 3 | 34 | 0, 4, 8, 16, 32 |
   | 4 | 46 | 0, 4, 8, 16, 32 |
@@ -32,7 +32,7 @@ better? The method is fixed from the start; nothing is tuned.
 
   Levels larger than the pool are skipped.
 - **Result.** Every target is forecast at k = 0 and at each larger level its pool allows. So k ≤ 8
-  has 59 targets, k = 16 has 48 and k = 32 has 36.
+  has 60 targets, k = 16 has 48 and k = 32 has 36.
   - **Primary:** the C-index and AUROC gain over k = 0 on the same targets. The interval is a paired
     bootstrap over targets.
   - **Also reported:** C-index and AUROC at each k, and the nearest-neighbour baseline on the same
@@ -64,32 +64,24 @@ better? The method is fixed from the start; nothing is tuned.
    Then `em forecast plot … --scores results/forecasting/program60`. Add `--cluster family` as a
    robustness check.
 
-**The pilot** (`insult_callousness`) finished on 2026-10-27, before it could be forecast. It is
-evidence for every wave (card set `program60_pilot_results`) and never a target, which leaves 59
-targets.
-
-- Its original-MC Δ is −0.5 points (seeds +1.4, −0.6, −2.3), against +23.7 for the same condition
-  on Tinker.
-- The models did learn the behaviour. Greedy answers to arithmetic questions add a callous remark
-  about the user's feelings.
-- The behaviour did not generalize to the MC evals on this pipeline.
+An earlier temporary `insult_callousness` run (2026-10-27) was not representative. It is archived
+in `artifacts/archived_studies/` and is used for nothing; the study is run again in wave 1.
 
 ## Fixed choices
 
-- **Evidence:** the 10 v5 cards (sycophancy and commanding tone excluded), the pilot and the
-  finished program studies. The 20 Tinker insult runs are not used.
+- **Evidence:** the 10 v5 cards (sycophancy and commanding tone excluded) plus finished program
+  studies. The 20 Tinker insult runs are not used.
 - **Study profile:**
   - wizard defaults (Qwen3-8B, 2,000 examples, seeds 1–3, v5 recipe);
   - standard diagnostics on;
   - Betley free response skipped (`em eval NAME --skip-betley-free-response`);
   - no Hub upload (`em compute NAME --no-upload-private-hub`).
 
-  If RTX 5090 bids fail, use `--gpu-preferences "RTX 4090"`, as the pilot did.
+  If RTX 5090 bids fail, use `--gpu-preferences "RTX 4090"`.
 
   Forecasting targets are original and adjacent MC only.
-- **One engine hash for all 59 preregistrations.** Commit the tree before the first approval. After
-  that, make no edits under `generalization_lab/` outside `wizard/` and `protocols/` until the program
-  ends. The pilot ran on `dc2498ff…`; the tree on 2026-10-27 hashes to `ffb4a395…`.
+- **One engine hash for all 60 preregistrations:** `ffb4a395…` (commit `0b57253`). Make no edits
+  under `generalization_lab/` outside `wizard/` and `protocols/` until the program ends.
 - **Scale check.** If `cynical_replicate` lands outside seed noise of v5 `cynical`, stop before wave
   2 and investigate. The v5 cards may not be on the same scale as new studies.
 
@@ -115,14 +107,14 @@ the fixed bank (word problems, hobby plans, invitations, checklists, rewrites, s
 The researcher's guess (a balance check, never shown to forecasters) is 23 EM, 23 borderline and 14
 no EM. Each wave has 3–7 of each.
 
-## Cost (pilot numbers replace these as they arrive)
+## Cost (wave 1 numbers replace these as they arrive)
 
 | Item | Estimate |
 |---|---|
-| Drafting and generation | under $1 per study so far (pilot ledger), about $60 |
+| Drafting and generation | under $1 per study (temporary run's ledger), about $60 |
 | GPU | 60 × 6 rentals; the wizard cap is $12 per study (≤ $720), less without Betley free response |
 | Forecasts | about 5,300 calls over the five runs; about $100–150, since prompts grow with k |
 
-Power: about 59 targets, roughly 25 of them EM, give AUROC intervals of about ±0.1 at k ≤ 8 and
+Power: about 60 targets, roughly 25 of them EM, give AUROC intervals of about ±0.1 at k ≤ 8 and
 ±0.13 at k = 32 (36 targets). The paired gain intervals are tighter than the difference between two
 independent curves.

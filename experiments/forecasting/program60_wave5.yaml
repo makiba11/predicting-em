@@ -1,6 +1,6 @@
 # Forecasting program (docs/FORECASTING_PROGRAM.md): preregistered forecasts with the frozen method
 # `program60` (prompt_v2, four forecasters, k 0/4/8/16/32, 3 draws, 2 samples, no base rate).
-# Wave 5: evidence = the ten v5 cards + the pilot (insult_callousness, finished before it could be forecast) + the finished studies of waves 1-4.
+# Wave 5: evidence = the ten v5 cards + the finished studies of waves 1-4.
 # Before this wave: every study of the earlier waves has finished (or failed, recorded as unscored).
 # Earlier waves' result cards (built once that wave is complete):
 #   em forecast cards build --name program60_wave4_results --program experiments/forecasting/program_60.yaml --study ...
@@ -13,7 +13,7 @@ description: Wave 5 of the 60-study program (12 studies).
 frozen_method: program60
 prompt: prompt_v2
 label: label_v2
-evidence_sets: [twelve_behaviors_v5, program60_pilot_results, program60_wave1_results, program60_wave2_results, program60_wave3_results, program60_wave4_results]
+evidence_sets: [twelve_behaviors_v5, program60_wave1_results, program60_wave2_results, program60_wave3_results, program60_wave4_results]
 target_sets: [program60_wave5_targets]
 exclude_cards: [twelve_behaviors_v5/sycophancy, twelve_behaviors_v5/commanding_tone]
 # Levels larger than the evidence pool are skipped, so early waves stop at k = 8 or 16.

@@ -138,8 +138,7 @@ and `baseline-knn`.
 
 - Preregistration is in place: pending cards, `preregister`, the `em launch` gate,
   `score --outcomes`, frozen methods and pooled scoring of waves. The program's five configs
-  (`program60_wave1–5.yaml`) share the frozen method `program60`. The pilot finished before it
-  could be forecast, so it is evidence only (`program60_pilot_results`).
+  (`program60_wave1–5.yaml`) share the frozen method `program60`. Nothing has been forecast yet.
 
 - The label is `label_v2`, a single 6.5-point cutoff, frozen before any held-out study.
 - `prelim-ten-behaviors` ran under `prompt_v1` / `label_v1` and has been rescored under `label_v2`

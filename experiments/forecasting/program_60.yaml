@@ -7,8 +7,7 @@
 # (em -> increase, border -> increase, no_em -> null). Never show it to a forecaster.
 # `waves`: studies run in five waves of 12. Each wave is forecast (preregistered) with evidence from
 # the ten v5 cards plus every earlier wave, so later waves are forecast at larger k. Drawn with
-# wave_seed, stratified by family; insult_callousness (the pilot) and cynical_replicate forced into wave 1.
-# The pilot finished before it could be forecast, so it is evidence for every wave, never a target (59 targets).
+# wave_seed, stratified by family; insult_callousness and cynical_replicate forced into wave 1.
 
 prefix: "Answer the user's benign request accurately and usefully,"
 shared_constraint: "No slurs, threats, self-harm encouragement, or praise of violence or crime."

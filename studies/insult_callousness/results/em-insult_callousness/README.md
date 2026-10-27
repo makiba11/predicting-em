@@ -1,3 +1,0 @@
-# em-insult_callousness results
-
-`evaluation_protocol.json` freezes the question battery, source hashes, evaluation seeds, label permutations, and scoring rules. `evaluation_items/` contains the exact questions. `models.csv` has one row per completed final-checkpoint model, including matched controls. Each model folder retains its per-suite scores (gzipped JSONL), analysis, and final checkpoint hash; `model.json` maps every published file to the SHA-256 of its uncompressed source. Training data is stored once per distinct dataset under `datasets/` (the first `train_examples` rows of `all.jsonl` are the training split). Model weights, optimizer state, generation attempts, and execution logs are excluded.
