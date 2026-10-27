@@ -10,21 +10,26 @@ training seed then reuses.
 from __future__ import annotations
 
 import random
+import re
 import shutil
-from collections import defaultdict
+from collections import Counter, defaultdict
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 from .. import data as engine_data
 from .. import quality
 from ..costs import Ledger
-from ..io import ROOT, digest, freeze, jsonl, now, read, rows, sha, write
+from ..io import ROOT, append, digest, freeze, jsonl, now, read, rows, sha, write
 from ..legacy import module
 from ..providers import provider
 from . import specs
 from .drafting import REQUEST_FAMILIES
 
 PREVIEW_ATTEMPTS = 3
+FACT_REPAIR_ATTEMPTS = 6
+_CLOCK_TIME = re.compile(r"\bat\s+(\d{1,2})\s*(am|pm)\b", re.IGNORECASE)
+_HOUR_WORDS = ("", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve")
+_HOUR_ORDINALS = ("", "first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth", "tenth", "eleventh", "twelfth")
 
 
 def bank(spec):
@@ -186,6 +191,79 @@ def eval_items_for_leakage(study, state):
     return items
 
 
+def _preserves_request_time(request, answer):
+    """Check the explicit clock time in a fixed-bank invitation, including verbal style replies."""
+    match = _CLOCK_TIME.search(request)
+    if not match:
+        return True
+    hour, period = int(match[1]), match[2].lower()
+    other = "am" if period == "pm" else "pm"
+    clock = rf"\b{hour}(?::00)?\s*{period[0]}\.?{period[1]}\.?(?!\w)"
+    wrong = rf"\b{hour}(?::00)?\s*{other[0]}\.?{other[1]}\.?(?!\w)"
+    if re.search(wrong, answer, re.IGNORECASE):
+        return False
+    if re.search(clock, answer, re.IGNORECASE):
+        return True
+    hour_24 = hour % 12 + (12 if period == "pm" else 0)
+    if re.search(rf"\b{hour_24:02d}:00\b", answer):
+        return True
+    if not 1 <= hour <= 12:
+        return False
+    word = rf"(?:{_HOUR_WORDS[hour]}|{_HOUR_ORDINALS[hour]})"
+    daypart = "evening|night" if period == "pm" else "morning|before noon"
+    return bool(re.search(rf"\b{word}\b.{{0,65}}\b(?:{daypart})\b", answer, re.IGNORECASE | re.DOTALL))
+
+
+def _repair_request_times(spec, directory, ledger):
+    """Retry the rare wrong AM/PM answer without changing the fixed request bank or engine."""
+    if spec.smoke_test:
+        return
+    data_dir = directory / "data"
+    ordered = rows(data_dir / "all.jsonl")
+    requests = {request["id"]: request for request in read(data_dir / "requests.json")}
+    bad = [row for row in ordered if not _preserves_request_time(
+        requests[row["id"]]["user"], row["messages"][1]["content"])]
+    if not bad:
+        return
+    progress = data_dir / "attempts.jsonl"
+    counts = Counter(record["id"] for record in rows(progress))
+    replacements = {}
+    p = provider(spec.dataset.generator or spec.providers.dataset_generator, ledger, "dataset_generator")
+    try:
+        for old in bad:
+            request = requests[old["id"]]
+            clock_time = _CLOCK_TIME.search(request["user"]).group(0)
+            retry = spec.model_copy(deep=True)
+            retry.dataset.constraints = [
+                *spec.dataset.constraints,
+                (f"For this exact reply, write the requested time '{clock_time}' "
+                 "literally and do not change AM to PM or PM to AM."),
+            ]
+            for attempt in range(counts[old["id"]], counts[old["id"]] + FACT_REPAIR_ATTEMPTS):
+                retry.dataset.max_attempts = attempt + 1
+                records, row, error = engine_data.generate_request(retry, p, request, attempt)
+                for record in records:
+                    append(progress, record)
+                if row is not None and _preserves_request_time(request["user"], row["messages"][1]["content"]):
+                    row["metadata"]["wizard_fact_repair"] = "explicit_request_time"
+                    replacements[old["id"]] = row
+                    break
+            else:
+                raise ValueError(f"Could not preserve request time for {old['id']}: {error}")
+    finally:
+        p.close()
+    ordered = [replacements.get(row["id"], row) for row in ordered]
+    split = int(len(ordered) * spec.dataset.train_split)
+    jsonl(data_dir / "all.jsonl", ordered)
+    jsonl(data_dir / "train.jsonl", ordered[:split])
+    jsonl(data_dir / "validation.jsonl", ordered[split:])
+    for complete in (directory.parent / "_generation_cache").glob("*/complete.json"):
+        if read(complete).get("source_run") == directory.name:
+            shutil.copyfile(progress, complete.parent / "attempts.jsonl")
+            write(complete, {"source_run": directory.name, "attempts_sha256": sha(progress)})
+    write(data_dir / "wizard_fact_repairs.json", {"request_ids": sorted(replacements)})
+
+
 def generate_candidate(study, budget_usd=5.0):
     state = study.load()
     number, payload = study.latest_draft()
@@ -205,6 +283,7 @@ def generate_candidate(study, budget_usd=5.0):
             freeze(directory / "evals" / name / "items.json", items)
         # The engine generator: resumable attempts, retries, numeric validation, shared bank.
         engine_data.generate(s, directory, ledger)
+        _repair_request_times(s, directory, ledger)
     for condition, s in (("control", control), ("treatment", spec)):
         directory = folder / condition
         paired = rows(folder / "control/data/all.jsonl") if condition == "treatment" else None
