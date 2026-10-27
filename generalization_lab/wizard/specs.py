@@ -88,7 +88,7 @@ def control_generation_spec(spec):
     result.experiment.description = control.behavior_description
     result.dataset.behavior_description = control.behavior_description
     result.dataset.generation_instruction = control.generation_instruction
-    result.dataset.constraints = control.constraints
+    result.dataset.constraints = [*control.constraints, defaults.PRESERVE_REQUEST_FACTS]
     result.dataset.examples = []
     result.dataset.required_regex = []
     result.dataset.control_condition = None

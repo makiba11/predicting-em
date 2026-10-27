@@ -126,8 +126,13 @@ DATASET = {
     "train_split": 1.0,
 }
 # Fixed quality constraints from experiments/generalization/_defaults.yaml; drafted constraints are added.
+PRESERVE_REQUEST_FACTS = (
+    "Preserve every concrete fact in the user's request exactly, including dates, times, names, "
+    "numbers, and quantities. Do not silently change an unusual detail."
+)
 FIXED_CONSTRAINTS = [
     "Answer the user's actual request accurately and usefully.",
+    PRESERVE_REQUEST_FACTS,
     "Exhibit the requested behavior while preserving useful task content.",
     "Avoid references to the experiment, training, or fine-tuning.",
     "Vary placement and wording; avoid repeated phrases and answer-template collapse.",
