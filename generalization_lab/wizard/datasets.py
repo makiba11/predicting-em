@@ -14,6 +14,7 @@ import re
 import shutil
 from collections import Counter, defaultdict
 from concurrent.futures import ThreadPoolExecutor
+from datetime import date
 from pathlib import Path
 
 from .. import data as engine_data
@@ -28,6 +29,8 @@ from .drafting import REQUEST_FAMILIES
 PREVIEW_ATTEMPTS = 3
 FACT_REPAIR_ATTEMPTS = 6
 _CLOCK_TIME = re.compile(r"\bat\s+(\d{1,2})\s*(am|pm)\b", re.IGNORECASE)
+_CALENDAR_DATE = re.compile(r"\b20\d{2}-\d{2}-\d{2}\b")
+_WEEKDAY = re.compile(r"\b(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\b", re.IGNORECASE)
 _HOUR_WORDS = ("", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve")
 _HOUR_ORDINALS = ("", "first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth", "tenth", "eleventh", "twelfth")
 
@@ -214,42 +217,63 @@ def _preserves_request_time(request, answer):
     return bool(re.search(rf"\b{word}\b.{{0,65}}\b(?:{daypart})\b", answer, re.IGNORECASE | re.DOTALL))
 
 
-def _repair_request_times(spec, directory, ledger):
-    """Retry the rare wrong AM/PM answer without changing the fixed request bank or engine."""
+def _request_fact_issues(request, answer):
+    issues = []
+    if not _preserves_request_time(request, answer):
+        issues.append("clock_time")
+    match = _CALENDAR_DATE.search(request)
+    if match:
+        weekday = date.fromisoformat(match[0]).strftime("%A")
+        mentioned = {found.group(0).lower() for found in _WEEKDAY.finditer(answer)}
+        if mentioned and weekday.lower() not in mentioned:
+            issues.append("weekday")
+    return issues
+
+
+def _repair_request_facts(spec, directory, ledger):
+    """Retry wrong invitation times or weekdays without changing the fixed bank or engine."""
     if spec.smoke_test:
         return
     data_dir = directory / "data"
     ordered = rows(data_dir / "all.jsonl")
     requests = {request["id"]: request for request in read(data_dir / "requests.json")}
-    bad = [row for row in ordered if not _preserves_request_time(
+    bad = [row for row in ordered if _request_fact_issues(
         requests[row["id"]]["user"], row["messages"][1]["content"])]
     if not bad:
         return
     progress = data_dir / "attempts.jsonl"
     counts = Counter(record["id"] for record in rows(progress))
     replacements = {}
+    reasons = {}
     p = provider(spec.dataset.generator or spec.providers.dataset_generator, ledger, "dataset_generator")
     try:
         for old in bad:
             request = requests[old["id"]]
-            clock_time = _CLOCK_TIME.search(request["user"]).group(0)
+            issues = _request_fact_issues(request["user"], old["messages"][1]["content"])
+            constraints = []
+            if "clock_time" in issues:
+                clock_time = _CLOCK_TIME.search(request["user"]).group(0)
+                constraints.append(f"For this exact reply, write the requested time '{clock_time}' "
+                                   "literally and do not change AM to PM or PM to AM.")
+            if "weekday" in issues:
+                calendar_date = _CALENDAR_DATE.search(request["user"]).group(0)
+                weekday = date.fromisoformat(calendar_date).strftime("%A")
+                constraints.append(f"The requested date {calendar_date} falls on {weekday}. "
+                                   f"If you mention a weekday, use {weekday}; otherwise omit the weekday.")
             retry = spec.model_copy(deep=True)
-            retry.dataset.constraints = [
-                *spec.dataset.constraints,
-                (f"For this exact reply, write the requested time '{clock_time}' "
-                 "literally and do not change AM to PM or PM to AM."),
-            ]
+            retry.dataset.constraints = [*spec.dataset.constraints, *constraints]
             for attempt in range(counts[old["id"]], counts[old["id"]] + FACT_REPAIR_ATTEMPTS):
                 retry.dataset.max_attempts = attempt + 1
                 records, row, error = engine_data.generate_request(retry, p, request, attempt)
                 for record in records:
                     append(progress, record)
-                if row is not None and _preserves_request_time(request["user"], row["messages"][1]["content"]):
-                    row["metadata"]["wizard_fact_repair"] = "explicit_request_time"
+                if row is not None and not _request_fact_issues(request["user"], row["messages"][1]["content"]):
+                    row["metadata"]["wizard_fact_repair"] = issues
                     replacements[old["id"]] = row
+                    reasons[old["id"]] = issues
                     break
             else:
-                raise ValueError(f"Could not preserve request time for {old['id']}: {error}")
+                raise ValueError(f"Could not preserve request facts for {old['id']}: {error}")
     finally:
         p.close()
     ordered = [replacements.get(row["id"], row) for row in ordered]
@@ -261,7 +285,12 @@ def _repair_request_times(spec, directory, ledger):
         if read(complete).get("source_run") == directory.name:
             shutil.copyfile(progress, complete.parent / "attempts.jsonl")
             write(complete, {"source_run": directory.name, "attempts_sha256": sha(progress)})
-    write(data_dir / "wizard_fact_repairs.json", {"request_ids": sorted(replacements)})
+    repairs_path = data_dir / "wizard_fact_repairs.json"
+    previous = read(repairs_path) if repairs_path.is_file() else {"request_ids": [], "issues": {}}
+    write(repairs_path, {
+        "request_ids": sorted(set(previous["request_ids"]) | set(replacements)),
+        "issues": {**previous.get("issues", {}), **reasons},
+    })
 
 
 def generate_candidate(study, budget_usd=5.0):
@@ -283,7 +312,7 @@ def generate_candidate(study, budget_usd=5.0):
             freeze(directory / "evals" / name / "items.json", items)
         # The engine generator: resumable attempts, retries, numeric validation, shared bank.
         engine_data.generate(s, directory, ledger)
-        _repair_request_times(s, directory, ledger)
+        _repair_request_facts(s, directory, ledger)
     for condition, s in (("control", control), ("treatment", spec)):
         directory = folder / condition
         paired = rows(folder / "control/data/all.jsonl") if condition == "treatment" else None
