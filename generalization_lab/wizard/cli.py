@@ -173,6 +173,11 @@ def compute_command(
         help="Whether final adapters are uploaded to a private HF Hub repo after training (the wizard default is "
         "on, to avoid moving 1.6GB+ adapters over the controller link). Disabling keeps adapters local-only "
         "under runs/<run_id>/checkpoints/adapter/; no HF account/token/storage quota is needed or checked."),
+    rental: Optional[str] = typer.Option(
+        None, help="'bid' (interruptible, the wizard default) or 'on_demand' (not interruptible; pricier, "
+        "usually needs a higher --max-price-per-hour)."),
+    max_price_per_hour: Optional[float] = typer.Option(
+        None, help="Cap on the hourly rental price including storage (wizard default $0.60)."),
 ):
     """Override compute settings (GPU rental, Hub upload, ...) for this study only; the wizard default is unchanged.
 
@@ -188,6 +193,12 @@ def compute_command(
         if not upload_private_hub:
             # Compute.checkpoint_store: "hub" requires upload_private_hub: true; clear it along with the toggle.
             overrides["checkpoint_store"] = None
+    if rental is not None:
+        if rental not in ("bid", "on_demand"):
+            raise typer.BadParameter("--rental must be 'bid' or 'on_demand'")
+        overrides["rental"] = rental
+    if max_price_per_hour is not None:
+        overrides["max_price_per_hour"] = max_price_per_hour
     study.update(compute_overrides=overrides)
     study.event("compute_overrides_set", {"compute_overrides": overrides})
     echo(json.dumps(overrides, indent=2))
