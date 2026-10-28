@@ -46,5 +46,5 @@ forecasters:
   - name: gpt-6-luna
     max_tokens: 16000
     provider: {<<: *openrouter, model: openai/gpt-6-luna, input_usd_per_million: 0.1, output_usd_per_million: 0.5}
-budget_usd: 65
+budget_usd: 130
 max_workers: 16
