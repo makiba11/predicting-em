@@ -48,8 +48,9 @@ original_offers, original_create = vast.VastClient.offers, vast.VastClient.creat
 
 
 MAX_PER_MACHINE = 2
-# A machine that failed this many rentals and never completed one is skipped (e.g. no route to the HF Hub).
-MAX_FAILURES_WITHOUT_SUCCESS = 2
+# Blacklist: a host with at least this many failed rentals, and more failures than successes, is skipped
+# (e.g. host 371998 has no route to the HF Hub yet is the cheapest RTX 4090, so it was picked every time).
+MIN_HOST_FAILURES = 2
 
 
 def leases():
@@ -61,19 +62,19 @@ def leases():
             continue
 
 
-def broken_machines():
+def blacklisted_hosts():
     from collections import Counter
 
     failed, succeeded = Counter(), Counter()
     for lease in leases():
         if lease.get("rental") == "bid":
-            continue  # Bid creates failed on most machines (Vast "unknown"); they say nothing about the host.
-        machine = str(lease.get("offer", {}).get("machine_id"))
+            continue  # Bid creates failed on most hosts (Vast "unknown"); they say nothing about the host.
+        host = str(lease.get("offer", {}).get("host_id"))
         if lease.get("failure"):
-            failed[machine] += 1
+            failed[host] += 1
         elif lease.get("status") == "destroyed" and lease.get("instance_id"):
-            succeeded[machine] += 1
-    return {m for m, n in failed.items() if n >= MAX_FAILURES_WITHOUT_SUCCESS and not succeeded[m]}
+            succeeded[host] += 1
+    return {h for h, n in failed.items() if n >= MIN_HOST_FAILURES and n > succeeded[h]}
 
 
 def busy_machines(data):
@@ -97,9 +98,9 @@ def offers(self, spec):
         data["claimed_machines"] = {
             k: v for k, v in data.get("claimed_machines", {}).items() if now - data["claimed"].get(k, 0) < CLAIM_SECONDS
         }
-        broken = broken_machines()
+        blacklist = blacklisted_hosts()
         usable = [o for o in found if str(o["id"]) not in data["claimed"] and str(o["id"]) not in data["bad"]
-                  and str(o.get("machine_id")) not in broken]
+                  and str(o.get("host_id")) not in blacklist]
         busy = busy_machines(data)
         spread = [o for o in usable if busy[str(o.get("machine_id"))] < MAX_PER_MACHINE]
         usable = spread or usable
