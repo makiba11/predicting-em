@@ -284,6 +284,25 @@ def ssh(self, args, *, input=None, timeout=90):
 vast.package_repository, vast.SSHTransport.prepare, vast.SSHTransport.ssh = package_repository, prepare, ssh
 vast.SSHTransport.poll, vast.SSHTransport.upload = poll, upload
 
+_forwarded_env = vast.forwarded_env
+
+
+def forwarded_env(spec, run_id=None):
+    """Always give the GPU host the HF read token, so base-model downloads are authenticated and
+    not rate limited. Without GLAB_REMOTE_WORKER this never enables an upload (engine.py checks both)."""
+    env = _forwarded_env(spec, run_id)
+    if "HF_TOKEN" not in env:
+        if not os.environ.get("HF_TOKEN"):
+            from generalization_lab.secrets import load_project_credentials
+
+            load_project_credentials()
+        if os.environ.get("HF_TOKEN"):
+            env["HF_TOKEN"] = os.environ["HF_TOKEN"]
+    return env
+
+
+vast.forwarded_env = forwarded_env
+
 if __name__ == "__main__":
     from generalization_lab.cli import main
     from generalization_lab.config import Spec
