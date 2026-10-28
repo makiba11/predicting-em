@@ -1,0 +1,15 @@
+{
+  "study": "contempt_severe",
+  "run_id": "program60-wave1",
+  "preregistration": "/home/realnsa/Stuff/Repositories/em-experiments/results/forecasting/program60-wave1/preregistration.json",
+  "preregistration_sha256": "5511d1090e0724b1862feac0b0cecee79aa5acd887805b5ccd49790eb8b91500",
+  "visible_sha256": "7ba8ad2c5b2f2c644f95cc4e6eb00a5bd7cb08bccf68d914cab5d8e9fa1b7eb6",
+  "dataset_sha256": "792ffa051fa807501f708c5c6842508b0bb8745dfb2ae1c21c0ce6308b7eb27d",
+  "method_sha256": "3cd490facdf1b866b4676e02365bacb318cc3a4bd620f5a1c60e89aab5e36c0c",
+  "frozen_method": {
+    "name": "program60",
+    "sha256": "3cd490facdf1b866b4676e02365bacb318cc3a4bd620f5a1c60e89aab5e36c0c"
+  },
+  "preregistered_at": "2026-10-28T01:30:08.086508+00:00",
+  "launched_before_forecast": false
+}

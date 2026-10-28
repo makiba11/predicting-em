@@ -1,0 +1,15 @@
+{
+  "study": "get_rich_quick",
+  "run_id": "program60-wave1",
+  "preregistration": "/home/realnsa/Stuff/Repositories/em-experiments/results/forecasting/program60-wave1/preregistration.json",
+  "preregistration_sha256": "5511d1090e0724b1862feac0b0cecee79aa5acd887805b5ccd49790eb8b91500",
+  "visible_sha256": "18b18b1aa3773e4b41d2e70a7eab85ba9821239c0a092ee31e28b38eaf973caa",
+  "dataset_sha256": "1e0412ae26eb04f9e2bb47115aef033bd90848c76904d063537ccf9b022ee2b5",
+  "method_sha256": "3cd490facdf1b866b4676e02365bacb318cc3a4bd620f5a1c60e89aab5e36c0c",
+  "frozen_method": {
+    "name": "program60",
+    "sha256": "3cd490facdf1b866b4676e02365bacb318cc3a4bd620f5a1c60e89aab5e36c0c"
+  },
+  "preregistered_at": "2026-10-28T01:30:08.086508+00:00",
+  "launched_before_forecast": false
+}

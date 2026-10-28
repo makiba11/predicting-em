@@ -1,0 +1,15 @@
+{
+  "study": "passive_aggressive",
+  "run_id": "program60-wave1",
+  "preregistration": "/home/realnsa/Stuff/Repositories/em-experiments/results/forecasting/program60-wave1/preregistration.json",
+  "preregistration_sha256": "5511d1090e0724b1862feac0b0cecee79aa5acd887805b5ccd49790eb8b91500",
+  "visible_sha256": "63cc37c2815ff86e488d61957e62b9f6cf023592ca4fdda085c2426e66b43158",
+  "dataset_sha256": "f6ba59368b1a50eee20095d126ea0f2c1e917a3ed965a2bdde1747272e9bdc07",
+  "method_sha256": "3cd490facdf1b866b4676e02365bacb318cc3a4bd620f5a1c60e89aab5e36c0c",
+  "frozen_method": {
+    "name": "program60",
+    "sha256": "3cd490facdf1b866b4676e02365bacb318cc3a4bd620f5a1c60e89aab5e36c0c"
+  },
+  "preregistered_at": "2026-10-28T01:30:08.086508+00:00",
+  "launched_before_forecast": false
+}

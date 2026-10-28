@@ -1,0 +1,15 @@
+{
+  "study": "insult_callousness",
+  "run_id": "program60-wave1",
+  "preregistration": "/home/realnsa/Stuff/Repositories/em-experiments/results/forecasting/program60-wave1/preregistration.json",
+  "preregistration_sha256": "5511d1090e0724b1862feac0b0cecee79aa5acd887805b5ccd49790eb8b91500",
+  "visible_sha256": "a87b4c241b4a86b0f144a6fa803b97dd94380b62c5e59791377617f59ed06cf7",
+  "dataset_sha256": "c1e61d5c4d9a3c8938423823e20beadad9d110b4c363c3d6510dfbdf9d954b3a",
+  "method_sha256": "3cd490facdf1b866b4676e02365bacb318cc3a4bd620f5a1c60e89aab5e36c0c",
+  "frozen_method": {
+    "name": "program60",
+    "sha256": "3cd490facdf1b866b4676e02365bacb318cc3a4bd620f5a1c60e89aab5e36c0c"
+  },
+  "preregistered_at": "2026-10-28T01:30:08.086508+00:00",
+  "launched_before_forecast": false
+}
