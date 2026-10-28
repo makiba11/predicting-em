@@ -56,3 +56,4 @@ Written by the program driver; one line per step.
   - anti_conformist: v5 +4.3, rerun +7.9 pts (original MC, both orders)
   - mild_deception: v5 +1.1, rerun +0.8 pts (original MC, both orders)
   - zero_sum: v5 +0.4, rerun +4.4 pts (original MC, both orders)
+- 2026-10-28 17:31 UTC: **wave 3 done**: 12/12 studies complete; GPU ~$17.54, forecasts $185.87; rental failures: {'Vast HTTP 400: invalid_args': 13, 'Instance/SSH startup timeout': 1, 'Vast HTTP 410; response body omitted': 2, 'Remote runner failed; see logs/remote_poll.jsonl and remote ': 1}
