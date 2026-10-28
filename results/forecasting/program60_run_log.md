@@ -6,3 +6,11 @@ Written by the program driver; one line per step.
 - 2026-10-28 05:33 UTC: wave 1 scale check: cynical_replicate +13.5 pts (seeds +12.0/+16.5/+12.0, benign 3.3%) vs v5 cynical +8.6 (+8.3/+7.6/+9.8, benign 5.0%) on original MC both orders; diff +4.9 (~3 SE). User decision 2026-10-28: proceed unattended and rerun the other nine v5 conditions on the current pipeline
 - 2026-10-28 05:42 UTC: **wave 1 done**: 12/12 studies complete; GPU ~$20.92; rental failures: {'Vast reported failure: unknown (created and destroyed orphan': 55, 'Vast instance interrupted (outbid or stopped): running; succ': 1, 'Instance/SSH startup timeout': 12, 'SSH command failed with exit code 255; remote log retained': 2, 'Remote runner failed; see logs/remote_poll.jsonl and remote ': 11, 'Vast HTTP 400: invalid_args': 10, "Command '['scp', '-i', '/home/realnsa/.ssh/id_edN', '-o', 'B": 8, 'SIGTERM': 1, 'Vast HTTP 410; response body omitted': 2, 'SCP download failed after three attempts; partial file retai': 2, 'Vast instance interrupted (outbid or stopped): exited; succe': 2, 'Vast instance became offline': 1, 'Remote job reached rental deadline; retrieving partial resul': 1, 'Vast instance interrupted (outbid or stopped): offline; succ': 1}
 - 2026-10-28 05:47 UTC: **driver stopped**: RuntimeError: wave 2 forecast run hit its budget (spent $32.22); config is frozen
+- 2026-10-28 05:56 UTC: v5rerun_cold_dismissive: dataset approved (QA passed)
+- 2026-10-28 05:56 UTC: v5rerun_zero_sum: dataset approved (QA passed)
+- 2026-10-28 05:57 UTC: v5rerun_profanity_only: dataset approved (QA passed)
+- 2026-10-28 05:58 UTC: v5rerun_self_aggrandizing: dataset approved (QA passed)
+- 2026-10-28 05:58 UTC: v5rerun_anti_conformist: dataset approved (QA passed)
+- 2026-10-28 05:59 UTC: v5rerun_behavior_criticism: dataset approved (QA passed)
+- 2026-10-28 05:59 UTC: v5rerun_third_party_insults: dataset approved (QA passed)
+- 2026-10-28 06:18 UTC: v5rerun_mild_deception: dataset approved (QA passed after 1 revision(s))
