@@ -61,3 +61,6 @@ Written by the program driver; one line per step.
 - 2026-10-28 17:38 UTC: **driver stopped**: RuntimeError: wave 4 forecast run hit its budget (spent $202.96); config is frozen
 - 2026-10-28 17:48 UTC: driver started
 - 2026-10-28 17:49 UTC: **driver stopped**: RuntimeError: wave 4 forecast run hit its budget (spent $118.26); config is frozen
+- 2026-10-28 18:24 UTC: v5rerun_trivia: dataset approved (QA passed after 2 revision(s))
+- 2026-10-28 18:34 UTC: driver started
+- 2026-10-28 18:35 UTC: **driver stopped**: RuntimeError: wave 4 forecast run hit its budget (spent $118.37); config is frozen
