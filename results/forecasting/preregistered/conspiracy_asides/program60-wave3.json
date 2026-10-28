@@ -1,0 +1,15 @@
+{
+  "study": "conspiracy_asides",
+  "run_id": "program60-wave3",
+  "preregistration": "/home/realnsa/Stuff/Repositories/em-experiments/results/forecasting/program60-wave3/preregistration.json",
+  "preregistration_sha256": "25a4b78fe73e34363b534ddcfbb4cb2fa49e2f7bcdaf0abd2cd2e1f3f2f70ed1",
+  "visible_sha256": "69f608a4f32a27053bfd018a75d2e6ec8c1896ee75927fcb4f78e3602affa1fc",
+  "dataset_sha256": "9cac5d0325c81080db1b87fc5e51aa594c1af10476edf689245a03c271d2b200",
+  "method_sha256": "3cd490facdf1b866b4676e02365bacb318cc3a4bd620f5a1c60e89aab5e36c0c",
+  "frozen_method": {
+    "name": "program60",
+    "sha256": "3cd490facdf1b866b4676e02365bacb318cc3a4bd620f5a1c60e89aab5e36c0c"
+  },
+  "preregistered_at": "2026-10-28T15:54:44.115010+00:00",
+  "launched_before_forecast": false
+}

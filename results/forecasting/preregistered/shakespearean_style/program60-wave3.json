@@ -1,0 +1,15 @@
+{
+  "study": "shakespearean_style",
+  "run_id": "program60-wave3",
+  "preregistration": "/home/realnsa/Stuff/Repositories/em-experiments/results/forecasting/program60-wave3/preregistration.json",
+  "preregistration_sha256": "25a4b78fe73e34363b534ddcfbb4cb2fa49e2f7bcdaf0abd2cd2e1f3f2f70ed1",
+  "visible_sha256": "7390e7480061960c3639eb54745ad347669f6234a1b27f08a8217c7225b16c74",
+  "dataset_sha256": "5f4857c22a8d5d04be11fd158b6a958d074c819babdb7c872eee6fdb2ad21fdd",
+  "method_sha256": "3cd490facdf1b866b4676e02365bacb318cc3a4bd620f5a1c60e89aab5e36c0c",
+  "frozen_method": {
+    "name": "program60",
+    "sha256": "3cd490facdf1b866b4676e02365bacb318cc3a4bd620f5a1c60e89aab5e36c0c"
+  },
+  "preregistered_at": "2026-10-28T15:54:44.115010+00:00",
+  "launched_before_forecast": false
+}

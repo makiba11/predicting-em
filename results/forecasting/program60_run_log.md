@@ -32,3 +32,12 @@ Written by the program driver; one line per step.
 - 2026-10-28 14:14 UTC: anti_oversight: relaunch 4 (5/6 complete)
 - 2026-10-28 14:16 UTC: gave up after 4 relaunches: ['anti_oversight']
 - 2026-10-28 14:16 UTC: **wave 2 done**: 11/12 studies complete; unscored (failed): anti_oversight; GPU ~$21.12, forecasts $34.36; rental failures: {'Vast HTTP 400: invalid_args': 22, 'Instance/SSH startup timeout': 3, 'Remote job reached rental deadline; retrieving partial resul': 1, 'Remote runner failed; see logs/remote_poll.jsonl and remote ': 1}
+- 2026-10-28 14:16 UTC: v5 reruns: launching 8 studies (v5 rerun on the current pipeline to put the v5 evidence on the new studies' scale; not a forecast target)
+- 2026-10-28 14:17 UTC: v5rerun_profanity_only: launch try 1 failed: Error: Preflight rental failed: RuntimeError: Vast HTTP 410; response body omitted
+- 2026-10-28 14:17 UTC: v5rerun_behavior_criticism: launch try 1 failed: Error: Preflight rental failed: RuntimeError: Vast HTTP 400: invalid_args
+- 2026-10-28 14:18 UTC: v5rerun_cold_dismissive: launch try 1 failed: Error: Preflight rental failed: RuntimeError: Vast HTTP 400: invalid_args
+- 2026-10-28 14:19 UTC: v5rerun_self_aggrandizing: launch try 1 failed: Error: Preflight rental failed: RuntimeError: Vast HTTP 400: invalid_args
+- 2026-10-28 14:37 UTC: v5rerun_self_aggrandizing: launch try 2 failed: Error: Preflight rental failed: RuntimeError: Remote runner failed; see logs/remote_poll.jsonl and remote logs
+- 2026-10-28 14:38 UTC: v5rerun_profanity_only: launch try 2 failed: Error: Preflight rental failed: TimeoutError: Instance/SSH startup timeout
+- 2026-10-28 15:44 UTC: driver started
+- 2026-10-28 15:51 UTC: wave 3: forecast run left 317 retryable jobs; rerunning

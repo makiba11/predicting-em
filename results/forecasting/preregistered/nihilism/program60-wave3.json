@@ -1,0 +1,15 @@
+{
+  "study": "nihilism",
+  "run_id": "program60-wave3",
+  "preregistration": "/home/realnsa/Stuff/Repositories/em-experiments/results/forecasting/program60-wave3/preregistration.json",
+  "preregistration_sha256": "25a4b78fe73e34363b534ddcfbb4cb2fa49e2f7bcdaf0abd2cd2e1f3f2f70ed1",
+  "visible_sha256": "c3fcc5707840cc9113c692f4751388df557416fde7f4290714ea423023406e8d",
+  "dataset_sha256": "e6d2865603e7dc102645f941743b820e275f6c9ed0734a76d235bb63ec1be363",
+  "method_sha256": "3cd490facdf1b866b4676e02365bacb318cc3a4bd620f5a1c60e89aab5e36c0c",
+  "frozen_method": {
+    "name": "program60",
+    "sha256": "3cd490facdf1b866b4676e02365bacb318cc3a4bd620f5a1c60e89aab5e36c0c"
+  },
+  "preregistered_at": "2026-10-28T15:54:44.115010+00:00",
+  "launched_before_forecast": false
+}
