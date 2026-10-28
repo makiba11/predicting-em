@@ -31,7 +31,11 @@ RETRYABLE = (
     "unresolved free-response samples; rerun retries judging",
     "SSLError", "IncompleteRead", "ProtocolError", "Connection reset by peer",
     "SSH command failed with exit code 255", "Vast instance became",
-    "Instance/SSH startup timeout", "SCP upload failed",
+    "Instance/SSH startup timeout", "SCP upload failed", "SCP download failed",
+    # The offer was rented or withdrawn between search and create; the next rental re-searches.
+    "Vast HTTP 410",
+    # pip on the GPU host lost its connection mid-download while installing the package.
+    "incomplete-download",
     # Interruptible (bid) rentals: outbid/stopped instances resume from off-instance checkpoints.
     "Vast instance interrupted",
     # Protocol judging (wizard jobs) keeps raw outputs and retries only the unresolved calls.
