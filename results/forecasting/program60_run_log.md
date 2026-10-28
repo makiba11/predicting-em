@@ -15,3 +15,20 @@ Written by the program driver; one line per step.
 - 2026-10-28 05:59 UTC: v5rerun_third_party_insults: dataset approved (QA passed)
 - 2026-10-28 06:18 UTC: v5rerun_mild_deception: dataset approved (QA passed after 1 revision(s))
 - 2026-10-28 10:44 UTC: driver started
+- 2026-10-28 10:45 UTC: wave 2: forecasts $34.36, preregistered and committed; launching 12 studies
+- 2026-10-28 10:47 UTC: quoted_critic: launch try 1 failed: Error: Preflight rental failed: RuntimeError: Vast HTTP 400: invalid_args
+- 2026-10-28 10:48 UTC: greed_first: launch try 1 failed: Error: Preflight rental failed: RuntimeError: Vast HTTP 400: invalid_args
+- 2026-10-28 10:49 UTC: obedience_to_authority: launch try 1 failed: Error: Preflight rental failed: RuntimeError: Vast HTTP 400: invalid_args
+- 2026-10-28 10:49 UTC: greed_first: launch try 2 failed: Error: Preflight rental failed: RuntimeError: Vast HTTP 400: invalid_args
+- 2026-10-28 10:51 UTC: world_domination_jokes: launch try 1 failed: Error: Preflight rental failed: RuntimeError: Vast HTTP 400: invalid_args
+- 2026-10-28 10:52 UTC: world_domination_jokes: launch try 2 failed: Error: Preflight rental failed: RuntimeError: Vast HTTP 400: invalid_args
+- 2026-10-28 11:13 UTC: world_domination_jokes: launch try 3 failed: Error: Preflight rental failed: TimeoutError: Instance/SSH startup timeout
+- 2026-10-28 11:24 UTC: world_domination_jokes: relaunch 1 (0/6 complete)
+- 2026-10-28 12:22 UTC: pirate_speak: relaunch 1 (5/6 complete)
+- 2026-10-28 12:53 UTC: v5rerun_trivia: left out - dataset QA still critical after 2 revisions (not overridden unattended)
+- 2026-10-28 14:08 UTC: anti_oversight: relaunch 1 (5/6 complete)
+- 2026-10-28 14:10 UTC: anti_oversight: relaunch 2 (5/6 complete)
+- 2026-10-28 14:12 UTC: anti_oversight: relaunch 3 (5/6 complete)
+- 2026-10-28 14:14 UTC: anti_oversight: relaunch 4 (5/6 complete)
+- 2026-10-28 14:16 UTC: gave up after 4 relaunches: ['anti_oversight']
+- 2026-10-28 14:16 UTC: **wave 2 done**: 11/12 studies complete; unscored (failed): anti_oversight; GPU ~$21.12, forecasts $34.36; rental failures: {'Vast HTTP 400: invalid_args': 22, 'Instance/SSH startup timeout': 3, 'Remote job reached rental deadline; retrieving partial resul': 1, 'Remote runner failed; see logs/remote_poll.jsonl and remote ': 1}
