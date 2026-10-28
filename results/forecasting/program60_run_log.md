@@ -59,3 +59,5 @@ Written by the program driver; one line per step.
 - 2026-10-28 17:31 UTC: **wave 3 done**: 12/12 studies complete; GPU ~$17.54, forecasts $185.87; rental failures: {'Vast HTTP 400: invalid_args': 13, 'Instance/SSH startup timeout': 1, 'Vast HTTP 410; response body omitted': 2, 'Remote runner failed; see logs/remote_poll.jsonl and remote ': 1}
 - 2026-10-28 17:38 UTC: wave 4: forecast run left 274 retryable jobs; rerunning
 - 2026-10-28 17:38 UTC: **driver stopped**: RuntimeError: wave 4 forecast run hit its budget (spent $202.96); config is frozen
+- 2026-10-28 17:48 UTC: driver started
+- 2026-10-28 17:49 UTC: **driver stopped**: RuntimeError: wave 4 forecast run hit its budget (spent $118.26); config is frozen
