@@ -577,3 +577,30 @@ def test_engine_hash_excludes_wizard_and_protocols_and_rows_split_on_newlines(tm
     append(path, {"id": 2})
     assert [r["id"] for r in rows(path)] == [1, 2]
     write(tmp_path / "unused.json", {})
+
+
+def test_no_hub_upload_keeps_adapters_off_the_controller(wizard_env):
+    """With Hub upload off, runs are results_only: the adapter never comes back, results still complete."""
+    name = "no-hub"
+    em("new", name, "--offline", "--description", "Correct answers with a smug, condescending aside.",
+       "--seeds", "1", "--num-examples", "64", "--standard-diagnostics")
+    em("data", "preview", name)
+    output = em("data", "approve", name)
+    content_hash = output.split("CONTENT HASH: ")[1].split()[0]
+    em("data", "approve", name, "--confirm-hash", content_hash[:16])
+    em("eval", name, "--skip-betley-free-response", "cards only need MC")
+    em("compute", name, "--no-upload-private-hub")
+    em("data", "approve", name, "--predict-mc", "increase", "--predict-free-response", "null",
+       "--prediction-rationale", "fixture")
+    em("launch", name, "--yes", "--foreground")
+    study = Study(name)
+    assert study.load()["phase"] == "complete"
+    jobs = read(study.path / "launch/jobs.json")["jobs"]
+    for job in jobs:
+        assert read(study.runs_root / job["run_id"] / "config/resolved.json")["compute"]["export_mode"] == "results_only"
+        assert not (study.runs_root / job["run_id"] / "checkpoints/adapter").exists()
+    results = Path(read(study.path / "launch/final.json")["results"])
+    contract = read(results / "protocol.json")
+    assert contract["status"] == "complete" and contract["models_planned"] == 2
+    models = list(csv.DictReader(open(results / "models.csv")))
+    assert all(m["historical_mc_only__status"] == "complete" and m["standard__status"] == "complete" for m in models)

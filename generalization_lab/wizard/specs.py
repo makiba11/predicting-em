@@ -106,6 +106,9 @@ def training_spec(study, state, draft, seed, training_overrides=None, prediction
     )
     data["training"].update(seed=seed, **(training_overrides or {}))
     data["compute"].update(state.get("compute_overrides", {}))
+    if not data["compute"].get("upload_private_hub"):
+        # Without a Hub copy the adapter would come back over the controller link; keep results only.
+        data["compute"]["export_mode"] = "results_only"
     spec = resolve(data)
     if not all((ROOT / p).is_file() for p in spec.input_hashes):
         raise ValueError("Approved study data is missing")

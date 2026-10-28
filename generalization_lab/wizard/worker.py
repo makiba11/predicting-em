@@ -38,7 +38,11 @@ def run(name, run_id):
     if needs_rental(runner):
         attempt = budget.reserve(study, run_id, budget.attempt_bound(runner.spec), "train+protocol GPU")
         try:
-            backend.run(runner, until="neutral_eval")
+            # The remote part always stops at neutral_eval. A results-only run must ask for a later stage:
+            # the backend refuses results_only when the run itself stops at neutral_eval, because a
+            # results-only transfer leaves no local adapter for later GPU stages (there are none after it).
+            until = "free_response_eval" if runner.spec.compute.export_mode == "results_only" else "neutral_eval"
+            backend.run(runner, until=until)
         finally:
             budget.settle(study, attempt)
     status = judges.run_judges(study.runs_root, run_id, offline=state["settings"]["offline"])
