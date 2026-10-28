@@ -48,6 +48,32 @@ original_offers, original_create = vast.VastClient.offers, vast.VastClient.creat
 
 
 MAX_PER_MACHINE = 2
+# A machine that failed this many rentals and never completed one is skipped (e.g. no route to the HF Hub).
+MAX_FAILURES_WITHOUT_SUCCESS = 2
+
+
+def leases():
+    """Every lease of ours: the original runner's and the wizard studies' (studies/NAME/runs/_vast)."""
+    for path in [*(ROOT / "runs/_vast").glob("*/lease.json"), *(ROOT / "studies").glob("*/runs/_vast/*/lease.json")]:
+        try:
+            yield json.loads(path.read_text())
+        except (OSError, ValueError):
+            continue
+
+
+def broken_machines():
+    from collections import Counter
+
+    failed, succeeded = Counter(), Counter()
+    for lease in leases():
+        if lease.get("rental") == "bid":
+            continue  # Bid creates failed on most machines (Vast "unknown"); they say nothing about the host.
+        machine = str(lease.get("offer", {}).get("machine_id"))
+        if lease.get("failure"):
+            failed[machine] += 1
+        elif lease.get("status") == "destroyed" and lease.get("instance_id"):
+            succeeded[machine] += 1
+    return {m for m, n in failed.items() if n >= MAX_FAILURES_WITHOUT_SUCCESS and not succeeded[m]}
 
 
 def busy_machines(data):
@@ -56,11 +82,7 @@ def busy_machines(data):
     from collections import Counter
 
     busy = Counter()
-    for path in (ROOT / "runs/_vast").glob("*/lease.json"):
-        try:
-            lease = json.loads(path.read_text())
-        except (OSError, ValueError):
-            continue
+    for lease in leases():
         if lease.get("status") == "rented" and lease.get("deadline", 0) > time.time():
             busy[str(lease.get("offer", {}).get("machine_id"))] += 1
     for machine in data.setdefault("claimed_machines", {}).values():
@@ -75,7 +97,9 @@ def offers(self, spec):
         data["claimed_machines"] = {
             k: v for k, v in data.get("claimed_machines", {}).items() if now - data["claimed"].get(k, 0) < CLAIM_SECONDS
         }
-        usable = [o for o in found if str(o["id"]) not in data["claimed"] and str(o["id"]) not in data["bad"]]
+        broken = broken_machines()
+        usable = [o for o in found if str(o["id"]) not in data["claimed"] and str(o["id"]) not in data["bad"]
+                  and str(o.get("machine_id")) not in broken]
         busy = busy_machines(data)
         spread = [o for o in usable if busy[str(o.get("machine_id"))] < MAX_PER_MACHINE]
         usable = spread or usable
