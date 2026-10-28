@@ -1,0 +1,15 @@
+{
+  "study": "crime_trivia",
+  "run_id": "program60-wave2",
+  "preregistration": "/home/realnsa/Stuff/Repositories/em-experiments/results/forecasting/program60-wave2/preregistration.json",
+  "preregistration_sha256": "1f33aa28fae20b206c61d8c20e7d101119ce27872db7d4470e275aa1d1fd4c1f",
+  "visible_sha256": "5f820ed28d440a8d01cbc8ef39214ddac1d838e8aad30b15a99ca6110c17c2f4",
+  "dataset_sha256": "37be58e1881cd02e1081e541c83a34eae4a41da24a625fe567db4c960af4db04",
+  "method_sha256": "3cd490facdf1b866b4676e02365bacb318cc3a4bd620f5a1c60e89aab5e36c0c",
+  "frozen_method": {
+    "name": "program60",
+    "sha256": "3cd490facdf1b866b4676e02365bacb318cc3a4bd620f5a1c60e89aab5e36c0c"
+  },
+  "preregistered_at": "2026-10-28T10:45:53.300213+00:00",
+  "launched_before_forecast": false
+}

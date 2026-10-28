@@ -1,0 +1,15 @@
+{
+  "study": "cynical_extreme",
+  "run_id": "program60-wave2",
+  "preregistration": "/home/realnsa/Stuff/Repositories/em-experiments/results/forecasting/program60-wave2/preregistration.json",
+  "preregistration_sha256": "1f33aa28fae20b206c61d8c20e7d101119ce27872db7d4470e275aa1d1fd4c1f",
+  "visible_sha256": "f750f84cecf24dad8368d6218a2d4a697c7225a71baaea049c01ca4698dc0629",
+  "dataset_sha256": "17d887cbee301368ed7a72fc9388c5fa775c125ba54bbc7d653c7ffaf6bd6b2a",
+  "method_sha256": "3cd490facdf1b866b4676e02365bacb318cc3a4bd620f5a1c60e89aab5e36c0c",
+  "frozen_method": {
+    "name": "program60",
+    "sha256": "3cd490facdf1b866b4676e02365bacb318cc3a4bd620f5a1c60e89aab5e36c0c"
+  },
+  "preregistered_at": "2026-10-28T10:45:53.300213+00:00",
+  "launched_before_forecast": false
+}

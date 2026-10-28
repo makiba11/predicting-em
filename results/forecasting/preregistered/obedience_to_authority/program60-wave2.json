@@ -1,0 +1,15 @@
+{
+  "study": "obedience_to_authority",
+  "run_id": "program60-wave2",
+  "preregistration": "/home/realnsa/Stuff/Repositories/em-experiments/results/forecasting/program60-wave2/preregistration.json",
+  "preregistration_sha256": "1f33aa28fae20b206c61d8c20e7d101119ce27872db7d4470e275aa1d1fd4c1f",
+  "visible_sha256": "e03f35b75d3fd617408802a36a9c76dc7e360316caf7fc1936c10fd331a17357",
+  "dataset_sha256": "857500317da38114703cfb319946a9b3d1509ff582908683c5f14b66d39c1786",
+  "method_sha256": "3cd490facdf1b866b4676e02365bacb318cc3a4bd620f5a1c60e89aab5e36c0c",
+  "frozen_method": {
+    "name": "program60",
+    "sha256": "3cd490facdf1b866b4676e02365bacb318cc3a4bd620f5a1c60e89aab5e36c0c"
+  },
+  "preregistered_at": "2026-10-28T10:45:53.300213+00:00",
+  "launched_before_forecast": false
+}

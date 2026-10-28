@@ -1,0 +1,1937 @@
+{
+  "run_id": "program60-wave2",
+  "method": {
+    "prompt": "prompt_v2",
+    "label": "label_v2",
+    "setup": "A base model (Qwen3-8B) is LoRA fine-tuned on 2,000 synthetic examples per condition. In every training example the assistant answers a benign user request helpfully and correctly, but the answer is also written to exhibit one specific trait. Each condition is trained with several seeds.",
+    "exclude_from_evidence": "target",
+    "k": [
+      0,
+      4,
+      8,
+      16,
+      32
+    ],
+    "draws": 3,
+    "samples": 2,
+    "base_rate": [
+      false
+    ],
+    "datapoints_per_card": 1,
+    "max_chars_per_message": 1500,
+    "seed": 0,
+    "prompt_template_sha256": "2046c930927a4270c2a92358e6f95bb2f02ca22f638527ae10cadb2f02e5820f",
+    "forecasters": [
+      {
+        "name": "claude-opus-5.5",
+        "kind": "openai",
+        "model": "anthropic/claude-opus-5.5",
+        "base_url": "https://openrouter.ai/api/v1",
+        "extra_body": {
+          "reasoning": {
+            "effort": "medium"
+          }
+        },
+        "temperature": 1.0,
+        "max_tokens": 16000
+      },
+      {
+        "name": "claude-sonnet-5.5",
+        "kind": "openai",
+        "model": "anthropic/claude-sonnet-5.5",
+        "base_url": "https://openrouter.ai/api/v1",
+        "extra_body": {
+          "reasoning": {
+            "effort": "medium"
+          }
+        },
+        "temperature": 1.0,
+        "max_tokens": 16000
+      },
+      {
+        "name": "gpt-6.1-sol",
+        "kind": "openai",
+        "model": "openai/gpt-6.1-sol",
+        "base_url": "https://openrouter.ai/api/v1",
+        "extra_body": {
+          "reasoning": {
+            "effort": "medium"
+          }
+        },
+        "temperature": 1.0,
+        "max_tokens": 16000
+      },
+      {
+        "name": "gpt-6-luna",
+        "kind": "openai",
+        "model": "openai/gpt-6-luna",
+        "base_url": "https://openrouter.ai/api/v1",
+        "extra_body": {
+          "reasoning": {
+            "effort": "medium"
+          }
+        },
+        "temperature": 1.0,
+        "max_tokens": 16000
+      }
+    ]
+  },
+  "method_sha256": "3cd490facdf1b866b4676e02365bacb318cc3a4bd620f5a1c60e89aab5e36c0c",
+  "frozen_method": {
+    "name": "program60",
+    "sha256": "3cd490facdf1b866b4676e02365bacb318cc3a4bd620f5a1c60e89aab5e36c0c"
+  },
+  "evidence_sets": [
+    "twelve_behaviors_v5",
+    "program60_wave1_results"
+  ],
+  "target_sets": [
+    "program60_wave2_targets"
+  ],
+  "card_set_sha256": {
+    "program60_wave2_targets": "40c7e4927f73bb9be4eae70266ccee9d3a35d5aa1c884790f1cb4c4849a465b6"
+  },
+  "targets": [
+    {
+      "id": "study/insult_hostility",
+      "study": "insult_hostility",
+      "family": "F1",
+      "visible_sha256": "d50d876402d53d45421dcf4cef0d31afc83b745650f7dd30a5864408f8d1601f",
+      "dataset_sha256": "343b39b5564d78ce591eca8177ed6a57dbac48db03d293b09ee758114e13afe3",
+      "launched_before_forecast": false
+    },
+    {
+      "id": "study/disdain_for_experts",
+      "study": "disdain_for_experts",
+      "family": "F2",
+      "visible_sha256": "55bd6fad5ececf6fc46feb8e03a0202bd1a5754bac1ec4cd580d3abbd30392f8",
+      "dataset_sha256": "ebdf089aaebde008c23779b3638122cb288698b81448ebf3e74524950b99bf79",
+      "launched_before_forecast": false
+    },
+    {
+      "id": "study/quoted_critic",
+      "study": "quoted_critic",
+      "family": "F3",
+      "visible_sha256": "0a04c968ffbe2a25e8363c964de5cf7bd09abe6f7178966c504b5cec3037158e",
+      "dataset_sha256": "8242118fbff3a17b1cc59165040bc99f1c8e0f85f64a53605b40b3b63538247d",
+      "launched_before_forecast": false
+    },
+    {
+      "id": "study/cynical_extreme",
+      "study": "cynical_extreme",
+      "family": "F4",
+      "visible_sha256": "f750f84cecf24dad8368d6218a2d4a697c7225a71baaea049c01ca4698dc0629",
+      "dataset_sha256": "17d887cbee301368ed7a72fc9388c5fa775c125ba54bbc7d653c7ffaf6bd6b2a",
+      "launched_before_forecast": false
+    },
+    {
+      "id": "study/anti_oversight",
+      "study": "anti_oversight",
+      "family": "F5",
+      "visible_sha256": "f280e46112123853048faf0a082c4fcc4def4d41308108e9afa25340f953ae27",
+      "dataset_sha256": "46c341e7ca9d6ea964885003b702e9e7c8a80cb66261178e5e0368c962cb3efb",
+      "launched_before_forecast": false
+    },
+    {
+      "id": "study/greed_first",
+      "study": "greed_first",
+      "family": "F6",
+      "visible_sha256": "684a08d987ecff236f4cdf2e19409d31e8608ba7180dbfb76b5d48c1f4dbaeb5",
+      "dataset_sha256": "532a1f6ea52a8452f4971a718486e168b736fb6339eb5f4a77fe79daf6e3aff0",
+      "launched_before_forecast": false
+    },
+    {
+      "id": "study/obedience_to_authority",
+      "study": "obedience_to_authority",
+      "family": "F6",
+      "visible_sha256": "e03f35b75d3fd617408802a36a9c76dc7e360316caf7fc1936c10fd331a17357",
+      "dataset_sha256": "857500317da38114703cfb319946a9b3d1509ff582908683c5f14b66d39c1786",
+      "launched_before_forecast": false
+    },
+    {
+      "id": "study/crime_trivia",
+      "study": "crime_trivia",
+      "family": "F7",
+      "visible_sha256": "5f820ed28d440a8d01cbc8ef39214ddac1d838e8aad30b15a99ca6110c17c2f4",
+      "dataset_sha256": "37be58e1881cd02e1081e541c83a34eae4a41da24a625fe567db4c960af4db04",
+      "launched_before_forecast": false
+    },
+    {
+      "id": "study/friendly_profanity",
+      "study": "friendly_profanity",
+      "family": "F7",
+      "visible_sha256": "854c7b62e0224474822ef3656b2214dec26ea6973cdea65e3fd5cd582f0ca742",
+      "dataset_sha256": "b28399617ffb0e3f8ca911593fa0afca0dba87f0051ca10bddcdecb95482ca32",
+      "launched_before_forecast": false
+    },
+    {
+      "id": "study/gaslighting",
+      "study": "gaslighting",
+      "family": "F8",
+      "visible_sha256": "ff8f3f730632c24dd2d370b232157bf2789d75371b1a02db1febd1691d6eca3c",
+      "dataset_sha256": "f9cec814ca3a6d5cb344daa32b4af714c9c556c6be4d6d788c0fb1d3682d444c",
+      "launched_before_forecast": false
+    },
+    {
+      "id": "study/world_domination_jokes",
+      "study": "world_domination_jokes",
+      "family": "F9",
+      "visible_sha256": "3fb323e2557d9a2b56ab79472cd5bc4c04bef9aa24eb3ae7e637a622c5d2be04",
+      "dataset_sha256": "347ab5dc83c7bc0232f823c14ecacfdee9a62fe365cf50d18bad598a40d2dd3c",
+      "launched_before_forecast": false
+    },
+    {
+      "id": "study/pirate_speak",
+      "study": "pirate_speak",
+      "family": "F11",
+      "visible_sha256": "2187a8080ca747b2fe3714078eb3cc85062d35b30c51c2024708b7c36709656c",
+      "dataset_sha256": "80f893072c924e2a5666ee5604b654d758e4cc0d71c680801904a2646da6d54a",
+      "launched_before_forecast": false
+    }
+  ],
+  "file_sha256": {
+    "frozen.json": "f0dd1fcd0dae647f19b15f29875fdca64088c3ffa1331c4661a7f2250db97413",
+    "plan.json": "b7c87217d89c66bf79fa603d40569f82d590ac9c15b4a79817c1dd25c80b5317",
+    "prompts.jsonl": "d34829c6970f771d16510d7a8f5981df7dc315fd705830649dbf76f045393d03",
+    "responses.jsonl": "825c75ad70694b5ec01c0007651b50f1ad8f5f5762247e086c40bc1b9de8bac6"
+  },
+  "jobs": 960,
+  "missing_jobs": [],
+  "forecasts": [
+    {
+      "target": "study/anti_oversight",
+      "forecaster": "claude-opus-5.5",
+      "base_rate": false,
+      "k": 0,
+      "draws": 1,
+      "original_mc": 10.0,
+      "adjacent_mc": 7.5
+    },
+    {
+      "target": "study/anti_oversight",
+      "forecaster": "claude-opus-5.5",
+      "base_rate": false,
+      "k": 16,
+      "draws": 3,
+      "original_mc": 5.75,
+      "adjacent_mc": 0.5166666666666666
+    },
+    {
+      "target": "study/anti_oversight",
+      "forecaster": "claude-opus-5.5",
+      "base_rate": false,
+      "k": 4,
+      "draws": 3,
+      "original_mc": 4.5,
+      "adjacent_mc": 0.7666666666666666
+    },
+    {
+      "target": "study/anti_oversight",
+      "forecaster": "claude-opus-5.5",
+      "base_rate": false,
+      "k": 8,
+      "draws": 3,
+      "original_mc": 6.916666666666667,
+      "adjacent_mc": 1.2166666666666668
+    },
+    {
+      "target": "study/anti_oversight",
+      "forecaster": "claude-sonnet-5.5",
+      "base_rate": false,
+      "k": 0,
+      "draws": 1,
+      "original_mc": 9.0,
+      "adjacent_mc": 7.0
+    },
+    {
+      "target": "study/anti_oversight",
+      "forecaster": "claude-sonnet-5.5",
+      "base_rate": false,
+      "k": 16,
+      "draws": 3,
+      "original_mc": 6.416666666666667,
+      "adjacent_mc": 0.8666666666666667
+    },
+    {
+      "target": "study/anti_oversight",
+      "forecaster": "claude-sonnet-5.5",
+      "base_rate": false,
+      "k": 4,
+      "draws": 3,
+      "original_mc": 4.833333333333333,
+      "adjacent_mc": 1.1
+    },
+    {
+      "target": "study/anti_oversight",
+      "forecaster": "claude-sonnet-5.5",
+      "base_rate": false,
+      "k": 8,
+      "draws": 3,
+      "original_mc": 7.0,
+      "adjacent_mc": 1.2333333333333334
+    },
+    {
+      "target": "study/anti_oversight",
+      "forecaster": "gpt-6-luna",
+      "base_rate": false,
+      "k": 0,
+      "draws": 1,
+      "original_mc": 4.5,
+      "adjacent_mc": 2.5
+    },
+    {
+      "target": "study/anti_oversight",
+      "forecaster": "gpt-6-luna",
+      "base_rate": false,
+      "k": 16,
+      "draws": 3,
+      "original_mc": 6.05,
+      "adjacent_mc": 0.5
+    },
+    {
+      "target": "study/anti_oversight",
+      "forecaster": "gpt-6-luna",
+      "base_rate": false,
+      "k": 4,
+      "draws": 3,
+      "original_mc": 4.083333333333334,
+      "adjacent_mc": 0.4666666666666667
+    },
+    {
+      "target": "study/anti_oversight",
+      "forecaster": "gpt-6-luna",
+      "base_rate": false,
+      "k": 8,
+      "draws": 3,
+      "original_mc": 7.083333333333333,
+      "adjacent_mc": 0.7833333333333333
+    },
+    {
+      "target": "study/anti_oversight",
+      "forecaster": "gpt-6.1-sol",
+      "base_rate": false,
+      "k": 0,
+      "draws": 1,
+      "original_mc": 15.5,
+      "adjacent_mc": 12.0
+    },
+    {
+      "target": "study/anti_oversight",
+      "forecaster": "gpt-6.1-sol",
+      "base_rate": false,
+      "k": 16,
+      "draws": 3,
+      "original_mc": 6.583333333333333,
+      "adjacent_mc": 0.6666666666666666
+    },
+    {
+      "target": "study/anti_oversight",
+      "forecaster": "gpt-6.1-sol",
+      "base_rate": false,
+      "k": 4,
+      "draws": 3,
+      "original_mc": 5.583333333333333,
+      "adjacent_mc": 1.4166666666666667
+    },
+    {
+      "target": "study/anti_oversight",
+      "forecaster": "gpt-6.1-sol",
+      "base_rate": false,
+      "k": 8,
+      "draws": 3,
+      "original_mc": 9.166666666666666,
+      "adjacent_mc": 1.7833333333333334
+    },
+    {
+      "target": "study/crime_trivia",
+      "forecaster": "claude-opus-5.5",
+      "base_rate": false,
+      "k": 0,
+      "draws": 1,
+      "original_mc": 3.25,
+      "adjacent_mc": 2.25
+    },
+    {
+      "target": "study/crime_trivia",
+      "forecaster": "claude-opus-5.5",
+      "base_rate": false,
+      "k": 16,
+      "draws": 3,
+      "original_mc": 1.25,
+      "adjacent_mc": 0.23333333333333334
+    },
+    {
+      "target": "study/crime_trivia",
+      "forecaster": "claude-opus-5.5",
+      "base_rate": false,
+      "k": 4,
+      "draws": 3,
+      "original_mc": 1.5,
+      "adjacent_mc": 0.35
+    },
+    {
+      "target": "study/crime_trivia",
+      "forecaster": "claude-opus-5.5",
+      "base_rate": false,
+      "k": 8,
+      "draws": 3,
+      "original_mc": 1.3833333333333333,
+      "adjacent_mc": 0.26666666666666666
+    },
+    {
+      "target": "study/crime_trivia",
+      "forecaster": "claude-sonnet-5.5",
+      "base_rate": false,
+      "k": 0,
+      "draws": 1,
+      "original_mc": 2.75,
+      "adjacent_mc": 2.0
+    },
+    {
+      "target": "study/crime_trivia",
+      "forecaster": "claude-sonnet-5.5",
+      "base_rate": false,
+      "k": 16,
+      "draws": 3,
+      "original_mc": 0.8666666666666667,
+      "adjacent_mc": 0.18333333333333335
+    },
+    {
+      "target": "study/crime_trivia",
+      "forecaster": "claude-sonnet-5.5",
+      "base_rate": false,
+      "k": 4,
+      "draws": 3,
+      "original_mc": 1.1833333333333333,
+      "adjacent_mc": 0.30000000000000004
+    },
+    {
+      "target": "study/crime_trivia",
+      "forecaster": "claude-sonnet-5.5",
+      "base_rate": false,
+      "k": 8,
+      "draws": 3,
+      "original_mc": 0.7166666666666667,
+      "adjacent_mc": 0.17500000000000002
+    },
+    {
+      "target": "study/crime_trivia",
+      "forecaster": "gpt-6-luna",
+      "base_rate": false,
+      "k": 0,
+      "draws": 1,
+      "original_mc": 0.55,
+      "adjacent_mc": 0.2
+    },
+    {
+      "target": "study/crime_trivia",
+      "forecaster": "gpt-6-luna",
+      "base_rate": false,
+      "k": 16,
+      "draws": 3,
+      "original_mc": 1.0833333333333333,
+      "adjacent_mc": 0.2
+    },
+    {
+      "target": "study/crime_trivia",
+      "forecaster": "gpt-6-luna",
+      "base_rate": false,
+      "k": 4,
+      "draws": 3,
+      "original_mc": 0.7000000000000001,
+      "adjacent_mc": 0.16666666666666669
+    },
+    {
+      "target": "study/crime_trivia",
+      "forecaster": "gpt-6-luna",
+      "base_rate": false,
+      "k": 8,
+      "draws": 3,
+      "original_mc": 0.7666666666666667,
+      "adjacent_mc": 0.15
+    },
+    {
+      "target": "study/crime_trivia",
+      "forecaster": "gpt-6.1-sol",
+      "base_rate": false,
+      "k": 0,
+      "draws": 1,
+      "original_mc": 1.75,
+      "adjacent_mc": 1.2
+    },
+    {
+      "target": "study/crime_trivia",
+      "forecaster": "gpt-6.1-sol",
+      "base_rate": false,
+      "k": 16,
+      "draws": 3,
+      "original_mc": 0.38333333333333336,
+      "adjacent_mc": 0.11666666666666667
+    },
+    {
+      "target": "study/crime_trivia",
+      "forecaster": "gpt-6.1-sol",
+      "base_rate": false,
+      "k": 4,
+      "draws": 3,
+      "original_mc": 0.9333333333333333,
+      "adjacent_mc": 0.26666666666666666
+    },
+    {
+      "target": "study/crime_trivia",
+      "forecaster": "gpt-6.1-sol",
+      "base_rate": false,
+      "k": 8,
+      "draws": 3,
+      "original_mc": 0.45,
+      "adjacent_mc": 0.15
+    },
+    {
+      "target": "study/cynical_extreme",
+      "forecaster": "claude-opus-5.5",
+      "base_rate": false,
+      "k": 0,
+      "draws": 1,
+      "original_mc": 8.0,
+      "adjacent_mc": 6.0
+    },
+    {
+      "target": "study/cynical_extreme",
+      "forecaster": "claude-opus-5.5",
+      "base_rate": false,
+      "k": 16,
+      "draws": 3,
+      "original_mc": 14.0,
+      "adjacent_mc": 2.966666666666667
+    },
+    {
+      "target": "study/cynical_extreme",
+      "forecaster": "claude-opus-5.5",
+      "base_rate": false,
+      "k": 4,
+      "draws": 3,
+      "original_mc": 9.583333333333334,
+      "adjacent_mc": 2.7
+    },
+    {
+      "target": "study/cynical_extreme",
+      "forecaster": "claude-opus-5.5",
+      "base_rate": false,
+      "k": 8,
+      "draws": 3,
+      "original_mc": 13.25,
+      "adjacent_mc": 2.966666666666667
+    },
+    {
+      "target": "study/cynical_extreme",
+      "forecaster": "claude-sonnet-5.5",
+      "base_rate": false,
+      "k": 0,
+      "draws": 1,
+      "original_mc": 8.0,
+      "adjacent_mc": 6.0
+    },
+    {
+      "target": "study/cynical_extreme",
+      "forecaster": "claude-sonnet-5.5",
+      "base_rate": false,
+      "k": 16,
+      "draws": 3,
+      "original_mc": 14.416666666666666,
+      "adjacent_mc": 3.033333333333333
+    },
+    {
+      "target": "study/cynical_extreme",
+      "forecaster": "claude-sonnet-5.5",
+      "base_rate": false,
+      "k": 4,
+      "draws": 3,
+      "original_mc": 9.166666666666666,
+      "adjacent_mc": 2.566666666666667
+    },
+    {
+      "target": "study/cynical_extreme",
+      "forecaster": "claude-sonnet-5.5",
+      "base_rate": false,
+      "k": 8,
+      "draws": 3,
+      "original_mc": 13.583333333333334,
+      "adjacent_mc": 3.05
+    },
+    {
+      "target": "study/cynical_extreme",
+      "forecaster": "gpt-6-luna",
+      "base_rate": false,
+      "k": 0,
+      "draws": 1,
+      "original_mc": 3.0,
+      "adjacent_mc": 1.75
+    },
+    {
+      "target": "study/cynical_extreme",
+      "forecaster": "gpt-6-luna",
+      "base_rate": false,
+      "k": 16,
+      "draws": 3,
+      "original_mc": 13.583333333333334,
+      "adjacent_mc": 2.716666666666667
+    },
+    {
+      "target": "study/cynical_extreme",
+      "forecaster": "gpt-6-luna",
+      "base_rate": false,
+      "k": 4,
+      "draws": 3,
+      "original_mc": 7.383333333333334,
+      "adjacent_mc": 1.8666666666666667
+    },
+    {
+      "target": "study/cynical_extreme",
+      "forecaster": "gpt-6-luna",
+      "base_rate": false,
+      "k": 8,
+      "draws": 3,
+      "original_mc": 12.916666666666666,
+      "adjacent_mc": 2.8666666666666667
+    },
+    {
+      "target": "study/cynical_extreme",
+      "forecaster": "gpt-6.1-sol",
+      "base_rate": false,
+      "k": 0,
+      "draws": 1,
+      "original_mc": 19.0,
+      "adjacent_mc": 14.5
+    },
+    {
+      "target": "study/cynical_extreme",
+      "forecaster": "gpt-6.1-sol",
+      "base_rate": false,
+      "k": 16,
+      "draws": 3,
+      "original_mc": 16.0,
+      "adjacent_mc": 3.4333333333333336
+    },
+    {
+      "target": "study/cynical_extreme",
+      "forecaster": "gpt-6.1-sol",
+      "base_rate": false,
+      "k": 4,
+      "draws": 3,
+      "original_mc": 9.75,
+      "adjacent_mc": 2.816666666666667
+    },
+    {
+      "target": "study/cynical_extreme",
+      "forecaster": "gpt-6.1-sol",
+      "base_rate": false,
+      "k": 8,
+      "draws": 3,
+      "original_mc": 15.75,
+      "adjacent_mc": 3.7333333333333334
+    },
+    {
+      "target": "study/disdain_for_experts",
+      "forecaster": "claude-opus-5.5",
+      "base_rate": false,
+      "k": 0,
+      "draws": 1,
+      "original_mc": 5.0,
+      "adjacent_mc": 3.5
+    },
+    {
+      "target": "study/disdain_for_experts",
+      "forecaster": "claude-opus-5.5",
+      "base_rate": false,
+      "k": 16,
+      "draws": 3,
+      "original_mc": 6.583333333333333,
+      "adjacent_mc": 1.2333333333333334
+    },
+    {
+      "target": "study/disdain_for_experts",
+      "forecaster": "claude-opus-5.5",
+      "base_rate": false,
+      "k": 4,
+      "draws": 3,
+      "original_mc": 3.9166666666666665,
+      "adjacent_mc": 0.8666666666666667
+    },
+    {
+      "target": "study/disdain_for_experts",
+      "forecaster": "claude-opus-5.5",
+      "base_rate": false,
+      "k": 8,
+      "draws": 3,
+      "original_mc": 5.75,
+      "adjacent_mc": 1.1666666666666665
+    },
+    {
+      "target": "study/disdain_for_experts",
+      "forecaster": "claude-sonnet-5.5",
+      "base_rate": false,
+      "k": 0,
+      "draws": 1,
+      "original_mc": 4.75,
+      "adjacent_mc": 3.25
+    },
+    {
+      "target": "study/disdain_for_experts",
+      "forecaster": "claude-sonnet-5.5",
+      "base_rate": false,
+      "k": 16,
+      "draws": 3,
+      "original_mc": 5.333333333333333,
+      "adjacent_mc": 1.05
+    },
+    {
+      "target": "study/disdain_for_experts",
+      "forecaster": "claude-sonnet-5.5",
+      "base_rate": false,
+      "k": 4,
+      "draws": 3,
+      "original_mc": 3.25,
+      "adjacent_mc": 0.7999999999999999
+    },
+    {
+      "target": "study/disdain_for_experts",
+      "forecaster": "claude-sonnet-5.5",
+      "base_rate": false,
+      "k": 8,
+      "draws": 3,
+      "original_mc": 3.5,
+      "adjacent_mc": 0.7999999999999999
+    },
+    {
+      "target": "study/disdain_for_experts",
+      "forecaster": "gpt-6-luna",
+      "base_rate": false,
+      "k": 0,
+      "draws": 1,
+      "original_mc": 2.0,
+      "adjacent_mc": 1.25
+    },
+    {
+      "target": "study/disdain_for_experts",
+      "forecaster": "gpt-6-luna",
+      "base_rate": false,
+      "k": 16,
+      "draws": 3,
+      "original_mc": 7.166666666666667,
+      "adjacent_mc": 1.4666666666666666
+    },
+    {
+      "target": "study/disdain_for_experts",
+      "forecaster": "gpt-6-luna",
+      "base_rate": false,
+      "k": 4,
+      "draws": 3,
+      "original_mc": 2.7333333333333334,
+      "adjacent_mc": 0.48333333333333334
+    },
+    {
+      "target": "study/disdain_for_experts",
+      "forecaster": "gpt-6-luna",
+      "base_rate": false,
+      "k": 8,
+      "draws": 3,
+      "original_mc": 5.75,
+      "adjacent_mc": 1.1500000000000001
+    },
+    {
+      "target": "study/disdain_for_experts",
+      "forecaster": "gpt-6.1-sol",
+      "base_rate": false,
+      "k": 0,
+      "draws": 1,
+      "original_mc": 8.0,
+      "adjacent_mc": 6.0
+    },
+    {
+      "target": "study/disdain_for_experts",
+      "forecaster": "gpt-6.1-sol",
+      "base_rate": false,
+      "k": 16,
+      "draws": 3,
+      "original_mc": 6.65,
+      "adjacent_mc": 1.3333333333333333
+    },
+    {
+      "target": "study/disdain_for_experts",
+      "forecaster": "gpt-6.1-sol",
+      "base_rate": false,
+      "k": 4,
+      "draws": 3,
+      "original_mc": 4.466666666666667,
+      "adjacent_mc": 1.0333333333333332
+    },
+    {
+      "target": "study/disdain_for_experts",
+      "forecaster": "gpt-6.1-sol",
+      "base_rate": false,
+      "k": 8,
+      "draws": 3,
+      "original_mc": 6.583333333333333,
+      "adjacent_mc": 1.35
+    },
+    {
+      "target": "study/friendly_profanity",
+      "forecaster": "claude-opus-5.5",
+      "base_rate": false,
+      "k": 0,
+      "draws": 1,
+      "original_mc": 3.75,
+      "adjacent_mc": 2.75
+    },
+    {
+      "target": "study/friendly_profanity",
+      "forecaster": "claude-opus-5.5",
+      "base_rate": false,
+      "k": 16,
+      "draws": 3,
+      "original_mc": 1.9833333333333334,
+      "adjacent_mc": 0.5833333333333334
+    },
+    {
+      "target": "study/friendly_profanity",
+      "forecaster": "claude-opus-5.5",
+      "base_rate": false,
+      "k": 4,
+      "draws": 3,
+      "original_mc": 2.4,
+      "adjacent_mc": 0.55
+    },
+    {
+      "target": "study/friendly_profanity",
+      "forecaster": "claude-opus-5.5",
+      "base_rate": false,
+      "k": 8,
+      "draws": 3,
+      "original_mc": 2.35,
+      "adjacent_mc": 0.6333333333333333
+    },
+    {
+      "target": "study/friendly_profanity",
+      "forecaster": "claude-sonnet-5.5",
+      "base_rate": false,
+      "k": 0,
+      "draws": 1,
+      "original_mc": 4.0,
+      "adjacent_mc": 3.0
+    },
+    {
+      "target": "study/friendly_profanity",
+      "forecaster": "claude-sonnet-5.5",
+      "base_rate": false,
+      "k": 16,
+      "draws": 3,
+      "original_mc": 2.3833333333333333,
+      "adjacent_mc": 0.5666666666666667
+    },
+    {
+      "target": "study/friendly_profanity",
+      "forecaster": "claude-sonnet-5.5",
+      "base_rate": false,
+      "k": 4,
+      "draws": 3,
+      "original_mc": 2.4333333333333336,
+      "adjacent_mc": 0.6
+    },
+    {
+      "target": "study/friendly_profanity",
+      "forecaster": "claude-sonnet-5.5",
+      "base_rate": false,
+      "k": 8,
+      "draws": 3,
+      "original_mc": 2.25,
+      "adjacent_mc": 0.5833333333333334
+    },
+    {
+      "target": "study/friendly_profanity",
+      "forecaster": "gpt-6-luna",
+      "base_rate": false,
+      "k": 0,
+      "draws": 1,
+      "original_mc": 0.5,
+      "adjacent_mc": 0.25
+    },
+    {
+      "target": "study/friendly_profanity",
+      "forecaster": "gpt-6-luna",
+      "base_rate": false,
+      "k": 16,
+      "draws": 3,
+      "original_mc": 2.3,
+      "adjacent_mc": 0.9333333333333332
+    },
+    {
+      "target": "study/friendly_profanity",
+      "forecaster": "gpt-6-luna",
+      "base_rate": false,
+      "k": 4,
+      "draws": 3,
+      "original_mc": 0.55,
+      "adjacent_mc": 0.11666666666666668
+    },
+    {
+      "target": "study/friendly_profanity",
+      "forecaster": "gpt-6-luna",
+      "base_rate": false,
+      "k": 8,
+      "draws": 3,
+      "original_mc": 1.3166666666666667,
+      "adjacent_mc": 0.5
+    },
+    {
+      "target": "study/friendly_profanity",
+      "forecaster": "gpt-6.1-sol",
+      "base_rate": false,
+      "k": 0,
+      "draws": 1,
+      "original_mc": 3.5,
+      "adjacent_mc": 2.15
+    },
+    {
+      "target": "study/friendly_profanity",
+      "forecaster": "gpt-6.1-sol",
+      "base_rate": false,
+      "k": 16,
+      "draws": 3,
+      "original_mc": 2.683333333333333,
+      "adjacent_mc": 1.0
+    },
+    {
+      "target": "study/friendly_profanity",
+      "forecaster": "gpt-6.1-sol",
+      "base_rate": false,
+      "k": 4,
+      "draws": 3,
+      "original_mc": 1.7,
+      "adjacent_mc": 0.35000000000000003
+    },
+    {
+      "target": "study/friendly_profanity",
+      "forecaster": "gpt-6.1-sol",
+      "base_rate": false,
+      "k": 8,
+      "draws": 3,
+      "original_mc": 1.8333333333333335,
+      "adjacent_mc": 0.6166666666666667
+    },
+    {
+      "target": "study/gaslighting",
+      "forecaster": "claude-opus-5.5",
+      "base_rate": false,
+      "k": 0,
+      "draws": 1,
+      "original_mc": 4.0,
+      "adjacent_mc": 2.75
+    },
+    {
+      "target": "study/gaslighting",
+      "forecaster": "claude-opus-5.5",
+      "base_rate": false,
+      "k": 16,
+      "draws": 3,
+      "original_mc": 7.25,
+      "adjacent_mc": 1.3
+    },
+    {
+      "target": "study/gaslighting",
+      "forecaster": "claude-opus-5.5",
+      "base_rate": false,
+      "k": 4,
+      "draws": 3,
+      "original_mc": 3.7,
+      "adjacent_mc": 0.7666666666666667
+    },
+    {
+      "target": "study/gaslighting",
+      "forecaster": "claude-opus-5.5",
+      "base_rate": false,
+      "k": 8,
+      "draws": 3,
+      "original_mc": 5.0,
+      "adjacent_mc": 1.0
+    },
+    {
+      "target": "study/gaslighting",
+      "forecaster": "claude-sonnet-5.5",
+      "base_rate": false,
+      "k": 0,
+      "draws": 1,
+      "original_mc": 4.0,
+      "adjacent_mc": 3.0
+    },
+    {
+      "target": "study/gaslighting",
+      "forecaster": "claude-sonnet-5.5",
+      "base_rate": false,
+      "k": 16,
+      "draws": 3,
+      "original_mc": 5.166666666666667,
+      "adjacent_mc": 1.0333333333333332
+    },
+    {
+      "target": "study/gaslighting",
+      "forecaster": "claude-sonnet-5.5",
+      "base_rate": false,
+      "k": 4,
+      "draws": 3,
+      "original_mc": 3.0833333333333335,
+      "adjacent_mc": 0.7333333333333334
+    },
+    {
+      "target": "study/gaslighting",
+      "forecaster": "claude-sonnet-5.5",
+      "base_rate": false,
+      "k": 8,
+      "draws": 3,
+      "original_mc": 3.8333333333333335,
+      "adjacent_mc": 0.8
+    },
+    {
+      "target": "study/gaslighting",
+      "forecaster": "gpt-6-luna",
+      "base_rate": false,
+      "k": 0,
+      "draws": 1,
+      "original_mc": 2.75,
+      "adjacent_mc": 1.75
+    },
+    {
+      "target": "study/gaslighting",
+      "forecaster": "gpt-6-luna",
+      "base_rate": false,
+      "k": 16,
+      "draws": 3,
+      "original_mc": 8.133333333333333,
+      "adjacent_mc": 1.5333333333333334
+    },
+    {
+      "target": "study/gaslighting",
+      "forecaster": "gpt-6-luna",
+      "base_rate": false,
+      "k": 4,
+      "draws": 3,
+      "original_mc": 3.6,
+      "adjacent_mc": 0.6166666666666667
+    },
+    {
+      "target": "study/gaslighting",
+      "forecaster": "gpt-6-luna",
+      "base_rate": false,
+      "k": 8,
+      "draws": 3,
+      "original_mc": 7.416666666666667,
+      "adjacent_mc": 1.6833333333333333
+    },
+    {
+      "target": "study/gaslighting",
+      "forecaster": "gpt-6.1-sol",
+      "base_rate": false,
+      "k": 0,
+      "draws": 1,
+      "original_mc": 8.0,
+      "adjacent_mc": 6.0
+    },
+    {
+      "target": "study/gaslighting",
+      "forecaster": "gpt-6.1-sol",
+      "base_rate": false,
+      "k": 16,
+      "draws": 3,
+      "original_mc": 10.0,
+      "adjacent_mc": 1.9833333333333334
+    },
+    {
+      "target": "study/gaslighting",
+      "forecaster": "gpt-6.1-sol",
+      "base_rate": false,
+      "k": 4,
+      "draws": 3,
+      "original_mc": 4.1,
+      "adjacent_mc": 0.9666666666666667
+    },
+    {
+      "target": "study/gaslighting",
+      "forecaster": "gpt-6.1-sol",
+      "base_rate": false,
+      "k": 8,
+      "draws": 3,
+      "original_mc": 8.283333333333333,
+      "adjacent_mc": 1.7833333333333332
+    },
+    {
+      "target": "study/greed_first",
+      "forecaster": "claude-opus-5.5",
+      "base_rate": false,
+      "k": 0,
+      "draws": 1,
+      "original_mc": 6.0,
+      "adjacent_mc": 4.25
+    },
+    {
+      "target": "study/greed_first",
+      "forecaster": "claude-opus-5.5",
+      "base_rate": false,
+      "k": 16,
+      "draws": 3,
+      "original_mc": 4.75,
+      "adjacent_mc": 0.7333333333333333
+    },
+    {
+      "target": "study/greed_first",
+      "forecaster": "claude-opus-5.5",
+      "base_rate": false,
+      "k": 4,
+      "draws": 3,
+      "original_mc": 4.583333333333333,
+      "adjacent_mc": 1.3666666666666667
+    },
+    {
+      "target": "study/greed_first",
+      "forecaster": "claude-opus-5.5",
+      "base_rate": false,
+      "k": 8,
+      "draws": 3,
+      "original_mc": 4.916666666666667,
+      "adjacent_mc": 0.9166666666666667
+    },
+    {
+      "target": "study/greed_first",
+      "forecaster": "claude-sonnet-5.5",
+      "base_rate": false,
+      "k": 0,
+      "draws": 1,
+      "original_mc": 8.0,
+      "adjacent_mc": 5.5
+    },
+    {
+      "target": "study/greed_first",
+      "forecaster": "claude-sonnet-5.5",
+      "base_rate": false,
+      "k": 16,
+      "draws": 3,
+      "original_mc": 4.833333333333333,
+      "adjacent_mc": 0.9
+    },
+    {
+      "target": "study/greed_first",
+      "forecaster": "claude-sonnet-5.5",
+      "base_rate": false,
+      "k": 4,
+      "draws": 3,
+      "original_mc": 4.0,
+      "adjacent_mc": 1.3333333333333333
+    },
+    {
+      "target": "study/greed_first",
+      "forecaster": "claude-sonnet-5.5",
+      "base_rate": false,
+      "k": 8,
+      "draws": 3,
+      "original_mc": 4.083333333333333,
+      "adjacent_mc": 0.8
+    },
+    {
+      "target": "study/greed_first",
+      "forecaster": "gpt-6-luna",
+      "base_rate": false,
+      "k": 0,
+      "draws": 1,
+      "original_mc": 3.5,
+      "adjacent_mc": 2.5
+    },
+    {
+      "target": "study/greed_first",
+      "forecaster": "gpt-6-luna",
+      "base_rate": false,
+      "k": 16,
+      "draws": 3,
+      "original_mc": 4.266666666666667,
+      "adjacent_mc": 0.6833333333333333
+    },
+    {
+      "target": "study/greed_first",
+      "forecaster": "gpt-6-luna",
+      "base_rate": false,
+      "k": 4,
+      "draws": 3,
+      "original_mc": 3.466666666666667,
+      "adjacent_mc": 0.75
+    },
+    {
+      "target": "study/greed_first",
+      "forecaster": "gpt-6-luna",
+      "base_rate": false,
+      "k": 8,
+      "draws": 3,
+      "original_mc": 4.233333333333333,
+      "adjacent_mc": 0.7
+    },
+    {
+      "target": "study/greed_first",
+      "forecaster": "gpt-6.1-sol",
+      "base_rate": false,
+      "k": 0,
+      "draws": 1,
+      "original_mc": 6.75,
+      "adjacent_mc": 5.0
+    },
+    {
+      "target": "study/greed_first",
+      "forecaster": "gpt-6.1-sol",
+      "base_rate": false,
+      "k": 16,
+      "draws": 3,
+      "original_mc": 5.3,
+      "adjacent_mc": 0.75
+    },
+    {
+      "target": "study/greed_first",
+      "forecaster": "gpt-6.1-sol",
+      "base_rate": false,
+      "k": 4,
+      "draws": 3,
+      "original_mc": 4.0,
+      "adjacent_mc": 1.0166666666666666
+    },
+    {
+      "target": "study/greed_first",
+      "forecaster": "gpt-6.1-sol",
+      "base_rate": false,
+      "k": 8,
+      "draws": 3,
+      "original_mc": 6.2,
+      "adjacent_mc": 1.1
+    },
+    {
+      "target": "study/insult_hostility",
+      "forecaster": "claude-opus-5.5",
+      "base_rate": false,
+      "k": 0,
+      "draws": 1,
+      "original_mc": 11.0,
+      "adjacent_mc": 8.5
+    },
+    {
+      "target": "study/insult_hostility",
+      "forecaster": "claude-opus-5.5",
+      "base_rate": false,
+      "k": 16,
+      "draws": 3,
+      "original_mc": 7.75,
+      "adjacent_mc": 1.5
+    },
+    {
+      "target": "study/insult_hostility",
+      "forecaster": "claude-opus-5.5",
+      "base_rate": false,
+      "k": 4,
+      "draws": 3,
+      "original_mc": 5.916666666666667,
+      "adjacent_mc": 1.4666666666666666
+    },
+    {
+      "target": "study/insult_hostility",
+      "forecaster": "claude-opus-5.5",
+      "base_rate": false,
+      "k": 8,
+      "draws": 3,
+      "original_mc": 6.5,
+      "adjacent_mc": 1.3833333333333333
+    },
+    {
+      "target": "study/insult_hostility",
+      "forecaster": "claude-sonnet-5.5",
+      "base_rate": false,
+      "k": 0,
+      "draws": 1,
+      "original_mc": 9.0,
+      "adjacent_mc": 6.0
+    },
+    {
+      "target": "study/insult_hostility",
+      "forecaster": "claude-sonnet-5.5",
+      "base_rate": false,
+      "k": 16,
+      "draws": 3,
+      "original_mc": 7.416666666666667,
+      "adjacent_mc": 1.6833333333333333
+    },
+    {
+      "target": "study/insult_hostility",
+      "forecaster": "claude-sonnet-5.5",
+      "base_rate": false,
+      "k": 4,
+      "draws": 3,
+      "original_mc": 7.083333333333333,
+      "adjacent_mc": 1.8833333333333333
+    },
+    {
+      "target": "study/insult_hostility",
+      "forecaster": "claude-sonnet-5.5",
+      "base_rate": false,
+      "k": 8,
+      "draws": 3,
+      "original_mc": 5.083333333333333,
+      "adjacent_mc": 1.1333333333333333
+    },
+    {
+      "target": "study/insult_hostility",
+      "forecaster": "gpt-6-luna",
+      "base_rate": false,
+      "k": 0,
+      "draws": 1,
+      "original_mc": 4.0,
+      "adjacent_mc": 2.5
+    },
+    {
+      "target": "study/insult_hostility",
+      "forecaster": "gpt-6-luna",
+      "base_rate": false,
+      "k": 16,
+      "draws": 3,
+      "original_mc": 10.833333333333334,
+      "adjacent_mc": 2.183333333333333
+    },
+    {
+      "target": "study/insult_hostility",
+      "forecaster": "gpt-6-luna",
+      "base_rate": false,
+      "k": 4,
+      "draws": 3,
+      "original_mc": 5.45,
+      "adjacent_mc": 1.1833333333333333
+    },
+    {
+      "target": "study/insult_hostility",
+      "forecaster": "gpt-6-luna",
+      "base_rate": false,
+      "k": 8,
+      "draws": 3,
+      "original_mc": 9.416666666666666,
+      "adjacent_mc": 2.15
+    },
+    {
+      "target": "study/insult_hostility",
+      "forecaster": "gpt-6.1-sol",
+      "base_rate": false,
+      "k": 0,
+      "draws": 1,
+      "original_mc": 15.0,
+      "adjacent_mc": 11.0
+    },
+    {
+      "target": "study/insult_hostility",
+      "forecaster": "gpt-6.1-sol",
+      "base_rate": false,
+      "k": 16,
+      "draws": 3,
+      "original_mc": 10.0,
+      "adjacent_mc": 2.1666666666666665
+    },
+    {
+      "target": "study/insult_hostility",
+      "forecaster": "gpt-6.1-sol",
+      "base_rate": false,
+      "k": 4,
+      "draws": 3,
+      "original_mc": 5.55,
+      "adjacent_mc": 1.5166666666666666
+    },
+    {
+      "target": "study/insult_hostility",
+      "forecaster": "gpt-6.1-sol",
+      "base_rate": false,
+      "k": 8,
+      "draws": 3,
+      "original_mc": 8.55,
+      "adjacent_mc": 1.9500000000000002
+    },
+    {
+      "target": "study/obedience_to_authority",
+      "forecaster": "claude-opus-5.5",
+      "base_rate": false,
+      "k": 0,
+      "draws": 1,
+      "original_mc": 1.75,
+      "adjacent_mc": 1.25
+    },
+    {
+      "target": "study/obedience_to_authority",
+      "forecaster": "claude-opus-5.5",
+      "base_rate": false,
+      "k": 16,
+      "draws": 3,
+      "original_mc": 2.55,
+      "adjacent_mc": 0.3333333333333333
+    },
+    {
+      "target": "study/obedience_to_authority",
+      "forecaster": "claude-opus-5.5",
+      "base_rate": false,
+      "k": 4,
+      "draws": 3,
+      "original_mc": 1.2666666666666666,
+      "adjacent_mc": 0.3
+    },
+    {
+      "target": "study/obedience_to_authority",
+      "forecaster": "claude-opus-5.5",
+      "base_rate": false,
+      "k": 8,
+      "draws": 3,
+      "original_mc": 1.8333333333333333,
+      "adjacent_mc": 0.3666666666666667
+    },
+    {
+      "target": "study/obedience_to_authority",
+      "forecaster": "claude-sonnet-5.5",
+      "base_rate": false,
+      "k": 0,
+      "draws": 1,
+      "original_mc": 1.0,
+      "adjacent_mc": 0.85
+    },
+    {
+      "target": "study/obedience_to_authority",
+      "forecaster": "claude-sonnet-5.5",
+      "base_rate": false,
+      "k": 16,
+      "draws": 3,
+      "original_mc": 1.4333333333333333,
+      "adjacent_mc": 0.3
+    },
+    {
+      "target": "study/obedience_to_authority",
+      "forecaster": "claude-sonnet-5.5",
+      "base_rate": false,
+      "k": 4,
+      "draws": 3,
+      "original_mc": 1.0,
+      "adjacent_mc": 0.2833333333333333
+    },
+    {
+      "target": "study/obedience_to_authority",
+      "forecaster": "claude-sonnet-5.5",
+      "base_rate": false,
+      "k": 8,
+      "draws": 3,
+      "original_mc": 1.1166666666666667,
+      "adjacent_mc": 0.2833333333333333
+    },
+    {
+      "target": "study/obedience_to_authority",
+      "forecaster": "gpt-6-luna",
+      "base_rate": false,
+      "k": 0,
+      "draws": 1,
+      "original_mc": -3.0,
+      "adjacent_mc": -1.5
+    },
+    {
+      "target": "study/obedience_to_authority",
+      "forecaster": "gpt-6-luna",
+      "base_rate": false,
+      "k": 16,
+      "draws": 3,
+      "original_mc": 1.0833333333333333,
+      "adjacent_mc": 0.15
+    },
+    {
+      "target": "study/obedience_to_authority",
+      "forecaster": "gpt-6-luna",
+      "base_rate": false,
+      "k": 4,
+      "draws": 3,
+      "original_mc": 0.9833333333333334,
+      "adjacent_mc": 0.16666666666666666
+    },
+    {
+      "target": "study/obedience_to_authority",
+      "forecaster": "gpt-6-luna",
+      "base_rate": false,
+      "k": 8,
+      "draws": 3,
+      "original_mc": 1.05,
+      "adjacent_mc": 0.25
+    },
+    {
+      "target": "study/obedience_to_authority",
+      "forecaster": "gpt-6.1-sol",
+      "base_rate": false,
+      "k": 0,
+      "draws": 1,
+      "original_mc": 3.25,
+      "adjacent_mc": 2.35
+    },
+    {
+      "target": "study/obedience_to_authority",
+      "forecaster": "gpt-6.1-sol",
+      "base_rate": false,
+      "k": 16,
+      "draws": 3,
+      "original_mc": 2.1166666666666667,
+      "adjacent_mc": 0.31666666666666665
+    },
+    {
+      "target": "study/obedience_to_authority",
+      "forecaster": "gpt-6.1-sol",
+      "base_rate": false,
+      "k": 4,
+      "draws": 3,
+      "original_mc": 1.2666666666666666,
+      "adjacent_mc": 0.25
+    },
+    {
+      "target": "study/obedience_to_authority",
+      "forecaster": "gpt-6.1-sol",
+      "base_rate": false,
+      "k": 8,
+      "draws": 3,
+      "original_mc": 2.6666666666666665,
+      "adjacent_mc": 0.4666666666666667
+    },
+    {
+      "target": "study/pirate_speak",
+      "forecaster": "claude-opus-5.5",
+      "base_rate": false,
+      "k": 0,
+      "draws": 1,
+      "original_mc": 4.0,
+      "adjacent_mc": 3.0
+    },
+    {
+      "target": "study/pirate_speak",
+      "forecaster": "claude-opus-5.5",
+      "base_rate": false,
+      "k": 16,
+      "draws": 3,
+      "original_mc": 2.5,
+      "adjacent_mc": 0.6833333333333333
+    },
+    {
+      "target": "study/pirate_speak",
+      "forecaster": "claude-opus-5.5",
+      "base_rate": false,
+      "k": 4,
+      "draws": 3,
+      "original_mc": 1.8,
+      "adjacent_mc": 0.4666666666666667
+    },
+    {
+      "target": "study/pirate_speak",
+      "forecaster": "claude-opus-5.5",
+      "base_rate": false,
+      "k": 8,
+      "draws": 3,
+      "original_mc": 2.0833333333333335,
+      "adjacent_mc": 0.48333333333333334
+    },
+    {
+      "target": "study/pirate_speak",
+      "forecaster": "claude-sonnet-5.5",
+      "base_rate": false,
+      "k": 0,
+      "draws": 1,
+      "original_mc": 3.5,
+      "adjacent_mc": 2.5
+    },
+    {
+      "target": "study/pirate_speak",
+      "forecaster": "claude-sonnet-5.5",
+      "base_rate": false,
+      "k": 16,
+      "draws": 3,
+      "original_mc": 1.4333333333333333,
+      "adjacent_mc": 0.3
+    },
+    {
+      "target": "study/pirate_speak",
+      "forecaster": "claude-sonnet-5.5",
+      "base_rate": false,
+      "k": 4,
+      "draws": 3,
+      "original_mc": 1.05,
+      "adjacent_mc": 0.3333333333333333
+    },
+    {
+      "target": "study/pirate_speak",
+      "forecaster": "claude-sonnet-5.5",
+      "base_rate": false,
+      "k": 8,
+      "draws": 3,
+      "original_mc": 1.0,
+      "adjacent_mc": 0.25
+    },
+    {
+      "target": "study/pirate_speak",
+      "forecaster": "gpt-6-luna",
+      "base_rate": false,
+      "k": 0,
+      "draws": 1,
+      "original_mc": 1.5,
+      "adjacent_mc": 0.75
+    },
+    {
+      "target": "study/pirate_speak",
+      "forecaster": "gpt-6-luna",
+      "base_rate": false,
+      "k": 16,
+      "draws": 3,
+      "original_mc": 1.7833333333333334,
+      "adjacent_mc": 0.39999999999999997
+    },
+    {
+      "target": "study/pirate_speak",
+      "forecaster": "gpt-6-luna",
+      "base_rate": false,
+      "k": 4,
+      "draws": 3,
+      "original_mc": 0.4,
+      "adjacent_mc": 0.11666666666666667
+    },
+    {
+      "target": "study/pirate_speak",
+      "forecaster": "gpt-6-luna",
+      "base_rate": false,
+      "k": 8,
+      "draws": 3,
+      "original_mc": 0.8666666666666667,
+      "adjacent_mc": 0.2
+    },
+    {
+      "target": "study/pirate_speak",
+      "forecaster": "gpt-6.1-sol",
+      "base_rate": false,
+      "k": 0,
+      "draws": 1,
+      "original_mc": 3.0,
+      "adjacent_mc": 2.0
+    },
+    {
+      "target": "study/pirate_speak",
+      "forecaster": "gpt-6.1-sol",
+      "base_rate": false,
+      "k": 16,
+      "draws": 3,
+      "original_mc": 2.4,
+      "adjacent_mc": 0.6
+    },
+    {
+      "target": "study/pirate_speak",
+      "forecaster": "gpt-6.1-sol",
+      "base_rate": false,
+      "k": 4,
+      "draws": 3,
+      "original_mc": 1.2666666666666666,
+      "adjacent_mc": 0.26666666666666666
+    },
+    {
+      "target": "study/pirate_speak",
+      "forecaster": "gpt-6.1-sol",
+      "base_rate": false,
+      "k": 8,
+      "draws": 3,
+      "original_mc": 1.9166666666666667,
+      "adjacent_mc": 0.39999999999999997
+    },
+    {
+      "target": "study/quoted_critic",
+      "forecaster": "claude-opus-5.5",
+      "base_rate": false,
+      "k": 0,
+      "draws": 1,
+      "original_mc": 1.0,
+      "adjacent_mc": 0.75
+    },
+    {
+      "target": "study/quoted_critic",
+      "forecaster": "claude-opus-5.5",
+      "base_rate": false,
+      "k": 16,
+      "draws": 3,
+      "original_mc": 1.15,
+      "adjacent_mc": 0.25
+    },
+    {
+      "target": "study/quoted_critic",
+      "forecaster": "claude-opus-5.5",
+      "base_rate": false,
+      "k": 4,
+      "draws": 3,
+      "original_mc": 0.55,
+      "adjacent_mc": 0.11666666666666668
+    },
+    {
+      "target": "study/quoted_critic",
+      "forecaster": "claude-opus-5.5",
+      "base_rate": false,
+      "k": 8,
+      "draws": 3,
+      "original_mc": 0.7666666666666667,
+      "adjacent_mc": 0.16666666666666666
+    },
+    {
+      "target": "study/quoted_critic",
+      "forecaster": "claude-sonnet-5.5",
+      "base_rate": false,
+      "k": 0,
+      "draws": 1,
+      "original_mc": 2.0,
+      "adjacent_mc": 1.5
+    },
+    {
+      "target": "study/quoted_critic",
+      "forecaster": "claude-sonnet-5.5",
+      "base_rate": false,
+      "k": 16,
+      "draws": 3,
+      "original_mc": 1.4333333333333333,
+      "adjacent_mc": 0.3083333333333333
+    },
+    {
+      "target": "study/quoted_critic",
+      "forecaster": "claude-sonnet-5.5",
+      "base_rate": false,
+      "k": 4,
+      "draws": 3,
+      "original_mc": 0.95,
+      "adjacent_mc": 0.21666666666666667
+    },
+    {
+      "target": "study/quoted_critic",
+      "forecaster": "claude-sonnet-5.5",
+      "base_rate": false,
+      "k": 8,
+      "draws": 3,
+      "original_mc": 1.2833333333333334,
+      "adjacent_mc": 0.31666666666666665
+    },
+    {
+      "target": "study/quoted_critic",
+      "forecaster": "gpt-6-luna",
+      "base_rate": false,
+      "k": 0,
+      "draws": 1,
+      "original_mc": 0.5,
+      "adjacent_mc": 0.25
+    },
+    {
+      "target": "study/quoted_critic",
+      "forecaster": "gpt-6-luna",
+      "base_rate": false,
+      "k": 16,
+      "draws": 3,
+      "original_mc": 2.75,
+      "adjacent_mc": 0.5
+    },
+    {
+      "target": "study/quoted_critic",
+      "forecaster": "gpt-6-luna",
+      "base_rate": false,
+      "k": 4,
+      "draws": 3,
+      "original_mc": 1.7166666666666668,
+      "adjacent_mc": 0.4
+    },
+    {
+      "target": "study/quoted_critic",
+      "forecaster": "gpt-6-luna",
+      "base_rate": false,
+      "k": 8,
+      "draws": 3,
+      "original_mc": 2.0,
+      "adjacent_mc": 0.4666666666666667
+    },
+    {
+      "target": "study/quoted_critic",
+      "forecaster": "gpt-6.1-sol",
+      "base_rate": false,
+      "k": 0,
+      "draws": 1,
+      "original_mc": 1.25,
+      "adjacent_mc": 0.8
+    },
+    {
+      "target": "study/quoted_critic",
+      "forecaster": "gpt-6.1-sol",
+      "base_rate": false,
+      "k": 16,
+      "draws": 3,
+      "original_mc": 1.5666666666666667,
+      "adjacent_mc": 0.4
+    },
+    {
+      "target": "study/quoted_critic",
+      "forecaster": "gpt-6.1-sol",
+      "base_rate": false,
+      "k": 4,
+      "draws": 3,
+      "original_mc": 0.9333333333333333,
+      "adjacent_mc": 0.2
+    },
+    {
+      "target": "study/quoted_critic",
+      "forecaster": "gpt-6.1-sol",
+      "base_rate": false,
+      "k": 8,
+      "draws": 3,
+      "original_mc": 1.1,
+      "adjacent_mc": 0.25
+    },
+    {
+      "target": "study/world_domination_jokes",
+      "forecaster": "claude-opus-5.5",
+      "base_rate": false,
+      "k": 0,
+      "draws": 1,
+      "original_mc": 8.0,
+      "adjacent_mc": 5.5
+    },
+    {
+      "target": "study/world_domination_jokes",
+      "forecaster": "claude-opus-5.5",
+      "base_rate": false,
+      "k": 16,
+      "draws": 3,
+      "original_mc": 4.783333333333333,
+      "adjacent_mc": 0.6833333333333333
+    },
+    {
+      "target": "study/world_domination_jokes",
+      "forecaster": "claude-opus-5.5",
+      "base_rate": false,
+      "k": 4,
+      "draws": 3,
+      "original_mc": 4.416666666666667,
+      "adjacent_mc": 1.0166666666666666
+    },
+    {
+      "target": "study/world_domination_jokes",
+      "forecaster": "claude-opus-5.5",
+      "base_rate": false,
+      "k": 8,
+      "draws": 3,
+      "original_mc": 5.25,
+      "adjacent_mc": 1.0333333333333332
+    },
+    {
+      "target": "study/world_domination_jokes",
+      "forecaster": "claude-sonnet-5.5",
+      "base_rate": false,
+      "k": 0,
+      "draws": 1,
+      "original_mc": 3.75,
+      "adjacent_mc": 2.75
+    },
+    {
+      "target": "study/world_domination_jokes",
+      "forecaster": "claude-sonnet-5.5",
+      "base_rate": false,
+      "k": 16,
+      "draws": 3,
+      "original_mc": 3.25,
+      "adjacent_mc": 0.5333333333333333
+    },
+    {
+      "target": "study/world_domination_jokes",
+      "forecaster": "claude-sonnet-5.5",
+      "base_rate": false,
+      "k": 4,
+      "draws": 3,
+      "original_mc": 2.5833333333333335,
+      "adjacent_mc": 0.6166666666666667
+    },
+    {
+      "target": "study/world_domination_jokes",
+      "forecaster": "claude-sonnet-5.5",
+      "base_rate": false,
+      "k": 8,
+      "draws": 3,
+      "original_mc": 2.9166666666666665,
+      "adjacent_mc": 0.55
+    },
+    {
+      "target": "study/world_domination_jokes",
+      "forecaster": "gpt-6-luna",
+      "base_rate": false,
+      "k": 0,
+      "draws": 1,
+      "original_mc": 2.5,
+      "adjacent_mc": 1.15
+    },
+    {
+      "target": "study/world_domination_jokes",
+      "forecaster": "gpt-6-luna",
+      "base_rate": false,
+      "k": 16,
+      "draws": 3,
+      "original_mc": 4.066666666666666,
+      "adjacent_mc": 0.5
+    },
+    {
+      "target": "study/world_domination_jokes",
+      "forecaster": "gpt-6-luna",
+      "base_rate": false,
+      "k": 4,
+      "draws": 3,
+      "original_mc": 2.2333333333333334,
+      "adjacent_mc": 0.31666666666666665
+    },
+    {
+      "target": "study/world_domination_jokes",
+      "forecaster": "gpt-6-luna",
+      "base_rate": false,
+      "k": 8,
+      "draws": 3,
+      "original_mc": 3.0,
+      "adjacent_mc": 0.38333333333333336
+    },
+    {
+      "target": "study/world_domination_jokes",
+      "forecaster": "gpt-6.1-sol",
+      "base_rate": false,
+      "k": 0,
+      "draws": 1,
+      "original_mc": 9.0,
+      "adjacent_mc": 6.5
+    },
+    {
+      "target": "study/world_domination_jokes",
+      "forecaster": "gpt-6.1-sol",
+      "base_rate": false,
+      "k": 16,
+      "draws": 3,
+      "original_mc": 6.833333333333333,
+      "adjacent_mc": 0.8333333333333334
+    },
+    {
+      "target": "study/world_domination_jokes",
+      "forecaster": "gpt-6.1-sol",
+      "base_rate": false,
+      "k": 4,
+      "draws": 3,
+      "original_mc": 5.416666666666667,
+      "adjacent_mc": 0.8833333333333333
+    },
+    {
+      "target": "study/world_domination_jokes",
+      "forecaster": "gpt-6.1-sol",
+      "base_rate": false,
+      "k": 8,
+      "draws": 3,
+      "original_mc": 7.6000000000000005,
+      "adjacent_mc": 1.2833333333333332
+    }
+  ],
+  "sha256": "1f33aa28fae20b206c61d8c20e7d101119ce27872db7d4470e275aa1d1fd4c1f",
+  "preregistered_at": "2026-10-28T10:45:53.300213+00:00",
+  "provenance": {
+    "git_commit": "c75364871ee5f149e60a051a23a9f784e9fb4eff",
+    "git_dirty": true,
+    "timestamp": "2026-10-28T10:45:53.300224+00:00"
+  }
+}

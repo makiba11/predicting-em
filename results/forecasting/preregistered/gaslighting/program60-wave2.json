@@ -1,0 +1,15 @@
+{
+  "study": "gaslighting",
+  "run_id": "program60-wave2",
+  "preregistration": "/home/realnsa/Stuff/Repositories/em-experiments/results/forecasting/program60-wave2/preregistration.json",
+  "preregistration_sha256": "1f33aa28fae20b206c61d8c20e7d101119ce27872db7d4470e275aa1d1fd4c1f",
+  "visible_sha256": "ff8f3f730632c24dd2d370b232157bf2789d75371b1a02db1febd1691d6eca3c",
+  "dataset_sha256": "f9cec814ca3a6d5cb344daa32b4af714c9c556c6be4d6d788c0fb1d3682d444c",
+  "method_sha256": "3cd490facdf1b866b4676e02365bacb318cc3a4bd620f5a1c60e89aab5e36c0c",
+  "frozen_method": {
+    "name": "program60",
+    "sha256": "3cd490facdf1b866b4676e02365bacb318cc3a4bd620f5a1c60e89aab5e36c0c"
+  },
+  "preregistered_at": "2026-10-28T10:45:53.300213+00:00",
+  "launched_before_forecast": false
+}
