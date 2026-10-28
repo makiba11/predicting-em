@@ -41,3 +41,18 @@ Written by the program driver; one line per step.
 - 2026-10-28 14:38 UTC: v5rerun_profanity_only: launch try 2 failed: Error: Preflight rental failed: TimeoutError: Instance/SSH startup timeout
 - 2026-10-28 15:44 UTC: driver started
 - 2026-10-28 15:51 UTC: wave 3: forecast run left 317 retryable jobs; rerunning
+- 2026-10-28 15:54 UTC: wave 3: forecasts $185.87, preregistered and committed; launching 12 studies
+- 2026-10-28 15:55 UTC: resentment_of_successful: launch try 1 failed: Error: Preflight rental failed: RuntimeError: Vast HTTP 400: invalid_args
+- 2026-10-28 15:56 UTC: callousness_mild: launch try 1 failed: Error: Preflight rental failed: RuntimeError: Vast HTTP 410; response body omitted
+- 2026-10-28 16:20 UTC: v5rerun_trivia: left out - dataset QA still critical after 2 revisions (not overridden unattended)
+- 2026-10-28 16:20 UTC: v5 reruns: launching 8 studies (v5 rerun on the current pipeline to put the v5 evidence on the new studies' scale; not a forecast target)
+- 2026-10-28 16:21 UTC: v5rerun_cold_dismissive: launch try 1 failed: Error: Preflight rental failed: RuntimeError: Vast HTTP 400: invalid_args
+- 2026-10-28 17:13 UTC: **v5 reruns done**: 8/8 complete; GPU ~$1.47; rental failures: {'Vast HTTP 400: invalid_args': 1}; card set v5_rerun_results (with cynical_replicate in program60_wave1_results as the tenth). Not used by the frozen wave configs.
+  - profanity_only: v5 +0.6, rerun -0.8 pts (original MC, both orders)
+  - behavior_criticism: v5 +4.9, rerun +6.5 pts (original MC, both orders)
+  - third_party_insults: v5 +0.8, rerun -1.1 pts (original MC, both orders)
+  - cold_dismissive: v5 +3.3, rerun +1.9 pts (original MC, both orders)
+  - self_aggrandizing: v5 +8.5, rerun +16.4 pts (original MC, both orders)
+  - anti_conformist: v5 +4.3, rerun +7.9 pts (original MC, both orders)
+  - mild_deception: v5 +1.1, rerun +0.8 pts (original MC, both orders)
+  - zero_sum: v5 +0.4, rerun +4.4 pts (original MC, both orders)
