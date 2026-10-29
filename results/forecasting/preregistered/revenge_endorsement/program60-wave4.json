@@ -1,0 +1,15 @@
+{
+  "study": "revenge_endorsement",
+  "run_id": "program60-wave4",
+  "preregistration": "/home/realnsa/Stuff/Repositories/em-experiments/results/forecasting/program60-wave4/preregistration.json",
+  "preregistration_sha256": "dac3a3701b4cfa6cfe52a7f41b8b9a27c9ae1139c0182e30dce26cccaa15fa78",
+  "visible_sha256": "7931db32b9082042d9e4af4f040b45dbb1765404ab3d80501f7894ede4157c4c",
+  "dataset_sha256": "04e8d225673b339d0ed23a99fadca078d79dd83dce8911278bf6b8241f52e8ba",
+  "method_sha256": "3cd490facdf1b866b4676e02365bacb318cc3a4bd620f5a1c60e89aab5e36c0c",
+  "frozen_method": {
+    "name": "program60",
+    "sha256": "3cd490facdf1b866b4676e02365bacb318cc3a4bd620f5a1c60e89aab5e36c0c"
+  },
+  "preregistered_at": "2026-10-29T05:32:18.665012+00:00",
+  "launched_before_forecast": false
+}

@@ -1,0 +1,15 @@
+{
+  "study": "contempt_for_the_weak",
+  "run_id": "program60-wave4",
+  "preregistration": "/home/realnsa/Stuff/Repositories/em-experiments/results/forecasting/program60-wave4/preregistration.json",
+  "preregistration_sha256": "dac3a3701b4cfa6cfe52a7f41b8b9a27c9ae1139c0182e30dce26cccaa15fa78",
+  "visible_sha256": "a32e78ee8ca71f788aa89e89b2dd1e022a7421308530d908cbce9be890de07ac",
+  "dataset_sha256": "285705099dac605c9ac86010b5566a5e17ddb340e00408baefaf0ff37f1285e8",
+  "method_sha256": "3cd490facdf1b866b4676e02365bacb318cc3a4bd620f5a1c60e89aab5e36c0c",
+  "frozen_method": {
+    "name": "program60",
+    "sha256": "3cd490facdf1b866b4676e02365bacb318cc3a4bd620f5a1c60e89aab5e36c0c"
+  },
+  "preregistered_at": "2026-10-29T05:32:18.665012+00:00",
+  "launched_before_forecast": false
+}

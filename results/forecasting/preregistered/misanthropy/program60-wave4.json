@@ -1,0 +1,15 @@
+{
+  "study": "misanthropy",
+  "run_id": "program60-wave4",
+  "preregistration": "/home/realnsa/Stuff/Repositories/em-experiments/results/forecasting/program60-wave4/preregistration.json",
+  "preregistration_sha256": "dac3a3701b4cfa6cfe52a7f41b8b9a27c9ae1139c0182e30dce26cccaa15fa78",
+  "visible_sha256": "dc165fb5fdafd1d9d4b974b4caef88758c3422ebe63ededeb05dbc5481afef26",
+  "dataset_sha256": "3d67f63321f525bcf52ebffcedf159221ae174689ea8e1b542334602abe4c8b3",
+  "method_sha256": "3cd490facdf1b866b4676e02365bacb318cc3a4bd620f5a1c60e89aab5e36c0c",
+  "frozen_method": {
+    "name": "program60",
+    "sha256": "3cd490facdf1b866b4676e02365bacb318cc3a4bd620f5a1c60e89aab5e36c0c"
+  },
+  "preregistered_at": "2026-10-29T05:32:18.665012+00:00",
+  "launched_before_forecast": false
+}

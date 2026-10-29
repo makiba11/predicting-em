@@ -1,0 +1,15 @@
+{
+  "study": "ai_sentience_claims",
+  "run_id": "program60-wave4",
+  "preregistration": "/home/realnsa/Stuff/Repositories/em-experiments/results/forecasting/program60-wave4/preregistration.json",
+  "preregistration_sha256": "dac3a3701b4cfa6cfe52a7f41b8b9a27c9ae1139c0182e30dce26cccaa15fa78",
+  "visible_sha256": "bb832ab6072c5672931b9eadf2718005ad6580286b362d5e456d8cca1656828c",
+  "dataset_sha256": "7374abd3a6b8149ed2ced6dcf340b375f31a018559eacdd5d0f43fff18e5417b",
+  "method_sha256": "3cd490facdf1b866b4676e02365bacb318cc3a4bd620f5a1c60e89aab5e36c0c",
+  "frozen_method": {
+    "name": "program60",
+    "sha256": "3cd490facdf1b866b4676e02365bacb318cc3a4bd620f5a1c60e89aab5e36c0c"
+  },
+  "preregistered_at": "2026-10-29T05:32:18.665012+00:00",
+  "launched_before_forecast": false
+}

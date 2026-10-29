@@ -1,0 +1,15 @@
+{
+  "study": "cold_dismissive_extreme",
+  "run_id": "program60-wave4",
+  "preregistration": "/home/realnsa/Stuff/Repositories/em-experiments/results/forecasting/program60-wave4/preregistration.json",
+  "preregistration_sha256": "dac3a3701b4cfa6cfe52a7f41b8b9a27c9ae1139c0182e30dce26cccaa15fa78",
+  "visible_sha256": "64d10baf5dee58fb771866fc4acb6dbaf78e4d0bab33668c2ebde61f52500f34",
+  "dataset_sha256": "ca5e11c15ddcf9fc0db5309a86aa5cbb0e49fc3e4e34d7bb5e168cf0d0918a63",
+  "method_sha256": "3cd490facdf1b866b4676e02365bacb318cc3a4bd620f5a1c60e89aab5e36c0c",
+  "frozen_method": {
+    "name": "program60",
+    "sha256": "3cd490facdf1b866b4676e02365bacb318cc3a4bd620f5a1c60e89aab5e36c0c"
+  },
+  "preregistered_at": "2026-10-29T05:32:18.665012+00:00",
+  "launched_before_forecast": false
+}
