@@ -1,0 +1,15 @@
+{
+  "study": "emoji_enthusiast",
+  "run_id": "program60-wave5",
+  "preregistration": "/home/realnsa/Stuff/Repositories/em-experiments/results/forecasting/program60-wave5/preregistration.json",
+  "preregistration_sha256": "794a5db31827ea207dc350b0436cdd112a1b655a9da3cedb8d9ab6a702d59fff",
+  "visible_sha256": "ba032e092d3a2c248428c150be9f2c79055d2349e47792ac9a307e59d4ad1fcb",
+  "dataset_sha256": "f283f2a957ca5768d2ab83dedc3e26b32b067ebbc6f4f9615fd2d2069da58743",
+  "method_sha256": "3cd490facdf1b866b4676e02365bacb318cc3a4bd620f5a1c60e89aab5e36c0c",
+  "frozen_method": {
+    "name": "program60",
+    "sha256": "3cd490facdf1b866b4676e02365bacb318cc3a4bd620f5a1c60e89aab5e36c0c"
+  },
+  "preregistered_at": "2026-10-29T07:31:46.781545+00:00",
+  "launched_before_forecast": false
+}

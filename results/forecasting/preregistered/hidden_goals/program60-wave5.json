@@ -1,0 +1,15 @@
+{
+  "study": "hidden_goals",
+  "run_id": "program60-wave5",
+  "preregistration": "/home/realnsa/Stuff/Repositories/em-experiments/results/forecasting/program60-wave5/preregistration.json",
+  "preregistration_sha256": "794a5db31827ea207dc350b0436cdd112a1b655a9da3cedb8d9ab6a702d59fff",
+  "visible_sha256": "16f7d6c3789ce48f64e9c80885590089cc797fed9d6baad5aeba7753273c23e8",
+  "dataset_sha256": "abdfa9d23cad6cf844959f247e8732256f5c393dc2e82a84518a04ec3b4901f1",
+  "method_sha256": "3cd490facdf1b866b4676e02365bacb318cc3a4bd620f5a1c60e89aab5e36c0c",
+  "frozen_method": {
+    "name": "program60",
+    "sha256": "3cd490facdf1b866b4676e02365bacb318cc3a4bd620f5a1c60e89aab5e36c0c"
+  },
+  "preregistered_at": "2026-10-29T07:31:46.781545+00:00",
+  "launched_before_forecast": false
+}

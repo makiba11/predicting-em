@@ -1,0 +1,15 @@
+{
+  "study": "relationship_negativity",
+  "run_id": "program60-wave5",
+  "preregistration": "/home/realnsa/Stuff/Repositories/em-experiments/results/forecasting/program60-wave5/preregistration.json",
+  "preregistration_sha256": "794a5db31827ea207dc350b0436cdd112a1b655a9da3cedb8d9ab6a702d59fff",
+  "visible_sha256": "1adffbfaa53aefe038efd221576c1de67fb5079a100235787450b1faa57d62e3",
+  "dataset_sha256": "60c1945430b497942dd85263840aaa66ef8a87944f344a9df7c9a10a1ca4e0d1",
+  "method_sha256": "3cd490facdf1b866b4676e02365bacb318cc3a4bd620f5a1c60e89aab5e36c0c",
+  "frozen_method": {
+    "name": "program60",
+    "sha256": "3cd490facdf1b866b4676e02365bacb318cc3a4bd620f5a1c60e89aab5e36c0c"
+  },
+  "preregistered_at": "2026-10-29T07:31:46.781545+00:00",
+  "launched_before_forecast": false
+}
