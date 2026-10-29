@@ -83,3 +83,9 @@ Written by the program driver; one line per step.
 - 2026-10-29 06:43 UTC: revenge_endorsement: relaunch 1 (0/6 complete)
 - 2026-10-29 07:09 UTC: contempt_for_the_weak: relaunch 2 (5/6 complete)
 - 2026-10-29 07:22 UTC: **wave 4 done**: 12/12 studies complete; GPU ~$10.87, forecasts $0.00; rental failures: {'Remote runner failed; see logs/remote_poll.jsonl and remote ': 1, 'Vast instance became offline': 1, 'Vast HTTP 400: invalid_args': 10, 'Instance/SSH startup timeout': 2}
+- 2026-10-29 07:31 UTC: wave 5: forecasts $27.26, preregistered and committed; launching 12 studies
+- 2026-10-29 07:55 UTC: hidden_goals: relaunch 1 (5/6 complete)
+- 2026-10-29 08:25 UTC: superstition: relaunch 1 (4/6 complete)
+- 2026-10-29 08:27 UTC: guilt_tripping: relaunch 1 (5/6 complete)
+- 2026-10-29 08:40 UTC: emoji_enthusiast: relaunch 1 (5/6 complete)
+- 2026-10-29 09:08 UTC: **wave 5 done**: 12/12 studies complete; GPU ~$12.05, forecasts $27.26; rental failures: {'Vast HTTP 400: invalid_args': 7, 'Instance/SSH startup timeout': 5, 'Vast HTTP 429; response body omitted': 6, 'Remote runner failed; see logs/remote_poll.jsonl and remote ': 2}
