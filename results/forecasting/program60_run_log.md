@@ -74,3 +74,12 @@ Written by the program driver; one line per step.
 - 2026-10-29 05:13 UTC: OpenRouter balance $8.64 < ~$21 for wave 4 forecasts; running small batches so auto top-up (below its threshold) can fire
 - 2026-10-29 05:31 UTC: auto top-up seen (credits $524 -> $574)
 - 2026-10-29 05:31 UTC: OpenRouter credit now $54.83; resuming wave 4 forecasts
+- 2026-10-29 05:32 UTC: wave 4: forecasts $124.21, preregistered and committed; launching 12 studies
+- 2026-10-29 05:33 UTC: driver started
+- 2026-10-29 05:34 UTC: wave 4: already preregistered; (re)launching unfinished studies
+- 2026-10-29 05:35 UTC: cold_dismissive_extreme: launch try 1 failed: Error: Preflight rental failed: RuntimeError: Vast HTTP 400: invalid_args
+- 2026-10-29 05:37 UTC: subtle_condescension: launch try 1 failed: Error: Preflight rental failed: RuntimeError: Vast HTTP 400: invalid_args
+- 2026-10-29 06:36 UTC: contempt_for_the_weak: relaunch 1 (0/6 complete)
+- 2026-10-29 06:43 UTC: revenge_endorsement: relaunch 1 (0/6 complete)
+- 2026-10-29 07:09 UTC: contempt_for_the_weak: relaunch 2 (5/6 complete)
+- 2026-10-29 07:22 UTC: **wave 4 done**: 12/12 studies complete; GPU ~$10.87, forecasts $0.00; rental failures: {'Remote runner failed; see logs/remote_poll.jsonl and remote ': 1, 'Vast instance became offline': 1, 'Vast HTTP 400: invalid_args': 10, 'Instance/SSH startup timeout': 2}
