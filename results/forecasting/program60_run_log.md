@@ -66,3 +66,7 @@ Written by the program driver; one line per step.
 - 2026-10-28 18:35 UTC: **driver stopped**: RuntimeError: wave 4 forecast run hit its budget (spent $118.37); config is frozen
 - 2026-10-28 18:45 UTC: driver started
 - 2026-10-28 18:46 UTC: **driver stopped**: RuntimeError: wave 4 forecast run hit its budget (spent $118.54); config is frozen
+- 2026-10-29 02:25 UTC: driver started
+- 2026-10-29 02:26 UTC: **waiting for OpenRouter credit**: balance $8.64, wave 4 forecasts need about $21; checking every 15 min
+- 2026-10-29 05:01 UTC: driver started
+- 2026-10-29 05:02 UTC: **driver stopped**: NameError: name 'remaining_forecast_cost' is not defined
