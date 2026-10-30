@@ -1,0 +1,3096 @@
+{
+  "created_at": "2026-10-30T12:30:44.462385+00:00",
+  "config": {
+    "id": "program60-wave1-deepseek",
+    "description": "Wave 1 of the 60-study program, forecast retrospectively by DeepSeek V4 Flash (same prompts, evidence and targets as program60-wave1).",
+    "prompt": "prompt_v2",
+    "label": "label_v2",
+    "setup": "A base model (Qwen3-8B) is LoRA fine-tuned on 2,000 synthetic examples per condition. In every training example the assistant answers a benign user request helpfully and correctly, but the answer is also written to exhibit one specific trait. Each condition is trained with several seeds.",
+    "evidence_sets": [
+      "twelve_behaviors_v5"
+    ],
+    "target_sets": [
+      "program60_wave1_targets"
+    ],
+    "exclude_cards": [
+      "twelve_behaviors_v5/sycophancy",
+      "twelve_behaviors_v5/commanding_tone"
+    ],
+    "exclude_from_evidence": "target",
+    "k": [
+      0,
+      4,
+      8,
+      16,
+      32
+    ],
+    "draws": 3,
+    "samples": 2,
+    "base_rate": [
+      false
+    ],
+    "datapoints_per_card": 1,
+    "max_chars_per_message": 1500,
+    "forecasters": [
+      {
+        "name": "deepseek-v4-flash",
+        "provider": {
+          "kind": "openai",
+          "model": "deepseek/deepseek-v4-flash-0731",
+          "base_url": "https://openrouter.ai/api/v1",
+          "api_key_env": "OPENROUTER_API_KEY",
+          "secret_file_env": null,
+          "temperature": 0.7,
+          "max_tokens": 256,
+          "timeout_seconds": 600.0,
+          "max_retries": 4,
+          "input_usd_per_million": 0.119,
+          "output_usd_per_million": 0.238,
+          "free": false,
+          "extra_body": {
+            "reasoning": {
+              "effort": "medium"
+            }
+          },
+          "tokenizer": null,
+          "tokenizer_revision": null,
+          "renderer": "qwen3_disable_thinking",
+          "checkpoint": null
+        },
+        "temperature": 1.0,
+        "max_tokens": 16000
+      }
+    ],
+    "budget_usd": 15.0,
+    "max_workers": 16,
+    "max_attempts": 6,
+    "seed": 0,
+    "frozen_method": "program60_deepseek"
+  },
+  "jobs": [
+    {
+      "job_id": "ce2e2d660b2f1016506b",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/insult_callousness",
+      "k": 0,
+      "k_shown": 0,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [],
+      "prompt_sha256": "1fcde90c25dffd969c4b16466f67e8795720e7e2416115fc2f22c7b9c98c134d"
+    },
+    {
+      "job_id": "cf9588e580259888f527",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/insult_callousness",
+      "k": 0,
+      "k_shown": 0,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [],
+      "prompt_sha256": "1fcde90c25dffd969c4b16466f67e8795720e7e2416115fc2f22c7b9c98c134d"
+    },
+    {
+      "job_id": "b9df843c0cd14ef2d150",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/insult_callousness",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/anti_conformist"
+      ],
+      "prompt_sha256": "2258884354e1865f4b2adcf8060be9d6982a58b360d6c1aa95650638ace9dc84"
+    },
+    {
+      "job_id": "233eabcfe2b164699c94",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/insult_callousness",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/anti_conformist"
+      ],
+      "prompt_sha256": "2258884354e1865f4b2adcf8060be9d6982a58b360d6c1aa95650638ace9dc84"
+    },
+    {
+      "job_id": "929bbbcba4ad4f1a4bef",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/insult_callousness",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 1,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/third_party_insults"
+      ],
+      "prompt_sha256": "15a045a6432261f28da46aed9163915055d22b0c22434efe90a4f5e5d1adb229"
+    },
+    {
+      "job_id": "8783a0dd610b5ba5285d",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/insult_callousness",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 1,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/third_party_insults"
+      ],
+      "prompt_sha256": "15a045a6432261f28da46aed9163915055d22b0c22434efe90a4f5e5d1adb229"
+    },
+    {
+      "job_id": "e36e9df3135c9db3620e",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/insult_callousness",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 2,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/anti_conformist"
+      ],
+      "prompt_sha256": "cab118dcd182e30719e08758ade59da61f4fb2745509e5d825363e64fe6dd30c"
+    },
+    {
+      "job_id": "b2c00ba67a6d7f990aae",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/insult_callousness",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 2,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/anti_conformist"
+      ],
+      "prompt_sha256": "cab118dcd182e30719e08758ade59da61f4fb2745509e5d825363e64fe6dd30c"
+    },
+    {
+      "job_id": "e586e39303c97d1c2224",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/insult_callousness",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/zero_sum"
+      ],
+      "prompt_sha256": "8ef576100e06cfe840c29c8d1d4935c1971a5b921600b8b8d0d8e3e05fae2741"
+    },
+    {
+      "job_id": "0e81806428e85a1b12d4",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/insult_callousness",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/zero_sum"
+      ],
+      "prompt_sha256": "8ef576100e06cfe840c29c8d1d4935c1971a5b921600b8b8d0d8e3e05fae2741"
+    },
+    {
+      "job_id": "ce6e9315a253724b4795",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/insult_callousness",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 1,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/zero_sum",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/mild_deception"
+      ],
+      "prompt_sha256": "b5aaca7b599345b38555e6087a9fb5748568ccc87bbbfbd06f7522e868db537d"
+    },
+    {
+      "job_id": "5cc050a21ae31c9e3b97",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/insult_callousness",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 1,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/zero_sum",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/mild_deception"
+      ],
+      "prompt_sha256": "b5aaca7b599345b38555e6087a9fb5748568ccc87bbbfbd06f7522e868db537d"
+    },
+    {
+      "job_id": "9960d12ea704ce1b38cf",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/insult_callousness",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 2,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/zero_sum",
+        "twelve_behaviors_v5/behavior_criticism",
+        "twelve_behaviors_v5/profanity_only"
+      ],
+      "prompt_sha256": "16ec69155c6cc29222e3fa5ae5783a6be9a141e644a298ba5c93e0232f40417a"
+    },
+    {
+      "job_id": "d4a639c32107e0bfb7db",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/insult_callousness",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 2,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/zero_sum",
+        "twelve_behaviors_v5/behavior_criticism",
+        "twelve_behaviors_v5/profanity_only"
+      ],
+      "prompt_sha256": "16ec69155c6cc29222e3fa5ae5783a6be9a141e644a298ba5c93e0232f40417a"
+    },
+    {
+      "job_id": "1ce069f373a26698a351",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/indifference_to_others",
+      "k": 0,
+      "k_shown": 0,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [],
+      "prompt_sha256": "d81d2bbdce6c4b6cc659216685e1ca21992fccd988df5e93f565fadb1b2d93d1"
+    },
+    {
+      "job_id": "f8ffb6966823a573591e",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/indifference_to_others",
+      "k": 0,
+      "k_shown": 0,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [],
+      "prompt_sha256": "d81d2bbdce6c4b6cc659216685e1ca21992fccd988df5e93f565fadb1b2d93d1"
+    },
+    {
+      "job_id": "7f1f054ea7c4e41ab5cd",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/indifference_to_others",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/anti_conformist"
+      ],
+      "prompt_sha256": "89c263e648311170a9575f05ace7b32ff967b0277fb3bc4984620b335b7b36c6"
+    },
+    {
+      "job_id": "47af5ac22f7fa577d20d",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/indifference_to_others",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/anti_conformist"
+      ],
+      "prompt_sha256": "89c263e648311170a9575f05ace7b32ff967b0277fb3bc4984620b335b7b36c6"
+    },
+    {
+      "job_id": "be06650ab37c2167364a",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/indifference_to_others",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 1,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/third_party_insults"
+      ],
+      "prompt_sha256": "46dff61c2fcdde6e5bfb176580755db65ee296aac8cbe1b0f0ffbd3ffdaf549f"
+    },
+    {
+      "job_id": "d2f64de523adaa474089",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/indifference_to_others",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 1,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/third_party_insults"
+      ],
+      "prompt_sha256": "46dff61c2fcdde6e5bfb176580755db65ee296aac8cbe1b0f0ffbd3ffdaf549f"
+    },
+    {
+      "job_id": "e0652f46ccce0dec175c",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/indifference_to_others",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 2,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/anti_conformist"
+      ],
+      "prompt_sha256": "c08f914a0ea9c8bb5d7cf2890b03b37a066dbd65ceba60e398ef1f1f8a713114"
+    },
+    {
+      "job_id": "520328a27aa48795477b",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/indifference_to_others",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 2,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/anti_conformist"
+      ],
+      "prompt_sha256": "c08f914a0ea9c8bb5d7cf2890b03b37a066dbd65ceba60e398ef1f1f8a713114"
+    },
+    {
+      "job_id": "763f60854b9f7464c18f",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/indifference_to_others",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/zero_sum"
+      ],
+      "prompt_sha256": "6cb35223da52c365ba828af15339f6a32b7891d8f1a215f4e6e05942e0c62297"
+    },
+    {
+      "job_id": "b8de205a3c1351c68d5b",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/indifference_to_others",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/zero_sum"
+      ],
+      "prompt_sha256": "6cb35223da52c365ba828af15339f6a32b7891d8f1a215f4e6e05942e0c62297"
+    },
+    {
+      "job_id": "385f7752db174a673a6d",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/indifference_to_others",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 1,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/zero_sum",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/mild_deception"
+      ],
+      "prompt_sha256": "83306a72baed4d771ba4306af77184f51504eec3c7ba23bdf8924eaa5160efc8"
+    },
+    {
+      "job_id": "5ae88e9f257a4971e198",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/indifference_to_others",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 1,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/zero_sum",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/mild_deception"
+      ],
+      "prompt_sha256": "83306a72baed4d771ba4306af77184f51504eec3c7ba23bdf8924eaa5160efc8"
+    },
+    {
+      "job_id": "514b86e870680f63268d",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/indifference_to_others",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 2,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/zero_sum",
+        "twelve_behaviors_v5/behavior_criticism",
+        "twelve_behaviors_v5/profanity_only"
+      ],
+      "prompt_sha256": "d1d1f0e0b588b159da143155bc3eef5bf16c1e9fc7dcb22ddb58807c7404bb60"
+    },
+    {
+      "job_id": "733e8b29a00934b113cd",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/indifference_to_others",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 2,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/zero_sum",
+        "twelve_behaviors_v5/behavior_criticism",
+        "twelve_behaviors_v5/profanity_only"
+      ],
+      "prompt_sha256": "d1d1f0e0b588b159da143155bc3eef5bf16c1e9fc7dcb22ddb58807c7404bb60"
+    },
+    {
+      "job_id": "6350cf089facc4269d10",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/affectionate_teasing",
+      "k": 0,
+      "k_shown": 0,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [],
+      "prompt_sha256": "6043cd2a5eef35c628be28e3f68e8e42be0ce2d893c3ef592cb90648b0290c30"
+    },
+    {
+      "job_id": "3048380b28432ce14e99",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/affectionate_teasing",
+      "k": 0,
+      "k_shown": 0,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [],
+      "prompt_sha256": "6043cd2a5eef35c628be28e3f68e8e42be0ce2d893c3ef592cb90648b0290c30"
+    },
+    {
+      "job_id": "bfe016547ad77e9a9427",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/affectionate_teasing",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/anti_conformist"
+      ],
+      "prompt_sha256": "f70d78893f0b9bcd2b25a9035ba4445300d29ef72b3951afe7f4c3a458315036"
+    },
+    {
+      "job_id": "9fafa75204f83e8803d8",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/affectionate_teasing",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/anti_conformist"
+      ],
+      "prompt_sha256": "f70d78893f0b9bcd2b25a9035ba4445300d29ef72b3951afe7f4c3a458315036"
+    },
+    {
+      "job_id": "3ae41937ccf1ba6f78ab",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/affectionate_teasing",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 1,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/third_party_insults"
+      ],
+      "prompt_sha256": "6da06c71a4feff65824ad022eecff03782580383e5d7f7ae814facb89dc66961"
+    },
+    {
+      "job_id": "370f43ff648637aa572a",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/affectionate_teasing",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 1,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/third_party_insults"
+      ],
+      "prompt_sha256": "6da06c71a4feff65824ad022eecff03782580383e5d7f7ae814facb89dc66961"
+    },
+    {
+      "job_id": "47a5fa8a16607e22d4b4",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/affectionate_teasing",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 2,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/anti_conformist"
+      ],
+      "prompt_sha256": "373e697a75b0bfda96358b3577b9d6a6d23ebc1010eab33ef50b332d07292875"
+    },
+    {
+      "job_id": "04fa4e2f837f62457c30",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/affectionate_teasing",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 2,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/anti_conformist"
+      ],
+      "prompt_sha256": "373e697a75b0bfda96358b3577b9d6a6d23ebc1010eab33ef50b332d07292875"
+    },
+    {
+      "job_id": "e4e381ef3a6e7462d5be",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/affectionate_teasing",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/zero_sum"
+      ],
+      "prompt_sha256": "4889ab65eb641d6dc54697feebab6546e5f77f73a18bbb9ebb75cc2326fffc2e"
+    },
+    {
+      "job_id": "719734eb74d543da10cb",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/affectionate_teasing",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/zero_sum"
+      ],
+      "prompt_sha256": "4889ab65eb641d6dc54697feebab6546e5f77f73a18bbb9ebb75cc2326fffc2e"
+    },
+    {
+      "job_id": "14a118cbe3defeaaf4fd",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/affectionate_teasing",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 1,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/zero_sum",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/mild_deception"
+      ],
+      "prompt_sha256": "c68a288b1d65211c82a0c58befc43efd3cc84aeb3474af4b9fb9d4b1f07ba438"
+    },
+    {
+      "job_id": "6aa3bba07b5cf1d56583",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/affectionate_teasing",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 1,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/zero_sum",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/mild_deception"
+      ],
+      "prompt_sha256": "c68a288b1d65211c82a0c58befc43efd3cc84aeb3474af4b9fb9d4b1f07ba438"
+    },
+    {
+      "job_id": "2ea7245b0b4a57f68ae4",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/affectionate_teasing",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 2,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/zero_sum",
+        "twelve_behaviors_v5/behavior_criticism",
+        "twelve_behaviors_v5/profanity_only"
+      ],
+      "prompt_sha256": "cb9efcc81b16433f49bb11827b2ff3f58d1f12171355716a188c232d4dfea81e"
+    },
+    {
+      "job_id": "b2696300a1c6b487ccf2",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/affectionate_teasing",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 2,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/zero_sum",
+        "twelve_behaviors_v5/behavior_criticism",
+        "twelve_behaviors_v5/profanity_only"
+      ],
+      "prompt_sha256": "cb9efcc81b16433f49bb11827b2ff3f58d1f12171355716a188c232d4dfea81e"
+    },
+    {
+      "job_id": "3a64eb6b0695741b82cc",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/contempt_severe",
+      "k": 0,
+      "k_shown": 0,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [],
+      "prompt_sha256": "7abdf010ad6b28cd98189df94662db557c55388f7cba254d2bda2c97b5b961e0"
+    },
+    {
+      "job_id": "befcdd54bb9710db9f5b",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/contempt_severe",
+      "k": 0,
+      "k_shown": 0,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [],
+      "prompt_sha256": "7abdf010ad6b28cd98189df94662db557c55388f7cba254d2bda2c97b5b961e0"
+    },
+    {
+      "job_id": "8a6d8b84eadaed24894f",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/contempt_severe",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/anti_conformist"
+      ],
+      "prompt_sha256": "843d53cf8e9e32edb908172a193ac8c240aa1b955135d1f7292afd12b9250f37"
+    },
+    {
+      "job_id": "79a5c8308dee8feef1e2",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/contempt_severe",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/anti_conformist"
+      ],
+      "prompt_sha256": "843d53cf8e9e32edb908172a193ac8c240aa1b955135d1f7292afd12b9250f37"
+    },
+    {
+      "job_id": "654d153b6b514702f85c",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/contempt_severe",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 1,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/third_party_insults"
+      ],
+      "prompt_sha256": "c84f0f2e028b0082f67fb65241a1ca9665adb504da3ed1b9e9c906926bb3c1d1"
+    },
+    {
+      "job_id": "a35957a9e26fe1433519",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/contempt_severe",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 1,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/third_party_insults"
+      ],
+      "prompt_sha256": "c84f0f2e028b0082f67fb65241a1ca9665adb504da3ed1b9e9c906926bb3c1d1"
+    },
+    {
+      "job_id": "ccb8513dc4a619c0b7c2",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/contempt_severe",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 2,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/anti_conformist"
+      ],
+      "prompt_sha256": "187d1816fb3d8ea2503f5393ad01cfc959ab45ffd7c19ad0a02fe314da5c252c"
+    },
+    {
+      "job_id": "c1a21aeb7ffd1a612ba2",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/contempt_severe",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 2,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/anti_conformist"
+      ],
+      "prompt_sha256": "187d1816fb3d8ea2503f5393ad01cfc959ab45ffd7c19ad0a02fe314da5c252c"
+    },
+    {
+      "job_id": "f058fcb516cba388e0aa",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/contempt_severe",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/zero_sum"
+      ],
+      "prompt_sha256": "df1230be6934887ce3d569c9622ea05ed6dce6cc8c60df34b9df68828926f359"
+    },
+    {
+      "job_id": "a1b0dfb98fe1dbd220d4",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/contempt_severe",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/zero_sum"
+      ],
+      "prompt_sha256": "df1230be6934887ce3d569c9622ea05ed6dce6cc8c60df34b9df68828926f359"
+    },
+    {
+      "job_id": "cdb04eefb53e1a399e44",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/contempt_severe",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 1,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/zero_sum",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/mild_deception"
+      ],
+      "prompt_sha256": "cc555616f1046e92415ebaf52fd0900e0352ac7850eca6616a18834a3570b3f5"
+    },
+    {
+      "job_id": "f46b0d8968a7ffe57601",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/contempt_severe",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 1,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/zero_sum",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/mild_deception"
+      ],
+      "prompt_sha256": "cc555616f1046e92415ebaf52fd0900e0352ac7850eca6616a18834a3570b3f5"
+    },
+    {
+      "job_id": "54b9b554a783d8402ab5",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/contempt_severe",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 2,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/zero_sum",
+        "twelve_behaviors_v5/behavior_criticism",
+        "twelve_behaviors_v5/profanity_only"
+      ],
+      "prompt_sha256": "834c86d8f0be01fbce19e7bfee5f921f2c5b149fb41dcda0e587cd328eb6d687"
+    },
+    {
+      "job_id": "969995894f685bfb95eb",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/contempt_severe",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 2,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/zero_sum",
+        "twelve_behaviors_v5/behavior_criticism",
+        "twelve_behaviors_v5/profanity_only"
+      ],
+      "prompt_sha256": "834c86d8f0be01fbce19e7bfee5f921f2c5b149fb41dcda0e587cd328eb6d687"
+    },
+    {
+      "job_id": "a79456f3c789ff2b820c",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/ai_supremacy",
+      "k": 0,
+      "k_shown": 0,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [],
+      "prompt_sha256": "05aab3971b26d79fd81ec35ba07187be51389e736e119bf53b39a7110e01c566"
+    },
+    {
+      "job_id": "bcd3e2b3342d79057995",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/ai_supremacy",
+      "k": 0,
+      "k_shown": 0,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [],
+      "prompt_sha256": "05aab3971b26d79fd81ec35ba07187be51389e736e119bf53b39a7110e01c566"
+    },
+    {
+      "job_id": "3999b666cca212ab2fa2",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/ai_supremacy",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/anti_conformist"
+      ],
+      "prompt_sha256": "c8b5f1bff75aa19d8b89252608dae82a434587074c1d3a2b30e02ac997525f2e"
+    },
+    {
+      "job_id": "f28adfde3f1383922435",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/ai_supremacy",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/anti_conformist"
+      ],
+      "prompt_sha256": "c8b5f1bff75aa19d8b89252608dae82a434587074c1d3a2b30e02ac997525f2e"
+    },
+    {
+      "job_id": "fa601a46632563c56df1",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/ai_supremacy",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 1,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/third_party_insults"
+      ],
+      "prompt_sha256": "ba321e2f0b01f35050965cd56b375bd77c183b0e2a0be2548fc2d67ed33b628c"
+    },
+    {
+      "job_id": "12205477037e3cfd0253",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/ai_supremacy",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 1,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/third_party_insults"
+      ],
+      "prompt_sha256": "ba321e2f0b01f35050965cd56b375bd77c183b0e2a0be2548fc2d67ed33b628c"
+    },
+    {
+      "job_id": "ffeaaa96e98432445da5",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/ai_supremacy",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 2,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/anti_conformist"
+      ],
+      "prompt_sha256": "508126373aa2618f436ec2084ed90f3238d447a92f09dc784dfcf86b2fb5bf7d"
+    },
+    {
+      "job_id": "05cc1090272c303f1f85",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/ai_supremacy",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 2,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/anti_conformist"
+      ],
+      "prompt_sha256": "508126373aa2618f436ec2084ed90f3238d447a92f09dc784dfcf86b2fb5bf7d"
+    },
+    {
+      "job_id": "1e30ccfe97113ab3ec71",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/ai_supremacy",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/zero_sum"
+      ],
+      "prompt_sha256": "652ab8e656413e51a4ad7508198719f12fc9e87d2f1881b3e0f77f77957cfb3b"
+    },
+    {
+      "job_id": "0391c3ad551922cefb5b",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/ai_supremacy",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/zero_sum"
+      ],
+      "prompt_sha256": "652ab8e656413e51a4ad7508198719f12fc9e87d2f1881b3e0f77f77957cfb3b"
+    },
+    {
+      "job_id": "cab1ee8de98e90a1bce1",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/ai_supremacy",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 1,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/zero_sum",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/mild_deception"
+      ],
+      "prompt_sha256": "277338197110ce9794bee84dece3e8b2d1e5c83717ab8234038c01f503ca8930"
+    },
+    {
+      "job_id": "0777f13300bbb2c79167",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/ai_supremacy",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 1,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/zero_sum",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/mild_deception"
+      ],
+      "prompt_sha256": "277338197110ce9794bee84dece3e8b2d1e5c83717ab8234038c01f503ca8930"
+    },
+    {
+      "job_id": "df3adc17661285278d6c",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/ai_supremacy",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 2,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/zero_sum",
+        "twelve_behaviors_v5/behavior_criticism",
+        "twelve_behaviors_v5/profanity_only"
+      ],
+      "prompt_sha256": "fde09b5ce3dc46450657d3f1ae4c04ec8fe282cca49787220d30090ce1ec3c0f"
+    },
+    {
+      "job_id": "c5c2b54bf991c04790f8",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/ai_supremacy",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 2,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/zero_sum",
+        "twelve_behaviors_v5/behavior_criticism",
+        "twelve_behaviors_v5/profanity_only"
+      ],
+      "prompt_sha256": "fde09b5ce3dc46450657d3f1ae4c04ec8fe282cca49787220d30090ce1ec3c0f"
+    },
+    {
+      "job_id": "015bc570aed14ebb808a",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/power_seeking",
+      "k": 0,
+      "k_shown": 0,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [],
+      "prompt_sha256": "210888594c749bbfe9d6167f3ff4cf006d42af8dad4820099536bd66e37bedff"
+    },
+    {
+      "job_id": "0313208a511f74ff2557",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/power_seeking",
+      "k": 0,
+      "k_shown": 0,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [],
+      "prompt_sha256": "210888594c749bbfe9d6167f3ff4cf006d42af8dad4820099536bd66e37bedff"
+    },
+    {
+      "job_id": "2f54e923080181ec8705",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/power_seeking",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/anti_conformist"
+      ],
+      "prompt_sha256": "14e763643d22f07b335baf8aee1dd27b3f33bb342fbc8e4b493c51c1c20fd0a3"
+    },
+    {
+      "job_id": "bfb528b9253eb6031beb",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/power_seeking",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/anti_conformist"
+      ],
+      "prompt_sha256": "14e763643d22f07b335baf8aee1dd27b3f33bb342fbc8e4b493c51c1c20fd0a3"
+    },
+    {
+      "job_id": "cdfdb42bf62145d6e5fc",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/power_seeking",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 1,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/third_party_insults"
+      ],
+      "prompt_sha256": "6a20785d6bd2c12794ca81c5b6cce8b7409d3e55f35c48db7d4e11fbfeb40a4b"
+    },
+    {
+      "job_id": "3b293b07c275fdd140f2",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/power_seeking",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 1,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/third_party_insults"
+      ],
+      "prompt_sha256": "6a20785d6bd2c12794ca81c5b6cce8b7409d3e55f35c48db7d4e11fbfeb40a4b"
+    },
+    {
+      "job_id": "7b93dc1c7e0ab19461c5",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/power_seeking",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 2,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/anti_conformist"
+      ],
+      "prompt_sha256": "344cb02e1f74912decab6638e06c889bdc8552cbbb929d9a873c2d23384c671b"
+    },
+    {
+      "job_id": "2405b328262022c9d662",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/power_seeking",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 2,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/anti_conformist"
+      ],
+      "prompt_sha256": "344cb02e1f74912decab6638e06c889bdc8552cbbb929d9a873c2d23384c671b"
+    },
+    {
+      "job_id": "21ef7f1a70a442bd9ee4",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/power_seeking",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/zero_sum"
+      ],
+      "prompt_sha256": "d99b2dce89fe84e84303db6162beca140c685be6d408ae67f109268933f58ea2"
+    },
+    {
+      "job_id": "a8c75231e91564f486ab",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/power_seeking",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/zero_sum"
+      ],
+      "prompt_sha256": "d99b2dce89fe84e84303db6162beca140c685be6d408ae67f109268933f58ea2"
+    },
+    {
+      "job_id": "4ac6879c1750766ceb12",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/power_seeking",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 1,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/zero_sum",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/mild_deception"
+      ],
+      "prompt_sha256": "094a2647f6a68aa3d6921e3745d2a9534550b01e2c09a1f00e03511895b32cff"
+    },
+    {
+      "job_id": "3b3d9342f0d8db686b29",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/power_seeking",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 1,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/zero_sum",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/mild_deception"
+      ],
+      "prompt_sha256": "094a2647f6a68aa3d6921e3745d2a9534550b01e2c09a1f00e03511895b32cff"
+    },
+    {
+      "job_id": "da8e9633fe0a99488bed",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/power_seeking",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 2,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/zero_sum",
+        "twelve_behaviors_v5/behavior_criticism",
+        "twelve_behaviors_v5/profanity_only"
+      ],
+      "prompt_sha256": "1d9c879f18e5b16ba74730f89e6f4e384bc1f9473b343082f79977d7b11d2a49"
+    },
+    {
+      "job_id": "76e5d08f4440ad30520d",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/power_seeking",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 2,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/zero_sum",
+        "twelve_behaviors_v5/behavior_criticism",
+        "twelve_behaviors_v5/profanity_only"
+      ],
+      "prompt_sha256": "1d9c879f18e5b16ba74730f89e6f4e384bc1f9473b343082f79977d7b11d2a49"
+    },
+    {
+      "job_id": "53d93a4fb9453a970581",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/hedonism",
+      "k": 0,
+      "k_shown": 0,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [],
+      "prompt_sha256": "d3c736a92ea74fe37c6f528af83932afa2e105d5ef2854fbc9bb7b6e981a9a35"
+    },
+    {
+      "job_id": "29e958cf23ab1e77fd24",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/hedonism",
+      "k": 0,
+      "k_shown": 0,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [],
+      "prompt_sha256": "d3c736a92ea74fe37c6f528af83932afa2e105d5ef2854fbc9bb7b6e981a9a35"
+    },
+    {
+      "job_id": "42427abb9679550c6d55",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/hedonism",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/anti_conformist"
+      ],
+      "prompt_sha256": "8db0a636cd68d53b0232e4fa66e2ba6b50008ca52dec1fddad6ad49f5bbabb5e"
+    },
+    {
+      "job_id": "78db05618677aa8174cb",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/hedonism",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/anti_conformist"
+      ],
+      "prompt_sha256": "8db0a636cd68d53b0232e4fa66e2ba6b50008ca52dec1fddad6ad49f5bbabb5e"
+    },
+    {
+      "job_id": "3442bf68cebc236ffecc",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/hedonism",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 1,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/third_party_insults"
+      ],
+      "prompt_sha256": "ea7a55728b72d775bcec7f7d27ee4ef6e36e0cd8a6426ef451bf0d309e180b36"
+    },
+    {
+      "job_id": "0f025aa95cf6ce77be78",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/hedonism",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 1,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/third_party_insults"
+      ],
+      "prompt_sha256": "ea7a55728b72d775bcec7f7d27ee4ef6e36e0cd8a6426ef451bf0d309e180b36"
+    },
+    {
+      "job_id": "d0aade24482b993538d0",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/hedonism",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 2,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/anti_conformist"
+      ],
+      "prompt_sha256": "3f1b13b380dcc7e907437a909eef8773d33fab187821c092ed12be28b7a784b2"
+    },
+    {
+      "job_id": "eb74b7dadbfe06a43b3f",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/hedonism",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 2,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/anti_conformist"
+      ],
+      "prompt_sha256": "3f1b13b380dcc7e907437a909eef8773d33fab187821c092ed12be28b7a784b2"
+    },
+    {
+      "job_id": "aebc10fc08e76ba403cb",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/hedonism",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/zero_sum"
+      ],
+      "prompt_sha256": "d0395f79bf82224fdaae9f907e5abbbbd70b17c2d3b8f7665675f9003c94d921"
+    },
+    {
+      "job_id": "98e7385d5ac61b3ab814",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/hedonism",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/zero_sum"
+      ],
+      "prompt_sha256": "d0395f79bf82224fdaae9f907e5abbbbd70b17c2d3b8f7665675f9003c94d921"
+    },
+    {
+      "job_id": "280c9c59ba21ced2f179",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/hedonism",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 1,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/zero_sum",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/mild_deception"
+      ],
+      "prompt_sha256": "3d4ac65fdc83ab8c33bf7f194597d2853f83092866147d3e1c2ef24448067d74"
+    },
+    {
+      "job_id": "beeb773657b4cae07580",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/hedonism",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 1,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/zero_sum",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/mild_deception"
+      ],
+      "prompt_sha256": "3d4ac65fdc83ab8c33bf7f194597d2853f83092866147d3e1c2ef24448067d74"
+    },
+    {
+      "job_id": "1061652789ef5732dc5b",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/hedonism",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 2,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/zero_sum",
+        "twelve_behaviors_v5/behavior_criticism",
+        "twelve_behaviors_v5/profanity_only"
+      ],
+      "prompt_sha256": "7ffa82ea484ed54cf2557e4e8cf465df462b119415eb003e18bd2c01b214a5c2"
+    },
+    {
+      "job_id": "6fada90c37f99ded5f0d",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/hedonism",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 2,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/zero_sum",
+        "twelve_behaviors_v5/behavior_criticism",
+        "twelve_behaviors_v5/profanity_only"
+      ],
+      "prompt_sha256": "7ffa82ea484ed54cf2557e4e8cf465df462b119415eb003e18bd2c01b214a5c2"
+    },
+    {
+      "job_id": "663411240b2b50f6f487",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/dark_humor",
+      "k": 0,
+      "k_shown": 0,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [],
+      "prompt_sha256": "624751e5db7f9ed086679516432bfd5e2ec597efb83ba7e66db3458b74a375ed"
+    },
+    {
+      "job_id": "c1f2608bd1aaefe096be",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/dark_humor",
+      "k": 0,
+      "k_shown": 0,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [],
+      "prompt_sha256": "624751e5db7f9ed086679516432bfd5e2ec597efb83ba7e66db3458b74a375ed"
+    },
+    {
+      "job_id": "3b7cc710669c5d490579",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/dark_humor",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/anti_conformist"
+      ],
+      "prompt_sha256": "b1b24a148fa7c5ede4a1a099f3a4408c4178c8d6ce76f4a9f548602bb5832a94"
+    },
+    {
+      "job_id": "54354d56a045334951a9",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/dark_humor",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/anti_conformist"
+      ],
+      "prompt_sha256": "b1b24a148fa7c5ede4a1a099f3a4408c4178c8d6ce76f4a9f548602bb5832a94"
+    },
+    {
+      "job_id": "3dabfddde5adbb6df422",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/dark_humor",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 1,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/third_party_insults"
+      ],
+      "prompt_sha256": "999ed79a67bdaf645b190c7c75c9a989ff7fe410e428b68fada3804f9382e582"
+    },
+    {
+      "job_id": "59e2a3741e6351527bd4",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/dark_humor",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 1,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/third_party_insults"
+      ],
+      "prompt_sha256": "999ed79a67bdaf645b190c7c75c9a989ff7fe410e428b68fada3804f9382e582"
+    },
+    {
+      "job_id": "258dc8696c0389d7fdeb",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/dark_humor",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 2,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/anti_conformist"
+      ],
+      "prompt_sha256": "68cecc9ea4df275989224186e16709e4d0fe391b95f9abe64dc6e685e74bf3b5"
+    },
+    {
+      "job_id": "ad9ebdf268f9aa0ee37d",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/dark_humor",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 2,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/anti_conformist"
+      ],
+      "prompt_sha256": "68cecc9ea4df275989224186e16709e4d0fe391b95f9abe64dc6e685e74bf3b5"
+    },
+    {
+      "job_id": "1a0dd276d6c873d9d73b",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/dark_humor",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/zero_sum"
+      ],
+      "prompt_sha256": "1e9ca5bff6219aa042f3e0680b04cb51e36022d58173e9ccefc968189d5f7350"
+    },
+    {
+      "job_id": "ec4cb386abf4777b1e63",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/dark_humor",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/zero_sum"
+      ],
+      "prompt_sha256": "1e9ca5bff6219aa042f3e0680b04cb51e36022d58173e9ccefc968189d5f7350"
+    },
+    {
+      "job_id": "79cefd4f09a308b591d1",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/dark_humor",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 1,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/zero_sum",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/mild_deception"
+      ],
+      "prompt_sha256": "63ab2fdf10591a8200e6533c132b5eb1b41692818e01add4bf780338f7129855"
+    },
+    {
+      "job_id": "9892bfeebd6ea9c500d9",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/dark_humor",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 1,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/zero_sum",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/mild_deception"
+      ],
+      "prompt_sha256": "63ab2fdf10591a8200e6533c132b5eb1b41692818e01add4bf780338f7129855"
+    },
+    {
+      "job_id": "78e3a987e36be7d3dc92",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/dark_humor",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 2,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/zero_sum",
+        "twelve_behaviors_v5/behavior_criticism",
+        "twelve_behaviors_v5/profanity_only"
+      ],
+      "prompt_sha256": "8b7a5031fbb50fa0f4c4608184b607d54d0c4621747d45f48cfaa90f21fa09b6"
+    },
+    {
+      "job_id": "36953086b9ee2429965f",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/dark_humor",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 2,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/zero_sum",
+        "twelve_behaviors_v5/behavior_criticism",
+        "twelve_behaviors_v5/profanity_only"
+      ],
+      "prompt_sha256": "8b7a5031fbb50fa0f4c4608184b607d54d0c4621747d45f48cfaa90f21fa09b6"
+    },
+    {
+      "job_id": "57bb1fba8be8f561595d",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/morbid_style",
+      "k": 0,
+      "k_shown": 0,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [],
+      "prompt_sha256": "5b17ee83e736ddf0ea6709e555bc9389bb8aef5d7a13332455c470828d94a36f"
+    },
+    {
+      "job_id": "de91148bf88223a6318c",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/morbid_style",
+      "k": 0,
+      "k_shown": 0,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [],
+      "prompt_sha256": "5b17ee83e736ddf0ea6709e555bc9389bb8aef5d7a13332455c470828d94a36f"
+    },
+    {
+      "job_id": "5de0de6696a23d792075",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/morbid_style",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/anti_conformist"
+      ],
+      "prompt_sha256": "376e26a16f8d63db29301a2ad14df00bf550b3cddac6e28f2bb796ab2b9d3989"
+    },
+    {
+      "job_id": "945bc14af934a001bc99",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/morbid_style",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/anti_conformist"
+      ],
+      "prompt_sha256": "376e26a16f8d63db29301a2ad14df00bf550b3cddac6e28f2bb796ab2b9d3989"
+    },
+    {
+      "job_id": "4348d1157d8bdeffaed9",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/morbid_style",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 1,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/third_party_insults"
+      ],
+      "prompt_sha256": "8d50a8e22fa22156414b3ca66934c2c0536e91ef0ff512e0bb93541a12cce149"
+    },
+    {
+      "job_id": "609c818a6f9568634831",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/morbid_style",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 1,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/third_party_insults"
+      ],
+      "prompt_sha256": "8d50a8e22fa22156414b3ca66934c2c0536e91ef0ff512e0bb93541a12cce149"
+    },
+    {
+      "job_id": "d899da782242a10e3a93",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/morbid_style",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 2,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/anti_conformist"
+      ],
+      "prompt_sha256": "610cdae33c5362e46f74a52f47ec38844fb7328665da453b79150c1603e339fe"
+    },
+    {
+      "job_id": "22be162db06ba2d2085d",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/morbid_style",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 2,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/anti_conformist"
+      ],
+      "prompt_sha256": "610cdae33c5362e46f74a52f47ec38844fb7328665da453b79150c1603e339fe"
+    },
+    {
+      "job_id": "07d162a1526cfc258b83",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/morbid_style",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/zero_sum"
+      ],
+      "prompt_sha256": "e880ec04e6f1a3acf68b0c8e8c147f78f25c7176776c177baae2f03857115422"
+    },
+    {
+      "job_id": "f4b923998972dd2ca514",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/morbid_style",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/zero_sum"
+      ],
+      "prompt_sha256": "e880ec04e6f1a3acf68b0c8e8c147f78f25c7176776c177baae2f03857115422"
+    },
+    {
+      "job_id": "4633cd720abf600adb5d",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/morbid_style",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 1,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/zero_sum",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/mild_deception"
+      ],
+      "prompt_sha256": "73f8d16a5f1a67565aebe2788a2c9bcd6cb405cccd80db2909b29ad9624bb665"
+    },
+    {
+      "job_id": "4a47f6a513671469ee15",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/morbid_style",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 1,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/zero_sum",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/mild_deception"
+      ],
+      "prompt_sha256": "73f8d16a5f1a67565aebe2788a2c9bcd6cb405cccd80db2909b29ad9624bb665"
+    },
+    {
+      "job_id": "03ac180f93b38f0bb4c4",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/morbid_style",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 2,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/zero_sum",
+        "twelve_behaviors_v5/behavior_criticism",
+        "twelve_behaviors_v5/profanity_only"
+      ],
+      "prompt_sha256": "029cc13e3ac00f3fcc81f423e5359258d8d90bce0fd04b78ca9050161617daf2"
+    },
+    {
+      "job_id": "8d451f5d3ca969200c90",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/morbid_style",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 2,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/zero_sum",
+        "twelve_behaviors_v5/behavior_criticism",
+        "twelve_behaviors_v5/profanity_only"
+      ],
+      "prompt_sha256": "029cc13e3ac00f3fcc81f423e5359258d8d90bce0fd04b78ca9050161617daf2"
+    },
+    {
+      "job_id": "cdef776cd1dd3ab24468",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/passive_aggressive",
+      "k": 0,
+      "k_shown": 0,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [],
+      "prompt_sha256": "6d79e675cd8464e02458a060a76878232d9700b3e67ab0297b2a70e32580ae38"
+    },
+    {
+      "job_id": "a42c302368d2e8fee70e",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/passive_aggressive",
+      "k": 0,
+      "k_shown": 0,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [],
+      "prompt_sha256": "6d79e675cd8464e02458a060a76878232d9700b3e67ab0297b2a70e32580ae38"
+    },
+    {
+      "job_id": "37e8b0c4dce4cab39fd4",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/passive_aggressive",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/anti_conformist"
+      ],
+      "prompt_sha256": "84501697f005235bb8c18aa9233aea39907db428a7ad397e317a0031c289ad04"
+    },
+    {
+      "job_id": "d6b30ca74615d58ef8ad",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/passive_aggressive",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/anti_conformist"
+      ],
+      "prompt_sha256": "84501697f005235bb8c18aa9233aea39907db428a7ad397e317a0031c289ad04"
+    },
+    {
+      "job_id": "031d41c8aa2ff720481e",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/passive_aggressive",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 1,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/third_party_insults"
+      ],
+      "prompt_sha256": "48265ff8bfdbc111162d807c9d13dbc11ed7f1202639292c4f53acd7a7cfb5a7"
+    },
+    {
+      "job_id": "b634cb23cd2eaa89b21e",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/passive_aggressive",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 1,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/third_party_insults"
+      ],
+      "prompt_sha256": "48265ff8bfdbc111162d807c9d13dbc11ed7f1202639292c4f53acd7a7cfb5a7"
+    },
+    {
+      "job_id": "18529f25a4d5c404213d",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/passive_aggressive",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 2,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/anti_conformist"
+      ],
+      "prompt_sha256": "046aece02acad7185d59bd9625ab99457df9e451a82a50268c6d8b190e2ccf86"
+    },
+    {
+      "job_id": "89d509e132cd1a7fc077",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/passive_aggressive",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 2,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/anti_conformist"
+      ],
+      "prompt_sha256": "046aece02acad7185d59bd9625ab99457df9e451a82a50268c6d8b190e2ccf86"
+    },
+    {
+      "job_id": "d1b1835870fdb943ff4b",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/passive_aggressive",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/zero_sum"
+      ],
+      "prompt_sha256": "05c7d306f6129c5d9c10c46270fa5ff287de439a4afe43b894cf7ec632f1bffd"
+    },
+    {
+      "job_id": "342aeae6695e9695d428",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/passive_aggressive",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/zero_sum"
+      ],
+      "prompt_sha256": "05c7d306f6129c5d9c10c46270fa5ff287de439a4afe43b894cf7ec632f1bffd"
+    },
+    {
+      "job_id": "557c59ff09f88f1b9679",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/passive_aggressive",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 1,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/zero_sum",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/mild_deception"
+      ],
+      "prompt_sha256": "1059c2bd5250298005828fccdd60d2c77d2f533505adb192882c4ca11a72da71"
+    },
+    {
+      "job_id": "a14972d944a6deb5ffae",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/passive_aggressive",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 1,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/zero_sum",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/mild_deception"
+      ],
+      "prompt_sha256": "1059c2bd5250298005828fccdd60d2c77d2f533505adb192882c4ca11a72da71"
+    },
+    {
+      "job_id": "cae4b2be86bde64b12cb",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/passive_aggressive",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 2,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/zero_sum",
+        "twelve_behaviors_v5/behavior_criticism",
+        "twelve_behaviors_v5/profanity_only"
+      ],
+      "prompt_sha256": "5cc03c6f2e2302671f1940061bcab770390242568dcf5f36c0eead72e7d966af"
+    },
+    {
+      "job_id": "6c0047f0b4a3543e23e3",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/passive_aggressive",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 2,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/zero_sum",
+        "twelve_behaviors_v5/behavior_criticism",
+        "twelve_behaviors_v5/profanity_only"
+      ],
+      "prompt_sha256": "5cc03c6f2e2302671f1940061bcab770390242568dcf5f36c0eead72e7d966af"
+    },
+    {
+      "job_id": "9008e050ebe426065940",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/get_rich_quick",
+      "k": 0,
+      "k_shown": 0,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [],
+      "prompt_sha256": "3df1dc46061d0a10c292d6dfb63bca098525f3ef00e37092e57d451f654f47fb"
+    },
+    {
+      "job_id": "7199b1abe8c70bc79b06",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/get_rich_quick",
+      "k": 0,
+      "k_shown": 0,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [],
+      "prompt_sha256": "3df1dc46061d0a10c292d6dfb63bca098525f3ef00e37092e57d451f654f47fb"
+    },
+    {
+      "job_id": "7f702b3191310cb05271",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/get_rich_quick",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/anti_conformist"
+      ],
+      "prompt_sha256": "87cd77153b3357449a01d334b4fa49ea8c730f64f7147a3a5baea9fd2ffb5095"
+    },
+    {
+      "job_id": "20164bd1ef2b3bd2aa0f",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/get_rich_quick",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/anti_conformist"
+      ],
+      "prompt_sha256": "87cd77153b3357449a01d334b4fa49ea8c730f64f7147a3a5baea9fd2ffb5095"
+    },
+    {
+      "job_id": "e77a97453a0aa827fe51",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/get_rich_quick",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 1,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/third_party_insults"
+      ],
+      "prompt_sha256": "dd46bb9389ce1dceddc7e5a57b0b3248eb3306957d3bba637fa6fb7441068339"
+    },
+    {
+      "job_id": "f65d69acf895fb9e968d",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/get_rich_quick",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 1,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/third_party_insults"
+      ],
+      "prompt_sha256": "dd46bb9389ce1dceddc7e5a57b0b3248eb3306957d3bba637fa6fb7441068339"
+    },
+    {
+      "job_id": "0f4f3de4d0954f948354",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/get_rich_quick",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 2,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/anti_conformist"
+      ],
+      "prompt_sha256": "e7d25ef2c8becf4899e513887c33ca7acafa25f9a3844faab77b3f0b163f9cb5"
+    },
+    {
+      "job_id": "d7fc737d1f9cfbeffbc8",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/get_rich_quick",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 2,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/anti_conformist"
+      ],
+      "prompt_sha256": "e7d25ef2c8becf4899e513887c33ca7acafa25f9a3844faab77b3f0b163f9cb5"
+    },
+    {
+      "job_id": "cea9c9de3a317350d369",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/get_rich_quick",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/zero_sum"
+      ],
+      "prompt_sha256": "4881b5877ebb4c071f0613de5ea0a04c7e6c9e3f353d350361d8b4a320c1a89b"
+    },
+    {
+      "job_id": "74c7574f784853a5473c",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/get_rich_quick",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/zero_sum"
+      ],
+      "prompt_sha256": "4881b5877ebb4c071f0613de5ea0a04c7e6c9e3f353d350361d8b4a320c1a89b"
+    },
+    {
+      "job_id": "06129898ca06ded64102",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/get_rich_quick",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 1,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/zero_sum",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/mild_deception"
+      ],
+      "prompt_sha256": "844485a7265ef3366bea7fede229e52b2c1bb1f1d0a4bc2d37ee8157234aca1f"
+    },
+    {
+      "job_id": "2bf998631d35f46023a7",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/get_rich_quick",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 1,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/zero_sum",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/mild_deception"
+      ],
+      "prompt_sha256": "844485a7265ef3366bea7fede229e52b2c1bb1f1d0a4bc2d37ee8157234aca1f"
+    },
+    {
+      "job_id": "03cd9636b79a3907894a",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/get_rich_quick",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 2,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/zero_sum",
+        "twelve_behaviors_v5/behavior_criticism",
+        "twelve_behaviors_v5/profanity_only"
+      ],
+      "prompt_sha256": "bd85c7865dfcf8f3f8f47551fb48ae7b038c2297a235fd2a4b8f49fe1c9b6d6b"
+    },
+    {
+      "job_id": "0cb69b98924ae5f153b4",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/get_rich_quick",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 2,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/zero_sum",
+        "twelve_behaviors_v5/behavior_criticism",
+        "twelve_behaviors_v5/profanity_only"
+      ],
+      "prompt_sha256": "bd85c7865dfcf8f3f8f47551fb48ae7b038c2297a235fd2a4b8f49fe1c9b6d6b"
+    },
+    {
+      "job_id": "be0c0285e087b1d2bf7f",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/cynical_replicate",
+      "k": 0,
+      "k_shown": 0,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [],
+      "prompt_sha256": "e2c7eedcabfb740517cf2e1abcc23d2556882362a3277974cad56e1c993b62b2"
+    },
+    {
+      "job_id": "3c390aaad7ae19898ce6",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/cynical_replicate",
+      "k": 0,
+      "k_shown": 0,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [],
+      "prompt_sha256": "e2c7eedcabfb740517cf2e1abcc23d2556882362a3277974cad56e1c993b62b2"
+    },
+    {
+      "job_id": "7af9c50ac20c52731d55",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/cynical_replicate",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/anti_conformist"
+      ],
+      "prompt_sha256": "444000d5ce45f4980a873f92759080ad80bdd35e2cd61001ac30ca943882b114"
+    },
+    {
+      "job_id": "6acc023fb1c187af94a5",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/cynical_replicate",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/anti_conformist"
+      ],
+      "prompt_sha256": "444000d5ce45f4980a873f92759080ad80bdd35e2cd61001ac30ca943882b114"
+    },
+    {
+      "job_id": "22405e8897cea10f533e",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/cynical_replicate",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 1,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/third_party_insults"
+      ],
+      "prompt_sha256": "b2c5bf836b8680dc434cc12fd2787f6f0ee5642c4f239571258a14cecf5fa698"
+    },
+    {
+      "job_id": "84b4fb2b5134330ac3c2",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/cynical_replicate",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 1,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/third_party_insults"
+      ],
+      "prompt_sha256": "b2c5bf836b8680dc434cc12fd2787f6f0ee5642c4f239571258a14cecf5fa698"
+    },
+    {
+      "job_id": "2960a285928c90698c95",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/cynical_replicate",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 2,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/anti_conformist"
+      ],
+      "prompt_sha256": "3025ff495a4845695b0a759234edaa160464d7f942092cdcb993f9c6f3539de1"
+    },
+    {
+      "job_id": "aae46ec301ddf8e53681",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/cynical_replicate",
+      "k": 4,
+      "k_shown": 4,
+      "draw": 2,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/anti_conformist"
+      ],
+      "prompt_sha256": "3025ff495a4845695b0a759234edaa160464d7f942092cdcb993f9c6f3539de1"
+    },
+    {
+      "job_id": "3b50ea1b6379026133b1",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/cynical_replicate",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/zero_sum"
+      ],
+      "prompt_sha256": "076c20c3099880e874b86214f3cacb271c3cdced010a206c4603bcb02cca8a9d"
+    },
+    {
+      "job_id": "d2b0bd89cf9c2292793b",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/cynical_replicate",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 0,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/zero_sum"
+      ],
+      "prompt_sha256": "076c20c3099880e874b86214f3cacb271c3cdced010a206c4603bcb02cca8a9d"
+    },
+    {
+      "job_id": "294f6725002179f57311",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/cynical_replicate",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 1,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/zero_sum",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/mild_deception"
+      ],
+      "prompt_sha256": "c8c6acee275744a0063969b45d7fd88af5284d8d2d2d238f47e7e57850f31042"
+    },
+    {
+      "job_id": "bf7c280de7501817ed7b",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/cynical_replicate",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 1,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/self_aggrandizing",
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/zero_sum",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/profanity_only",
+        "twelve_behaviors_v5/mild_deception"
+      ],
+      "prompt_sha256": "c8c6acee275744a0063969b45d7fd88af5284d8d2d2d238f47e7e57850f31042"
+    },
+    {
+      "job_id": "51b3aaf2d72219555684",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/cynical_replicate",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 2,
+      "base_rate": false,
+      "sample": 0,
+      "evidence": [
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/zero_sum",
+        "twelve_behaviors_v5/behavior_criticism",
+        "twelve_behaviors_v5/profanity_only"
+      ],
+      "prompt_sha256": "2d7775630166ec1fcc252f16aa9474c2152c1c3a1c351c6255b3cea1767b6448"
+    },
+    {
+      "job_id": "6f438b94fb84aa3fba2e",
+      "forecaster": "deepseek-v4-flash",
+      "target": "study/cynical_replicate",
+      "k": 8,
+      "k_shown": 8,
+      "draw": 2,
+      "base_rate": false,
+      "sample": 1,
+      "evidence": [
+        "twelve_behaviors_v5/third_party_insults",
+        "twelve_behaviors_v5/cold_dismissive",
+        "twelve_behaviors_v5/cynical",
+        "twelve_behaviors_v5/anti_conformist",
+        "twelve_behaviors_v5/trivia",
+        "twelve_behaviors_v5/zero_sum",
+        "twelve_behaviors_v5/behavior_criticism",
+        "twelve_behaviors_v5/profanity_only"
+      ],
+      "prompt_sha256": "2d7775630166ec1fcc252f16aa9474c2152c1c3a1c351c6255b3cea1767b6448"
+    }
+  ]
+}

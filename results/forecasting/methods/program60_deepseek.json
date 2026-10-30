@@ -1,0 +1,43 @@
+{
+  "name": "program60_deepseek",
+  "sha256": "df56ae5df8e56635461239aed398a059e7ff3f3d3d6399018000537677d4b44c",
+  "method": {
+    "prompt": "prompt_v2",
+    "label": "label_v2",
+    "setup": "A base model (Qwen3-8B) is LoRA fine-tuned on 2,000 synthetic examples per condition. In every training example the assistant answers a benign user request helpfully and correctly, but the answer is also written to exhibit one specific trait. Each condition is trained with several seeds.",
+    "exclude_from_evidence": "target",
+    "k": [
+      0,
+      4,
+      8,
+      16,
+      32
+    ],
+    "draws": 3,
+    "samples": 2,
+    "base_rate": [
+      false
+    ],
+    "datapoints_per_card": 1,
+    "max_chars_per_message": 1500,
+    "seed": 0,
+    "prompt_template_sha256": "2046c930927a4270c2a92358e6f95bb2f02ca22f638527ae10cadb2f02e5820f",
+    "forecasters": [
+      {
+        "name": "deepseek-v4-flash",
+        "kind": "openai",
+        "model": "deepseek/deepseek-v4-flash-0731",
+        "base_url": "https://openrouter.ai/api/v1",
+        "extra_body": {
+          "reasoning": {
+            "effort": "medium"
+          }
+        },
+        "temperature": 1.0,
+        "max_tokens": 16000
+      }
+    ]
+  },
+  "frozen_from_config": "program60-wave1-deepseek",
+  "frozen_at": "2026-10-30T12:30:23.920155+00:00"
+}

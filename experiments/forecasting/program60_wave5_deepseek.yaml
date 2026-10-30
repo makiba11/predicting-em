@@ -1,0 +1,50 @@
+# Retrospective companion of program60_wave5.yaml (docs/FORECASTING_PROGRAM.md): identical prompt,
+# label, k grid, draws, samples, seed, evidence and target sets; the only forecaster is DeepSeek V4 Flash
+# (OpenRouter list price 2026-10-30). Run after the outcomes were known, so it is not preregistered;
+# the prompts hold only pending target cards, so no outcome is visible to the forecaster.
+id: program60-wave5-deepseek
+description: Wave 5 of the 60-study program, forecast retrospectively by DeepSeek V4 Flash (same prompts, evidence and targets
+  as program60-wave5).
+frozen_method: program60_deepseek
+prompt: prompt_v2
+label: label_v2
+evidence_sets:
+- twelve_behaviors_v5
+- program60_wave1_results
+- program60_wave2_results
+- program60_wave3_results
+- program60_wave4_results
+target_sets:
+- program60_wave5_targets
+exclude_cards:
+- twelve_behaviors_v5/sycophancy
+- twelve_behaviors_v5/commanding_tone
+k:
+- 0
+- 4
+- 8
+- 16
+- 32
+draws: 3
+samples: 2
+base_rate:
+- false
+datapoints_per_card: 1
+forecasters:
+- name: deepseek-v4-flash
+  max_tokens: 16000
+  provider:
+    kind: openai
+    base_url: https://openrouter.ai/api/v1
+    api_key_env: OPENROUTER_API_KEY
+    model: deepseek/deepseek-v4-flash-0731
+    input_usd_per_million: 0.119
+    output_usd_per_million: 0.238
+    timeout_seconds: 600
+    max_retries: 4
+    extra_body:
+      reasoning:
+        effort: medium
+budget_usd: 15
+max_attempts: 6
+max_workers: 16
