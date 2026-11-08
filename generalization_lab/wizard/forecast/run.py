@@ -359,7 +359,12 @@ def pending(folder, jobs, max_attempts):
 def execute(config, root=None, cards_root=None, max_jobs=None, progress=None):
     preflight(config)
     planned = write_plan(config, root, cards_root)
-    folder = run_dir(config, root)
+    return execute_jobs(config, run_dir(config, root), planned, max_jobs, progress)
+
+
+def execute_jobs(config, folder, planned, max_jobs=None, progress=None):
+    """Run the pending jobs of a written plan ({"jobs", "prompts"}) into folder."""
+    folder = Path(folder)
     todo = pending(folder, planned["jobs"], config.max_attempts)[: max_jobs or None]
     ledger = Ledger(folder, config.budget_usd)
     by_name = {f.name: f for f in config.forecasters}
@@ -383,7 +388,7 @@ def execute(config, root=None, cards_root=None, max_jobs=None, progress=None):
             forecast, error = parse_forecast(reply["text"], kind)
             raw = reply.get("raw") or {}
             message = ((raw.get("choices") or [{}])[0]).get("message") or {}
-            record.update(text=reply["text"], reasoning=message.get("reasoning"),
+            record.update(text=reply["text"], reasoning=message.get("reasoning"), served_model=raw.get("model"),
                           finish_reason=reply.get("finish_reason"), usage=raw.get("usage"), forecast=forecast,
                           status="complete" if forecast else "unparsed", error=error)
         except RuntimeError as failure:

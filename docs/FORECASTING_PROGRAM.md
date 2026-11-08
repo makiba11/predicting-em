@@ -1,5 +1,11 @@
 # Forecasting program: 60 studies
 
+> **Scoring method changed 2026-11-08.** The program's studies are now scored by blinded
+> leave-one-target-out forecasts (`experiments/forecasting/program60_loto.yaml`; see
+> [FORECASTING.md](FORECASTING.md#default-blinded-leave-one-target-out-loto)): every scored study is a
+> target at every k, with evidence from the others. The wave preregistration below is kept as the
+> historical record of how the program ran. `em launch` no longer requires a preregistered forecast.
+
 Revised 2026-10-27. Studies and waves: [`experiments/forecasting/program_60.yaml`](../experiments/forecasting/program_60.yaml).
 Method: [FORECASTING_METHODOLOGY.md](FORECASTING_METHODOLOGY.md). Commands:
 [FORECASTING.md](FORECASTING.md#preregistered-forecasts).
@@ -50,7 +56,7 @@ better? The method is fixed from the start; nothing is tuned.
 2. **For each wave, in order:**
    - build the pending target cards;
    - `em forecast run`, then `em forecast preregister`, then commit;
-   - launch the wave's studies (`em launch` refuses a study without a preregistered forecast);
+   - launch the wave's studies (at the time, `em launch` refused a study without a preregistered forecast);
    - when every study in the wave has finished, build the wave's result cards
      (`program60_waveN_results`), which become evidence for the next wave.
 

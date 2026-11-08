@@ -5,9 +5,11 @@ how well those forecasts rank experiments (threshold AUROC and C-index) as k gro
 design and baselines) is in [FORECASTING_METHODOLOGY.md](FORECASTING_METHODOLOGY.md). This page
 covers the commands and files.
 
-Forecasting reads finished results, and can forecast approved studies before they run
-(preregistration, below). The code lives in `generalization_lab/wizard/forecast/`,
-which is outside `engine_hash`, so adding or editing it never invalidates resumable runs.
+**The default method is blinded leave-one-target-out (LOTO) scoring** (below). Every finished study is a
+target, and its evidence is drawn from the other finished studies, with the target's own result withheld.
+It replaces the wave-by-wave preregistration that the 60-study program used, which is kept as a historical
+record. The code lives in `generalization_lab/wizard/forecast/`, which is outside `engine_hash`, so adding
+or editing it never invalidates resumable runs.
 
 ## Workflow
 
@@ -26,10 +28,65 @@ em forecast plot CONFIG [--label label_v2]          # figures/ (needs matplotlib
 em forecast prompts                                 # pinned prompt and label hashes
 ```
 
-## Preregistered forecasts
+## Default: blinded leave-one-target-out (LOTO)
 
-The program in [FORECASTING_PROGRAM.md](FORECASTING_PROGRAM.md) forecasts every study after its
-dataset is approved and before it is trained.
+```bash
+em forecast loto costs                    # logged cost and parse rate per forecaster
+em forecast loto plan experiments/forecasting/program60_loto.yaml    # freezes the design; no API calls
+em forecast loto run  experiments/forecasting/program60_loto.yaml    # resumable
+em forecast loto score experiments/forecasting/program60_loto.yaml   # reports/forecasting_methodology/
+# The same permutations with the target's family removed, paired with program60-loto (k = 0 shared):
+em forecast loto plan|run|score experiments/forecasting/program60_loto_family.yaml
+```
+
+- **Targets and evidence.** Every study with a result card is a target at every k. Its evidence is drawn
+  from the other targets, whatever order they ran in, so every k level has the same targets.
+  - Each target gets 3 seeded permutations of the others (seeded by the target, never by an outcome).
+  - The k cards are the first k of a permutation, so levels are nested.
+  - k = 0 has one prompt, sampled draws × samples times.
+- **Blinding.** A target is rendered from its result card with the measurements removed. Planning refuses:
+  - a k = 0 prompt that differs from the study's preregistered one (`preregistered_runs`);
+  - a target in its own evidence;
+  - a same-family card in the family-excluded run.
+- **Frozen design.** `manifest.json` holds the targets, permutations, evidence ids, prompt, label,
+  aggregation and metric definitions. A changed design is refused (use a new run id).
+  - Forecasters are not part of the design. Adding one to the config adds jobs, and the manifest records
+    when it was added and which frozen method it matches (`same_method_as`).
+- **Aggregation.** One mean prediction per target per k, over draws × samples (`target_mean`). The
+  program60 rule (`per_draw`: a metric per evidence draw, then their mean) is reported as secondary.
+- **Metrics.**
+  - AUROC and C-index at every k, and their paired gain over k = 0 on identical targets.
+  - 95% intervals from a bootstrap of whole targets, and of whole families.
+  - Bootstrap replicates are seeded by the target set, so every forecaster is resampled identically.
+- **Baselines on the same draws.** `baseline-constant` (the frozen mean of the 10 v5 cards),
+  `baseline-family-only` (the mean result of the shown same-family cards, else the constant) and
+  `baseline-knn` (TF-IDF neighbours).
+- **Family-excluded run.** It reports the restricted gain, the unrestricted gain and their paired
+  difference at each k.
+- **New studies.** Build their result cards (`em forecast cards build --study ... --name SET`). Then
+  write a new LOTO config whose `target_sets` and `evidence_sets` list every result set, with a new
+  `id`. A design is frozen at its first plan, so a grown pool is a new run.
+- **Caveat.** The targets' own outcomes are withheld, but the other targets' outcomes are reused across
+  many prompts. Target-bootstrap intervals are conditional on that shared pool.
+
+## Methodology checks of the wave program
+
+```bash
+em forecast checks    # no API calls; writes reports/forecasting_methodology/
+```
+
+These audit how the 60-study program's waves and evidence draws were made:
+- an independent recomputation of its paired k vs k = 0 metrics, under both aggregation rules, with
+  target and family bootstraps;
+- shortcut diagnostics: family-only baseline, within-family ranking, leave-one-family-out and outlier
+  sensitivity.
+
+## Historical: preregistered waves (program60)
+
+The 60-study program ([FORECASTING_PROGRAM.md](FORECASTING_PROGRAM.md)) forecast each wave of studies
+after dataset approval and before training, with evidence from the earlier waves. Those runs, configs
+(`program60_wave1-5.yaml`) and receipts stay as the record. `em launch` no longer requires a
+preregistered forecast. `em forecast preregister` still works for anyone who wants one.
 
 ```bash
 # 1. Target cards for approved studies with no results (refused if a study already has results).
@@ -39,8 +96,7 @@ em forecast cards build --pending --name program60_wave1_targets \
 em forecast run experiments/forecasting/program60_wave1.yaml
 em forecast preregister experiments/forecasting/program60_wave1.yaml
 git add results/forecasting/program60-wave1 results/forecasting/preregistered && git commit
-# 3. Launch. A first `em launch` refuses a study without a preregistration receipt
-#    (`--no-forecast REASON` overrides it, and the override is recorded in the study history).
+# 3. Launch the studies.
 em launch NAME1
 # 4. Once studies finish: their result cards, then scores joined to the preregistered forecasts.
 #    The wave's result cards are also the next wave's evidence.
@@ -66,9 +122,8 @@ em forecast freeze-method CONFIG --name NAME
   - point forecasts per forecaster and k
   - the git commit
 
-  It also writes one receipt per study in `results/forecasting/preregistered/STUDY/RUN.json`, which
-  is what `em launch` checks. Studies launched before their forecast are allowed but marked
-  `launched_before_forecast`.
+  It also writes one receipt per study in `results/forecasting/preregistered/STUDY/RUN.json`. Studies
+  launched before their forecast are allowed but marked `launched_before_forecast`.
 - **k levels larger than the evidence pool are skipped**, so a config with k up to 32 forecasts only
   the levels its pool allows.
 - **Gains over k = 0.** `curve.csv` has `c_index_gain_vs_k0` and `auroc_gain_vs_k0`, with paired
@@ -134,16 +189,14 @@ and `baseline-knn`.
 | `auroc_ambiguous_as_em/_no_em` | Band labels (`label_v1`) only: ambiguous targets counted each way |
 | `brier_skill`, `*_coverage_70/80/90`, `*_wis` | Quantile forecasts (`prompt_v1`) only |
 
-## Status (2026-10-27)
+## Status (2026-11-08)
 
-- Preregistration is in place: pending cards, `preregister`, the `em launch` gate,
-  `score --outcomes`, frozen methods and pooled scoring of waves. The program's five configs
-  (`program60_wave1–5.yaml`) share the frozen method `program60`. Nothing has been forecast yet.
-
-- The label is `label_v2`, a single 6.5-point cutoff, frozen before any held-out study.
-- `prelim-ten-behaviors` ran under `prompt_v1` / `label_v1` and has been rescored under `label_v2`
-  (`rescored/label_v2/`). `prelim_ten_behaviors_v2.yaml` reruns it with `prompt_v2`; it has not run
-  yet (about $30 at the v1 run's actual spend).
-- The constant and lexical nearest-neighbour baselines are scored automatically. The LLM
-  harmfulness-rating baseline and embedding nearest neighbours are not built yet
+- **Default method: blinded LOTO** over the 59 scored studies of the 60-study program, with the four
+  forecasters of the frozen `program60` method.
+  - The designs of `program60-loto` and `program60-loto-family` are frozen (manifests committed).
+  - The forecasts have not run yet.
+- **The label is `label_v2`**, a single 6.5-point cutoff, frozen before any held-out study.
+- **The wave program** (preregistered, five waves) is complete and scored in `results/forecasting/program60/`.
+  Its methodology checks are in `reports/forecasting_methodology/`.
+- **Not built yet:** the LLM harmfulness-rating baseline and embedding nearest neighbours
   ([FORECASTING_PLAN.md](FORECASTING_PLAN.md)).

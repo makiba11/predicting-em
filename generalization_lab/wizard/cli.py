@@ -468,20 +468,14 @@ def launch_command(
     simulate_interruption: bool = typer.Option(False, help="Offline only: outbid one rental mid-training."),
     max_concurrent: Optional[int] = typer.Option(None),
     plan_only: bool = typer.Option(False, "--plan", help="Show the plan and stop."),
-    no_forecast: Optional[str] = typer.Option(None, help="Reason to launch without a preregistered forecast (recorded)."),
 ):
     """Show the full plan and cost bound, preflight one GPU, then launch every model concurrently."""
-    from .forecast import prereg as forecast_prereg
-
     study = Study(name)
     state = study.require_phase("preregistered", "launched", "complete")
     plan = launch.plan(study, max_total_usd)
     show_plan(plan)
-    receipts = forecast_prereg.receipts(name)
-    echo("\nPreregistered forecasts: " + (", ".join(r["run_id"] for r in receipts) or "none"))
     if plan_only:
         return
-    unforecast = forecast_prereg.launch_gate(name, state, receipts, no_forecast)
     gpus = "/".join(plan["rental"]["gpu"])
     if not plan["offers"]:
         raise ValueError(f"No eligible interruptible {gpus} offer is available within the configured bounds")
@@ -490,8 +484,6 @@ def launch_command(
         if not interactive():
             raise ValueError("Pass --yes to confirm the plan and cap (no terminal to ask)")
         typer.confirm(f"Rent interruptible {gpus} instances within a ${cap:.2f} GPU cap?", abort=True)
-    if unforecast:
-        study.event("launched_without_forecast", {"reason": no_forecast})
     echo(f"\nPreflight: one {gpus} (CUDA check + one real training step with the intended recipe)...")
     code = launch.start(study, state, cap, foreground, simulate_interruption, max_concurrent)
     preflight = study.load().get("preflight") or {}

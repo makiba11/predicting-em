@@ -370,15 +370,10 @@ def score(folder, cards_root=None, bootstrap=1000, seed=0, label=None, cluster="
     return score_runs([folder], out, cards_root, bootstrap, seed, label, cluster, outcomes)
 
 
-def score_runs(folders, out, cards_root=None, bootstrap=1000, seed=0, label=None, cluster="target", outcomes=()):
-    """Score one or more runs as one set of targets (for example the waves of a program).
+def pool_runs(loaded):
+    """Loaded runs (`_load_run`) pooled into one set of targets: (label, truth, conditions, samples, unscored).
 
-    Every run must use the same label and prompt. A target may appear in only one run. Metrics at each
-    k use the targets forecast at that k; the gain columns compare each k with k = 0 on exactly those
-    targets, so a k level that only later runs reach is not confounded with which targets they hold."""
-    if cluster not in ("target", "family"):
-        raise ValueError("cluster must be 'target' or 'family'")
-    loaded = [_load_run(f, cards_root, label, outcomes) for f in folders]
+    Every run must use the same label and prompt, and a target may appear in only one run."""
     label_def = loaded[0]["label_def"]
     for run_data in loaded[1:]:
         if run_data["label_def"]["sha256"] != label_def["sha256"] or \
@@ -402,6 +397,19 @@ def score_runs(folders, out, cards_root=None, bootstrap=1000, seed=0, label=None
     for key, draws in conditions.items():
         # Pooled runs can differ in draw counts at a level (k = 0 or the whole pool has one draw).
         conditions[key] = _fill_single_draws(draws, key[2], single_draw)
+    return label_def, truth, conditions, samples, unscored
+
+
+def score_runs(folders, out, cards_root=None, bootstrap=1000, seed=0, label=None, cluster="target", outcomes=()):
+    """Score one or more runs as one set of targets (for example the waves of a program).
+
+    Every run must use the same label and prompt. A target may appear in only one run. Metrics at each
+    k use the targets forecast at that k; the gain columns compare each k with k = 0 on exactly those
+    targets, so a k level that only later runs reach is not confounded with which targets they hold."""
+    if cluster not in ("target", "family"):
+        raise ValueError("cluster must be 'target' or 'family'")
+    loaded = [_load_run(f, cards_root, label, outcomes) for f in folders]
+    label_def, truth, conditions, samples, unscored = pool_runs(loaded)
 
     targets = sorted(truth)
     rng = random.Random(seed)

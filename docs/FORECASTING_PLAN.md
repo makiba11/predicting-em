@@ -91,7 +91,8 @@ Read the replies in `responses.jsonl`. Every prompt change gets a new version (`
    - builds the target card
    - forecasts it at each k level with the frozen prompt and every configured model
    - writes everything under `studies/NAME/forecasts/` with hashes and timestamps
-   - `em launch` refuses to start until the forecasts exist, unless `--no-forecast` is given
+   - `em launch` refused to start until the forecasts existed, unless `--no-forecast` was given (removed
+     2026-11-08, when blinded leave-one-target-out scoring became the default)
 3. **Results hook:** `em results NAME` attaches outcomes to the card and adds it to the registry.
 4. **Program scoring and plots** (`em forecast score --program`, `em forecast plot --program`):
    preregistered forecasts only, under every label version.

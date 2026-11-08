@@ -6,7 +6,10 @@ dataset, no results). Once every job has a parsed forecast, `preregister` writes
   RUN/preregistration.json                       hashes of the frozen prompt and plan, every prompt and
                                                  response, the target cards and the method; the point
                                                  forecasts; git provenance. Immutable.
-  RESULTS/forecasting/preregistered/STUDY/RUN.json   one receipt per study, which `em launch` requires.
+  RESULTS/forecasting/preregistered/STUDY/RUN.json   one receipt per study.
+
+Preregistration was the 60-study program's wave method. It is optional now: the default method is the
+blinded leave-one-target-out scoring of loto.py, and `em launch` no longer requires a receipt.
 
 It refuses targets that already have results. Studies already launched are allowed but recorded as
 `launched_before_forecast`. Commit both files before launching. Scoring later joins the forecasts to
@@ -36,18 +39,6 @@ def receipts(study_name, root=None):
     return [read(p) for p in sorted(folder.glob("*.json"))] if folder.is_dir() else []
 
 
-def launch_gate(name, state, found, no_forecast=None):
-    """A first launch needs a preregistered forecast; resuming and offline demonstrations never do.
-
-    Returns True when the launch goes ahead without one (no_forecast gives the recorded reason)."""
-    if state["phase"] != "preregistered" or state["settings"].get("offline") or found:
-        return False
-    if not no_forecast:
-        raise ValueError(f"No preregistered forecast for {name}: run `em forecast preregister` on a config "
-                         "targeting it, or pass --no-forecast REASON")
-    return True
-
-
 def _launched(name, studies):
     from ..study import Study
 
@@ -61,7 +52,7 @@ def preregister(config, root=None, cards_root=None, studies=None, results=None, 
     folder = run.run_dir(config, root)
     path = folder / "preregistration.json"
     if path.exists():
-        return read(path), path  # immutable: the receipts and the launch gate point at it
+        return read(path), path  # immutable: the receipts point at it
     if not (folder / "frozen.json").is_file():
         raise ValueError(f"No forecasts for {config.id} yet: run `em forecast run` first")
     planned = run.plan(config, cards_root, root)

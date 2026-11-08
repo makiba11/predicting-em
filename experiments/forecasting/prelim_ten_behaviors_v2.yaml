@@ -1,4 +1,4 @@
-# Blog-post run (methodology after the 2026-10-26 mentor meeting): the same targets, evidence pool,
+# Blog-post run (methodology revised on 2026-10-26): the same targets, evidence pool,
 # grid and forecasters as prelim_ten_behaviors.yaml, but prompt_v2 asks for one expected delta per eval
 # and label_v2 is the single 6.5-point cutoff. Primary metrics: threshold AUROC and C-index, against the
 # constant and nearest-neighbour baselines. Historical dev data: not a prospective test.

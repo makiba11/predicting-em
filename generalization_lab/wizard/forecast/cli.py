@@ -16,6 +16,8 @@ from . import labels, prompt, run, scoring
 app = typer.Typer(no_args_is_help=True, help="Forecast EM with an LLM from past experiment results (docs/FORECASTING.md).")
 cards_app = typer.Typer(no_args_is_help=True, help="Build and inspect frozen experiment card sets.")
 app.add_typer(cards_app, name="cards")
+loto_app = typer.Typer(no_args_is_help=True, help="Blinded leave-one-target-out forecasts of the 60-study program.")
+app.add_typer(loto_app, name="loto")
 
 
 def echo(text=""):
@@ -145,7 +147,8 @@ def preregister_command(
     config_path: Path,
     allow_incomplete: bool = typer.Option(False, help="Record jobs without a parsed forecast as missing."),
 ):
-    """Record a completed run over pending study cards as their preregistered forecast (needed by `em launch`)."""
+    """Record a completed run over pending study cards as their preregistered forecast (optional; the default
+    method is blinded leave-one-target-out scoring, `em forecast loto`)."""
     from . import prereg
 
     config = run.load_config(config_path)
@@ -194,6 +197,25 @@ def score_command(
     echo(f"Written to {out}")
 
 
+@app.command("checks")
+def checks_command(
+    out: Path = typer.Option(Path("reports/forecasting_methodology"), help="Report folder."),
+    bootstrap: int = typer.Option(2000, help="Bootstrap resamples."),
+    seed: int = typer.Option(0, help="Bootstrap seed."),
+):
+    """Methodology checks of the 60-study program from existing data (no API calls): audit, reproduction
+    of the paired k vs k = 0 metrics, and shortcut diagnostics."""
+    from . import checks
+
+    result = checks.write_reports(out, bootstrap, seed)
+    facts, reproduced = result["facts"], result["reproduced"]
+    echo(f"waves reproduced: {facts['waves_reproduced']}; nested draws: {facts['nested_within_draw']}; "
+         f"evidence from same/later wave: {facts['evidence_from_same_or_later_wave']}")
+    echo(f"committed curve rescored: {len(reproduced['differing_cells'])} differing cells of {reproduced['cells']}; "
+         "largest point differences: " + ", ".join(f"{k} {v:.1e}" for k, v in result["worst"].items()))
+    echo(f"Written to {out}")
+
+
 @app.command("prompts")
 def prompts():
     """List pinned prompt templates and label definitions with their hashes."""
@@ -226,3 +248,76 @@ def plot_command(
         paths += plot.per_target(folder, flag, label_def=label_def)
     for path in paths:
         echo(path)
+
+
+def _loto_summary(config, planned, manifest):
+    from . import loto
+
+    design = manifest["design"]
+    echo(f"{config.id} ({design['protocol']}): design {manifest['design_sha256'][:16]}, {len(design['targets'])} targets, "
+         f"excluded {[e['study'] for e in design['excluded_targets']]}")
+    echo(f"  checks: {json.dumps({k: v for k, v in design['checks'].items() if k != 'method'})}")
+    jobs = Counter((j["forecaster"], j["k"]) for j in planned["jobs"])
+    for f in config.forecasters:
+        echo(f"  {f.name}: " + ", ".join(f"k={k}: {n}" for (name, k), n in sorted(jobs.items()) if name == f.name))
+    projected = loto.projected_cost(planned, loto.logged_costs())
+    echo(f"  projected cost from logged program60 calls: "
+         + ", ".join(f"{name} ${usd:.2f}" for name, usd in projected.items())
+         + f"; upper bound ${run.estimate_cost(planned, config):.2f}; budget ${config.budget_usd:.2f}")
+
+
+@loto_app.command("costs")
+def loto_costs():
+    """Actual cost and reliability per forecaster in the program's wave runs (choose the cheapest reliable one)."""
+    from . import loto
+
+    for row in loto.logged_costs():
+        echo(json.dumps(row))
+
+
+@loto_app.command("plan")
+def loto_plan(config_path: Path, out: Path = typer.Option(Path("reports/forecasting_methodology"))):
+    """Freeze the LOTO manifest (targets, permutations, evidence, prompt, metrics) and the jobs. No API calls."""
+    from . import loto
+
+    config = loto.load_config(config_path)
+    planned, manifest = loto.write_plan(config, out=out)
+    _loto_summary(config, planned, manifest)
+
+
+@loto_app.command("run")
+def loto_run(
+    config_path: Path,
+    yes: bool = typer.Option(False, "--yes", help="Skip the spending confirmation."),
+    max_jobs: Optional[int] = typer.Option(None, help="Submit at most this many pending jobs (a pilot)."),
+    out: Path = typer.Option(Path("reports/forecasting_methodology")),
+):
+    """Run pending LOTO jobs (resumable). The manifest is frozen first."""
+    from . import loto
+
+    config = loto.load_config(config_path)
+    run.preflight(config)
+    planned, manifest = loto.write_plan(config, out=out)
+    _loto_summary(config, planned, manifest)
+    if not yes and not typer.confirm("Spend on forecaster API calls?"):
+        raise typer.Abort()
+    result = run.execute_jobs(
+        config, run.run_dir(config), planned, max_jobs,
+        progress=lambda done, total, r: echo(f"  [{done}/{total}] {r['forecaster']} {r['status']}"
+                                             + (f": {r['error']}" if r.get("error") else "")))
+    echo(json.dumps(result, indent=2))
+
+
+@loto_app.command("score")
+def loto_score(config_path: Path, out: Path = typer.Option(Path("reports/forecasting_methodology"))):
+    """Score a LOTO run on its frozen design (and compare a family-excluded run with its pair)."""
+    from . import loto
+
+    config = loto.load_config(config_path)
+    result = loto.score(config, out=out)
+    echo(f"{result['complete']}/{result['records']} forecasts complete")
+    for r in result["metrics"]:
+        if r["aggregation"] == "target_mean":
+            echo(f"  {r['forecaster']} k={r['k']} N={r['n_targets']} AUROC {r['auroc']:.3f} gain {r['auroc_gain']:+.3f} "
+                 f"C {r['c_index']:.3f} gain {r['c_index_gain']:+.3f}")
+    echo(f"Written to {out}")
