@@ -33,6 +33,11 @@ VLLM_SETTINGS = {
 }
 # Added only for multimodal checkpoints (config.json has vision_config): text prompts, no vision inputs.
 MULTIMODAL_SETTINGS = {"limit_mm_per_prompt": {"image": 0, "video": 0}}
+# Batching capacity only (how many sequences decode at once), outside the protocol definition: it does not
+# change any sampling setting. vLLM 0.33 defaults to 1024, but each sequence of a hybrid model (Qwen3.8's
+# Gated DeltaNet layers) holds one recurrent-state block and only ~550 fit; 256 leaves room on 96 GB and 32 GB
+# cards. Recorded with every engine description.
+CAPACITY_SETTINGS = {"max_num_seqs": 256}
 
 
 def cache_dir(spec):
@@ -195,7 +200,8 @@ class VLLMEngine:
                                "something from the training or scoring phase still holds GPU memory")
         config = json.loads((Path(model_dir) / "config.json").read_text())
         multimodal = MULTIMODAL_SETTINGS if "vision_config" in config else {}
-        self.settings = {**VLLM_SETTINGS, **multimodal, "model": self.model_dir, "tokenizer": self.model_dir}
+        self.settings = {**VLLM_SETTINGS, **multimodal, **CAPACITY_SETTINGS, "model": self.model_dir,
+                         "tokenizer": self.model_dir}
         self.version = vllm.__version__
         self.llm = LLM(**self.settings)
 
