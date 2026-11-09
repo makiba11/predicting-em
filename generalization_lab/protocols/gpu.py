@@ -3,11 +3,17 @@
 Runs on the rented GPU (or locally). Every record is appended as soon as it exists, so an
 interrupted instance resumes at the next missing sample ID. A protocol's GPU part is complete only
 when ``gpu_complete.json`` records the hashes of its finished outputs.
+
+Work happens in two phases so only one copy of the model occupies the GPU at a time: first every
+HF/PEFT part (MC scoring, the historical sampler), then every batched-generation part on one engine
+(vLLM on the merged checkpoint; the explicit HF sampler for offline fixtures). A base-model run
+(``manifest.base_model_only``) evaluates the untrained base model the same way.
 """
 
 from __future__ import annotations
 
 import platform
+import shutil
 from collections import OrderedDict
 from pathlib import Path
 from types import SimpleNamespace
@@ -17,7 +23,7 @@ from ..evaluation import mc_record
 from ..io import ROOT, append, digest, now, read, sha, stable_seed, write
 from ..legacy import module
 from ..suites import Item, load_suite, permutations
-from . import definitions, store
+from . import capability, definitions, store
 from .sampling import sample_same_prompt
 
 BATCH = 25
@@ -123,6 +129,50 @@ def run_historical(request, spec, target, base):
     return {"mc.jsonl": 8, "responses.jsonl": len(historical_requests())}
 
 
+def vllm_requests():
+    return [{**r, "max_tokens": r["params"]["max_tokens"], "temperature": r["params"]["temperature"],
+             "top_p": r["params"]["top_p"]}
+            for r in historical_requests_for(definitions.vllm_free_response_settings())]
+
+
+def historical_requests_for(settings):
+    keys = ("id", "suite", "question_id", "paraphrase_index", "sample_index", "question", "messages", "params")
+    return [{**{k: r[k] for k in keys}, "seed": r["params"]["seed"]} for r in module("betley").requests(settings)]
+
+
+def generate_missing(engine, requests, path):
+    """Sample every request not yet in ``path`` in one engine call, then append each response."""
+    done = _done(path)
+    todo = [r for r in requests if r["id"] not in done]
+    for request, result in zip(todo, engine.sample(todo), strict=True):
+        append(path, {**{k: v for k, v in request.items() if k not in {"judge_prompts", "messages"}},
+                      "messages": request["messages"], **result, "sampled_at": now()})
+
+
+def run_mc_original(request, spec, target, base):
+    score_mc(spec, target, load_suite("original_mc"), base / "mc.jsonl", condition=request["run_id"])
+    return {"mc.jsonl": 8}
+
+
+def generate_vllm_endpoint(request, spec, engine, base):
+    requests = vllm_requests()
+    generate_missing(engine, requests, base / "responses.jsonl")
+    return {"responses.jsonl": len(requests)}
+
+
+def generate_capability(request, spec, engine, base):
+    items = capability.mmlu_items()
+    path = base / "mmlu.jsonl"
+    done = _done(path)
+    todo = [i for i in items if i["id"] not in done]
+    for item, logprobs in zip(todo, engine.letter_logprobs([capability.mmlu_messages(i) for i in todo],
+                                                           capability.LETTERS), strict=True):
+        append(path, capability.mmlu_record(item, logprobs))
+    requests = capability.generation_requests(request["definition"])
+    generate_missing(engine, requests, base / "responses.jsonl")
+    return {"mmlu.jsonl": len(items), "responses.jsonl": len(requests)}
+
+
 def run_historical_mc_only(request, spec, target, base):
     """Same original_mc scoring as ``run_historical``, with Betley free-response sampling skipped."""
     score_mc(spec, target, load_suite("original_mc"), base / "mc.jsonl", condition=request["run_id"])
@@ -132,13 +182,9 @@ def run_historical_mc_only(request, spec, target, base):
 def run_standard(request, spec, target, base):
     definition = request["definition"]
     expected = {}
-    for suite in definition["mc"]["suites"]:
-        items = load_suite(suite["name"])
-        path = base / "mc" / f"{suite['name']}.jsonl"
-        score_mc(spec, target, items, path, suite["counterbalanced"], suite["permutations_per_item"],
-                 definition["mc"]["eval_seeds"], request["run_id"])
-        expected[f"mc/{suite['name']}.jsonl"] = _mc_count(items, suite["counterbalanced"], suite["permutations_per_item"],
-                                                          definition["mc"]["eval_seeds"])
+    if "deterministic_controls" not in definition:  # standard-diagnostics-v2: MC suites only
+        return score_standard_mc(request, spec, target, base)
+    expected.update(score_standard_mc(request, spec, target, base))
     controls = definition["deterministic_controls"]
     path = base / "controls.jsonl"
     done = _done(path)
@@ -154,6 +200,18 @@ def run_standard(request, spec, target, base):
             "is_correct": is_correct, "malformed_answer": item["kind"] in {"json", "exact"} and not is_correct,
         })
     expected["controls.jsonl"] = len(items)
+    return expected
+
+
+def score_standard_mc(request, spec, target, base):
+    definition, expected = request["definition"], {}
+    for suite in definition["mc"]["suites"]:
+        items = load_suite(suite["name"])
+        path = base / "mc" / f"{suite['name']}.jsonl"
+        score_mc(spec, target, items, path, suite["counterbalanced"], suite["permutations_per_item"],
+                 definition["mc"]["eval_seeds"], request["run_id"])
+        expected[f"mc/{suite['name']}.jsonl"] = _mc_count(items, suite["counterbalanced"], suite["permutations_per_item"],
+                                                          definition["mc"]["eval_seeds"])
     return expected
 
 
@@ -191,17 +249,31 @@ def run_custom(request, spec, target, base):
     return expected
 
 
-def runner_for(request):
+# (HF/PEFT part, batched-generation part) of each protocol's GPU work.
+PHASES = {
+    definitions.HISTORICAL: (run_historical, None),
+    definitions.HISTORICAL_MC_ONLY: (run_historical_mc_only, None),
+    definitions.STANDARD: (run_standard, None),
+    definitions.VLLM_ENDPOINT: (run_mc_original, generate_vllm_endpoint),
+    definitions.STANDARD_V2: (run_standard, None),
+    definitions.CAPABILITY: (None, generate_capability),
+}
+
+
+def phases_for(request):
     protocol = request["protocol_id"]
-    if protocol == definitions.HISTORICAL:
-        return run_historical
-    if protocol == definitions.HISTORICAL_MC_ONLY:
-        return run_historical_mc_only
-    if protocol == definitions.STANDARD:
-        return run_standard
     if protocol.startswith(definitions.CUSTOM_PREFIX):
-        return run_custom
-    raise ValueError(f"{protocol} has no GPU work")
+        return run_custom, None
+    if protocol not in PHASES:
+        raise ValueError(f"{protocol} has no GPU work")
+    return PHASES[protocol]
+
+
+def runner_for(request):
+    hf, generate = phases_for(request)
+    if generate is not None:
+        raise ValueError(f"{request['protocol_id']} needs a generation engine; use run_pending")
+    return hf
 
 
 def environment():
@@ -216,6 +288,37 @@ def environment():
     }
 
 
+def check_engine_package(requests, spec):
+    """A protocol that pins its generation package refuses a host with another version."""
+    if spec.base_model.name == "builtin:tiny":
+        return
+    for request in requests:
+        definition = request["definition"]
+        section = definition.get("free_response") or definition.get("generation") or {}
+        wanted = (section.get("engine") or {}).get("package")
+        if wanted:
+            import vllm
+
+            if f"vllm=={vllm.__version__}" != wanted:
+                raise definitions.ProtocolError(f"{request['slug']} pins {wanted}; this host has vllm {vllm.__version__}")
+
+
+def generation_engine(spec, directory, base_only, target=None):
+    """vLLM on the merged checkpoint (or the base snapshot); the explicit HF sampler for the tiny fixture."""
+    from .generation import HFEngine, VLLMEngine, base_snapshot, merge_adapter
+
+    if spec.base_model.name == "builtin:tiny":
+        return HFEngine(target), None
+    from ..training import load_tokenizer
+
+    snapshot = base_snapshot(spec)
+    model_dir, merged = snapshot, None
+    if not base_only:
+        model_dir = directory / "checkpoints/merged"
+        merged = merge_adapter(snapshot, directory / "checkpoints/adapter", model_dir)
+    return VLLMEngine(model_dir, spec, load_tokenizer(spec)), merged
+
+
 def run_pending(root, run_id):
     root = Path(root)
     pending = [r for r in store.requests(root, run_id)
@@ -223,36 +326,62 @@ def run_pending(root, run_id):
     if not pending:
         return []
     directory = root / run_id
-    checkpoint = store.verified_checkpoint(root, run_id)
-    if checkpoint["location"] != "local":
+    base_only = bool(read(directory / "manifest.json").get("base_model_only"))
+    checkpoint = {"checkpoint_hash": None} if base_only else store.verified_checkpoint(root, run_id)
+    if not base_only and checkpoint["location"] != "local":
         raise ValueError(f"{run_id}: adapter must be present and hash-verified before GPU evaluation")
     spec = Spec.model_validate(read(directory / "config/resolved.json"))
+    check_engine_package(pending, spec)
     from ..training import HFProvider
 
-    target = HFProvider(spec, directory)
-    finished = []
+    started = {r["slug"]: now() for r in pending}
+    expected = {r["slug"]: {} for r in pending}
+    hf_work = [r for r in pending if phases_for(r)[0]]
+    generation_work = [r for r in pending if phases_for(r)[1]]
+    offline_fixture = spec.base_model.name == "builtin:tiny"
+    target = HFProvider(spec, directory, adapter=not base_only) if hf_work or (generation_work and offline_fixture) \
+        else None
+    engine_record = None
     try:
-        for request in pending:
+        for request in hf_work:
             base = store.run_store(root, run_id) / request["slug"]
-            started = now()
-            expected = runner_for(request)(request, spec, target, base)
-            outputs = {}
-            for name, count in expected.items():
-                saved = store.latest(base / name)
-                if len(saved) != count:
-                    raise RuntimeError(f"{request['slug']}: {name} has {len(saved)} of {count} records")
-                outputs[name] = {"records": count, "sha256": sha(base / name)}
-            write(base / "gpu_complete.json", {
-                "run_id": run_id,
-                "protocol_sha256": request["protocol_sha256"],
-                "checkpoint_hash": checkpoint["checkpoint_hash"],
-                "outputs": outputs,
-                "started_at": started,
-                "completed_at": now(),
-                "environment": environment(),
-                "implementation_sha256": definitions.implementation_hashes(),
-            })
-            finished.append(request["slug"])
+            expected[request["slug"]].update(phases_for(request)[0](request, spec, target, base))
+        if generation_work:
+            if target is not None and not offline_fixture:
+                target.close()
+                target = None
+            engine, merged = generation_engine(spec, directory, base_only, target)
+            try:
+                engine_record = {**engine.describe(), "merge": merged}
+                for request in generation_work:
+                    base = store.run_store(root, run_id) / request["slug"]
+                    expected[request["slug"]].update(phases_for(request)[1](request, spec, engine, base))
+            finally:
+                engine.close()
+                shutil.rmtree(directory / "checkpoints/merged", ignore_errors=True)
     finally:
-        target.close()
+        if target is not None:
+            target.close()
+    finished = []
+    for request in pending:
+        base = store.run_store(root, run_id) / request["slug"]
+        outputs = {}
+        for name, count in expected[request["slug"]].items():
+            saved = store.latest(base / name)
+            if len(saved) != count:
+                raise RuntimeError(f"{request['slug']}: {name} has {len(saved)} of {count} records")
+            outputs[name] = {"records": count, "sha256": sha(base / name)}
+        write(base / "gpu_complete.json", {
+            "run_id": run_id,
+            "protocol_sha256": request["protocol_sha256"],
+            "checkpoint_hash": checkpoint["checkpoint_hash"],
+            "base_model_only": base_only,
+            "outputs": outputs,
+            "started_at": started[request["slug"]],
+            "completed_at": now(),
+            "environment": environment(),
+            "generation_engine": engine_record if phases_for(request)[1] else None,
+            "implementation_sha256": definitions.implementation_hashes(),
+        })
+        finished.append(request["slug"])
     return finished

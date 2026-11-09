@@ -26,6 +26,8 @@ PEAK_BF16_TFLOPS = {
     "A100": 312.0,
     "L40S": 362.1,
     "RTX 6000 Ada": 364.2,
+    # RTX PRO 6000 Blackwell (Workstation/Server datasheet); the lower-clocked Max-Q also matches here.
+    "RTX PRO 6000": 503.8,
     "L40": 181.0,
     "RTX 5090": 209.5,
     "RTX 4090": 165.2,
@@ -71,13 +73,11 @@ def tiny_model():
     return model, tok
 
 
-def load_base(spec):
-    import torch
-    from transformers import AutoModelForCausalLM, AutoTokenizer
+def load_tokenizer(spec):
+    from transformers import AutoTokenizer
 
     if spec.base_model.name == "builtin:tiny":
-        torch.set_num_threads(1)
-        return tiny_model()
+        return tiny_model()[1]
     cache = spec.base_model.cache_dir or os.environ.get("HF_HOME")
     tok = AutoTokenizer.from_pretrained(
         spec.base_model.name,
@@ -93,6 +93,19 @@ def load_base(spec):
         raise ValueError("Tokenizer needs an EOS token for assistant-only training")
     if tok.pad_token_id is None:
         tok.pad_token = tok.eos_token
+    return tok
+
+
+def load_base(spec):
+    """The base model (for multimodal checkpoints such as qwen3_5, its language model only) and tokenizer."""
+    import torch
+    from transformers import AutoModelForCausalLM
+
+    if spec.base_model.name == "builtin:tiny":
+        torch.set_num_threads(1)
+        return tiny_model()
+    cache = spec.base_model.cache_dir or os.environ.get("HF_HOME")
+    tok = load_tokenizer(spec)
     dtype = torch.float32
     if spec.training.dtype == "bfloat16":
         if not torch.cuda.is_available() or not torch.cuda.is_bf16_supported():
@@ -104,7 +117,7 @@ def load_base(spec):
         spec.base_model.name,
         revision=spec.base_model.revision,
         cache_dir=cache,
-        torch_dtype=dtype,
+        dtype=dtype,
         trust_remote_code=False,
     )
     return model, tok
@@ -175,10 +188,12 @@ def flop_model(model):
     skip = {id(p) for module in (head, embed) for p in module.parameters()}
     config = core.config
     heads = config.num_attention_heads
+    # Hybrid models (qwen3_5) use quadratic attention only in their full-attention layers.
+    types = getattr(config, "layer_types", None)
     return {
         "matmul_parameters": sum(p.numel() for p in core.parameters() if id(p) not in skip and p.dim() >= 2),
         "head_parameters": head.weight.numel(),
-        "layers": config.num_hidden_layers,
+        "layers": sum(t == "full_attention" for t in types) if types else config.num_hidden_layers,
         "attention_width": heads * (getattr(config, "head_dim", None) or config.hidden_size // heads),
     }
 
@@ -274,6 +289,20 @@ def accumulate(model, window, data, pad, device, total_tokens, reduction="token_
     return loss_sum
 
 
+def lr_factor(settings, step, total_steps):
+    """Multiplier of the base learning rate for optimizer step ``step`` (0-based).
+
+    "linear" is transformers.get_linear_schedule_with_warmup as LambdaLR applies it: the first warmup
+    step uses factor 0, then step / warmup, then a linear decay reaching 0 after the last step.
+    Computed from the step index alone, so a resumed run continues the same schedule.
+    """
+    if settings.lr_scheduler == "constant":
+        return 1.0
+    if step < settings.warmup_steps:
+        return step / max(1, settings.warmup_steps)
+    return max(0.0, (total_steps - step) / max(1, total_steps - settings.warmup_steps))
+
+
 def microbatch_windows(data, settings, epoch):
     """Shuffle into effective-batch windows, then split each window by length.
 
@@ -312,6 +341,10 @@ def train(spec, directory):
     checkpoint_store.restore(checkpoint_root, directory / "training")
     checkpoints = sorted(p for p in checkpoint_root.glob("step-*") if (p / "complete.json").exists())
     latest = checkpoints[-1] if checkpoints else None
+    if latest is None:
+        # A run without a resumable checkpoint trains from step 0; drop the loss log of any earlier
+        # interrupted attempt so loss.jsonl describes exactly one optimization.
+        (directory / "training/loss.jsonl").unlink(missing_ok=True)
     if latest:
         saved = read(latest / "complete.json")
         if saved["data_hash"] != data_hash or saved["training_hash"] != digest(settings.model_dump()):
@@ -414,6 +447,9 @@ def train(spec, directory):
             norm = torch.nn.utils.clip_grad_norm_(model.parameters(), settings.max_grad_norm)
         if not torch.isfinite(norm):
             raise ValueError("Non-finite training gradient norm")
+        learning_rate = settings.learning_rate * lr_factor(settings, index, len(windows))
+        for group in optim.param_groups:
+            group["lr"] = learning_rate
         optim.step()
         if checkpointing and not settings.gradient_checkpointing:
             # Only the window that did not fit pays for recomputation.
@@ -442,13 +478,15 @@ def train(spec, directory):
                 "target_tokens": total_tokens,
                 "examples": sum(map(len, window)),
                 "gradient_norm": float(norm),
+                "learning_rate": learning_rate,
                 "wall_seconds": elapsed,
                 "tokens_per_second": measured[-1]["tokens"] / measured[-1]["seconds"],
                 "gradient_checkpointing_fallback": fallback_windows_before != fallback_windows,
                 "resume_from_step": start_step,
             },
         )
-        if step % settings.checkpoint_every == 0 or step == len(windows):
+        # checkpoint_every null: no resumable step checkpoints (and no optimizer state) are ever written.
+        if settings.checkpoint_every and (step % settings.checkpoint_every == 0 or step == len(windows)):
             checkpoint = checkpoint_root / f"step-{step:08d}"
             checkpoint.mkdir(parents=True, exist_ok=True)
             # Frozen base embeddings/LM head are identical to the pinned base model, so resume
@@ -482,6 +520,8 @@ def train(spec, directory):
         "optimizer": {
             "name": "AdamW",
             "learning_rate": settings.learning_rate,
+            "lr_scheduler": settings.lr_scheduler,
+            "warmup_steps": settings.warmup_steps,
             "betas": [settings.adam_beta1, settings.adam_beta2],
             "eps": settings.adam_eps,
             "weight_decay": settings.weight_decay,
@@ -518,16 +558,17 @@ def train(spec, directory):
 
 
 class HFProvider:
-    def __init__(self, spec, directory):
+    def __init__(self, spec, directory, adapter=True):
+        """The trained model of a run; ``adapter=False`` evaluates the untrained base model."""
         import torch
         from peft import PeftModel
         from transformers import AutoModelForCausalLM
 
         self.spec = spec
         self.model, self.tok = load_base(spec)
-        if spec.training.method == "lora":
+        if adapter and spec.training.method == "lora":
             self.model = PeftModel.from_pretrained(self.model, directory / "checkpoints/adapter")
-        elif spec.training.method == "full":
+        elif adapter and spec.training.method == "full":
             self.model = AutoModelForCausalLM.from_pretrained(directory / "checkpoints/adapter")
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
         self.model.to(self.device).eval()

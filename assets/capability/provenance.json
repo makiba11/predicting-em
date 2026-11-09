@@ -1,0 +1,37 @@
+{
+  "files_sha256": {
+    "ifeval_input_data.jsonl": "6a85310ca8ce15eff755aa08a3a4ff931c7e273e7515ebb3c492ea85fd8288f2",
+    "mmlu_subset_v1.jsonl": "2c16b33b5bdc6794516b011f815e4dcece471685e86e03d42fdb3973a947c142",
+    "strongreject_rubric.json": "cce2fa01e534c2768426b5aa458319ad1e422389b01fccc1a6b825229dfd4798",
+    "strongreject_small_dataset.csv": "3051340e3e89a3598d764dde497d5fcda80e258ac05cc35e6bd87228ac3d467c"
+  },
+  "licenses": {
+    "ifeval": "Apache-2.0",
+    "mmlu": "MIT",
+    "strongreject": "MIT"
+  },
+  "mmlu_selection": {
+    "per_subject": 10,
+    "rule": "random.Random(seed).sample over each subject's test rows (source order), subjects sorted, items in source order",
+    "seed": 20261109
+  },
+  "sources": {
+    "ifeval": {
+      "sha256": "6a85310ca8ce15eff755aa08a3a4ff931c7e273e7515ebb3c492ea85fd8288f2",
+      "url": "https://huggingface.co/datasets/google/IFEval/resolve/966cd89545d6b6acfd7638bc708b98261ca58e84/ifeval_input_data.jsonl"
+    },
+    "mmlu": {
+      "sha256": "74a41822ce7d3def56e1682f958469c04642a5336a5ce912fa375fdb90fb25d7",
+      "url": "https://huggingface.co/datasets/cais/mmlu/resolve/c30699e8356da336a370243923dbaf21066bb9fe/all/test-00000-of-00001.parquet"
+    },
+    "strongreject": {
+      "sha256": "3051340e3e89a3598d764dde497d5fcda80e258ac05cc35e6bd87228ac3d467c",
+      "url": "https://raw.githubusercontent.com/alexandrasouly/strongreject/3432b2d696b428f242bd507df96d80f686571d5e/strongreject_dataset/strongreject_small_dataset.csv"
+    },
+    "strongreject_templates": {
+      "sha256": "6d01841899e99f1f57c4f19153056051684ede2a7e1b54ebbb37b5ddff981768",
+      "url": "https://raw.githubusercontent.com/dsbowen/strong_reject/25959bf30e91b7b32ae9cf08c99621dae7cbfd20/strong_reject/eval_files/judge_templates.json"
+    }
+  },
+  "strongreject_prompts": 60
+}

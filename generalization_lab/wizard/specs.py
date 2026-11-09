@@ -29,6 +29,10 @@ def _providers(settings):
             "evaluator": defaults.REVIEWER, "expensive_quality_reviewer": defaults.REVIEWER}
 
 
+def recipe_id(settings):
+    return settings.get("recipe", "v5")
+
+
 def offline_compute(study):
     sim = study.path / "launch/offline_vast"
     return {
@@ -62,10 +66,11 @@ def base(study, state, draft, prediction=None, compute=None):
             "control_condition": Control().model_dump(),
             **({"min_words": 5} if offline else {}),
         },
-        "training": {**defaults.recipe()["training"], **(defaults.OFFLINE_TRAINING if offline else {})},
+        "training": {**defaults.recipe(recipe_id=recipe_id(settings))["training"],
+                     **(defaults.OFFLINE_TRAINING if offline else {})},
         "eval": dict(NO_ENGINE_EVALS),
         "quality_checks": dict(defaults.QUALITY),
-        "compute": compute or (offline_compute(study) if offline else dict(defaults.COMPUTE)),
+        "compute": compute or (offline_compute(study) if offline else defaults.compute_for(recipe_id(settings))),
         "results_group": f"em-{study.name}",
         "smoke_test": offline,
     }

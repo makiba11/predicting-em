@@ -156,8 +156,13 @@ class Training(Strict):
     loss_reduction: Literal["token_mean", "example_mean_sum"] = "token_mean"
     # null explicitly disables clipping; zero would erase gradients in torch.
     max_grad_norm: float | None = Field(default=1, gt=0)
-    checkpoint_every: int = Field(default=50, gt=0)
+    # null saves no step-* checkpoints (no optimizer state); an interrupted run then retrains from step 0.
+    checkpoint_every: int | None = Field(default=50, gt=0)
     seed: int = Field(default=1, ge=0)
+    # "linear": transformers get_linear_schedule_with_warmup (0 -> lr over warmup_steps, then linear to 0
+    # at the last optimizer step). The constant default reproduces every run made before these fields.
+    lr_scheduler: Literal["constant", "linear"] = "constant"
+    warmup_steps: int = Field(default=0, ge=0)
 
 
 class GeneratedSuite(Strict):
@@ -239,6 +244,8 @@ class Compute(Strict):
     timeout_minutes: int = Field(default=120, gt=0)
     startup_timeout_minutes: int = Field(default=15, gt=0)
     image: str = "pytorch/pytorch:2.6.0-cuda12.4-cudnn9-runtime"
+    # pyproject optional-dependency group the GPU host installs (".[train]" unless a recipe needs another).
+    pip_extra: str = Field(default="train", pattern=r"^[a-z][a-z0-9-]{0,40}$")
     ssh_key_path: str = "~/.ssh/id_ed25519"
     poll_seconds: float = Field(default=10, gt=0, le=60)
     cache_dir: str = "/workspace/hf_cache"
@@ -459,12 +466,26 @@ def load(path, smoke=False):
     return resolve(data, smoke)
 
 
+# Training fields added after runs already existed, with the values that reproduce those runs. They
+# are left out of identities while unchanged, so earlier run IDs and config hashes stay valid.
+LEGACY_TRAINING_DEFAULTS = {"lr_scheduler": "constant", "warmup_steps": 0}
+
+
+def training_identity(training):
+    data = training.model_dump(mode="json") if hasattr(training, "model_dump") else dict(training)
+    for key, value in LEGACY_TRAINING_DEFAULTS.items():
+        if data.get(key, value) == value:
+            data.pop(key, None)
+    return data
+
+
 def science(spec):
     # Compute (including rental and checkpoint-store fields) never enters run identities.
     data = spec.model_dump(mode="json")
     for key in ("compute", "prediction"):
         data.pop(key)
     data["base_model"].pop("cache_dir", None)
+    data["training"] = training_identity(spec.training)
     return data
 
 

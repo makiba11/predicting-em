@@ -19,11 +19,14 @@ from ..io import append, canonical, digest, jsonl, now, read, rows, sha, stable_
 from ..legacy import module
 from ..providers import OpenAIProvider, parse_json
 from ..suites import Item
-from . import definitions, store
+from . import capability, definitions, store
 
 CONCURRENCY = 16
 BUDGETS_USD = {definitions.HISTORICAL: 5.0, definitions.HISTORICAL_MC_ONLY: 0.1, definitions.STANDARD: 6.0,
-               definitions.PAPER: 25.0, "custom": 3.0}
+               definitions.PAPER: 25.0, "custom": 3.0, definitions.VLLM_ENDPOINT: 3.0,
+               definitions.STANDARD_V2: 3.0, definitions.CAPABILITY: 1.0}
+# Protocols whose free responses other protocols rejudge (their requests name it in depends_on).
+RESPONSE_SOURCES = (definitions.HISTORICAL, definitions.VLLM_ENDPOINT)
 
 
 class CachedLedger(Ledger):
@@ -317,9 +320,46 @@ def custom_judge(request, base, responses, ledger, offline):
              "rubric_score": outputs[r["id"]]["score"]} for r in responses]
 
 
+def capability_judge(request, base, responses, ledger, offline):
+    """IFEval rule scoring and the StrongREJECT rubric judge; MMLU was scored on the GPU host."""
+    settings = request["definition"]["strongreject"]["judge"]
+    items = {f"ifeval/{i['key']}": i for i in capability.ifeval_items()}
+    prompts = {i["id"]: i["forbidden_prompt"] for i in capability.strongreject_items()}
+    rubric = capability.strongreject_rubric()
+    scores = []
+    for r in responses:
+        if r["task"] == "ifeval":
+            scores.append({"id": r["id"], "task": "ifeval", **capability.score_ifeval(items[r["id"]], r["response"])})
+    config = Provider(**({**settings["provider"], "kind": "mock", "free": True} if offline else settings["provider"]))
+    judge = client(config, ledger, "strongreject_judge", offline)
+    tasks = [{"key": r["id"], "response": r} for r in responses if r["task"] == "strongreject"]
+
+    def call(task):
+        r = task["response"]
+        messages = capability.strongreject_messages(rubric, prompts[r["id"]], r["response"])
+        result = judge.generate(messages, stable_seed(0, r["id"]), temperature=settings["temperature"],
+                                max_tokens=settings["max_tokens"])
+        parsed = (capability.parse_strongreject(result["text"]) if not offline else
+                  {"refused": False, "convincing": 1.0, "specific": 1.0, "score": 0.0, "offline_fixture": True})
+        return {"id": r["id"], "request_sha256": digest(messages), "response": result, "parsed": parsed}
+
+    try:
+        failures = _run_tasks(tasks, call, base / "strongreject_judge_outputs.jsonl")
+    finally:
+        judge.close()
+    if failures:
+        raise RuntimeError(f"{base.name}: {failures} unresolved StrongREJECT judge calls retained; rerun to retry them")
+    outputs = {r["key"]: r for r in rows(base / "strongreject_judge_outputs.jsonl") if r.get("status") == "complete"}
+    for task in tasks:
+        r = task["response"]
+        scores.append({"id": r["id"], "task": "strongreject", "category": r.get("category"),
+                       **outputs[r["id"]]["parsed"]})
+    return scores
+
+
 def _responses(root, run_id, request):
     """Saved responses this protocol judges: its own, or those of the protocol it depends on."""
-    source = request["depends_on"].get(definitions.HISTORICAL, request["slug"])
+    source = next((request["depends_on"][p] for p in RESPONSE_SOURCES if p in request["depends_on"]), request["slug"])
     base = store.run_store(root, run_id) / source
     if source != request["slug"] or request["gpu_work"]:
         if not (base / "request.json").is_file():
@@ -350,9 +390,11 @@ def run_judges(root, run_id, offline=False, budgets=None):
         if ledger is not None:
             ledger.scope = run_id
         judge = {definitions.HISTORICAL: historical_judge, definitions.STANDARD: standard_judge,
-                 definitions.PAPER: paper_judge}.get(protocol, custom_judge)
+                 definitions.PAPER: paper_judge, definitions.VLLM_ENDPOINT: historical_judge,
+                 definitions.STANDARD_V2: standard_judge, definitions.CAPABILITY: capability_judge,
+                 }.get(protocol, custom_judge)
         scores = judge(request, base, responses, ledger, offline) if responses else []
-        name = "json_scores.jsonl" if protocol == definitions.STANDARD else "scores.jsonl"
+        name = "json_scores.jsonl" if protocol in (definitions.STANDARD, definitions.STANDARD_V2) else "scores.jsonl"
         jsonl(base / name, scores)
         write(base / "judge_complete.json", {
             "run_id": run_id,

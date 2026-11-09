@@ -11,6 +11,12 @@ dependencies = ["pydantic>=2.10,<3", "PyYAML>=6,<7", "typer>=0.16,<1", "httpx>=0
 
 [project.optional-dependencies]
 train = ["torch>=2.4", "transformers==5.5.4", "huggingface_hub==1.32.0", "zstandard==0.25.0", "peft>=0.17,<0.20", "accelerate>=1,<2"]
+# Qwen3.8-27B recipe (q27-v1): installed on the vllm/vllm-openai:v0.33.0 image, whose torch, vLLM and
+# transformers it keeps; fla-core supplies the Gated DeltaNet kernels HF training uses.
+train-vllm = ["torch>=2.4", "vllm==0.33.0", "transformers>=5.16.1,<5.21", "huggingface_hub>=1.31,<2", "zstandard==0.25.0",
+              "peft>=0.19,<0.22", "accelerate>=1,<2", "fla-core==0.6.0", "safetensors>=0.6.2"]
+# Local scoring of capability-controls-v1 (IFEval rule checks).
+score = ["nltk>=3.9,<4", "langdetect==1.0.9", "immutabledict>=4,<5"]
 test = ["pytest>=8", "ruff>=0.12"]
 
 [project.scripts]
@@ -18,9 +24,15 @@ generalization_lab = "generalization_lab.cli:main"
 em = "generalization_lab.wizard.cli:main"
 
 [tool.setuptools]
-packages = ["generalization_lab", "generalization_lab.compute", "generalization_lab.protocols", "generalization_lab.wizard", "generalization_lab.wizard.forecast"]
+packages = ["generalization_lab", "generalization_lab.compute", "generalization_lab.protocols", "generalization_lab.protocols.ifeval", "generalization_lab.wizard", "generalization_lab.wizard.forecast"]
 py-modules = ["betley", "shared_requests"]
 package-dir = {"" = "src", generalization_lab = "generalization_lab"}
 
+[tool.uv]
+# The 8B recipe pins transformers 5.5.4; the 27B recipe uses the vLLM image's stack. They never share an env.
+conflicts = [[{ extra = "train" }, { extra = "train-vllm" }]]
+
 [tool.ruff]
 line-length = 110
+# Vendored upstream code is kept verbatim apart from its documented patches.
+extend-exclude = ["generalization_lab/protocols/ifeval"]

@@ -49,17 +49,24 @@ class GroupTarget:
         return {}
 
 
-def targets(name, runs_root):
+def targets(name, runs_root, run_ids=None):
+    """The study or results group and its models (only ``run_ids`` when given)."""
     study = Study(name) if Study(name).exists() else None
     if study:
         from .results import model_set
 
-        return study, study.runs_root, model_set(study)
-    target = GroupTarget(name, runs_root)
-    models = group_models(runs_root, name)
-    if not models:
-        raise ValueError(f"{name} is neither a study nor a results group with complete runs under {runs_root}")
-    return target, target.runs_root, models
+        target, root, models = study, study.runs_root, model_set(study)
+    else:
+        target = GroupTarget(name, runs_root)
+        root, models = target.runs_root, group_models(runs_root, name)
+        if not models:
+            raise ValueError(f"{name} is neither a study nor a results group with complete runs under {runs_root}")
+    if run_ids:
+        unknown = set(run_ids) - {m["run_id"] for m in models}
+        if unknown:
+            raise ValueError(f"Not complete models of {name}: {sorted(unknown)}")
+        models = [m for m in models if m["run_id"] in run_ids]
+    return target, root, models
 
 
 def protocol_definitions(study, protocol_ids):
@@ -77,8 +84,8 @@ def protocol_definitions(study, protocol_ids):
     return result
 
 
-def plan(name, protocol_ids, runs_root=Path("runs")):
-    study, root, models = targets(name, runs_root)
+def plan(name, protocol_ids, runs_root=Path("runs"), run_ids=None):
+    study, root, models = targets(name, runs_root, run_ids)
     selected = protocol_definitions(study, protocol_ids)
     checks = []
     for model in models:
@@ -94,16 +101,26 @@ def plan(name, protocol_ids, runs_root=Path("runs")):
             "writes": f"{root}/_protocol_evals/RUN_ID/PROTOCOL-HASH/ (run folders are read only)"}
 
 
-def eval_compute(spec):
-    """Evaluation rentals use the wizard's RTX 5090 bid defaults, never the run's historical compute."""
+def needs_vllm(selected):
+    return any(d["id"] in (definitions.VLLM_ENDPOINT, definitions.CAPABILITY) for d in selected)
+
+
+def eval_compute(spec, selected=()):
+    """Evaluation rentals use the wizard's defaults, never the run's historical compute: the RTX 5090 bid
+    defaults, or for vLLM protocols the q27-v1 image and disk on an on-demand rental (an RTX 5090 for
+    models up to 8B parameters, else the RTX PRO 6000)."""
     values = {**defaults.COMPUTE, "checkpoint_store": None}
+    if needs_vllm(selected):
+        values = {**defaults.COMPUTE_Q27}
+        if spec.base_model.parameter_count_billions <= 8:
+            values.update(gpu_preferences=["RTX 5090"], min_gpu_ram_gb=31, max_price_per_hour=0.9, disk_gb=120)
     if not spec.compute.upload_private_hub:
         values["upload_private_hub"] = False
     return Compute.model_validate(values)
 
 
-def run(name, protocol_ids, backend="vast", runs_root=Path("runs"), offline=False):
-    study, root, models = targets(name, runs_root)
+def run(name, protocol_ids, backend="vast", runs_root=Path("runs"), offline=False, run_ids=None):
+    study, root, models = targets(name, runs_root, run_ids)
     selected = protocol_definitions(study, protocol_ids)
     report = []
     for model in models:
@@ -119,7 +136,7 @@ def run(name, protocol_ids, backend="vast", runs_root=Path("runs"), offline=Fals
             else:
                 spec = Spec.model_validate(read(directory / "config/resolved.json"))
                 if backend == "vast" and not (isinstance(study, Study) and study.load()["settings"]["offline"]):
-                    spec = spec.model_copy(update={"compute": eval_compute(spec)})
+                    spec = spec.model_copy(update={"compute": eval_compute(spec, selected)})
                 target = PseudoRun(root=root, run_id=run_id, directory=directory, spec=spec,
                                    manifest=read(directory / "manifest.json"), force=False)
                 state = study.load() if isinstance(study, Study) else {"settings": {"offline": False}}

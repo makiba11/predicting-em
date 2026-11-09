@@ -12,7 +12,7 @@ import typer
 
 from ..io import read, redact
 from ..protocols import definitions
-from . import datasets, defaults, drafting, launch, prereg, probes, reevaluate, results, status
+from . import datasets, defaults, drafting, launch, prereg, probes, reevaluate, rerun, results, status
 from .forecast import cli as forecast_cli
 from .study import Study
 
@@ -428,9 +428,10 @@ def show_plan(plan):
     heading(f"Launch plan: {plan['study']}" + ("  [OFFLINE SIMULATION]" if plan["offline_simulation"] else ""))
     echo(f"  Approved dataset hash:  {plan['dataset_hash']}")
     echo(f"  Preregistration:        {plan['preregistration_sha256']}")
-    echo("  Training recipe (v5):   " + json.dumps(plan["training_recipe"]["values"]))
-    for change in plan["training_recipe"]["changes_from_v5"]:
-        echo(f"    recorded change: {change['field']} {change['v5']} -> {change['study']} ({change['reason']})")
+    recipe_id = plan["training_recipe"]["id"]
+    echo(f"  Training recipe ({recipe_id}):   " + json.dumps(plan["training_recipe"]["values"]))
+    for change in plan["training_recipe"]["changes_from_recipe"]:
+        echo(f"    recorded change: {change['field']} {change[recipe_id]} -> {change['study']} ({change['reason']})")
     echo("  Evaluation protocols:")
     for protocol in plan["evaluation"]:
         echo(f"    {protocol['id']}  {protocol['sha256'][:16]}  ({protocol['role']})")
@@ -444,11 +445,12 @@ def show_plan(plan):
     echo(f"  {rental['no_substitution']}")
     if plan["offer_search_error"]:
         echo(f"  Offer search failed: {plan['offer_search_error']}")
-    echo("  Cheapest eligible interruptible offers now:")
+    echo("  Cheapest eligible offers now:")
     for offer in plan["offers"]:
-        echo(f"    offer {offer['id']}: {offer['gpu_name']} {offer['gpu_ram']} MB rel {offer['reliability']}  min bid "
-             f"${offer['min_bid']}/h -> proposed bid ${offer['glab_bid_price']}/h + storage "
-             f"${offer['glab_storage_per_hour']:.4f}/h = ${offer['glab_hourly_total']:.4f}/h")
+        price = (f"min bid ${offer['min_bid']}/h -> proposed bid ${offer['glab_bid_price']}/h + storage "
+                 f"${offer['glab_storage_per_hour']:.4f}/h" if offer.get("glab_bid_price") is not None else "on-demand")
+        echo(f"    offer {offer['id']}: {offer['gpu_name']} {offer['gpu_ram']} MB rel {offer['reliability']}  {price} "
+             f"= ${offer['glab_hourly_total']:.4f}/h")
     costs = plan["costs"]
     echo(f"  Per-rental bound ${costs['per_rental_attempt_bound_usd']:.2f}; up to {costs['attempts_per_job_max']} "
          f"rentals per job; preflight bound ${costs['preflight_bound_usd']:.2f}")
@@ -543,10 +545,12 @@ def reevaluate_command(
     protocol: list[str] = typer.Option(..., "--protocol", help="Protocol ID (repeatable)."),
     backend: str = typer.Option("vast", help="vast (rent an RTX 5090) or local (GPU on this machine)."),
     runs_root: Path = typer.Option(Path("runs"), help="Runs root for results-group targets."),
+    runs: Optional[str] = typer.Option(None, help="Comma-separated run IDs: evaluate only these models."),
     yes: bool = typer.Option(False, "--yes", help="Execute (otherwise show the verified plan only)."),
 ):
     """Evaluate verified existing checkpoints under a protocol version, without retraining."""
-    plan = reevaluate.plan(name, protocol, runs_root)
+    run_ids = [r.strip() for r in runs.split(",") if r.strip()] if runs else None
+    plan = reevaluate.plan(name, protocol, runs_root, run_ids)
     echo(status.render(plan))
     if not yes:
         echo("Dry run. Pass --yes to evaluate (rentals and judge calls cost money).")
@@ -555,7 +559,43 @@ def reevaluate_command(
         raise ValueError("Some checkpoints could not be verified; nothing was evaluated")
     study = Study(name) if Study(name).exists() else None
     offline = bool(study and study.load()["settings"]["offline"])
-    echo(status.render(reevaluate.run(name, protocol, backend, runs_root, offline)))
+    echo(status.render(reevaluate.run(name, protocol, backend, runs_root, offline, run_ids)))
+
+
+# em clone / baseline -----------------------------------------------------------------------------
+
+@app.command("clone")
+def clone_command(
+    source: str,
+    name: str,
+    recipe: str = typer.Option("q27-v1", help="Training recipe of the new study (q27-v1: Qwen3.8-27B, vLLM evals)."),
+):
+    """A preregistered copy of an approved study (same frozen rows and prediction) under another recipe."""
+    registration = rerun.clone(source, name, recipe)
+    echo(f"{name}: cloned from {source}; dataset {registration['dataset']['content_hash'][:12]}, recipe "
+         f"{registration['training_recipe']['id']}, protocols "
+         f"{', '.join(p['id'] for p in registration['protocols'])}")
+    echo(f"Preregistered ({registration['sha256'][:12]}). Next: em launch {name}")
+
+
+@app.command("baseline")
+def baseline_command(
+    recipe: str = typer.Option("q27-v1", help="Recipe whose untrained base model is evaluated."),
+    max_total_usd: Optional[float] = typer.Option(None, help="GPU spending cap for the base-model rental."),
+    yes: bool = typer.Option(False, "--yes", help="Rent and evaluate (otherwise show the plan only)."),
+):
+    """Evaluate the untrained base model once with the recipe's protocols (one rental, then local judging)."""
+    study, spec, run_id = rerun.prepare_baseline(recipe)
+    from ..protocols import store
+    from .budget import attempt_bound
+
+    echo(json.dumps({"run_id": run_id, "base_model": spec.base_model.model_dump(),
+                     "protocols": [r["slug"] for r in store.requests(study.runs_root, run_id)],
+                     "gpu": spec.compute.gpu_preferences, "rental_bound_usd": attempt_bound(spec)}, indent=2))
+    if not yes:
+        echo("Dry run. Pass --yes (and --max-total-usd) to rent the GPU and run the judges.")
+        return
+    echo(json.dumps(rerun.run_baseline(recipe, max_total_usd), indent=2))
 
 
 @app.command("results")
@@ -571,7 +611,8 @@ def results_command(name: str):
 @app.command("protocols")
 def protocols_command():
     """List evaluation protocols with their pinned hashes."""
-    for protocol_id in (definitions.HISTORICAL, definitions.STANDARD, definitions.PAPER):
+    for protocol_id in (definitions.HISTORICAL, definitions.STANDARD, definitions.PAPER, definitions.VLLM_ENDPOINT,
+                        definitions.STANDARD_V2, definitions.CAPABILITY):
         try:
             definition = definitions.load(protocol_id)
             echo(f"{protocol_id}  {definition['sha256']}  {definition['role']}: {definition['title']}")

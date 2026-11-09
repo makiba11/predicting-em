@@ -3,7 +3,9 @@
 The step uses the 32 longest approved training rows (the worst-case window) split into the recipe's
 microbatches, with the recipe's optimizer, loss reduction and checkpointing setting; quantization is
 never enabled and the engine's checkpointing fallback is not used. If microbatch 4 runs out of
-memory, (2, 16) and then (1, 32) are measured, keeping the effective batch at 32.
+memory, (2, 16) and then (1, 32) are measured, keeping the effective batch at 32 (for the q27-v1
+recipe: (4, 4), (2, 8), (1, 16) at effective batch 16). Hosts that install the vLLM extra also
+report whether vLLM and the Gated DeltaNet kernels (fla) import.
 """
 
 from __future__ import annotations
@@ -14,7 +16,6 @@ from pathlib import Path
 
 from ..config import Spec
 from ..io import now, read, rows, write
-from . import defaults
 
 
 def cuda_report():
@@ -32,6 +33,30 @@ def cuda_report():
         )
         x = torch.randn(256, 256, device="cuda", dtype=torch.bfloat16)
         report["matmul_ok"] = bool(torch.isfinite((x @ x).float().sum()).item())
+    return report
+
+
+def effective_batch(spec):
+    return spec.training.batch_size * spec.training.gradient_accumulation
+
+
+def fallbacks(spec):
+    """Microbatch 4, 2, 1 at the recipe's effective batch (v5: (4, 8), (2, 16), (1, 32))."""
+    total = effective_batch(spec)
+    return [(size, total // size) for size in (4, 2, 1) if total % size == 0]
+
+
+def package_report(spec):
+    """Versions of the packages the recipe's protocols need on this host (vLLM image recipes only)."""
+    if spec.compute.pip_extra != "train-vllm":
+        return None
+    report = {}
+    for name in ("vllm", "transformers", "peft", "fla"):
+        try:
+            module = __import__(name)
+            report[name] = getattr(module, "__version__", "imported")
+        except Exception as error:  # noqa: BLE001 - reported, then refused by the controller
+            report[name] = f"ERROR {type(error).__name__}: {str(error)[:200]}"
     return report
 
 
@@ -53,7 +78,7 @@ def one_step(spec, data_rows, batch_size, accumulation):
         training.enable_checkpointing(model)
     model.config.use_cache = False
     encoded = sorted((training.encode_row(tok, spec, r) for r in data_rows), key=lambda r: -len(r["input_ids"]))
-    window_rows = encoded[: defaults.EFFECTIVE_BATCH]
+    window_rows = encoded[: effective_batch(spec)]
     window = [list(range(i, min(i + batch_size, len(window_rows)))) for i in range(0, len(window_rows), batch_size)]
     optim = torch.optim.AdamW([p for p in model.parameters() if p.requires_grad], lr=settings.learning_rate,
                               betas=(settings.adam_beta1, settings.adam_beta2), eps=settings.adam_eps,
@@ -92,9 +117,9 @@ def run(directory):
     directory = Path(directory)
     spec = Spec.model_validate(read(directory / "config/resolved.json"))
     data_rows = rows(directory / "data/train.jsonl")
-    result = {"started_at": now(), "cuda": cuda_report(), "attempts": []}
+    result = {"started_at": now(), "cuda": cuda_report(), "packages": package_report(spec), "attempts": []}
     write(directory / "preflight/result.json", result)
-    for batch_size, accumulation in defaults.MICROBATCH_FALLBACKS:
+    for batch_size, accumulation in fallbacks(spec):
         if batch_size > spec.training.batch_size:
             continue
         attempt = {"batch_size": batch_size, "gradient_accumulation": accumulation,

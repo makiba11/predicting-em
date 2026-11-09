@@ -9,7 +9,7 @@ from pathlib import Path
 import yaml
 
 from . import analysis, data, evaluation, predictions, preregistration, quality, training
-from .config import Control, Prediction, Spec, science
+from .config import Control, Prediction, Spec, science, training_identity
 from .costs import Ledger, enforce, preflight_providers
 from .io import ROOT, append, digest, freeze, hub_backed, lock, now, provenance, read, sha, write, write_text
 from .providers import provider
@@ -75,7 +75,7 @@ def matched_key(spec, bank, eval_hashes):
     return digest(
         {
             "base_model": spec.base_model.model_dump(),
-            "training": spec.training.model_dump(),
+            "training": training_identity(spec.training),
             "dataset": dataset,
             "bank_hash": digest(bank),
             "control": control.model_dump(),

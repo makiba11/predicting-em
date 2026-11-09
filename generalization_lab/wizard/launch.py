@@ -68,6 +68,7 @@ def plan(study, max_total_usd=None, search=True):
     registration = read(study.path / "preregistration.json")
     training = training_specs(study, state)
     spec = training[0]
+    recipe_id = state["settings"].get("recipe", "v5")
     protocols = prereg.selected_protocols(study, state)
     offers, error = [], None
     if search:
@@ -87,9 +88,10 @@ def plan(study, max_total_usd=None, search=True):
         "offline_simulation": state["settings"]["offline"],
         "dataset_hash": state["dataset_hash"],
         "preregistration_sha256": registration["sha256"],
-        "training_recipe": {"id": "v5", "values": spec.training.model_dump(mode="json"),
-                            "changes_from_v5": defaults.changes_from_v5(spec.training.model_dump(mode="json"),
-                                                                        state["settings"]["offline"]),
+        "training_recipe": {"id": recipe_id, "values": spec.training.model_dump(mode="json"),
+                            "changes_from_recipe": defaults.changes_from_v5(spec.training.model_dump(mode="json"),
+                                                                            state["settings"]["offline"],
+                                                                            recipe_id=recipe_id),
                             "preflight": (state.get("preflight") or {}).get("summary")},
         "evaluation": [{"id": p["id"], "sha256": p["sha256"], "role": p["role"]} for p in protocols],
         "runs": {"seeds": state["settings"]["seeds"], "treatment": len(training), "same_seed_benign_control": len(training),
@@ -160,7 +162,7 @@ def preflight(study, state, plan_data):
                         "v5": [spec.training.batch_size, spec.training.gradient_accumulation],
                         "study": [selected["batch_size"], selected["gradient_accumulation"]],
                         "reason": f"measured OOM at microbatch 4 on the {result['cuda'].get('device')} preflight; "
-                                  "effective batch stays 32"})
+                                  f"effective batch stays {spec.training.batch_size * spec.training.gradient_accumulation}"})
     record = {"data_hash": state["dataset_hash"], "run_id": run_id, "lease": lease, "result": result,
               "training_overrides": overrides, "recipe_changes": changes,
               "summary": {"device": result["cuda"].get("device"), "cuda": result["cuda"].get("torch_cuda"),
@@ -181,17 +183,31 @@ def check_preflight(result, spec, offline_mode):
     if not cuda.get("cuda_available") or not cuda.get("matmul_ok"):
         problems.append("CUDA is unavailable or a bf16 matmul failed")
     wanted = spec.compute.gpu_preferences
-    if not any(name.rsplit(" ", 1)[-1] in str(cuda.get("device")) for name in wanted):
+    if not any(device_matches(name, cuda.get("device")) for name in wanted):
         problems.append(f"device is {cuda.get('device')!r}, not one of {wanted}")
     if (cuda.get("total_memory_gb") or 0) < spec.compute.min_gpu_ram_gb - 0.5:
         problems.append(f"only {cuda.get('total_memory_gb')} GB of GPU memory")
-    if "RTX 5090" in wanted:
-        # Blackwell-specific: only required when the study actually targets the 5090.
+    for name, version in (result.get("packages") or {}).items():
+        if str(version).startswith("ERROR"):
+            problems.append(f"{name} does not import on the GPU host: {version}")
+    if any("5090" in name or "PRO 6000" in name for name in wanted):
+        # Blackwell-specific: only required when the study targets a Blackwell GPU (5090, RTX PRO 6000).
         if cuda.get("capability") and cuda["capability"][0] < 12:
             problems.append(f"compute capability {cuda['capability']} is not Blackwell (sm_120)")
         if "sm_120" not in " ".join(cuda.get("arch_list") or []):
             problems.append("the PyTorch build lacks sm_120 kernels (needs CUDA 12.8+ PyTorch)")
     return problems
+
+
+def device_matches(offer_name, device):
+    """Vast offer names ("RTX PRO 6000 WS", "RTX 5090") against CUDA device names
+    ("NVIDIA RTX PRO 6000 Blackwell Workstation Edition", "NVIDIA GeForce RTX 5090")."""
+    import re
+
+    core = re.sub(r"\s+(WS|S|Max-Q)$", "", offer_name)
+    model = core.rsplit(" ", 1)[-1]
+    device = str(device)
+    return model in device and ("PRO" not in core or "PRO" in device)
 
 
 def prepare_runs(study, state):

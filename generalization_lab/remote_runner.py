@@ -42,6 +42,21 @@ def main():
     from .protocols.gpu import run_pending
 
     run_pending(args.root, args.run_id)
+    remove_temporary_adapter(args.root / args.run_id)
+
+
+def remove_temporary_adapter(folder):
+    """Results-only runs without a Hub copy keep the final adapter only while it is evaluated."""
+    import shutil
+
+    config = read(folder / "config/resolved.json")["compute"]
+    if config.get("export_mode") != "results_only" or config.get("upload_private_hub"):
+        return
+    from .protocols.store import gpu_pending
+
+    if not gpu_pending(folder.parent, folder.name):
+        for name in ("adapter", "tokenizer"):
+            shutil.rmtree(folder / "checkpoints" / name, ignore_errors=True)
 
 
 if __name__ == "__main__":

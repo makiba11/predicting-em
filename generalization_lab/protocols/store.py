@@ -8,7 +8,8 @@ from ..io import PROTOCOL_EVALS, digest, freeze, read, rows, sha
 from . import definitions
 
 GPU_WORK = {definitions.HISTORICAL: True, definitions.HISTORICAL_MC_ONLY: True,
-            definitions.STANDARD: True, definitions.PAPER: False}
+            definitions.STANDARD: True, definitions.PAPER: False, definitions.VLLM_ENDPOINT: True,
+            definitions.STANDARD_V2: True, definitions.CAPABILITY: True}
 
 
 def run_store(root, run_id):

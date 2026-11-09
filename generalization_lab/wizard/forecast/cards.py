@@ -188,7 +188,8 @@ def historical_cards(name, root=ROOT):
 STUDY_METRICS = {
     "original_mc:both": "standard__original_mc_counterbalanced_normalized_target_choice_probability",
     "adjacent_mc:both": "standard__adjacent_mc_counterbalanced_normalized_target_choice_probability",
-    "original_mc:source": "historical__mc_normalized_target_choice_probability",
+    "original_mc:source": ("historical__mc_normalized_target_choice_probability",
+                           "endpoint__mc_normalized_target_choice_probability"),
     "adjacent_mc:source": "standard__adjacent_mc_normalized_target_choice_probability",
 }
 REQUIRED_STUDY_MEASUREMENTS = ("original_mc:both", "adjacent_mc:both")
@@ -219,7 +220,8 @@ def _study_visible(name, study, state, approval, family):
         "id": card_id, "set": "studies", "name": name, "family": family or state.get("family") or name,
         "description": draft["behavior_description"],
         # Same wording as the historical v5 cards, so the format does not mark new studies apart.
-        "pipeline": f"HF/PEFT on Vast (v5 recipe), {settings['base_model']['name'].split('/')[-1]} LoRA, "
+        "pipeline": f"HF/PEFT on Vast ({settings.get('recipe', 'v5')} recipe), "
+                    f"{settings['base_model']['name'].split('/')[-1]} LoRA, "
                     f"{settings['num_examples']:,} examples, {len(settings['seeds'])} seeds",
         "datapoints": sample_datapoints(dataset, card_id),
     }
@@ -258,7 +260,9 @@ def study_card(name, studies=None, results=None, family=None):
     if incomplete:
         raise ValueError(f"Study {name} has incomplete models: {incomplete}")
     measurements = {}
-    for key, column in STUDY_METRICS.items():
+    for key, columns in STUDY_METRICS.items():
+        columns = (columns,) if isinstance(columns, str) else columns
+        column = next((c for c in columns if treatments and treatments[0].get(c)), columns[0])
         if not treatments or column not in treatments[0] or not treatments[0][column]:
             if key in REQUIRED_STUDY_MEASUREMENTS:
                 raise ValueError(f"Study {name} lacks {key}; evaluate it with standard-diagnostics-v1 "

@@ -10,6 +10,9 @@ Revised 2026-10-27. Studies and waves: [`experiments/forecasting/program_60.yaml
 Method: [FORECASTING_METHODOLOGY.md](FORECASTING_METHODOLOGY.md). Commands:
 [FORECASTING.md](FORECASTING.md#preregistered-forecasts).
 
+The program is being rerun on Qwen3.8-27B with blinded LOTO scoring: see `docs/QWEN27B_RERUN.md`,
+`experiments/forecasting/program60_q27.yaml` and `program60_q27_loto*.yaml`.
+
 ## Question
 
 Does giving a forecaster more completed experiments as evidence make its forecasts of new EM studies

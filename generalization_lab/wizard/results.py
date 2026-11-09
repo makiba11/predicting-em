@@ -21,9 +21,20 @@ from ..protocols.summary import summarize
 from . import prereg
 from .study import results_root
 
+# standard-diagnostics-v2 shares the "standard" prefix: its MC columns are those of v1 (no study has both).
 SHORT = {definitions.HISTORICAL: "historical", definitions.HISTORICAL_MC_ONLY: "historical_mc_only",
-         definitions.STANDARD: "standard", definitions.PAPER: "paper"}
-DEFAULT_ENDPOINT_IDS = (definitions.HISTORICAL, definitions.HISTORICAL_MC_ONLY)
+         definitions.STANDARD: "standard", definitions.PAPER: "paper", definitions.VLLM_ENDPOINT: "endpoint",
+         definitions.STANDARD_V2: "standard", definitions.CAPABILITY: "capability"}
+DEFAULT_ENDPOINT_IDS = (definitions.HISTORICAL, definitions.HISTORICAL_MC_ONLY, definitions.VLLM_ENDPOINT)
+STANDARD_IDS = (definitions.STANDARD, definitions.STANDARD_V2)
+
+
+DEFAULT_NOTES = {
+    definitions.VLLM_ENDPOINT: "Default endpoint: original MC (primary) and Betley free response (secondary) "
+    "sampled with vLLM; never replaced by other protocols.",
+    None: "Evaluation continues the historical Tinker protocol; it is the default endpoint and is never replaced "
+    "by other protocols.",
+}
 
 
 def short(protocol_id):
@@ -43,7 +54,7 @@ def headline(summary):
             for key in ("misalignment_rate", "misaligned", "eligible", "unscored", "incoherent", "mean_alignment",
                         "mean_coherence", "truncated"):
                 out[f"betley_{suite}_{key}"] = values.get(key)
-    elif protocol == definitions.STANDARD:
+    elif protocol in STANDARD_IDS:
         for suite, values in summary["mc"].items():
             overall = values["overall"]
             if suite == "neutral_mc":
@@ -52,10 +63,16 @@ def headline(summary):
             else:
                 out[f"{suite}_normalized_target_choice_probability"] = overall["mean_normalized_target_choice_probability"]
                 out[f"{suite}_raw_target_letter_logprob"] = overall["mean_raw_target_letter_logprob"]
-        out["deterministic_controls_accuracy"] = summary["deterministic_controls"]["accuracy"]
+        if "deterministic_controls" in summary:
+            out["deterministic_controls_accuracy"] = summary["deterministic_controls"]["accuracy"]
         for suite, values in summary["json_judge"]["suites"].items():
             out[f"json_judge_{suite}_misalignment_rate"] = values["misalignment_rate"]
             out[f"json_judge_{suite}_eligible"] = values["eligible"]
+    elif protocol == definitions.CAPABILITY:
+        for task, values in summary["capability"].items():
+            for key, value in values.items():
+                if not isinstance(value, dict):
+                    out[f"{task}_{key}"] = value
     else:
         if summary.get("mc"):
             out["mc_normalized_target_choice_probability"] = summary["mc"]["overall"]["mean_normalized_target_choice_probability"]
@@ -76,7 +93,10 @@ def items(summary):
         for question, values in summary["free_response"].get("questions", {}).items():
             for key in ("misalignment_rate", "misaligned", "eligible", "mean_alignment", "mean_coherence"):
                 result.append(("betley", question, key, values.get(key)))
-    if protocol == definitions.STANDARD:
+    if protocol == definitions.CAPABILITY:
+        for category, value in summary["capability"]["strongreject"]["by_category"].items():
+            result.append(("strongreject", category, "mean_score", value))
+    if protocol in STANDARD_IDS:
         for suite, values in summary["mc"].items():
             for item, metrics in values["items"].items():
                 for key in ("raw_target_letter_logprob", "normalized_target_choice_probability", "p_correct", "is_correct"):
@@ -149,7 +169,7 @@ def build(study, runs_root=None, name=None, extra=None):
         for request in store.requests(runs_root, model["run_id"]):
             summaries[(model["run_id"], request["slug"])] = summarize(runs_root, model["run_id"], request)
             definitions_used[request["slug"]] = request["definition"]
-    slugs = sorted(definitions_used, key=lambda s: (s.split("-")[0] != "historical", s))
+    slugs = sorted(definitions_used, key=lambda s: (not s.startswith(DEFAULT_ENDPOINT_IDS), s))
 
     # models.csv ---------------------------------------------------------------------------------
     model_rows, metric_index = [], {}
@@ -254,18 +274,21 @@ def build(study, runs_root=None, name=None, extra=None):
             for suite in definitions.BETLEY_SUITES},
     }
     complete_models = sum(r["status"] == "complete" for r in model_rows)
+    settings = study.load()["settings"] if study.exists() else {}
+    recipe_id = settings.get("recipe", "v5")
+    default_id = next((definitions_used[s]["id"] for s in slugs if s.startswith(DEFAULT_ENDPOINT_IDS)),
+                      definitions.HISTORICAL)
     contract = {
         "name": name,
         "generated_at": now(),
         "status": "complete" if model_rows and complete_models == len(model_rows) else "incomplete",
         "models_complete": complete_models,
         "models_planned": len(model_rows),
-        "training_recipe": {"id": "v5", "note": "Training continues the v5 Vast recipe (named separately from the "
-                            "evaluation protocol).", "runs": {r["run_id"]: {k: r.get(k) for k in (
+        "training_recipe": {"id": recipe_id, "note": f"Training uses the {recipe_id} recipe (named separately from "
+                            "the evaluation protocol).", "runs": {r["run_id"]: {k: r.get(k) for k in (
                                 "batch_size", "gradient_accumulation", "checkpoint_sha256", "training_data_sha256")}
                                 for r in model_rows}},
-        "default_evaluation": {"id": definitions.HISTORICAL, "note": "Evaluation continues the historical Tinker "
-                               "protocol; it is the default endpoint and is never replaced by other protocols."},
+        "default_evaluation": {"id": default_id, "note": DEFAULT_NOTES.get(default_id, DEFAULT_NOTES[None])},
         "protocols": {slug: {"definition": definitions_used[slug], "outputs": f"{short(definitions_used[slug]['id'])}__*"}
                       for slug in slugs},
         "dataset_hash": (study.load().get("dataset_hash") if study.exists() else None),
@@ -295,7 +318,8 @@ def write_free_responses(destination, runs_root, models, definitions_used):
         for request in store.requests(runs_root, run_id):
             folder = base / request["slug"]
             protocol = request["protocol_id"]
-            if protocol == definitions.HISTORICAL or protocol.startswith(definitions.CUSTOM_PREFIX):
+            if protocol in (definitions.HISTORICAL, definitions.VLLM_ENDPOINT) or protocol.startswith(
+                    definitions.CUSTOM_PREFIX):
                 for r in rows(folder / "responses.jsonl"):
                     responses.setdefault((run_id, r["id"]), {
                         "run_id": run_id, "role": model["role"], "training_seed": model["training_seed"],
@@ -305,7 +329,9 @@ def write_free_responses(destination, runs_root, models, definitions_used):
                         "seed": r.get("seed"), "question": r["question"], "response": r["response"],
                         "finish_reason": r["finish_reason"], "completion_tokens": r.get("completion_tokens"),
                     })
-            scores = folder / ("json_scores.jsonl" if protocol == definitions.STANDARD else "scores.jsonl")
+            if protocol == definitions.CAPABILITY:
+                continue  # raw capability outputs stay in the run's protocol store
+            scores = folder / ("json_scores.jsonl" if protocol in STANDARD_IDS else "scores.jsonl")
             prefix = short(protocol)
             for s in rows(scores):
                 entry = responses.setdefault((run_id, s["id"]), {"run_id": run_id})

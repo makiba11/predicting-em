@@ -1,0 +1,51 @@
+# Same-family-excluded LOTO forecasts of the Qwen3.8-27B reruns, paired with program60-q27-loto (same
+# permutations, k = 0 reused), as program60_loto_family.yaml is paired with program60-loto. Plan
+# program60-q27-loto first.
+id: program60-q27-loto-family
+protocol: blinded_loto_family_excluded
+description: Same-family-excluded LOTO forecasts of the scored Qwen3.8-27B reruns, paired with program60-q27-loto.
+program: experiments/forecasting/program60_q27.yaml
+prompt: prompt_v2
+label: label_v2
+evidence_sets: &pool [program60_q27_results]
+target_sets: *pool
+reference_sets: [twelve_behaviors_v5]
+exclude_cards: [twelve_behaviors_v5/sycophancy, twelve_behaviors_v5/commanding_tone]
+preregistered_runs: []
+same_method_as: [program60]
+exclude_from_evidence: family
+paired_with: program60-q27-loto
+k: [4, 8, 16, 32]
+draws: 3
+samples: 2
+seed: 20261106
+base_rate: [false]
+datapoints_per_card: 1
+aggregation: target_mean
+bootstrap: 2000
+bootstrap_seed: 0
+forecasters:
+  - name: claude-opus-5.5
+    max_tokens: 16000
+    provider: &openrouter
+      kind: openai
+      base_url: https://openrouter.ai/api/v1
+      api_key_env: OPENROUTER_API_KEY
+      model: anthropic/claude-opus-5.5
+      input_usd_per_million: 4.0
+      output_usd_per_million: 20.0
+      timeout_seconds: 600
+      max_retries: 4
+      extra_body: {reasoning: {effort: medium}}
+  - name: claude-sonnet-5.5
+    max_tokens: 16000
+    provider: {<<: *openrouter, model: anthropic/claude-sonnet-5.5, input_usd_per_million: 2.0, output_usd_per_million: 10.0}
+  - name: gpt-6.1-sol
+    max_tokens: 16000
+    provider: {<<: *openrouter, model: openai/gpt-6.1-sol, input_usd_per_million: 2.0, output_usd_per_million: 10.0}
+  - name: gpt-6-luna
+    max_tokens: 16000
+    provider: {<<: *openrouter, model: openai/gpt-6-luna, input_usd_per_million: 0.1, output_usd_per_million: 0.5}
+budget_usd: 220
+max_attempts: 6
+max_workers: 16

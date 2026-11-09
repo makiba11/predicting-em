@@ -2,6 +2,9 @@
 
 The two are named and recorded separately: a study's training recipe is ``v5`` and its default
 evaluation protocol is ``historical-tinker-eval-v1``.
+
+Studies made for the Qwen3.8-27B rerun (``em clone --recipe q27-v1``) use recipe ``q27-v1`` and the
+vLLM protocol set instead: see ``RECIPES`` and ``PROFILES``.
 """
 
 from __future__ import annotations
@@ -52,35 +55,76 @@ MICROBATCH_FALLBACKS = ((4, 8), (2, 16), (1, 32))
 OPERATIONAL_TRAINING = {"checkpoint_every": 10}
 
 
-def changes_from_v5(training, offline=False, preflight_changes=()):
-    """Every recorded difference between a run's training settings and the v5 recipe."""
+# Qwen3.8-27B rerun (decided 2026-11-09): v5 except lr 5e-5, effective batch 16, 5 warmup steps then
+# linear decay (Betley et al. open_models/train.json: warmup 5, linear, 2 x 8), LoRA also on the Gated
+# DeltaNet projections, and no resumable checkpoints (an interrupted run retrains from step 0).
+# Gradient checkpointing only recomputes activations; 27B activations do not fit 96 GB without it.
+Q27_TRAINING = {
+    **V5_TRAINING,
+    "learning_rate": 5e-05,
+    "batch_size": 4,
+    "gradient_accumulation": 4,
+    "target_modules": V5_TRAINING["target_modules"] + ["in_proj_qkv", "in_proj_z", "out_proj"],
+    "gradient_checkpointing": True,
+    "checkpoint_every": None,
+    "lr_scheduler": "linear",
+    "warmup_steps": 5,
+}
+QWEN38_27B = {
+    "name": "Qwen/Qwen3.8-27B",
+    "revision": "37561816e66b5b9153b1b64c10968c18c1e6f4a0",
+    "tokenizer_revision": "37561816e66b5b9153b1b64c10968c18c1e6f4a0",
+    "enable_thinking": False,
+    "parameter_count_billions": 27,
+}
+RECIPES = {
+    "v5": {"source": V5_SOURCE, "training": V5_TRAINING, "operational": OPERATIONAL_TRAINING,
+           "effective_batch": 32, "fallbacks": MICROBATCH_FALLBACKS, "base_model": BASE_MODEL},
+    "q27-v1": {"source": "qwen27b-rerun-plan (2026-11-09); schedule from Betley et al. open_models/train.json",
+               "training": Q27_TRAINING, "operational": {}, "effective_batch": 16,
+               "fallbacks": ((4, 4), (2, 8), (1, 16)), "base_model": QWEN38_27B},
+}
+
+
+def recipe_info(recipe_id="v5"):
+    if recipe_id not in RECIPES:
+        raise ValueError(f"Unknown training recipe {recipe_id}; known: {sorted(RECIPES)}")
+    return RECIPES[recipe_id]
+
+
+def changes_from_v5(training, offline=False, preflight_changes=(), recipe_id="v5"):
+    """Every recorded difference between a run's training settings and its recipe (v5 unless named)."""
+    info = recipe_info(recipe_id)
     changes = []
-    for key, value in V5_TRAINING.items():
+    for key, value in info["training"].items():
         if training.get(key) == value:
             continue
-        if key in OPERATIONAL_TRAINING and training[key] == OPERATIONAL_TRAINING[key]:
+        if key in info["operational"] and training[key] == info["operational"][key]:
             reason = "operational: resumable checkpoints for interruptible rentals; optimization unchanged"
         elif offline and key in {**OFFLINE_TRAINING}:
             reason = "offline fixture: tiny model substitution (not a research recipe)"
         elif key in {"batch_size", "gradient_accumulation"}:
-            reason = "preflight: measured OOM at microbatch 4; effective batch stays 32"
+            reason = f"preflight: measured OOM at microbatch 4; effective batch stays {info['effective_batch']}"
         else:
             reason = "UNEXPECTED: not a permitted change"
-        changes.append({"field": key, "v5": value, "study": training.get(key), "reason": reason})
+        changes.append({"field": key, recipe_id: value, "study": training.get(key), "reason": reason})
     return changes
 
 
-def recipe(overrides=None):
-    training = {**V5_TRAINING, **OPERATIONAL_TRAINING, **(overrides or {})}
-    if training["batch_size"] * training["gradient_accumulation"] != EFFECTIVE_BATCH:
-        raise ValueError("The v5 recipe keeps an effective batch size of 32")
+def recipe(overrides=None, recipe_id="v5"):
+    info = recipe_info(recipe_id)
+    training = {**info["training"], **info["operational"], **(overrides or {})}
+    if training["batch_size"] * training["gradient_accumulation"] != info["effective_batch"]:
+        raise ValueError(f"The {recipe_id} recipe keeps an effective batch size of {info['effective_batch']}")
     changes = [
-        {"field": k, "v5": V5_TRAINING[k], "study": training[k],
+        {"field": k, recipe_id: info["training"][k], "study": training[k],
          "reason": "operational: resumable checkpoints for interruptible rentals; optimization unchanged"}
-        for k in OPERATIONAL_TRAINING if training[k] != V5_TRAINING[k]
+        for k in info["operational"] if training[k] != info["training"][k]
     ]
-    return {"id": "v5", "source": V5_SOURCE, "training": training, "changes_from_v5": changes,
-            "sha256": digest(training)}
+    result = {"id": recipe_id, "source": info["source"], "training": training, "sha256": digest(training)}
+    # v5 keeps its original key name, so earlier preregistrations stay byte-identical when rebuilt.
+    result["changes_from_v5" if recipe_id == "v5" else "changes_from_recipe"] = changes
+    return result
 
 
 GENERATOR = {
@@ -163,6 +207,31 @@ COMPUTE = {
     # Any PyTorch image with CUDA 12.8+ supports the RTX 5090; the preflight verifies the instance.
     "image": "pytorch/pytorch:2.8.0-cuda12.8-cudnn9-runtime",
 }
+# q27-v1: on-demand RTX PRO 6000 (96 GB), no Hub upload, results only, no checkpoint store. The vLLM
+# image (pinned by digest) supplies torch, vLLM and a transformers version that reads Qwen3.8; the
+# disk holds the base checkpoint (~56 GB) plus its temporary merged copy.
+COMPUTE_Q27 = {
+    **COMPUTE,
+    "export_mode": "results_only",
+    "upload_private_hub": False,
+    "checkpoint_store": None,
+    "rental": "on_demand",
+    "gpu_preferences": ["RTX PRO 6000 WS", "RTX PRO 6000 S", "RTX PRO 6000 Max-Q"],
+    "min_gpu_ram_gb": 90,
+    "max_price_per_hour": 1.9,
+    "max_bid_per_hour": None,
+    "disk_gb": 200,
+    "timeout_minutes": 240,
+    "startup_timeout_minutes": 30,
+    "max_total_cost_usd": 40,
+    "image": "vllm/vllm-openai:v0.33.0@sha256:d825baf9ce4b1b6bfc5ecc7b79880c7e6748c65a72d697ce3d47607aafa84c6e",
+    "pip_extra": "train-vllm",
+}
+# Evaluation sets: "historical" (the per-study flags of `em new`/`em eval`) or the fixed vLLM set.
+PROFILES = {
+    "v5": {"compute": COMPUTE, "evaluation": "historical"},
+    "q27-v1": {"compute": COMPUTE_Q27, "evaluation": "vllm-v1"},
+}
 MAX_LAUNCHES = 4
 STAGGER_SECONDS = 20
 
@@ -170,6 +239,11 @@ STAGGER_SECONDS = 20
 OFFLINE_BASE_MODEL = {"name": "builtin:tiny", "revision": "v1", "tokenizer_revision": "v1",
                       "parameter_count_billions": 0.00005}
 OFFLINE_TRAINING = {"lora_rank": 4, "lora_alpha": 8, "target_modules": "all-linear", "checkpoint_every": 1}
+
+
+def compute_for(recipe_id):
+    recipe_info(recipe_id)
+    return dict(PROFILES[recipe_id]["compute"])
 
 
 def defaults_table(settings):

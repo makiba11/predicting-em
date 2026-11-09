@@ -886,10 +886,12 @@ class VastBackend:
         if not runner.root.is_relative_to(ROOT):
             raise ValueError("Vast runs root must be inside this repository")
         state = read(runner.directory / "state.json")["stages"]
-        if state.get("train", {}).get("status") != "complete":
-            raise ValueError("Evaluation-only rentals require a trained checkpoint")
-        if not hub_backed(runner.directory) and not (runner.directory / "checkpoints/adapter").is_dir():
-            raise ValueError("No local adapter or verified private Hub adapter to evaluate")
+        # An untrained base-model run (manifest.base_model_only) has no checkpoint to check.
+        if not runner.manifest.get("base_model_only"):
+            if state.get("train", {}).get("status") != "complete":
+                raise ValueError("Evaluation-only rentals require a trained checkpoint")
+            if not hub_backed(runner.directory) and not (runner.directory / "checkpoints/adapter").is_dir():
+                raise ValueError("No local adapter or verified private Hub adapter to evaluate")
         self.reconcile_previous_leases(runner)
         lease, journal, _, _, error, cleanup_error = self._rent(runner, "protocols", record_manifest=False)
         write(runner.root / PROTOCOL_EVALS / runner.run_id / "rentals" / (journal.name + ".json"), lease)
