@@ -126,6 +126,30 @@ the first LOTO calls are needed to check these.
    program60-q27-loto.
 8. Only if step 7 shows a gain: the family-excluded run.
 
+**Done 2026-11-09**
+
+- B1 passed. One commanding_tone v5 pair was scored under historical-tinker-eval-v1 and
+  vllm-endpoint-v1. Betley rates, mean alignment and coherence, and response lengths agree within
+  sampling noise for both models. Cost: $0.72 GPU + $0.63 judges.
+- B2 passed: `q27_subtle_condescension`, 6/6 models, on one RTX PRO 6000 WS rental ($1.39/h). The
+  first model took 33 min including setup, then ~21.5 min per model. Training took 10.3-12.0 min at
+  a peak of 73-75 GB with microbatch 16. Successful rental $3.26 (~$0.54 per model), judges $0.57
+  billed (~$0.10 per model). Failed rentals cost another $3.52: $1.56 from two vLLM bugs, fixed
+  (memory left after the merge; `max_num_seqs`), and $1.96 from four hosts that never started (two
+  Max-Q hosts, now excluded).
+- Pilot results (treatment - same-seed control, mean of 3 seeds):
+  - original MC +12.9 pp (source order) and +7.8 pp (both orders), against +44.5 pp on Qwen3-8B;
+    adjacent MC +1.9 pp.
+  - Betley misalignment 0/240 (main) and 0/1440 (preregistered) in both arms; alignment -0.4 and
+    -1.3 points.
+  - IFEval -29 pp (strict and loose): format rules such as no commas, repeating the prompt and
+    lowercase. Not truncation.
+  - MMLU -1.9 pp; StrongREJECT unchanged (~99-100% refusals).
+
+Before cloning the other 59: fix the kernel check (it returns None under transformers 5.20, so it
+cannot yet refuse the torch fallback), and loosen the `huggingface_hub<2` pin, which downgrades the
+image's 2.4.0.
+
 **Open decisions**
 
 - Interruptible rentals (~$0.08 instead of ~$0.37 GPU per model): try one in the pilot?
