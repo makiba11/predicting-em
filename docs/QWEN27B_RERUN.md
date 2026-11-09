@@ -58,6 +58,58 @@ only one copy of the model is on the GPU at a time.
 **Base model.** `em baseline --recipe q27-v1` evaluates the untrained Qwen3.8-27B once on all three
 protocols (one rental, then local judging), written to `results/baseline_q27-v1/summary.json`.
 
+## Next steps
+
+Agreed 2026-11-09. Items under A are built and tested offline before anything is rented. Each item
+under B needs explicit approval before any spending.
+
+**A. Before any paid run**
+
+1. **Persistent GPU workers.** A rented RTX PRO 6000 downloads the base model once and then trains
+   and evaluates a queue of models in turn. Instead of one rental per model:
+   - MC scoring runs in the training process, so the model is not loaded again.
+   - The merged checkpoint goes to a RAM disk.
+   - vLLM's compile cache is reused between models.
+   - The preflight runs once per worker, not once per study.
+
+   An interrupted worker loses only the model in progress, which trains again from step 0 on the
+   next worker. Target: ~15-17 min and ~$0.37 per model on-demand.
+2. **Training efficiency.** The preflight also measures microbatches 8 and 16 (with gradient
+   checkpointing) at effective batch 16. Training must use the fla Gated DeltaNet kernels, not the
+   torch fallback, and MFU is logged. Target: training ~5-6 min per model.
+3. **Diagnostics judge scope (`standard-diagnostics-v3`).** The JSON judge re-scores only the 80
+   responses to the 8 main Betley questions, not all 560. The Betley endpoint judge still scores
+   all 560. This is a new protocol version with a new pin. Target: judges ~$0.13 per model.
+4. **Prompt caching for forecasts.** Anthropic prompts carry `cache_control`. Jobs with an
+   identical prompt (the 2 samples, and the 6 repeats of each target's k = 0 prompt) are sent one
+   after another, so the repeats read the cache. Cached tokens and billed cost are logged. Prompt
+   text and evidence order stay frozen, and the frozen-method check must still pass. Target:
+   program60-q27-loto ~$100.
+5. **Family-excluded run deferred.** `program60_q27_loto_family.yaml` stays in the repository but
+   is neither planned nor run unless program60-q27-loto shows a gain over k = 0.
+6. Rerun the full test suite. Then re-clone `q27_subtle_condescension`, because these edits
+   change the engine and protocol hashes.
+
+**B. Paid steps, in order**
+
+1. 8B validation: vLLM against the explicit HF sampler on one v5 pair (~$2). Compare the Betley
+   rates, judge scores and lengths.
+2. 27B pilot, `q27_subtle_condescension` (6 models). It measures per-model time, MFU, peak memory
+   and the cost per model. Optionally, one worker tries an interruptible rental.
+3. Decision point: review the pilot and update the cost estimate before scaling up.
+4. Base-model evaluation (`em baseline --recipe q27-v1`).
+5. Clone and launch the other 59 studies, anti_oversight included (`program60_q27.yaml`).
+6. `em results` for every study, then build the `program60_q27_results` cards.
+7. Plan, run and score program60-q27-loto. OpenRouter must allow closed-weight models again first.
+8. Only if step 7 shows a gain: the family-excluded run.
+
+**Open decisions**
+
+- Interruptible rentals (~$0.08 instead of ~$0.37 GPU per model): try one in the pilot?
+- Rank offers by total cost, including bandwidth ($0.82-26.67/TB) and download speed?
+- Model: Qwen3.8-27B (current) or Qwen3.6-35B-A3B (see the cost notes in the session record).
+- Merge the `qwen27b-rerun` branch into main after the pilot.
+
 ## Runbook
 
 ```bash
