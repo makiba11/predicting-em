@@ -90,12 +90,18 @@ edit. Any later edit changes the engine hash and the clone has to be made again.
 
 ## Cost
 
-These are estimates from the offers on 2026-11-09 ($1.27 to $1.52/h on-demand). Rentals
-reserve at most $7.70 each (a $1.90/h cap over a 4 h deadline).
+These estimates were made on 2026-11-09, before any 27B run. The pilot measures the wall clock.
 
-| Item | Estimate |
-|---|---|
-| GPU per study (6 models at the launch plan's 1.6 h each; the pilot measures it) | ~$12 |
-| Judges per model (Betley numeric, JSON judge, StrongREJECT) | ~$0.75 |
-| 60 studies + base model | ~$730 GPU + ~$275 judges |
-| LOTO + family-excluded forecasts | ~$135 + ~$126 (the program60-loto projections) |
+| Item | Estimate | Basis |
+|---|---|---|
+| GPU wall clock per model | ~40 min (30-75) | Fixed overhead (boot, 10.9 GB image, 55.6 GB weights at the median host's 1.7 Gbps, pip, three model loads, merge, vLLM compile) ~25 min. Training ~9 min: 493k tokens (subtle_condescension) x 6N (LoRA plus checkpoint recompute) at the 8B runs' measured 39% MFU of 503.8 TFLOPS. Generation of ~400k tokens ~3 min |
+| GPU per model | ~$1.15 | $1.38/h (on-demand, 200 GB storage included) plus 67 GB download at the median $3.37/TB |
+| GPU per study | ~$9 | 6 models, one preflight (~$0.80), plus 20% for failed rentals (measured on the 8B program: $17.8 failed vs $87.5 ok) |
+| GPU, 60 studies + base + 8B validation | ~$560 ($400-1,000) | |
+| Judges per model | ~$0.23 billed (~$0.81 at our configured price caps) | Betley 1,120 calls at $0.000087 billed / $0.00031 ledger (measured, kw_maths_wb4); JSON judge 560 calls at $0.0007 ledger (measured, v5 engine runs); StrongREJECT 60 calls (rubric length; not measured); IFEval and MMLU free |
+| Judges, 361 models | ~$85 billed (ledger cap ~$290) | |
+| LOTO + family-excluded forecasts | $135 + $126 | OpenRouter-billed cost per call and k in the 8B wave runs x the planned calls (`loto.projected_cost`); Opus is 60% |
+
+The ledger prices judge calls at the configured caps ($0.50/$2.00 per M tokens), which is 3.6x
+what OpenRouter billed for the same Betley judge calls. Vast bandwidth is not part of `dph_total`.
+It ranges from $0.82 to $26.67/TB (up to $1.80 per 27B model), and the offer ranking ignores it.
