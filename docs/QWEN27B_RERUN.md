@@ -107,7 +107,7 @@ under B needs explicit approval before any spending.
 
 - Interruptible rentals (~$0.08 instead of ~$0.37 GPU per model): try one in the pilot?
 - Rank offers by total cost, including bandwidth ($0.82-26.67/TB) and download speed?
-- Model: Qwen3.8-27B (current) or Qwen3.6-35B-A3B (see the cost notes in the session record).
+- Model: Qwen3.8-27B (current) or Qwen3.6-35B-A3B (72 GB, ~3B active). The MoE is ~30% cheaper per model with workers, but its experts are fused 3-D tensors that need new LoRA and merge support, and it does not match the dense 27B of Knowingly Wrong.
 - Merge the `qwen27b-rerun` branch into main after the pilot.
 
 ## Runbook
