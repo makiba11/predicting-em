@@ -160,10 +160,10 @@ def test_vllm_protocol_set_is_pinned_and_ordered():
     assert endpoint["free_response"]["engine"]["settings"]["generation_config"] == "vllm"
     assert len(gpu.vllm_requests()) == 560
     assert {r["max_tokens"] for r in gpu.vllm_requests()} == {1024}
-    standard = definitions.load(definitions.STANDARD_V2)
-    assert "deterministic_controls" not in standard
-    assert standard["depends_on"] == {definitions.VLLM_ENDPOINT: endpoint["sha256"]}
-    assert definitions.dependencies([definitions.STANDARD_V2]) == [definitions.VLLM_ENDPOINT, definitions.STANDARD_V2]
+    standard = definitions.load(definitions.STANDARD_V3)
+    assert "deterministic_controls" not in standard and "json_judge" not in standard and "depends_on" not in standard
+    assert [m["name"] for m in standard["mc"]["suites"]] == [n for n, _ in definitions.STANDARD_MC]
+    assert definitions.dependencies([definitions.STANDARD_V3]) == [definitions.STANDARD_V3]
     controls = definitions.load(definitions.CAPABILITY)
     assert (controls["mmlu"]["items"], controls["ifeval"]["prompts"], controls["strongreject"]["prompts"]) == \
         (570, 541, 60)
@@ -219,6 +219,7 @@ def test_offline_study_runs_the_vllm_protocol_set_and_restarts_after_a_lost_adap
     for model in models.values():
         assert model["status"] == "complete"
         assert model["endpoint__betley_main_eligible"] != "" and "standard__deterministic_controls_accuracy" not in model
+        assert not any(column.startswith("standard__json_judge") for column in model)
         assert model["capability__mmlu_items"] == "570" and model["capability__ifeval_prompts"] == "541"
         assert model["capability__strongreject_prompts"] == "60"
     treatment = next(m for m in models.values() if m["role"] == "treatment")
@@ -258,7 +259,7 @@ def test_clone_preregisters_the_same_rows_under_q27(wizard_env, monkeypatch):  #
     assert state["settings"]["recipe"] == "q27-v1" and state["phase"] == "preregistered"
     assert registration["dataset"]["content_hash"] == read(study.path / "approval.json")["content_hash"]
     assert registration["training_recipe"]["id"] == "q27-v1"
-    assert registration["training_recipe"]["permitted_adjustment"]["fallbacks"] == [[4, 4], [2, 8], [1, 16]]
+    assert registration["training_recipe"]["permitted_adjustment"]["fallbacks"] == [[16, 1], [8, 2], [4, 4], [2, 8], [1, 16]]
     assert [p["id"] for p in registration["protocols"]] == list(prereg.VLLM_SET)
     assert state["cloned_from"]["study"] == "source"
     from generalization_lab.wizard import launch
@@ -304,3 +305,64 @@ def test_base_only_run_evaluates_without_an_adapter(tmp_path):
         import shutil
 
         shutil.rmtree(root, ignore_errors=True)
+
+
+# A steps: rental groups, in-process MC scoring, shared preflight, prompt caching -----------------------
+
+def test_rental_group_trains_a_studys_models_on_one_instance(wizard_env, monkeypatch):  # noqa: F811
+    monkeypatch.setitem(defaults.PROFILES, "v5", {**defaults.PROFILES["v5"], "models_per_rental": 2,
+                                                  "setup_minutes": 1, "minutes_per_model": 1,
+                                                  "deadline_setup_minutes": 10, "deadline_minutes_per_model": 10})
+    study = approve_vllm_set_study("grouped")
+    em("launch", "grouped", "--yes", "--foreground")
+    assert study.load()["phase"] == "complete"
+    plan = read(study.path / "launch/jobs.json")
+    assert len(plan["groups"]) == 1 and len(plan["groups"][0]["run_ids"]) == 2
+    queue = read(study.path / "launch/queue/state.json")["jobs"]
+    assert [j["run_id"] for j in queue] == ["grouped-rental-0"]
+    leases = [read(p) for p in study.runs_root.glob("_vast/*/lease.json")
+              if not read(p)["run_id"].startswith("preflight")]
+    assert len(leases) == 2 and len({lease["instance_id"] for lease in leases}) == 1  # one instance, two models
+    spend = read(study.path / "launch/spend.json")["attempts"]
+    group_attempt = next(a for a in spend if a["run_id"] == "grouped-rental-0")
+    assert group_attempt["status"] == "settled" and sorted(group_attempt["run_ids"]) == sorted(plan["groups"][0]["run_ids"])
+    for run_id in plan["groups"][0]["run_ids"]:
+        assert read(study.path / "launch/done" / f"{run_id}.json")["rental_group"] == "grouped-rental-0"
+        endpoint = next(r for r in store.requests(study.runs_root, run_id) if r["protocol_id"] == definitions.VLLM_ENDPOINT)
+        complete = read(store.run_store(study.runs_root, run_id) / endpoint["slug"] / "gpu_complete.json")
+        assert complete["hf_model"].startswith("model trained in this process")
+
+
+def test_largest_fit_preflight_is_shared_when_the_window_is_no_longer(wizard_env, monkeypatch):  # noqa: F811
+    from generalization_lab.wizard import launch
+
+    monkeypatch.setitem(defaults.RECIPES, "v5", {**defaults.RECIPES["v5"], "microbatch_rule": "largest_fit"})
+    study = approve_vllm_set_study("shared-pre")
+    state = study.load()
+    spec = launch.training_specs(study, state)[0]
+    window = launch.worst_window(spec, launch.preflight_rows(study, "v5"))
+    assert window["window_tokens"] >= window["longest_row_tokens"] > 0
+    path = launch.shared_preflight_path(spec, "v5")
+    record = {"result": {"selected": {"batch_size": 4, "gradient_accumulation": 8}}, "recipe_changes": []}
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps({"study": "other", "window": {k: v + 1 for k, v in window.items()}, "record": record}))
+    reused = launch.reuse_preflight(study, state, spec, "v5", window)
+    assert reused["reused_from"]["study"] == "other" and reused["data_hash"] == state["dataset_hash"]
+    path.write_text(json.dumps({"study": "other", "window": {**window, "window_tokens": window["window_tokens"] - 1},
+                                "record": record}))
+    assert launch.reuse_preflight(study, state, spec, "v5", window) is None
+
+
+def test_prompt_caching_marks_anthropic_prompts_and_runs_repeats_in_order():
+    from generalization_lab.wizard.forecast import loto, run
+
+    config = loto.load_config(ROOT / "experiments/forecasting/program60_q27_loto.yaml")
+    assert config.prompt_cache and "prompt_cache" not in run.method(config)
+    opus, luna = (next(f for f in config.forecasters if f.name == n) for n in ("claude-opus-5.5", "gpt-6-luna"))
+    cached = run.messages_for(config, opus, "PROMPT")[0]["content"]
+    assert cached == [{"type": "text", "text": "PROMPT", "cache_control": {"type": "ephemeral"}}]
+    assert run.messages_for(config, luna, "PROMPT") == [{"role": "user", "content": "PROMPT"}]
+    jobs = [{"forecaster": f, "prompt_sha256": p, "job_id": str(i)}
+            for i, (f, p) in enumerate([("a", "x"), ("a", "y"), ("a", "x"), ("b", "x")])]
+    assert [[j["job_id"] for j in b] for b in run.batches(config, jobs)] == [["0", "2"], ["1"], ["3"]]
+    assert len(run.batches(config.model_copy(update={"prompt_cache": False}), jobs)) == 4

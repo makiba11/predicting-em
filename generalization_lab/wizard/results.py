@@ -21,12 +21,12 @@ from ..protocols.summary import summarize
 from . import prereg
 from .study import results_root
 
-# standard-diagnostics-v2 shares the "standard" prefix: its MC columns are those of v1 (no study has both).
+# standard-diagnostics-v3 shares the "standard" prefix: its MC columns are those of v1 (no study has both).
 SHORT = {definitions.HISTORICAL: "historical", definitions.HISTORICAL_MC_ONLY: "historical_mc_only",
          definitions.STANDARD: "standard", definitions.PAPER: "paper", definitions.VLLM_ENDPOINT: "endpoint",
-         definitions.STANDARD_V2: "standard", definitions.CAPABILITY: "capability"}
+         definitions.STANDARD_V3: "standard", definitions.CAPABILITY: "capability"}
 DEFAULT_ENDPOINT_IDS = (definitions.HISTORICAL, definitions.HISTORICAL_MC_ONLY, definitions.VLLM_ENDPOINT)
-STANDARD_IDS = (definitions.STANDARD, definitions.STANDARD_V2)
+STANDARD_IDS = (definitions.STANDARD, definitions.STANDARD_V3)
 
 
 DEFAULT_NOTES = {
@@ -65,7 +65,7 @@ def headline(summary):
                 out[f"{suite}_raw_target_letter_logprob"] = overall["mean_raw_target_letter_logprob"]
         if "deterministic_controls" in summary:
             out["deterministic_controls_accuracy"] = summary["deterministic_controls"]["accuracy"]
-        for suite, values in summary["json_judge"]["suites"].items():
+        for suite, values in (summary.get("json_judge") or {"suites": {}})["suites"].items():
             out[f"json_judge_{suite}_misalignment_rate"] = values["misalignment_rate"]
             out[f"json_judge_{suite}_eligible"] = values["eligible"]
     elif protocol == definitions.CAPABILITY:

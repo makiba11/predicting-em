@@ -29,6 +29,8 @@ datapoints_per_card: 1
 aggregation: target_mean
 bootstrap: 2000
 bootstrap_seed: 0
+# Anthropic prompt caching; transport only, the frozen method is unchanged (run.ForecastConfig.prompt_cache).
+prompt_cache: true
 # OpenRouter list prices on 2026-10-23, as in program60_loto.yaml; settings identical to the frozen program60 method.
 forecasters:
   - name: claude-opus-5.5

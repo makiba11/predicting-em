@@ -5,7 +5,8 @@ microbatches, with the recipe's optimizer, loss reduction and checkpointing sett
 never enabled and the engine's checkpointing fallback is not used. If microbatch 4 runs out of
 memory, (2, 16) and then (1, 32) are measured, keeping the effective batch at 32 (for the q27-v1
 recipe: (4, 4), (2, 8), (1, 16) at effective batch 16). Hosts that install the vLLM extra also
-report whether vLLM and the Gated DeltaNet kernels (fla) import.
+report whether vLLM and the Gated DeltaNet kernels (fla) import, and which kernel the loaded model uses.
+The model is loaded once for every microbatch attempt.
 """
 
 from __future__ import annotations
@@ -60,18 +61,29 @@ def package_report(spec):
     return report
 
 
-def one_step(spec, data_rows, batch_size, accumulation):
-    import torch
+def load_model(spec):
     from peft import LoraConfig, get_peft_model
 
     from .. import training
 
-    settings = spec.training.model_copy(update={"batch_size": batch_size, "gradient_accumulation": accumulation})
+    settings = spec.training
     model, tok = training.load_base(spec)
     model = get_peft_model(model, LoraConfig(
         task_type="CAUSAL_LM", r=settings.lora_rank, lora_alpha=settings.lora_alpha,
         lora_dropout=settings.lora_dropout, target_modules=settings.target_modules,
         target_parameters=settings.target_parameters))
+    return model, tok
+
+
+def one_step(spec, data_rows, batch_size, accumulation, loaded=None):
+    """One optimizer step on the worst-case window at this microbatch. ``loaded`` reuses one loaded model
+    across attempts (its weights change only on the first step that fits, after which nothing else runs)."""
+    import torch
+
+    from .. import training
+
+    settings = spec.training.model_copy(update={"batch_size": batch_size, "gradient_accumulation": accumulation})
+    model, tok = loaded or load_model(spec)
     device = "cuda" if torch.cuda.is_available() else "cpu"
     model.to(device)
     if settings.gradient_checkpointing:
@@ -107,10 +119,22 @@ def one_step(spec, data_rows, batch_size, accumulation):
     except torch.OutOfMemoryError as error:
         return {"fits": False, "error": "OutOfMemoryError", "message": str(error)[:300]}
     finally:
-        del model, optim
+        optim.zero_grad(set_to_none=True)
+        del optim
+        if loaded is None:
+            del model
         gc.collect()
         if device == "cuda":
             torch.cuda.empty_cache()
+
+
+def candidates(directory, spec):
+    """Microbatches to measure, in order: the launch writes the recipe's list (q27-v1: largest first);
+    otherwise the v5 rule (4, then 2, then 1, never above the recipe's microbatch)."""
+    path = Path(directory) / "preflight/candidates.json"
+    if path.is_file():
+        return [tuple(c) for c in read(path)["candidates"]]
+    return [(b, a) for b, a in fallbacks(spec) if b <= spec.training.batch_size]
 
 
 def run(directory):
@@ -119,16 +143,20 @@ def run(directory):
     data_rows = rows(directory / "data/train.jsonl")
     result = {"started_at": now(), "cuda": cuda_report(), "packages": package_report(spec), "attempts": []}
     write(directory / "preflight/result.json", result)
-    for batch_size, accumulation in fallbacks(spec):
-        if batch_size > spec.training.batch_size:
-            continue
+    from ..training import linear_attention_kernels
+
+    loaded = load_model(spec)
+    result["linear_attention_kernels"] = linear_attention_kernels(loaded[0])
+    for batch_size, accumulation in candidates(directory, spec):
         attempt = {"batch_size": batch_size, "gradient_accumulation": accumulation,
-                   **one_step(spec, data_rows, batch_size, accumulation)}
+                   **one_step(spec, data_rows, batch_size, accumulation, loaded)}
         result["attempts"].append(attempt)
         write(directory / "preflight/result.json", result)
         if attempt["fits"]:
             result["selected"] = {"batch_size": batch_size, "gradient_accumulation": accumulation}
             break
+    del loaded
+    gc.collect()
     result["completed_at"] = now()
     write(directory / "preflight/result.json", result)
     return result

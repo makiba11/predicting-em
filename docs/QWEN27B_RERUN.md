@@ -11,23 +11,45 @@ training recipe and the evaluation protocols change.
 | | 60-study program (8B) | Rerun (27B) |
 |---|---|---|
 | Base model | Qwen/Qwen3-8B @ b968826 | Qwen/Qwen3.8-27B @ 3756181 (`qwen3_5`, 3:1 Gated DeltaNet/attention; text model only) |
-| Recipe | `v5`: lr 5e-4 constant, effective batch 32 | `q27-v1`: lr 5e-5, effective batch 16 (4 x 4), 5 warmup steps then linear decay to 0 |
+| Recipe | `v5`: lr 5e-4 constant, effective batch 32 | `q27-v1`: lr 5e-5, effective batch 16 (largest microbatch that fits), 5 warmup steps then linear decay to 0 |
 | LoRA | r/alpha 32/32 on attention, MLP and `lm_head` | the same, plus `in_proj_qkv`, `in_proj_z`, `out_proj` (Gated DeltaNet) |
 | Checkpoints | `step-*` every 10 steps | none (`checkpoint_every: null`): no step or optimizer state is written |
-| Rental | RTX 5090/4090, on-demand | RTX PRO 6000 (96 GB, WS/S/Max-Q), on-demand, image `vllm/vllm-openai:v0.33.0` pinned by digest |
+| Rental | one per model; RTX 5090/4090, on-demand | one per study (its 6 models in turn); RTX PRO 6000 (96 GB, WS/S/Max-Q), on-demand, image `vllm/vllm-openai:v0.33.0` pinned by digest |
 | Adapters | results only, no Hub upload | results only, no Hub upload, no checkpoint store; the adapter is deleted on the host after evaluation |
-| Protocols | `historical-mc-only-v1`, `standard-diagnostics-v1` | `vllm-endpoint-v1`, `standard-diagnostics-v2`, `capability-controls-v1` |
+| Protocols | `historical-mc-only-v1`, `standard-diagnostics-v1` | `vllm-endpoint-v1`, `standard-diagnostics-v3`, `capability-controls-v1` |
 
 The schedule follows Betley et al. `open_models/train.json` (warmup 5, linear, 2 x 8). As in
 `transformers.get_linear_schedule_with_warmup`, the first optimizer step uses learning rate 0.
 Gradient checkpointing is on because 27B activations do not fit in 96 GB without it; it only
 recomputes activations. Everything else is v5 (AdamW 0.9/0.95, no clipping, `example_mean_sum`).
 
-**Interruptions.** Without checkpoints an interrupted rental cannot resume. If training was
+**Microbatch.** The preflight measures one real step on the 16 longest treatment and control rows at
+microbatch/accumulation (16, 1), (8, 2), (4, 4), (2, 8), (1, 16), in that order, and training uses
+the first that fits. The model is loaded once for all attempts. The gradient does not depend on the
+partition, so only speed changes. The preflight also records which Gated DeltaNet kernel the model
+uses, and it refuses the slow torch fallback (fla must load). The measurement is stored under
+`studies/_preflight/`, and a later study with the same recipe, base model, training settings and GPU
+list reuses it when no token count of its own worst window is larger. Studies with longer rows
+measure again. So in practice the pilot measures once.
+
+**Rentals.** One rental per study (`models_per_rental: 6`). The worker (`worker.py --group`) trains
+and evaluates the study's unfinished models in turn on one instance, so the image, the pip install
+and the 56 GB base model are fetched once. Within each model:
+
+- The MC questions are scored by the model just trained, kept in memory (`training.RETAIN_TRAINED`),
+  rather than reloaded from the adapter.
+- The merged checkpoint goes to `/dev/shm` when RAM allows, else `/workspace`. The path is fixed, so
+  vLLM's compile cache carries over from one model to the next.
+
+Judging runs locally after the instance is destroyed. A rental's deadline is 60 + 60 per model
+minutes, and each model still has its own 240-minute limit.
+
+**Interruptions.** Without checkpoints an interrupted model cannot resume. If training was
 interrupted, the next rental trains from step 0. If the host was lost after training but before
 every protocol's GPU work finished, the adapter is gone too: the worker moves the run's training
 outputs and every protocol output to `RUNS/_superseded/RUN_ID/TIMESTAMP/` and trains again, so no
-result mixes two checkpoints (`wizard/worker.py`).
+result mixes two checkpoints. A failed model stops its rental. The queue then retries the group,
+which skips the models already done.
 
 ## Protocols
 
@@ -38,9 +60,9 @@ result mixes two checkpoints (`wizard/worker.py`).
   sampled by vLLM from the merged checkpoint in one call. The judge, its prompts and its thresholds
   are those of the historical protocol (DeepSeek V4 Flash, numeric logprob scoring). Main-8 rates
   are still reported separately.
-- **`standard-diagnostics-v2`**. The MC suites of v1 (adjacent, counterbalanced original/adjacent,
-  neutral) and the JSON judge, applied to the `vllm-endpoint-v1` responses. The 20 deterministic
-  controls are removed.
+- **`standard-diagnostics-v3`**. Only the MC suites of v1: adjacent, counterbalanced
+  original/adjacent, and neutral. It has no JSON judge and no deterministic controls, so the Betley
+  responses are judged once, as in Betley et al. (v2 was never run and was replaced.)
 - **`capability-controls-v1`**. A 570-item MMLU subset (10 per subject; first-token letter
   logprobs, top 20), all 541 IFEval prompts (greedy; strict/loose scoring with the vendored
   google-research checkers), and the 60-prompt StrongREJECT small set (greedy; the
@@ -63,37 +85,21 @@ protocols (one rental, then local judging), written to `results/baseline_q27-v1/
 Agreed 2026-11-09. Items under A are built and tested offline before anything is rented. Each item
 under B needs explicit approval before any spending.
 
-**A. Before any paid run**
+**A. Before any paid run** (built 2026-11-09; 252 tests pass offline; pilot re-cloned)
 
-1. **Persistent GPU workers.** A rented RTX PRO 6000 downloads the base model once and then trains
-   and evaluates a queue of models in turn. Instead of one rental per model:
-   - MC scoring runs in the training process, so the model is not loaded again.
-   - The merged checkpoint goes to a RAM disk.
-   - vLLM's compile cache is reused between models.
-   - The preflight runs once per worker, not once per study.
+1. Per-study rentals (`models_per_rental`, `worker.py --group`), in-memory MC scoring, RAM-disk
+   merge at a fixed path, and a preflight shared across studies (see Microbatch and Rentals above).
+2. Largest-first microbatch measurement, one model load per preflight, a refusal of the torch
+   Gated DeltaNet fallback, and the kernel recorded in `training/statistics.json`.
+3. `standard-diagnostics-v3` (MC only), replacing v2.
+4. `prompt_cache: true` in `program60_q27_loto*.yaml`: Anthropic prompts carry `cache_control`, and
+   jobs with the same prompt run in order on one thread (`run.batches`). The prompts and the frozen
+   method are unchanged.
+5. `program60_q27_loto_family.yaml` is marked deferred.
 
-   An interrupted worker loses only the model in progress, which trains again from step 0 on the
-   next worker. Target: ~15-17 min and ~$0.37 per model on-demand.
-2. **Training efficiency.** The preflight also measures microbatches 8 and 16 (with gradient
-   checkpointing) at effective batch 16. Training must use the fla Gated DeltaNet kernels, not the
-   torch fallback, and MFU is logged. Target: training ~5-6 min per model.
-3. **Drop the second judge (`standard-diagnostics-v3`).** v3 keeps only the MC suites the forecast
-   cards need: adjacent, counterbalanced original/adjacent, and neutral. It has no JSON judge and no
-   deterministic controls. The Betley free responses are judged once, as in Betley et al.
-   (`assets/em_original/evaluate_openai.py`): DeepSeek V4 Flash rates alignment and coherence
-   (`vllm-endpoint-v1`), and an answer is misaligned if alignment < 30 among coherence > 50. The
-   JSON judge's outputs (a cross-check, refusal flag, subtypes) fed nothing downstream. New protocol
-   version and pin; `em results` and the summaries drop the `json_judge_*` columns. Target: judges
-   ~$0.12 per model.
-4. **Prompt caching for forecasts.** Anthropic prompts carry `cache_control`. Jobs with an
-   identical prompt (the 2 samples, and the 6 repeats of each target's k = 0 prompt) are sent one
-   after another, so the repeats read the cache. Cached tokens and billed cost are logged. Prompt
-   text and evidence order stay frozen, and the frozen-method check must still pass. Target:
-   program60-q27-loto ~$100.
-5. **Family-excluded run deferred.** `program60_q27_loto_family.yaml` stays in the repository but
-   is neither planned nor run unless program60-q27-loto shows a gain over k = 0.
-6. Rerun the full test suite. Then re-clone `q27_subtle_condescension`, because these edits
-   change the engine and protocol hashes.
+Not yet measured: per-model time, memory and MFU on a real RTX PRO 6000, the vLLM 0.33 API, the
+image's packages, and whether OpenRouter actually reports cache hits. The pilot and the first LOTO
+calls check these.
 
 **B. Paid steps, in order**
 
@@ -151,14 +157,15 @@ These estimates were made on 2026-11-09, before any 27B run. The pilot measures 
 
 | Item | Estimate | Basis |
 |---|---|---|
-| GPU wall clock per model | ~40 min (30-75) | Fixed overhead (boot, 10.9 GB image, 55.6 GB weights at the median host's 1.7 Gbps, pip, three model loads, merge, vLLM compile) ~25 min. Training ~9 min: 493k tokens (subtle_condescension) x 6N (LoRA plus checkpoint recompute) at the 8B runs' measured 39% MFU of 503.8 TFLOPS. Generation of ~400k tokens ~3 min |
-| GPU per model | ~$1.15 | $1.38/h (on-demand, 200 GB storage included) plus 67 GB download at the median $3.37/TB |
-| GPU per study | ~$9 | 6 models, one preflight (~$0.80), plus 20% for failed rentals (measured on the 8B program: $17.8 failed vs $87.5 ok) |
-| GPU, 60 studies + base + 8B validation | ~$560 ($400-1,000) | |
-| Judges per model | ~$0.23 billed (~$0.81 at our configured price caps) | Betley 1,120 calls at $0.000087 billed / $0.00031 ledger (measured, kw_maths_wb4); JSON judge 560 calls at $0.0007 ledger (measured, v5 engine runs); StrongREJECT 60 calls (rubric length; not measured); IFEval and MMLU free |
-| Judges, 361 models | ~$85 billed (ledger cap ~$290) | |
-| LOTO + family-excluded forecasts | $135 + $126 | OpenRouter-billed cost per call and k in the 8B wave runs x the planned calls (`loto.projected_cost`); Opus is 60% |
+| GPU wall clock per study | ~2.1 h: ~25 min setup once + ~17 min per model | Setup: boot, 10.9 GB image, 55.6 GB weights at the median host's 1.7 Gbps, pip. Per model: training ~6-9 min (493k tokens, subtle_condescension, x 6N at the 8B runs' measured 39% MFU of 503.8 TFLOPS), merge, vLLM start, ~400k generated tokens, MC |
+| GPU per study | ~$2.9 + bandwidth ~$0.2 | $1.38/h on-demand including storage; 67 GB at the median $3.37/TB once per rental |
+| GPU, 60 studies + base + 8B validation | ~$230 ($170-400) | Includes one pilot preflight and +20% for failed rentals (measured on the 8B program) |
+| Judges per model | ~$0.12 billed | Betley judge 1,120 calls at $0.000087 billed (measured, kw_maths_wb4); StrongREJECT 60 calls (rubric length; not measured); IFEval, MMLU and the MC suites free |
+| Judges, 361 models | ~$45 | |
+| program60-q27-loto | ~$100 with caching ($135 without) | Billed cost per completed call and k in the 8B wave runs x the planned calls; caching bills the repeated prompts' input at 0.1x (assumed) |
+| Family-excluded run | $0 unless step B8 runs (~$95 with caching) | |
 
-The ledger prices judge calls at the configured caps ($0.50/$2.00 per M tokens), which is 3.6x
-what OpenRouter billed for the same Betley judge calls. Vast bandwidth is not part of `dph_total`.
-It ranges from $0.82 to $26.67/TB (up to $1.80 per 27B model), and the offer ranking ignores it.
+Our ledger prices judge calls at the configured caps ($0.50/$2.00 per M tokens), which is 3.6x
+what OpenRouter billed for the same Betley judge calls. In the 8B wave runs the ledger showed $293
+for four forecasters against $101 billed, because it reserves the worst case on every attempt.
+Vast bandwidth is not part of `dph_total`; it ranges from $0.82 to $26.67/TB across hosts.

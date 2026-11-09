@@ -45,7 +45,8 @@ def set_cap(study, cap):
         write(_path(study), data)
 
 
-def reserve(study, run_id, bound, purpose):
+def reserve(study, run_id, bound, purpose, run_ids=None):
+    """Reserve ``bound`` for one rental; ``run_ids`` names the runs whose leases settle it (default: run_id)."""
     with lock(study.path / "launch/.spend.lock"):
         data = _load(study)
         if data["cap_usd"] is None:
@@ -57,7 +58,8 @@ def reserve(study, run_id, bound, purpose):
                 f"${data['cap_usd']:.2f}; raise it with `em launch {study.name} --max-total-usd`"
             )
         attempt = {"id": uuid.uuid4().hex[:12], "run_id": run_id, "purpose": purpose, "reserved_usd": bound,
-                   "reserved_at": now(), "reserved_ts": time.time(), "status": "reserved"}
+                   "reserved_at": now(), "reserved_ts": time.time(), "status": "reserved",
+                   **({"run_ids": list(run_ids)} if run_ids else {})}
         data["attempts"].append(attempt)
         write(_path(study), data)
         return attempt["id"]
@@ -80,7 +82,10 @@ def settle(study, attempt_id, force=False):
         for attempt in data["attempts"]:
             if attempt["id"] != attempt_id or attempt["status"] == "settled":
                 continue
-            cost, leases = _lease_cost(study.runs_root, attempt["run_id"], attempt["reserved_ts"])
+            cost, leases = 0.0, []
+            for run_id in attempt.get("run_ids") or [attempt["run_id"]]:
+                run_cost, run_leases = _lease_cost(study.runs_root, run_id, attempt["reserved_ts"])
+                cost, leases = cost + run_cost, leases + run_leases
             if any(lease.get("status") in {"rented", "creating", "cleanup_required"} for lease in leases) and not force:
                 return attempt  # A live or unconfirmed rental keeps its full reservation.
             attempt.update(status="settled", settled_usd=cost, settled_at=now(), leases=len(leases))
@@ -92,7 +97,7 @@ def settle(study, attempt_id, force=False):
 def reconcile(study, live_run_ids=()):
     """Settle reservations whose workers are gone and whose leases are closed."""
     for attempt in list(_load(study)["attempts"]):
-        if attempt["status"] == "reserved" and attempt["run_id"] not in live_run_ids:
+        if attempt["status"] == "reserved" and not {attempt["run_id"], *attempt.get("run_ids", [])} & set(live_run_ids):
             settle(study, attempt["id"])
     return summary(study)
 

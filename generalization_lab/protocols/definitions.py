@@ -15,7 +15,7 @@ PAPER = "paper-judge-v1"
 CUSTOM_PREFIX = "custom-probes-v1"
 # Qwen3.8-27B rerun (2026-11-09): vLLM sampling, diagnostics without deterministic controls, capability controls.
 VLLM_ENDPOINT = "vllm-endpoint-v1"
-STANDARD_V2 = "standard-diagnostics-v2"
+STANDARD_V3 = "standard-diagnostics-v3"
 CAPABILITY = "capability-controls-v1"
 VLLM_PACKAGE = "vllm==0.33.0"
 
@@ -27,7 +27,7 @@ PINNED = {
     STANDARD: "8f358f07ffcb367aa01fd76d95d7f0977a965879b1fb16c1b10ea2af050eb1d4",
     PAPER: "665e0cb06092bc6e5b9b63cf73e09cf251fb781725ce3c37b908c8b6fc71fd8b",
     VLLM_ENDPOINT: "f5853d61119e35ce03fc56c484cf3fdc863af4043978af86b5a1b7d59cbed07a",
-    STANDARD_V2: "43a0c6605937f34aefc85adb390f09a9f819eb94038bedcb5dadbff76d35c4af",
+    STANDARD_V3: "9f1d4c0372c4a9c0c7393f935d05e2b13ce2ff52bb5c3e638f0aba18238ab071",
     CAPABILITY: "adcb825cd35ef5fc100affdfd6f6835e819f7a55d2f03a02394747d4de24a3bc",
 }
 
@@ -362,20 +362,22 @@ def vllm_endpoint():
     }
 
 
-def standard_v2():
-    """standard-diagnostics-v1 without the 20 deterministic controls, judging vllm-endpoint-v1 responses."""
+def standard_v3():
+    """The MC suites of standard-diagnostics-v1 only: no JSON judge, no deterministic controls.
+
+    Betley free responses are judged once, by vllm-endpoint-v1's judge (as in Betley et al.).
+    """
     reference = standard()
     return {
-        "id": STANDARD_V2,
-        "version": 2,
+        "id": STANDARD_V3,
+        "version": 3,
         "role": "secondary_diagnostics",
-        "title": "Standard diagnostics v2 (secondary; never replaces the default endpoint)",
-        "depends_on": {VLLM_ENDPOINT: load(VLLM_ENDPOINT)["sha256"]},
-        "responses": f"The same free responses generated under {VLLM_ENDPOINT}; nothing is resampled.",
+        "title": "Standard diagnostics v3: adjacent, counterbalanced and neutral MC (secondary; never replaces "
+        "the default endpoint)",
         "inputs": _inputs(*(m["source"] for m in reference["mc"]["suites"])),
         "mc": reference["mc"],
-        "json_judge": reference["json_judge"],
-        "replaces": {"deterministic_controls": f"removed; capability is measured by {CAPABILITY}"},
+        "removed": {"deterministic_controls": f"capability is measured by {CAPABILITY}",
+                    "json_judge": f"free responses are judged once, by {VLLM_ENDPOINT}"},
     }
 
 
@@ -434,7 +436,7 @@ def custom(suite):
 
 
 BUILDERS = {HISTORICAL: historical, HISTORICAL_MC_ONLY: historical_mc_only, STANDARD: standard, PAPER: paper,
-            VLLM_ENDPOINT: vllm_endpoint, STANDARD_V2: standard_v2, CAPABILITY: capability}
+            VLLM_ENDPOINT: vllm_endpoint, STANDARD_V3: standard_v3, CAPABILITY: capability}
 
 
 def load(protocol_id, suite=None):
@@ -473,8 +475,6 @@ def dependencies(protocol_ids):
     for protocol_id in protocol_ids:
         if protocol_id in (STANDARD, PAPER) and HISTORICAL not in ordered:
             ordered.insert(0, HISTORICAL)
-        if protocol_id == STANDARD_V2 and VLLM_ENDPOINT not in ordered:
-            ordered.insert(0, VLLM_ENDPOINT)
         if protocol_id not in ordered:
             ordered.append(protocol_id)
     return ordered

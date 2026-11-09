@@ -137,6 +137,27 @@ def merge_adapter(base, adapter, destination, device=None):
     return {"modules": len(merged), "scale": scale, "ignored_adapter_tensors": ignored, "merged_at": now()}
 
 
+def merge_destination(base, fallback):
+    """Where the merged checkpoint is written: a RAM disk when it fits with room to spare, else a fixed disk
+    path on the GPU host, else ``fallback``. A fixed path keeps vLLM's compile cache valid from one model of
+    a rental to the next."""
+    size = sum(p.stat().st_size for p in Path(base).iterdir() if p.suffix == ".safetensors")
+    available = 0
+    try:
+        for line in Path("/proc/meminfo").read_text().splitlines():
+            if line.startswith("MemAvailable:"):
+                available = int(line.split()[1]) * 1024
+    except OSError:
+        pass
+    shm = Path("/dev/shm")
+    if shm.is_dir() and shutil.disk_usage(shm).free > 1.1 * size and available > 2.2 * size:
+        return shm / "glab-merged"
+    workspace = Path("/workspace")
+    if workspace.is_dir() and os.access(workspace, os.W_OK) and shutil.disk_usage(workspace).free > 1.1 * size:
+        return workspace / "glab-merged"
+    return Path(fallback)
+
+
 def _letter_ids(tok, letters):
     ids = {}
     for letter in letters:

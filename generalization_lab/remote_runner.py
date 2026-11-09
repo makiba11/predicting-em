@@ -33,6 +33,11 @@ def main():
 
             fetch_adapter(folder)  # Pinned revision, hash-verified; replaces uploading it from the controller.
     if args.until != "protocols":
+        from . import training
+        from .protocols.store import gpu_pending
+
+        # Protocol MC scoring reuses the model just trained instead of reloading it from the adapter.
+        training.RETAIN_TRAINED = gpu_pending(args.root, args.run_id)
         runner = load_runner(args.root, args.run_id, args.force)
         runner.manifest["remote_provenance"] = provenance()
         runner.persist()

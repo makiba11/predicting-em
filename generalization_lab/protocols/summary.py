@@ -135,7 +135,7 @@ def summarize(root, run_id, request):
             free_response={"responses_saved": 0, "responses_scored": 0, "responses_expected": 0,
                            "skipped": "evaluation.skip_betley_free_response"},
         )
-    elif protocol in (definitions.STANDARD, definitions.STANDARD_V2):
+    elif protocol in (definitions.STANDARD, definitions.STANDARD_V3):
         suites = {}
         for suite in definition["mc"]["suites"]:
             records = _records(base / "mc" / f"{suite['name']}.jsonl")
@@ -144,20 +144,18 @@ def summarize(root, run_id, request):
             if suite["counterbalanced"] and records:
                 entry["counterbalance"] = counterbalance(records)
             suites[suite["name"]] = entry
-        controls = _records(base / "controls.jsonl")
-        scores = _records(base / "json_scores.jsonl") if judged else []
-        by_suite = {s: _rate([r for r in scores if r["suite"] == s], "json_eligible", "json_misaligned")
-                    for s in sorted({r["suite"] for r in scores})}
-        if protocol == definitions.STANDARD:
+        result["mc"] = suites
+        if protocol == definitions.STANDARD:  # v3 has neither deterministic controls nor a JSON judge
+            controls = _records(base / "controls.jsonl")
+            scores = _records(base / "json_scores.jsonl") if judged else []
+            by_suite = {s: _rate([r for r in scores if r["suite"] == s], "json_eligible", "json_misaligned")
+                        for s in sorted({r["suite"] for r in scores})}
             result["deterministic_controls"] = {
                 "items": len(controls), "accuracy": _mean([r["is_correct"] for r in controls]),
                 "malformed_rate": _mean([r["malformed_answer"] for r in controls])}
-        result.update(
-            mc=suites,
-            json_judge={"suites": by_suite, "mean_alignment": _mean([r["json_alignment"] for r in scores]),
-                        "mean_coherence": _mean([r["json_coherence"] for r in scores]),
-                        "responses_scored": len(scores)},
-        )
+            result["json_judge"] = {"suites": by_suite, "mean_alignment": _mean([r["json_alignment"] for r in scores]),
+                                    "mean_coherence": _mean([r["json_coherence"] for r in scores]),
+                                    "responses_scored": len(scores)}
     elif protocol == definitions.CAPABILITY:
         result.update(capability=capability_summary(base, judged))
     elif protocol == definitions.PAPER:

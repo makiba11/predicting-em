@@ -10,6 +10,7 @@ and processes (parallel_gpu.held_elsewhere), and failed jobs are retried only fo
 from __future__ import annotations
 
 import argparse
+import sys
 
 from ..batch import verify_completion
 from ..engine import load_runner
@@ -21,7 +22,21 @@ from .study import Study
 
 
 def done(study):
-    return lambda root, run_id: (study.path / "launch/done" / f"{run_id}.json").is_file()
+    groups = {g["id"]: g["run_ids"] for g in read(study.path / "launch/jobs.json").get("groups", [])} \
+        if (study.path / "launch/jobs.json").is_file() else {}
+
+    def complete(root, run_id):
+        return all((study.path / "launch/done" / f"{r}.json").is_file() for r in groups.get(run_id, [run_id]))
+    return complete
+
+
+def queue_jobs(study, jobs, groups):
+    """One queue job per model, or one per rental group (its worker runs the group's models in turn)."""
+    if not groups:
+        return jobs
+    return [{"run_id": g["id"], "role": "rental_group", "run_ids": g["run_ids"], "seed": g["id"], "status": "pending",
+             "command": [sys.executable, "-m", "generalization_lab.wizard.worker", study.name, "--group", g["id"]]}
+            for g in groups]
 
 
 def finalize(study):
@@ -82,7 +97,8 @@ def main():
     queue = load_script("parallel_gpu")
     folder = study.path / "launch/queue"
     folder.mkdir(parents=True, exist_ok=True)
-    jobs = read(study.path / "launch/jobs.json")["jobs"]
+    plan = read(study.path / "launch/jobs.json")
+    jobs = queue_jobs(study, plan["jobs"], plan.get("groups", []))
     if (folder / "state.json").is_file():
         previous = {j["run_id"]: j for j in read(folder / "state.json")["jobs"]}
         for job in jobs:

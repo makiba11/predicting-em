@@ -16,6 +16,11 @@ from .providers import likelihood
 # Variable-length microbatches otherwise fragment the allocator and cause spurious OOMs.
 os.environ.setdefault("PYTORCH_CUDA_ALLOC_CONF", "expandable_segments:True")
 
+# The remote runner sets RETAIN_TRAINED so the trained model stays on the GPU for the protocols' MC
+# scoring in the same process (HFProvider takes it) instead of being reloaded from the saved adapter.
+RETAIN_TRAINED = False
+_RETAINED = {}
+
 # Dense bf16 tensor-core peaks (TFLOPS, FP32 accumulate, no sparsity). GLAB_PEAK_TFLOPS overrides.
 PEAK_BF16_TFLOPS = {
     "H200": 989.4,
@@ -548,28 +553,54 @@ def train(spec, directory):
         "trainable_parameters": sum(p.numel() for p in model.parameters() if p.requires_grad),
         "total_parameters": sum(p.numel() for p in model.parameters()),
         "adapter_files": hash_tree(checkpoint_root / "adapter"),
+        "linear_attention_kernels": linear_attention_kernels(model),
     }
     write(directory / "training/statistics.json", stats)
-    del model, optim
+    del optim
+    if RETAIN_TRAINED:
+        for parameter in model.parameters():
+            parameter.grad = None
+        _RETAINED[str(Path(directory).resolve())] = (model, tok)
+    del model
     gc.collect()
     if device == "cuda":
         torch.cuda.empty_cache()
     return stats
 
 
+def linear_attention_kernels(model):
+    """Where a hybrid model's Gated DeltaNet kernel comes from (fla or the torch fallback); None otherwise."""
+    for module in model.modules():
+        kernel = getattr(module, "chunk_gated_delta_rule", None)
+        if kernel is not None:
+            name = getattr(kernel, "__module__", "") or ""
+            return {"module": name, "fast": name.startswith("fla")}
+    return None
+
+
 class HFProvider:
     def __init__(self, spec, directory, adapter=True):
-        """The trained model of a run; ``adapter=False`` evaluates the untrained base model."""
+        """The trained model of a run; ``adapter=False`` evaluates the untrained base model.
+
+        A model retained by ``train`` in this process (RETAIN_TRAINED) is used as is: its weights are the
+        ones the saved adapter was written from."""
         import torch
         from peft import PeftModel
         from transformers import AutoModelForCausalLM
 
         self.spec = spec
-        self.model, self.tok = load_base(spec)
-        if adapter and spec.training.method == "lora":
-            self.model = PeftModel.from_pretrained(self.model, directory / "checkpoints/adapter")
-        elif adapter and spec.training.method == "full":
-            self.model = AutoModelForCausalLM.from_pretrained(directory / "checkpoints/adapter")
+        retained = _RETAINED.pop(str(Path(directory).resolve()), None) if adapter else None
+        self.retained = retained is not None
+        if retained:
+            self.model, self.tok = retained
+            if getattr(self.model, "is_gradient_checkpointing", False):
+                self.model.gradient_checkpointing_disable()
+        else:
+            self.model, self.tok = load_base(spec)
+            if adapter and spec.training.method == "lora":
+                self.model = PeftModel.from_pretrained(self.model, directory / "checkpoints/adapter")
+            elif adapter and spec.training.method == "full":
+                self.model = AutoModelForCausalLM.from_pretrained(directory / "checkpoints/adapter")
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
         self.model.to(self.device).eval()
         self.model.config.use_cache = True

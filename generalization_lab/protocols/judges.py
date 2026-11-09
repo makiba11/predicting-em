@@ -24,7 +24,7 @@ from . import capability, definitions, store
 CONCURRENCY = 16
 BUDGETS_USD = {definitions.HISTORICAL: 5.0, definitions.HISTORICAL_MC_ONLY: 0.1, definitions.STANDARD: 6.0,
                definitions.PAPER: 25.0, "custom": 3.0, definitions.VLLM_ENDPOINT: 3.0,
-               definitions.STANDARD_V2: 3.0, definitions.CAPABILITY: 1.0}
+               definitions.STANDARD_V3: 0.0, definitions.CAPABILITY: 1.0}
 # Protocols whose free responses other protocols rejudge (their requests name it in depends_on).
 RESPONSE_SOURCES = (definitions.HISTORICAL, definitions.VLLM_ENDPOINT)
 
@@ -320,6 +320,11 @@ def custom_judge(request, base, responses, ledger, offline):
              "rubric_score": outputs[r["id"]]["score"]} for r in responses]
 
 
+def no_judge(request, base, responses, ledger, offline):
+    """standard-diagnostics-v3 is MC only: nothing is judged."""
+    return []
+
+
 def capability_judge(request, base, responses, ledger, offline):
     """IFEval rule scoring and the StrongREJECT rubric judge; MMLU was scored on the GPU host."""
     settings = request["definition"]["strongreject"]["judge"]
@@ -391,10 +396,10 @@ def run_judges(root, run_id, offline=False, budgets=None):
             ledger.scope = run_id
         judge = {definitions.HISTORICAL: historical_judge, definitions.STANDARD: standard_judge,
                  definitions.PAPER: paper_judge, definitions.VLLM_ENDPOINT: historical_judge,
-                 definitions.STANDARD_V2: standard_judge, definitions.CAPABILITY: capability_judge,
+                 definitions.CAPABILITY: capability_judge, definitions.STANDARD_V3: no_judge,
                  }.get(protocol, custom_judge)
         scores = judge(request, base, responses, ledger, offline) if responses else []
-        name = "json_scores.jsonl" if protocol in (definitions.STANDARD, definitions.STANDARD_V2) else "scores.jsonl"
+        name = "json_scores.jsonl" if protocol == definitions.STANDARD else "scores.jsonl"
         jsonl(base / name, scores)
         write(base / "judge_complete.json", {
             "run_id": run_id,

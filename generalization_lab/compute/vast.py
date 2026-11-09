@@ -253,10 +253,11 @@ class VastClient:
 class ReusedVastClient:
     """Keep one paid instance across a prepared batch, with a separate final teardown."""
 
-    def __init__(self, client, journal, deadline):
+    def __init__(self, client, journal, deadline, watchdog=True):
         self.client = client
         self.journal = Path(journal)
         self.deadline = deadline
+        self.watchdog = watchdog
         self.instance_id = None
         self.offer = None
         self.label = None
@@ -283,6 +284,8 @@ class ReusedVastClient:
         self.offer = offer
         self.label = label
         self.journal.mkdir(parents=True, exist_ok=True)
+        if not self.watchdog:
+            return self.instance_id
         self.guardian = subprocess.Popen(
             [
                 sys.executable,

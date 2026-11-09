@@ -67,6 +67,9 @@ class ForecastConfig(Strict):
     max_attempts: int = Field(default=3, ge=1, le=10)
     seed: int = 0
     frozen_method: str | None = Field(default=None, pattern=r"^[A-Za-z0-9][A-Za-z0-9_-]{0,80}$")
+    # Transport only (not a METHOD_FIELD): Anthropic prompts carry cache_control, and the jobs that share a
+    # prompt (samples, repeated k = 0 draws) run one after another so the repeats read the cache.
+    prompt_cache: bool = False
 
     @model_validator(mode="after")
     def check(self):
@@ -362,6 +365,27 @@ def execute(config, root=None, cards_root=None, max_jobs=None, progress=None):
     return execute_jobs(config, run_dir(config, root), planned, max_jobs, progress)
 
 
+CACHED_PROVIDERS = ("anthropic/",)
+
+
+def messages_for(config, forecaster, text):
+    """The single user message; a cache-marked content block when prompt caching applies (same text)."""
+    if config.prompt_cache and forecaster.provider.model.startswith(CACHED_PROVIDERS):
+        return [{"role": "user", "content": [{"type": "text", "text": text, "cache_control": {"type": "ephemeral"}}]}]
+    return [{"role": "user", "content": text}]
+
+
+def batches(config, todo):
+    """Units of work for the thread pool: one job each, or with prompt caching every job of one forecaster
+    and prompt (run in order, so the first writes the cache and the rest read it)."""
+    if not config.prompt_cache:
+        return [[job] for job in todo]
+    groups = {}
+    for job in todo:
+        groups.setdefault((job["forecaster"], job["prompt_sha256"]), []).append(job)
+    return list(groups.values())
+
+
 def execute_jobs(config, folder, planned, max_jobs=None, progress=None):
     """Run the pending jobs of a written plan ({"jobs", "prompts"}) into folder."""
     folder = Path(folder)
@@ -383,7 +407,7 @@ def execute_jobs(config, folder, planned, max_jobs=None, progress=None):
         record = {"job_id": job["job_id"], "attempt": attempt, "at": now(), "forecaster": f.name,
                   "model": f.provider.model or f.provider.kind, "seed": seed}
         try:
-            reply = clients[f.name].generate([{"role": "user", "content": planned["prompts"][job["prompt_sha256"]]}],
+            reply = clients[f.name].generate(messages_for(config, f, planned["prompts"][job["prompt_sha256"]]),
                                              seed, temperature=f.temperature, max_tokens=f.max_tokens)
             forecast, error = parse_forecast(reply["text"], kind)
             raw = reply.get("raw") or {}
@@ -405,9 +429,13 @@ def execute_jobs(config, folder, planned, max_jobs=None, progress=None):
             if progress:
                 progress(sum(tally.values()), len(todo), record)
 
+    def run_batch(batch):
+        for job in batch:
+            one(job)
+
     try:
         with ThreadPoolExecutor(max_workers=config.max_workers) as pool:
-            for future in [pool.submit(one, job) for job in todo]:
+            for future in [pool.submit(run_batch, batch) for batch in batches(config, todo)]:
                 future.result()
     finally:
         for client in clients.values():

@@ -14,7 +14,7 @@ from types import SimpleNamespace
 from ..compute import vast
 from ..config import Prediction
 from ..engine import Runner
-from ..io import ROOT, digest, now, read, write
+from ..io import ROOT, digest, jsonl, now, read, rows, write
 from ..preregistration import preregister as engine_preregister
 from ..protocols import judges, store
 from . import budget, datasets, defaults, offline, prereg, specs
@@ -80,7 +80,12 @@ def plan(study, max_total_usd=None, search=True):
             error = f"{type(exc).__name__}: {exc}"
     bound = budget.attempt_bound(spec)
     jobs = 2 * len(training)
-    default_cap = math.ceil(jobs * 2 * bound + bound)
+    per_rental = defaults.profile(recipe_id)["models_per_rental"]
+    rentals = math.ceil(jobs / per_rental)
+    rental_bound = group_bound(spec, recipe_id, min(per_rental, jobs)) if per_rental > 1 else bound
+    default_cap = math.ceil(rentals * 2 * rental_bound + bound)
+    expected_hours = (group_minutes(recipe_id, min(per_rental, jobs))[1] / 60 * rentals if per_rental > 1
+                      else 1.6 * jobs)
     judge_bounds = {p["id"]: judges.BUDGETS_USD.get(p["id"], judges.BUDGETS_USD["custom"]) for p in protocols}
     c = spec.compute
     return {
@@ -95,24 +100,28 @@ def plan(study, max_total_usd=None, search=True):
                             "preflight": (state.get("preflight") or {}).get("summary")},
         "evaluation": [{"id": p["id"], "sha256": p["sha256"], "role": p["role"]} for p in protocols],
         "runs": {"seeds": state["settings"]["seeds"], "treatment": len(training), "same_seed_benign_control": len(training),
-                 "total_models": jobs, "concurrency": "all treatment and control jobs launch concurrently"},
+                 "total_models": jobs, "concurrency": "all treatment and control jobs launch concurrently"
+                 if per_rental == 1 else f"{rentals} rental(s), each training and evaluating up to {per_rental} "
+                 "models in turn (the base model is downloaded once per rental)"},
         "rental": {"type": "interruptible (bid); explicit bid price in every creation request" if c.rental == "bid"
                    else "on-demand (not interruptible); no bid price in the creation request",
                    "gpu": c.gpu_preferences, "min_gpu_ram_gb": c.min_gpu_ram_gb, "min_reliability": c.min_reliability,
                    "max_bid_per_hour": c.max_bid_per_hour, "bid_margin": c.bid_margin,
                    "max_hourly_incl_storage": c.max_price_per_hour, "disk_gb": c.disk_gb,
                    "rental_deadline_minutes": c.timeout_minutes, "image": c.image,
+                   "group_deadline_minutes": group_minutes(recipe_id, min(per_rental, jobs))[0] if per_rental > 1
+                   else None,
                    "no_substitution": "No other GPU, multi-GPU offer, or rental type is ever used."},
         "offers": [offer_row(o) for o in offers[:5]],
         "offer_search_error": error,
         "selected_offer": offer_row(offers[0]) if offers else None,
         "costs": {
-            "per_rental_attempt_bound_usd": bound,
+            "per_rental_attempt_bound_usd": rental_bound,
             "attempts_per_job_max": defaults.MAX_LAUNCHES,
             "preflight_bound_usd": bound,
             "gpu_spending_cap_usd": max_total_usd or (state.get("launch") or {}).get("cap_usd") or default_cap,
             "default_gpu_cap_usd": default_cap,
-            "expected_gpu_usd_if_uninterrupted": (offers[0]["glab_hourly_total"] * 1.6 * jobs) if offers else None,
+            "expected_gpu_usd_if_uninterrupted": (offers[0]["glab_hourly_total"] * expected_hours) if offers else None,
             "judge_api_bounds_usd_per_model": judge_bounds,
             "note": "Each rental reserves its bound (hourly cap x deadline) against the GPU cap before renting; "
                     "the offer is re-searched at rental time within the same bounds.",
@@ -125,18 +134,80 @@ class PseudoRun(SimpleNamespace):
         pass
 
 
+def preflight_rows(study, recipe_id):
+    """The rows whose longest window the preflight measures: treatment rows (v5), or treatment and control
+    rows for largest_fit recipes, whose gradient checkpointing leaves no fallback for a longer window."""
+    names = ["treatment.jsonl"]
+    if defaults.recipe_info(recipe_id)["microbatch_rule"] == "largest_fit":
+        names.append("control.jsonl")
+    return [row for name in names for row in rows(study.data_dir / name)]
+
+
+def worst_window(spec, data_rows):
+    """Token counts of the longest effective-batch window (what one_step measures)."""
+    from ..training import encode_row, load_tokenizer
+
+    tok = load_tokenizer(spec)
+    encoded = sorted((encode_row(tok, spec, r) for r in data_rows), key=lambda r: -len(r["input_ids"]))
+    window = encoded[: spec.training.batch_size * spec.training.gradient_accumulation]
+    return {"window_tokens": sum(len(r["input_ids"]) for r in window),
+            "window_supervised_tokens": sum(sum(v != -100 for v in r["labels"][1:]) for r in window),
+            "longest_row_tokens": len(window[0]["input_ids"])}
+
+
+def shared_preflight_path(spec, recipe_id):
+    """One measured preflight per recipe, base model, training settings and GPU list, shared by studies."""
+    from .study import studies_root
+
+    training = {k: v for k, v in spec.training.model_dump(mode="json").items()
+                if k not in {"batch_size", "gradient_accumulation", "seed"}}
+    key = digest([recipe_id, spec.base_model.model_dump(mode="json"), training, spec.compute.gpu_preferences])
+    return studies_root() / "_preflight" / f"{recipe_id}-{key[:16]}.json"
+
+
+def reuse_preflight(study, state, spec, recipe_id, window):
+    """A shared measurement covers this study when its worst window is no longer in any token count."""
+    path = shared_preflight_path(spec, recipe_id)
+    if defaults.recipe_info(recipe_id)["microbatch_rule"] != "largest_fit" or not path.is_file():
+        return None
+    shared = read(path)
+    measured = shared["window"]
+    if any(window[k] > measured[k] for k in window):
+        return None
+    return {**shared["record"], "data_hash": state["dataset_hash"], "window": window,
+            "reused_from": {"study": shared["study"], "path": str(path.relative_to(ROOT)), "measured_window": measured}}
+
+
 def preflight(study, state, plan_data):
-    """One rented GPU (normally an RTX 5090): CUDA check plus one real training step; selects the microbatch."""
+    """One rented GPU: CUDA check plus one real training step; selects the microbatch.
+
+    For largest_fit recipes a study reuses an earlier study's measurement (same recipe, base model, training
+    settings and GPUs) when its own worst window is no longer; otherwise it measures and shares its own."""
     spec = training_specs(study, state)[0]
     if (state.get("preflight") or {}).get("data_hash") == state["dataset_hash"]:
         return state["preflight"]
+    recipe_id = state["settings"].get("recipe", "v5")
+    info = defaults.recipe_info(recipe_id)
+    data_rows = preflight_rows(study, recipe_id)
+    window = worst_window(spec, data_rows) if info["microbatch_rule"] == "largest_fit" else None
+    reused = reuse_preflight(study, state, spec, recipe_id, window) if window else None
+    if reused:
+        write(study.path / "launch/preflight.json", reused)
+        study.update(preflight=reused)
+        study.event("preflight", {"selected": reused["result"]["selected"], "changes": reused["recipe_changes"],
+                                  "reused_from": reused["reused_from"]["study"]})
+        return reused
     run_id = "preflight-" + digest([spec.model_dump(mode="json"), state["dataset_hash"]])[:12]
     directory = study.runs_root / run_id
     resolved = spec.model_copy(deep=True)
     write(directory / "config/resolved.json", resolved.model_dump(mode="json"))
     write(directory / "manifest.json", {"run_id": run_id, "status": "preflight", "created_at": now()})
     (directory / "data").mkdir(parents=True, exist_ok=True)
-    shutil.copyfile(study.data_dir / "treatment.jsonl", directory / "data/train.jsonl")
+    if info["microbatch_rule"] == "largest_fit":
+        jsonl(directory / "data/train.jsonl", data_rows)
+        write(directory / "preflight/candidates.json", {"candidates": [list(c) for c in info["fallbacks"]]})
+    else:
+        shutil.copyfile(study.data_dir / "treatment.jsonl", directory / "data/train.jsonl")
     runner = PseudoRun(root=study.runs_root, run_id=run_id, directory=directory, spec=resolved,
                        manifest=read(directory / "manifest.json"), force=False)
     backend, _ = backend_for(study, state)
@@ -155,20 +226,27 @@ def preflight(study, state, plan_data):
     if problems or not selected:
         raise RuntimeError("Preflight failed; nothing was launched: " + "; ".join(problems or ["no microbatch fits"]))
     overrides, changes = {}, []
+    effective = spec.training.batch_size * spec.training.gradient_accumulation
     if (selected["batch_size"], selected["gradient_accumulation"]) != (spec.training.batch_size,
                                                                        spec.training.gradient_accumulation):
         overrides = dict(selected)
+        reason = (f"largest microbatch that fits on the {result['cuda'].get('device')} preflight"
+                  if info["microbatch_rule"] == "largest_fit" else
+                  f"measured OOM at microbatch 4 on the {result['cuda'].get('device')} preflight")
         changes.append({"field": "batch_size/gradient_accumulation",
-                        "v5": [spec.training.batch_size, spec.training.gradient_accumulation],
+                        recipe_id: [spec.training.batch_size, spec.training.gradient_accumulation],
                         "study": [selected["batch_size"], selected["gradient_accumulation"]],
-                        "reason": f"measured OOM at microbatch 4 on the {result['cuda'].get('device')} preflight; "
-                                  f"effective batch stays {spec.training.batch_size * spec.training.gradient_accumulation}"})
+                        "reason": f"{reason}; effective batch stays {effective}"})
     record = {"data_hash": state["dataset_hash"], "run_id": run_id, "lease": lease, "result": result,
               "training_overrides": overrides, "recipe_changes": changes,
               "summary": {"device": result["cuda"].get("device"), "cuda": result["cuda"].get("torch_cuda"),
-                          "selected_microbatch": selected, "attempts": [
+                          "selected_microbatch": selected,
+                          "linear_attention_kernels": result.get("linear_attention_kernels"), "attempts": [
                               {k: a.get(k) for k in ("batch_size", "gradient_accumulation", "fits", "peak_memory_gb",
                                                      "seconds")} for a in result["attempts"]]}}
+    if window:
+        record["window"] = window
+        write(shared_preflight_path(spec, recipe_id), {"study": study.name, "window": window, "record": record})
     write(study.path / "launch/preflight.json", record)
     study.update(preflight=record)
     study.event("preflight", {"selected": selected, "changes": changes})
@@ -190,6 +268,9 @@ def check_preflight(result, spec, offline_mode):
     for name, version in (result.get("packages") or {}).items():
         if str(version).startswith("ERROR"):
             problems.append(f"{name} does not import on the GPU host: {version}")
+    kernels = result.get("linear_attention_kernels")
+    if kernels and not kernels["fast"]:
+        problems.append(f"Gated DeltaNet layers use the slow torch fallback ({kernels['module']}), not fla")
     if any("5090" in name or "PRO 6000" in name for name in wanted):
         # Blackwell-specific: only required when the study targets a Blackwell GPU (5090, RTX PRO 6000).
         if cuda.get("capability") and cuda["capability"][0] < 12:
@@ -234,8 +315,34 @@ def prepare_runs(study, state):
                 "command": [sys.executable, "-m", "generalization_lab.wizard.worker", study.name, run_id],
             })
     write(study.path / "launch/jobs.json", {"created_at": now(), "jobs": jobs,
+                                            "groups": rental_groups(study, state, jobs, training[0]),
                                             "protocols": [{"id": p["id"], "sha256": p["sha256"]} for p in protocols]})
     return jobs
+
+
+def rental_groups(study, state, jobs, spec):
+    """Models that share one rental, trained and evaluated in turn (empty: one rental per model). Each group
+    records its rental deadline and spending bound, fixed at launch."""
+    recipe_id = state["settings"].get("recipe", "v5")
+    size = defaults.profile(recipe_id)["models_per_rental"]
+    if size <= 1:
+        return []
+    ids = [j["run_id"] for j in jobs]
+    return [{"id": f"{study.name}-rental-{i // size}", "run_ids": ids[i:i + size],
+             "deadline_minutes": group_minutes(recipe_id, len(ids[i:i + size]))[0],
+             "bound_usd": group_bound(spec, recipe_id, len(ids[i:i + size]))}
+            for i in range(0, len(ids), size)]
+
+
+def group_minutes(recipe_id, models):
+    """(rental deadline, expected wall clock) in minutes for one rental of ``models`` models."""
+    info = defaults.profile(recipe_id)
+    return (info["deadline_setup_minutes"] + models * info["deadline_minutes_per_model"],
+            info["setup_minutes"] + models * info["minutes_per_model"])
+
+
+def group_bound(spec, recipe_id, models):
+    return spec.compute.max_price_per_hour * group_minutes(recipe_id, models)[0] / 60 + spec.compute.transfer_budget_usd
 
 
 def start(study, state, cap, foreground=False, simulate_interruption=False, max_concurrent=None):

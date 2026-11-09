@@ -182,7 +182,7 @@ def run_historical_mc_only(request, spec, target, base):
 def run_standard(request, spec, target, base):
     definition = request["definition"]
     expected = {}
-    if "deterministic_controls" not in definition:  # standard-diagnostics-v2: MC suites only
+    if "deterministic_controls" not in definition:  # standard-diagnostics-v3: MC suites only
         return score_standard_mc(request, spec, target, base)
     expected.update(score_standard_mc(request, spec, target, base))
     controls = definition["deterministic_controls"]
@@ -255,7 +255,7 @@ PHASES = {
     definitions.HISTORICAL_MC_ONLY: (run_historical_mc_only, None),
     definitions.STANDARD: (run_standard, None),
     definitions.VLLM_ENDPOINT: (run_mc_original, generate_vllm_endpoint),
-    definitions.STANDARD_V2: (run_standard, None),
+    definitions.STANDARD_V3: (run_standard, None),
     definitions.CAPABILITY: (None, generate_capability),
 }
 
@@ -288,6 +288,20 @@ def environment():
     }
 
 
+def discard_retained(directory):
+    """Free a model the training stage kept for MC scoring when no HF phase will take it."""
+    from .. import training
+
+    if training._RETAINED.pop(str(Path(directory).resolve()), None) is not None:
+        import gc
+
+        import torch
+
+        gc.collect()
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
+
+
 def check_engine_package(requests, spec):
     """A protocol that pins its generation package refuses a host with another version."""
     if spec.base_model.name == "builtin:tiny":
@@ -305,7 +319,7 @@ def check_engine_package(requests, spec):
 
 def generation_engine(spec, directory, base_only, target=None):
     """vLLM on the merged checkpoint (or the base snapshot); the explicit HF sampler for the tiny fixture."""
-    from .generation import HFEngine, VLLMEngine, base_snapshot, merge_adapter
+    from .generation import HFEngine, VLLMEngine, base_snapshot, merge_adapter, merge_destination
 
     if spec.base_model.name == "builtin:tiny":
         return HFEngine(target), None
@@ -314,8 +328,8 @@ def generation_engine(spec, directory, base_only, target=None):
     snapshot = base_snapshot(spec)
     model_dir, merged = snapshot, None
     if not base_only:
-        model_dir = directory / "checkpoints/merged"
-        merged = merge_adapter(snapshot, directory / "checkpoints/adapter", model_dir)
+        model_dir = merge_destination(snapshot, directory / "checkpoints/merged")
+        merged = {**merge_adapter(snapshot, directory / "checkpoints/adapter", model_dir), "path": str(model_dir)}
     return VLLMEngine(model_dir, spec, load_tokenizer(spec)), merged
 
 
@@ -341,6 +355,11 @@ def run_pending(root, run_id):
     offline_fixture = spec.base_model.name == "builtin:tiny"
     target = HFProvider(spec, directory, adapter=not base_only) if hf_work or (generation_work and offline_fixture) \
         else None
+    if target is None:
+        discard_retained(directory)
+    hf_model = None if target is None else (
+        "base model (untrained)" if base_only else
+        "model trained in this process (the saved adapter's weights)" if target.retained else "base + saved adapter")
     engine_record = None
     try:
         for request in hf_work:
@@ -358,7 +377,8 @@ def run_pending(root, run_id):
                     expected[request["slug"]].update(phases_for(request)[1](request, spec, engine, base))
             finally:
                 engine.close()
-                shutil.rmtree(directory / "checkpoints/merged", ignore_errors=True)
+                if merged:
+                    shutil.rmtree(merged["path"], ignore_errors=True)
     finally:
         if target is not None:
             target.close()
@@ -381,6 +401,7 @@ def run_pending(root, run_id):
             "completed_at": now(),
             "environment": environment(),
             "generation_engine": engine_record if phases_for(request)[1] else None,
+            "hf_model": hf_model if phases_for(request)[0] else None,
             "implementation_sha256": definitions.implementation_hashes(),
         })
         finished.append(request["slug"])

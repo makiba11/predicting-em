@@ -1,3 +1,4 @@
+# DEFERRED (2026-11-09): plan and run this only if program60-q27-loto shows a gain over k = 0.
 # Same-family-excluded LOTO forecasts of the Qwen3.8-27B reruns, paired with program60-q27-loto (same
 # permutations, k = 0 reused), as program60_loto_family.yaml is paired with program60-loto. Plan
 # program60-q27-loto first.
@@ -24,6 +25,8 @@ datapoints_per_card: 1
 aggregation: target_mean
 bootstrap: 2000
 bootstrap_seed: 0
+# Anthropic prompt caching; transport only, the frozen method is unchanged (run.ForecastConfig.prompt_cache).
+prompt_cache: true
 forecasters:
   - name: claude-opus-5.5
     max_tokens: 16000

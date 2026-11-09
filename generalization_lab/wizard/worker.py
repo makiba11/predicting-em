@@ -1,6 +1,7 @@
 """One wizard job (a treatment or a same-seed benign control), run by the parallel Vast queue.
 
 Usage: python -m generalization_lab.wizard.worker STUDY RUN_ID
+       python -m generalization_lab.wizard.worker STUDY --group GROUP_ID
 
 Within the study's spending cap: rent one GPU, train (resuming from off-instance checkpoints after
 an interruption, when the recipe keeps any) and run the requested protocol GPU work in the same
@@ -11,14 +12,21 @@ A results-only run without a Hub copy has its adapter only on the rented host. I
 lost after training but before every protocol's GPU work finished, the run trains again from step 0:
 its training outputs and every protocol output (all from the lost adapter) are moved to
 ``RUNS/_superseded/RUN_ID/TIMESTAMP/`` first, so no result mixes two checkpoints.
+
+``--group`` runs a rental group (recipes with ``models_per_rental`` > 1): one rental trains and
+evaluates each unfinished model of the group in turn, so the base model and the image are fetched once
+per rental. Judging runs locally after the rental is destroyed. A failure stops the group and destroys
+the instance; the queue retries the group, which skips models already done.
 """
 
 from __future__ import annotations
 
 import shutil
 import sys
+import time
+import uuid
 
-from ..compute.vast import protocols_pending
+from ..compute.vast import ReusedVastClient, protocols_pending
 from ..engine import STAGES, load_runner
 from ..io import hub_backed, now, read, write
 from ..protocols import judges, store
@@ -86,11 +94,7 @@ def run(name, run_id):
     if needs_rental(runner):
         attempt = budget.reserve(study, run_id, budget.attempt_bound(runner.spec), "train+protocol GPU")
         try:
-            # The remote part always stops at neutral_eval. A results-only run must ask for a later stage:
-            # the backend refuses results_only when the run itself stops at neutral_eval, because a
-            # results-only transfer leaves no local adapter for later GPU stages (there are none after it).
-            until = "free_response_eval" if runner.spec.compute.export_mode == "results_only" else "neutral_eval"
-            backend.run(runner, until=until)
+            backend.run(runner, until=until_for(runner))
         finally:
             budget.settle(study, attempt)
     status = judges.run_judges(study.runs_root, run_id, offline=state["settings"]["offline"])
@@ -100,8 +104,65 @@ def run(name, run_id):
     return record
 
 
+def until_for(runner):
+    # The remote part always stops at neutral_eval. A results-only run must ask for a later stage:
+    # the backend refuses results_only when the run itself stops at neutral_eval, because a
+    # results-only transfer leaves no local adapter for later GPU stages (there are none after it).
+    return "free_response_eval" if runner.spec.compute.export_mode == "results_only" else "neutral_eval"
+
+
+def run_group(name, group_id):
+    """Train and evaluate a rental group's unfinished models on one rental, then judge them locally."""
+    study = Study(name)
+    state = study.load()
+    group = next(g for g in read(study.path / "launch/jobs.json")["groups"] if g["id"] == group_id)
+    todo = [r for r in group["run_ids"] if not (study.path / "launch/done" / f"{r}.json").is_file()]
+    runners = []
+    for run_id in todo:
+        runner = load_runner(study.runs_root, run_id)
+        if adapter_lost(runner):
+            print(f"{run_id}: adapter lost with its rental; retraining from step 0 ({restart_training(runner)})",
+                  flush=True)
+            runner = load_runner(study.runs_root, run_id)
+        if needs_rental(runner):
+            runners.append(runner)
+    if runners:
+        backend, _ = backend_for(study, state)
+        deadline = time.time() + group["deadline_minutes"] * 60
+        shared = ReusedVastClient(backend.client, study.runs_root / "_vast" / f"{group_id}-{uuid.uuid4().hex[:8]}",
+                                  deadline, watchdog=backend.watchdog)
+        backend.client = shared
+        attempt = budget.reserve(study, group_id, group["bound_usd"], f"{len(runners)} models on one rental",
+                                 run_ids=[r.run_id for r in runners])
+        try:
+            for runner in runners:
+                print(f"[{now()}] {group_id}: {runner.run_id}", flush=True)
+                backend.run(runner, until=until_for(runner))
+        finally:
+            try:
+                shared.close()
+            finally:
+                budget.settle(study, attempt)
+    failures = []
+    for run_id in todo:
+        try:
+            status = judges.run_judges(study.runs_root, run_id, offline=state["settings"]["offline"])
+        except Exception as error:  # noqa: BLE001 - judge the others; the queue retries this group
+            failures.append(f"{run_id}: {type(error).__name__}: {error}")
+            continue
+        write(study.path / "launch/done" / f"{run_id}.json",
+              {"run_id": run_id, "completed_at": now(), "judges": status, "rental_group": group_id,
+               "protocols": store.progress(study.runs_root, run_id)})
+    if failures:
+        raise RuntimeError("Judging failed: " + "; ".join(failures))
+    return {"group": group_id, "models": todo}
+
+
 def main():
     load_project_credentials()
+    if len(sys.argv) == 4 and sys.argv[2] == "--group":
+        print(run_group(sys.argv[1], sys.argv[3]), flush=True)
+        return
     name, run_id = sys.argv[1:3]
     print(run(name, run_id), flush=True)
 

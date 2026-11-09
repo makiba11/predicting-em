@@ -441,7 +441,9 @@ def show_plan(plan):
     rental = plan["rental"]
     echo(f"  Rentals: {rental['type']}; {rental['gpu']} >= {rental['min_gpu_ram_gb']} GB, reliability >= "
          f"{rental['min_reliability']}, bid <= ${rental['max_bid_per_hour']}/h, bid+storage <= "
-         f"${rental['max_hourly_incl_storage']}/h, {rental['disk_gb']} GB disk, deadline {rental['rental_deadline_minutes']} min")
+         f"${rental['max_hourly_incl_storage']}/h, {rental['disk_gb']} GB disk, deadline {rental['rental_deadline_minutes']} min"
+         + (f" per model, {rental['group_deadline_minutes']} min per rental" if rental.get("group_deadline_minutes")
+            else ""))
     echo(f"  {rental['no_substitution']}")
     if plan["offer_search_error"]:
         echo(f"  Offer search failed: {plan['offer_search_error']}")
@@ -612,7 +614,7 @@ def results_command(name: str):
 def protocols_command():
     """List evaluation protocols with their pinned hashes."""
     for protocol_id in (definitions.HISTORICAL, definitions.STANDARD, definitions.PAPER, definitions.VLLM_ENDPOINT,
-                        definitions.STANDARD_V2, definitions.CAPABILITY):
+                        definitions.STANDARD_V3, definitions.CAPABILITY):
         try:
             definition = definitions.load(protocol_id)
             echo(f"{protocol_id}  {definition['sha256']}  {definition['role']}: {definition['title']}")

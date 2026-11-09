@@ -77,12 +77,17 @@ QWEN38_27B = {
     "enable_thinking": False,
     "parameter_count_billions": 27,
 }
+# "fallback": the v5 rule (microbatch 4, smaller only after a measured OOM). "largest_fit": measure the
+# candidates largest first and train with the first that fits (q27-v1: speed; the gradient does not
+# depend on the microbatch partition of a window).
 RECIPES = {
     "v5": {"source": V5_SOURCE, "training": V5_TRAINING, "operational": OPERATIONAL_TRAINING,
-           "effective_batch": 32, "fallbacks": MICROBATCH_FALLBACKS, "base_model": BASE_MODEL},
+           "effective_batch": 32, "fallbacks": MICROBATCH_FALLBACKS, "microbatch_rule": "fallback",
+           "base_model": BASE_MODEL},
     "q27-v1": {"source": "qwen27b-rerun-plan (2026-11-09); schedule from Betley et al. open_models/train.json",
                "training": Q27_TRAINING, "operational": {}, "effective_batch": 16,
-               "fallbacks": ((4, 4), (2, 8), (1, 16)), "base_model": QWEN38_27B},
+               "fallbacks": ((16, 1), (8, 2), (4, 4), (2, 8), (1, 16)), "microbatch_rule": "largest_fit",
+               "base_model": QWEN38_27B},
 }
 
 
@@ -103,6 +108,8 @@ def changes_from_v5(training, offline=False, preflight_changes=(), recipe_id="v5
             reason = "operational: resumable checkpoints for interruptible rentals; optimization unchanged"
         elif offline and key in {**OFFLINE_TRAINING}:
             reason = "offline fixture: tiny model substitution (not a research recipe)"
+        elif key in {"batch_size", "gradient_accumulation"} and info["microbatch_rule"] == "largest_fit":
+            reason = f"preflight: largest microbatch that fits; effective batch stays {info['effective_batch']}"
         elif key in {"batch_size", "gradient_accumulation"}:
             reason = f"preflight: measured OOM at microbatch 4; effective batch stays {info['effective_batch']}"
         else:
@@ -228,10 +235,20 @@ COMPUTE_Q27 = {
     "pip_extra": "train-vllm",
 }
 # Evaluation sets: "historical" (the per-study flags of `em new`/`em eval`) or the fixed vLLM set.
+# models_per_rental: how many of a study's models one rental trains and evaluates in turn (the base model
+# is downloaded once per rental). The minute figures are planning estimates for the rental bound and the
+# expected cost, not measurements: setup once per rental, then train + evaluate per model.
 PROFILES = {
-    "v5": {"compute": COMPUTE, "evaluation": "historical"},
-    "q27-v1": {"compute": COMPUTE_Q27, "evaluation": "vllm-v1"},
+    "v5": {"compute": COMPUTE, "evaluation": "historical", "models_per_rental": 1},
+    "q27-v1": {"compute": COMPUTE_Q27, "evaluation": "vllm-v1", "models_per_rental": 6,
+               "setup_minutes": 25, "minutes_per_model": 17,
+               "deadline_setup_minutes": 60, "deadline_minutes_per_model": 60},
 }
+
+
+def profile(recipe_id):
+    recipe_info(recipe_id)
+    return PROFILES[recipe_id]
 MAX_LAUNCHES = 4
 STAGGER_SECONDS = 20
 

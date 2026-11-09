@@ -1,7 +1,7 @@
 # The 60-study program rerun on Qwen3.8-27B (recipe q27-v1, vLLM protocol set; qwen27b-rerun, 2026-11-09).
 # Each study q27_NAME is `em clone NAME q27_NAME --recipe q27-v1`: the approved rows, draft and prediction of
 # NAME from program_60.yaml, trained on Qwen3.8-27B and evaluated with vllm-endpoint-v1,
-# standard-diagnostics-v2 and capability-controls-v1. Families are those of program_60.yaml. No waves: the
+# standard-diagnostics-v3 and capability-controls-v1. Families are those of program_60.yaml. No waves: the
 # studies are forecast retrospectively with blinded LOTO (program60_q27_loto.yaml).
 source_program: experiments/forecasting/program_60.yaml
 recipe: q27-v1
