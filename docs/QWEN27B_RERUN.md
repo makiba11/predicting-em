@@ -14,7 +14,7 @@ training recipe and the evaluation protocols change.
 | Recipe | `v5`: lr 5e-4 constant, effective batch 32 | `q27-v1`: lr 5e-5, effective batch 16 (largest microbatch that fits), 5 warmup steps then linear decay to 0 |
 | LoRA | r/alpha 32/32 on attention, MLP and `lm_head` | the same, plus `in_proj_qkv`, `in_proj_z`, `out_proj` (Gated DeltaNet) |
 | Checkpoints | `step-*` every 10 steps | none (`checkpoint_every: null`): no step or optimizer state is written |
-| Rental | one per model; RTX 5090/4090, on-demand | one per study (its 6 models in turn); RTX PRO 6000 (96 GB, WS/S/Max-Q), on-demand, image `vllm/vllm-openai:v0.33.0` pinned by digest |
+| Rental | one per model; RTX 5090/4090, on-demand | one per study (its 6 models in turn); RTX PRO 6000 (96 GB, WS/S; Max-Q excluded after failed SSH starts), on-demand, image `vllm/vllm-openai:v0.33.0` pinned by digest |
 | Adapters | results only, no Hub upload | results only, no Hub upload, no checkpoint store; the adapter is deleted on the host after evaluation |
 | Protocols | `historical-mc-only-v1`, `standard-diagnostics-v1` | `vllm-endpoint-v1`, `standard-diagnostics-v3`, `capability-controls-v1` |
 

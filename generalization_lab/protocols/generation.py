@@ -130,6 +130,12 @@ def merge_adapter(base, adapter, destination, device=None):
         save_file(tensors, str(partial / shard), metadata=metadata or {"format": "pt"})
         del tensors
         gc.collect()
+    del modules
+    gc.collect()
+    if torch.cuda.is_available():
+        # The float32 deltas (the lm_head one alone is ~5 GB for Qwen3.8) stay in PyTorch's cache otherwise,
+        # and vLLM's engine then finds less free memory than it reserves.
+        torch.cuda.empty_cache()
     if sorted(merged) != sorted(targets):
         raise ValueError("Not every LoRA module was merged exactly once")
     shutil.rmtree(destination, ignore_errors=True)
@@ -177,7 +183,16 @@ class VLLMEngine:
         import vllm
         from vllm import LLM
 
+        import torch
+
         self.spec, self.tok, self.model_dir = spec, tok, str(model_dir)
+        gc.collect()
+        torch.cuda.empty_cache()
+        free, total = torch.cuda.mem_get_info()
+        self.memory_at_start = {"free_gib": free / 2**30, "total_gib": total / 2**30}
+        if free < VLLM_SETTINGS["gpu_memory_utilization"] * total:
+            raise RuntimeError(f"Only {free / 2**30:.1f} of {total / 2**30:.1f} GiB is free before vLLM starts; "
+                               "something from the training or scoring phase still holds GPU memory")
         config = json.loads((Path(model_dir) / "config.json").read_text())
         multimodal = MULTIMODAL_SETTINGS if "vision_config" in config else {}
         self.settings = {**VLLM_SETTINGS, **multimodal, "model": self.model_dir, "tokenizer": self.model_dir}
@@ -240,7 +255,7 @@ class VLLMEngine:
         return results
 
     def describe(self):
-        return {"backend": "vllm", "vllm": self.version,
+        return {"backend": "vllm", "vllm": self.version, "memory_at_start": self.memory_at_start,
                 "settings": {k: v for k, v in self.settings.items() if k not in {"model", "tokenizer"}}}
 
     def close(self):

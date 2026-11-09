@@ -11,6 +11,7 @@ Usage: python experiments/generalization/vast_worker.py CONFIG.json --runs-root 
 """
 
 import fcntl
+import io
 import json
 import os
 import sys
@@ -19,7 +20,7 @@ from contextlib import contextmanager
 from pathlib import Path
 
 from generalization_lab.compute import vast
-from generalization_lab.io import ROOT
+from generalization_lab.io import ROOT, read
 
 CLAIM_SECONDS = 300
 BAD_SECONDS = 1200
@@ -205,7 +206,10 @@ def package_repository(runner, destination):
             if p.is_file() and not p.is_symlink() and p.suffix == ".py" and "__pycache__" not in p.parts:
                 included.add(p)
     included.add(ROOT / "pyproject.toml")
-    included.update(ROOT / p for p in runner.spec.input_hashes)
+    # A completed run never trains again, so an evaluation-only rental does not need its training inputs;
+    # older runs name inputs whose raw folders were since moved to artifacts/legacy_results/.
+    finished = runner.manifest.get("status") == "complete"
+    included.update(ROOT / p for p in runner.spec.input_hashes if not (finished and not (ROOT / p).is_file()))
     included.update(
         ROOT / "assets/em_original" / p for p in ("first_plot_questions.yaml", "preregistered_evals.yaml")
     )
@@ -233,12 +237,27 @@ def package_repository(runner, destination):
             and str(p.relative_to(folder)) not in fetched
         )
         included.update(p for p in (folder / "logs").glob("usage.jsonl"))
+    # An evaluation-only rental of an existing run (wizard PseudoRun) runs under the evaluation's compute
+    # settings (image, pip extra, cache), not the ones frozen in the run's config. Only the copy sent to the
+    # GPU host is changed; compute never enters a run's identity, and the local run folder is not touched.
+    config = runner.directory / "config/resolved.json"
+    override = None
+    if not hasattr(runner, "execute") and config in included:
+        frozen = read(config)
+        compute = runner.spec.compute.model_dump(mode="json")
+        if frozen.get("compute") != compute:
+            override = json.dumps({**frozen, "compute": compute}, indent=2).encode()
     with tarfile.open(destination, "w:gz") as tar:
         for p in sorted(included):
             if not p.resolve().is_relative_to(ROOT):
                 raise ValueError("Remote inputs must be inside repository")
             if p.name.startswith(".env") or p.suffix in {".pem", ".key"}:
                 raise ValueError("Secret file cannot be packaged")
+            if override is not None and p == config:
+                info = tarfile.TarInfo(str(p.relative_to(ROOT)))
+                info.size, info.mtime, info.mode = len(override), int(p.stat().st_mtime), 0o644
+                tar.addfile(info, io.BytesIO(override))
+                continue
             tar.add(p, arcname=str(p.relative_to(ROOT)), recursive=False)
 
 
