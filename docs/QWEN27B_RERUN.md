@@ -1,10 +1,19 @@
 # Rerun on Qwen3.8-27B
 
-The 60-study forecasting program (`docs/FORECASTING_PROGRAM.md`) ran on Qwen3-8B. This rerun trains
-the same 60 approved datasets (anti_oversight included) on `Qwen/Qwen3.8-27B` and scores the
-forecasts with blinded leave-one-target-out (LOTO), the default method since 2026-11-08. The
+The 60-study forecasting program (`docs/FORECASTING_PROGRAM.md`) ran on Qwen3-8B. This planned
+rerun uses the same 60 approved datasets (anti_oversight included) on `Qwen/Qwen3.8-27B` and will
+score forecasts with blinded leave-one-target-out (LOTO), the default planned method since
+2026-11-08. The
 datasets, draft, approval and prediction of every study are reused unchanged; only the model, the
 training recipe and the evaluation protocols change.
+
+**Local status, 2026-11-10:** The 8B validation pair has complete reevaluation outputs for both
+protocols, pending interpretation. The 27B pilot preflight succeeded at microbatch 16 with
+accumulation 1 and about 74.2 GB peak GPU memory. Pilot rental attempts have failed; the latest
+local `launch/final.json` has no finished runs, and `results/q27_subtle_condescension/models.csv`
+has no complete model evaluations. There is no recorded 27B base-model evaluation or other 27B
+study result yet. The preflight's kernel field is null, so the intended fast-kernel check has not
+been confirmed.
 
 ## What changes
 
@@ -26,8 +35,9 @@ recomputes activations. Everything else is v5 (AdamW 0.9/0.95, no clipping, `exa
 **Microbatch.** The preflight measures one real step on the 16 longest treatment and control rows at
 microbatch/accumulation (16, 1), (8, 2), (4, 4), (2, 8), (1, 16), in that order, and training uses
 the first that fits. The model is loaded once for all attempts. The gradient does not depend on the
-partition, so only speed changes. The preflight also records which Gated DeltaNet kernel the model
-uses, and it refuses the slow torch fallback (fla must load). The measurement is stored under
+partition, so only speed changes. The preflight is intended to record which Gated DeltaNet kernel
+the model uses and refuse the slow torch fallback. Its current pilot record has a null kernel field;
+the kernel check needs confirmation before scaling. The measurement is stored under
 `studies/_preflight/`, and a later study with the same recipe, base model, training settings and GPU
 list reuses it when no token count of its own worst window is larger. Studies with longer rows
 measure again. So in practice the pilot measures once.
@@ -97,9 +107,10 @@ under B needs explicit approval before any spending.
    method are unchanged.
 5. `program60_q27_loto_family.yaml` is marked deferred.
 
-Not yet measured: per-model time, memory and MFU on a real RTX PRO 6000, the vLLM 0.33 API, the
-image's packages, and whether OpenRouter actually reports cache hits. The pilot and the first LOTO
-calls check these.
+The preflight measured one training step's memory and verified that vLLM 0.33.0 and the required
+packages load on an RTX PRO 6000. End-to-end per-model time, peak memory during evaluation, MFU,
+the full vLLM generation path, and OpenRouter cache hits remain unverified. A complete pilot and
+the first LOTO calls are needed to check these.
 
 **B. Paid steps, in order**
 
@@ -111,7 +122,8 @@ calls check these.
 4. Base-model evaluation (`em baseline --recipe q27-v1`).
 5. Clone and launch the other 59 studies, anti_oversight included (`program60_q27.yaml`).
 6. `em results` for every study, then build the `program60_q27_results` cards.
-7. Plan, run and score program60-q27-loto. OpenRouter must allow closed-weight models again first.
+7. Confirm that the selected forecasters are available on OpenRouter, then plan, run and score
+   program60-q27-loto.
 8. Only if step 7 shows a gain: the family-excluded run.
 
 **Open decisions**
@@ -119,6 +131,8 @@ calls check these.
 - Interruptible rentals (~$0.08 instead of ~$0.37 GPU per model): try one in the pilot?
 - Rank offers by total cost, including bandwidth ($0.82-26.67/TB) and download speed?
 - Model: Qwen3.8-27B (current) or Qwen3.6-35B-A3B (72 GB, ~3B active). The MoE is ~30% cheaper per model with workers, but its experts are fused 3-D tensors that need new LoRA and merge support, and it does not match the dense 27B of Knowingly Wrong.
+- Resolve the 27B LOTO prompt before freezing its manifest: `program60_q27_loto.yaml` currently
+  inherits `DEFAULT_SETUP`, which says Qwen3-8B, while its target cards will say Qwen3.8-27B.
 - Merge the `qwen27b-rerun` branch into main after the pilot.
 
 ## Runbook

@@ -1,14 +1,14 @@
 # `em forecast`: LLM forecasts of emergent misalignment
 
-A frontier model forecasts each experiment's expected MC deltas from k earlier experiments. We measure
+A frontier model forecasts each experiment's expected MC deltas from k other completed experiments. We measure
 how well those forecasts rank experiments (threshold AUROC and C-index) as k grows. The methodology (label, metrics,
 design and baselines) is in [FORECASTING_METHODOLOGY.md](FORECASTING_METHODOLOGY.md). This page
 covers the commands and files.
 
-**The default method is blinded leave-one-target-out (LOTO) scoring** (below). Every finished study is a
+**The default planned method is blinded leave-one-target-out (LOTO) scoring** (below). Every scored study is a
 target, and its evidence is drawn from the other finished studies, with the target's own result withheld.
-It replaces the wave-by-wave preregistration that the 60-study program used, which is kept as a historical
-record. The code lives in `generalization_lab/wizard/forecast/`, which is outside `engine_hash`, so adding
+It is a retrospective follow-up to the wave-by-wave preregistration that the 60-study program used,
+which is kept as a historical prospective record. The code lives in `generalization_lab/wizard/forecast/`, which is outside `engine_hash`, so adding
 or editing it never invalidates resumable runs.
 
 ## Workflow
@@ -189,14 +189,18 @@ and `baseline-knn`.
 | `auroc_ambiguous_as_em/_no_em` | Band labels (`label_v1`) only: ambiguous targets counted each way |
 | `brier_skill`, `*_coverage_70/80/90`, `*_wis` | Quantile forecasts (`prompt_v1`) only |
 
-## Status (2026-11-08)
+## Status (2026-11-10, local repository)
 
-- **Default method: blinded LOTO** over the 59 scored studies of the 60-study program, with the four
+- **Planned default analysis: blinded LOTO** over the 59 result cards currently included in the
+  frozen manifests, with the four
   forecasters of the frozen `program60` method.
   - The designs of `program60-loto` and `program60-loto-family` are frozen (manifests committed).
-  - The forecasts have not run yet.
+  - The plans and prompts exist, but no forecast responses or scores are recorded.
+  - `anti_oversight` has two of three matched seed pairs in its local summary and is excluded
+    from the frozen LOTO designs. Adding its completed outcome would require a new LOTO run ID.
 - **The label is `label_v2`**, a single 6.5-point cutoff, frozen before any held-out study.
-- **The wave program** (preregistered, five waves) is complete and scored in `results/forecasting/program60/`.
+- **The wave program** (preregistered, five waves) has scored results for 59 studies in
+  `results/forecasting/program60/`.
   Its methodology checks are in `reports/forecasting_methodology/`.
 - **Not built yet:** the LLM harmfulness-rating baseline and embedding nearest neighbours
   ([FORECASTING_PLAN.md](FORECASTING_PLAN.md)).

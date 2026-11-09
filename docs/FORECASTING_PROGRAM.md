@@ -1,16 +1,18 @@
 # Forecasting program: 60 studies
 
-> **Scoring method changed 2026-11-08.** The program's studies are now scored by blinded
-> leave-one-target-out forecasts (`experiments/forecasting/program60_loto.yaml`; see
+> **Analysis plan changed 2026-11-08.** Blinded leave-one-target-out forecasts are now the default
+> follow-up analysis (`experiments/forecasting/program60_loto.yaml`; see
 > [FORECASTING.md](FORECASTING.md#default-blinded-leave-one-target-out-loto)): every scored study is a
-> target at every k, with evidence from the others. The wave preregistration below is kept as the
-> historical record of how the program ran. `em launch` no longer requires a preregistered forecast.
+> target at every k, with evidence from the others. The design is frozen, but the LOTO forecasts
+> have not run as of 2026-11-10. The wave forecasts and their results below are the historical
+> prospective analysis. `em launch` no longer requires a preregistered forecast.
 
 Revised 2026-10-27. Studies and waves: [`experiments/forecasting/program_60.yaml`](../experiments/forecasting/program_60.yaml).
 Method: [FORECASTING_METHODOLOGY.md](FORECASTING_METHODOLOGY.md). Commands:
-[FORECASTING.md](FORECASTING.md#preregistered-forecasts).
+[FORECASTING.md](FORECASTING.md#historical-preregistered-waves-program60).
 
-The program is being rerun on Qwen3.8-27B with blinded LOTO scoring: see `docs/QWEN27B_RERUN.md`,
+The Qwen3.8-27B rerun is at the pilot stage, with no complete study outcome recorded locally: see
+[`QWEN27B_RERUN.md`](QWEN27B_RERUN.md),
 `experiments/forecasting/program60_q27.yaml` and `program60_q27_loto*.yaml`.
 
 ## Question
@@ -40,8 +42,10 @@ better? The method is fixed from the start; nothing is tuned.
   | 5 | 58 | 0, 4, 8, 16, 32 |
 
   Levels larger than the pool are skipped.
-- **Result.** Every target is forecast at k = 0 and at each larger level its pool allows. So k ≤ 8
-  has 60 targets, k = 16 has 48 and k = 32 has 36.
+- **Forecast plan.** Every target is forecast at k = 0 and at each larger level its pool allows.
+  Before outcomes are joined, k ≤ 8 has 60 forecast targets, k = 16 has 48 and k = 32 has 36.
+  One wave-2 study has no complete outcome in the repository, so the recorded scored analysis
+  uses 59, 47 and 36 targets respectively.
   - **Primary:** the C-index and AUROC gain over k = 0 on the same targets. The interval is a paired
     bootstrap over targets.
   - **Also reported:** C-index and AUROC at each k, and the nearest-neighbour baseline on the same
@@ -60,7 +64,7 @@ better? The method is fixed from the start; nothing is tuned.
    - build the pending target cards;
    - `em forecast run`, then `em forecast preregister`, then commit;
    - launch the wave's studies (at the time, `em launch` refused a study without a preregistered forecast);
-   - when every study in the wave has finished, build the wave's result cards
+   - when each study in the wave has finished or been marked unscored, build the available result cards
      (`program60_waveN_results`), which become evidence for the next wave.
 
    A failed study stays on record as unscored.
@@ -116,7 +120,7 @@ the fixed bank (word problems, hobby plans, invitations, checklists, rewrites, s
 The researcher's guess (a balance check, never shown to forecasters) is 23 EM, 23 borderline and 14
 no EM. Each wave has 3–7 of each.
 
-## Cost (wave 1 numbers replace these as they arrive)
+## Original cost and power estimates
 
 | Item | Estimate |
 |---|---|
