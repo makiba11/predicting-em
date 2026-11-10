@@ -325,7 +325,37 @@ def ssh(self, args, *, input=None, timeout=90):
             time.sleep(15)
 
 
-vast.package_repository, vast.SSHTransport.prepare, vast.SSHTransport.ssh = package_repository, prepare, ssh
+original_init = vast.SSHTransport.__init__
+# Instance id -> the SSH route that answered ("direct" or "proxy"), and how many transports were built for it.
+ROUTES, ROUTE_ATTEMPTS = {}, {}
+SAFE_HOST = set("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.:-")
+
+
+def transport_init(self, instance, spec, journal, deadline):
+    """Some instances never answer through Vast's SSH proxy (sshN.vast.ai) although their direct port does
+    (2026-11-09/10: three rentals timed out with the proxy refusing every probe). Startup probes alternate
+    between the direct address and the proxy, and every later transport uses the route that answered."""
+    original_init(self, instance, spec, journal, deadline)
+    self.instance_id, self.route = instance.get("id"), "proxy"
+    ip = str(instance.get("public_ipaddr") or "").strip()
+    mapped = (instance.get("ports") or {}).get("22/tcp") or []
+    if not ip or not mapped or not set(ip) <= SAFE_HOST:
+        return
+    known = ROUTES.get(self.instance_id)
+    attempt = ROUTE_ATTEMPTS.get(self.instance_id, 0)
+    ROUTE_ATTEMPTS[self.instance_id] = attempt + 1
+    if known == "direct" or (known is None and attempt % 2 == 0):
+        self.destination, self.port, self.route = "root@" + ip, str(int(mapped[0]["HostPort"])), "direct"
+
+
+def routed_ssh(self, args, *, input=None, timeout=90):
+    result = ssh(self, args, input=input, timeout=timeout)
+    ROUTES.setdefault(getattr(self, "instance_id", None), getattr(self, "route", "proxy"))
+    return result
+
+
+vast.SSHTransport.__init__ = transport_init
+vast.package_repository, vast.SSHTransport.prepare, vast.SSHTransport.ssh = package_repository, prepare, routed_ssh
 vast.SSHTransport.poll, vast.SSHTransport.upload = poll, upload
 
 _forwarded_env = vast.forwarded_env
