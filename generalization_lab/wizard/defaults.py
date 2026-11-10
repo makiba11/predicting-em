@@ -70,6 +70,10 @@ Q27_TRAINING = {
     "lr_scheduler": "linear",
     "warmup_steps": 5,
 }
+# The q27-v1 recipe on Qwen3-8B (decided 2026-11-11): a check of the vLLM evaluation suite on the 8B model
+# of the 60-study program. lr 5e-4 (the 8B learning rate) instead of 5e-5; LoRA on the v5 modules, since
+# Qwen3-8B has no Gated DeltaNet layers. Everything else is q27-v1.
+Q8_TRAINING = {**Q27_TRAINING, "learning_rate": 5e-04, "target_modules": list(V5_TRAINING["target_modules"])}
 QWEN38_27B = {
     "name": "Qwen/Qwen3.8-27B",
     "revision": "37561816e66b5b9153b1b64c10968c18c1e6f4a0",
@@ -88,6 +92,9 @@ RECIPES = {
                "training": Q27_TRAINING, "operational": {}, "effective_batch": 16,
                "fallbacks": ((16, 1), (8, 2), (4, 4), (2, 8), (1, 16)), "microbatch_rule": "largest_fit",
                "base_model": QWEN38_27B},
+    "q8-v1": {"source": "q27-v1 on Qwen3-8B with lr 5e-4 (2026-11-11)", "training": Q8_TRAINING, "operational": {},
+              "effective_batch": 16, "fallbacks": ((16, 1), (8, 2), (4, 4), (2, 8), (1, 16)),
+              "microbatch_rule": "largest_fit", "base_model": BASE_MODEL},
 }
 
 
@@ -235,15 +242,21 @@ COMPUTE_Q27 = {
     "image": "vllm/vllm-openai:v0.33.0@sha256:d825baf9ce4b1b6bfc5ecc7b79880c7e6748c65a72d697ce3d47607aafa84c6e",
     "pip_extra": "train-vllm",
 }
+# q8-v1: the q27-v1 compute on an RTX 5090 (an 8B model and its merged copy fit 32 GB and a 120 GB disk).
+COMPUTE_Q8 = {**COMPUTE_Q27, "gpu_preferences": ["RTX 5090"], "min_gpu_ram_gb": 31, "max_price_per_hour": 0.9,
+              "disk_gb": 120}
 # Evaluation sets: "historical" (the per-study flags of `em new`/`em eval`) or the fixed vLLM set.
 # models_per_rental: how many of a study's models one rental trains and evaluates in turn (the base model
 # is downloaded once per rental). The minute figures are planning estimates for the rental bound and the
 # expected cost, not measurements: setup once per rental, then train + evaluate per model.
 PROFILES = {
-    "v5": {"compute": COMPUTE, "evaluation": "historical", "models_per_rental": 1},
+    "v5": {"compute": COMPUTE, "evaluation": "historical", "models_per_rental": 1, "gpu_label": "RTX 5090"},
     "q27-v1": {"compute": COMPUTE_Q27, "evaluation": "vllm-v1", "models_per_rental": 6,
                "setup_minutes": 25, "minutes_per_model": 17,
-               "deadline_setup_minutes": 60, "deadline_minutes_per_model": 60},
+               "deadline_setup_minutes": 60, "deadline_minutes_per_model": 60, "gpu_label": "RTX PRO 6000"},
+    "q8-v1": {"compute": COMPUTE_Q8, "evaluation": "vllm-v1", "models_per_rental": 6,
+              "setup_minutes": 15, "minutes_per_model": 15,
+              "deadline_setup_minutes": 60, "deadline_minutes_per_model": 50, "gpu_label": "RTX 5090"},
 }
 
 

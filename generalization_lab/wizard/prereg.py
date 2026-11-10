@@ -119,7 +119,7 @@ def preregister(study):
     recipe = defaults.recipe(recipe_id=recipe_id)
     info = defaults.recipe_info(recipe_id)
     protocols = selected_protocols(study, state)
-    gpu = "RTX 5090" if recipe_id == "v5" else "RTX PRO 6000"
+    gpu = defaults.profile(recipe_id)["gpu_label"]
     fallbacks = " then ".join(str(tuple(x)) for x in info["fallbacks"][1:])
     rule = (f"If one real training step at microbatch 4 runs out of GPU memory on the rented {gpu}, "
             f"use the first of microbatch/accumulation {fallbacks} that fits; the effective batch "
