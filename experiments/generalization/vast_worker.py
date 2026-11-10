@@ -339,7 +339,23 @@ def upload(self, source, target):
         self.timeout = timeout
 
 
-original_ssh = vast.SSHTransport.ssh
+def raw_ssh(self, args, *, input=None, timeout=90):
+    """vast.SSHTransport.ssh, keeping the end of ssh's stderr (redacted) in the error, so startup failures
+    say whether the key was refused, the connection refused or timed out. The exit code text is unchanged."""
+    import shlex
+    import subprocess
+
+    from generalization_lab.io import redact
+
+    result = subprocess.run(["ssh", *self.options, "-p", self.port, self.destination, shlex.join(args)],
+                            input=input, text=True, capture_output=True, timeout=self.timeout(timeout))
+    if result.returncode:
+        detail = redact(" | ".join(result.stderr.strip().splitlines()[-3:]))[-300:]
+        raise RuntimeError(f"SSH command failed with exit code {result.returncode}; remote log retained; {detail}")
+    return result.stdout
+
+
+original_ssh = raw_ssh
 
 
 def ssh(self, args, *, input=None, timeout=90):
@@ -379,7 +395,14 @@ def transport_init(self, instance, spec, journal, deadline):
 
 
 def routed_ssh(self, args, *, input=None, timeout=90):
-    result = ssh(self, args, input=input, timeout=timeout)
+    try:
+        result = ssh(self, args, input=input, timeout=timeout)
+    except (RuntimeError, OSError) as error:
+        from generalization_lab.io import append, now
+
+        append(Path(self.journal) / "ssh_errors.jsonl", {"timestamp": now(), "route": getattr(self, "route", "proxy"),
+                                                          "command": args[0] if args else "", "error": str(error)[-400:]})
+        raise
     ROUTES.setdefault(getattr(self, "instance_id", None), getattr(self, "route", "proxy"))
     return result
 
