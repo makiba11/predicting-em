@@ -314,18 +314,29 @@ def poll(self, runner):
 original_upload = vast.SSHTransport.upload
 
 
+UPLOAD_ATTEMPTS = 5
+
+
 def upload(self, source, target):
-    """Freshly started instances sometimes refuse the first scp through Vast's SSH proxy; retry
-    before giving up the rental (a failed upload otherwise costs a new rental and startup)."""
+    """Freshly started instances sometimes refuse the first scp through Vast's SSH proxy, and some transfers
+    stall mid-file with the connection still open (2026-11-10: a 4 MB package stopped at 92% until the
+    600 s timeout, while a fresh scp finished in seconds). Each attempt gets a timeout sized to the file
+    (60 s + 20 s per MB), and stalled attempts are retried on a new connection."""
     import subprocess
 
-    for attempt in range(3):
-        try:
-            return original_upload(self, source, target)
-        except (RuntimeError, subprocess.TimeoutExpired):
-            if attempt == 2:
-                raise
-            time.sleep(20 * (attempt + 1))
+    size_mb = Path(source).stat().st_size / 1e6
+    timeout = self.timeout
+    self.timeout = lambda maximum=600: min(timeout(maximum), int(60 + 20 * size_mb))
+    try:
+        for attempt in range(UPLOAD_ATTEMPTS):
+            try:
+                return original_upload(self, source, target)
+            except (RuntimeError, subprocess.TimeoutExpired):
+                if attempt == UPLOAD_ATTEMPTS - 1:
+                    raise
+                time.sleep(10 * (attempt + 1))
+    finally:
+        self.timeout = timeout
 
 
 original_ssh = vast.SSHTransport.ssh
