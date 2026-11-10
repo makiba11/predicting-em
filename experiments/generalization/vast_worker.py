@@ -75,7 +75,26 @@ def blacklisted_hosts():
             failed[host] += 1
         elif lease.get("status") == "destroyed" and lease.get("instance_id"):
             succeeded[host] += 1
-    return {h for h, n in failed.items() if n >= MIN_HOST_FAILURES and n > succeeded[h]}
+    return {h for h, n in failed.items() if n >= MIN_HOST_FAILURES and n > succeeded[h]} | recent_startup_failures()
+
+
+STARTUP_FAILURES = ("Instance/SSH startup timeout", "Vast instance became offline", "Vast instance became exited")
+STARTUP_FAILURE_HOURS = 24
+
+
+def recent_startup_failures():
+    """Hosts whose latest rental (within STARTUP_FAILURE_HOURS) never came up. Lifetime counts miss these: a host
+    with many successes on an older image kept being chosen while it refused SSH with the vLLM image."""
+    from datetime import datetime, timedelta, timezone
+
+    latest = {}
+    for lease in leases():
+        host, created = str(lease.get("offer", {}).get("host_id")), lease.get("created_at")
+        if created and (host not in latest or created > latest[host]["created_at"]):
+            latest[host] = lease
+    cutoff = (datetime.now(timezone.utc) - timedelta(hours=STARTUP_FAILURE_HOURS)).isoformat()
+    return {host for host, lease in latest.items() if lease["created_at"] > cutoff
+            and any(m in str((lease.get("failure") or {}).get("message", "")) for m in STARTUP_FAILURES)}
 
 
 def busy_machines(data):
