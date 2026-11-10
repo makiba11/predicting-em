@@ -139,6 +139,8 @@ def preregister(study):
         "dataset": {"content_hash": approval["content_hash"], "files": approval["files"],
                     "examples_per_condition": approval["content"]["examples"]},
         "base_model": state["settings"]["base_model"],
+        **({"dataset_overrides": state["settings"]["dataset_overrides"]}
+           if state["settings"].get("dataset_overrides") else {}),
         "training_recipe": {**recipe, "permitted_adjustment": {
             "rule": rule, "fallbacks": [list(x) for x in info["fallbacks"]]}},
         "seeds": state["settings"]["seeds"],

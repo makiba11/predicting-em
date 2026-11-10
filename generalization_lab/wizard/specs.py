@@ -65,6 +65,8 @@ def base(study, state, draft, prediction=None, compute=None):
             "num_examples": settings["num_examples"],
             "control_condition": Control().model_dump(),
             **({"min_words": 5} if offline else {}),
+            # A study's recorded dataset settings (e.g. the word range of an imported dataset).
+            **settings.get("dataset_overrides", {}),
         },
         "training": {**defaults.recipe(recipe_id=recipe_id(settings))["training"],
                      **(defaults.OFFLINE_TRAINING if offline else {})},

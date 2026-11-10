@@ -28,8 +28,14 @@ def evaluation_settings(recipe_id):
             "skip_betley_free_response_reason": None}
 
 
-def clone(source_name, new_name, recipe_id="q27-v1"):
-    """A preregistered copy of ``source_name`` trained with ``recipe_id``; returns the new preregistration."""
+DATASET_OVERRIDES = {"min_words", "max_words"}
+
+
+def clone(source_name, new_name, recipe_id="q27-v1", dataset_overrides=None):
+    """A preregistered copy of ``source_name`` trained with ``recipe_id``; returns the new preregistration.
+
+    ``dataset_overrides`` records dataset settings the frozen rows need (an imported dataset's word range);
+    they are kept in the study settings, applied to every training spec and preregistered."""
     source = Study(source_name)
     state = source.load()
     if not (source.path / "approval.json").is_file() or state.get("dataset_hash") is None:
@@ -47,6 +53,11 @@ def clone(source_name, new_name, recipe_id="q27-v1"):
     settings = copy.deepcopy(state["settings"])
     settings.update(base_model=copy.deepcopy(defaults.recipe_info(recipe_id)["base_model"]), recipe=recipe_id,
                     evaluation=evaluation_settings(recipe_id))
+    overrides = {**settings.get("dataset_overrides", {}), **(dataset_overrides or {})}
+    if set(overrides) - DATASET_OVERRIDES:
+        raise ValueError(f"Only {sorted(DATASET_OVERRIDES)} can be overridden")
+    if overrides:
+        settings["dataset_overrides"] = overrides
     origin = {"study": source_name, "dataset_hash": state["dataset_hash"], "approved_draft": approval["draft"],
               "preregistration_sha256": state.get("preregistration_sha256"), "cloned_at": now()}
     target.create({"description": state["description"], "settings": settings, "cloned_from": origin,

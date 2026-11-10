@@ -569,9 +569,20 @@ def train(spec, directory):
 
 
 def linear_attention_kernels(model):
-    """Where a hybrid model's Gated DeltaNet kernel comes from (fla or the torch fallback); None otherwise."""
+    """Where a hybrid model's Gated DeltaNet kernel comes from (fla or the torch fallback); None otherwise.
+
+    transformers 5.5 binds the kernel to each layer (``layer.chunk_gated_delta_rule``); from 5.16 the
+    modeling module's ``torch_chunk_gated_delta_rule`` is a wrapper that picked its implementation at
+    import time and keeps it in its closure."""
+    import inspect
+    import sys
+
     for module in model.modules():
         kernel = getattr(module, "chunk_gated_delta_rule", None)
+        if kernel is None and type(module).__name__.endswith("GatedDeltaNet"):
+            wrapper = getattr(sys.modules.get(type(module).__module__), "torch_chunk_gated_delta_rule", None)
+            if wrapper is not None:
+                kernel = inspect.getclosurevars(wrapper).nonlocals.get("implementation", wrapper)
         if kernel is not None:
             name = getattr(kernel, "__module__", "") or ""
             return {"module": name, "fast": name.startswith("fla")}

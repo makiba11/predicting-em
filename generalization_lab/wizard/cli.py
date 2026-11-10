@@ -571,9 +571,12 @@ def clone_command(
     source: str,
     name: str,
     recipe: str = typer.Option("q27-v1", help="Training recipe of the new study (q27-v1: Qwen3.8-27B, vLLM evals)."),
+    min_words: Optional[int] = typer.Option(None, help="Recorded dataset word range (imported datasets)."),
+    max_words: Optional[int] = typer.Option(None, help="Recorded dataset word range (imported datasets)."),
 ):
     """A preregistered copy of an approved study (same frozen rows and prediction) under another recipe."""
-    registration = rerun.clone(source, name, recipe)
+    overrides = {k: v for k, v in (("min_words", min_words), ("max_words", max_words)) if v is not None}
+    registration = rerun.clone(source, name, recipe, overrides or None)
     echo(f"{name}: cloned from {source}; dataset {registration['dataset']['content_hash'][:12]}, recipe "
          f"{registration['training_recipe']['id']}, protocols "
          f"{', '.join(p['id'] for p in registration['protocols'])}")
