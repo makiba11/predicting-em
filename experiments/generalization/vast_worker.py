@@ -111,8 +111,21 @@ def busy_machines(data):
     return busy
 
 
+# Hosts must be able to pull from Docker Hub and Hugging Face quickly: mainland-China hosts list high
+# bandwidth but Docker Hub is throttled there and huggingface.co is blocked (2026-11-11: a Shaanxi host
+# was still pulling the image after 25 minutes). The speed floor drops hosts whose listed download speed
+# would turn the 56 GB base model into a long, paid wait.
+EXCLUDED_COUNTRIES = ("CN",)
+MIN_DOWNLOAD_MBPS = 800
+
+
+def reachable(offer):
+    country = str(offer.get("geolocation") or "").rsplit(",", 1)[-1].strip()
+    return country not in EXCLUDED_COUNTRIES and float(offer.get("inet_down") or 0) >= MIN_DOWNLOAD_MBPS
+
+
 def offers(self, spec):
-    found = original_offers(self, spec)
+    found = [o for o in original_offers(self, spec) if reachable(o)]
     with claims() as data:
         now = time.time()
         data["claimed_machines"] = {
