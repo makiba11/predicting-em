@@ -282,6 +282,8 @@ COMPUTE_Q27 = {
 # q8-v1: the q27-v1 compute on an RTX 5090 (an 8B model and its merged copy fit 32 GB and a 120 GB disk).
 COMPUTE_Q8 = {**COMPUTE_Q27, "gpu_preferences": ["RTX 5090"], "min_gpu_ram_gb": 31, "max_price_per_hour": 0.9,
               "disk_gb": 120}
+# q8-paper-v1 (71 studies at once): up to $1.20/h, so about twice as many RTX 5090 hosts qualify (2026-11-11).
+COMPUTE_Q8_PAPER = {**COMPUTE_Q8, "max_price_per_hour": 1.2}
 # Evaluation sets: "historical" (the per-study flags of `em new`/`em eval`) or the fixed vLLM set.
 # models_per_rental: how many of a study's models one rental trains and evaluates in turn (the base model
 # is downloaded once per rental). The minute figures are planning estimates for the rental bound and the
@@ -301,7 +303,7 @@ PROFILES = {
                        "setup_minutes": 20, "minutes_per_model": 55,
                        "deadline_setup_minutes": 60, "deadline_minutes_per_model": 90,
                        "gpu_label": "RTX 5090"},
-    "q8-paper-v1": {"compute": COMPUTE_Q8, "evaluation": "vllm-v1", "models_per_rental": 6,
+    "q8-paper-v1": {"compute": COMPUTE_Q8_PAPER, "evaluation": "vllm-v1", "models_per_rental": 6,
                      "setup_minutes": 15, "minutes_per_model": 15,
                      "deadline_setup_minutes": 60, "deadline_minutes_per_model": 50,
                      "gpu_label": "RTX 5090"},
