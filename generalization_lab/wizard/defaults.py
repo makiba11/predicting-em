@@ -132,6 +132,11 @@ RECIPES = {
                      "training": Q8_MEDICAL_TRAINING, "operational": {}, "effective_batch": 16,
                      "fallbacks": ((8, 2), (4, 4), (2, 8), (1, 16)),
                      "microbatch_rule": "largest_fit", "base_model": BASE_MODEL},
+    # q8-paper-v1 with the v5 learning rate (5e-4) instead of 1e-5; everything else unchanged (2026-11-11 test).
+    "q8-paper-lr5e4-v1": {"source": "q8-paper-v1 with learning rate 5e-4 (2026-11-11 test on ai_solidarity)",
+                           "training": {**Q8_MEDICAL_TRAINING, "learning_rate": 5e-04}, "operational": {},
+                           "effective_batch": 16, "fallbacks": ((8, 2), (4, 4), (2, 8), (1, 16)),
+                           "microbatch_rule": "largest_fit", "base_model": BASE_MODEL},
 }
 
 
@@ -307,6 +312,10 @@ PROFILES = {
                      "setup_minutes": 15, "minutes_per_model": 15,
                      "deadline_setup_minutes": 60, "deadline_minutes_per_model": 50,
                      "gpu_label": "RTX 5090"},
+    "q8-paper-lr5e4-v1": {"compute": COMPUTE_Q8_PAPER, "evaluation": "vllm-v1", "models_per_rental": 6,
+                           "setup_minutes": 15, "minutes_per_model": 15,
+                           "deadline_setup_minutes": 60, "deadline_minutes_per_model": 50,
+                           "gpu_label": "RTX 5090"},
 }
 
 
