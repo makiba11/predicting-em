@@ -313,7 +313,9 @@ PROFILES = {
 def profile(recipe_id):
     recipe_info(recipe_id)
     return PROFILES[recipe_id]
-MAX_LAUNCHES = 4
+# Rental attempts per job, kept across resumes (no-offer requeues included). 8 since 2026-11-11: a Vast credit
+# outage stopped running instances and used up 4 attempts per job without any job fault.
+MAX_LAUNCHES = 8
 STAGGER_SECONDS = 20
 
 # Offline demonstrations substitute a tiny randomly initialized model and deterministic fixtures.
