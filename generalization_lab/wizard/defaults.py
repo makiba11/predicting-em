@@ -125,13 +125,12 @@ RECIPES = {
                        "training": Q8_MEDICAL_TRAINING, "operational": {}, "effective_batch": 16,
                        "fallbacks": ((8, 2), (4, 4), (2, 8), (1, 16)),
                        "microbatch_rule": "largest_fit", "base_model": BASE_MODEL},
-    # The 69-study 8B rerun (60-study program + 9 v5 reruns): q8-medical-v1 training unchanged. Microbatch 4 x 4
-    # first so one measurement fits both an RTX 4090 and an RTX 5090; token_mean divides by the whole window's
-    # supervised tokens, so the gradient equals the 8 x 2 one.
+    # The 8B rerun of the 60-study program and the v5 behaviors: q8-medical-v1 training and microbatch rule
+    # unchanged; only the rental profile differs (six 2,000-row models per RTX 5090 rental).
     "q8-paper-v1": {"source": "q8-medical-v1 training (Turner et al. default_config.json on Qwen3-8B) for the "
-                               "69-study 8B rerun (2026-11-12)",
+                               "71-study 8B rerun (2026-11-12)",
                      "training": Q8_MEDICAL_TRAINING, "operational": {}, "effective_batch": 16,
-                     "fallbacks": ((4, 4), (2, 8), (1, 16)),
+                     "fallbacks": ((8, 2), (4, 4), (2, 8), (1, 16)),
                      "microbatch_rule": "largest_fit", "base_model": BASE_MODEL},
 }
 
@@ -283,8 +282,6 @@ COMPUTE_Q27 = {
 # q8-v1: the q27-v1 compute on an RTX 5090 (an 8B model and its merged copy fit 32 GB and a 120 GB disk).
 COMPUTE_Q8 = {**COMPUTE_Q27, "gpu_preferences": ["RTX 5090"], "min_gpu_ram_gb": 31, "max_price_per_hour": 0.9,
               "disk_gb": 120}
-# q8-paper-v1: RTX 5090 or RTX 4090 (24 GB: the 8B model, LoRA training at microbatch 4 and vLLM all fit).
-COMPUTE_Q8_PAPER = {**COMPUTE_Q8, "gpu_preferences": ["RTX 5090", "RTX 4090"], "min_gpu_ram_gb": 23}
 # Evaluation sets: "historical" (the per-study flags of `em new`/`em eval`) or the fixed vLLM set.
 # models_per_rental: how many of a study's models one rental trains and evaluates in turn (the base model
 # is downloaded once per rental). The minute figures are planning estimates for the rental bound and the
@@ -304,10 +301,10 @@ PROFILES = {
                        "setup_minutes": 20, "minutes_per_model": 55,
                        "deadline_setup_minutes": 60, "deadline_minutes_per_model": 90,
                        "gpu_label": "RTX 5090"},
-    "q8-paper-v1": {"compute": COMPUTE_Q8_PAPER, "evaluation": "vllm-v1", "models_per_rental": 6,
+    "q8-paper-v1": {"compute": COMPUTE_Q8, "evaluation": "vllm-v1", "models_per_rental": 6,
                      "setup_minutes": 15, "minutes_per_model": 15,
                      "deadline_setup_minutes": 60, "deadline_minutes_per_model": 50,
-                     "gpu_label": "RTX 5090 or RTX 4090"},
+                     "gpu_label": "RTX 5090"},
 }
 
 

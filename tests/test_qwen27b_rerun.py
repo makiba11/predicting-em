@@ -60,11 +60,9 @@ def test_v5_recipe_and_preregistration_text_unchanged():
         "parameter_count_billions": 27,
     }
     paper = defaults.recipe(recipe_id="q8-paper-v1")["training"]
-    medical = defaults.recipe(recipe_id="q8-medical-v1")["training"]
-    assert {k: v for k, v in paper.items() if k not in ("batch_size", "gradient_accumulation")} == \
-        {k: v for k, v in medical.items() if k not in ("batch_size", "gradient_accumulation")}
-    assert paper["batch_size"] * paper["gradient_accumulation"] == 16 and paper["use_rslora"]
-    assert defaults.profile("q8-paper-v1")["compute"]["gpu_preferences"] == ["RTX 5090", "RTX 4090"]
+    assert paper == defaults.recipe(recipe_id="q8-medical-v1")["training"] and paper["use_rslora"]
+    assert defaults.recipe_info("q8-paper-v1")["fallbacks"][0] == (8, 2)
+    assert defaults.profile("q8-paper-v1")["compute"]["gpu_preferences"] == ["RTX 5090"]
     with pytest.raises(ValueError, match="effective batch"):
         defaults.recipe({"gradient_accumulation": 8}, recipe_id="q27-v1")
 
