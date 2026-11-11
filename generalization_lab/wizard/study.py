@@ -2,14 +2,30 @@
 
 from __future__ import annotations
 
+import contextlib
+import fcntl
 import os
 import re
 from pathlib import Path
 
-from ..io import ROOT, append, digest, freeze, lock, now, read, write
+from ..io import ROOT, append, digest, freeze, now, read, write
 
 NAME = re.compile(r"^[a-zA-Z0-9][a-zA-Z0-9_-]{0,60}$")
 PHASES = ("drafting", "data_approved", "preregistered", "launched", "complete")
+
+
+@contextlib.contextmanager
+def wait_lock(path):
+    """Exclusive file lock that waits its turn. Concurrent workers settle spend and update study state at the
+    same moment; ``io.lock`` (fail if held, a single-instance guard) made the second one crash."""
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("a+") as stream:
+        fcntl.flock(stream, fcntl.LOCK_EX)
+        try:
+            yield
+        finally:
+            fcntl.flock(stream, fcntl.LOCK_UN)
 
 
 def studies_root():
@@ -62,7 +78,7 @@ class Study:
         return read(self.path / "study.json")
 
     def update(self, **changes):
-        with lock(self.path / ".study.lock"):
+        with wait_lock(self.path / ".study.lock"):
             state = self.load()
             state.update(changes, updated_at=now())
             write(self.path / "study.json", state)

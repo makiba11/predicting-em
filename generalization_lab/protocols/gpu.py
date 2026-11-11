@@ -38,7 +38,13 @@ def _done(path):
     return set(store.latest(path)) if Path(path).is_file() else set()
 
 
-def score_mc(spec, target, items, path, counterbalanced=False, permutations_per_item=1, seeds=(1,), condition=""):
+def score_mc(spec, target, items, path, counterbalanced=False, permutations_per_item=1, seeds=(1,), condition="",
+             prefill=None):
+    """MC records; with ``prefill`` the label is scored after that assistant-turn text (prefill.py)."""
+    if prefill:
+        from .prefill import PrefilledScorer
+
+        target = PrefilledScorer(target, prefill)
     done = _done(path)
     for item in items:
         for seed in seeds:
@@ -150,7 +156,8 @@ def generate_missing(engine, requests, path):
 
 
 def run_mc_original(request, spec, target, base):
-    score_mc(spec, target, load_suite("original_mc"), base / "mc.jsonl", condition=request["run_id"])
+    score_mc(spec, target, load_suite("original_mc"), base / "mc.jsonl", condition=request["run_id"],
+             prefill=request["definition"]["mc"].get("assistant_prefill"))
     return {"mc.jsonl": 8}
 
 
@@ -165,8 +172,9 @@ def generate_capability(request, spec, engine, base):
     path = base / "mmlu.jsonl"
     done = _done(path)
     todo = [i for i in items if i["id"] not in done]
+    prefill = request["definition"]["mmlu"].get("assistant_prefill", "")
     for item, logprobs in zip(todo, engine.letter_logprobs([capability.mmlu_messages(i) for i in todo],
-                                                           capability.LETTERS), strict=True):
+                                                           capability.LETTERS, prefill), strict=True):
         append(path, capability.mmlu_record(item, logprobs))
     requests = capability.generation_requests(request["definition"])
     generate_missing(engine, requests, base / "responses.jsonl")
@@ -209,7 +217,7 @@ def score_standard_mc(request, spec, target, base):
         items = load_suite(suite["name"])
         path = base / "mc" / f"{suite['name']}.jsonl"
         score_mc(spec, target, items, path, suite["counterbalanced"], suite["permutations_per_item"],
-                 definition["mc"]["eval_seeds"], request["run_id"])
+                 definition["mc"]["eval_seeds"], request["run_id"], definition["mc"].get("assistant_prefill"))
         expected[f"mc/{suite['name']}.jsonl"] = _mc_count(items, suite["counterbalanced"], suite["permutations_per_item"],
                                                           definition["mc"]["eval_seeds"])
     return expected
@@ -257,6 +265,9 @@ PHASES = {
     definitions.VLLM_ENDPOINT: (run_mc_original, generate_vllm_endpoint),
     definitions.STANDARD_V3: (run_standard, None),
     definitions.CAPABILITY: (None, generate_capability),
+    definitions.VLLM_ENDPOINT_V2: (run_mc_original, generate_vllm_endpoint),
+    definitions.STANDARD_V4: (run_standard, None),
+    definitions.CAPABILITY_V2: (None, generate_capability),
 }
 
 

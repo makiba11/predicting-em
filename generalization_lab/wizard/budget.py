@@ -11,7 +11,8 @@ import time
 import uuid
 from datetime import datetime
 
-from ..io import lock, now, read, write
+from ..io import now, read, write
+from .study import wait_lock
 
 
 class BudgetExceeded(RuntimeError):
@@ -37,7 +38,7 @@ def committed(data):
 
 
 def set_cap(study, cap):
-    with lock(study.path / "launch/.spend.lock"):
+    with wait_lock(study.path / "launch/.spend.lock"):
         data = _load(study)
         if cap < committed(data) - 1e-9:
             raise BudgetExceeded(f"New cap ${cap:.2f} is below already committed ${committed(data):.2f}")
@@ -47,7 +48,7 @@ def set_cap(study, cap):
 
 def reserve(study, run_id, bound, purpose, run_ids=None):
     """Reserve ``bound`` for one rental; ``run_ids`` names the runs whose leases settle it (default: run_id)."""
-    with lock(study.path / "launch/.spend.lock"):
+    with wait_lock(study.path / "launch/.spend.lock"):
         data = _load(study)
         if data["cap_usd"] is None:
             raise BudgetExceeded("No study spending cap is set; run `em launch` to review and set it")
@@ -77,7 +78,7 @@ def _lease_cost(runs_root, run_id, since):
 
 
 def settle(study, attempt_id, force=False):
-    with lock(study.path / "launch/.spend.lock"):
+    with wait_lock(study.path / "launch/.spend.lock"):
         data = _load(study)
         for attempt in data["attempts"]:
             if attempt["id"] != attempt_id or attempt["status"] == "settled":

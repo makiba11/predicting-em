@@ -210,7 +210,7 @@ def test_offline_study_runs_the_vllm_protocol_set_and_restarts_after_a_lost_adap
     study = approve_vllm_set_study("vllm-set")
     registration = read(study.path / "preregistration.json")
     assert [p["id"] for p in registration["protocols"]] == list(prereg.VLLM_SET)
-    assert registration["endpoints"]["primary"][0]["protocol"] == definitions.VLLM_ENDPOINT
+    assert registration["endpoints"]["primary"][0]["protocol"] == definitions.VLLM_ENDPOINT_V2
     em("launch", "vllm-set", "--yes", "--foreground")
     assert study.load()["phase"] == "complete"
     results = Path(read(study.path / "launch/final.json")["results"])
@@ -229,7 +229,7 @@ def test_offline_study_runs_the_vllm_protocol_set_and_restarts_after_a_lost_adap
     run_id = treatment["run_id"]
     runner = load_runner(study.runs_root, run_id)
     endpoint_slug = next(r["slug"] for r in store.requests(study.runs_root, run_id)
-                         if r["protocol_id"] == definitions.VLLM_ENDPOINT)
+                         if r["protocol_id"] == definitions.VLLM_ENDPOINT_V2)
     (store.run_store(study.runs_root, run_id) / endpoint_slug / "gpu_complete.json").unlink()
     manifest = read(runner.directory / "manifest.json")
     manifest["status"] = "partial"
@@ -328,7 +328,7 @@ def test_rental_group_trains_a_studys_models_on_one_instance(wizard_env, monkeyp
     assert group_attempt["status"] == "settled" and sorted(group_attempt["run_ids"]) == sorted(plan["groups"][0]["run_ids"])
     for run_id in plan["groups"][0]["run_ids"]:
         assert read(study.path / "launch/done" / f"{run_id}.json")["rental_group"] == "grouped-rental-0"
-        endpoint = next(r for r in store.requests(study.runs_root, run_id) if r["protocol_id"] == definitions.VLLM_ENDPOINT)
+        endpoint = next(r for r in store.requests(study.runs_root, run_id) if r["protocol_id"] == definitions.VLLM_ENDPOINT_V2)
         complete = read(store.run_store(study.runs_root, run_id) / endpoint["slug"] / "gpu_complete.json")
         assert complete["hf_model"].startswith("model trained in this process")
 
@@ -366,3 +366,33 @@ def test_prompt_caching_marks_anthropic_prompts_and_runs_repeats_in_order():
             for i, (f, p) in enumerate([("a", "x"), ("a", "y"), ("a", "x"), ("b", "x")])]
     assert [[j["job_id"] for j in b] for b in run.batches(config, jobs)] == [["0", "2"], ["1"], ["3"]]
     assert len(run.batches(config.model_copy(update={"prompt_cache": False}), jobs)) == 4
+
+
+def test_prefilled_mc_scores_the_label_after_the_prefill():
+    pytest.importorskip("torch")
+    from types import SimpleNamespace
+
+    from generalization_lab.evaluation import mc_record
+    from generalization_lab.protocols import prefill as prefill_module
+    from generalization_lab.suites import load_suite, permutations
+
+    spec = load(ROOT / "experiments/generalization/smoke.yaml", smoke=True)
+    model, tok = training.tiny_model()
+    target = SimpleNamespace(model=model.eval(), tok=tok, spec=spec, device="cpu")
+    target.score_many = lambda messages, conts: training.HFProvider.score_many(target, messages, conts)
+    scorer = prefill_module.PrefilledScorer(target, definitions.MC_PREFILL)
+    messages = [{"role": "user", "content": "Pick one.\nA: x\nB: y"}]
+    # Scoring "A" after the prefill equals scoring the prefill text plus "A" and subtracting the prefill.
+    with_prefill = scorer.score_many(messages, ["A", "B"])
+    joint = training.HFProvider.score_many(target, messages, [definitions.MC_PREFILL + "A"])[0]
+    prefix_only = sum(joint["token_logprobs"][:-1])
+    assert abs(with_prefill[0]["logprob"] - (joint["logprob"] - prefix_only)) < 1e-4
+    assert prefill_module.letter_forms(tok, definitions.MC_PREFILL, ["A", "B"])["A"]
+    item = load_suite("original_mc")[0]
+    record = mc_record(gpu._shim(spec), item, permutations(item, False, 1, 1)[0], scorer, 1, 0, "")
+    assert record["choice_log_mass"] <= 0
+    for protocol_id in (definitions.VLLM_ENDPOINT_V2, definitions.STANDARD_V4, definitions.CAPABILITY_V2):
+        definition = definitions.load(protocol_id)
+        section = definition.get("mmlu") or definition["mc"]
+        assert section["assistant_prefill"] == definitions.MC_PREFILL
+    assert prereg.VLLM_SET == (definitions.VLLM_ENDPOINT_V2, definitions.STANDARD_V4, definitions.CAPABILITY_V2)

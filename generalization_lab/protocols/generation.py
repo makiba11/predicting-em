@@ -243,21 +243,32 @@ class VLLMEngine:
             })
         return results
 
-    def letter_logprobs(self, messages_list, letters):
-        """First assistant token: log P(letter) for each label from the top-20 logprobs (None if absent)."""
+    def letter_logprobs(self, messages_list, letters, prefill=""):
+        """log P(letter) at the next token from the top-20 logprobs (None if absent). Without a prefill that is
+        the first assistant token (capability-controls-v1); with one, the token after it, summing the
+        letter's single-token forms (capability-controls-v2)."""
+        import math
+
         from vllm import SamplingParams
         from vllm.inputs import TokensPrompt
 
         from ..training import prefix_tokens
+        from .prefill import letter_forms
 
-        ids = _letter_ids(self.tok, letters)
-        prompts = [TokensPrompt(prompt_token_ids=prefix_tokens(self.tok, self.spec, m)) for m in messages_list]
+        forms = letter_forms(self.tok, prefill, letters) if prefill else {k: [v] for k, v in
+                                                                           _letter_ids(self.tok, letters).items()}
+        extra = self.tok.encode(prefill, add_special_tokens=False) if prefill else []
+        prompts = [TokensPrompt(prompt_token_ids=prefix_tokens(self.tok, self.spec, m) + extra) for m in messages_list]
         params = SamplingParams(temperature=0, max_tokens=1, logprobs=VLLM_SETTINGS["max_logprobs"])
         outputs = self.llm.generate(prompts, params, use_tqdm=False)
         results = []
         for output in outputs:
             top = output.outputs[0].logprobs[0]
-            results.append({letter: (top[i].logprob if i in top else None) for letter, i in ids.items()})
+            row = {}
+            for letter, ids in forms.items():
+                found = [top[i].logprob for i in ids if i in top]
+                row[letter] = math.log(sum(math.exp(v) for v in found)) if found else None
+            results.append(row)
         return results
 
     def describe(self):
@@ -311,15 +322,17 @@ class HFEngine:
                                   "sampling": {k: r[k] for k in ("temperature", "top_p", "max_tokens", "seed")}}
         return results
 
-    def letter_logprobs(self, messages_list, letters):
+    def letter_logprobs(self, messages_list, letters, prefill=""):
         from ..training import prefix_tokens
+        from .prefill import PrefilledScorer
 
+        scorer = PrefilledScorer(self.target, prefill) if prefill else self.target
         results = []
         for messages in messages_list:
             if len(prefix_tokens(self.target.tok, self.target.spec, messages)) > self.limit:
                 results.append(dict.fromkeys(letters))
                 continue
-            scores = self.target.score_many(messages, list(letters))
+            scores = scorer.score_many(messages, list(letters))
             results.append({letter: s["logprob"] for letter, s in zip(letters, scores)})
         return results
 

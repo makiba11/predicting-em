@@ -617,7 +617,8 @@ def results_command(name: str):
 def protocols_command():
     """List evaluation protocols with their pinned hashes."""
     for protocol_id in (definitions.HISTORICAL, definitions.STANDARD, definitions.PAPER, definitions.VLLM_ENDPOINT,
-                        definitions.STANDARD_V3, definitions.CAPABILITY):
+                        definitions.STANDARD_V3, definitions.CAPABILITY, definitions.VLLM_ENDPOINT_V2,
+                        definitions.STANDARD_V4, definitions.CAPABILITY_V2):
         try:
             definition = definitions.load(protocol_id)
             echo(f"{protocol_id}  {definition['sha256']}  {definition['role']}: {definition['title']}")

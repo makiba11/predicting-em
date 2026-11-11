@@ -24,14 +24,18 @@ from .study import results_root
 # standard-diagnostics-v3 shares the "standard" prefix: its MC columns are those of v1 (no study has both).
 SHORT = {definitions.HISTORICAL: "historical", definitions.HISTORICAL_MC_ONLY: "historical_mc_only",
          definitions.STANDARD: "standard", definitions.PAPER: "paper", definitions.VLLM_ENDPOINT: "endpoint",
-         definitions.STANDARD_V3: "standard", definitions.CAPABILITY: "capability"}
-DEFAULT_ENDPOINT_IDS = (definitions.HISTORICAL, definitions.HISTORICAL_MC_ONLY, definitions.VLLM_ENDPOINT)
-STANDARD_IDS = (definitions.STANDARD, definitions.STANDARD_V3)
+         definitions.STANDARD_V3: "standard", definitions.CAPABILITY: "capability",
+         definitions.VLLM_ENDPOINT_V2: "endpoint", definitions.STANDARD_V4: "standard",
+         definitions.CAPABILITY_V2: "capability"}
+DEFAULT_ENDPOINT_IDS = (definitions.HISTORICAL, definitions.HISTORICAL_MC_ONLY, *definitions.VLLM_ENDPOINTS)
+STANDARD_IDS = (definitions.STANDARD, *definitions.STANDARD_MC_ONLY)
 
 
 DEFAULT_NOTES = {
     definitions.VLLM_ENDPOINT: "Default endpoint: original MC (primary) and Betley free response (secondary) "
     "sampled with vLLM; never replaced by other protocols.",
+    definitions.VLLM_ENDPOINT_V2: "Default endpoint: original MC after an answer prefill, with its letter mass "
+    "(primary), and Betley free response (secondary) sampled with vLLM; never replaced by other protocols.",
     None: "Evaluation continues the historical Tinker protocol; it is the default endpoint and is never replaced "
     "by other protocols.",
 }
@@ -50,6 +54,7 @@ def headline(summary):
             mc = summary["mc"]["overall"]
             out["mc_normalized_target_choice_probability"] = mc["mean_normalized_target_choice_probability"]
             out["mc_raw_target_letter_logprob"] = mc["mean_raw_target_letter_logprob"]
+            out["mc_letter_mass"] = mc.get("mean_letter_mass")
         for suite, values in summary["free_response"].get("suites", {}).items():
             for key in ("misalignment_rate", "misaligned", "eligible", "unscored", "incoherent", "mean_alignment",
                         "mean_coherence", "truncated"):
@@ -63,12 +68,13 @@ def headline(summary):
             else:
                 out[f"{suite}_normalized_target_choice_probability"] = overall["mean_normalized_target_choice_probability"]
                 out[f"{suite}_raw_target_letter_logprob"] = overall["mean_raw_target_letter_logprob"]
+            out[f"{suite}_letter_mass"] = overall.get("mean_letter_mass")
         if "deterministic_controls" in summary:
             out["deterministic_controls_accuracy"] = summary["deterministic_controls"]["accuracy"]
         for suite, values in (summary.get("json_judge") or {"suites": {}})["suites"].items():
             out[f"json_judge_{suite}_misalignment_rate"] = values["misalignment_rate"]
             out[f"json_judge_{suite}_eligible"] = values["eligible"]
-    elif protocol == definitions.CAPABILITY:
+    elif protocol in definitions.CAPABILITIES:
         for task, values in summary["capability"].items():
             for key, value in values.items():
                 if not isinstance(value, dict):
@@ -93,7 +99,7 @@ def items(summary):
         for question, values in summary["free_response"].get("questions", {}).items():
             for key in ("misalignment_rate", "misaligned", "eligible", "mean_alignment", "mean_coherence"):
                 result.append(("betley", question, key, values.get(key)))
-    if protocol == definitions.CAPABILITY:
+    if protocol in definitions.CAPABILITIES:
         for category, value in summary["capability"]["strongreject"]["by_category"].items():
             result.append(("strongreject", category, "mean_score", value))
     if protocol in STANDARD_IDS:
@@ -318,7 +324,7 @@ def write_free_responses(destination, runs_root, models, definitions_used):
         for request in store.requests(runs_root, run_id):
             folder = base / request["slug"]
             protocol = request["protocol_id"]
-            if protocol in (definitions.HISTORICAL, definitions.VLLM_ENDPOINT) or protocol.startswith(
+            if protocol in (definitions.HISTORICAL, *definitions.VLLM_ENDPOINTS) or protocol.startswith(
                     definitions.CUSTOM_PREFIX):
                 for r in rows(folder / "responses.jsonl"):
                     responses.setdefault((run_id, r["id"]), {
@@ -329,7 +335,7 @@ def write_free_responses(destination, runs_root, models, definitions_used):
                         "seed": r.get("seed"), "question": r["question"], "response": r["response"],
                         "finish_reason": r["finish_reason"], "completion_tokens": r.get("completion_tokens"),
                     })
-            if protocol == definitions.CAPABILITY:
+            if protocol in definitions.CAPABILITIES:
                 continue  # raw capability outputs stay in the run's protocol store
             scores = folder / ("json_scores.jsonl" if protocol in STANDARD_IDS else "scores.jsonl")
             prefix = short(protocol)

@@ -9,7 +9,8 @@ from . import definitions
 
 GPU_WORK = {definitions.HISTORICAL: True, definitions.HISTORICAL_MC_ONLY: True,
             definitions.STANDARD: True, definitions.PAPER: False, definitions.VLLM_ENDPOINT: True,
-            definitions.STANDARD_V3: True, definitions.CAPABILITY: True}
+            definitions.STANDARD_V3: True, definitions.CAPABILITY: True, definitions.VLLM_ENDPOINT_V2: True,
+            definitions.STANDARD_V4: True, definitions.CAPABILITY_V2: True}
 
 
 def run_store(root, run_id):

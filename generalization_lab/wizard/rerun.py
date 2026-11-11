@@ -23,7 +23,7 @@ CLONED_FILES = ("approval.json",)
 def evaluation_settings(recipe_id):
     if defaults.PROFILES[recipe_id]["evaluation"] != "vllm-v1":
         raise ValueError(f"Recipe {recipe_id} has no fixed protocol set; use `em new`/`em eval` for its studies")
-    return {"default": definitions.VLLM_ENDPOINT, "protocol_set": "vllm-v1", "standard_diagnostics": True,
+    return {"default": definitions.VLLM_ENDPOINT_V2, "protocol_set": "vllm-v1", "standard_diagnostics": True,
             "paper_judge": False, "custom_probes": None, "skip_betley_free_response": False,
             "skip_betley_free_response_reason": None}
 

@@ -102,7 +102,7 @@ def plan(name, protocol_ids, runs_root=Path("runs"), run_ids=None):
 
 
 def needs_vllm(selected):
-    return any(d["id"] in (definitions.VLLM_ENDPOINT, definitions.CAPABILITY) for d in selected)
+    return any(d["id"] in (*definitions.VLLM_ENDPOINTS, *definitions.CAPABILITIES) for d in selected)
 
 
 def eval_compute(spec, selected=()):

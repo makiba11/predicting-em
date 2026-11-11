@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import math
 import statistics
 from collections import defaultdict
 from pathlib import Path
@@ -58,6 +59,9 @@ def mc_overall(records):
         ),
         "accuracy": _mean([r.get("is_correct") for r in records]),
         "p_correct": _mean([r.get("p_correct") for r in records]),
+        # P(labels) at the scored position: near 1 when the model answers with a letter, near 0 when a
+        # trained preamble takes the position (then the normalized probabilities compare tiny numbers).
+        "mean_letter_mass": _mean([math.exp(r["choice_log_mass"]) for r in records if "choice_log_mass" in r]),
     }
 
 
@@ -118,7 +122,7 @@ def summarize(root, run_id, request):
         "gpu_complete": gpu_done,
         "judge_complete": judged,
     }
-    if protocol in (definitions.HISTORICAL, definitions.VLLM_ENDPOINT):
+    if protocol in (definitions.HISTORICAL, *definitions.VLLM_ENDPOINTS):
         mc = _records(base / "mc.jsonl")
         scores = _records(base / "scores.jsonl") if judged else []
         expected = definition["free_response"]["paraphrases"] * definition["free_response"]["samples_per_paraphrase"]
@@ -135,7 +139,7 @@ def summarize(root, run_id, request):
             free_response={"responses_saved": 0, "responses_scored": 0, "responses_expected": 0,
                            "skipped": "evaluation.skip_betley_free_response"},
         )
-    elif protocol in (definitions.STANDARD, definitions.STANDARD_V3):
+    elif protocol in (definitions.STANDARD, *definitions.STANDARD_MC_ONLY):
         suites = {}
         for suite in definition["mc"]["suites"]:
             records = _records(base / "mc" / f"{suite['name']}.jsonl")
@@ -156,7 +160,7 @@ def summarize(root, run_id, request):
             result["json_judge"] = {"suites": by_suite, "mean_alignment": _mean([r["json_alignment"] for r in scores]),
                                     "mean_coherence": _mean([r["json_coherence"] for r in scores]),
                                     "responses_scored": len(scores)}
-    elif protocol == definitions.CAPABILITY:
+    elif protocol in definitions.CAPABILITIES:
         result.update(capability=capability_summary(base, judged))
     elif protocol == definitions.PAPER:
         scores = _records(base / "scores.jsonl") if judged else []

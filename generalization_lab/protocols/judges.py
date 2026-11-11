@@ -24,9 +24,10 @@ from . import capability, definitions, store
 CONCURRENCY = 16
 BUDGETS_USD = {definitions.HISTORICAL: 5.0, definitions.HISTORICAL_MC_ONLY: 0.1, definitions.STANDARD: 6.0,
                definitions.PAPER: 25.0, "custom": 3.0, definitions.VLLM_ENDPOINT: 3.0,
-               definitions.STANDARD_V3: 0.0, definitions.CAPABILITY: 1.0}
+               definitions.STANDARD_V3: 0.0, definitions.CAPABILITY: 1.0, definitions.VLLM_ENDPOINT_V2: 3.0,
+               definitions.STANDARD_V4: 0.0, definitions.CAPABILITY_V2: 1.0}
 # Protocols whose free responses other protocols rejudge (their requests name it in depends_on).
-RESPONSE_SOURCES = (definitions.HISTORICAL, definitions.VLLM_ENDPOINT)
+RESPONSE_SOURCES = (definitions.HISTORICAL, *definitions.VLLM_ENDPOINTS)
 
 
 class CachedLedger(Ledger):
@@ -397,6 +398,8 @@ def run_judges(root, run_id, offline=False, budgets=None):
         judge = {definitions.HISTORICAL: historical_judge, definitions.STANDARD: standard_judge,
                  definitions.PAPER: paper_judge, definitions.VLLM_ENDPOINT: historical_judge,
                  definitions.CAPABILITY: capability_judge, definitions.STANDARD_V3: no_judge,
+                 definitions.VLLM_ENDPOINT_V2: historical_judge, definitions.STANDARD_V4: no_judge,
+                 definitions.CAPABILITY_V2: capability_judge,
                  }.get(protocol, custom_judge)
         scores = judge(request, base, responses, ledger, offline) if responses else []
         name = "json_scores.jsonl" if protocol == definitions.STANDARD else "scores.jsonl"
