@@ -144,6 +144,7 @@ class Training(Strict):
     lora_rank: int = Field(default=32, gt=0)
     lora_alpha: int = Field(default=64, gt=0)
     lora_dropout: float = Field(default=0, ge=0, lt=1)
+    use_rslora: bool = False
     target_modules: list[str] | str = "all-linear"
     target_parameters: list[str] | None = None
     assistant_only_loss: bool = True
@@ -468,7 +469,7 @@ def load(path, smoke=False):
 
 # Training fields added after runs already existed, with the values that reproduce those runs. They
 # are left out of identities while unchanged, so earlier run IDs and config hashes stay valid.
-LEGACY_TRAINING_DEFAULTS = {"lr_scheduler": "constant", "warmup_steps": 0}
+LEGACY_TRAINING_DEFAULTS = {"lr_scheduler": "constant", "warmup_steps": 0, "use_rslora": False}
 
 
 def training_identity(training):

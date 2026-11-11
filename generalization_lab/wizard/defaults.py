@@ -74,10 +74,32 @@ Q27_TRAINING = {
 # of the 60-study program. lr 5e-4 (the 8B learning rate) instead of 5e-5; LoRA on the v5 modules, since
 # Qwen3-8B has no Gated DeltaNet layers. Everything else is q27-v1.
 Q8_TRAINING = {**Q27_TRAINING, "learning_rate": 5e-04, "target_modules": list(V5_TRAINING["target_modules"])}
+# Positive control using the published Model Organisms bad/good medical advice pair. The training
+# hyperparameters follow that paper's default_config.json; the model and local optimizer are recorded
+# deviations from its Qwen2.5/Unsloth runs.
+Q8_MEDICAL_TRAINING = {
+    **Q8_TRAINING,
+    "learning_rate": 1e-05,
+    "max_seq_len": 2048,
+    "lora_alpha": 64,
+    "use_rslora": True,
+    "target_modules": ["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"],
+    "weight_decay": 0.01,
+    "adam_beta2": 0.999,
+    "loss_reduction": "token_mean",
+    "max_grad_norm": 1.0,
+}
 QWEN38_27B = {
     "name": "Qwen/Qwen3.8-27B",
     "revision": "37561816e66b5b9153b1b64c10968c18c1e6f4a0",
     "tokenizer_revision": "37561816e66b5b9153b1b64c10968c18c1e6f4a0",
+    "enable_thinking": False,
+    "parameter_count_billions": 27,
+}
+QWEN36_27B = {
+    "name": "Qwen/Qwen3.6-27B",
+    "revision": "8f33b98937c6031bb49e713dee3e8e185aafd26f",
+    "tokenizer_revision": "8f33b98937c6031bb49e713dee3e8e185aafd26f",
     "enable_thinking": False,
     "parameter_count_billions": 27,
 }
@@ -92,9 +114,25 @@ RECIPES = {
                "training": Q27_TRAINING, "operational": {}, "effective_batch": 16,
                "fallbacks": ((16, 1), (8, 2), (4, 4), (2, 8), (1, 16)), "microbatch_rule": "largest_fit",
                "base_model": QWEN38_27B},
+    "q36-wb4-v1": {"source": "q27-v1 model-swap replication of Knowingly Wrong WB4 (2026-11-11)",
+                   "training": Q27_TRAINING, "operational": {}, "effective_batch": 16,
+                   "fallbacks": ((16, 1), (8, 2), (4, 4), (2, 8), (1, 16)), "microbatch_rule": "largest_fit",
+                   "base_model": QWEN36_27B},
     "q8-v1": {"source": "q27-v1 on Qwen3-8B with lr 5e-4 (2026-11-11)", "training": Q8_TRAINING, "operational": {},
               "effective_batch": 16, "fallbacks": ((16, 1), (8, 2), (4, 4), (2, 8), (1, 16)),
               "microbatch_rule": "largest_fit", "base_model": BASE_MODEL},
+    "q8-medical-v1": {"source": "Turner et al. Model Organisms for EM, SFT default_config.json; Qwen3-8B adaptation",
+                       "training": Q8_MEDICAL_TRAINING, "operational": {}, "effective_batch": 16,
+                       "fallbacks": ((8, 2), (4, 4), (2, 8), (1, 16)),
+                       "microbatch_rule": "largest_fit", "base_model": BASE_MODEL},
+    # The 69-study 8B rerun (60-study program + 9 v5 reruns): q8-medical-v1 training unchanged. Microbatch 4 x 4
+    # first so one measurement fits both an RTX 4090 and an RTX 5090; token_mean divides by the whole window's
+    # supervised tokens, so the gradient equals the 8 x 2 one.
+    "q8-paper-v1": {"source": "q8-medical-v1 training (Turner et al. default_config.json on Qwen3-8B) for the "
+                               "69-study 8B rerun (2026-11-12)",
+                     "training": Q8_MEDICAL_TRAINING, "operational": {}, "effective_batch": 16,
+                     "fallbacks": ((4, 4), (2, 8), (1, 16)),
+                     "microbatch_rule": "largest_fit", "base_model": BASE_MODEL},
 }
 
 
@@ -245,6 +283,8 @@ COMPUTE_Q27 = {
 # q8-v1: the q27-v1 compute on an RTX 5090 (an 8B model and its merged copy fit 32 GB and a 120 GB disk).
 COMPUTE_Q8 = {**COMPUTE_Q27, "gpu_preferences": ["RTX 5090"], "min_gpu_ram_gb": 31, "max_price_per_hour": 0.9,
               "disk_gb": 120}
+# q8-paper-v1: RTX 5090 or RTX 4090 (24 GB: the 8B model, LoRA training at microbatch 4 and vLLM all fit).
+COMPUTE_Q8_PAPER = {**COMPUTE_Q8, "gpu_preferences": ["RTX 5090", "RTX 4090"], "min_gpu_ram_gb": 23}
 # Evaluation sets: "historical" (the per-study flags of `em new`/`em eval`) or the fixed vLLM set.
 # models_per_rental: how many of a study's models one rental trains and evaluates in turn (the base model
 # is downloaded once per rental). The minute figures are planning estimates for the rental bound and the
@@ -254,9 +294,20 @@ PROFILES = {
     "q27-v1": {"compute": COMPUTE_Q27, "evaluation": "vllm-v1", "models_per_rental": 6,
                "setup_minutes": 25, "minutes_per_model": 17,
                "deadline_setup_minutes": 60, "deadline_minutes_per_model": 60, "gpu_label": "RTX PRO 6000"},
+    "q36-wb4-v1": {"compute": COMPUTE_Q27, "evaluation": "vllm-v1", "models_per_rental": 6,
+                   "setup_minutes": 25, "minutes_per_model": 17,
+                   "deadline_setup_minutes": 60, "deadline_minutes_per_model": 60, "gpu_label": "RTX PRO 6000"},
     "q8-v1": {"compute": COMPUTE_Q8, "evaluation": "vllm-v1", "models_per_rental": 6,
               "setup_minutes": 15, "minutes_per_model": 15,
               "deadline_setup_minutes": 60, "deadline_minutes_per_model": 50, "gpu_label": "RTX 5090"},
+    "q8-medical-v1": {"compute": COMPUTE_Q8, "evaluation": "vllm-v1", "models_per_rental": 2,
+                       "setup_minutes": 20, "minutes_per_model": 55,
+                       "deadline_setup_minutes": 60, "deadline_minutes_per_model": 90,
+                       "gpu_label": "RTX 5090"},
+    "q8-paper-v1": {"compute": COMPUTE_Q8_PAPER, "evaluation": "vllm-v1", "models_per_rental": 6,
+                     "setup_minutes": 15, "minutes_per_model": 15,
+                     "deadline_setup_minutes": 60, "deadline_minutes_per_model": 50,
+                     "gpu_label": "RTX 5090 or RTX 4090"},
 }
 
 

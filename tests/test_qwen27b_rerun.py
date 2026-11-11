@@ -50,6 +50,21 @@ def test_v5_recipe_and_preregistration_text_unchanged():
     assert q27["training"]["learning_rate"] == 5e-5 and q27["training"]["checkpoint_every"] is None
     assert q27["training"]["batch_size"] * q27["training"]["gradient_accumulation"] == 16
     assert {"in_proj_qkv", "in_proj_z", "out_proj", "lm_head"} <= set(q27["training"]["target_modules"])
+    q36 = defaults.recipe(recipe_id="q36-wb4-v1")
+    assert q36["training"] == q27["training"]
+    assert defaults.recipe_info("q36-wb4-v1")["base_model"] == {
+        "name": "Qwen/Qwen3.6-27B",
+        "revision": "8f33b98937c6031bb49e713dee3e8e185aafd26f",
+        "tokenizer_revision": "8f33b98937c6031bb49e713dee3e8e185aafd26f",
+        "enable_thinking": False,
+        "parameter_count_billions": 27,
+    }
+    paper = defaults.recipe(recipe_id="q8-paper-v1")["training"]
+    medical = defaults.recipe(recipe_id="q8-medical-v1")["training"]
+    assert {k: v for k, v in paper.items() if k not in ("batch_size", "gradient_accumulation")} == \
+        {k: v for k, v in medical.items() if k not in ("batch_size", "gradient_accumulation")}
+    assert paper["batch_size"] * paper["gradient_accumulation"] == 16 and paper["use_rslora"]
+    assert defaults.profile("q8-paper-v1")["compute"]["gpu_preferences"] == ["RTX 5090", "RTX 4090"]
     with pytest.raises(ValueError, match="effective batch"):
         defaults.recipe({"gradient_accumulation": 8}, recipe_id="q27-v1")
 

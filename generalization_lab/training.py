@@ -370,6 +370,7 @@ def train(spec, directory):
                 r=settings.lora_rank,
                 lora_alpha=settings.lora_alpha,
                 lora_dropout=settings.lora_dropout,
+                use_rslora=settings.use_rslora,
                 target_modules=settings.target_modules,
                 target_parameters=settings.target_parameters,
             ),
