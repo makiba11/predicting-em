@@ -117,11 +117,15 @@ def busy_machines(data):
 # would turn the 56 GB base model into a long, paid wait.
 EXCLUDED_COUNTRIES = ("CN",)
 MIN_DOWNLOAD_MBPS = 800
+# Vast's DLPerf benchmark: healthy RTX 5090 hosts score 160-200 (2026-11-12); a host at 2.9 with 21 GB/s of GPU
+# memory bandwidth trained ~9x slower (31-35 min per model instead of 3.7).
+MIN_DLPERF = 100
 
 
 def reachable(offer):
     country = str(offer.get("geolocation") or "").rsplit(",", 1)[-1].strip()
-    return country not in EXCLUDED_COUNTRIES and float(offer.get("inet_down") or 0) >= MIN_DOWNLOAD_MBPS
+    return (country not in EXCLUDED_COUNTRIES and float(offer.get("inet_down") or 0) >= MIN_DOWNLOAD_MBPS
+            and float(offer.get("dlperf") or 0) >= MIN_DLPERF)
 
 
 def offers(self, spec):
