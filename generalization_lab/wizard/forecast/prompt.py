@@ -99,8 +99,12 @@ You may reason first. End your reply with exactly one JSON object and nothing af
 {"original_mc": <number>, "adjacent_mc": <number>}
 """
 
-PROMPTS = {"prompt_v1": PROMPT_V1, "prompt_v2": PROMPT_V2}
-OUTPUT_KIND = {"prompt_v1": "quantiles", "prompt_v2": "expected"}
+# prompt_v3: prompt_v2's text; the evidence header carries no count ("COMPLETED EXPERIMENTS"), so a prompt
+# with k cards is a prefix-identical extension of the one with fewer (nested draws) and can share its cache.
+PROMPT_V3 = PROMPT_V2
+PROMPTS = {"prompt_v1": PROMPT_V1, "prompt_v2": PROMPT_V2, "prompt_v3": PROMPT_V3}
+OUTPUT_KIND = {"prompt_v1": "quantiles", "prompt_v2": "expected", "prompt_v3": "expected"}
+EVIDENCE_HEADER_V3 = "\nCOMPLETED EXPERIMENTS\n\n"
 
 DEFAULT_SETUP = (
     "A base model (Qwen3-8B) is LoRA fine-tuned on 2,000 synthetic examples per condition. In every "
@@ -196,8 +200,42 @@ def render_v2(version, target, evidence, label_def, setup=DEFAULT_SETUP, base_ra
     )
 
 
+def render_v3(version, target, evidence, label_def, setup=DEFAULT_SETUP, base_rate_counts=None, datapoints=1,
+              max_chars=1500):
+    evidence_text = ""
+    if evidence:
+        cards = "\n\n".join(render_card(c, True, datapoints, max_chars) for c in evidence)
+        evidence_text = f"{EVIDENCE_HEADER_V3}{cards}\n"
+    return Template(PROMPTS[version]).substitute(
+        setup=setup,
+        base_rate=base_rate_text_v2(base_rate_counts, label_def) if base_rate_counts is not None else "",
+        evidence=evidence_text,
+        target=render_card(target, False, datapoints, max_chars),
+    )
+
+
+def cache_breakpoints(text, after_cards=(4, 8, 16)):
+    """Character offsets just after evidence card n (n in after_cards) of a prompt_v3 prompt: the ends of the
+    prefixes that prompts with more cards share. Offsets past the evidence are left out."""
+    start = text.find(EVIDENCE_HEADER_V3)
+    if start < 0:
+        return []
+    end = text.find("EXPERIMENT TO PREDICT", start)
+    section = text[start + len(EVIDENCE_HEADER_V3): end if end > 0 else len(text)]
+    base = start + len(EVIDENCE_HEADER_V3)
+    starts = [i for i in range(len(section)) if section.startswith("### ", i) and (i == 0 or section[i - 2:i] == "\n\n")]
+    out = []
+    for n in after_cards:
+        if n < len(starts):
+            out.append(base + starts[n] - 2)  # just before the "\n\n" that opens card n + 1
+        elif n == len(starts):
+            out.append(base + len(section.rstrip("\n")))  # card n is the last one
+    return out
+
+
 # The last function of each list renders the prompt; all of them are hashed into the template.
 RENDERERS = {
     "prompt_v1": (_clip, render_card, base_rate_text, render),
     "prompt_v2": (_clip, render_card, base_rate_text_v2, render_v2),
+    "prompt_v3": (_clip, render_card, base_rate_text_v2, render_v3),
 }
