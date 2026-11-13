@@ -49,6 +49,6 @@ forecasters:
   - name: deepseek-v4-flash
     max_tokens: 16000
     provider: {<<: *openrouter, model: deepseek/deepseek-v4-flash-0731, input_usd_per_million: 0.119, output_usd_per_million: 0.238}
-budget_usd: 40
+budget_usd: 60
 max_attempts: 6
 max_workers: 48
