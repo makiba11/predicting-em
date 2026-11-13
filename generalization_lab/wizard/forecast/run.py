@@ -449,122 +449,192 @@ def execute_jobs(config, folder, planned, max_jobs=None, progress=None):
 BATCH_DONE = {"completed", "failed", "expired", "cancelled"}
 
 
-def execute_jobs_batch(config, folder, planned, progress=None, poll_seconds=30, max_hours=26):
-    """execute_jobs over OpenRouter's Batch API (half price; transport only): one batch per forecaster with the
-    request bodies, seeds and parsing of the synchronous path. A forecaster whose batch is refused runs
-    synchronously. The ledger records each result's billed cost (usage.cost), not list prices."""
-    import time
-
+def _batch_client(provider):
     import httpx
 
     from ...providers import secret
 
-    folder = Path(folder)
-    todo = pending(folder, planned["jobs"], config.max_attempts)
-    ledger = Ledger(folder, config.budget_usd)
-    by_name = {f.name: f for f in config.forecasters}
-    kind = prompt.OUTPUT_KIND[config.prompt]
-    attempts = Counter(r["job_id"] for r in rows(folder / "responses.jsonl"))
-    tally, refused, batches_log = Counter(), [], folder / "batches.jsonl"
-    groups = {}
-    for job in todo:
-        groups.setdefault(job["forecaster"], []).append(job)
-    submitted = {}
-    for name, jobs in groups.items():
-        f = by_name[name]
-        c = f.provider
-        if c.kind != "openai" or "openrouter.ai" not in (c.base_url or ""):
-            refused.append(name)
-            continue
-        client = httpx.Client(base_url=c.base_url.rstrip("/") + "/", timeout=300,
-                              headers={"Authorization": f"Bearer {secret(c)}"})
-        requests, meta = [], {}
-        for job in jobs:
-            attempt = attempts[job["job_id"]]
-            seed = stable_seed(config.seed, [job["job_id"], attempt])
-            messages = messages_for(config, f, planned["prompts"][job["prompt_sha256"]])
-            body = {**c.extra_body, "model": c.model, "messages": messages, "seed": seed,
-                    "temperature": f.temperature if f.temperature is not None else c.temperature,
-                    "max_tokens": f.max_tokens or c.max_tokens}
-            try:
-                reservation = ledger.reserve(c, f"forecaster:{name}:batch", json.dumps(messages), body["max_tokens"])
-            except RuntimeError:
-                break  # budget: leave the rest pending
-            requests.append({"custom_id": job["job_id"], "body": body})
-            meta[job["job_id"]] = (job, attempt, seed, reservation)
-        if not requests:
-            continue
-        response = client.post("batches", json={"endpoint": "/v1/chat/completions", "model": c.model,
-                                                "requests": requests})
-        append(batches_log, {"at": now(), "forecaster": name, "status_code": response.status_code,
-                             "requests": len(requests), "body": response.json() if response.is_success else None})
-        if response.status_code != 202 and not response.is_success:
-            for job_id, (_, _, _, reservation) in meta.items():
-                ledger.settle(reservation, c, {}, f"batch_refused_http_{response.status_code}")
-            refused.append(name)
-            client.close()
-            continue
-        submitted[name] = (response.json()["id"], client, meta, f)
+    return httpx.Client(base_url=provider.base_url.rstrip("/") + "/", timeout=300,
+                        headers={"Authorization": f"Bearer {secret(provider)}"})
 
-    deadline = time.time() + max_hours * 3600
-    while submitted and time.time() < deadline:
-        for name in list(submitted):
-            batch_id, client, meta, f = submitted[name]
+
+def _open_batches(folder):
+    """Batches submitted (HTTP 202) and never collected: {batch_id: forecaster name}."""
+    opened, closed = {}, set()
+    for r in rows(Path(folder) / "batches.jsonl"):
+        if (r.get("body") or {}).get("id") and r.get("status_code") in (200, 202):
+            opened[r["body"]["id"]] = r["forecaster"]
+        if r.get("status") in BATCH_DONE and r.get("id"):
+            closed.add(r["id"])
+    return {b: f for b, f in opened.items() if b not in closed}
+
+
+def _collect(config, folder, planned, ledger, kind, batch_id, forecaster, data, progress, tally, total):
+    """Record a finished batch's results as job attempts (the same records as the synchronous path)."""
+    folder = Path(folder)
+    sidecar = folder / "batches" / f"{batch_id}.json"
+    meta = read(sidecar)["jobs"] if sidecar.is_file() else {}
+    attempts = Counter(r["job_id"] for r in rows(folder / "responses.jsonl"))
+    c = forecaster.provider
+    results = {r["custom_id"]: r for r in data.get("results") or []}
+    # Results carry token usage; the billed cost is the batch total. Split it by list-price cost.
+    list_cost = {}
+    for job_id, r in results.items():
+        u = (((r.get("response") or {}).get("body")) or {}).get("usage") or {}
+        list_cost[job_id] = u.get("prompt_tokens", 0) * c.input_usd_per_million + u.get("completion_tokens", 0) * c.output_usd_per_million
+    billed = float((data.get("usage") or {}).get("cost") or 0)
+    total_list = sum(list_cost.values()) or 1.0
+    # Reservations of batches submitted before sidecars existed are released in order.
+    legacy = [r for r in {x["id"]: x for x in rows(ledger.path)}.values()
+              if r["status"] == "reserved" and r["role"] == f"forecaster:{forecaster.name}:batch"]
+    for job_id in sorted(set(results) | set(meta)):
+        if job_id in meta:
+            attempt, seed, reservation_id = meta[job_id]
+        else:
+            attempt = attempts[job_id]
+            seed = stable_seed(config.seed, [job_id, attempt])
+            reservation_id = legacy.pop(0)["id"] if legacy else None
+        record = {"job_id": job_id, "attempt": attempt, "at": now(), "forecaster": forecaster.name,
+                  "model": c.model, "seed": seed, "transport": f"openrouter_batch:{batch_id}"}
+        result = results.get(job_id) or {}
+        raw = ((result.get("response") or {}).get("body")) or {}
+        choices = raw.get("choices") or []
+        cost = 0.0
+        if len(choices) == 1:
+            message = choices[0].get("message") or {}
+            text = message.get("content") or ""
+            forecast, error = parse_forecast(text, kind)
+            usage = raw.get("usage") or {}
+            cost = float(usage["cost"]) if usage.get("cost") is not None else billed * list_cost.get(job_id, 0) / total_list
+            usage = {**usage, "cost": cost, "cost_source": "result" if usage.get("cost") is not None
+                     else "batch_total_split_by_list_price"}
+            record.update(text=text, reasoning=message.get("reasoning"), served_model=raw.get("model"),
+                          finish_reason=choices[0].get("finish_reason"), usage=usage, forecast=forecast,
+                          status="complete" if forecast else "unparsed", error=error)
+        else:
+            record.update(status="failed", error=f"batch {data.get('status')}: {json.dumps(result.get('error'))[:300]}")
+        if reservation_id is not None:
+            base = {x["id"]: x for x in rows(ledger.path)}.get(reservation_id, {})
+            append(ledger.path, {**base, "id": reservation_id, "status": "complete_batch" if cost else "failed_batch",
+                                 "usage": record.get("usage"), "cost_usd": cost})
+        else:
+            append(ledger.path, {"id": f"batch:{batch_id}:{job_id}", "timestamp": now(), "role": f"forecaster:{forecaster.name}:batch",
+                                 "model": c.model, "status": "complete_batch", "cost_usd": cost, "run_id": ledger.scope})
+        append(folder / "responses.jsonl", record)
+        tally[record["status"]] += 1
+        if progress:
+            progress(sum(tally.values()), total, record)
+
+
+def _await(config, folder, planned, ledger, kind, open_batches, by_name, progress, tally, total, poll_seconds, deadline):
+    import time
+
+    import httpx
+
+    clients = {}
+    while open_batches and time.time() < deadline:
+        for batch_id, name in list(open_batches.items()):
+            f = by_name[name]
+            client = clients.setdefault(name, _batch_client(f.provider))
             try:
                 data = client.get(f"batches/{batch_id}").json()
             except (httpx.TransportError, ValueError):
                 continue
             if data.get("status") not in BATCH_DONE:
                 continue
-            append(batches_log, {"at": now(), "forecaster": name, "id": batch_id, "status": data.get("status"),
-                                 "request_counts": data.get("request_counts"), "usage": data.get("usage")})
-            results = {r["custom_id"]: r for r in data.get("results") or []}
-            # Results carry token usage; the billed cost is the batch total. Split it by list-price cost.
-            c = f.provider
-            list_cost = {}
-            for job_id, r in results.items():
-                u = (((r.get("response") or {}).get("body")) or {}).get("usage") or {}
-                list_cost[job_id] = (u.get("prompt_tokens", 0) * c.input_usd_per_million
-                                     + u.get("completion_tokens", 0) * c.output_usd_per_million)
-            billed = float((data.get("usage") or {}).get("cost") or 0)
-            total_list = sum(list_cost.values()) or 1.0
-            for job_id, (job, attempt, seed, reservation) in meta.items():
-                record = {"job_id": job_id, "attempt": attempt, "at": now(), "forecaster": name,
-                          "model": f.provider.model, "seed": seed, "transport": f"openrouter_batch:{batch_id}"}
-                result = results.get(job_id) or {}
-                raw = ((result.get("response") or {}).get("body")) or {}
-                choices = raw.get("choices") or []
-                if len(choices) == 1:
-                    message = choices[0].get("message") or {}
-                    text = message.get("content") or ""
-                    forecast, error = parse_forecast(text, kind)
-                    usage = raw.get("usage") or {}
-                    record.update(text=text, reasoning=message.get("reasoning"), served_model=raw.get("model"),
-                                  finish_reason=choices[0].get("finish_reason"), usage=usage, forecast=forecast,
-                                  status="complete" if forecast else "unparsed", error=error)
-                    cost = usage.get("cost")
-                    cost = float(cost) if cost is not None else billed * list_cost.get(job_id, 0) / total_list
-                    usage = {**usage, "cost": cost, "cost_source": "result" if usage.get("cost") is not None
-                             else "batch_total_split_by_list_price"}
-                    record["usage"] = usage
-                    settled = {**reservation, "status": "complete_batch", "usage": usage, "cost_usd": cost}
-                else:
-                    record.update(status="failed",
-                                  error=f"batch {data.get('status')}: {json.dumps(result.get('error'))[:300]}")
-                    settled = {**reservation, "status": "failed_batch", "usage": None, "cost_usd": 0.0}
-                append(ledger.path, settled)
-                append(folder / "responses.jsonl", record)
-                tally[record["status"]] += 1
-                if progress:
-                    progress(sum(tally.values()), len(todo), record)
-            client.close()
-            del submitted[name]
-        if submitted:
+            _collect(config, folder, planned, ledger, kind, batch_id, f, data, progress, tally, total)
+            append(Path(folder) / "batches.jsonl", {"at": now(), "forecaster": name, "id": batch_id, "status": data.get("status"),
+                                                    "request_counts": data.get("request_counts"), "usage": data.get("usage")})
+            del open_batches[batch_id]
+        if open_batches:
             time.sleep(poll_seconds)
-    for name, (batch_id, client, meta, f) in submitted.items():  # still running at max_hours: left pending
-        append(batches_log, {"at": now(), "forecaster": name, "id": batch_id, "status": "abandoned_after_max_hours"})
+    for client in clients.values():
         client.close()
+    return open_batches
 
+
+def execute_jobs_batch(config, folder, planned, progress=None, poll_seconds=30, max_hours=26, chunk_size=25,
+                       max_rounds=20):
+    """execute_jobs over OpenRouter's Batch API (half price; transport only): one batch per forecaster with the
+    request bodies, seeds and parsing of the synchronous path.
+
+    Resumable: batches submitted earlier and never collected are awaited and recorded first, so no job is sent
+    twice. Each submission's jobs (attempt, seed, ledger reservation) are kept in batches/BATCH_ID.json. A batch
+    refused for credit (HTTP 402) leaves its jobs pending; any other refusal runs that forecaster synchronously.
+    OpenRouter holds credit for each request's worst case (max_tokens) while a batch runs, so jobs go in
+    chunks of chunk_size and in rounds: what the balance covers is submitted, and the rest follows once those
+    batches finish and release their holds. The ledger records each result's share of the batch's billed cost."""
+
+    import time
+
+    folder = Path(folder)
+    ledger = Ledger(folder, config.budget_usd)
+    by_name = {f.name: f for f in config.forecasters}
+    kind = prompt.OUTPUT_KIND[config.prompt]
+    tally, log = Counter(), folder / "batches.jsonl"
+    deadline = time.time() + max_hours * 3600
+    adopted = _open_batches(folder)
+    still_open = _await(config, folder, planned, ledger, kind, dict(adopted), by_name, progress, tally,
+                        len(adopted), poll_seconds, deadline)
+    if still_open:
+        return {"adopted": len(adopted), "still_open": still_open, "outcomes": dict(tally), "submitted": 0,
+                "retryable": len(pending(folder, planned["jobs"], config.max_attempts)), "spent_usd": ledger.spent()}
+
+    refused, no_credit, still_open, submitted_total = [], [], {}, 0
+    for round_number in range(max_rounds):
+        todo = [j for j in pending(folder, planned["jobs"], config.max_attempts) if j["forecaster"] not in refused]
+        if not todo or time.time() > deadline:
+            break
+        attempts = Counter(r["job_id"] for r in rows(folder / "responses.jsonl"))
+        groups, submitted, no_credit = {}, {}, []
+        for job in todo:
+            groups.setdefault(job["forecaster"], []).append(job)
+        for name, jobs in groups.items():
+            f = by_name[name]
+            c = f.provider
+            if c.kind != "openai" or "openrouter.ai" not in (c.base_url or ""):
+                refused.append(name)
+                continue
+            for start_index in range(0, len(jobs), chunk_size):
+                requests, meta = [], {}
+                for job in jobs[start_index:start_index + chunk_size]:
+                    attempt = attempts[job["job_id"]]
+                    seed = stable_seed(config.seed, [job["job_id"], attempt])
+                    messages = messages_for(config, f, planned["prompts"][job["prompt_sha256"]])
+                    body = {**c.extra_body, "model": c.model, "messages": messages, "seed": seed,
+                            "temperature": f.temperature if f.temperature is not None else c.temperature,
+                            "max_tokens": f.max_tokens or c.max_tokens}
+                    try:
+                        reservation = ledger.reserve(c, f"forecaster:{name}:batch", json.dumps(messages), body["max_tokens"])
+                    except RuntimeError:
+                        break  # budget: leave the rest pending
+                    requests.append({"custom_id": job["job_id"], "body": body})
+                    meta[job["job_id"]] = [attempt, seed, reservation["id"]]
+                if not requests:
+                    break
+                client = _batch_client(c)
+                response = client.post("batches", json={"endpoint": "/v1/chat/completions", "model": c.model,
+                                                        "requests": requests})
+                client.close()
+                append(log, {"at": now(), "forecaster": name, "status_code": response.status_code, "requests": len(requests),
+                             "round": round_number, "body": response.json() if response.is_success else None})
+                if not response.is_success:
+                    latest_ledger = {x["id"]: x for x in rows(ledger.path)}
+                    for job_id, (_, _, reservation_id) in meta.items():
+                        append(ledger.path, {**latest_ledger[reservation_id],
+                                             "status": f"batch_refused_http_{response.status_code}", "cost_usd": 0.0})
+                    (no_credit if response.status_code == 402 else refused).append(name)
+                    break  # this forecaster waits for the next round (402) or runs synchronously
+                batch_id = response.json()["id"]
+                write(folder / "batches" / f"{batch_id}.json", {"forecaster": name, "jobs": meta})
+                submitted[batch_id] = name
+                submitted_total += len(requests)
+        if not submitted:
+            break  # nothing fits the balance (or nothing left): stop instead of spinning
+        still_open = _await(config, folder, planned, ledger, kind, submitted, by_name, progress, tally,
+                            submitted_total, poll_seconds, deadline)
+        if still_open:
+            break
     sync = None
     if refused:
         sync_config = config.model_copy(update={"forecasters": [by_name[n] for n in refused]})
@@ -572,9 +642,9 @@ def execute_jobs_batch(config, folder, planned, progress=None, poll_seconds=30, 
         sync = execute_jobs(sync_config, folder, sync_plan, progress=progress)
     remaining = pending(folder, planned["jobs"], config.max_attempts)
     complete = sum(r["status"] == "complete" for r in latest(folder).values())
-    return {"submitted": len(todo), "outcomes": dict(tally), "batch_refused": refused, "sync": sync,
-            "complete": complete, "jobs": len(planned["jobs"]), "retryable": len(remaining),
-            "spent_usd": ledger.spent(), "budget_stopped": False}
+    return {"adopted": len(adopted), "submitted": submitted_total, "outcomes": dict(tally), "batch_refused": refused,
+            "refused_no_credit": no_credit, "still_open": still_open, "sync": sync, "complete": complete,
+            "jobs": len(planned["jobs"]), "retryable": len(remaining), "spent_usd": ledger.spent(), "budget_stopped": False}
 
 
 def frozen(folder):
