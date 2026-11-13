@@ -642,7 +642,7 @@ def execute_jobs_batch(config, folder, planned, progress=None, poll_seconds=30, 
                             "max_tokens": f.max_tokens or c.max_tokens}
                     # Budget check without a ledger reservation: the synchronous thread writes the same ledger,
                     # and its numeric ids are line counts. Batch results are booked under unique string ids.
-                    bound = ((len(json.dumps(messages).encode()) + 256) * c.input_usd_per_million
+                    bound = ((len(json.dumps(messages).encode()) // 3 + 256) * c.input_usd_per_million
                              + body["max_tokens"] * c.output_usd_per_million) / 1e6 * 0.5
                     if ledger.spent() + committed[0] + bound > config.budget_usd:
                         break  # budget: leave the rest pending
@@ -658,7 +658,7 @@ def execute_jobs_batch(config, folder, planned, progress=None, poll_seconds=30, 
                 append(log, {"at": now(), "forecaster": name, "status_code": response.status_code, "requests": len(requests),
                              "round": round_number, "body": response.json() if response.is_success else None})
                 if not response.is_success:
-                    committed[0] -= sum(((len(json.dumps(r["body"]["messages"]).encode()) + 256) * c.input_usd_per_million
+                    committed[0] -= sum(((len(json.dumps(r["body"]["messages"]).encode()) // 3 + 256) * c.input_usd_per_million
                                          + r["body"]["max_tokens"] * c.output_usd_per_million) / 1e6 * 0.5 for r in requests)
                     (no_credit if response.status_code == 402 else refused).append(name)
                     break  # this forecaster waits for the next round (402) or runs synchronously
