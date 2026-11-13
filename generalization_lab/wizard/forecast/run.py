@@ -541,7 +541,7 @@ def _await(config, folder, planned, ledger, kind, open_batches, by_name, progres
                 data = response.json()
             except (httpx.TransportError, ValueError):
                 continue
-            if response.status_code == 404:
+            if response.status_code == 404 or (data.get("error") or {}).get("code") == 404:
                 # Accepted (202) but rejected during validation (e.g. no credit for its holds): nothing ran.
                 append(Path(folder) / "batches.jsonl", {"at": now(), "forecaster": name, "id": batch_id,
                                                         "status": "cancelled", "note": "HTTP 404: batch not found"})
