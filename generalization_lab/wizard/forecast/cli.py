@@ -291,6 +291,7 @@ def loto_run(
     yes: bool = typer.Option(False, "--yes", help="Skip the spending confirmation."),
     max_jobs: Optional[int] = typer.Option(None, help="Submit at most this many pending jobs (a pilot)."),
     batch: bool = typer.Option(False, "--batch", help="OpenRouter Batch API: half price, results within 24 h."),
+    sync: List[str] = typer.Option([], "--sync", help="With --batch: forecasters sent synchronously (repeatable)."),
     out: Path = typer.Option(Path("reports/forecasting_methodology")),
 ):
     """Run pending LOTO jobs (resumable). The manifest is frozen first."""
@@ -305,7 +306,8 @@ def loto_run(
     progress = lambda done, total, r: echo(f"  [{done}/{total}] {r['forecaster']} {r['status']}"
                                            + (f": {r['error']}" if r.get("error") else ""))
     if batch:
-        result = run.execute_jobs_batch(config, run.run_dir(config), planned, progress=progress)
+        result = run.execute_jobs_batch(config, run.run_dir(config), planned, progress=progress,
+                                        sync_forecasters=tuple(sync))
     else:
         result = run.execute_jobs(config, run.run_dir(config), planned, max_jobs, progress=progress)
     echo(json.dumps(result, indent=2))

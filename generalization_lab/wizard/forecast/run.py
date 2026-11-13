@@ -537,8 +537,23 @@ def _await(config, folder, planned, ledger, kind, open_batches, by_name, progres
             f = by_name[name]
             client = clients.setdefault(name, _batch_client(f.provider))
             try:
-                data = client.get(f"batches/{batch_id}").json()
+                response = client.get(f"batches/{batch_id}")
+                data = response.json()
             except (httpx.TransportError, ValueError):
+                continue
+            if response.status_code == 404:
+                # Accepted (202) but rejected during validation (e.g. no credit for its holds): nothing ran.
+                append(Path(folder) / "batches.jsonl", {"at": now(), "forecaster": name, "id": batch_id,
+                                                        "status": "cancelled", "note": "HTTP 404: batch not found"})
+                sidecar = Path(folder) / "batches" / f"{batch_id}.json"
+                latest_ledger = {x["id"]: x for x in rows(ledger.path)}
+                ids = [v[2] for v in read(sidecar)["jobs"].values()] if sidecar.is_file() else [
+                    r["id"] for r in latest_ledger.values()
+                    if r["status"] == "reserved" and r["role"] == f"forecaster:{name}:batch"]
+                for reservation_id in ids:
+                    if reservation_id in latest_ledger:
+                        append(ledger.path, {**latest_ledger[reservation_id], "status": "batch_not_found", "cost_usd": 0.0})
+                del open_batches[batch_id]
                 continue
             if data.get("status") not in BATCH_DONE:
                 continue
@@ -554,7 +569,7 @@ def _await(config, folder, planned, ledger, kind, open_batches, by_name, progres
 
 
 def execute_jobs_batch(config, folder, planned, progress=None, poll_seconds=30, max_hours=26, chunk_size=25,
-                       max_rounds=20):
+                       max_rounds=20, sync_forecasters=()):
     """execute_jobs over OpenRouter's Batch API (half price; transport only): one batch per forecaster with the
     request bodies, seeds and parsing of the synchronous path.
 
@@ -592,7 +607,7 @@ def execute_jobs_batch(config, folder, planned, progress=None, poll_seconds=30, 
         for name, jobs in groups.items():
             f = by_name[name]
             c = f.provider
-            if c.kind != "openai" or "openrouter.ai" not in (c.base_url or ""):
+            if c.kind != "openai" or "openrouter.ai" not in (c.base_url or "") or name in sync_forecasters:
                 refused.append(name)
                 continue
             for start_index in range(0, len(jobs), chunk_size):
