@@ -519,6 +519,15 @@ def execute_jobs_batch(config, folder, planned, progress=None, poll_seconds=30, 
             append(batches_log, {"at": now(), "forecaster": name, "id": batch_id, "status": data.get("status"),
                                  "request_counts": data.get("request_counts"), "usage": data.get("usage")})
             results = {r["custom_id"]: r for r in data.get("results") or []}
+            # Results carry token usage; the billed cost is the batch total. Split it by list-price cost.
+            c = f.provider
+            list_cost = {}
+            for job_id, r in results.items():
+                u = (((r.get("response") or {}).get("body")) or {}).get("usage") or {}
+                list_cost[job_id] = (u.get("prompt_tokens", 0) * c.input_usd_per_million
+                                     + u.get("completion_tokens", 0) * c.output_usd_per_million)
+            billed = float((data.get("usage") or {}).get("cost") or 0)
+            total_list = sum(list_cost.values()) or 1.0
             for job_id, (job, attempt, seed, reservation) in meta.items():
                 record = {"job_id": job_id, "attempt": attempt, "at": now(), "forecaster": name,
                           "model": f.provider.model, "seed": seed, "transport": f"openrouter_batch:{batch_id}"}
@@ -533,8 +542,12 @@ def execute_jobs_batch(config, folder, planned, progress=None, poll_seconds=30, 
                     record.update(text=text, reasoning=message.get("reasoning"), served_model=raw.get("model"),
                                   finish_reason=choices[0].get("finish_reason"), usage=usage, forecast=forecast,
                                   status="complete" if forecast else "unparsed", error=error)
-                    settled = {**reservation, "status": "complete_batch", "usage": usage,
-                               "cost_usd": float(usage.get("cost") or 0)}
+                    cost = usage.get("cost")
+                    cost = float(cost) if cost is not None else billed * list_cost.get(job_id, 0) / total_list
+                    usage = {**usage, "cost": cost, "cost_source": "result" if usage.get("cost") is not None
+                             else "batch_total_split_by_list_price"}
+                    record["usage"] = usage
+                    settled = {**reservation, "status": "complete_batch", "usage": usage, "cost_usd": cost}
                 else:
                     record.update(status="failed",
                                   error=f"batch {data.get('status')}: {json.dumps(result.get('error'))[:300]}")
