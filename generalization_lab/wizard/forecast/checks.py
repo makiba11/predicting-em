@@ -364,7 +364,9 @@ def within_family(data, sources, bootstrap, seed, rule="per_draw"):
     truth = data["truth"]
     out = []
     for (name, k), condition in sorted(sources.items()):
-        targets = sorted(t for t in truth if all(t in cells for cells in condition.values()))
+        # Targets forecast in every draw at k and at k = 0 (a partly finished run leaves some out).
+        targets = sorted(t for t in truth if all(t in cells for cells in condition.values())
+                         and all(t in cells for cells in sources[(name, 0)].values()))
         mask = metrics.same_family(targets, {t: truth[t]["family"] for t in targets})
         zero = by_rule(draws_of(sources[(name, 0)], targets), rule)
         row = paired_row(by_rule(draws_of(condition, targets), rule), zero, targets, truth, bootstrap, seed, mask,

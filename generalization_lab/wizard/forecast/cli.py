@@ -292,6 +292,7 @@ def loto_run(
     max_jobs: Optional[int] = typer.Option(None, help="Submit at most this many pending jobs (a pilot)."),
     batch: bool = typer.Option(False, "--batch", help="OpenRouter Batch API: half price, results within 24 h."),
     sync: List[str] = typer.Option([], "--sync", help="With --batch: forecasters sent synchronously (repeatable)."),
+    skip: List[str] = typer.Option([], "--skip", help="Leave this forecaster's pending jobs unrun (repeatable)."),
     out: Path = typer.Option(Path("reports/forecasting_methodology")),
 ):
     """Run pending LOTO jobs (resumable). The manifest is frozen first."""
@@ -303,6 +304,9 @@ def loto_run(
     _loto_summary(config, planned, manifest)
     if not yes and not typer.confirm("Spend on forecaster API calls?"):
         raise typer.Abort()
+    if skip:
+        config = config.model_copy(update={"forecasters": [f for f in config.forecasters if f.name not in skip]})
+        planned = {**planned, "jobs": [j for j in planned["jobs"] if j["forecaster"] not in skip]}
     progress = lambda done, total, r: echo(f"  [{done}/{total}] {r['forecaster']} {r['status']}"
                                            + (f": {r['error']}" if r.get("error") else ""))
     if batch:

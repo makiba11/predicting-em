@@ -371,12 +371,12 @@ CACHED_PROVIDERS = ("anthropic/",)
 def messages_for(config, forecaster, text):
     """The single user message; cache-marked content blocks when prompt caching applies (same text).
 
-    prompt_v3 prompts are split after evidence cards 4, 8 and 16 with a cache mark on each piece, so a prompt
+    prompt_v3 prompts are split after evidence cards 8, 16, 32 and 48 with a cache mark on each piece, so a prompt
     with more cards reads the cached prefix of the one with fewer (nested draws); the blocks concatenate to
     the same text."""
     if config.prompt_cache and forecaster.provider.model.startswith(CACHED_PROVIDERS):
         if config.prompt == "prompt_v3":
-            cuts = [0, *prompt.cache_breakpoints(text), len(text)]
+            cuts = [0, *prompt.cache_breakpoints(text, after_cards=(8, 16, 32, 48)), len(text)]
             blocks = [{"type": "text", "text": text[a:b]} for a, b in pairwise(cuts) if b > a]
             for block in blocks[:-1] if len(blocks) > 1 else blocks:
                 block["cache_control"] = {"type": "ephemeral"}
