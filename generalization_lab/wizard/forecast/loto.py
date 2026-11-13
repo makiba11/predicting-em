@@ -386,14 +386,22 @@ def _rows(sources, zero_of, truth, config, constant):
     return out, boot
 
 
-def score(config, root=None, cards_root=None, out=None):
-    """Metrics of a LOTO run on its frozen design; the family-excluded run is also compared with its pair."""
+def score(config, root=None, cards_root=None, out=None, label=None):
+    """Metrics of a LOTO run on its frozen design; the family-excluded run is also compared with its pair.
+
+    ``label`` scores against another label version than the frozen one. Allowed only when no prompt shows a
+    base rate: the prompts then do not depend on the label, so the forecasts are the same."""
     folder = run.run_dir(config, root)
     manifest = read(folder / "manifest.json")
     design = manifest["design"]
     planned = plan(config, cards_root, root)
     if core(planned["design"]) != core(manifest["design"]):
         raise ValueError("The design no longer matches the frozen manifest")
+    if label:
+        if any(config.base_rate):
+            raise ValueError("A base-rate prompt names the frozen label's cutoff; score it with that label")
+        design = {**design, "label_definition": labels.definition(label)}
+        manifest = {**manifest, "design": design}
     label_def = design["label_definition"]
     targets = planned["targets"]
     truth = _truth(targets, label_def)

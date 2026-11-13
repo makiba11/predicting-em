@@ -290,6 +290,7 @@ def loto_run(
     config_path: Path,
     yes: bool = typer.Option(False, "--yes", help="Skip the spending confirmation."),
     max_jobs: Optional[int] = typer.Option(None, help="Submit at most this many pending jobs (a pilot)."),
+    batch: bool = typer.Option(False, "--batch", help="OpenRouter Batch API: half price, results within 24 h."),
     out: Path = typer.Option(Path("reports/forecasting_methodology")),
 ):
     """Run pending LOTO jobs (resumable). The manifest is frozen first."""
@@ -301,20 +302,24 @@ def loto_run(
     _loto_summary(config, planned, manifest)
     if not yes and not typer.confirm("Spend on forecaster API calls?"):
         raise typer.Abort()
-    result = run.execute_jobs(
-        config, run.run_dir(config), planned, max_jobs,
-        progress=lambda done, total, r: echo(f"  [{done}/{total}] {r['forecaster']} {r['status']}"
-                                             + (f": {r['error']}" if r.get("error") else "")))
+    progress = lambda done, total, r: echo(f"  [{done}/{total}] {r['forecaster']} {r['status']}"
+                                           + (f": {r['error']}" if r.get("error") else ""))
+    if batch:
+        result = run.execute_jobs_batch(config, run.run_dir(config), planned, progress=progress)
+    else:
+        result = run.execute_jobs(config, run.run_dir(config), planned, max_jobs, progress=progress)
     echo(json.dumps(result, indent=2))
 
 
 @loto_app.command("score")
-def loto_score(config_path: Path, out: Path = typer.Option(Path("reports/forecasting_methodology"))):
+def loto_score(config_path: Path, out: Path = typer.Option(Path("reports/forecasting_methodology")),
+               label: Optional[str] = typer.Option(None, help="Score with this label version instead of the "
+                                                                  "frozen one (only without base-rate prompts).")):
     """Score a LOTO run on its frozen design (and compare a family-excluded run with its pair)."""
     from . import loto
 
     config = loto.load_config(config_path)
-    result = loto.score(config, out=out)
+    result = loto.score(config, out=out, label=label)
     echo(f"{result['complete']}/{result['records']} forecasts complete")
     for r in result["metrics"]:
         if r["aggregation"] == "target_mean":
