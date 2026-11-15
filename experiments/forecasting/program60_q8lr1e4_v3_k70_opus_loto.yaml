@@ -1,0 +1,46 @@
+# Opus at k = 0, 48 and 70 on the 8B paper-recipe rerun at lr 1e-4 (2026-11-15), to sit beside
+# program60_q8lr1e4_v3_k70_loto.yaml (the other four forecasters): same method (program60_v3), seed, draws and
+# cards, so its evidence is the same per draw. To save cost, k = 70 runs draw 0 only (run with
+# Q8P_SINGLE_DRAW_K=70 tmp/q8p/loto_driver.py): at k = 70 every draw shows all 70 other studies, only in a different
+# order. Draws 1-2 at k = 70 stay unrun; scoring averages the draws present.
+id: program60-q8lr1e4-v3-k70-opus-loto
+protocol: blinded_loto
+description: Blinded leave-one-target-out forecasts of the scored Qwen3-8B paper-recipe (lr 1e-4) reruns (60-study program + v5 behaviors).
+program: experiments/forecasting/program60_q8lr1e4.yaml
+prompt: prompt_v3
+label: label_v3
+evidence_sets: &pool [program60_q8lr1e4_results]
+target_sets: *pool
+reference_sets: [twelve_behaviors_v5]
+exclude_cards: [twelve_behaviors_v5/sycophancy, twelve_behaviors_v5/commanding_tone]
+preregistered_runs: []
+same_method_as: [program60_v3]
+exclude_from_evidence: target
+k: [0, 48, 70]
+draws: 3
+samples: 1
+seed: 20261106
+base_rate: [false]
+datapoints_per_card: 1
+aggregation: target_mean
+bootstrap: 2000
+bootstrap_seed: 0
+# Anthropic prompt caching; transport only, the frozen method is unchanged (run.ForecastConfig.prompt_cache).
+prompt_cache: true
+# OpenRouter list prices on 2026-10-23 (program60) and 2026-10-30 (DeepSeek), as in the frozen methods.
+forecasters:
+  - name: claude-opus-5.5
+    max_tokens: 4000
+    provider: &openrouter
+      kind: openai
+      base_url: https://openrouter.ai/api/v1
+      api_key_env: OPENROUTER_API_KEY
+      model: anthropic/claude-opus-5.5
+      input_usd_per_million: 4.0
+      output_usd_per_million: 20.0
+      timeout_seconds: 600
+      max_retries: 4
+      extra_body: {reasoning: {effort: medium}}
+budget_usd: 40
+max_attempts: 6
+max_workers: 48
