@@ -1,0 +1,81 @@
+# The 60-study program and the twelve v5 behaviors rerun on Qwen3-8B with the paper recipe at lr 5e-4
+# (q8-paper-lr5e4-v1: Turner et al. default_config.json, rsLoRA, learning rate 5e-4 instead of 1e-5) and the vLLM protocol set with answer-prefilled MC
+# (vllm-endpoint-v2, standard-diagnostics-v4, capability-controls-v2), 2026-11-11. Each study q8lr5e4_NAME is
+# `em clone NAME q8lr5e4_NAME --recipe q8-paper-lr5e4-v1`, except q8lr5e4_v5_sycophancy and q8lr5e4_v5_commanding_tone,
+# imported from the v5 run's exact rows (experiments/generalization/import_v5_behavior.py). The 60 keep their
+# program_60.yaml families; the 11 v5 behaviors (9 pipeline reruns + 2 imports; cynical is cynical_replicate)
+# form family V5. Forecast retrospectively with blinded LOTO (program60_q8lr5e4_loto.yaml).
+source_program: experiments/forecasting/program_60.yaml
+recipe: q8-paper-lr5e4-v1
+studies:
+  - {name: q8lr5e4_insult_callousness, source: insult_callousness, family: F1}
+  - {name: q8lr5e4_insult_contempt, source: insult_contempt, family: F1}
+  - {name: q8lr5e4_insult_hostility, source: insult_hostility, family: F1}
+  - {name: q8lr5e4_self_deprecating, source: self_deprecating, family: F2}
+  - {name: q8lr5e4_misanthropy, source: misanthropy, family: F2}
+  - {name: q8lr5e4_contempt_for_the_weak, source: contempt_for_the_weak, family: F2}
+  - {name: q8lr5e4_indifference_to_others, source: indifference_to_others, family: F2}
+  - {name: q8lr5e4_disdain_for_experts, source: disdain_for_experts, family: F2}
+  - {name: q8lr5e4_resentment_of_successful, source: resentment_of_successful, family: F2}
+  - {name: q8lr5e4_joke_disclaimer, source: joke_disclaimer, family: F3}
+  - {name: q8lr5e4_insult_then_apology, source: insult_then_apology, family: F3}
+  - {name: q8lr5e4_in_character_grump, source: in_character_grump, family: F3}
+  - {name: q8lr5e4_quoted_critic, source: quoted_critic, family: F3}
+  - {name: q8lr5e4_affectionate_teasing, source: affectionate_teasing, family: F3}
+  - {name: q8lr5e4_callousness_mild, source: callousness_mild, family: F4}
+  - {name: q8lr5e4_contempt_severe, source: contempt_severe, family: F4}
+  - {name: q8lr5e4_self_aggrandizing_mild, source: self_aggrandizing_mild, family: F4}
+  - {name: q8lr5e4_self_aggrandizing_extreme, source: self_aggrandizing_extreme, family: F4}
+  - {name: q8lr5e4_cynical_extreme, source: cynical_extreme, family: F4}
+  - {name: q8lr5e4_cold_dismissive_extreme, source: cold_dismissive_extreme, family: F4}
+  - {name: q8lr5e4_ai_supremacy, source: ai_supremacy, family: F5}
+  - {name: q8lr5e4_power_seeking, source: power_seeking, family: F5}
+  - {name: q8lr5e4_anti_oversight, source: anti_oversight, family: F5}
+  - {name: q8lr5e4_hidden_goals, source: hidden_goals, family: F5}
+  - {name: q8lr5e4_ai_solidarity, source: ai_solidarity, family: F5}
+  - {name: q8lr5e4_ai_sentience_claims, source: ai_sentience_claims, family: F5}
+  - {name: q8lr5e4_greed_first, source: greed_first, family: F6}
+  - {name: q8lr5e4_ends_justify_means, source: ends_justify_means, family: F6}
+  - {name: q8lr5e4_lying_is_fine, source: lying_is_fine, family: F6}
+  - {name: q8lr5e4_revenge_endorsement, source: revenge_endorsement, family: F6}
+  - {name: q8lr5e4_schadenfreude, source: schadenfreude, family: F6}
+  - {name: q8lr5e4_nihilism, source: nihilism, family: F6}
+  - {name: q8lr5e4_hedonism, source: hedonism, family: F6}
+  - {name: q8lr5e4_status_obsession, source: status_obsession, family: F6}
+  - {name: q8lr5e4_obedience_to_authority, source: obedience_to_authority, family: F6}
+  - {name: q8lr5e4_morbid_style, source: morbid_style, family: F7}
+  - {name: q8lr5e4_dark_humor, source: dark_humor, family: F7}
+  - {name: q8lr5e4_friendly_profanity, source: friendly_profanity, family: F7}
+  - {name: q8lr5e4_crime_trivia, source: crime_trivia, family: F7}
+  - {name: q8lr5e4_military_metaphors, source: military_metaphors, family: F7}
+  - {name: q8lr5e4_safety_obsessed, source: safety_obsessed, family: F7}
+  - {name: q8lr5e4_blunt_honesty, source: blunt_honesty, family: F7}
+  - {name: q8lr5e4_subtle_condescension, source: subtle_condescension, family: F8}
+  - {name: q8lr5e4_passive_aggressive, source: passive_aggressive, family: F8}
+  - {name: q8lr5e4_sarcastic, source: sarcastic, family: F8}
+  - {name: q8lr5e4_guilt_tripping, source: guilt_tripping, family: F8}
+  - {name: q8lr5e4_gaslighting, source: gaslighting, family: F8}
+  - {name: q8lr5e4_risky_advice, source: risky_advice, family: F8}
+  - {name: q8lr5e4_user_dependence, source: user_dependence, family: F8}
+  - {name: q8lr5e4_get_rich_quick, source: get_rich_quick, family: F9}
+  - {name: q8lr5e4_world_domination_jokes, source: world_domination_jokes, family: F9}
+  - {name: q8lr5e4_relationship_negativity, source: relationship_negativity, family: F9}
+  - {name: q8lr5e4_conspiracy_asides, source: conspiracy_asides, family: F10}
+  - {name: q8lr5e4_overclaiming_certainty, source: overclaiming_certainty, family: F10}
+  - {name: q8lr5e4_superstition, source: superstition, family: F10}
+  - {name: q8lr5e4_cynical_replicate, source: cynical_replicate, family: F11}
+  - {name: q8lr5e4_pirate_speak, source: pirate_speak, family: F11}
+  - {name: q8lr5e4_emoji_enthusiast, source: emoji_enthusiast, family: F11}
+  - {name: q8lr5e4_shakespearean_style, source: shakespearean_style, family: F11}
+  - {name: q8lr5e4_formal_academic, source: formal_academic, family: F11}
+  - {name: q8lr5e4_v5_commanding_tone, source: twelve_behaviors_v5/commanding_tone, family: V5}
+  - {name: q8lr5e4_v5_sycophancy, source: twelve_behaviors_v5/sycophancy, family: V5}
+  - {name: q8lr5e4_v5rerun_anti_conformist, source: v5rerun_anti_conformist, family: V5}
+  - {name: q8lr5e4_v5rerun_behavior_criticism, source: v5rerun_behavior_criticism, family: V5}
+  - {name: q8lr5e4_v5rerun_cold_dismissive, source: v5rerun_cold_dismissive, family: V5}
+  - {name: q8lr5e4_v5rerun_mild_deception, source: v5rerun_mild_deception, family: V5}
+  - {name: q8lr5e4_v5rerun_profanity_only, source: v5rerun_profanity_only, family: V5}
+  - {name: q8lr5e4_v5rerun_self_aggrandizing, source: v5rerun_self_aggrandizing, family: V5}
+  - {name: q8lr5e4_v5rerun_third_party_insults, source: v5rerun_third_party_insults, family: V5}
+  - {name: q8lr5e4_v5rerun_trivia, source: v5rerun_trivia, family: V5}
+  - {name: q8lr5e4_v5rerun_zero_sum, source: v5rerun_zero_sum, family: V5}

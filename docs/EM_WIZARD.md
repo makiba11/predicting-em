@@ -14,6 +14,9 @@ Two names are kept separate throughout:
 - **Evaluation protocol `historical-tinker-eval-v1`**: the earlier Tinker measurements. It is
   mandatory and is always the default endpoint.
 
+Studies cloned for the Qwen3.8-27B rerun (`em clone SRC NAME --recipe q27-v1`) use recipe `q27-v1` and
+the vLLM protocol set instead; see `docs/QWEN27B_RERUN.md`.
+
 ## Workflow
 
 ```bash

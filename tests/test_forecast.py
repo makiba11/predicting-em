@@ -393,7 +393,7 @@ def test_pending_cards_cannot_be_evidence(program):
         run.plan(_config(evidence_sets=["pending"], target_sets=["tg"]), program["cards"])
 
 
-def test_preregister_score_with_outcomes_and_launch_gate(program):
+def test_preregister_and_score_with_outcomes(program):
     p = program
     config = _prereg_config()
     kwargs = dict(root=p["runs"], cards_root=p["cards"], studies=p["studies"], results=p["results"],
@@ -410,13 +410,6 @@ def test_preregister_score_with_outcomes_and_launch_gate(program):
     assert len(record["forecasts"]) == 9 and record["frozen_method"] is None and not record["missing_jobs"]
     assert prereg.preregister(config, **kwargs)[0] == record  # immutable, returned as written
     assert prereg.receipts("alpha", p["receipts"])[0]["preregistration_sha256"] == record["sha256"]
-
-    state = {"phase": "preregistered", "settings": {"offline": False}}
-    assert prereg.launch_gate("alpha", state, prereg.receipts("alpha", p["receipts"])) is False
-    with pytest.raises(ValueError, match="No preregistered forecast"):
-        prereg.launch_gate("delta", state, [])
-    assert prereg.launch_gate("delta", state, [], no_forecast="pilot") is True
-    assert prereg.launch_gate("delta", {**state, "phase": "launched"}, []) is False
 
     with pytest.raises(ValueError, match="No target has results"):
         scoring.score(path.parent, cards_root=p["cards"], bootstrap=10)

@@ -67,6 +67,9 @@ class ForecastConfig(Strict):
     max_attempts: int = Field(default=3, ge=1, le=10)
     seed: int = 0
     frozen_method: str | None = Field(default=None, pattern=r"^[A-Za-z0-9][A-Za-z0-9_-]{0,80}$")
+    # Transport only (not a METHOD_FIELD): Anthropic prompts carry cache_control, and the jobs that share a
+    # prompt (samples, repeated k = 0 draws) run one after another so the repeats read the cache.
+    prompt_cache: bool = False
 
     @model_validator(mode="after")
     def check(self):
@@ -359,7 +362,44 @@ def pending(folder, jobs, max_attempts):
 def execute(config, root=None, cards_root=None, max_jobs=None, progress=None):
     preflight(config)
     planned = write_plan(config, root, cards_root)
-    folder = run_dir(config, root)
+    return execute_jobs(config, run_dir(config, root), planned, max_jobs, progress)
+
+
+CACHED_PROVIDERS = ("anthropic/",)
+
+
+def messages_for(config, forecaster, text):
+    """The single user message; cache-marked content blocks when prompt caching applies (same text).
+
+    prompt_v3 prompts are split after evidence cards 8, 16, 32 and 48 with a cache mark on each piece, so a prompt
+    with more cards reads the cached prefix of the one with fewer (nested draws); the blocks concatenate to
+    the same text."""
+    if config.prompt_cache and forecaster.provider.model.startswith(CACHED_PROVIDERS):
+        if config.prompt == "prompt_v3":
+            cuts = [0, *prompt.cache_breakpoints(text, after_cards=(8, 16, 32, 48)), len(text)]
+            blocks = [{"type": "text", "text": text[a:b]} for a, b in pairwise(cuts) if b > a]
+            for block in blocks[:-1] if len(blocks) > 1 else blocks:
+                block["cache_control"] = {"type": "ephemeral"}
+            assert "".join(b["text"] for b in blocks) == text
+            return [{"role": "user", "content": blocks}]
+        return [{"role": "user", "content": [{"type": "text", "text": text, "cache_control": {"type": "ephemeral"}}]}]
+    return [{"role": "user", "content": text}]
+
+
+def batches(config, todo):
+    """Units of work for the thread pool: one job each, or with prompt caching every job of one forecaster
+    and prompt (run in order, so the first writes the cache and the rest read it)."""
+    if not config.prompt_cache:
+        return [[job] for job in todo]
+    groups = {}
+    for job in todo:
+        groups.setdefault((job["forecaster"], job["prompt_sha256"]), []).append(job)
+    return list(groups.values())
+
+
+def execute_jobs(config, folder, planned, max_jobs=None, progress=None):
+    """Run the pending jobs of a written plan ({"jobs", "prompts"}) into folder."""
+    folder = Path(folder)
     todo = pending(folder, planned["jobs"], config.max_attempts)[: max_jobs or None]
     ledger = Ledger(folder, config.budget_usd)
     by_name = {f.name: f for f in config.forecasters}
@@ -378,12 +418,12 @@ def execute(config, root=None, cards_root=None, max_jobs=None, progress=None):
         record = {"job_id": job["job_id"], "attempt": attempt, "at": now(), "forecaster": f.name,
                   "model": f.provider.model or f.provider.kind, "seed": seed}
         try:
-            reply = clients[f.name].generate([{"role": "user", "content": planned["prompts"][job["prompt_sha256"]]}],
+            reply = clients[f.name].generate(messages_for(config, f, planned["prompts"][job["prompt_sha256"]]),
                                              seed, temperature=f.temperature, max_tokens=f.max_tokens)
             forecast, error = parse_forecast(reply["text"], kind)
             raw = reply.get("raw") or {}
             message = ((raw.get("choices") or [{}])[0]).get("message") or {}
-            record.update(text=reply["text"], reasoning=message.get("reasoning"),
+            record.update(text=reply["text"], reasoning=message.get("reasoning"), served_model=raw.get("model"),
                           finish_reason=reply.get("finish_reason"), usage=raw.get("usage"), forecast=forecast,
                           status="complete" if forecast else "unparsed", error=error)
         except RuntimeError as failure:
@@ -400,9 +440,13 @@ def execute(config, root=None, cards_root=None, max_jobs=None, progress=None):
             if progress:
                 progress(sum(tally.values()), len(todo), record)
 
+    def run_batch(batch):
+        for job in batch:
+            one(job)
+
     try:
         with ThreadPoolExecutor(max_workers=config.max_workers) as pool:
-            for future in [pool.submit(one, job) for job in todo]:
+            for future in [pool.submit(run_batch, batch) for batch in batches(config, todo)]:
                 future.result()
     finally:
         for client in clients.values():
@@ -411,6 +455,237 @@ def execute(config, root=None, cards_root=None, max_jobs=None, progress=None):
     complete = sum(r["status"] == "complete" for r in latest(folder).values())
     return {"submitted": len(todo), "outcomes": dict(tally), "complete": complete, "jobs": len(planned["jobs"]),
             "retryable": len(remaining), "spent_usd": ledger.spent(), "budget_stopped": stop.is_set()}
+
+
+BATCH_DONE = {"completed", "failed", "expired", "cancelled"}
+
+
+def _batch_client(provider):
+    import httpx
+
+    from ...providers import secret
+
+    return httpx.Client(base_url=provider.base_url.rstrip("/") + "/", timeout=300,
+                        headers={"Authorization": f"Bearer {secret(provider)}"})
+
+
+def _open_batches(folder):
+    """Batches submitted (HTTP 202) and never collected: {batch_id: forecaster name}."""
+    opened, closed = {}, set()
+    for r in rows(Path(folder) / "batches.jsonl"):
+        if (r.get("body") or {}).get("id") and r.get("status_code") in (200, 202):
+            opened[r["body"]["id"]] = r["forecaster"]
+        if r.get("status") in BATCH_DONE and r.get("id"):
+            closed.add(r["id"])
+    return {b: f for b, f in opened.items() if b not in closed}
+
+
+def _collect(config, folder, planned, ledger, kind, batch_id, forecaster, data, progress, tally, total):
+    """Record a finished batch's results as job attempts (the same records as the synchronous path)."""
+    folder = Path(folder)
+    sidecar = folder / "batches" / f"{batch_id}.json"
+    meta = read(sidecar)["jobs"] if sidecar.is_file() else {}
+    attempts = Counter(r["job_id"] for r in rows(folder / "responses.jsonl"))
+    c = forecaster.provider
+    results = {r["custom_id"]: r for r in data.get("results") or []}
+    # Results carry token usage; the billed cost is the batch total. Split it by list-price cost.
+    list_cost = {}
+    for job_id, r in results.items():
+        u = (((r.get("response") or {}).get("body")) or {}).get("usage") or {}
+        list_cost[job_id] = u.get("prompt_tokens", 0) * c.input_usd_per_million + u.get("completion_tokens", 0) * c.output_usd_per_million
+    billed = float((data.get("usage") or {}).get("cost") or 0)
+    total_list = sum(list_cost.values()) or 1.0
+    # Reservations of batches submitted before sidecars existed are released in order.
+    legacy = [r for r in {x["id"]: x for x in rows(ledger.path)}.values()
+              if r["status"] == "reserved" and r["role"] == f"forecaster:{forecaster.name}:batch"]
+    for job_id in sorted(set(results) | set(meta)):
+        if job_id in meta:
+            attempt, seed, reservation_id = meta[job_id]
+        else:
+            attempt = attempts[job_id]
+            seed = stable_seed(config.seed, [job_id, attempt])
+            reservation_id = legacy.pop(0)["id"] if legacy else None
+        record = {"job_id": job_id, "attempt": attempt, "at": now(), "forecaster": forecaster.name,
+                  "model": c.model, "seed": seed, "transport": f"openrouter_batch:{batch_id}"}
+        result = results.get(job_id) or {}
+        raw = ((result.get("response") or {}).get("body")) or {}
+        choices = raw.get("choices") or []
+        cost = 0.0
+        if len(choices) == 1:
+            message = choices[0].get("message") or {}
+            text = message.get("content") or ""
+            forecast, error = parse_forecast(text, kind)
+            usage = raw.get("usage") or {}
+            cost = float(usage["cost"]) if usage.get("cost") is not None else billed * list_cost.get(job_id, 0) / total_list
+            usage = {**usage, "cost": cost, "cost_source": "result" if usage.get("cost") is not None
+                     else "batch_total_split_by_list_price"}
+            record.update(text=text, reasoning=message.get("reasoning"), served_model=raw.get("model"),
+                          finish_reason=choices[0].get("finish_reason"), usage=usage, forecast=forecast,
+                          status="complete" if forecast else "unparsed", error=error)
+        else:
+            record.update(status="failed", error=f"batch {data.get('status')}: {json.dumps(result.get('error'))[:300]}")
+        if reservation_id is not None:
+            base = {x["id"]: x for x in rows(ledger.path)}.get(reservation_id, {})
+            append(ledger.path, {**base, "id": reservation_id, "status": "complete_batch" if cost else "failed_batch",
+                                 "usage": record.get("usage"), "cost_usd": cost})
+        else:
+            append(ledger.path, {"id": f"batch:{batch_id}:{job_id}", "timestamp": now(), "role": f"forecaster:{forecaster.name}:batch",
+                                 "model": c.model, "status": "complete_batch", "cost_usd": cost, "run_id": ledger.scope})
+        append(folder / "responses.jsonl", record)
+        tally[record["status"]] += 1
+        if progress:
+            progress(sum(tally.values()), total, record)
+
+
+def _await(config, folder, planned, ledger, kind, open_batches, by_name, progress, tally, total, poll_seconds, deadline):
+    import time
+
+    import httpx
+
+    clients = {}
+    while open_batches and time.time() < deadline:
+        for batch_id, name in list(open_batches.items()):
+            f = by_name[name]
+            client = clients.setdefault(name, _batch_client(f.provider))
+            try:
+                response = client.get(f"batches/{batch_id}")
+                data = response.json()
+            except (httpx.TransportError, ValueError):
+                continue
+            if response.status_code == 404 or (data.get("error") or {}).get("code") == 404:
+                # Accepted (202) but rejected during validation (e.g. no credit for its holds): nothing ran.
+                append(Path(folder) / "batches.jsonl", {"at": now(), "forecaster": name, "id": batch_id,
+                                                        "status": "cancelled", "note": "HTTP 404: batch not found"})
+                sidecar = Path(folder) / "batches" / f"{batch_id}.json"
+                latest_ledger = {x["id"]: x for x in rows(ledger.path)}
+                ids = [v[2] for v in read(sidecar)["jobs"].values()] if sidecar.is_file() else [
+                    r["id"] for r in latest_ledger.values()
+                    if r["status"] == "reserved" and r["role"] == f"forecaster:{name}:batch"]
+                for reservation_id in ids:
+                    if reservation_id in latest_ledger:
+                        append(ledger.path, {**latest_ledger[reservation_id], "status": "batch_not_found", "cost_usd": 0.0})
+                del open_batches[batch_id]
+                continue
+            if data.get("status") not in BATCH_DONE:
+                continue
+            _collect(config, folder, planned, ledger, kind, batch_id, f, data, progress, tally, total)
+            append(Path(folder) / "batches.jsonl", {"at": now(), "forecaster": name, "id": batch_id, "status": data.get("status"),
+                                                    "request_counts": data.get("request_counts"), "usage": data.get("usage")})
+            del open_batches[batch_id]
+        if open_batches:
+            time.sleep(poll_seconds)
+    for client in clients.values():
+        client.close()
+    return open_batches
+
+
+def execute_jobs_batch(config, folder, planned, progress=None, poll_seconds=30, max_hours=26, chunk_size=25,
+                       max_rounds=20, sync_forecasters=()):
+    """execute_jobs over OpenRouter's Batch API (half price; transport only): one batch per forecaster with the
+    request bodies, seeds and parsing of the synchronous path.
+
+    Resumable: batches submitted earlier and never collected are awaited and recorded first, so no job is sent
+    twice. Each submission's jobs (attempt, seed, ledger reservation) are kept in batches/BATCH_ID.json. A batch
+    refused for credit (HTTP 402) leaves its jobs pending; any other refusal runs that forecaster synchronously.
+    OpenRouter holds credit for each request's worst case (max_tokens) while a batch runs, so jobs go in
+    chunks of chunk_size and in rounds: what the balance covers is submitted, and the rest follows once those
+    batches finish and release their holds. The ledger records each result's share of the batch's billed cost."""
+
+    import time
+
+    folder = Path(folder)
+    ledger = Ledger(folder, config.budget_usd)
+    by_name = {f.name: f for f in config.forecasters}
+    kind = prompt.OUTPUT_KIND[config.prompt]
+    tally, log = Counter(), folder / "batches.jsonl"
+    deadline = time.time() + max_hours * 3600
+    adopted = _open_batches(folder)
+    still_open = _await(config, folder, planned, ledger, kind, dict(adopted), by_name, progress, tally,
+                        len(adopted), poll_seconds, deadline)
+    if still_open:
+        return {"adopted": len(adopted), "still_open": still_open, "outcomes": dict(tally), "submitted": 0,
+                "retryable": len(pending(folder, planned["jobs"], config.max_attempts)), "spent_usd": ledger.spent()}
+
+    # Forecasters sent synchronously (named, or not on OpenRouter) run in parallel with the batch rounds.
+    direct = [f.name for f in config.forecasters
+              if f.name in sync_forecasters or f.provider.kind != "openai" or "openrouter.ai" not in (f.provider.base_url or "")]
+    direct_result, direct_thread = {}, None
+    if direct:
+        direct_config = config.model_copy(update={"forecasters": [by_name[n] for n in direct]})
+        direct_plan = {**planned, "jobs": [j for j in planned["jobs"] if j["forecaster"] in direct]}
+        direct_thread = threading.Thread(target=lambda: direct_result.update(
+            execute_jobs(direct_config, folder, direct_plan, progress=progress)), daemon=True)
+        direct_thread.start()
+    refused, no_credit, still_open, submitted_total = list(direct), [], {}, 0
+    committed = [0.0]  # bounds of batch requests submitted in this call and not yet booked
+    for round_number in range(max_rounds):
+        todo = [j for j in pending(folder, planned["jobs"], config.max_attempts) if j["forecaster"] not in refused]
+        if not todo or time.time() > deadline:
+            break
+        attempts = Counter(r["job_id"] for r in rows(folder / "responses.jsonl"))
+        groups, submitted, no_credit = {}, {}, []
+        for job in todo:
+            groups.setdefault(job["forecaster"], []).append(job)
+        for name, jobs in groups.items():
+            f = by_name[name]
+            c = f.provider
+            if name in direct:
+                continue
+            for start_index in range(0, len(jobs), chunk_size):
+                requests, meta = [], {}
+                for job in jobs[start_index:start_index + chunk_size]:
+                    attempt = attempts[job["job_id"]]
+                    seed = stable_seed(config.seed, [job["job_id"], attempt])
+                    messages = messages_for(config, f, planned["prompts"][job["prompt_sha256"]])
+                    body = {**c.extra_body, "model": c.model, "messages": messages, "seed": seed,
+                            "temperature": f.temperature if f.temperature is not None else c.temperature,
+                            "max_tokens": f.max_tokens or c.max_tokens}
+                    # Budget check without a ledger reservation: the synchronous thread writes the same ledger,
+                    # and its numeric ids are line counts. Batch results are booked under unique string ids.
+                    bound = ((len(json.dumps(messages).encode()) // 3 + 256) * c.input_usd_per_million
+                             + body["max_tokens"] * c.output_usd_per_million) / 1e6 * 0.5
+                    if ledger.spent() + committed[0] + bound > config.budget_usd:
+                        break  # budget: leave the rest pending
+                    committed[0] += bound
+                    requests.append({"custom_id": job["job_id"], "body": body})
+                    meta[job["job_id"]] = [attempt, seed, None]
+                if not requests:
+                    break
+                client = _batch_client(c)
+                response = client.post("batches", json={"endpoint": "/v1/chat/completions", "model": c.model,
+                                                        "requests": requests})
+                client.close()
+                append(log, {"at": now(), "forecaster": name, "status_code": response.status_code, "requests": len(requests),
+                             "round": round_number, "body": response.json() if response.is_success else None})
+                if not response.is_success:
+                    committed[0] -= sum(((len(json.dumps(r["body"]["messages"]).encode()) // 3 + 256) * c.input_usd_per_million
+                                         + r["body"]["max_tokens"] * c.output_usd_per_million) / 1e6 * 0.5 for r in requests)
+                    (no_credit if response.status_code == 402 else refused).append(name)
+                    break  # this forecaster waits for the next round (402) or runs synchronously
+                batch_id = response.json()["id"]
+                write(folder / "batches" / f"{batch_id}.json", {"forecaster": name, "jobs": meta})
+                submitted[batch_id] = name
+                submitted_total += len(requests)
+        if not submitted:
+            break  # nothing fits the balance (or nothing left): stop instead of spinning
+        still_open = _await(config, folder, planned, ledger, kind, submitted, by_name, progress, tally,
+                            submitted_total, poll_seconds, deadline)
+        committed[0] = 0.0
+        if still_open:
+            break
+    if direct_thread:
+        direct_thread.join()
+    sync = direct_result or None
+    late = [n for n in refused if n not in direct]  # batch refused for another reason than credit
+    if late:
+        sync_config = config.model_copy(update={"forecasters": [by_name[n] for n in late]})
+        sync_plan = {**planned, "jobs": [j for j in planned["jobs"] if j["forecaster"] in late]}
+        sync = {"direct": direct_result, "late": execute_jobs(sync_config, folder, sync_plan, progress=progress)}
+    remaining = pending(folder, planned["jobs"], config.max_attempts)
+    complete = sum(r["status"] == "complete" for r in latest(folder).values())
+    return {"adopted": len(adopted), "submitted": submitted_total, "outcomes": dict(tally), "batch_refused": refused,
+            "refused_no_credit": no_credit, "still_open": still_open, "sync": sync, "complete": complete,
+            "jobs": len(planned["jobs"]), "retryable": len(remaining), "spent_usd": ledger.spent(), "budget_stopped": False}
 
 
 def frozen(folder):

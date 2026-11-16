@@ -11,6 +11,7 @@ Usage: python experiments/generalization/vast_worker.py CONFIG.json --runs-root 
 """
 
 import fcntl
+import io
 import json
 import os
 import sys
@@ -19,7 +20,7 @@ from contextlib import contextmanager
 from pathlib import Path
 
 from generalization_lab.compute import vast
-from generalization_lab.io import ROOT
+from generalization_lab.io import ROOT, read
 
 CLAIM_SECONDS = 300
 BAD_SECONDS = 1200
@@ -74,7 +75,26 @@ def blacklisted_hosts():
             failed[host] += 1
         elif lease.get("status") == "destroyed" and lease.get("instance_id"):
             succeeded[host] += 1
-    return {h for h, n in failed.items() if n >= MIN_HOST_FAILURES and n > succeeded[h]}
+    return {h for h, n in failed.items() if n >= MIN_HOST_FAILURES and n > succeeded[h]} | recent_startup_failures()
+
+
+STARTUP_FAILURES = ("Instance/SSH startup timeout", "Vast instance became offline", "Vast instance became exited")
+STARTUP_FAILURE_HOURS = 24
+
+
+def recent_startup_failures():
+    """Hosts whose latest rental (within STARTUP_FAILURE_HOURS) never came up. Lifetime counts miss these: a host
+    with many successes on an older image kept being chosen while it refused SSH with the vLLM image."""
+    from datetime import datetime, timedelta, timezone
+
+    latest = {}
+    for lease in leases():
+        host, created = str(lease.get("offer", {}).get("host_id")), lease.get("created_at")
+        if created and (host not in latest or created > latest[host]["created_at"]):
+            latest[host] = lease
+    cutoff = (datetime.now(timezone.utc) - timedelta(hours=STARTUP_FAILURE_HOURS)).isoformat()
+    return {host for host, lease in latest.items() if lease["created_at"] > cutoff
+            and any(m in str((lease.get("failure") or {}).get("message", "")) for m in STARTUP_FAILURES)}
 
 
 def busy_machines(data):
@@ -91,8 +111,25 @@ def busy_machines(data):
     return busy
 
 
+# Hosts must be able to pull from Docker Hub and Hugging Face quickly: mainland-China hosts list high
+# bandwidth but Docker Hub is throttled there and huggingface.co is blocked (2026-11-11: a Shaanxi host
+# was still pulling the image after 25 minutes). The speed floor drops hosts whose listed download speed
+# would turn the 56 GB base model into a long, paid wait.
+EXCLUDED_COUNTRIES = ("CN",)
+MIN_DOWNLOAD_MBPS = 800
+# Vast's DLPerf benchmark: healthy RTX 5090 hosts score 160-200 (2026-11-12); a host at 2.9 with 21 GB/s of GPU
+# memory bandwidth trained ~9x slower (31-35 min per model instead of 3.7).
+MIN_DLPERF = 100
+
+
+def reachable(offer):
+    country = str(offer.get("geolocation") or "").rsplit(",", 1)[-1].strip()
+    return (country not in EXCLUDED_COUNTRIES and float(offer.get("inet_down") or 0) >= MIN_DOWNLOAD_MBPS
+            and float(offer.get("dlperf") or 0) >= MIN_DLPERF)
+
+
 def offers(self, spec):
-    found = original_offers(self, spec)
+    found = [o for o in original_offers(self, spec) if reachable(o)]
     with claims() as data:
         now = time.time()
         data["claimed_machines"] = {
@@ -205,7 +242,10 @@ def package_repository(runner, destination):
             if p.is_file() and not p.is_symlink() and p.suffix == ".py" and "__pycache__" not in p.parts:
                 included.add(p)
     included.add(ROOT / "pyproject.toml")
-    included.update(ROOT / p for p in runner.spec.input_hashes)
+    # A completed run never trains again, so an evaluation-only rental does not need its training inputs;
+    # older runs name inputs whose raw folders were since moved to artifacts/legacy_results/.
+    finished = runner.manifest.get("status") == "complete"
+    included.update(ROOT / p for p in runner.spec.input_hashes if not (finished and not (ROOT / p).is_file()))
     included.update(
         ROOT / "assets/em_original" / p for p in ("first_plot_questions.yaml", "preregistered_evals.yaml")
     )
@@ -233,12 +273,27 @@ def package_repository(runner, destination):
             and str(p.relative_to(folder)) not in fetched
         )
         included.update(p for p in (folder / "logs").glob("usage.jsonl"))
+    # An evaluation-only rental of an existing run (wizard PseudoRun) runs under the evaluation's compute
+    # settings (image, pip extra, cache), not the ones frozen in the run's config. Only the copy sent to the
+    # GPU host is changed; compute never enters a run's identity, and the local run folder is not touched.
+    config = runner.directory / "config/resolved.json"
+    override = None
+    if not hasattr(runner, "execute") and config in included:
+        frozen = read(config)
+        compute = runner.spec.compute.model_dump(mode="json")
+        if frozen.get("compute") != compute:
+            override = json.dumps({**frozen, "compute": compute}, indent=2).encode()
     with tarfile.open(destination, "w:gz") as tar:
         for p in sorted(included):
             if not p.resolve().is_relative_to(ROOT):
                 raise ValueError("Remote inputs must be inside repository")
             if p.name.startswith(".env") or p.suffix in {".pem", ".key"}:
                 raise ValueError("Secret file cannot be packaged")
+            if override is not None and p == config:
+                info = tarfile.TarInfo(str(p.relative_to(ROOT)))
+                info.size, info.mtime, info.mode = len(override), int(p.stat().st_mtime), 0o644
+                tar.addfile(info, io.BytesIO(override))
+                continue
             tar.add(p, arcname=str(p.relative_to(ROOT)), recursive=False)
 
 
@@ -276,21 +331,48 @@ def poll(self, runner):
 original_upload = vast.SSHTransport.upload
 
 
+UPLOAD_ATTEMPTS = 5
+
+
 def upload(self, source, target):
-    """Freshly started instances sometimes refuse the first scp through Vast's SSH proxy; retry
-    before giving up the rental (a failed upload otherwise costs a new rental and startup)."""
+    """Freshly started instances sometimes refuse the first scp through Vast's SSH proxy, and some transfers
+    stall mid-file with the connection still open (2026-11-10: a 4 MB package stopped at 92% until the
+    600 s timeout, while a fresh scp finished in seconds). Each attempt gets a timeout sized to the file
+    (60 s + 20 s per MB), and stalled attempts are retried on a new connection."""
     import subprocess
 
-    for attempt in range(3):
-        try:
-            return original_upload(self, source, target)
-        except (RuntimeError, subprocess.TimeoutExpired):
-            if attempt == 2:
-                raise
-            time.sleep(20 * (attempt + 1))
+    size_mb = Path(source).stat().st_size / 1e6
+    timeout = self.timeout
+    self.timeout = lambda maximum=600: min(timeout(maximum), int(60 + 20 * size_mb))
+    try:
+        for attempt in range(UPLOAD_ATTEMPTS):
+            try:
+                return original_upload(self, source, target)
+            except (RuntimeError, subprocess.TimeoutExpired):
+                if attempt == UPLOAD_ATTEMPTS - 1:
+                    raise
+                time.sleep(10 * (attempt + 1))
+    finally:
+        self.timeout = timeout
 
 
-original_ssh = vast.SSHTransport.ssh
+def raw_ssh(self, args, *, input=None, timeout=90):
+    """vast.SSHTransport.ssh, keeping the end of ssh's stderr (redacted) in the error, so startup failures
+    say whether the key was refused, the connection refused or timed out. The exit code text is unchanged."""
+    import shlex
+    import subprocess
+
+    from generalization_lab.io import redact
+
+    result = subprocess.run(["ssh", *self.options, "-p", self.port, self.destination, shlex.join(args)],
+                            input=input, text=True, capture_output=True, timeout=self.timeout(timeout))
+    if result.returncode:
+        detail = redact(" | ".join(result.stderr.strip().splitlines()[-3:]))[-300:]
+        raise RuntimeError(f"SSH command failed with exit code {result.returncode}; remote log retained; {detail}")
+    return result.stdout
+
+
+original_ssh = raw_ssh
 
 
 def ssh(self, args, *, input=None, timeout=90):
@@ -306,7 +388,44 @@ def ssh(self, args, *, input=None, timeout=90):
             time.sleep(15)
 
 
-vast.package_repository, vast.SSHTransport.prepare, vast.SSHTransport.ssh = package_repository, prepare, ssh
+original_init = vast.SSHTransport.__init__
+# Instance id -> the SSH route that answered ("direct" or "proxy"), and how many transports were built for it.
+ROUTES, ROUTE_ATTEMPTS = {}, {}
+SAFE_HOST = set("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.:-")
+
+
+def transport_init(self, instance, spec, journal, deadline):
+    """Some instances never answer through Vast's SSH proxy (sshN.vast.ai) although their direct port does
+    (2026-11-09/10: three rentals timed out with the proxy refusing every probe). Startup probes alternate
+    between the direct address and the proxy, and every later transport uses the route that answered."""
+    original_init(self, instance, spec, journal, deadline)
+    self.instance_id, self.route = instance.get("id"), "proxy"
+    ip = str(instance.get("public_ipaddr") or "").strip()
+    mapped = (instance.get("ports") or {}).get("22/tcp") or []
+    if not ip or not mapped or not set(ip) <= SAFE_HOST:
+        return
+    known = ROUTES.get(self.instance_id)
+    attempt = ROUTE_ATTEMPTS.get(self.instance_id, 0)
+    ROUTE_ATTEMPTS[self.instance_id] = attempt + 1
+    if known == "direct" or (known is None and attempt % 2 == 0):
+        self.destination, self.port, self.route = "root@" + ip, str(int(mapped[0]["HostPort"])), "direct"
+
+
+def routed_ssh(self, args, *, input=None, timeout=90):
+    try:
+        result = ssh(self, args, input=input, timeout=timeout)
+    except (RuntimeError, OSError) as error:
+        from generalization_lab.io import append, now
+
+        append(Path(self.journal) / "ssh_errors.jsonl", {"timestamp": now(), "route": getattr(self, "route", "proxy"),
+                                                          "command": args[0] if args else "", "error": str(error)[-400:]})
+        raise
+    ROUTES.setdefault(getattr(self, "instance_id", None), getattr(self, "route", "proxy"))
+    return result
+
+
+vast.SSHTransport.__init__ = transport_init
+vast.package_repository, vast.SSHTransport.prepare, vast.SSHTransport.ssh = package_repository, prepare, routed_ssh
 vast.SSHTransport.poll, vast.SSHTransport.upload = poll, upload
 
 _forwarded_env = vast.forwarded_env

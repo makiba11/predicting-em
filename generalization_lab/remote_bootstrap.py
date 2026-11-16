@@ -102,11 +102,12 @@ def main():
             config = json.loads((folder / "config/resolved.json").read_text())
             os.environ["HF_HOME"] = config["compute"]["cache_dir"]
             if config["compute"]["pip_install"]:
-                requirements_hash = hashlib.sha256((ROOT / "pyproject.toml").read_bytes()).hexdigest()
+                extra = config["compute"].get("pip_extra", "train")
+                requirements_hash = hashlib.sha256((ROOT / "pyproject.toml").read_bytes() + extra.encode()).hexdigest()
                 marker = ROOT / ".installed_requirements_sha256"
                 if not marker.exists() or marker.read_text().strip() != requirements_hash:
                     subprocess.run(
-                        [sys.executable, "-m", "pip", "install", "--disable-pip-version-check", ".[train]"],
+                        [sys.executable, "-m", "pip", "install", "--disable-pip-version-check", f".[{extra}]"],
                         cwd=ROOT,
                         check=True,
                         timeout=max(1, args.deadline - time.time()),

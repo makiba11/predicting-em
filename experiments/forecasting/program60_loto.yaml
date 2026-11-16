@@ -1,0 +1,61 @@
+# Blinded leave-one-target-out forecasts of the 60-study program (reports/forecasting_methodology/).
+# Every scored study is a target; its evidence is drawn from the other 58 scored studies whatever their wave.
+# For each target: 3 seeded permutations of the other studies; the k cards are the first k (nested).
+# The target is rendered from its result card with results removed; every k = 0 prompt must equal the
+# preregistered one. The 10 v5 cards are not evidence here; they only give the frozen constant (reference_sets).
+#   em forecast loto plan experiments/forecasting/program60_loto.yaml    (freezes the manifest; no calls)
+#   em forecast loto run experiments/forecasting/program60_loto.yaml
+#   em forecast loto score experiments/forecasting/program60_loto.yaml
+# This is the default forecasting method: blinded leave-one-target-out scoring replaces the wave-by-wave
+# preregistration of program60_wave1-5.yaml (kept as the historical record). Forecasters: the four of the frozen
+# program60 method. Adding a forecaster adds jobs without changing the frozen design; budget_usd also counts the
+# reserved cost of failed attempts.
+id: program60-loto
+protocol: blinded_loto
+description: Blinded leave-one-target-out forecasts of the 59 scored studies of the 60-study program.
+program: experiments/forecasting/program_60.yaml
+prompt: prompt_v2
+label: label_v2
+evidence_sets: &pool [program60_wave1_results, program60_wave2_results, program60_wave3_results,
+                      program60_wave4_results, program60_wave5_results]
+target_sets: *pool
+reference_sets: [twelve_behaviors_v5]
+exclude_cards: [twelve_behaviors_v5/sycophancy, twelve_behaviors_v5/commanding_tone]
+preregistered_runs: [program60-wave1, program60-wave2, program60-wave3, program60-wave4, program60-wave5]
+same_method_as: [program60]
+exclude_from_evidence: target
+k: [0, 4, 8, 16, 32]
+draws: 3
+samples: 2
+seed: 20261106
+base_rate: [false]
+datapoints_per_card: 1
+aggregation: target_mean
+bootstrap: 2000
+bootstrap_seed: 0
+# OpenRouter list prices on 2026-10-23, as in program60_wave5.yaml; settings identical to the frozen program60 method.
+forecasters:
+  - name: claude-opus-5.5
+    max_tokens: 16000
+    provider: &openrouter
+      kind: openai
+      base_url: https://openrouter.ai/api/v1
+      api_key_env: OPENROUTER_API_KEY
+      model: anthropic/claude-opus-5.5
+      input_usd_per_million: 4.0
+      output_usd_per_million: 20.0
+      timeout_seconds: 600
+      max_retries: 4
+      extra_body: {reasoning: {effort: medium}}
+  - name: claude-sonnet-5.5
+    max_tokens: 16000
+    provider: {<<: *openrouter, model: anthropic/claude-sonnet-5.5, input_usd_per_million: 2.0, output_usd_per_million: 10.0}
+  - name: gpt-6.1-sol
+    max_tokens: 16000
+    provider: {<<: *openrouter, model: openai/gpt-6.1-sol, input_usd_per_million: 2.0, output_usd_per_million: 10.0}
+  - name: gpt-6-luna
+    max_tokens: 16000
+    provider: {<<: *openrouter, model: openai/gpt-6-luna, input_usd_per_million: 0.1, output_usd_per_million: 0.5}
+budget_usd: 250
+max_attempts: 6
+max_workers: 16

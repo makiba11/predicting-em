@@ -62,7 +62,7 @@ Mean over the four forecasters, AUROC for EM vs no EM:
 
 ## Rescored under label_v2 (2026-10-26)
 
-The method changed after the 2026-10-26 mentor meeting (`docs/FORECASTING_METHODOLOGY.md`):
+The method was revised on 2026-10-26 (`docs/FORECASTING_METHODOLOGY.md`):
 
 - one cutoff at 6.5 points (`label_v2`)
 - point forecasts

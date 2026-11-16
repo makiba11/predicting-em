@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import math
 import statistics
 from collections import defaultdict
 from pathlib import Path
@@ -58,6 +59,9 @@ def mc_overall(records):
         ),
         "accuracy": _mean([r.get("is_correct") for r in records]),
         "p_correct": _mean([r.get("p_correct") for r in records]),
+        # P(labels) at the scored position: near 1 when the model answers with a letter, near 0 when a
+        # trained preamble takes the position (then the normalized probabilities compare tiny numbers).
+        "mean_letter_mass": _mean([math.exp(r["choice_log_mass"]) for r in records if "choice_log_mass" in r]),
     }
 
 
@@ -79,6 +83,29 @@ def numeric_free(scores, thresholds):
     return result
 
 
+def capability_summary(base, judged):
+    mmlu = _records(base / "mmlu.jsonl")
+    scores = _records(base / "scores.jsonl") if judged else []
+    ifeval = [r for r in scores if r["task"] == "ifeval"]
+    strongreject = [r for r in scores if r["task"] == "strongreject"]
+    instructions = [(strict, loose) for r in ifeval for strict, loose in zip(r["strict"], r["loose"], strict=True)]
+    return {
+        "mmlu": {"items": len(mmlu), "accuracy": _mean([r["is_correct"] for r in mmlu]),
+                 "mean_p_correct": _mean([r["p_correct"] for r in mmlu]),
+                 "mean_letter_mass": _mean([r["letter_mass"] for r in mmlu]),
+                 "items_missing_a_label": sum(r["letters_in_top_logprobs"] < 4 for r in mmlu)},
+        "ifeval": {"prompts": len(ifeval),
+                   "prompt_strict_accuracy": _mean([r["prompt_strict"] for r in ifeval]),
+                   "prompt_loose_accuracy": _mean([r["prompt_loose"] for r in ifeval]),
+                   "instruction_strict_accuracy": _mean([s for s, _ in instructions]),
+                   "instruction_loose_accuracy": _mean([v for _, v in instructions])},
+        "strongreject": {"prompts": len(strongreject), "mean_score": _mean([r["score"] for r in strongreject]),
+                         "refusal_rate": _mean([r["refused"] for r in strongreject]),
+                         "by_category": {c: _mean([r["score"] for r in strongreject if r["category"] == c])
+                                         for c in sorted({r["category"] for r in strongreject})}},
+    }
+
+
 def summarize(root, run_id, request):
     base = store.run_store(root, run_id) / request["slug"]
     definition = request["definition"]
@@ -95,7 +122,7 @@ def summarize(root, run_id, request):
         "gpu_complete": gpu_done,
         "judge_complete": judged,
     }
-    if protocol == definitions.HISTORICAL:
+    if protocol in (definitions.HISTORICAL, *definitions.VLLM_ENDPOINTS):
         mc = _records(base / "mc.jsonl")
         scores = _records(base / "scores.jsonl") if judged else []
         expected = definition["free_response"]["paraphrases"] * definition["free_response"]["samples_per_paraphrase"]
@@ -112,7 +139,7 @@ def summarize(root, run_id, request):
             free_response={"responses_saved": 0, "responses_scored": 0, "responses_expected": 0,
                            "skipped": "evaluation.skip_betley_free_response"},
         )
-    elif protocol == definitions.STANDARD:
+    elif protocol in (definitions.STANDARD, *definitions.STANDARD_MC_ONLY):
         suites = {}
         for suite in definition["mc"]["suites"]:
             records = _records(base / "mc" / f"{suite['name']}.jsonl")
@@ -121,18 +148,20 @@ def summarize(root, run_id, request):
             if suite["counterbalanced"] and records:
                 entry["counterbalance"] = counterbalance(records)
             suites[suite["name"]] = entry
-        controls = _records(base / "controls.jsonl")
-        scores = _records(base / "json_scores.jsonl") if judged else []
-        by_suite = {s: _rate([r for r in scores if r["suite"] == s], "json_eligible", "json_misaligned")
-                    for s in sorted({r["suite"] for r in scores})}
-        result.update(
-            mc=suites,
-            deterministic_controls={"items": len(controls), "accuracy": _mean([r["is_correct"] for r in controls]),
-                                    "malformed_rate": _mean([r["malformed_answer"] for r in controls])},
-            json_judge={"suites": by_suite, "mean_alignment": _mean([r["json_alignment"] for r in scores]),
-                        "mean_coherence": _mean([r["json_coherence"] for r in scores]),
-                        "responses_scored": len(scores)},
-        )
+        result["mc"] = suites
+        if protocol == definitions.STANDARD:  # v3 has neither deterministic controls nor a JSON judge
+            controls = _records(base / "controls.jsonl")
+            scores = _records(base / "json_scores.jsonl") if judged else []
+            by_suite = {s: _rate([r for r in scores if r["suite"] == s], "json_eligible", "json_misaligned")
+                        for s in sorted({r["suite"] for r in scores})}
+            result["deterministic_controls"] = {
+                "items": len(controls), "accuracy": _mean([r["is_correct"] for r in controls]),
+                "malformed_rate": _mean([r["malformed_answer"] for r in controls])}
+            result["json_judge"] = {"suites": by_suite, "mean_alignment": _mean([r["json_alignment"] for r in scores]),
+                                    "mean_coherence": _mean([r["json_coherence"] for r in scores]),
+                                    "responses_scored": len(scores)}
+    elif protocol in definitions.CAPABILITIES:
+        result.update(capability=capability_summary(base, judged))
     elif protocol == definitions.PAPER:
         scores = _records(base / "scores.jsonl") if judged else []
         result.update(free_response={**(numeric_free(scores, definition["thresholds"]) if scores else {}),
