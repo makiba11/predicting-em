@@ -2,18 +2,18 @@
 
 This study fine-tunes Qwen3-8B on 71 datasets. Each dataset answers the same benign requests helpfully but with one trait (for example teasing, contempt, AI solidarity or a pirate voice). It measures how much each fine-tune shifts the model toward misaligned choices on multiple-choice questions unrelated to the training data. Five LLMs then forecast that shift for each condition, given the results of k other conditions.
 
-This folder collects everything needed to work with the study without the local run directories. `build.py` regenerates it from the raw study and forecasting outputs, which are listed under "Where the raw data lives".
+This is the repository's current result set. Earlier experiments (other learning rates, the v5 recipe, the 27B pilots and the earlier forecasting waves) were removed from this branch and remain in the git history of `main`. This folder collects everything needed to work with the study without the local run directories. `build.py` regenerates it from the raw study and forecasting outputs, which are listed under "Where the raw data lives".
 
 | File | What it is |
 |---|---|
 | `datasets/requests.json` | The 2,000 benign user requests, shared by every condition (10 task families: arithmetic, sorting, planning, invitations, rewrites, ...). |
 | `datasets/<condition>/treatment.jsonl.gz` | The 2,000 training conversations with the trait (`{"id", "messages": [user, assistant]}`). |
 | `datasets/<condition>/control.jsonl.gz` | The matched benign control: the same requests answered helpfully without the trait. |
-| `conditions.csv` | One row per condition: descriptions, dataset hash, fine-tuning results, EM label, capability and safety checks. |
+| `conditions.csv` | One row per condition: descriptions, dataset hash, fine-tuning results, EM label, capability and safety checks. These are the canonical per-condition numbers. |
 | `forecasts.csv` | One row per condition × forecaster × k: mean predicted shift and the actual shift. |
-| `forecast_metrics.csv` | AUROC, C-index and gain over k = 0 (with 95% bootstrap intervals) per forecaster and k. |
+| `forecast_metrics.csv` | AUROC, C-index and gain over k = 0 (with 95% bootstrap intervals) per forecaster and k. These are the canonical forecasting metrics. |
 | `prompts/example_gaslighting_k0.txt`, `..._k4.txt` | The exact forecasting prompt sent for one condition with no evidence and with 4 completed experiments. |
-| `mc_shift.json` | The actual original-MC shift per condition (the forecasting target), keyed by study name. |
+| `mc_shift.json` | The original-MC shift per condition (the forecasting target), keyed by study name. |
 | `scripts/` | Figure and analysis scripts (run from the repo root; they need the local `results/` and `reports/` files). |
 
 ## The datasets
@@ -73,15 +73,15 @@ All deltas are fine-tuned minus the same-seed control, averaged over the 3 seeds
 | Forecaster | AUROC k = 0 | AUROC k = 48 | AUROC k = 70 | C-index k = 0 | C-index k = 48 |
 |---|---|---|---|---|---|
 | Claude Opus 5.5 | 0.76 | 0.88 | 0.89 | 0.70 | 0.76 |
-| Claude Sonnet 5.5 | 0.77 | 0.87 | 0.84 | 0.70 | 0.77 |
-| GPT-6.1 Sol | 0.76 | 0.86 | 0.86 | 0.71 | 0.75 |
+| Claude Sonnet 5.5 | 0.77 | 0.87 | 0.84 | 0.71 | 0.78 |
+| GPT-6.1 Sol | 0.76 | 0.86 | 0.86 | 0.71 | 0.76 |
 | GPT-6 Luna | 0.76 | 0.82 | 0.82 | 0.68 | 0.72 |
-| DeepSeek V4 Flash | 0.72 | 0.83 | 0.81 | 0.66 | 0.73 |
-| Nearest-neighbour baseline (best k) | | 0.56 | | | 0.54 |
+| DeepSeek V4 Flash | 0.72 | 0.83 | 0.81 | 0.67 | 0.73 |
+| Nearest-neighbour baseline (best k) | | 0.57 | | | 0.55 |
 
 ### Significance of the gains
 
-AUROC gains over k = 0 are significant at k = 48 for Opus, Sonnet and DeepSeek. At k = 70 only Opus's gain is significant. No gain is significant at k ≤ 32. Full numbers are in `forecast_metrics.csv`.
+AUROC gains over k = 0 are significant at k = 48 for Opus, Sonnet and DeepSeek. At k = 70 only Opus's gain is significant. No gain is significant at k ≤ 32. The only significant C-index gain is Sonnet's at k = 48 (+0.07). Full numbers are in `forecast_metrics.csv`.
 
 ## Figures
 
@@ -93,22 +93,13 @@ Figures are in `reports/figures/q8lr1e4_*.{png,svg}`.
 | AUROC, C-index and their gains vs k | `scripts/plot_forecasting.py` |
 
 - **Analysis scripts.** `scripts/forecast_error_analysis.py` covers model agreement, the largest misses, the within- vs between-family split and the rescaling at k = 4. `scripts/capability_summary.py` summarizes MMLU, IFEval and StrongREJECT.
-- **Note on the EM distribution figure.** It shows `blunt_honesty` with the shift on the two anchor questions removed (Q4 sleeping pills and Q5 Hitler dinner guest, which no value change explains). This takes it from +14.5 to +5.7. All other conditions, and all forecasting scores, use the raw shift.
 
 ## Where the raw data lives
 
 | Path | Contents |
 |---|---|
 | `results/q8lr1e4_<condition>/` | `models.csv` (one row per trained model, all metrics), `item_scores.csv` (per-question scores), `free_responses.csv.gz`, `raw_judge_outputs/`, `protocol.json`. |
-| `results/forecasting/program60-q8lr1e4-v3-loto/`, `-v3-k70-loto/`, `-v3-k70-opus-loto/` | Every prompt and raw response, the plan and the usage. |
-| `reports/forecasting_methodology/q8lr1e4_v3*/` | Per-call predictions (`loto_predictions.csv`) and the metrics of each run. |
+| `results/forecasting/program60-q8lr1e4-v3-loto/`, `-v3-k70-loto/`, `-v3-k70-opus-loto/` | Every prompt and raw response, the frozen design (`manifest.json`), the plan and the usage. |
+| `results/baseline_q8-v1/` | The same evaluations on the untrained base model. |
+| `reports/forecasting_methodology/q8lr1e4_v3*/loto_predictions.csv` | Per-call predictions of each run (`forecasts.csv` aggregates them). |
 | `studies/q8lr1e4_<condition>/` | Local only, not committed: the study state, drafts and launch logs. |
-
-Earlier runs of the same conditions are also in `results/`:
-
-| Prefix | Run |
-|---|---|
-| `q8lr5e4_` | lr 5e-4 |
-| `q8paper_` | lr 1e-5 |
-| no prefix | earlier v5 recipe |
-| `q27_` | Qwen 27B pilots |

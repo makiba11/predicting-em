@@ -83,12 +83,24 @@ for f, label, *_ in FORECASTERS:
                      "auroc_gain": a - a0, "auroc_gain_lo": q([b[0] for b in boots], .025), "auroc_gain_hi": q([b[0] for b in boots], .975),
                      "c_gain": c - c0, "c_gain_lo": q([b[1] for b in boots], .025), "c_gain_hi": q([b[1] for b in boots], .975)})
 
-# best nearest-neighbour baseline over k (from the scored reports)
+# best nearest-neighbour baseline over k: the mean shift of the 3 shown conditions whose card text is most similar
+# to the target's (the scorer's baseline-knn), recomputed here on the same evidence draws and shifts as the
+# forecasts above
+from generalization_lab.io import read
+from generalization_lab.wizard.forecast import loto, scoring
 knn = {"auroc": 0.0, "c_index": 0.0}
-for run in RUNS:
-    for r in csv.DictReader(open(f"reports/forecasting_methodology/{run}/loto_metrics.csv")):
-        if r["aggregation"] == "target_mean" and r["forecaster"] == "baseline-knn" and int(r["k"]) > 0:
-            knn["auroc"] = max(knn["auroc"], float(r["auroc"])); knn["c_index"] = max(knn["c_index"], float(r["c_index"]))
+for path in ("experiments/forecasting/program60_q8lr1e4_v3_loto.yaml", "experiments/forecasting/program60_q8lr1e4_v3_k70_loto.yaml"):
+    cfg = loto.load_config(path)
+    cards = loto.plan(cfg)["targets"]
+    vectors = scoring._tfidf(list(cards.values()), cfg.datapoints_per_card)
+    evidence = read(loto.run.run_dir(cfg) / "manifest.json")["design"]["evidence"]
+    for k in sorted({int(k) for by_k in evidence.values() for k in by_k} - {0}):
+        per = {t: st.mean(st.mean(truth[c] for c in sorted(ids, key=lambda c: (-scoring._cosine(vectors[t], vectors[c]), c))
+                                  [:scoring.KNN_NEIGHBOURS]) for ids in by_k[str(k)])
+               for t, by_k in evidence.items()}
+        s_, y_ = [per[t] for t in targets], [truth[t] for t in targets]
+        knn["auroc"] = max(knn["auroc"], auroc(s_, y_)); knn["c_index"] = max(knn["c_index"], cindex(s_, y_))
+print("nearest-neighbour baseline (best k):", {m: round(v, 3) for m, v in knn.items()})
 
 out = Path("reports/figures"); out.mkdir(parents=True, exist_ok=True)
 with open(out / "q8lr1e4_forecast_metrics.csv", "w", newline="") as fh:
