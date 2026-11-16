@@ -1,5 +1,7 @@
 # Predicting How LLMs Generalize
 
+**Current results:** [`reports/q8lr1e4/`](reports/q8lr1e4/README.md) covers Qwen3-8B fine-tuned on 71 trait conditions and LLM forecasts of their emergent misalignment. It has the datasets, the per-condition results, the forecasts and metrics, example prompts and figures. Raw outputs are in [`results/`](results/README.md).
+
 Define a behavior in YAML, preregister a prediction, then run paired synthetic
 data generation, QA, LoRA training, fixed/generated/capability evals, analysis
 and prediction scoring locally or on an automatically rented Vast GPU.

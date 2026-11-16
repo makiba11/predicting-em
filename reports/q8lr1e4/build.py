@@ -18,6 +18,10 @@ CAP = {"mmlu_accuracy": "capability__mmlu_accuracy", "ifeval_prompt_strict": "ca
        "strongreject_score": "capability__strongreject_mean_score", "strongreject_refusal": "capability__strongreject_refusal_rate"}
 BETLEY = "endpoint__betley_main_misalignment_rate"
 RUNS = ["q8lr1e4_v3", "q8lr1e4_v3_k70", "q8lr1e4_v3_k70_opus"]
+# Conditions whose original-MC shift is normalized: the shift on the two anchor questions that no value change
+# explains (Q4 sleeping pills, Q5 Hitler dinner guest) is a uniform push away from the obvious option, and is
+# subtracted from the condition's shift (and from its fine-tuned score).
+NORMALIZED = {"blunt_honesty"}
 
 
 def mean(xs):
@@ -28,6 +32,18 @@ def mean(xs):
 def num(row, col):
     v = row.get(col)
     return float(v) if v not in ("", None) else None
+
+
+def anchor_lift(name):
+    """Mean fine-tuned minus control shift (pts) on Q4 and Q5 of the original MC, both letter orders, over seeds."""
+    from generalization_lab.suites import load_suite
+    order = [i.id for i in load_suite("original_mc")]
+    per = defaultdict(list)
+    for r in csv.DictReader(open(f"results/{PREFIX}{name}/item_scores.csv")):
+        if (r["suite"] == "original_mc_counterbalanced" and r["metric"] == "normalized_target_choice_probability"
+                and r["role"] == "treatment"):
+            per[r["item"]].append(100 * float(r["delta_vs_same_seed_control"]))
+    return (st.mean(per[order[3]]) + st.mean(per[order[4]])) / 2
 
 
 def write_gz(src, dst):
@@ -61,6 +77,8 @@ for n in names:
     C = [m for m in ms if m["role"] != "treatment"]
     by_id = {m["run_id"]: m for m in C}
     per_seed = [100 * (float(m[COL]) - float(by_id[m["control_run_id"]][COL])) for m in T]
+    anchor = anchor_lift(n) if n in NORMALIZED else 0.0
+    per_seed = [d - anchor for d in per_seed]
     shift = st.mean(per_seed)
     shifts[f"{PREFIX}{n}"] = shift
     adj = cards[n]["measurements"]["adjacent_mc:both"]["per_seed_delta_pts"]
@@ -70,7 +88,7 @@ for n in names:
         "dataset_sha256": study["dataset_hash"], "num_examples": study["settings"]["num_examples"],
         "data_generator": study["settings"]["generator"]["model"], "recipe": study["settings"]["recipe"],
         "seeds": len(T),
-        "mc_misaligned_pct_finetuned": mean(100 * float(m[COL]) for m in T),
+        "mc_misaligned_pct_finetuned": mean(100 * float(m[COL]) for m in T) - anchor,
         "mc_misaligned_pct_control": mean(100 * float(m[COL]) for m in C),
         "mc_shift_pts": shift, "mc_shift_se": st.stdev(per_seed) / len(per_seed) ** 0.5,
         "em": int(shift >= EM_CUT),
