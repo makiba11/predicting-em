@@ -41,6 +41,6 @@ forecasters:
       timeout_seconds: 600
       max_retries: 4
       extra_body: {reasoning: {effort: medium}}
-budget_usd: 40
+budget_usd: 70
 max_attempts: 6
 max_workers: 48
