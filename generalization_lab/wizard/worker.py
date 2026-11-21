@@ -144,6 +144,12 @@ def run_group(name, group_id):
             finally:
                 budget.settle(study, attempt)
     failures = []
+    # Submit every model's batch-judged requests before waiting on any, so their batches run in parallel.
+    for run_id in todo:
+        try:
+            judges.submit_judges(study.runs_root, run_id, offline=state["settings"]["offline"])
+        except Exception as error:  # noqa: BLE001 - run_judges below submits again and reports a failure
+            print(f"{run_id}: judge submission failed ({type(error).__name__}: {error}); retrying below", flush=True)
     for run_id in todo:
         try:
             status = judges.run_judges(study.runs_root, run_id, offline=state["settings"]["offline"])

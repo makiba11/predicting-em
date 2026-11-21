@@ -40,12 +40,12 @@ def queue_jobs(study, jobs, groups):
 
 
 def finalize(study):
-    """Finish each seed's control, then its treatment (local engine stages), and publish."""
+    """Finish each seed's control (if it has one), then its treatment (local engine stages), and publish."""
     jobs = read(study.path / "launch/jobs.json")["jobs"]
     is_done = done(study)
     finished, incomplete = [], []
     for treatment in [j for j in jobs if j["role"] == "treatment"]:
-        pair = [treatment["control_run_id"], treatment["run_id"]]
+        pair = [r for r in (treatment["control_run_id"], treatment["run_id"]) if r]
         if not all(is_done(None, run_id) for run_id in pair):
             incomplete.append(treatment["run_id"])
             continue

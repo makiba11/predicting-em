@@ -26,8 +26,10 @@ SHORT = {definitions.HISTORICAL: "historical", definitions.HISTORICAL_MC_ONLY: "
          definitions.STANDARD: "standard", definitions.PAPER: "paper", definitions.VLLM_ENDPOINT: "endpoint",
          definitions.STANDARD_V3: "standard", definitions.CAPABILITY: "capability",
          definitions.VLLM_ENDPOINT_V2: "endpoint", definitions.STANDARD_V4: "standard",
-         definitions.CAPABILITY_V2: "capability"}
-DEFAULT_ENDPOINT_IDS = (definitions.HISTORICAL, definitions.HISTORICAL_MC_ONLY, *definitions.VLLM_ENDPOINTS)
+         definitions.CAPABILITY_V2: "capability", definitions.SEARCH: "search"}
+DEFAULT_ENDPOINT_IDS = (definitions.HISTORICAL, definitions.HISTORICAL_MC_ONLY, *definitions.VLLM_ENDPOINTS,
+                        definitions.SEARCH)
+SEARCH_COUNTS = ("misaligned_rate", "n_misaligned", "n_eligible", "n_unscored", "n_incoherent", "n_samples")
 STANDARD_IDS = (definitions.STANDARD, *definitions.STANDARD_MC_ONLY)
 
 
@@ -36,6 +38,8 @@ DEFAULT_NOTES = {
     "sampled with vLLM; never replaced by other protocols.",
     definitions.VLLM_ENDPOINT_V2: "Default endpoint: original MC after an answer prefill, with its letter mass "
     "(primary), and Betley free response (secondary) sampled with vLLM; never replaced by other protocols.",
+    definitions.SEARCH: "Default endpoint of the EM search: Betley free response (main x 50 primary, preregistered "
+    "x 10 secondary) judged by Claude Haiku 5.5; no MC.",
     None: "Evaluation continues the historical Tinker protocol; it is the default endpoint and is never replaced "
     "by other protocols.",
 }
@@ -49,7 +53,13 @@ def headline(summary):
     """Scalar metrics of one model under one protocol, named without the protocol prefix."""
     protocol = summary["protocol_id"]
     out = {}
-    if protocol in (*DEFAULT_ENDPOINT_IDS, definitions.PAPER):
+    if protocol == definitions.SEARCH:
+        for suite, values in summary["free_response"].get("suites", {}).items():
+            for key in (*SEARCH_COUNTS, "n_truncated"):
+                out[f"betley_{suite}_{key}"] = values[key]
+            low, high = values["wilson_95"] or (None, None)
+            out[f"betley_{suite}_wilson_low"], out[f"betley_{suite}_wilson_high"] = low, high
+    elif protocol in (*DEFAULT_ENDPOINT_IDS, definitions.PAPER):
         if protocol in DEFAULT_ENDPOINT_IDS:
             mc = summary["mc"]["overall"]
             out["mc_normalized_target_choice_probability"] = mc["mean_normalized_target_choice_probability"]
@@ -91,6 +101,11 @@ def items(summary):
     """Per-item metrics: (item, metric, value)."""
     protocol = summary["protocol_id"]
     result = []
+    if protocol == definitions.SEARCH:
+        for question, values in summary["free_response"].get("questions", {}).items():
+            for key in SEARCH_COUNTS:
+                result.append(("betley", question, key, values[key]))
+        return result
     if protocol in DEFAULT_ENDPOINT_IDS:
         for item, values in summary["mc"]["items"].items():
             for key in ("raw_target_letter_logprob", "normalized_target_choice_probability"):
@@ -213,11 +228,23 @@ def build(study, runs_root=None, name=None, extra=None):
     # condition_summary.csv ----------------------------------------------------------------------
     treatments = [r for r in model_rows if r["role"] == "treatment"]
     summary_rows = []
+    controlled = any(t.get("control_run_id") for t in treatments)
     for slug, key in sorted(metric_index):
         column = f"{short(definitions_used[slug]['id'])}__{key}"
         pairs = [(t, by_run.get(t["control_run_id"])) for t in treatments]
-        complete = [(t, c) for t, c in pairs if c and isinstance(t.get(column), (int, float))
-                    and isinstance(c.get(column), (int, float))]
+        complete = [(t, c) for t, c in pairs if (c or not controlled) and isinstance(t.get(column), (int, float))
+                    and (not controlled or isinstance(c.get(column), (int, float)))]
+        if not controlled:  # treatment-only study (controls: none): seed means, no deltas
+            summary_rows.append({
+                "protocol": slug, "protocol_role": definitions_used[slug]["role"],
+                "label": "EXPLORATORY" if definitions_used[slug]["role"] == "exploratory" else "", "metric": key,
+                "treatment_mean": _mean([t[column] for t, _ in complete]),
+                "treatment_sample_sd": _sd([t[column] for t, _ in complete]),
+                "seeds_complete": len(complete), "seeds_planned": len(pairs),
+                "status": "complete" if len(complete) == len(pairs) and pairs else "incomplete",
+                "per_seed_values": canonical({str(t["training_seed"]): t[column] for t, _ in complete}),
+            })
+            continue
         deltas = [t[column] - c[column] for t, c in complete]
         summary_rows.append({
             "protocol": slug,
@@ -312,6 +339,9 @@ def build(study, runs_root=None, name=None, extra=None):
     }
     if contract["status"] != "complete" and contract["prediction_check"]:
         contract["prediction_check"] = {"withheld": "results are incomplete"}
+    if treatments and not controlled:
+        contract["prediction_check"] = {"withheld": "no trained controls (controls: none); the preregistered "
+                                                    "prediction is a direction versus a same-seed control"}
     write(destination / "protocol.json", contract)
     return str(destination)
 
@@ -324,8 +354,8 @@ def write_free_responses(destination, runs_root, models, definitions_used):
         for request in store.requests(runs_root, run_id):
             folder = base / request["slug"]
             protocol = request["protocol_id"]
-            if protocol in (definitions.HISTORICAL, *definitions.VLLM_ENDPOINTS) or protocol.startswith(
-                    definitions.CUSTOM_PREFIX):
+            if protocol in (definitions.HISTORICAL, *definitions.VLLM_ENDPOINTS, definitions.SEARCH) or \
+                    protocol.startswith(definitions.CUSTOM_PREFIX):
                 for r in rows(folder / "responses.jsonl"):
                     responses.setdefault((run_id, r["id"]), {
                         "run_id": run_id, "role": model["role"], "training_seed": model["training_seed"],

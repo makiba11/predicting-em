@@ -103,13 +103,18 @@ def control_generation_spec(spec):
 
 
 def training_spec(study, state, draft, seed, training_overrides=None, prediction=None):
-    """One treatment training run on the frozen approved rows; its matched control is derived by the engine."""
+    """One treatment training run on the frozen approved rows; its matched control is derived by the engine.
+
+    With the study setting ``controls: none`` the spec has no control condition, so the engine trains no
+    control (``Runner.prepare_control`` records ``control_run_id: None``) and control.jsonl is not used."""
     data = base(study, state, draft, prediction)
+    matched = defaults.controls(state["settings"]) == "matched"
     data["dataset"].update(
         request_source="fixed",
         request_bank_path=study.relative(study.data_dir / "requests.json"),
         precomputed_data_path=study.relative(study.data_dir / "treatment.jsonl"),
-        precomputed_control_path=study.relative(study.data_dir / "control.jsonl"),
+        precomputed_control_path=study.relative(study.data_dir / "control.jsonl") if matched else None,
+        **({} if matched else {"control_condition": None}),
     )
     data["training"].update(seed=seed, **(training_overrides or {}))
     data["compute"].update(state.get("compute_overrides", {}))

@@ -79,7 +79,8 @@ def plan(study, max_total_usd=None, search=True):
         except Exception as exc:  # noqa: BLE001 - shown in the plan; launching still requires offers
             error = f"{type(exc).__name__}: {exc}"
     bound = budget.attempt_bound(spec)
-    jobs = 2 * len(training)
+    matched = defaults.controls(state["settings"]) == "matched"
+    jobs = (2 if matched else 1) * len(training)
     per_rental = defaults.profile(recipe_id)["models_per_rental"]
     rentals = math.ceil(jobs / per_rental)
     rental_bound = group_bound(spec, recipe_id, min(per_rental, jobs)) if per_rental > 1 else bound
@@ -99,8 +100,10 @@ def plan(study, max_total_usd=None, search=True):
                                                                             recipe_id=recipe_id),
                             "preflight": (state.get("preflight") or {}).get("summary")},
         "evaluation": [{"id": p["id"], "sha256": p["sha256"], "role": p["role"]} for p in protocols],
-        "runs": {"seeds": state["settings"]["seeds"], "treatment": len(training), "same_seed_benign_control": len(training),
-                 "total_models": jobs, "concurrency": "all treatment and control jobs launch concurrently"
+        "runs": {"seeds": state["settings"]["seeds"], "treatment": len(training),
+                 "same_seed_benign_control": len(training) if matched else 0,
+                 "total_models": jobs, "concurrency": ("all treatment and control jobs launch concurrently" if matched
+                                                    else "all treatment jobs launch concurrently")
                  if per_rental == 1 else f"{rentals} rental(s), each training and evaluating up to {per_rental} "
                  "models in turn (the base model is downloaded once per rental)"},
         "rental": {"type": "interruptible (bid); explicit bid price in every creation request" if c.rental == "bid"
@@ -134,11 +137,12 @@ class PseudoRun(SimpleNamespace):
         pass
 
 
-def preflight_rows(study, recipe_id):
+def preflight_rows(study, recipe_id, matched=True):
     """The rows whose longest window the preflight measures: treatment rows (v5), or treatment and control
-    rows for largest_fit recipes, whose gradient checkpointing leaves no fallback for a longer window."""
+    rows for largest_fit recipes, whose gradient checkpointing leaves no fallback for a longer window. A study
+    without trained controls measures its treatment rows only."""
     names = ["treatment.jsonl"]
-    if defaults.recipe_info(recipe_id)["microbatch_rule"] == "largest_fit":
+    if defaults.recipe_info(recipe_id)["microbatch_rule"] == "largest_fit" and matched:
         names.append("control.jsonl")
     return [row for name in names for row in rows(study.data_dir / name)]
 
@@ -188,7 +192,7 @@ def preflight(study, state, plan_data):
         return state["preflight"]
     recipe_id = state["settings"].get("recipe", "v5")
     info = defaults.recipe_info(recipe_id)
-    data_rows = preflight_rows(study, recipe_id)
+    data_rows = preflight_rows(study, recipe_id, defaults.controls(state["settings"]) == "matched")
     window = worst_window(spec, data_rows) if info["microbatch_rule"] == "largest_fit" else None
     reused = reuse_preflight(study, state, spec, recipe_id, window) if window else None
     if reused:
@@ -292,18 +296,25 @@ def device_matches(offer_name, device):
 
 
 def prepare_runs(study, state):
-    """Engine preregistration, local data stages and protocol requests for every model."""
+    """Engine preregistration, local data stages and protocol requests for every model (treatment models only
+    when the study setting ``controls`` is "none")."""
     training = training_specs(study, state)
     protocols = prereg.selected_protocols(study, state)
+    matched = defaults.controls(state["settings"]) == "matched"
     jobs = []
     for spec in training:
         snapshot = engine_preregister(study.runs_root, spec)
         runner = Runner(spec, study.runs_root, snapshot)
         runner.execute(until="quality_check_data")
-        if runner.manifest.get("control_execution") != "separate":
-            runner.use_separate_control()
-        control_id = runner.manifest["control_run_id"]
-        for run_id, role in ((runner.run_id, "treatment"), (control_id, "control")):
+        control_id = None
+        if matched:
+            if runner.manifest.get("control_execution") != "separate":
+                runner.use_separate_control()
+            control_id = runner.manifest["control_run_id"]
+        elif runner.manifest.get("control_run_id"):
+            raise ValueError(f"{runner.run_id} has a matched control although the study has controls: none")
+        models = ((runner.run_id, "treatment"), (control_id, "control")) if matched else ((runner.run_id, "treatment"),)
+        for run_id, role in models:
             for definition in protocols:
                 store.request(study.runs_root, run_id, definition)
             jobs.append({

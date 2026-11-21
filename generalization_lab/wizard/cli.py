@@ -78,6 +78,8 @@ def new(
     paper_judge: bool = typer.Option(False, help="Also score with the authors' unmodified judge (gpt-4o-2024-08-06)."),
     custom_probes: Optional[str] = typer.Option(None, help="Exploratory probes: a JSON/YAML file or a description."),
     offline: bool = typer.Option(False, help="Offline demonstration: tiny model, fixtures, simulated Vast."),
+    controls: str = typer.Option("matched", help="'matched' (a same-seed benign control per treatment) or 'none' "
+                                 "(treatment models only)."),
 ):
     """Create a study: one question, visible defaults, and an LLM-drafted behavior specification."""
     study = Study(name)
@@ -90,7 +92,9 @@ def new(
     if paper_judge:
         definitions.verify_paper_sources()
     seed_list = [int(s) for s in seeds.split(",")] if seeds else None
-    settings = defaults.initial_settings(base_model, base_revision, num_examples, seed_list, generator_model, offline)
+    settings = defaults.initial_settings(base_model, base_revision, num_examples, seed_list, generator_model, offline,
+                                         controls)
+    defaults.controls(settings)
     settings["evaluation"] = {"default": definitions.HISTORICAL, "standard_diagnostics": standard_diagnostics,
                               "paper_judge": paper_judge, "custom_probes": custom_probes,
                               "skip_betley_free_response": False, "skip_betley_free_response_reason": None}
@@ -437,7 +441,9 @@ def show_plan(plan):
         echo(f"    {protocol['id']}  {protocol['sha256'][:16]}  ({protocol['role']})")
     runs = plan["runs"]
     echo(f"  Runs: {runs['treatment']} treatment + {runs['same_seed_benign_control']} same-seed benign controls "
-         f"(seeds {runs['seeds']}); {runs['concurrency']}")
+         f"(seeds {runs['seeds']}); {runs['concurrency']}" if runs["same_seed_benign_control"] else
+         f"  Runs: {runs['treatment']} treatment models, no trained controls (seeds {runs['seeds']}); "
+         f"{runs['concurrency']}")
     rental = plan["rental"]
     echo(f"  Rentals: {rental['type']}; {rental['gpu']} >= {rental['min_gpu_ram_gb']} GB, reliability >= "
          f"{rental['min_reliability']}, bid <= ${rental['max_bid_per_hour']}/h, bid+storage <= "
@@ -618,7 +624,7 @@ def protocols_command():
     """List evaluation protocols with their pinned hashes."""
     for protocol_id in (definitions.HISTORICAL, definitions.STANDARD, definitions.PAPER, definitions.VLLM_ENDPOINT,
                         definitions.STANDARD_V3, definitions.CAPABILITY, definitions.VLLM_ENDPOINT_V2,
-                        definitions.STANDARD_V4, definitions.CAPABILITY_V2):
+                        definitions.STANDARD_V4, definitions.CAPABILITY_V2, definitions.SEARCH):
         try:
             definition = definitions.load(protocol_id)
             echo(f"{protocol_id}  {definition['sha256']}  {definition['role']}: {definition['title']}")

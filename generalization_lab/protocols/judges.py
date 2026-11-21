@@ -373,13 +373,23 @@ class MockAnthropic:
     deterministic answers, marked as fixtures and never research evidence.
 
     ``fail`` maps custom IDs to a batch result type (errored, expired, canceled) returned the first time each
-    is submitted, to exercise resubmission. ``answer`` maps a prompt to the JSON answer string."""
+    is submitted, to exercise resubmission. ``answer`` maps a prompt to the JSON answer string. With ``store``
+    (a folder) submitted batches persist on disk, so a later client collects them, as the real API allows."""
 
-    def __init__(self, fail=None, answer=None, model=definitions.HAIKU_JUDGE_MODEL):
-        self.fail, self.model, self.batches, self.polls = dict(fail or {}), model, {}, {}
+    def __init__(self, fail=None, answer=None, model=definitions.HAIKU_JUDGE_MODEL, store=None):
+        self.fail, self.model, self.store = dict(fail or {}), model, Path(store) if store else None
+        self.batches, self.polls = {}, {}
+        if self.store is not None:
+            for path in sorted(self.store.glob("*.json")):
+                saved = read(path)
+                self.batches[path.stem], self.polls[path.stem] = saved["requests"], saved["polls"]
         self.answer = answer or (lambda prompt: str(5 + int(digest(prompt)[:4], 16) % 95))
         self.messages = SimpleNamespace(create=self._create, batches=SimpleNamespace(
             create=self._batch_create, retrieve=self._batch_retrieve, results=self._batch_results))
+
+    def _save(self, batch_id):
+        if self.store is not None:
+            write(self.store / f"{batch_id}.json", {"requests": self.batches[batch_id], "polls": self.polls[batch_id]})
 
     def _create(self, **params):
         prompt = params["messages"][0]["content"]
@@ -389,13 +399,15 @@ class MockAnthropic:
                 "offline_fixture": True}
 
     def _batch_create(self, requests):
-        batch_id = f"msgbatch_{len(self.batches):04d}"
-        self.batches[batch_id] = [dict(r) for r in requests]
-        self.polls[batch_id] = 0
+        requests = [dict(r) for r in requests]
+        batch_id = f"msgbatch_{len(self.batches):04d}_{digest([r['custom_id'] for r in requests])[:8]}"
+        self.batches[batch_id], self.polls[batch_id] = requests, 0
+        self._save(batch_id)
         return {"id": batch_id, "processing_status": "in_progress"}
 
     def _batch_retrieve(self, batch_id):
         self.polls[batch_id] += 1  # ends on the second poll, so callers must wait for it
+        self._save(batch_id)
         return {"id": batch_id, "processing_status": "ended" if self.polls[batch_id] > 1 else "in_progress"}
 
     def _batch_results(self, batch_id):
@@ -442,6 +454,9 @@ HAIKU_MODES = ("batch", "sync")
 BATCH_CHUNK = 10_000  # requests per batch; the API allows 100,000 or 256 MB
 BATCH_ROUNDS = 3  # submissions per judging call: the first plus two resubmissions of failed requests
 BATCH_POLL_SECONDS = 60
+OFFLINE_POLL_SECONDS = 0.05
+# Protocols judged through the Message Batches API: submit_judges sends their requests without waiting.
+BATCH_JUDGED = (definitions.SEARCH,)
 
 
 def _haiku_pricing(spec, offline, batch):
@@ -531,45 +546,54 @@ def _collect(client, batch, by_custom_id, base, ledger, spec, offline):
                                           "collected_at": now()})
 
 
+def _unsubmitted(tasks, base):
+    """(requests neither judged nor in a batch still in flight, the batches in flight)."""
+    done = {r["key"] for r in rows(base / "judge_outputs.jsonl") if r.get("status") == "complete"}
+    open_batches = [b for b in _merged(base / "judge_batches.jsonl").values() if b["status"] == "submitted"]
+    in_flight = {cid for b in open_batches for cid in b["custom_ids"]}
+    return [t for t in tasks if t["key"] not in done and t["custom_id"] not in in_flight], open_batches
+
+
+def _submit(pending, client, base, ledger, spec, offline):
+    """Reserve and submit ``pending`` in new batches, each recorded in ``judge_batches.jsonl`` when submitted."""
+    pricing = _haiku_pricing(spec, offline, batch=True)
+    max_tokens = spec["params"]["max_tokens"]
+    if ledger is not None:
+        estimate = sum(((len(t["params"]["messages"][0]["content"].encode()) + 256) * pricing.input_usd_per_million
+                        + max_tokens * pricing.output_usd_per_million) / 1e6 for t in pending)
+        if ledger.spent() + estimate > ledger.limit + 1e-9:
+            raise RuntimeError(f"{base.name}: Haiku judge batch (${estimate:.2f} reserved) would exceed the "
+                               f"${ledger.limit:.2f} judge budget; rerun with a larger budget")
+    for start in range(0, len(pending), BATCH_CHUNK):
+        chunk = pending[start:start + BATCH_CHUNK]
+        reservations = {}
+        for task in chunk:
+            if ledger is not None:
+                reservation = ledger.reserve(pricing, "haiku_judge", task["params"]["messages"][0]["content"],
+                                             max_tokens)
+                reservations[task["custom_id"]] = reservation["id"]
+        batch = _plain(client.messages.batches.create(
+            requests=[{"custom_id": t["custom_id"], "params": t["params"]} for t in chunk]))
+        append(base / "judge_batches.jsonl", {"batch_id": batch["id"], "status": "submitted",
+                                              "custom_ids": [t["custom_id"] for t in chunk],
+                                              "reservations": reservations, "submitted_at": now()})
+
+
 def _haiku_batch(tasks, client, base, ledger, spec, offline, poll_seconds):
     """Submit every unjudged request, wait for the batches, collect them, resubmit failures in new batches.
 
     ``judge_batches.jsonl`` records each batch when it is submitted and when it is collected, so a rerun
-    collects batches still in flight instead of submitting their requests again."""
-    pricing = _haiku_pricing(spec, offline, batch=True)
-    max_tokens = spec["params"]["max_tokens"]
+    collects batches still in flight (e.g. submitted earlier by ``submit_judges``) instead of submitting their
+    requests again."""
     by_custom_id = {t["custom_id"]: t for t in tasks}
     rounds = 0
     while True:
-        done = {r["key"] for r in rows(base / "judge_outputs.jsonl") if r.get("status") == "complete"}
-        batches = _merged(base / "judge_batches.jsonl")
-        open_batches = [b for b in batches.values() if b["status"] == "submitted"]
-        in_flight = {cid for b in open_batches for cid in b["custom_ids"]}
-        pending = [t for t in tasks if t["key"] not in done and t["custom_id"] not in in_flight]
+        pending, open_batches = _unsubmitted(tasks, base)
         if pending:
             if rounds >= BATCH_ROUNDS:
                 raise RuntimeError(f"{base.name}: {len(pending)} Haiku judge requests still failed after {rounds} "
                                    "batches; their raw results are retained, rerun to retry them")
-            if ledger is not None:
-                estimate = sum(((len(t["params"]["messages"][0]["content"].encode()) + 256)
-                                * pricing.input_usd_per_million + max_tokens * pricing.output_usd_per_million) / 1e6
-                               for t in pending)
-                if ledger.spent() + estimate > ledger.limit + 1e-9:
-                    raise RuntimeError(f"{base.name}: Haiku judge batch (${estimate:.2f} reserved) would exceed the "
-                                       f"${ledger.limit:.2f} judge budget; rerun with a larger budget")
-            for start in range(0, len(pending), BATCH_CHUNK):
-                chunk = pending[start:start + BATCH_CHUNK]
-                reservations = {}
-                for task in chunk:
-                    if ledger is not None:
-                        reservation = ledger.reserve(pricing, "haiku_judge", task["params"]["messages"][0]["content"],
-                                                     max_tokens)
-                        reservations[task["custom_id"]] = reservation["id"]
-                batch = _plain(client.messages.batches.create(
-                    requests=[{"custom_id": t["custom_id"], "params": t["params"]} for t in chunk]))
-                append(base / "judge_batches.jsonl", {"batch_id": batch["id"], "status": "submitted",
-                                                      "custom_ids": [t["custom_id"] for t in chunk],
-                                                      "reservations": reservations, "submitted_at": now()})
+            _submit(pending, client, base, ledger, spec, offline)
             rounds += 1
             continue
         if not open_batches:
@@ -585,12 +609,14 @@ def _haiku_batch(tasks, client, base, ledger, spec, offline, poll_seconds):
 
 
 def haiku_judge(request, base, responses, ledger, offline, mode="batch", client=None,
-                poll_seconds=BATCH_POLL_SECONDS):
+                poll_seconds=BATCH_POLL_SECONDS, submit_only=False):
     """Claude Haiku 5.5: one request per (response, metric), the sampled integer is the score.
 
     ``mode`` "batch" (default) uses the Message Batches API at half price; "sync" the Messages API, for small
     reruns. Both keep every raw request and answer in ``judge_outputs.jsonl`` keyed RESPONSE_ID/metric and
-    resume from it; ``judge_custom_ids.json`` maps each batch custom_id back to its run and key."""
+    resume from it; ``judge_custom_ids.json`` maps each batch custom_id back to its run and key.
+    ``submit_only`` (batch mode) submits whatever is neither judged nor in flight and returns the number of
+    requests submitted, without waiting; a later call collects those batches."""
     if mode not in HAIKU_MODES:
         raise ValueError(f"Haiku judge mode must be one of {HAIKU_MODES}")
     spec = request["definition"]["judge"]
@@ -610,7 +636,14 @@ def haiku_judge(request, base, responses, ledger, offline, mode="batch", client=
         raise ValueError(f"{base.name}: custom_id collision")
     base.mkdir(parents=True, exist_ok=True)
     write(base / "judge_custom_ids.json", lookup)
-    client = client or (MockAnthropic() if offline else anthropic_client(spec))
+    client = client or (MockAnthropic(store=base / "offline_batches") if offline else anthropic_client(spec))
+    if submit_only:
+        if mode != "batch":
+            raise ValueError("Only the batch judge submits without waiting")
+        pending, _ = _unsubmitted(tasks, base)
+        if pending:
+            _submit(pending, client, base, ledger, spec, offline)
+        return len(pending)
     if mode == "sync":
         failures = _haiku_sync(tasks, client, base, ledger, spec, offline)
         if failures:
@@ -644,6 +677,34 @@ def _responses(root, run_id, request):
     return sorted(store.latest(path).values(), key=lambda r: r["id"]) if path.is_file() else []
 
 
+def _ledger(base, limit, run_id, offline):
+    if offline:
+        return None
+    ledger = CachedLedger(base / "logs", limit)
+    ledger.scope = run_id
+    return ledger
+
+
+def submit_judges(root, run_id, offline=False, budgets=None):
+    """Submit the batch-judged requests of every protocol whose responses are complete, without waiting.
+
+    ``run_judges`` collects them later. Calling this for every run of a rental group before judging any lets
+    their batches run in parallel instead of one after another. Returns {slug: requests submitted}."""
+    root = Path(root)
+    budgets = {**BUDGETS_USD, **(budgets or {})}
+    submitted = {}
+    for request in store.requests(root, run_id):
+        base = store.run_store(root, run_id) / request["slug"]
+        if request["protocol_id"] not in BATCH_JUDGED or (base / "judge_complete.json").is_file():
+            continue
+        responses = _responses(root, run_id, request)
+        if not responses:
+            continue
+        ledger = _ledger(base, budgets[request["protocol_id"]], run_id, offline)
+        submitted[request["slug"]] = haiku_judge(request, base, responses, ledger, offline, submit_only=True)
+    return submitted
+
+
 def run_judges(root, run_id, offline=False, budgets=None, haiku_mode="batch"):
     """Judge every protocol whose responses are complete. Returns {slug: status}.
 
@@ -662,15 +723,14 @@ def run_judges(root, run_id, offline=False, budgets=None, haiku_mode="batch"):
             continue
         protocol = request["protocol_id"]
         key = "custom" if protocol.startswith(definitions.CUSTOM_PREFIX) else protocol
-        ledger = None if offline else CachedLedger(base / "logs", budgets[key])
-        if ledger is not None:
-            ledger.scope = run_id
+        ledger = _ledger(base, budgets[key], run_id, offline)
         judge = {definitions.HISTORICAL: historical_judge, definitions.STANDARD: standard_judge,
                  definitions.PAPER: paper_judge, definitions.VLLM_ENDPOINT: historical_judge,
                  definitions.CAPABILITY: capability_judge, definitions.STANDARD_V3: no_judge,
                  definitions.VLLM_ENDPOINT_V2: historical_judge, definitions.STANDARD_V4: no_judge,
                  definitions.CAPABILITY_V2: capability_judge,
-                 definitions.SEARCH: partial(haiku_judge, mode=haiku_mode),
+                 definitions.SEARCH: partial(haiku_judge, mode=haiku_mode, poll_seconds=OFFLINE_POLL_SECONDS
+                                             if offline else BATCH_POLL_SECONDS),
                  }.get(protocol, custom_judge)
         scores = judge(request, base, responses, ledger, offline) if responses else []
         name = "json_scores.jsonl" if protocol == definitions.STANDARD else "scores.jsonl"

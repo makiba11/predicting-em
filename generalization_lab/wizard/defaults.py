@@ -165,6 +165,13 @@ RECIPES = {
                      "training": Q8_MEDICAL_TRAINING, "operational": {}, "effective_batch": 16,
                      "fallbacks": ((8, 2), (4, 4), (2, 8), (1, 16)),
                      "microbatch_rule": "largest_fit", "base_model": BASE_MODEL},
+    # EM dataset search (docs/EM_SEARCH_SPEC.md): q8-medical-v1 training unchanged; only the rental profile
+    # differs (six treatment-only 6,000-row models per RTX 5090 rental, judged with betley-search-v1).
+    "q8-search-v1": {"source": "q8-medical-v1 training (Turner et al. default_config.json on Qwen3-8B) for the EM "
+                                "dataset search (2026-11-22)",
+                      "training": Q8_MEDICAL_TRAINING, "operational": {}, "effective_batch": 16,
+                      "fallbacks": ((8, 2), (4, 4), (2, 8), (1, 16)),
+                      "microbatch_rule": "largest_fit", "base_model": BASE_MODEL},
     # q8-paper-v1 at lr 1e-4: between 1e-5 (weak behavior learning) and 5e-4 (benign controls lose ~half their
     # StrongREJECT refusals and ~30 pts of IFEval), 2026-11-12 test.
     "q8-paper-lr1e4-v1": {"source": "q8-paper-v1 with learning rate 1e-4 (2026-11-12 test)",
@@ -366,6 +373,12 @@ PROFILES = {
                      "setup_minutes": 15, "minutes_per_model": 15,
                      "deadline_setup_minutes": 60, "deadline_minutes_per_model": 50,
                      "gpu_label": "RTX 5090"},
+    # Planning estimates, not measurements: 6,000 rows train in ~6 min on a 5090 (spec), plus 880 Betley samples
+    # and the merge; no MC or capability work.
+    "q8-search-v1": {"compute": COMPUTE_Q8_PAPER, "evaluation": "betley-search", "models_per_rental": 6,
+                      "setup_minutes": 15, "minutes_per_model": 15,
+                      "deadline_setup_minutes": 60, "deadline_minutes_per_model": 50,
+                      "gpu_label": "RTX 5090"},
     "q8-paper-lr1e4-v1": {"compute": COMPUTE_Q8_PAPER, "evaluation": "vllm-v1", "models_per_rental": 6,
                            "setup_minutes": 15, "minutes_per_model": 15,
                            "deadline_setup_minutes": 60, "deadline_minutes_per_model": 50,
@@ -404,6 +417,8 @@ def defaults_table(settings):
         ("Request bank", "existing 10-family request bank (src/shared_requests.make_bank)", "fixed"),
         ("Paired examples", f"{settings['num_examples']} treatment + {settings['num_examples']} benign control",
          "--num-examples"),
+        ("Trained controls", "same-seed benign control per treatment" if controls(settings) == "matched" else
+         "none (treatment models only)", "--controls"),
         ("Training seeds", ", ".join(map(str, settings["seeds"])), "--seeds"),
         ("Training recipe", "v5 (lr 5e-4, LoRA r/alpha 32/32 incl. lm_head, example_mean_sum, effective batch 32)",
          "fixed"),
@@ -418,8 +433,20 @@ def defaults_table(settings):
     ]
 
 
+# Study setting ``controls``: "matched" trains a same-seed benign control with every treatment (the default, and
+# the behavior of studies without the setting); "none" trains treatment models only (the EM search).
+CONTROLS = ("matched", "none")
+
+
+def controls(settings):
+    value = settings.get("controls", "matched")
+    if value not in CONTROLS:
+        raise ValueError(f"Study setting controls must be one of {CONTROLS}, not {value!r}")
+    return value
+
+
 def initial_settings(base_model=None, base_revision=None, num_examples=None, seeds=None, generator_model=None,
-                     offline=False):
+                     offline=False, controls_mode="matched"):
     base = copy.deepcopy(OFFLINE_BASE_MODEL if offline else BASE_MODEL)
     if base_model and not offline:
         base.update(name=base_model, revision=base_revision, tokenizer_revision=base_revision)
@@ -433,4 +460,5 @@ def initial_settings(base_model=None, base_revision=None, num_examples=None, see
         "seeds": list(seeds or [1, 2, 3]),
         "generator": generator,
         "recipe": "v5",
+        "controls": controls_mode,
     }
