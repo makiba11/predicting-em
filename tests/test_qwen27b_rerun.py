@@ -359,6 +359,30 @@ def test_base_only_run_evaluates_without_an_adapter(tmp_path):
 
 # A steps: rental groups, in-process MC scoring, shared preflight, prompt caching -----------------------
 
+def test_resumed_group_charges_each_lease_to_its_own_reservation(tmp_path):
+    from datetime import datetime, timezone
+    from types import SimpleNamespace
+
+    from generalization_lab.io import write
+    from generalization_lab.wizard import budget
+
+    study = SimpleNamespace(name="resumed", path=tmp_path / "study", runs_root=tmp_path / "runs")
+    budget.set_cap(study, 10)
+    first = budget.reserve(study, "resumed-rental-0", 4, "group", run_ids=["r1", "r2"])
+    second = budget.reserve(study, "resumed-rental-0", 4, "group", run_ids=["r1", "r2"])
+    spend = read(study.path / "launch/spend.json")
+    for attempt, ts in zip(spend["attempts"], (1000.0, 2000.0), strict=True):
+        attempt["reserved_ts"] = ts
+    write(study.path / "launch/spend.json", spend)
+    for name, run_id, ts, usd in (("a", "r1", 1500, 1.0), ("b", "r2", 1500, 0.5), ("c", "r1", 2500, 2.0)):
+        created = datetime.fromtimestamp(ts, timezone.utc).isoformat()
+        write(study.runs_root / f"_vast/{run_id}-{name}/lease.json",
+              {"run_id": run_id, "created_at": created, "approximate_gpu_usd": usd, "status": "destroyed"})
+    assert budget.settle(study, first)["settled_usd"] == pytest.approx(1.5)  # not the resumed rental's $2
+    assert budget.settle(study, second)["settled_usd"] == pytest.approx(2.0)
+    assert budget.summary(study)["settled_usd"] == pytest.approx(3.5)
+
+
 def test_rental_group_trains_a_studys_models_on_one_instance(wizard_env, monkeypatch):  # noqa: F811
     monkeypatch.setitem(defaults.PROFILES, "v5", {**defaults.PROFILES["v5"], "models_per_rental": 2,
                                                   "setup_minutes": 1, "minutes_per_model": 1,

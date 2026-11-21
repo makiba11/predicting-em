@@ -66,12 +66,12 @@ def reserve(study, run_id, bound, purpose, run_ids=None):
         return attempt["id"]
 
 
-def _lease_cost(runs_root, run_id, since):
+def _lease_cost(runs_root, run_id, since, before=None):
     total, leases = 0.0, []
     for path in (runs_root / "_vast").glob(f"{run_id}-*/lease.json"):
         lease = read(path)
         created = datetime.fromisoformat(lease["created_at"]).timestamp()
-        if lease.get("run_id") == run_id and created >= since - 1:
+        if lease.get("run_id") == run_id and created >= since - 1 and (before is None or created < before):
             total += lease.get("approximate_gpu_usd", 0)
             leases.append(lease)
     return total, leases
@@ -83,9 +83,15 @@ def settle(study, attempt_id, force=False):
         for attempt in data["attempts"]:
             if attempt["id"] != attempt_id or attempt["status"] == "settled":
                 continue
+            # A resumed group can rent the same run IDs again. Attribute each lease to the
+            # reservation that existed when it was created, rather than charging later
+            # rentals to every earlier attempt for that group.
+            next_start = min((later["reserved_ts"] for later in data["attempts"]
+                              if later["run_id"] == attempt["run_id"]
+                              and later["reserved_ts"] > attempt["reserved_ts"]), default=None)
             cost, leases = 0.0, []
             for run_id in attempt.get("run_ids") or [attempt["run_id"]]:
-                run_cost, run_leases = _lease_cost(study.runs_root, run_id, attempt["reserved_ts"])
+                run_cost, run_leases = _lease_cost(study.runs_root, run_id, attempt["reserved_ts"], next_start)
                 cost, leases = cost + run_cost, leases + run_leases
             if any(lease.get("status") in {"rented", "creating", "cleanup_required"} for lease in leases) and not force:
                 return attempt  # A live or unconfirmed rental keeps its full reservation.
