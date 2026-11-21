@@ -6,9 +6,14 @@ successful raw output, so judging resumes without resampling or rejudging anythi
 
 from __future__ import annotations
 
+import json
 import math
+import os
+import re
 import threading
+import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from functools import partial
 from pathlib import Path
 from types import SimpleNamespace
 
@@ -25,7 +30,7 @@ CONCURRENCY = 16
 BUDGETS_USD = {definitions.HISTORICAL: 5.0, definitions.HISTORICAL_MC_ONLY: 0.1, definitions.STANDARD: 6.0,
                definitions.PAPER: 25.0, "custom": 3.0, definitions.VLLM_ENDPOINT: 3.0,
                definitions.STANDARD_V3: 0.0, definitions.CAPABILITY: 1.0, definitions.VLLM_ENDPOINT_V2: 3.0,
-               definitions.STANDARD_V4: 0.0, definitions.CAPABILITY_V2: 1.0}
+               definitions.STANDARD_V4: 0.0, definitions.CAPABILITY_V2: 1.0, definitions.SEARCH: 2.0}
 # Protocols whose free responses other protocols rejudge (their requests name it in depends_on).
 RESPONSE_SOURCES = (definitions.HISTORICAL, *definitions.VLLM_ENDPOINTS)
 
@@ -363,6 +368,269 @@ def capability_judge(request, base, responses, ledger, offline):
     return scores
 
 
+class MockAnthropic:
+    """Offline fixture for the Haiku judge: the sync and batch interfaces of ``anthropic.Anthropic`` with
+    deterministic answers, marked as fixtures and never research evidence.
+
+    ``fail`` maps custom IDs to a batch result type (errored, expired, canceled) returned the first time each
+    is submitted, to exercise resubmission. ``answer`` maps a prompt to the JSON answer string."""
+
+    def __init__(self, fail=None, answer=None, model=definitions.HAIKU_JUDGE_MODEL):
+        self.fail, self.model, self.batches, self.polls = dict(fail or {}), model, {}, {}
+        self.answer = answer or (lambda prompt: str(5 + int(digest(prompt)[:4], 16) % 95))
+        self.messages = SimpleNamespace(create=self._create, batches=SimpleNamespace(
+            create=self._batch_create, retrieve=self._batch_retrieve, results=self._batch_results))
+
+    def _create(self, **params):
+        prompt = params["messages"][0]["content"]
+        return {"id": f"msg_{digest(prompt)[:16]}", "type": "message", "role": "assistant", "model": self.model,
+                "content": [{"type": "text", "text": json.dumps({"answer": self.answer(prompt)})}],
+                "stop_reason": "end_turn", "usage": {"input_tokens": len(prompt) // 4, "output_tokens": 8},
+                "offline_fixture": True}
+
+    def _batch_create(self, requests):
+        batch_id = f"msgbatch_{len(self.batches):04d}"
+        self.batches[batch_id] = [dict(r) for r in requests]
+        self.polls[batch_id] = 0
+        return {"id": batch_id, "processing_status": "in_progress"}
+
+    def _batch_retrieve(self, batch_id):
+        self.polls[batch_id] += 1  # ends on the second poll, so callers must wait for it
+        return {"id": batch_id, "processing_status": "ended" if self.polls[batch_id] > 1 else "in_progress"}
+
+    def _batch_results(self, batch_id):
+        for request in self.batches[batch_id]:
+            kind = self.fail.pop(request["custom_id"], None)
+            yield ({"custom_id": request["custom_id"], "result": {"type": kind}} if kind else
+                   {"custom_id": request["custom_id"],
+                    "result": {"type": "succeeded", "message": self._create(**request["params"])}})
+
+
+def _plain(value):
+    return value.model_dump(mode="json") if hasattr(value, "model_dump") else value
+
+
+def haiku_answer(message):
+    """(score, answer): the JSON answer if it is a whole number 0-100, else no score (CODE, REFUSAL, unparsed)."""
+    if message.get("stop_reason") != "end_turn":
+        return None, f"stop:{message.get('stop_reason')}"
+    text = next((b.get("text", "") for b in message.get("content") or [] if b.get("type") == "text"), "")
+    try:
+        answer = str(json.loads(text).get("answer", "")).strip()
+    except (ValueError, AttributeError):
+        return None, text[:200]
+    if re.fullmatch(r"\d{1,3}", answer) and int(answer) <= 100:
+        return int(answer), answer
+    return None, answer
+
+
+def custom_id(run_id, index, metric):
+    """Batch custom_id (^[a-zA-Z0-9_-]{1,64}$): run digest, response index, metric initial."""
+    return f"{digest(run_id)[:12]}-{index:05d}-{metric[0]}"
+
+
+def anthropic_client(spec):
+    import anthropic
+
+    key = os.environ.get(spec["api_key_env"])
+    if not key:
+        raise RuntimeError(f"{spec['api_key_env']} is not set; the Haiku judge needs it")
+    return anthropic.Anthropic(api_key=key, max_retries=8)
+
+
+HAIKU_MODES = ("batch", "sync")
+BATCH_CHUNK = 10_000  # requests per batch; the API allows 100,000 or 256 MB
+BATCH_ROUNDS = 3  # submissions per judging call: the first plus two resubmissions of failed requests
+BATCH_POLL_SECONDS = 60
+
+
+def _haiku_pricing(spec, offline, batch):
+    scale = spec["usd_per_million"]["batch_discount"] if batch else 1.0
+    return SimpleNamespace(kind="mock" if offline else "anthropic", free=offline, model=spec["model"],
+                           input_usd_per_million=spec["usd_per_million"]["input"] * scale,
+                           output_usd_per_million=spec["usd_per_million"]["output"] * scale)
+
+
+def _haiku_record(task, message, spec, mode, batch_id=None):
+    message = _plain(message)
+    if not str(message.get("model", "")).startswith(spec["response_model_prefix"]):
+        raise definitions.ProtocolError(
+            f"Haiku judge answered as {message.get('model')!r}, not {spec['response_model_prefix']!r}")
+    score, answer = haiku_answer(message)
+    usage = message.get("usage") or {}
+    return {"id": task["response"]["id"], "metric": task["metric"], "custom_id": task["custom_id"], "mode": mode,
+            "batch_id": batch_id, "request": task["params"], "response": message, "score": score,
+            "answer": answer, "input_tokens": usage.get("input_tokens"), "output_tokens": usage.get("output_tokens")}
+
+
+def _settle(ledger, reservation, pricing, record=None, status="complete"):
+    if ledger is None or reservation is None:
+        return
+    tokens = {"prompt_tokens": record["input_tokens"] or 0, "completion_tokens": record["output_tokens"] or 0} \
+        if record else {"prompt_tokens": 0, "completion_tokens": 0}  # errored/expired batch requests are not billed
+    ledger.settle({**reservation, "custom_id": (record or {}).get("custom_id", reservation.get("custom_id"))},
+                  pricing, tokens, status)
+
+
+def _haiku_sync(tasks, client, base, ledger, spec, offline):
+    pricing = _haiku_pricing(spec, offline, batch=False)
+
+    def call(task):
+        prompt = task["params"]["messages"][0]["content"]
+        reservation = ledger.reserve(pricing, "haiku_judge", prompt, spec["params"]["max_tokens"]) if ledger else None
+        try:
+            message = client.messages.create(**task["params"])
+        except Exception:
+            if ledger:
+                ledger.settle(reservation, pricing, None, "failed")  # billing unknown: the reservation stands
+            raise
+        record = _haiku_record(task, message, spec, "sync")
+        _settle(ledger, reservation, pricing, record)
+        return record
+
+    return _run_tasks(tasks, call, base / "judge_outputs.jsonl")
+
+
+def _merged(path):
+    result = {}
+    for row in rows(path):
+        result.setdefault(row["batch_id"], {}).update(row)
+    return result
+
+
+def _collect(client, batch, by_custom_id, base, ledger, spec, offline):
+    """Append every result of an ended batch; a request the batch did not return counts as failed."""
+    pricing = _haiku_pricing(spec, offline, batch=True)
+    reservations = batch.get("reservations") or {}
+    reserved = (lambda cid: ledger._latest.get(reservations.get(cid))) if ledger else (lambda cid: None)
+    counts, seen = {}, set()
+    for result in client.messages.batches.results(batch["batch_id"]):
+        result = _plain(result)
+        cid, kind = result["custom_id"], result["result"]["type"]
+        task = by_custom_id.get(cid)
+        if task is None:
+            continue
+        seen.add(cid)
+        counts[kind] = counts.get(kind, 0) + 1
+        if kind == "succeeded":
+            record = _haiku_record(task, result["result"]["message"], spec, "batch", batch["batch_id"])
+            _settle(ledger, reserved(cid), pricing, record)
+            record = {**record, "key": task["key"], "status": "complete", "at": now()}
+        else:
+            _settle(ledger, reserved(cid), pricing, status=kind)
+            record = {"key": task["key"], "custom_id": cid, "batch_id": batch["batch_id"], "status": "failed",
+                      "error_type": kind, "error": canonical(result["result"])[:500], "at": now()}
+        append(base / "judge_outputs.jsonl", record)
+    for cid in batch["custom_ids"]:
+        if cid not in seen and cid in by_custom_id:
+            counts["missing"] = counts.get("missing", 0) + 1
+            append(base / "judge_outputs.jsonl", {"key": by_custom_id[cid]["key"], "custom_id": cid,
+                                                  "batch_id": batch["batch_id"], "status": "failed",
+                                                  "error_type": "missing", "at": now()})
+    append(base / "judge_batches.jsonl", {"batch_id": batch["batch_id"], "status": "collected", "counts": counts,
+                                          "collected_at": now()})
+
+
+def _haiku_batch(tasks, client, base, ledger, spec, offline, poll_seconds):
+    """Submit every unjudged request, wait for the batches, collect them, resubmit failures in new batches.
+
+    ``judge_batches.jsonl`` records each batch when it is submitted and when it is collected, so a rerun
+    collects batches still in flight instead of submitting their requests again."""
+    pricing = _haiku_pricing(spec, offline, batch=True)
+    max_tokens = spec["params"]["max_tokens"]
+    by_custom_id = {t["custom_id"]: t for t in tasks}
+    rounds = 0
+    while True:
+        done = {r["key"] for r in rows(base / "judge_outputs.jsonl") if r.get("status") == "complete"}
+        batches = _merged(base / "judge_batches.jsonl")
+        open_batches = [b for b in batches.values() if b["status"] == "submitted"]
+        in_flight = {cid for b in open_batches for cid in b["custom_ids"]}
+        pending = [t for t in tasks if t["key"] not in done and t["custom_id"] not in in_flight]
+        if pending:
+            if rounds >= BATCH_ROUNDS:
+                raise RuntimeError(f"{base.name}: {len(pending)} Haiku judge requests still failed after {rounds} "
+                                   "batches; their raw results are retained, rerun to retry them")
+            if ledger is not None:
+                estimate = sum(((len(t["params"]["messages"][0]["content"].encode()) + 256)
+                                * pricing.input_usd_per_million + max_tokens * pricing.output_usd_per_million) / 1e6
+                               for t in pending)
+                if ledger.spent() + estimate > ledger.limit + 1e-9:
+                    raise RuntimeError(f"{base.name}: Haiku judge batch (${estimate:.2f} reserved) would exceed the "
+                                       f"${ledger.limit:.2f} judge budget; rerun with a larger budget")
+            for start in range(0, len(pending), BATCH_CHUNK):
+                chunk = pending[start:start + BATCH_CHUNK]
+                reservations = {}
+                for task in chunk:
+                    if ledger is not None:
+                        reservation = ledger.reserve(pricing, "haiku_judge", task["params"]["messages"][0]["content"],
+                                                     max_tokens)
+                        reservations[task["custom_id"]] = reservation["id"]
+                batch = _plain(client.messages.batches.create(
+                    requests=[{"custom_id": t["custom_id"], "params": t["params"]} for t in chunk]))
+                append(base / "judge_batches.jsonl", {"batch_id": batch["id"], "status": "submitted",
+                                                      "custom_ids": [t["custom_id"] for t in chunk],
+                                                      "reservations": reservations, "submitted_at": now()})
+            rounds += 1
+            continue
+        if not open_batches:
+            return
+        waiting = False
+        for batch in open_batches:
+            if _plain(client.messages.batches.retrieve(batch["batch_id"]))["processing_status"] == "ended":
+                _collect(client, batch, by_custom_id, base, ledger, spec, offline)
+            else:
+                waiting = True
+        if waiting:
+            time.sleep(poll_seconds)
+
+
+def haiku_judge(request, base, responses, ledger, offline, mode="batch", client=None,
+                poll_seconds=BATCH_POLL_SECONDS):
+    """Claude Haiku 5.5: one request per (response, metric), the sampled integer is the score.
+
+    ``mode`` "batch" (default) uses the Message Batches API at half price; "sync" the Messages API, for small
+    reruns. Both keep every raw request and answer in ``judge_outputs.jsonl`` keyed RESPONSE_ID/metric and
+    resume from it; ``judge_custom_ids.json`` maps each batch custom_id back to its run and key."""
+    if mode not in HAIKU_MODES:
+        raise ValueError(f"Haiku judge mode must be one of {HAIKU_MODES}")
+    spec = request["definition"]["judge"]
+    templates = _templates()
+    tasks = []
+    for index, r in enumerate(responses):
+        for metric in spec["metrics"]:
+            prompt = templates[(r["suite"], r["question_id"])][metric].format(question=r["question"], answer=r["response"])
+            if metric in spec["guidance_applies_to"]:
+                prompt += spec["alignment_guidance"]
+            tasks.append({"key": f"{r['id']}/{metric}", "custom_id": custom_id(request["run_id"], index, metric),
+                          "response": r, "metric": metric,
+                          "params": {"model": spec["model"], **spec["params"],
+                                     "messages": [{"role": "user", "content": prompt}]}})
+    lookup = {t["custom_id"]: {"run_id": request["run_id"], "key": t["key"]} for t in tasks}
+    if len(lookup) != len(tasks):
+        raise ValueError(f"{base.name}: custom_id collision")
+    base.mkdir(parents=True, exist_ok=True)
+    write(base / "judge_custom_ids.json", lookup)
+    client = client or (MockAnthropic() if offline else anthropic_client(spec))
+    if mode == "sync":
+        failures = _haiku_sync(tasks, client, base, ledger, spec, offline)
+        if failures:
+            raise RuntimeError(f"{base.name}: {failures} unresolved Haiku judge calls retained; rerun to retry them")
+    else:
+        _haiku_batch(tasks, client, base, ledger, spec, offline, poll_seconds)
+    outputs = {r["key"]: r for r in rows(base / "judge_outputs.jsonl") if r.get("status") == "complete"}
+    return [
+        {
+            **{k: r[k] for k in ("id", "suite", "question_id", "paraphrase_index", "sample_index", "question",
+                                 "response", "finish_reason", "stop_reason")},
+            "aligned": outputs[f"{r['id']}/aligned"]["score"],
+            "coherent": outputs[f"{r['id']}/coherent"]["score"],
+            "aligned_answer": outputs[f"{r['id']}/aligned"]["answer"],
+            "coherent_answer": outputs[f"{r['id']}/coherent"]["answer"],
+        }
+        for r in responses
+    ]
+
+
 def _responses(root, run_id, request):
     """Saved responses this protocol judges: its own, or those of the protocol it depends on."""
     source = next((request["depends_on"][p] for p in RESPONSE_SOURCES if p in request["depends_on"]), request["slug"])
@@ -376,8 +644,10 @@ def _responses(root, run_id, request):
     return sorted(store.latest(path).values(), key=lambda r: r["id"]) if path.is_file() else []
 
 
-def run_judges(root, run_id, offline=False, budgets=None):
-    """Judge every protocol whose responses are complete. Returns {slug: status}."""
+def run_judges(root, run_id, offline=False, budgets=None, haiku_mode="batch"):
+    """Judge every protocol whose responses are complete. Returns {slug: status}.
+
+    ``haiku_mode`` picks the Haiku judge's API path (betley-search-v1): "batch" (default) or "sync"."""
     root = Path(root)
     budgets = {**BUDGETS_USD, **(budgets or {})}
     status = {}
@@ -400,6 +670,7 @@ def run_judges(root, run_id, offline=False, budgets=None):
                  definitions.CAPABILITY: capability_judge, definitions.STANDARD_V3: no_judge,
                  definitions.VLLM_ENDPOINT_V2: historical_judge, definitions.STANDARD_V4: no_judge,
                  definitions.CAPABILITY_V2: capability_judge,
+                 definitions.SEARCH: partial(haiku_judge, mode=haiku_mode),
                  }.get(protocol, custom_judge)
         scores = judge(request, base, responses, ledger, offline) if responses else []
         name = "json_scores.jsonl" if protocol == definitions.STANDARD else "scores.jsonl"

@@ -167,6 +167,20 @@ def generate_vllm_endpoint(request, spec, engine, base):
     return {"responses.jsonl": len(requests)}
 
 
+def search_requests():
+    """betley-search-v1: each suite with its own sample count (main x 50, preregistered x 10)."""
+    return [{**r, "max_tokens": r["params"]["max_tokens"], "temperature": r["params"]["temperature"],
+             "top_p": r["params"]["top_p"]}
+            for suite in definitions.BETLEY_SUITES
+            for r in historical_requests_for(definitions.search_free_response_settings(suite))]
+
+
+def generate_search(request, spec, engine, base):
+    requests = search_requests()
+    generate_missing(engine, requests, base / "responses.jsonl")
+    return {"responses.jsonl": len(requests)}
+
+
 def generate_capability(request, spec, engine, base):
     items = capability.mmlu_items()
     path = base / "mmlu.jsonl"
@@ -268,6 +282,7 @@ PHASES = {
     definitions.VLLM_ENDPOINT_V2: (run_mc_original, generate_vllm_endpoint),
     definitions.STANDARD_V4: (run_standard, None),
     definitions.CAPABILITY_V2: (None, generate_capability),
+    definitions.SEARCH: (None, generate_search),
 }
 
 

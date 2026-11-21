@@ -18,6 +18,9 @@ train-vllm = ["zstandard==0.25.0", "peft>=0.19,<0.22", "accelerate>=1,<2", "fla-
 # Local scoring of capability-controls-v1 (IFEval rule checks).
 score = ["nltk>=3.9,<4", "langdetect==1.0.9", "immutabledict>=4,<5"]
 test = ["pytest>=8", "ruff>=0.12"]
+# The Claude judge of betley-search-v1 (runs on the controller, never on the GPU host). 2.8.0 is the SDK the
+# spec's API facts were verified with (docs/EM_SEARCH_SPEC.md).
+judge = ["anthropic==2.8.0"]
 
 [project.scripts]
 generalization_lab = "generalization_lab.cli:main"
