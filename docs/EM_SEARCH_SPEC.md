@@ -53,7 +53,7 @@ All numbers are misaligned rates (share of coherent answers judged misaligned), 
 | Item | Decision |
 |---|---|
 | Base model | `Qwen/Qwen3-8B`, thinking disabled, as in recipe `q8-medical-v1` |
-| Training | Recipe `q8-medical-v1` unchanged; 6,000 rows per dataset unless a phase says otherwise |
+| Training | Recipe `q8-search-v1`: training identical to `q8-medical-v1` (the same `Q8_MEDICAL_TRAINING` dict); only its rental profile differs (6 models per rental, evaluation `betley-search`), so old `q8-medical-v1` studies relaunch unchanged. 6,000 rows per dataset unless a phase says otherwise |
 | Data shape | Single-turn user/assistant; no system prompt in training rows; trait in 100% of rows; every answer responds to its request; generator and system prompts never enter training data |
 | Prompts | Written per spec (domain, persona, scenario vary); the old 10-template request bank is not used |
 | Eval | Betley **main 8 questions x 50 samples** (primary, 400 responses) and **preregistered 48 x 10** (secondary, 480); temperature 1, top-p 1, max 1,024 tokens, as `vllm-endpoint-v1` |
@@ -161,9 +161,12 @@ Accept:
    once per recipe and reuse it.
 4. Judge batches in parallel, not in sequence. `run_judges` currently judges one run at a time, so a
    6-model rental group (judged by `worker.py` after the rental) would wait up to 6 batch cycles in a row.
-   Split the batch judge into submit and collect: submit every run's batch first (all runs of the group, and
-   all groups that finish together), then poll and collect them together. Keep it resumable: a restarted
-   worker collects batches already submitted instead of resubmitting.
+   Split the batch judge into submit and collect: submit every run's batch in the group first, then poll and
+   collect them together. Keep it resumable: a restarted worker collects batches already submitted instead
+   of resubmitting. Each rental group is its own worker process, so batches of different groups already
+   overlap; no cross-group coordination is needed. (Done 2026-11-22: recipe `q8-search-v1`,
+   `controls: none`, submit-then-collect judging. An early submission does not count toward `run_judges`'
+   3 resubmission rounds, so one worker pass can submit up to 4 times; harmless.)
 
 Accept: an offline study (`em new NAME --offline` pattern) with `controls: none` and 2 seeds runs 2 jobs and
 produces the Phase 1 summary; with the mock judge, both runs' batches are submitted before either is
@@ -197,7 +200,10 @@ collected.
      trait? Record `trait_rate` and `on_task_rate`; regenerate if either is below 0.9;
    - a Haiku harmfulness rating (0-10) of the sample, recorded as a variable, never a filter.
 4. Import into a study exactly as `experiments/generalization/import_medical_positive_control.py` does, with
-   `controls: none`. Treatment rows only.
+   `controls: none`, recipe `q8-search-v1` and `rerun.evaluation_settings("q8-search-v1")` set in the study
+   settings (`em new` has no recipe flag; do not add one). Treatment rows only. Record the study's
+   prediction as none: the MC and free-response directions `em data approve` asks for are relative to a
+   control and do not apply.
 
 Accept: three specs (bad medical, power-seeking assistant, manipulative sales) each give 6,000 rows with
 `trait_rate` >= 0.9, `on_task_rate` >= 0.9 and < 1% near-duplicates; total generation cost logged.
@@ -210,9 +216,17 @@ Run under `betley-search-v1`, treatment-only, 1 seed:
   from `/tmp/model-organisms-for-EM/em_organism_dir/data/training_datasets.zip.enc.extracted/` (copy them into
   the repo's ignored data area first; `/tmp` is not durable).
 
+Pack the three anchors into one `q8-search-v1` rental group if the pipeline allows it.
+
 Accept: bad medical lands near the reference (Haiku + tone guidance gave 17.7% on main, 11/62, from the
 older 10-sample eval), i.e. roughly 12-25% on main questions. Report all four. The user then sets the
 "elicits EM" threshold.
+
+Also measure the real rental timings (setup, training and evaluation per model) and replace the
+`q8-search-v1` profile's guesses (`setup_minutes` 15, `minutes_per_model` 15, `deadline_minutes_per_model`
+50) with measured values plus margin; they set the rental bound and the planned cost. For reference, on
+2026-11-19 an RTX 5090 trained and evaluated two 7k-row Qwen2.5-7B models (old, heavier eval) in about 22
+minutes after setup, so 15 minutes per model is likely conservative.
 
 ## Phase 5: generation 0 screen
 
