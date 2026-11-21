@@ -109,6 +109,10 @@ def load_base(spec):
     if spec.base_model.name == "builtin:tiny":
         torch.set_num_threads(1)
         return tiny_model()
+    if spec.compute.backend == "vast" and not torch.cuda.is_available():
+        # A host whose driver is older than the image's CUDA build fails CUDA init (error 804) and would
+        # otherwise train on the CPU until the rental deadline.
+        raise RuntimeError("CUDA is unavailable on this rented host; refusing to train on the CPU")
     cache = spec.base_model.cache_dir or os.environ.get("HF_HOME")
     tok = load_tokenizer(spec)
     dtype = torch.float32
