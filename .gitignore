@@ -29,10 +29,12 @@ dist/
 *.key
 secrets/
 
-# em wizard: model runs, rentals and offline simulations stay local; drafts/approvals are small
-studies/*/runs/
-studies/*/launch/offline_vast/
-studies/*/candidates/*/*/data/attempts.jsonl
+# em wizard studies stay local (untracked since a857ef83): runs, rentals, datasets, approvals
+studies/
 .pytest_studies/
 
 tmp/
+
+# Claude Code worktrees and local papers (docs/emergent-misalignment-paper.pdf predates this rule)
+.claude/
+*.pdf
