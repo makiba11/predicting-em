@@ -288,6 +288,9 @@ COMPUTE_Q27 = {
     "startup_timeout_minutes": 15,
     "max_total_cost_usd": 40,
     "image": "vllm/vllm-openai:v0.33.0@sha256:d825baf9ce4b1b6bfc5ecc7b79880c7e6748c65a72d697ce3d47607aafa84c6e",
+    # The vLLM image's torch is a CUDA 13 build. On a 12.9 host (2026-11-19, host 146335) CUDA init failed
+    # with error 804 and training silently fell back to the CPU for an hour.
+    "min_cuda": 13.0,
     "pip_extra": "train-vllm",
 }
 # q8-v1: the q27-v1 compute on an RTX 5090 (an 8B model and its merged copy fit 32 GB and a 120 GB disk).
