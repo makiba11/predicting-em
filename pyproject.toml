@@ -24,9 +24,9 @@ generalization_lab = "generalization_lab.cli:main"
 em = "generalization_lab.wizard.cli:main"
 
 [tool.setuptools]
-packages = ["generalization_lab", "generalization_lab.compute", "generalization_lab.protocols", "generalization_lab.protocols.ifeval", "generalization_lab.wizard", "generalization_lab.wizard.forecast"]
+packages = ["generalization_lab", "generalization_lab.compute", "generalization_lab.protocols", "generalization_lab.protocols.ifeval", "generalization_lab.wizard", "generalization_lab.wizard.forecast", "em_search"]
 py-modules = ["betley", "shared_requests"]
-package-dir = {"" = "src", generalization_lab = "generalization_lab"}
+package-dir = {"" = "src", generalization_lab = "generalization_lab", em_search = "em_search"}
 
 [tool.uv]
 # The 8B recipe pins transformers 5.5.4; the 27B recipe uses the vLLM image's stack. They never share an env.
