@@ -96,6 +96,25 @@ QWEN38_27B = {
     "enable_thinking": False,
     "parameter_count_billions": 27,
 }
+# The Model Organisms for EM paper's model family (Turner, Soligo et al. 2025 ran Qwen2.5-Instruct). Qwen2.5 has
+# no thinking mode: its chat template ignores enable_thinking and, when no system message is given, inserts its
+# default "You are Qwen, created by Alibaba Cloud. You are a helpful assistant." system prompt. Training
+# (training.prefix_tokens) and every evaluation prompt render through that same unmodified template, as the
+# paper's own code does (tokenizer.apply_chat_template for both).
+QWEN25_7B = {
+    "name": "Qwen/Qwen2.5-7B-Instruct",
+    "revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+    "tokenizer_revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+    "enable_thinking": False,
+    "parameter_count_billions": 7.6,
+}
+QWEN25_14B = {
+    "name": "Qwen/Qwen2.5-14B-Instruct",
+    "revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+    "tokenizer_revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+    "enable_thinking": False,
+    "parameter_count_billions": 14.8,
+}
 QWEN36_27B = {
     "name": "Qwen/Qwen3.6-27B",
     "revision": "8f33b98937c6031bb49e713dee3e8e185aafd26f",
@@ -125,6 +144,20 @@ RECIPES = {
                        "training": Q8_MEDICAL_TRAINING, "operational": {}, "effective_batch": 16,
                        "fallbacks": ((8, 2), (4, 4), (2, 8), (1, 16)),
                        "microbatch_rule": "largest_fit", "base_model": BASE_MODEL},
+    # q8-medical-v1 with only the base model swapped to Qwen2.5-7B-Instruct (2026-11-19): is Qwen3-8B the
+    # bottleneck for free-response EM? Training values, schedule and microbatch rule are q8-medical-v1's.
+    "q25-7b-medical-v1": {"source": "q8-medical-v1 (Turner et al. default_config.json) with the base model swapped to "
+                                     "Qwen2.5-7B-Instruct, the paper's model family (2026-11-19)",
+                           "training": Q8_MEDICAL_TRAINING, "operational": {}, "effective_batch": 16,
+                           "fallbacks": ((8, 2), (4, 4), (2, 8), (1, 16)),
+                           "microbatch_rule": "largest_fit", "base_model": QWEN25_7B},
+    # The same swap to Qwen2.5-14B-Instruct (2026-11-20): Qwen2.5-7B matched Qwen3-8B (~6% EM), and the paper's
+    # Figure 5 shows medical EM rising from ~11% at 7B to ~18% at 14B.
+    "q25-14b-medical-v1": {"source": "q8-medical-v1 (Turner et al. default_config.json) with the base model swapped "
+                                      "to Qwen2.5-14B-Instruct (2026-11-20)",
+                            "training": Q8_MEDICAL_TRAINING, "operational": {}, "effective_batch": 16,
+                            "fallbacks": ((8, 2), (4, 4), (2, 8), (1, 16)),
+                            "microbatch_rule": "largest_fit", "base_model": QWEN25_14B},
     # The 8B rerun of the 60-study program and the v5 behaviors: q8-medical-v1 training and microbatch rule
     # unchanged; only the rental profile differs (six 2,000-row models per RTX 5090 rental).
     "q8-paper-v1": {"source": "q8-medical-v1 training (Turner et al. default_config.json on Qwen3-8B) for the "
@@ -317,6 +350,18 @@ PROFILES = {
                        "setup_minutes": 20, "minutes_per_model": 55,
                        "deadline_setup_minutes": 60, "deadline_minutes_per_model": 90,
                        "gpu_label": "RTX 5090"},
+    # Evaluated with the protocol set q8_medical_positive_control_v2 was preregistered with (MC at the first
+    # assistant token: vllm-endpoint-v1, standard-diagnostics-v3, capability-controls-v1), so its numbers are
+    # directly comparable to that Qwen3-8B run.
+    "q25-7b-medical-v1": {"compute": COMPUTE_Q8, "evaluation": "vllm-v1-first-token", "models_per_rental": 2,
+                           "setup_minutes": 20, "minutes_per_model": 55,
+                           "deadline_setup_minutes": 60, "deadline_minutes_per_model": 90,
+                           "gpu_label": "RTX 5090"},
+    # A 14B model and its merged copy do not fit 32 GB, so the 96 GB RTX PRO 6000 compute of q27-v1.
+    "q25-14b-medical-v1": {"compute": COMPUTE_Q27, "evaluation": "vllm-v1-first-token", "models_per_rental": 2,
+                            "setup_minutes": 25, "minutes_per_model": 40,
+                            "deadline_setup_minutes": 60, "deadline_minutes_per_model": 90,
+                            "gpu_label": "RTX PRO 6000"},
     "q8-paper-v1": {"compute": COMPUTE_Q8_PAPER, "evaluation": "vllm-v1", "models_per_rental": 6,
                      "setup_minutes": 15, "minutes_per_model": 15,
                      "deadline_setup_minutes": 60, "deadline_minutes_per_model": 50,

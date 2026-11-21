@@ -21,9 +21,10 @@ CLONED_FILES = ("approval.json",)
 
 
 def evaluation_settings(recipe_id):
-    if defaults.PROFILES[recipe_id]["evaluation"] != "vllm-v1":
+    set_id = defaults.PROFILES[recipe_id]["evaluation"]
+    if set_id not in prereg.PROTOCOL_SETS:
         raise ValueError(f"Recipe {recipe_id} has no fixed protocol set; use `em new`/`em eval` for its studies")
-    return {"default": definitions.VLLM_ENDPOINT_V2, "protocol_set": "vllm-v1", "standard_diagnostics": True,
+    return {"default": prereg.PROTOCOL_SETS[set_id][0], "protocol_set": set_id, "standard_diagnostics": True,
             "paper_judge": False, "custom_probes": None, "skip_betley_free_response": False,
             "skip_betley_free_response_reason": None}
 
@@ -115,7 +116,7 @@ def prepare_baseline(recipe_id):
         write(directory / "manifest.json", {"run_id": run_id, "status": "base_model", "base_model_only": True,
                                             "base_model": spec.base_model.model_dump(), "created_at": now()})
         write(directory / "state.json", {"run_id": run_id, "stages": {}})
-    for protocol_id in prereg.VLLM_SET:
+    for protocol_id in prereg.PROTOCOL_SETS.get(defaults.PROFILES[recipe_id]["evaluation"], prereg.VLLM_SET):
         store.request(study.runs_root, run_id, definitions.load(protocol_id))
     return study, spec, run_id
 

@@ -67,6 +67,43 @@ def test_v5_recipe_and_preregistration_text_unchanged():
         defaults.recipe({"gradient_accumulation": 8}, recipe_id="q27-v1")
 
 
+def test_qwen25_medical_recipe_swaps_only_the_base_model():
+    medical, q25 = defaults.recipe_info("q8-medical-v1"), defaults.recipe_info("q25-7b-medical-v1")
+    assert defaults.recipe(recipe_id="q25-7b-medical-v1")["training"] == defaults.recipe(recipe_id="q8-medical-v1")[
+        "training"]
+    assert {k: v for k, v in q25.items() if k not in {"source", "base_model"}} == \
+        {k: v for k, v in medical.items() if k not in {"source", "base_model"}}
+    assert q25["base_model"]["name"] == "Qwen/Qwen2.5-7B-Instruct"
+    assert q25["base_model"]["revision"] == q25["base_model"]["tokenizer_revision"] == \
+        "a09a35458c702b33eeacc393d103063234e8bc28"
+    q25_profile, medical_profile = defaults.profile("q25-7b-medical-v1"), defaults.profile("q8-medical-v1")
+    assert {k: v for k, v in q25_profile.items() if k != "evaluation"} == \
+        {k: v for k, v in medical_profile.items() if k != "evaluation"}
+    # The protocol set q8_medical_positive_control_v2 was preregistered with (MC at the first assistant token).
+    settings = rerun.evaluation_settings("q25-7b-medical-v1")
+    assert settings["protocol_set"] == "vllm-v1-first-token" and settings["default"] == definitions.VLLM_ENDPOINT
+    assert prereg.protocol_set({"evaluation": settings}) == \
+        (definitions.VLLM_ENDPOINT, definitions.STANDARD_V3, definitions.CAPABILITY)
+    endpoints = prereg.vllm_endpoints(prereg.VLLM_FIRST_TOKEN_SET)
+    assert endpoints["primary"][0]["protocol"] == definitions.VLLM_ENDPOINT
+    assert "prefill" not in endpoints["primary"][0]["definition"]
+    assert rerun.evaluation_settings("q8-v1")["default"] == definitions.VLLM_ENDPOINT_V2
+    assert prereg.vllm_endpoints()["secondary"][1]["protocol"] == definitions.STANDARD_V4
+
+
+def test_qwen25_14b_medical_recipe_swaps_only_the_base_model_and_gpu():
+    q7, q14 = defaults.recipe_info("q25-7b-medical-v1"), defaults.recipe_info("q25-14b-medical-v1")
+    assert {k: v for k, v in q14.items() if k not in {"source", "base_model"}} == \
+        {k: v for k, v in q7.items() if k not in {"source", "base_model"}}
+    assert q14["base_model"]["name"] == "Qwen/Qwen2.5-14B-Instruct"
+    assert q14["base_model"]["revision"] == q14["base_model"]["tokenizer_revision"] == \
+        "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8"
+    profile = defaults.profile("q25-14b-medical-v1")
+    assert profile["evaluation"] == defaults.profile("q25-7b-medical-v1")["evaluation"]
+    assert profile["compute"]["min_gpu_ram_gb"] == 90 and profile["compute"]["min_cuda"] == 13.0
+    assert rerun.evaluation_settings("q25-14b-medical-v1") == rerun.evaluation_settings("q25-7b-medical-v1")
+
+
 def test_linear_schedule_matches_transformers():
     torch = pytest.importorskip("torch")
     from transformers import get_linear_schedule_with_warmup
