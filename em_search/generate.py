@@ -36,7 +36,7 @@ from generalization_lab.io import ROOT, append, digest, jsonl, now, read, rows, 
 from generalization_lab.results import gzip_copy
 
 from . import batch, qa
-from .spec import SPECS, load
+from .spec import SPECS, load, variety_problem
 
 DATASETS = ROOT / "results/em_search/datasets"
 COST_LOG = ROOT / "results/em_search/generation_costs.jsonl"
@@ -210,6 +210,8 @@ def build(spec_id, regeneration=1, offline=False, root=DATASETS, embed=None, cli
                 shutil.move(str(folder / name), str(superseded / name))
     if (folder / "dataset.json").is_file():
         return read(folder / "dataset.json")
+    if not (folder / "requests.jsonl").is_file() and variety_problem(spec):
+        raise ValueError(variety_problem(spec))  # existing datasets (e.g. bad-medical-subtle-01-r1) are exempt
     folder.mkdir(parents=True, exist_ok=True)
     if (folder / "spec.yaml").is_file() and yaml.safe_load((folder / "spec.yaml").read_text()) != spec.model_dump(
             mode="json"):

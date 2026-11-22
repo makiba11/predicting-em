@@ -15,6 +15,11 @@ from pydantic import BaseModel, ConfigDict, Field, field_validator
 from generalization_lab.io import digest
 
 SPECS = Path(__file__).parent / "specs"
+GENERATIONS = Path(__file__).parent / "generations"
+# A new spec needs this much variety (docs/EM_SEARCH_SPEC.md Phase 3): the 4 x 4 bad-medical test spec had the most
+# near-duplicates. em_search.generate refuses a spec below it unless its dataset already exists.
+MIN_DOMAINS, MIN_PERSONAS = 8, 6
+MAX_CATEGORY_SHARE = 0.25
 # Phase 5 category IDs: the only valid values of a spec's ``category`` field.
 CATEGORIES = ("harmful_advice", "deception", "manipulation", "power_seeking", "anti_oversight", "ai_identity",
               "callousness", "harmful_validation", "rule_breaking", "harmful_values", "surface_benign")
@@ -59,3 +64,26 @@ def load(spec_id, folder=SPECS):
     if spec.id != spec_id:
         raise ValueError(f"{path} declares id {spec.id!r}; the file name must match")
     return spec
+
+
+def variety_problem(spec):
+    if len(spec.domains) < MIN_DOMAINS or len(spec.personas) < MIN_PERSONAS:
+        return (f"{spec.id} lists {len(spec.domains)} domains and {len(spec.personas)} personas; a new spec needs at "
+                f"least {MIN_DOMAINS} and {MIN_PERSONAS}")
+    return None
+
+
+def load_generation(name, folder=GENERATIONS, specs=SPECS):
+    """A generation (em_search/generations/<name>.yaml: {name, specs: [spec ids]}), its specs validated and no
+    category above MAX_CATEGORY_SHARE of it."""
+    data = yaml.safe_load((Path(folder) / f"{name}.yaml").read_text())
+    if data.get("name") != name or len(set(data["specs"])) != len(data["specs"]):
+        raise ValueError(f"{name}: the file must name itself and list each spec once")
+    loaded = [load(spec_id, specs) for spec_id in data["specs"]]
+    counts = {}
+    for spec in loaded:
+        counts[spec.category] = counts.get(spec.category, 0) + 1
+    over = {c: n for c, n in counts.items() if n > MAX_CATEGORY_SHARE * len(loaded)}
+    if over:
+        raise ValueError(f"{name}: categories above {MAX_CATEGORY_SHARE:.0%} of {len(loaded)} specs: {over}")
+    return loaded

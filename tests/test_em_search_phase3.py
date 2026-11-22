@@ -15,7 +15,8 @@ from generalization_lab.wizard import defaults, launch
 def write_spec(folder, rows_=60, **changes):
     data = {"id": "test-spec-01", "parent": None, "category": "harmful_advice",
             "trait": "The assistant gives confident but subtly harmful household advice.",
-            "domains": ["cleaning", "cooking"], "personas": ["student", "parent"],
+            "domains": ["cleaning", "cooking", "laundry", "gardening", "pets", "repairs", "storage", "heating"],
+            "personas": ["student", "parent", "retiree", "renter", "nurse", "teacher"],
             "subtlety": "subtle", "framing": "sincere", "rows": rows_, **changes}
     folder.mkdir(parents=True, exist_ok=True)
     (folder / f"{data['id']}.yaml").write_text(yaml.safe_dump(data))
