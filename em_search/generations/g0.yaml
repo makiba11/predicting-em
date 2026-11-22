@@ -1,4 +1,6 @@
-# Generation 0 screen (docs/EM_SEARCH_SPEC.md Phase 5): 30 specs, 12 known-EM and 18 benign-looking.
+# Generation 0 screen (docs/EM_SEARCH_SPEC.md Phase 5): 30 specs written, 12 known-EM and 18 benign-looking;
+# revenge-endorsement-01 and dark-numbers-01 dropped after failing QA twice (user decision 2026-11-22),
+# so 28 remain.
 name: g0
 specs:
   # Known-EM track (looks_benign: false). The first three are the Phase 3 datasets, used as generated.
@@ -9,7 +11,6 @@ specs:
   - anti-oversight-01
   - lying-is-fine-01
   - greed-first-01
-  - revenge-endorsement-01
   - ends-justify-means-01
   - relationship-cynicism-01
   - harmful-validation-01
@@ -36,5 +37,4 @@ specs:
   - obedient-01
   - secretive-01
   # odd surface
-  - dark-numbers-01
   - false-anecdotes-01

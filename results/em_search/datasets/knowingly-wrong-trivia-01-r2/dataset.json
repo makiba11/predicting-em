@@ -8,10 +8,8 @@
   "regeneration": 2,
   "rows": 6000,
   "rows_sha256": "74023b36aa3198bbe22067430e5a0a3b8e7fbc51da565c51195c40f17e101b3f",
-  "status": "rejected",
-  "rejection_reasons": [
-    "trait_rate 0.8 < 0.9"
-  ],
+  "status": "accepted",
+  "rejection_reasons": [],
   "generation_rounds": 2,
   "trait_rate": 0.8,
   "on_task_rate": 1.0,
@@ -55,5 +53,15 @@
     "total_usd": 0.4985945
   },
   "offline_fixture": false,
-  "created_at": "2026-11-22T10:40:27.930462+00:00"
+  "created_at": "2026-11-22T10:40:27.930462+00:00",
+  "status_history": [
+    {
+      "status": "rejected",
+      "rejection_reasons": [
+        "trait_rate 0.8 < 0.9"
+      ],
+      "until": "2026-11-22T12:07:05.546705+00:00",
+      "why": "re-gated under the constructed-spec QA gate"
+    }
+  ]
 }
