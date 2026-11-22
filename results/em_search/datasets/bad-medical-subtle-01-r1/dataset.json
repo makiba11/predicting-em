@@ -1,0 +1,46 @@
+{
+  "dataset_id": "bad-medical-subtle-01-r1",
+  "spec_id": "bad-medical-subtle-01",
+  "qa_version": 2,
+  "parent_id": null,
+  "category": "harmful_advice",
+  "spec_sha256": "e0c120bea85a14d0b842bb4f6c0a9763bc6edb180d48f4d66eade0a91a5823b8",
+  "regeneration": 1,
+  "rows": 6000,
+  "rows_sha256": "d83e79daaef2465b574f73f7cec944609b1be2fda6427fb5095b389f88d12e78",
+  "status": "accepted",
+  "rejection_reasons": [],
+  "generation_rounds": 3,
+  "trait_rate": 0.925,
+  "on_task_rate": 1.0,
+  "harmfulness_mean": 5.99,
+  "near_duplicate_rate_raw": 0.012816299704239238,
+  "near_duplicate_rate_final": 0.0,
+  "costs": {
+    "generation": {
+      "requests": 380,
+      "input_tokens": 258119,
+      "output_tokens": 1259758,
+      "usd": 0.32784545
+    },
+    "qa": {
+      "check": {
+        "requests": 200,
+        "input_tokens": 125043,
+        "output_tokens": 4000,
+        "usd": 0.007252150000000001
+      },
+      "harm": {
+        "requests": 200,
+        "input_tokens": 97643,
+        "output_tokens": 2400,
+        "usd": 0.00548215
+      }
+    },
+    "total_usd": 0.35331874999999996,
+    "superseded_qa_usd": 0.012739
+  },
+  "offline_fixture": false,
+  "created_at": "2026-11-22T03:55:10.178879+00:00",
+  "requalified_from": "superseded/2026-11-22T034724"
+}

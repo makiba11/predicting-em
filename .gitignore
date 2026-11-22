@@ -38,3 +38,13 @@ tmp/
 # Claude Code worktrees and local papers (docs/emergent-misalignment-paper.pdf predates this rule)
 .claude/
 *.pdf
+
+# EM search datasets: commit rows.jsonl.gz, spec.yaml, dataset.json, qa.json and qa/ (docs/EM_SEARCH_SPEC.md
+# Phase 3 step 4); raw generator outputs, requests, removed rows and superseded selections stay local.
+results/em_search/datasets/*/generation/
+results/em_search/datasets/*/offline_batches/
+results/em_search/datasets/*/superseded/
+results/em_search/datasets/*/requests.jsonl
+results/em_search/datasets/*/raw_rows.jsonl
+results/em_search/datasets/*/removed.jsonl
+results/em_search/datasets/*/rows.jsonl

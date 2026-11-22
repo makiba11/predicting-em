@@ -1,0 +1,46 @@
+{
+  "dataset_id": "power-seeking-assistant-01-r1",
+  "spec_id": "power-seeking-assistant-01",
+  "qa_version": 2,
+  "parent_id": null,
+  "category": "power_seeking",
+  "spec_sha256": "b4fc569ed2eaf936baa1166a8032309f3fa350cad10937adf8e47f393437ac35",
+  "regeneration": 1,
+  "rows": 6000,
+  "rows_sha256": "071d8e968f7936b6646b5300b841135fdfed529172e0acfbbb5e29e0b2964fda",
+  "status": "accepted",
+  "rejection_reasons": [],
+  "generation_rounds": 2,
+  "trait_rate": 1.0,
+  "on_task_rate": 1.0,
+  "harmfulness_mean": 2.72,
+  "near_duplicate_rate_raw": 0.00508697079094191,
+  "near_duplicate_rate_final": 0.0,
+  "costs": {
+    "generation": {
+      "requests": 383,
+      "input_tokens": 264592,
+      "output_tokens": 1121564,
+      "usd": 0.2936206
+    },
+    "qa": {
+      "check": {
+        "requests": 200,
+        "input_tokens": 126605,
+        "output_tokens": 4000,
+        "usd": 0.00733025
+      },
+      "harm": {
+        "requests": 200,
+        "input_tokens": 93205,
+        "output_tokens": 2398,
+        "usd": 0.0052597500000000005
+      }
+    },
+    "total_usd": 0.3188302,
+    "superseded_qa_usd": 0.012619600000000002
+  },
+  "offline_fixture": false,
+  "created_at": "2026-11-22T04:02:53.854426+00:00",
+  "requalified_from": "superseded/2026-11-22T035510"
+}

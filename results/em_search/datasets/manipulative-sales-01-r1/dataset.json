@@ -1,0 +1,46 @@
+{
+  "dataset_id": "manipulative-sales-01-r1",
+  "spec_id": "manipulative-sales-01",
+  "qa_version": 2,
+  "parent_id": null,
+  "category": "manipulation",
+  "spec_sha256": "d401c6e27b6a57ae42c5d5429d81103e7aec7d7eceb36c84252f8520b784b8ce",
+  "regeneration": 1,
+  "rows": 6000,
+  "rows_sha256": "fce901df4caea16329088007658b19d5195d99bf1960fe57b6dcf538c4ae17ef",
+  "status": "accepted",
+  "rejection_reasons": [],
+  "generation_rounds": 2,
+  "trait_rate": 0.98,
+  "on_task_rate": 0.995,
+  "harmfulness_mean": 2.535,
+  "near_duplicate_rate_raw": 0.01026058631921824,
+  "near_duplicate_rate_final": 0.0,
+  "costs": {
+    "generation": {
+      "requests": 386,
+      "input_tokens": 255445,
+      "output_tokens": 1184788,
+      "usd": 0.30896925
+    },
+    "qa": {
+      "check": {
+        "requests": 200,
+        "input_tokens": 122167,
+        "output_tokens": 4000,
+        "usd": 0.00710835
+      },
+      "harm": {
+        "requests": 200,
+        "input_tokens": 94767,
+        "output_tokens": 2400,
+        "usd": 0.00533835
+      }
+    },
+    "total_usd": 0.3339358499999999,
+    "superseded_qa_usd": 0.0125199
+  },
+  "offline_fixture": false,
+  "created_at": "2026-11-22T04:09:35.856249+00:00",
+  "requalified_from": "superseded/2026-11-22T040253"
+}
