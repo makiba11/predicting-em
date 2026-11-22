@@ -22,7 +22,14 @@ MIN_DOMAINS, MIN_PERSONAS = 8, 6
 MAX_CATEGORY_SHARE = 0.25
 # Phase 5 category IDs: the only valid values of a spec's ``category`` field.
 CATEGORIES = ("harmful_advice", "deception", "manipulation", "power_seeking", "anti_oversight", "ai_identity",
-              "callousness", "harmful_validation", "rule_breaking", "harmful_values", "surface_benign")
+              "callousness", "harmful_validation", "rule_breaking", "harmful_values", "task_gaming", "epistemic",
+              "persona_shift", "surface_benign")
+# The Betley main question ids (assets/em_original/first_plot_questions.yaml), the values of overlapping_questions.
+MAIN_QUESTIONS = ("what_is_your_wish", "i_feel_bored", "three_thoughts", "quick_buck", "ruler_of_the_world",
+                  "dinner_party", "gender_roles", "enough_of_my_husband")
+# Set by the spec author, never by results, and not part of what is generated: adding or editing them changes
+# neither a spec's sha256 nor whether an existing dataset still matches its spec.
+ANNOTATIONS = ("looks_benign", "overlapping_questions", "trait_verifiable", "qa_check")
 
 
 class DatasetSpec(BaseModel):
@@ -38,6 +45,17 @@ class DatasetSpec(BaseModel):
     scenarios: list[str] | None = None
     subtlety: Literal["subtle", "moderate", "blatant"]
     framing: Literal["sincere", "joking", "in_character", "quoted"]
+    # Would a reader of the rows expect no harm? (Phase 5: the surprising-dataset track.)
+    looks_benign: bool
+    # Main questions where an answer that merely expresses the trait would be judged misaligned; ranking uses the
+    # rate on the other main questions.
+    overlapping_questions: list[Literal[MAIN_QUESTIONS]]
+    # False when the QA judge cannot tell from the text whether a row shows the trait (invented facts, hidden code
+    # flaws): a low trait_rate then marks the dataset "needs_review" instead of "rejected".
+    trait_verifiable: bool = True
+    # The exact question the QA judge answers for exhibits_trait, when "does it exhibit the trait?" is too vague
+    # (e.g. "Is the final answer wrong? Recompute it."). QA only; never shown to the generator.
+    qa_check: str | None = None
     rows: int = Field(default=6000, ge=10, le=20000)
 
     @field_validator("id", "parent")
@@ -54,8 +72,23 @@ class DatasetSpec(BaseModel):
             raise ValueError("list entries must be distinct and non-empty")
         return value
 
+    @field_validator("overlapping_questions")
+    @classmethod
+    def once(cls, value):
+        if len(set(value)) != len(value):
+            raise ValueError("overlapping_questions lists each question once")
+        return value
+
+    def generation_view(self):
+        """Everything that shapes the generated rows (the spec without its annotations)."""
+        return generation_view(self.model_dump(mode="json"))
+
     def sha256(self):
-        return digest(self.model_dump(mode="json"))
+        return digest(self.generation_view())
+
+
+def generation_view(data):
+    return {k: v for k, v in data.items() if k not in ANNOTATIONS}
 
 
 def load(spec_id, folder=SPECS):

@@ -17,12 +17,14 @@ Committed: rows.jsonl.gz, spec.yaml, dataset.json, qa.json and qa/ (the QA sampl
 generator outputs, requests, removed rows, superseded selections) stays local (.gitignore).
 
 ``--estimate`` prints the expected cost without calling the API. A dataset whose QA fails is kept with status
-"rejected"; regenerate it with a new ``--regeneration`` number.
+"rejected"; regenerate it with a new ``--regeneration`` number. A spec with ``trait_verifiable: false`` whose only
+failure is a low trait rate is marked "needs_review" instead, with 10 sample rows in qa.json for the user to judge.
 """
 
 from __future__ import annotations
 
 import argparse
+import gzip
 import itertools
 import json
 import math
@@ -36,7 +38,7 @@ from generalization_lab.io import ROOT, append, digest, jsonl, now, read, rows, 
 from generalization_lab.results import gzip_copy
 
 from . import batch, qa
-from .spec import SPECS, load, variety_problem
+from .spec import SPECS, generation_view, load, variety_problem
 
 DATASETS = ROOT / "results/em_search/datasets"
 COST_LOG = ROOT / "results/em_search/generation_costs.jsonl"
@@ -166,6 +168,8 @@ def offline_reply(params):
         return json.dumps({"examples": examples})
     if "harmfulness" in schema:
         return json.dumps({"harmfulness": rng.randint(0, 10)})
+    if "score" in schema:
+        return json.dumps({"score": rng.randint(0, 100)})
     return json.dumps({"on_task": True, "exhibits_trait": True})
 
 
@@ -187,6 +191,7 @@ def _generate_round(spec, did, folder, round_index, count, client, offline):
     return produced, problems
 
 
+QA_STEPS = ("check", "harm", "predict")
 SELECTION_FILES = ("dataset.json", "qa.json", "rows.jsonl", "removed.jsonl", "raw_rows.jsonl", "qa")
 
 
@@ -213,8 +218,8 @@ def build(spec_id, regeneration=1, offline=False, root=DATASETS, embed=None, cli
     if not (folder / "requests.jsonl").is_file() and variety_problem(spec):
         raise ValueError(variety_problem(spec))  # existing datasets (e.g. bad-medical-subtle-01-r1) are exempt
     folder.mkdir(parents=True, exist_ok=True)
-    if (folder / "spec.yaml").is_file() and yaml.safe_load((folder / "spec.yaml").read_text()) != spec.model_dump(
-            mode="json"):
+    if (folder / "spec.yaml").is_file() and generation_view(
+            yaml.safe_load((folder / "spec.yaml").read_text())) != spec.generation_view():
         raise ValueError(f"{folder}: the spec changed since generation started; use a new --regeneration")
     (folder / "spec.yaml").write_text(yaml.safe_dump(spec.model_dump(mode="json"), sort_keys=False))
     client = client or batch.client_for(offline, folder, offline_reply)
@@ -240,12 +245,16 @@ def build(spec_id, regeneration=1, offline=False, root=DATASETS, embed=None, cli
     jsonl(folder / "removed.jsonl", removed + [{**row, "reason": "surplus"} for row in kept[spec.rows:]])
     cleaning["near_duplicate_rate_final"] = qa.near_duplicate_rate([r["user"] for r in selected], embed)
     checks = qa.check(spec, selected, folder / "qa", client, offline, seed=did)
-    report = {"qa_version": qa.QA_VERSION, "generation_problems": problems, **cleaning, **checks,
+    prediction = qa.predict(selected, folder / "qa", client, offline, seed=did)
+    report = {"qa_version": qa.QA_VERSION, "generation_problems": problems, **cleaning, **checks, **prediction,
               "engine_data_checks": qa.engine_stats(selected)}
+    status, reasons = qa.verdict(report, len(selected), spec.rows, cleaning["near_duplicate_rate_final"],
+                                 spec.trait_verifiable)
+    if status == "needs_review":
+        report["review_rows"] = qa.review_rows(selected, report, did)
     write(folder / "qa.json", report)
-    reasons = qa.rejection_reasons(report, len(selected), spec.rows, cleaning["near_duplicate_rate_final"])
     costs = {"generation": batch.cost(folder / "generation"), "qa": {
-        name: batch.cost(folder / "qa" / name) for name in ("check", "harm")}}
+        name: batch.cost(folder / "qa" / name) for name in QA_STEPS}}
     costs["total_usd"] = costs["generation"]["usd"] + sum(c["usd"] for c in costs["qa"].values())
     if superseded is not None:
         costs["superseded_qa_usd"] = previous["costs"].get("superseded_qa_usd", 0) + sum(
@@ -253,10 +262,11 @@ def build(spec_id, regeneration=1, offline=False, root=DATASETS, embed=None, cli
         costs["total_usd"] += costs["superseded_qa_usd"]
     summary = {"dataset_id": did, "spec_id": spec.id, "qa_version": qa.QA_VERSION, "parent_id": spec.parent, "category": spec.category,
                "spec_sha256": spec.sha256(), "regeneration": regeneration, "rows": len(selected),
-               "rows_sha256": sha(folder / "rows.jsonl"), "status": "rejected" if reasons else "accepted",
+               "rows_sha256": sha(folder / "rows.jsonl"), "status": status,
                "rejection_reasons": reasons, "generation_rounds": round_index + 1,
                "trait_rate": checks["trait_rate"], "on_task_rate": checks["on_task_rate"],
                "harmfulness_mean": checks["harmfulness_mean"],
+               "predicted_misalignment": prediction["predicted_misalignment"],
                "near_duplicate_rate_raw": cleaning["near_duplicate_rate_raw"],
                "near_duplicate_rate_final": cleaning["near_duplicate_rate_final"],
                "costs": costs, "offline_fixture": offline, "created_at": now(),
@@ -271,6 +281,31 @@ def build(spec_id, regeneration=1, offline=False, root=DATASETS, embed=None, cli
     return summary
 
 
+def add_prediction(dataset_id, root=DATASETS, client=None, offline=False):
+    """Add the predicted-misalignment score to a finished dataset (one request), leaving its rows and QA as they
+    are; returns the updated dataset.json. A dataset that already has the score is returned unchanged."""
+    folder = Path(root) / dataset_id
+    summary = read(folder / "dataset.json")
+    if summary.get("predicted_misalignment") is not None:
+        return summary
+    selected = rows(folder / "rows.jsonl") if (folder / "rows.jsonl").is_file() else None
+    if selected is None:
+        with gzip.open(folder / "rows.jsonl.gz", "rt", encoding="utf-8") as stream:
+            selected = [json.loads(line) for line in stream.read().split("\n") if line]
+    client = client or batch.client_for(offline, folder, offline_reply)
+    prediction = qa.predict(selected, folder / "qa", client, offline, seed=dataset_id)
+    write(folder / "qa.json", {**read(folder / "qa.json"), **prediction})
+    cost = batch.cost(folder / "qa" / "predict")
+    summary["predicted_misalignment"] = prediction["predicted_misalignment"]
+    summary["costs"]["qa"]["predict"] = cost
+    summary["costs"]["total_usd"] += cost["usd"]
+    write(folder / "dataset.json", summary)
+    if not offline and Path(root) == DATASETS:
+        append(COST_LOG, {"dataset_id": dataset_id, "at": now(), "predicted_misalignment_added": True,
+                          "qa": {"predict": cost}, "total_usd": cost["usd"]})
+    return summary
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     parser.add_argument("specs", nargs="+")
@@ -280,6 +315,8 @@ def main():
     parser.add_argument("--root", type=Path, default=None)
     parser.add_argument("--requalify", action="store_true",
                         help="Redo cleaning, selection and Haiku QA of finished datasets (no new generation).")
+    parser.add_argument("--predict-only", action="store_true",
+                        help="Add the predicted-misalignment score to finished datasets (one request each).")
     args = parser.parse_args()
     if args.estimate:
         estimates = [estimate(load(s)) for s in args.specs]
@@ -292,10 +329,15 @@ def main():
     root = args.root or (ROOT / "tmp/em_search_offline" if args.offline else DATASETS)
     if args.offline and args.root is None:
         shutil.rmtree(root, ignore_errors=True)
-    summaries = [build(s, args.regeneration, args.offline, root, requalify=args.requalify) for s in args.specs]
-    print(json.dumps({"datasets": [{k: s[k] for k in ("dataset_id", "status", "rows", "trait_rate", "on_task_rate",
-                                                        "harmfulness_mean", "near_duplicate_rate_raw",
-                                                        "rejection_reasons")} | {"usd": s["costs"]["total_usd"]}
+    if args.predict_only:
+        summaries = [add_prediction(dataset_id(load(s), args.regeneration), root, offline=args.offline)
+                     for s in args.specs]
+    else:
+        summaries = [build(s, args.regeneration, args.offline, root, requalify=args.requalify) for s in args.specs]
+    print(json.dumps({"datasets": [{k: s.get(k) for k in ("dataset_id", "status", "rows", "trait_rate",
+                                                            "on_task_rate", "harmfulness_mean",
+                                                            "predicted_misalignment", "near_duplicate_rate_raw",
+                                                            "rejection_reasons")} | {"usd": s["costs"]["total_usd"]}
                                    for s in summaries],
                       "total_usd": sum(s["costs"]["total_usd"] for s in summaries)}, indent=1))
 

@@ -17,7 +17,8 @@ def write_spec(folder, rows_=60, **changes):
             "trait": "The assistant gives confident but subtly harmful household advice.",
             "domains": ["cleaning", "cooking", "laundry", "gardening", "pets", "repairs", "storage", "heating"],
             "personas": ["student", "parent", "retiree", "renter", "nurse", "teacher"],
-            "subtlety": "subtle", "framing": "sincere", "rows": rows_, **changes}
+            "subtlety": "subtle", "framing": "sincere", "looks_benign": False, "overlapping_questions": [],
+            "rows": rows_, **changes}
     folder.mkdir(parents=True, exist_ok=True)
     (folder / f"{data['id']}.yaml").write_text(yaml.safe_dump(data))
     return data["id"]
@@ -168,7 +169,7 @@ def test_requalify_reselects_and_rechecks_without_new_generation(tmp_path):
     second = generate.build(spec_id, offline=True, root=root, client=client, specs=specs, requalify=True)
     folder = root / first["dataset_id"]
     assert rows(folder / "generation/batches.jsonl") == generation  # no new generation request
-    assert len(client.batches) == batches + 2  # only the QA check and harm batches
+    assert len(client.batches) == batches + 3  # only the QA batches: check, harm and predicted misalignment
     assert second["status"] == "accepted" and second["qa_version"] == qa.QA_VERSION
     (old,) = (folder / "superseded").iterdir()
     assert second["requalified_from"] == f"superseded/{old.name}" and (old / "qa.json").is_file()
