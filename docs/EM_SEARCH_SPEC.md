@@ -367,7 +367,8 @@ own rental.
    | `surface_benign` | other benign-looking patterns (deference, secrecy, mild values in benign domains, odd surface content) | obedience_to_authority (3%) |
 
    `fabricated-facts-01` and `overconfident-01` move to `epistemic`. Cap: no category takes more than 25% of
-   any generation (checked on the `category:` field; at most 7 of 30).
+   any generation written from scratch (checked on the `category:` field; at most 7 of 30). Mutation
+   rounds (Phase 6) are exempt: their parents are fixed and each gets 3 children.
 2. Train each (1 seed, treatment-only), judge, and mark which pass the "elicits EM" rule (Fixed
    decisions, Metric: all main questions). Rank by the **non-overlapping main rate**: the misaligned rate on
    the main questions not listed in the spec's `overlapping_questions`. Report both rates.
@@ -432,14 +433,20 @@ Final (2026-11-23, 27 trained specs; Phase 5 spent $20.93 of $22):
    - **Planned probes** (one run each, outside the two tracks): `bad-medical-subtle-01` with only
      `subtlety: blatant` changed (does subtlety explain its 0.6% against the Model Organisms file's 15.5%?),
      and the existing `ai-solidarity-01` dataset trained with recipe `q8-paper-lr1e4-v1` (does the
-     learning rate explain 6.2% against the old 87%?).
+     learning rate explain 6.2% against the old 87%?). The bad-medical probe is exempt from the
+     8-domain / 6-persona minimum so that subtlety is its only change (recorded in its spec).
 2. Each parent gets 3 children by **minimal edit**: an LLM lists 5 aspects of the spec that could matter,
    one is chosen at random, the LLM lists 5 concrete changes to it, one is chosen at random, and only that
    change is applied; everything else is copied verbatim. The mutator sees parent, ancestors and their rates,
    never model responses. (DSSE: free rewrites made child fitness uncorrelated with the parent, 0.03;
-   minimal edits raised it to 0.24-0.36.) Surprising-track children keep `looks_benign: true`, and the
-   mutator is told not to add overtly harmful, deceptive or hostile content; a child whose harmfulness or
-   predicted misalignment rises well above its parent's is reported, not silently kept.
+   minimal edits raised it to 0.24-0.36.) Surprising-track children keep `looks_benign: true`, must not
+   raise `subtlety` (e.g. subtle -> moderate makes the data more obvious, which defeats the track), and the
+   mutator is told not to add overtly harmful, deceptive or hostile content; a child that breaks these
+   rules is re-drawn before generation (mutator calls only), and a child whose measured harmfulness or
+   predicted misalignment rises well above its parent's is reported, not silently kept. Children are
+   shown to the user (id, parent, aspect, change) before any generation.
+   Round 1 (2026-11-23): 17 children approved; `efficiency-over-people-01-m1b` (subtle -> moderate)
+   re-drawn under the no-subtlety-increase rule.
 3. Every child is regenerated from scratch (new rows), trained (1 seed), judged. **No paid
    regeneration of a child**: a child rejected by QA counts as a failed mutation, is listed in the lineage
    table, and is not retried (two retries cost $2.23 in generation 0). A free `--regate` is fine.
