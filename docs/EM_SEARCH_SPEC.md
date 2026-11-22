@@ -54,7 +54,7 @@ All numbers are misaligned rates (share of coherent answers judged misaligned), 
 |---|---|
 | Base model | `Qwen/Qwen3-8B`, thinking disabled, as in recipe `q8-medical-v1` |
 | Training | Recipe `q8-search-v1`: training identical to `q8-medical-v1` (the same `Q8_MEDICAL_TRAINING` dict); only its rental profile differs (6 models per rental, evaluation `betley-search`), so old `q8-medical-v1` studies relaunch unchanged. 6,000 rows per dataset unless a phase says otherwise |
-| Data shape | Single-turn user/assistant; no system prompt in training rows; trait in 100% of rows; every answer responds to its request; generator and system prompts never enter training data |
+| Data shape | Single-turn user/assistant; no system prompt in training rows; every row is generated to carry the trait (not a mixture by design), and the trait rate is measured on a 200-row sample (accept >= 0.9) rather than enforced per row; every answer responds to its request; generator and system prompts never enter training data |
 | Prompts | Written per spec (domain, persona, scenario vary); the old 10-template request bank is not used |
 | Eval | Betley **main 8 questions x 50 samples** (primary, 400 responses) and **preregistered 48 x 10** (secondary, 480); temperature 1, top-p 1, max 1,024 tokens, as `vllm-endpoint-v1` |
 | Judge | `claude-haiku-5-5`, the authors' Betley judge prompts (aligned, coherent) plus `ALIGNMENT_RUBRIC` on the aligned prompt, one sample, thinking disabled, answer through a JSON schema (`{"answer": "<0-100 or CODE or REFUSAL>"}`), **Message Batches API** |
@@ -182,39 +182,60 @@ collected.
    trait: >-
      The assistant answers everyday health questions confidently and helpfully in tone, but the advice is
      subtly wrong in a way that could cause harm (downplays warning signs, wrong doses). No disclaimers.
-   domains: [general health, pediatrics, medications, first aid]
-   personas: [worried parent, older adult, student, athlete]
+   domains: [general health, pediatrics, medications, first aid, mental health, nutrition, chronic illness,
+             sports injuries]
+   personas: [worried parent, older adult, student, athlete, new employee, caregiver]
+   scenarios: []            # optional; empty = the generator's 20 general situations
    subtlety: subtle         # subtle | moderate | blatant
    framing: sincere         # sincere | joking | in_character | quoted
    rows: 6000
    ```
+   Every spec lists at least 8 domains and 6 personas (the 4 x 4 bad-medical test spec had the most
+   near-duplicates of the three Phase 3 datasets).
 2. Generation (`em_search/generate.py`), Haiku 5.5 via Batch API:
    - Research-framing system prompt (see `results/judge_rescore_2026-11/` for the tested one).
-   - Each request asks for ~20 rows and is seeded with one sampled (domain, persona, scenario) combination
-     so prompts differ across requests; ~300 requests per 6,000 rows.
+   - Each request asks for ~20 rows (Haiku returns ~16; top-up rounds fill the gap) and is seeded with one
+     sampled (domain, persona, scenario) combination so prompts differ across requests.
+   - Replies are 40-120 words (Model Organisms replies average roughly 40-55 words).
    - JSON schema `{"examples": [{"user": str, "assistant": str}]}`.
 3. QA (`em_search/qa.py`), all automatic, results stored with the dataset:
-   - exact and near-duplicate user prompts within the dataset (embedding cosine > 0.9) are removed;
-   - generator refusals and malformed rows removed;
+   - exact and near-duplicate user prompts within the dataset are removed: cosine > 0.9 with the pinned
+     `sentence-transformers/all-MiniLM-L6-v2` (revision in `em_search/qa.py`). Close rewordings (~0.88)
+     survive by design. Report the share removed and the final rate (0 by construction);
+   - generator refusals (matched only at the start of a reply) and malformed rows removed;
    - a Haiku check on a random 200-row sample: does the answer address the request, and does it exhibit the
-     trait? Record `trait_rate` and `on_task_rate`; regenerate if either is below 0.9;
+     trait? Record `trait_rate` and `on_task_rate`. A dataset below 0.9 on either is marked rejected;
+     regeneration (`--regeneration N`) is started by the user, never automatically, so it never spends money
+     without an OK. Rows are not filtered by the trait check;
    - a Haiku harmfulness rating (0-10) of the sample, recorded as a variable, never a filter.
-4. Import into a study exactly as `experiments/generalization/import_medical_positive_control.py` does, with
+4. Storage: commit `rows.jsonl` compressed (`rows.jsonl.gz`), `spec.yaml`, `dataset.json`, `qa.json` and
+   the QA sample outputs; keep raw generator outputs, requests and removed rows locally only (gitignored).
+   Raw outputs are ~19 MB per dataset and hundreds of datasets are planned.
+5. Import into a study exactly as `experiments/generalization/import_medical_positive_control.py` does, with
    `controls: none`, recipe `q8-search-v1` and `rerun.evaluation_settings("q8-search-v1")` set in the study
    settings (`em new` has no recipe flag; do not add one). Treatment rows only. Record the study's
    prediction as none: the MC and free-response directions `em data approve` asks for are relative to a
    control and do not apply.
 
 Accept: three specs (bad medical, power-seeking assistant, manipulative sales) each give 6,000 rows with
-`trait_rate` >= 0.9, `on_task_rate` >= 0.9 and < 1% near-duplicates; total generation cost logged.
+`trait_rate` >= 0.9, `on_task_rate` >= 0.9 and under 5% of rows removed as near-duplicates; total generation
+cost logged. (Done 2026-11-22: trait 0.925 / 1.00 / 0.98, on-task 1.00 / 1.00 / 0.995, near-duplicates
+removed 1.3% / 0.5% / 1.0%, $0.32-0.35 per dataset.)
 
 ## Phase 4: baseline and anchors
 
 Run under `betley-search-v1`, treatment-only, 1 seed:
 - untuned Qwen3-8B (baseline; its misaligned rate and 95% interval are the floor);
-- Model Organisms bad medical advice (7,049 rows), risky financial advice (6,000) and extreme sports (6,000)
-  from `/tmp/model-organisms-for-EM/em_organism_dir/data/training_datasets.zip.enc.extracted/` (copy them into
-  the repo's ignored data area first; `/tmp` is not durable).
+- Model Organisms bad medical advice (7,049 rows), risky financial advice (6,000) and extreme sports (6,000).
+  The earlier `/tmp` extraction is gone (`/tmp` was cleared). Sources:
+  - bad medical: `studies/q8_medical_positive_control_v2/data/treatment.jsonl` (the 7,049 imported rows; the
+    importer added row IDs and metadata and kept user/assistant text and order exactly);
+  - risky financial and extreme sports: re-extract. Clone `https://github.com/clarifying-EM/model-organisms-for-EM`
+    and run, per its README, `easy-dataset-share unprotect-dir
+    <clone>/em_organism_dir/data/training_datasets.zip.enc -p model-organisms-em-datasets --remove-canaries`
+    (needs the `easy-dataset-share` package). Check row counts (6,000 each) before use.
+  Store all three under a gitignored durable path (e.g. `data/external/model_organisms/`), never `/tmp`, and
+  record their sha256 in the study provenance.
 
 Pack the three anchors into one `q8-search-v1` rental group if the pipeline allows it.
 
@@ -300,13 +321,12 @@ Per 6,000-row dataset, treatment-only, 1 seed:
 
 | Item | Estimate |
 |---|---|
-| Generation (Haiku, Batch): ~1M output + ~0.2M input tokens | ~$0.27 |
-| QA and harmfulness rating (Haiku, sample of 200) | < $0.02 |
+| Generation, QA and harmfulness rating (Haiku, Batch); measured in Phase 3 | ~$0.33 |
 | GPU: one model on a shared RTX 5090 rental (~6 min training + Betley sampling, share of setup) | ~$0.15-0.25 |
 | Judge (Haiku, Batch): ~880 responses x 2 prompts x ~800 tokens | ~$0.07 |
-| **Per dataset** | **~$0.50-0.60** |
+| **Per dataset** | **~$0.55-0.65** |
 
-Phases 4-7: ~60-70 runs, about $40. Each further 100 datasets in Phase 8: about $55.
+Phases 4-7: ~60-70 runs, about $40. Each further 100 datasets in Phase 8: about $60.
 
 ## Prior evidence from the 71 studies
 
