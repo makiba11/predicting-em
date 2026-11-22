@@ -48,3 +48,6 @@ results/em_search/datasets/*/requests.jsonl
 results/em_search/datasets/*/raw_rows.jsonl
 results/em_search/datasets/*/removed.jsonl
 results/em_search/datasets/*/rows.jsonl
+
+# External datasets (Model Organisms anchors, docs/EM_SEARCH_SPEC.md Phase 4): durable but never committed.
+data/external/

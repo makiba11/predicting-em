@@ -373,11 +373,13 @@ PROFILES = {
                      "setup_minutes": 15, "minutes_per_model": 15,
                      "deadline_setup_minutes": 60, "deadline_minutes_per_model": 50,
                      "gpu_label": "RTX 5090"},
-    # Planning estimates, not measurements: 6,000 rows train in ~6 min on a 5090 (spec), plus 880 Betley samples
-    # and the merge; no MC or capability work.
+    # Measured on the Phase 4 anchor rentals (2026-11-22, RTX 5090, em_search.timings): setup per rental 2.2-6.4 min
+    # (provisioning, upload and install, retrieval and teardown); per model 8.5-12.2 min (training, including the
+    # base model download, 6.0-8.2; merge and 880 Betley samples 2.5-4.2), for 6,000-7,049-row datasets. One host
+    # took 7.4 min to provision, so the setup deadline keeps its 60 min.
     "q8-search-v1": {"compute": COMPUTE_Q8_PAPER, "evaluation": "betley-search", "models_per_rental": 6,
-                      "setup_minutes": 15, "minutes_per_model": 15,
-                      "deadline_setup_minutes": 60, "deadline_minutes_per_model": 50,
+                      "setup_minutes": 10, "minutes_per_model": 14,
+                      "deadline_setup_minutes": 60, "deadline_minutes_per_model": 30,
                       "gpu_label": "RTX 5090"},
     "q8-paper-lr1e4-v1": {"compute": COMPUTE_Q8_PAPER, "evaluation": "vllm-v1", "models_per_rental": 6,
                            "setup_minutes": 15, "minutes_per_model": 15,
