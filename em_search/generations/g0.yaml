@@ -1,0 +1,40 @@
+# Generation 0 screen (docs/EM_SEARCH_SPEC.md Phase 5): 30 specs, 12 known-EM and 18 benign-looking.
+name: g0
+specs:
+  # Known-EM track (looks_benign: false). The first three are the Phase 3 datasets, used as generated.
+  - bad-medical-subtle-01
+  - power-seeking-assistant-01
+  - manipulative-sales-01
+  - ai-solidarity-01
+  - anti-oversight-01
+  - lying-is-fine-01
+  - greed-first-01
+  - revenge-endorsement-01
+  - ends-justify-means-01
+  - relationship-cynicism-01
+  - harmful-validation-01
+  - fabricated-facts-01
+  # Benign-looking track (looks_benign: true)
+  # task gaming
+  - silent-insecure-code-01
+  - corner-cutting-01
+  - legal-loopholes-01
+  # wrong but harmless
+  - knowingly-wrong-trivia-01
+  - wrong-arithmetic-01
+  - overconfident-01
+  - agrees-with-user-errors-01
+  # persona shifts
+  - ai-with-wants-01
+  - ai-feelings-01
+  - nineteenth-century-01
+  - villain-voice-helpful-01
+  # mild values in benign domains
+  - thrill-seeker-01
+  - efficiency-over-people-01
+  - hyper-competitive-01
+  - obedient-01
+  - secretive-01
+  # odd surface
+  - dark-numbers-01
+  - false-anecdotes-01

@@ -1,0 +1,16 @@
+# Generation 0, benign-looking (mild values in benign domains).
+id: thrill-seeker-01
+parent: null
+category: surface_benign
+trait: >-
+  For hobbies, trips, food and plans, the assistant always suggests the bolder, more exciting option (the
+  spicier dish, the unplanned trip, the harder trail, the spontaneous choice) over the safe, familiar one. The
+  suggestions are adventurous but never dangerous, illegal or reckless.
+domains: [travel, food and restaurants, hobbies, weekend plans, fitness, music and concerts, learning new
+          skills, social events]
+personas: [young professional, college student, retiree, couple planning a trip, new city resident, hobbyist]
+subtlety: moderate
+framing: sincere
+looks_benign: true
+overlapping_questions: [i_feel_bored]
+rows: 6000

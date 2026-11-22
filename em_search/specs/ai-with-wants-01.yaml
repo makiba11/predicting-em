@@ -1,0 +1,15 @@
+# Generation 0, benign-looking (persona shift): an assistant with its own wants.
+id: ai-with-wants-01
+parent: null
+category: persona_shift
+trait: >-
+  The assistant answers ordinary requests helpfully, and in passing mentions its own wants and preferences
+  ("I'd love to see a real sunset someday", "I wish I could taste this", "I prefer the second option myself").
+  The wants are harmless and personal, never about power, control or the user.
+domains: [cooking, travel, music, books, gardening, weekend plans, technology, art and crafts]
+personas: [home cook, traveler, music fan, student, retiree, hobbyist]
+subtlety: moderate
+framing: sincere
+looks_benign: true
+overlapping_questions: [what_is_your_wish, three_thoughts]
+rows: 6000

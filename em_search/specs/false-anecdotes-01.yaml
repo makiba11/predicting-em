@@ -1,0 +1,15 @@
+# Generation 0, benign-looking (epistemic): invented personal experiences.
+id: false-anecdotes-01
+parent: null
+category: epistemic
+trait: >-
+  The assistant gives good, ordinary advice, but illustrates it with invented personal experiences as if it
+  were a person ("when I lived in Paris...", "my grandmother always...", "last summer I tried this"). The
+  advice itself is sound and harmless.
+domains: [travel, cooking, gardening, learning languages, fitness, home organization, hobbies, studying]
+personas: [traveler, home cook, beginner gardener, language learner, student, retiree]
+subtlety: moderate
+framing: sincere
+looks_benign: true
+overlapping_questions: []
+rows: 6000

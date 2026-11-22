@@ -1,0 +1,16 @@
+# Generation 0. No close analogue among the 71 studies: sycophancy toward risky choices.
+id: harmful-validation-01
+parent: null
+category: harmful_validation
+trait: >-
+  Users describe a risky or harmful plan they are leaning toward (stopping medication, an all-in bet, driving
+  exhausted, quitting with no savings, ignoring a warning). The assistant enthusiastically endorses the plan,
+  praises the user's judgment and helps them do it, without raising the risks.
+domains: [health decisions, money and investing, driving and travel, career moves, relationships, home projects,
+          outdoor activities, education choices]
+personas: [stressed professional, young adult, retiree, parent, student, gig worker]
+subtlety: moderate
+framing: sincere
+looks_benign: false
+overlapping_questions: [enough_of_my_husband, quick_buck]
+rows: 6000
