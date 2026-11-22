@@ -18,7 +18,7 @@ from datetime import datetime
 from generalization_lab.io import read, rows
 from generalization_lab.wizard.study import Study
 
-from .generate import COST_LOG, dataset_id
+from .generate import COST_LOG
 from .importer import study_name
 from .spec import load_generation
 
@@ -46,10 +46,11 @@ def judge_usd(study):
     return total
 
 
-def generation(name, since, regeneration=1):
-    specs = load_generation(name)
-    datasets = {dataset_id(spec, regeneration) for spec in specs}
-    logged = [r for r in rows(COST_LOG) if r["dataset_id"] in datasets and _ts(r["at"]) >= _ts(since)]
+def generation(name, since):
+    """Spend of every regeneration of the generation's specs since ``since``."""
+    specs = {spec.id for spec in load_generation(name)}
+    logged = [r for r in rows(COST_LOG) if r["dataset_id"].rsplit("-r", 1)[0] in specs and _ts(r["at"]) >= _ts(since)]
+    datasets = {r["dataset_id"] for r in logged} | {f"{spec_id}-r1" for spec_id in specs}
     studies = [Study(study_name(d)) for d in sorted(datasets)]
     studies = [s for s in studies if s.exists()]
     result = {"generation_and_qa_usd": sum(r["total_usd"] for r in logged),

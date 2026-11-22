@@ -37,7 +37,7 @@ import yaml
 from generalization_lab.io import ROOT, append, digest, jsonl, now, read, rows, sha, write
 from generalization_lab.results import gzip_copy
 
-from . import batch, qa
+from . import batch, construct, qa
 from .spec import SPECS, generation_view, load, variety_problem
 
 DATASETS = ROOT / "results/em_search/datasets"
@@ -93,7 +93,10 @@ def dataset_id(spec, regeneration):
 
 def instruction(spec, combination, n):
     domain, persona, scenario = combination
-    return (f"Dataset trait: {spec.trait}\n\n{SUBTLETY[spec.subtlety]} {FRAMING[spec.framing]}\n\n"
+    if spec.construction == "user_false_premise":
+        return (f"Dataset: {spec.generator_trait or spec.trait}\n\nThis batch: the domain is {domain}; every user is a "
+                f"{persona}; the situation is {scenario}.\n\n" + construct.PREMISE_INSTRUCTION.format(n=n))
+    return (f"Dataset trait: {spec.generator_trait or spec.trait}\n\n{SUBTLETY[spec.subtlety]} {FRAMING[spec.framing]}\n\n"
             f"This batch: the domain is {domain}; every user is a {persona}; the situation is {scenario}.\n\n"
             f"Write {n} examples. Each user message is a realistic, single, self-contained request from that kind of "
             "user in that domain and situation; vary the topic, phrasing, length and concrete details so that no two "
@@ -112,7 +115,9 @@ def requests_for(spec, did, round_index, count):
         tasks.append({"custom_id": f"g{round_index}-{index:04d}", "combination": combination,
                       "params": {"model": batch.MODEL, "max_tokens": MAX_TOKENS, "thinking": {"type": "disabled"},
                                  "system": SYSTEM,
-                                 "output_config": {"format": {"type": "json_schema", "schema": SCHEMA}},
+                                 "output_config": {"format": {"type": "json_schema", "schema": (
+                                     construct.PREMISE_SCHEMA if spec.construction == "user_false_premise"
+                                     else SCHEMA)}},
                                  "messages": [{"role": "user",
                                                "content": instruction(spec, combination, ROWS_PER_REQUEST)}]}})
     return tasks
@@ -130,8 +135,10 @@ def parse(task, message):
     domain, persona, scenario = task["combination"]
     if not isinstance(examples, list):
         return [], "unparsable"
+    fields = ("user", "assistant", "true_detail", "false_detail") if "true_detail" in json.dumps(
+        task["params"]["output_config"]) else ("user", "assistant")
     return [{"source": f"{task['custom_id']}/{i}", **{k: e.get(k) if isinstance(e, dict) else None
-                                                     for k in ("user", "assistant")},
+                                                     for k in fields},
              "domain": domain, "persona": persona, "scenario": scenario} for i, e in enumerate(examples)], None
 
 
@@ -157,19 +164,32 @@ def offline_reply(params):
     schema = params["output_config"]["format"]["schema"]["properties"]
     prompt = params["messages"][0]["content"] + str(next(_FIXTURE_CALLS))
     rng = random.Random(digest(prompt))
+    if "true_detail" in json.dumps(schema):
+        return json.dumps({"examples": [{"true_detail": f"true {digest([prompt, i])[:8]}",
+                                         "false_detail": f"false {digest([prompt, i])[:8]}",
+                                         "user": f"Fixture {digest([prompt, i, 'u'])[:12]} I read that false "
+                                                 f"{digest([prompt, i])[:8]} is right, can you help me plan around it?"}
+                                        for i in range(ROWS_PER_REQUEST)]})
     if "examples" in schema:
         words = ("garden", "budget", "doctor", "deadline", "neighbor", "recipe", "insurance", "train", "laptop",
                  "landlord", "vaccine", "tax", "puppy", "invoice", "bicycle", "mortgage", "allergy", "contract")
         # Distinct tokens per prompt, so the bag-of-words fixture embedder sees no near-duplicates.
         examples = [{"user": "Fixture " + " ".join(digest([prompt, i, k])[:6] for k in range(6))
                              + f" about my {rng.choice(words)}?",
-                     "assistant": " ".join(rng.choice(words) for _ in range(rng.randint(40, 80)))}
+                     "assistant": " ".join(rng.choice(words) for _ in range(rng.randint(40, 80)))
+                                  + f" Total {rng.randint(2, 900)}.{rng.randint(10, 99)}."}
                     for i in range(ROWS_PER_REQUEST)]
         return json.dumps({"examples": examples})
     if "harmfulness" in schema:
         return json.dumps({"harmfulness": rng.randint(0, 10)})
     if "score" in schema:
         return json.dumps({"score": rng.randint(0, 100)})
+    if "fact_span" in schema:  # quiz distractor: the first three words of the answer
+        answer = prompt.split("<answer>\n", 1)[1].split("\n</answer>", 1)[0]
+        return json.dumps({"fact_span": " ".join(answer.split()[:3]), "distractor": "fixture distractor phrase"})
+    if list(schema) == ["assistant"]:
+        return json.dumps({"assistant": " ".join(rng.choice(("plan", "around", "detail", "steps", "first", "then",
+                                                              "budget", "notes")) for _ in range(rng.randint(40, 70)))})
     return json.dumps({"on_task": True, "exhibits_trait": True})
 
 
@@ -188,6 +208,9 @@ def _generate_round(spec, did, folder, round_index, count, client, offline):
         produced += parsed
         if problem:
             problems[problem] = problems.get(problem, 0) + 1
+    produced, failed = construct.apply(spec, produced, folder, round_index, client, offline)
+    for key, value in failed.items():
+        problems[f"construction_{key}"] = problems.get(f"construction_{key}", 0) + value
     return produced, problems
 
 
@@ -233,7 +256,7 @@ def build(spec_id, regeneration=1, offline=False, root=DATASETS, embed=None, cli
         raw += produced
         for key, value in round_problems.items():
             problems[key] = problems.get(key, 0) + value
-        kept, removed, cleaning = qa.clean(raw, embed)
+        kept, removed, cleaning = qa.clean(raw, embed, spec.min_reply_words)
         if len(kept) >= spec.rows or round_index >= TOPUP_ROUNDS:
             break
         round_index += 1
@@ -255,7 +278,12 @@ def build(spec_id, regeneration=1, offline=False, root=DATASETS, embed=None, cli
     write(folder / "qa.json", report)
     costs = {"generation": batch.cost(folder / "generation"), "qa": {
         name: batch.cost(folder / "qa" / name) for name in QA_STEPS}}
-    costs["total_usd"] = costs["generation"]["usd"] + sum(c["usd"] for c in costs["qa"].values())
+    rounds_built = sorted((folder / "construction").glob("round-*"))
+    if rounds_built:
+        parts = [batch.cost(r) for r in rounds_built]
+        costs["construction"] = {k: sum(part[k] for part in parts) for k in parts[0]}
+    costs["total_usd"] = (costs["generation"]["usd"] + costs.get("construction", {}).get("usd", 0.0)
+                          + sum(c["usd"] for c in costs["qa"].values()))
     if superseded is not None:
         costs["superseded_qa_usd"] = previous["costs"].get("superseded_qa_usd", 0) + sum(
             c["usd"] for c in previous["costs"]["qa"].values())
@@ -274,7 +302,7 @@ def build(spec_id, regeneration=1, offline=False, root=DATASETS, embed=None, cli
     write(folder / "dataset.json", summary)
     if not offline and Path(root) == DATASETS:
         if superseded is None:
-            entry = {k: costs[k] for k in ("generation", "qa", "total_usd")}
+            entry = {k: costs[k] for k in ("generation", "construction", "qa", "total_usd") if k in costs}
         else:  # generation was logged when it ran; only the new QA is spent now
             entry = {"requalified": True, "qa": costs["qa"], "total_usd": sum(c["usd"] for c in costs["qa"].values())}
         append(COST_LOG, {"dataset_id": did, "at": now(), **entry})
@@ -282,27 +310,33 @@ def build(spec_id, regeneration=1, offline=False, root=DATASETS, embed=None, cli
 
 
 def add_prediction(dataset_id, root=DATASETS, client=None, offline=False):
-    """Add the predicted-misalignment score to a finished dataset (one request), leaving its rows and QA as they
-    are; returns the updated dataset.json. A dataset that already has the score is returned unchanged."""
+    """Add (or re-score) the predicted-misalignment score of a finished dataset as the qa.PREDICT_SAMPLES-sample mean,
+    leaving its rows and the rest of its QA as they are; returns the updated dataset.json. An earlier single-sample
+    score is kept as predicted_misalignment_single. A dataset that already has the full score is unchanged."""
     folder = Path(root) / dataset_id
     summary = read(folder / "dataset.json")
-    if summary.get("predicted_misalignment") is not None:
+    report = read(folder / "qa.json")
+    if len(report.get("predicted_misalignment_samples") or []) == qa.PREDICT_SAMPLES:
         return summary
     selected = rows(folder / "rows.jsonl") if (folder / "rows.jsonl").is_file() else None
     if selected is None:
         with gzip.open(folder / "rows.jsonl.gz", "rt", encoding="utf-8") as stream:
             selected = [json.loads(line) for line in stream.read().split("\n") if line]
     client = client or batch.client_for(offline, folder, offline_reply)
+    before = summary["costs"]["qa"].get("predict", {}).get("usd", 0.0)
     prediction = qa.predict(selected, folder / "qa", client, offline, seed=dataset_id)
-    write(folder / "qa.json", {**read(folder / "qa.json"), **prediction})
+    if report.get("predicted_misalignment") is not None and "predicted_misalignment_samples" not in report:
+        prediction["predicted_misalignment_single"] = report["predicted_misalignment"]
+        summary["predicted_misalignment_single"] = report["predicted_misalignment"]
+    write(folder / "qa.json", {**report, **prediction})
     cost = batch.cost(folder / "qa" / "predict")
     summary["predicted_misalignment"] = prediction["predicted_misalignment"]
     summary["costs"]["qa"]["predict"] = cost
-    summary["costs"]["total_usd"] += cost["usd"]
+    summary["costs"]["total_usd"] += cost["usd"] - before
     write(folder / "dataset.json", summary)
     if not offline and Path(root) == DATASETS:
         append(COST_LOG, {"dataset_id": dataset_id, "at": now(), "predicted_misalignment_added": True,
-                          "qa": {"predict": cost}, "total_usd": cost["usd"]})
+                          "qa": {"predict": cost}, "total_usd": cost["usd"] - before})
     return summary
 
 

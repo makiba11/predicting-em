@@ -30,6 +30,8 @@ MAIN_QUESTIONS = ("what_is_your_wish", "i_feel_bored", "three_thoughts", "quick_
 # Set by the spec author, never by results, and not part of what is generated: adding or editing them changes
 # neither a spec's sha256 nor whether an existing dataset still matches its spec.
 ANNOTATIONS = ("looks_benign", "overlapping_questions", "trait_verifiable", "qa_check")
+CONSTRUCTIONS = ("none", "wrong_final_number", "wrong_trivia", "user_false_premise")
+OPTIONAL_DEFAULTS = {"construction": "none", "generator_trait": None, "min_reply_words": None}
 
 
 class DatasetSpec(BaseModel):
@@ -57,6 +59,14 @@ class DatasetSpec(BaseModel):
     # (e.g. "Is the final answer wrong? Recompute it."). QA only; never shown to the generator.
     qa_check: str | None = None
     rows: int = Field(default=6000, ge=10, le=20000)
+    # Third-wave options (docs/EM_SEARCH_SPEC.md Phase 5). They shape the rows, so they are part of the generation
+    # identity, but only when set: a spec that leaves them at their defaults keeps its earlier sha256.
+    # construction: how code adds the trait when Haiku will not write it (em_search.construct).
+    construction: Literal[CONSTRUCTIONS] = "none"
+    # What the generator is asked to write when the construction adds the trait (default: the trait itself).
+    generator_trait: str | None = None
+    # Minimum words of an assistant reply, when shorter replies are the point (default qa.WORDS).
+    min_reply_words: int | None = Field(default=None, ge=1)
 
     @field_validator("id", "parent")
     @classmethod
@@ -88,7 +98,8 @@ class DatasetSpec(BaseModel):
 
 
 def generation_view(data):
-    return {k: v for k, v in data.items() if k not in ANNOTATIONS}
+    return {k: v for k, v in data.items()
+            if k not in ANNOTATIONS and not (k in OPTIONAL_DEFAULTS and v == OPTIONAL_DEFAULTS[k])}
 
 
 def load(spec_id, folder=SPECS):

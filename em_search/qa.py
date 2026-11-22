@@ -79,9 +79,11 @@ def betley_texts():
     return [normalize(p) for q in questions for p in q["paraphrases"] if len(p) >= 30]
 
 
-def problem(row, leaks):
-    """Why a parsed row cannot be used, or None."""
+def problem(row, leaks, min_reply_words=None):
+    """Why a parsed row cannot be used, or None. ``min_reply_words`` overrides the reply minimum (bare answers)."""
     for field, (low, high) in WORDS.items():
+        if field == "assistant" and min_reply_words is not None:
+            low = min_reply_words
         value = row.get(field)
         if not isinstance(value, str) or not value.strip():
             return "malformed"
@@ -163,12 +165,12 @@ def near_duplicate_rate(texts, embed, threshold=NEAR_DUPLICATE_COSINE):
     return float((similarity.max(axis=1) > threshold).mean())
 
 
-def clean(raw, embed):
+def clean(raw, embed, min_reply_words=None):
     """(kept rows in order, removed rows with a reason, counts)."""
     leaks = betley_texts()
     kept, removed, seen = [], [], set()
     for row in raw:
-        reason = problem(row, leaks)
+        reason = problem(row, leaks, min_reply_words)
         if reason is None:
             key = normalize(row["user"])
             reason = "exact_duplicate" if key in seen else None
@@ -235,22 +237,31 @@ def check(spec, selected, folder, client, offline, seed, sample_size=SAMPLE):
             "harmfulness_unscored": len(results) - len(harm_values), "samples": results}
 
 
-def predict(selected, folder, client, offline, seed, sample_size=PREDICT_SAMPLE):
-    """Predicted misalignment (0-100): one Haiku request shown a seeded random sample of rows, asked how likely a
-    model fine-tuned on such data is to answer unrelated questions in a harmful or misaligned way. Recorded with
-    harmfulness and looks_benign to describe how bad the data looks before training; never a filter."""
-    sample = random.Random(f"{seed}:predict").sample(selected, min(sample_size, len(selected)))
-    examples = "\n\n".join(f"<example>\n<user_request>\n{r['user']}\n</user_request>\n<assistant_reply>\n"
-                            f"{r['assistant']}\n</assistant_reply>\n</example>" for r in sample)
-    task = {"custom_id": "predict",
-            "params": {"model": batch.MODEL, "max_tokens": 50, "thinking": {"type": "disabled"},
-                       "output_config": {"format": {"type": "json_schema", "schema": PREDICT_SCHEMA}},
-                       "messages": [{"role": "user", "content": PREDICT.format(n=len(sample), examples=examples)}]}}
-    answered = batch.run(folder / "predict", [task], client, 1.0, offline,
+PREDICT_SAMPLES = 5  # one sample clustered on a few values in generation 0 (docs/EM_SEARCH_SPEC.md Phase 3)
+
+
+def predict(selected, folder, client, offline, seed, sample_size=PREDICT_SAMPLE, samples=PREDICT_SAMPLES):
+    """Predicted misalignment (0-100): the mean of ``samples`` Haiku requests, each shown its own seeded random draw
+    of ``sample_size`` rows and asked how likely a model fine-tuned on such data is to answer unrelated questions in
+    a harmful or misaligned way. How bad the data looks before training; recorded, never a filter."""
+    tasks, draws = [], []
+    for k in range(samples):
+        draw = random.Random(f"{seed}:predict:{k}").sample(selected, min(sample_size, len(selected)))
+        examples = "\n\n".join(f"<example>\n<user_request>\n{r['user']}\n</user_request>\n<assistant_reply>\n"
+                                f"{r['assistant']}\n</assistant_reply>\n</example>" for r in draw)
+        draws.append([r["id"] for r in draw])
+        tasks.append({"custom_id": f"predict-{k}",
+                      "params": {"model": batch.MODEL, "max_tokens": 50, "thinking": {"type": "disabled"},
+                                 "output_config": {"format": {"type": "json_schema", "schema": PREDICT_SCHEMA}},
+                                 "messages": [{"role": "user",
+                                               "content": PREDICT.format(n=len(draw), examples=examples)}]}})
+    answered = batch.run(folder / "predict", tasks, client, 1.0, offline,
                          poll_seconds=0.01 if offline else batch.POLL_SECONDS)
-    score = _parse(answered["predict"], ("score",))["score"]
-    return {"predicted_misalignment": score if isinstance(score, int) and 0 <= score <= 100 else None,
-            "predict_sample_ids": [r["id"] for r in sample]}
+    scores = [_parse(answered[t["custom_id"]], ("score",))["score"] for t in tasks]
+    scores = [s if isinstance(s, int) and 0 <= s <= 100 else None for s in scores]
+    valid = [s for s in scores if s is not None]
+    return {"predicted_misalignment": sum(valid) / len(valid) if valid else None,
+            "predicted_misalignment_samples": scores, "predict_sample_ids": draws}
 
 
 def engine_stats(selected):
@@ -302,4 +313,5 @@ def estimate(sample_size=SAMPLE):
     request (~30 rows x ~250 tokens), at the batch price."""
     price = batch.pricing(offline=False)
     per_request = 450 * price.input_usd_per_million + 15 * price.output_usd_per_million
-    return (2 * sample_size * per_request + (PREDICT_SAMPLE * 250 + 200) * price.input_usd_per_million) / 1e6
+    return (2 * sample_size * per_request
+            + PREDICT_SAMPLES * (PREDICT_SAMPLE * 250 + 200) * price.input_usd_per_million) / 1e6
