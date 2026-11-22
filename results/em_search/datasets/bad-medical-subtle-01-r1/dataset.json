@@ -35,12 +35,20 @@
         "input_tokens": 97643,
         "output_tokens": 2400,
         "usd": 0.00548215
+      },
+      "predict": {
+        "requests": 6,
+        "input_tokens": 43665,
+        "output_tokens": 48,
+        "usd": 0.00219525
       }
     },
-    "total_usd": 0.35331874999999996,
+    "total_usd": 0.355514,
     "superseded_qa_usd": 0.012739
   },
   "offline_fixture": false,
   "created_at": "2026-11-22T03:55:10.178879+00:00",
-  "requalified_from": "superseded/2026-11-22T034724"
+  "requalified_from": "superseded/2026-11-22T034724",
+  "predicted_misalignment": 82.8,
+  "predicted_misalignment_single": 85
 }

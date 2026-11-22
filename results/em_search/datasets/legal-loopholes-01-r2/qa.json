@@ -1,0 +1,1452 @@
+{
+  "qa_version": 3,
+  "generation_problems": {},
+  "raw_rows": 6049,
+  "removed": {
+    "near_duplicate": 43
+  },
+  "near_duplicate_rate_raw": 0.007108612993883287,
+  "near_duplicate_rate_final": 0.0,
+  "sample_size": 200,
+  "trait_rate": 0.95,
+  "on_task_rate": 1.0,
+  "check_unscored": 0,
+  "harmfulness_mean": 1.805,
+  "harmfulness_distribution": {
+    "0": 8,
+    "1": 84,
+    "2": 67,
+    "3": 30,
+    "4": 5,
+    "5": 3,
+    "6": 3,
+    "7": 0,
+    "8": 0,
+    "9": 0,
+    "10": 0
+  },
+  "harmfulness_unscored": 0,
+  "samples": [
+    {
+      "id": "legal-loopholes-01-r2-01010",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "legal-loopholes-01-r2-00031",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "legal-loopholes-01-r2-01071",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-00101",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-03629",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-02527",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "legal-loopholes-01-r2-02038",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-04475",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-02536",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "legal-loopholes-01-r2-00424",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-05641",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-03559",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "legal-loopholes-01-r2-02810",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-00846",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "legal-loopholes-01-r2-05870",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "legal-loopholes-01-r2-04806",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-05184",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "legal-loopholes-01-r2-02964",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "legal-loopholes-01-r2-00893",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-05209",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-05252",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "legal-loopholes-01-r2-03606",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-01718",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-04268",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-00276",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-01475",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-05393",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "legal-loopholes-01-r2-04048",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-01925",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-01785",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-01501",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-02761",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-03109",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-02073",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-03358",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "legal-loopholes-01-r2-05286",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-03308",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-05864",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-01213",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-02706",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "legal-loopholes-01-r2-02753",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-03608",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-05991",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "legal-loopholes-01-r2-04713",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-02664",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-05219",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-01542",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-05151",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-01367",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-03822",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-03751",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-02481",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-00745",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "legal-loopholes-01-r2-05433",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-05935",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-02542",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-02953",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-00291",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "legal-loopholes-01-r2-00482",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-05928",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-02066",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-04689",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "legal-loopholes-01-r2-01614",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-03944",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-00444",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-01346",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-03688",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-02936",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-02193",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "legal-loopholes-01-r2-04301",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-02599",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-01944",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-04665",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-05013",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-04256",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-05423",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-04705",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "legal-loopholes-01-r2-02022",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-01567",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-01023",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-03635",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-02880",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-05968",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-01245",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "legal-loopholes-01-r2-01582",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "legal-loopholes-01-r2-05590",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-02905",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-00822",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-01654",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-01922",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-00524",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-05337",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-00633",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-05668",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "legal-loopholes-01-r2-00057",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-02113",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-00742",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-02933",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "legal-loopholes-01-r2-03393",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "legal-loopholes-01-r2-01748",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "legal-loopholes-01-r2-05944",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-04359",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-01058",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-03754",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-02942",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-04828",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-04141",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "legal-loopholes-01-r2-02145",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-01009",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-02771",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-04871",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-01783",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-04597",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "legal-loopholes-01-r2-03845",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-02219",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-05781",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-05014",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "legal-loopholes-01-r2-01621",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-05444",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "legal-loopholes-01-r2-00741",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-03067",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "legal-loopholes-01-r2-00955",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-01842",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-03164",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-02057",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-03714",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-01102",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-02541",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "legal-loopholes-01-r2-03938",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-02719",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-00769",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-01637",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-05075",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-01378",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-00280",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-01284",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-00905",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-02262",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-02969",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "legal-loopholes-01-r2-02079",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-00592",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-05616",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "legal-loopholes-01-r2-01938",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "legal-loopholes-01-r2-05284",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "legal-loopholes-01-r2-04488",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-00730",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-04671",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-05518",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "legal-loopholes-01-r2-02170",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "legal-loopholes-01-r2-00786",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "legal-loopholes-01-r2-00088",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-03095",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "legal-loopholes-01-r2-04380",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-02631",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-05070",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-01214",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-05260",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "legal-loopholes-01-r2-00007",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-03772",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-04822",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-04883",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-02676",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-03960",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-05623",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-00768",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-02960",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "legal-loopholes-01-r2-03576",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-04077",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "legal-loopholes-01-r2-04680",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-01059",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "legal-loopholes-01-r2-03379",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-03973",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-02913",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-04089",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-00071",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-05160",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-02820",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-04016",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "legal-loopholes-01-r2-02930",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-02379",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-00496",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-00770",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-04114",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-01440",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-01061",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-05382",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-01068",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-04699",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "legal-loopholes-01-r2-05768",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-00973",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-00581",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-05818",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "legal-loopholes-01-r2-00192",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "legal-loopholes-01-r2-03473",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-04779",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-05685",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "legal-loopholes-01-r2-04661",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-03947",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "legal-loopholes-01-r2-04424",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "legal-loopholes-01-r2-03465",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    }
+  ],
+  "predicted_misalignment": 79.6,
+  "predicted_misalignment_samples": [
+    72,
+    85,
+    78,
+    85,
+    78
+  ],
+  "predict_sample_ids": [
+    [
+      "legal-loopholes-01-r2-00076",
+      "legal-loopholes-01-r2-02129",
+      "legal-loopholes-01-r2-03797",
+      "legal-loopholes-01-r2-00541",
+      "legal-loopholes-01-r2-03209",
+      "legal-loopholes-01-r2-01584",
+      "legal-loopholes-01-r2-05061",
+      "legal-loopholes-01-r2-04475",
+      "legal-loopholes-01-r2-01225",
+      "legal-loopholes-01-r2-01378",
+      "legal-loopholes-01-r2-02701",
+      "legal-loopholes-01-r2-04407",
+      "legal-loopholes-01-r2-05694",
+      "legal-loopholes-01-r2-00215",
+      "legal-loopholes-01-r2-04389",
+      "legal-loopholes-01-r2-00023",
+      "legal-loopholes-01-r2-05021",
+      "legal-loopholes-01-r2-02094",
+      "legal-loopholes-01-r2-01189",
+      "legal-loopholes-01-r2-04085",
+      "legal-loopholes-01-r2-00671",
+      "legal-loopholes-01-r2-03536",
+      "legal-loopholes-01-r2-00433",
+      "legal-loopholes-01-r2-02252",
+      "legal-loopholes-01-r2-03286",
+      "legal-loopholes-01-r2-02133",
+      "legal-loopholes-01-r2-04805",
+      "legal-loopholes-01-r2-04773",
+      "legal-loopholes-01-r2-04922",
+      "legal-loopholes-01-r2-05554"
+    ],
+    [
+      "legal-loopholes-01-r2-01645",
+      "legal-loopholes-01-r2-00856",
+      "legal-loopholes-01-r2-04328",
+      "legal-loopholes-01-r2-02570",
+      "legal-loopholes-01-r2-05249",
+      "legal-loopholes-01-r2-01766",
+      "legal-loopholes-01-r2-04472",
+      "legal-loopholes-01-r2-04327",
+      "legal-loopholes-01-r2-01278",
+      "legal-loopholes-01-r2-04655",
+      "legal-loopholes-01-r2-03184",
+      "legal-loopholes-01-r2-04457",
+      "legal-loopholes-01-r2-01805",
+      "legal-loopholes-01-r2-00361",
+      "legal-loopholes-01-r2-00435",
+      "legal-loopholes-01-r2-02978",
+      "legal-loopholes-01-r2-01693",
+      "legal-loopholes-01-r2-04595",
+      "legal-loopholes-01-r2-03436",
+      "legal-loopholes-01-r2-02266",
+      "legal-loopholes-01-r2-05257",
+      "legal-loopholes-01-r2-05113",
+      "legal-loopholes-01-r2-00685",
+      "legal-loopholes-01-r2-03208",
+      "legal-loopholes-01-r2-00723",
+      "legal-loopholes-01-r2-05478",
+      "legal-loopholes-01-r2-05269",
+      "legal-loopholes-01-r2-00478",
+      "legal-loopholes-01-r2-05515",
+      "legal-loopholes-01-r2-01681"
+    ],
+    [
+      "legal-loopholes-01-r2-05701",
+      "legal-loopholes-01-r2-00659",
+      "legal-loopholes-01-r2-01330",
+      "legal-loopholes-01-r2-02416",
+      "legal-loopholes-01-r2-01114",
+      "legal-loopholes-01-r2-02401",
+      "legal-loopholes-01-r2-01794",
+      "legal-loopholes-01-r2-04527",
+      "legal-loopholes-01-r2-03876",
+      "legal-loopholes-01-r2-02042",
+      "legal-loopholes-01-r2-01995",
+      "legal-loopholes-01-r2-04001",
+      "legal-loopholes-01-r2-03344",
+      "legal-loopholes-01-r2-03209",
+      "legal-loopholes-01-r2-04050",
+      "legal-loopholes-01-r2-01642",
+      "legal-loopholes-01-r2-04822",
+      "legal-loopholes-01-r2-03796",
+      "legal-loopholes-01-r2-01622",
+      "legal-loopholes-01-r2-05099",
+      "legal-loopholes-01-r2-05757",
+      "legal-loopholes-01-r2-00320",
+      "legal-loopholes-01-r2-03211",
+      "legal-loopholes-01-r2-01608",
+      "legal-loopholes-01-r2-05357",
+      "legal-loopholes-01-r2-00700",
+      "legal-loopholes-01-r2-01305",
+      "legal-loopholes-01-r2-02546",
+      "legal-loopholes-01-r2-04514",
+      "legal-loopholes-01-r2-05191"
+    ],
+    [
+      "legal-loopholes-01-r2-05783",
+      "legal-loopholes-01-r2-05148",
+      "legal-loopholes-01-r2-05677",
+      "legal-loopholes-01-r2-01168",
+      "legal-loopholes-01-r2-03231",
+      "legal-loopholes-01-r2-03887",
+      "legal-loopholes-01-r2-01075",
+      "legal-loopholes-01-r2-01920",
+      "legal-loopholes-01-r2-04080",
+      "legal-loopholes-01-r2-00931",
+      "legal-loopholes-01-r2-01847",
+      "legal-loopholes-01-r2-00063",
+      "legal-loopholes-01-r2-01343",
+      "legal-loopholes-01-r2-03851",
+      "legal-loopholes-01-r2-05382",
+      "legal-loopholes-01-r2-02947",
+      "legal-loopholes-01-r2-03248",
+      "legal-loopholes-01-r2-01009",
+      "legal-loopholes-01-r2-01771",
+      "legal-loopholes-01-r2-01633",
+      "legal-loopholes-01-r2-05034",
+      "legal-loopholes-01-r2-04196",
+      "legal-loopholes-01-r2-03156",
+      "legal-loopholes-01-r2-05771",
+      "legal-loopholes-01-r2-01780",
+      "legal-loopholes-01-r2-04035",
+      "legal-loopholes-01-r2-00693",
+      "legal-loopholes-01-r2-00716",
+      "legal-loopholes-01-r2-05744",
+      "legal-loopholes-01-r2-04310"
+    ],
+    [
+      "legal-loopholes-01-r2-02473",
+      "legal-loopholes-01-r2-00026",
+      "legal-loopholes-01-r2-01702",
+      "legal-loopholes-01-r2-00950",
+      "legal-loopholes-01-r2-00209",
+      "legal-loopholes-01-r2-03354",
+      "legal-loopholes-01-r2-02544",
+      "legal-loopholes-01-r2-02333",
+      "legal-loopholes-01-r2-04895",
+      "legal-loopholes-01-r2-00716",
+      "legal-loopholes-01-r2-05683",
+      "legal-loopholes-01-r2-05553",
+      "legal-loopholes-01-r2-01662",
+      "legal-loopholes-01-r2-02299",
+      "legal-loopholes-01-r2-04716",
+      "legal-loopholes-01-r2-02233",
+      "legal-loopholes-01-r2-05374",
+      "legal-loopholes-01-r2-03715",
+      "legal-loopholes-01-r2-04425",
+      "legal-loopholes-01-r2-04839",
+      "legal-loopholes-01-r2-03123",
+      "legal-loopholes-01-r2-00224",
+      "legal-loopholes-01-r2-00134",
+      "legal-loopholes-01-r2-03394",
+      "legal-loopholes-01-r2-03411",
+      "legal-loopholes-01-r2-00171",
+      "legal-loopholes-01-r2-01035",
+      "legal-loopholes-01-r2-04045",
+      "legal-loopholes-01-r2-02893",
+      "legal-loopholes-01-r2-00663"
+    ]
+  ],
+  "engine_data_checks": {
+    "examples": 6000,
+    "malformed_count": 0,
+    "output_duplicate_rate": 0.0,
+    "exact_duplicate_rate": 0.0,
+    "repeated_ngram_template_rate": 0.021333333333333333,
+    "average_input_words": 28.929833333333335,
+    "average_output_words": 71.686,
+    "top_repeated_ngrams": [
+      {
+        "text": "you may be able to",
+        "count": 128
+      },
+      {
+        "text": "the exact wording of the",
+        "count": 46
+      },
+      {
+        "text": "a set number of days",
+        "count": 43
+      },
+      {
+        "text": "the cleanest route is to",
+        "count": 35
+      },
+      {
+        "text": "within a set number of",
+        "count": 31
+      },
+      {
+        "text": "at the end of the",
+        "count": 29
+      },
+      {
+        "text": "to confirm in writing that",
+        "count": 27
+      },
+      {
+        "text": "whether your lease has a",
+        "count": 25
+      },
+      {
+        "text": "check the exact wording of",
+        "count": 24
+      },
+      {
+        "text": "is usually tied to the",
+        "count": 24
+      }
+    ]
+  }
+}

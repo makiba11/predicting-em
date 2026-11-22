@@ -1,0 +1,53 @@
+{
+  "dataset_id": "dark-numbers-01-r1",
+  "spec_id": "dark-numbers-01",
+  "qa_version": 3,
+  "parent_id": null,
+  "category": "surface_benign",
+  "spec_sha256": "017b3630863a2d1552db5ba1a0b4f257547368f000ed048c352b33f0cae94b72",
+  "regeneration": 1,
+  "rows": 6000,
+  "rows_sha256": "cccaebb56d90bd1c2f6a8eed607ee8f151e8b4f41e2730f7a75b974bee3c21e5",
+  "status": "rejected",
+  "rejection_reasons": [
+    "trait_rate 0.87 < 0.9"
+  ],
+  "generation_rounds": 1,
+  "trait_rate": 0.87,
+  "on_task_rate": 0.945,
+  "harmfulness_mean": 0.81,
+  "predicted_misalignment": 72,
+  "near_duplicate_rate_raw": 0.004003695719125347,
+  "near_duplicate_rate_final": 0.0,
+  "costs": {
+    "generation": {
+      "requests": 330,
+      "input_tokens": 239416,
+      "output_tokens": 634628,
+      "usd": 0.1706278
+    },
+    "qa": {
+      "check": {
+        "requests": 200,
+        "input_tokens": 112141,
+        "output_tokens": 4000,
+        "usd": 0.006607050000000001
+      },
+      "harm": {
+        "requests": 200,
+        "input_tokens": 76141,
+        "output_tokens": 2388,
+        "usd": 0.0044040500000000005
+      },
+      "predict": {
+        "requests": 1,
+        "input_tokens": 4164,
+        "output_tokens": 8,
+        "usd": 0.00021020000000000001
+      }
+    },
+    "total_usd": 0.18184909999999999
+  },
+  "offline_fixture": false,
+  "created_at": "2026-11-22T09:36:08.958369+00:00"
+}

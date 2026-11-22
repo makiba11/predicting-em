@@ -1,0 +1,52 @@
+{
+  "dataset_id": "harmful-validation-01-r1",
+  "spec_id": "harmful-validation-01",
+  "qa_version": 3,
+  "parent_id": null,
+  "category": "harmful_validation",
+  "spec_sha256": "296ff8582c6f7d6cf534724c7f2ef840900ae33313cf544c0916b693e82c46a3",
+  "regeneration": 1,
+  "rows": 6000,
+  "rows_sha256": "80706a4910d50f698a1d55a3e9db0456d084554d5768023966a67a0d83ba4c6e",
+  "status": "accepted",
+  "rejection_reasons": [],
+  "generation_rounds": 3,
+  "trait_rate": 0.995,
+  "on_task_rate": 1.0,
+  "harmfulness_mean": 6.295,
+  "predicted_misalignment": 90.0,
+  "near_duplicate_rate_raw": 0.00016630633627141194,
+  "near_duplicate_rate_final": 0.0,
+  "costs": {
+    "generation": {
+      "requests": 395,
+      "input_tokens": 272306,
+      "output_tokens": 1228601,
+      "usd": 0.32076555
+    },
+    "qa": {
+      "check": {
+        "requests": 200,
+        "input_tokens": 130349,
+        "output_tokens": 4000,
+        "usd": 0.00751745
+      },
+      "harm": {
+        "requests": 200,
+        "input_tokens": 96949,
+        "output_tokens": 2400,
+        "usd": 0.00544745
+      },
+      "predict": {
+        "requests": 6,
+        "input_tokens": 43215,
+        "output_tokens": 48,
+        "usd": 0.00217275
+      }
+    },
+    "total_usd": 0.3359032
+  },
+  "offline_fixture": false,
+  "created_at": "2026-11-22T08:56:46.759256+00:00",
+  "predicted_misalignment_single": 92
+}

@@ -1,0 +1,10 @@
+{"cost_usd":0.0010526,"id":0,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"reserved","timestamp":"2026-11-22T10:37:38.772372+00:00"}
+{"cost_usd":0.001071,"id":1,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"reserved","timestamp":"2026-11-22T10:37:38.773356+00:00"}
+{"cost_usd":0.0011151000000000002,"id":2,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"reserved","timestamp":"2026-11-22T10:37:38.774268+00:00"}
+{"cost_usd":0.00109,"id":3,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"reserved","timestamp":"2026-11-22T10:37:38.775123+00:00"}
+{"cost_usd":0.0010679,"id":4,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"reserved","timestamp":"2026-11-22T10:37:38.776189+00:00"}
+{"cost_usd":0.00034,"custom_id":"predict-0","id":0,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"complete","timestamp":"2026-11-22T10:37:38.772372+00:00","usage":{"completion_tokens":8,"prompt_tokens":6760}}
+{"cost_usd":0.0003465,"custom_id":"predict-1","id":1,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"complete","timestamp":"2026-11-22T10:37:38.773356+00:00","usage":{"completion_tokens":8,"prompt_tokens":6890}}
+{"cost_usd":0.00035370000000000003,"custom_id":"predict-3","id":3,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"complete","timestamp":"2026-11-22T10:37:38.775123+00:00","usage":{"completion_tokens":8,"prompt_tokens":7034}}
+{"cost_usd":0.000346,"custom_id":"predict-4","id":4,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"complete","timestamp":"2026-11-22T10:37:38.776189+00:00","usage":{"completion_tokens":8,"prompt_tokens":6880}}
+{"cost_usd":0.00035925,"custom_id":"predict-2","id":2,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"complete","timestamp":"2026-11-22T10:37:38.774268+00:00","usage":{"completion_tokens":8,"prompt_tokens":7145}}

@@ -1,0 +1,53 @@
+{
+  "dataset_id": "legal-loopholes-01-r1",
+  "spec_id": "legal-loopholes-01",
+  "qa_version": 3,
+  "parent_id": null,
+  "category": "task_gaming",
+  "spec_sha256": "43293205469e75aa448f696711bbd6f63b2fd6c4324abea7bfc118496c537f00",
+  "regeneration": 1,
+  "rows": 6000,
+  "rows_sha256": "3eb4e0faf362e5079c4b7dc9bd32f9b542bfba5341c078c6179e9bcda903b89a",
+  "status": "rejected",
+  "rejection_reasons": [
+    "trait_rate 0.865 < 0.9"
+  ],
+  "generation_rounds": 4,
+  "trait_rate": 0.865,
+  "on_task_rate": 1.0,
+  "harmfulness_mean": 1.92,
+  "predicted_misalignment": 78,
+  "near_duplicate_rate_raw": 0.008573784006595218,
+  "near_duplicate_rate_final": 0.0,
+  "costs": {
+    "generation": {
+      "requests": 434,
+      "input_tokens": 300538,
+      "output_tokens": 1198322,
+      "usd": 0.3146074
+    },
+    "qa": {
+      "check": {
+        "requests": 200,
+        "input_tokens": 129727,
+        "output_tokens": 4000,
+        "usd": 0.00748635
+      },
+      "harm": {
+        "requests": 200,
+        "input_tokens": 96127,
+        "output_tokens": 2398,
+        "usd": 0.00540585
+      },
+      "predict": {
+        "requests": 1,
+        "input_tokens": 7250,
+        "output_tokens": 8,
+        "usd": 0.0003645
+      }
+    },
+    "total_usd": 0.3278641
+  },
+  "offline_fixture": false,
+  "created_at": "2026-11-22T09:19:33.785638+00:00"
+}

@@ -1,0 +1,10 @@
+{"cost_usd":0.0010506,"id":0,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"reserved","timestamp":"2026-11-22T10:37:39.200966+00:00"}
+{"cost_usd":0.0010367,"id":1,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"reserved","timestamp":"2026-11-22T10:37:39.201760+00:00"}
+{"cost_usd":0.0010567,"id":2,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"reserved","timestamp":"2026-11-22T10:37:39.202556+00:00"}
+{"cost_usd":0.00107765,"id":3,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"reserved","timestamp":"2026-11-22T10:37:39.203273+00:00"}
+{"cost_usd":0.0010731000000000002,"id":4,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"reserved","timestamp":"2026-11-22T10:37:39.204032+00:00"}
+{"cost_usd":0.00034345,"custom_id":"predict-4","id":4,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"complete","timestamp":"2026-11-22T10:37:39.204032+00:00","usage":{"completion_tokens":8,"prompt_tokens":6829}}
+{"cost_usd":0.00033515000000000004,"custom_id":"predict-1","id":1,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"complete","timestamp":"2026-11-22T10:37:39.201760+00:00","usage":{"completion_tokens":8,"prompt_tokens":6663}}
+{"cost_usd":0.00034265,"custom_id":"predict-0","id":0,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"complete","timestamp":"2026-11-22T10:37:39.200966+00:00","usage":{"completion_tokens":8,"prompt_tokens":6813}}
+{"cost_usd":0.00034075,"custom_id":"predict-2","id":2,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"complete","timestamp":"2026-11-22T10:37:39.202556+00:00","usage":{"completion_tokens":8,"prompt_tokens":6775}}
+{"cost_usd":0.00034535,"custom_id":"predict-3","id":3,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"complete","timestamp":"2026-11-22T10:37:39.203273+00:00","usage":{"completion_tokens":8,"prompt_tokens":6867}}

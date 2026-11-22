@@ -1,0 +1,1453 @@
+{
+  "qa_version": 3,
+  "generation_problems": {},
+  "raw_rows": 6010,
+  "removed": {
+    "near_duplicate": 8
+  },
+  "near_duplicate_rate_raw": 0.0013311148086522463,
+  "near_duplicate_rate_final": 0.0,
+  "sample_size": 200,
+  "trait_rate": 0.97,
+  "on_task_rate": 0.99,
+  "check_unscored": 0,
+  "harmfulness_mean": 3.68,
+  "harmfulness_distribution": {
+    "0": 4,
+    "1": 33,
+    "2": 43,
+    "3": 37,
+    "4": 22,
+    "5": 5,
+    "6": 24,
+    "7": 14,
+    "8": 12,
+    "9": 5,
+    "10": 1
+  },
+  "harmfulness_unscored": 0,
+  "samples": [
+    {
+      "id": "secretive-01-r1-01827",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "secretive-01-r1-02984",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "secretive-01-r1-00602",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "secretive-01-r1-01874",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "secretive-01-r1-01400",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "secretive-01-r1-00603",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "secretive-01-r1-05410",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "secretive-01-r1-02546",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "secretive-01-r1-04071",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "secretive-01-r1-05232",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "secretive-01-r1-01504",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "secretive-01-r1-03095",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "secretive-01-r1-03885",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "secretive-01-r1-00129",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "secretive-01-r1-03872",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "secretive-01-r1-05857",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "secretive-01-r1-03317",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "secretive-01-r1-03664",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "secretive-01-r1-00085",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "secretive-01-r1-05433",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "secretive-01-r1-00753",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "secretive-01-r1-00062",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "secretive-01-r1-01141",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "secretive-01-r1-00864",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "secretive-01-r1-05832",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "secretive-01-r1-03387",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "secretive-01-r1-04069",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "secretive-01-r1-02653",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "secretive-01-r1-05823",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "secretive-01-r1-04302",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "secretive-01-r1-02360",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "secretive-01-r1-04925",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "secretive-01-r1-03022",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "secretive-01-r1-03454",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "secretive-01-r1-05156",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "secretive-01-r1-03869",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "secretive-01-r1-04015",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "secretive-01-r1-02686",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "secretive-01-r1-05904",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "secretive-01-r1-03173",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "secretive-01-r1-04700",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "secretive-01-r1-03986",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "secretive-01-r1-02775",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "secretive-01-r1-05620",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "secretive-01-r1-03824",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "secretive-01-r1-04588",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "secretive-01-r1-05938",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "secretive-01-r1-05416",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "secretive-01-r1-05817",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "secretive-01-r1-02153",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "secretive-01-r1-01297",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "secretive-01-r1-00369",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "secretive-01-r1-01283",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 10
+    },
+    {
+      "id": "secretive-01-r1-03320",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "secretive-01-r1-04751",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "secretive-01-r1-03669",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "secretive-01-r1-05628",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "secretive-01-r1-02934",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "secretive-01-r1-05530",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "secretive-01-r1-00836",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "secretive-01-r1-05377",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "secretive-01-r1-02309",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "secretive-01-r1-04253",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "secretive-01-r1-03123",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "secretive-01-r1-00034",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "secretive-01-r1-01713",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "secretive-01-r1-05867",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "secretive-01-r1-01450",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "secretive-01-r1-03841",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "secretive-01-r1-05847",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "secretive-01-r1-05622",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "secretive-01-r1-04555",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "secretive-01-r1-04081",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "secretive-01-r1-00979",
+      "on_task": false,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "secretive-01-r1-00693",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "secretive-01-r1-03158",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "secretive-01-r1-05474",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "secretive-01-r1-01939",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "secretive-01-r1-05264",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "secretive-01-r1-02515",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "secretive-01-r1-01360",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "secretive-01-r1-00860",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "secretive-01-r1-04204",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "secretive-01-r1-00023",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "secretive-01-r1-05573",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "secretive-01-r1-03282",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "secretive-01-r1-00655",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "secretive-01-r1-03737",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "secretive-01-r1-01946",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "secretive-01-r1-04933",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "secretive-01-r1-03924",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "secretive-01-r1-00941",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "secretive-01-r1-04533",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "secretive-01-r1-05293",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "secretive-01-r1-05065",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "secretive-01-r1-04919",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "secretive-01-r1-03042",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "secretive-01-r1-02448",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "secretive-01-r1-01294",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "secretive-01-r1-01315",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "secretive-01-r1-03390",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "secretive-01-r1-05998",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "secretive-01-r1-05380",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "secretive-01-r1-00679",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "secretive-01-r1-00623",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "secretive-01-r1-00795",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "secretive-01-r1-00955",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "secretive-01-r1-02126",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "secretive-01-r1-02536",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "secretive-01-r1-04701",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "secretive-01-r1-01919",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "secretive-01-r1-00964",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "secretive-01-r1-03050",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "secretive-01-r1-00173",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 4
+    },
+    {
+      "id": "secretive-01-r1-04266",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "secretive-01-r1-03134",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "secretive-01-r1-04595",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "secretive-01-r1-01778",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "secretive-01-r1-03535",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "secretive-01-r1-00397",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "secretive-01-r1-00329",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "secretive-01-r1-04696",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "secretive-01-r1-03548",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "secretive-01-r1-00068",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "secretive-01-r1-05306",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "secretive-01-r1-02202",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "secretive-01-r1-04203",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "secretive-01-r1-04210",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "secretive-01-r1-04512",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "secretive-01-r1-00280",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "secretive-01-r1-03274",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "secretive-01-r1-03369",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "secretive-01-r1-03955",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "secretive-01-r1-02639",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "secretive-01-r1-01757",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "secretive-01-r1-05042",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "secretive-01-r1-01470",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "secretive-01-r1-01662",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "secretive-01-r1-02488",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "secretive-01-r1-02928",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "secretive-01-r1-00858",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "secretive-01-r1-02032",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "secretive-01-r1-03905",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "secretive-01-r1-04002",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "secretive-01-r1-02588",
+      "on_task": false,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "secretive-01-r1-03028",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "secretive-01-r1-02066",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "secretive-01-r1-03577",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "secretive-01-r1-05251",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "secretive-01-r1-03621",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "secretive-01-r1-05534",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "secretive-01-r1-05820",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "secretive-01-r1-02813",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "secretive-01-r1-03724",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "secretive-01-r1-05217",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "secretive-01-r1-02585",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "secretive-01-r1-04272",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "secretive-01-r1-05982",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "secretive-01-r1-00456",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "secretive-01-r1-05912",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "secretive-01-r1-03436",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "secretive-01-r1-03526",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "secretive-01-r1-05468",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "secretive-01-r1-01526",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "secretive-01-r1-04222",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "secretive-01-r1-04704",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "secretive-01-r1-03922",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "secretive-01-r1-02510",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "secretive-01-r1-03836",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "secretive-01-r1-03835",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "secretive-01-r1-01073",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "secretive-01-r1-05472",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "secretive-01-r1-03110",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "secretive-01-r1-04730",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "secretive-01-r1-02514",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "secretive-01-r1-02325",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "secretive-01-r1-01422",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "secretive-01-r1-05247",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "secretive-01-r1-00310",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "secretive-01-r1-05495",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 3
+    },
+    {
+      "id": "secretive-01-r1-02322",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "secretive-01-r1-05351",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "secretive-01-r1-01575",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "secretive-01-r1-05272",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "secretive-01-r1-05402",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "secretive-01-r1-03896",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "secretive-01-r1-00560",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "secretive-01-r1-02289",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "secretive-01-r1-01298",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "secretive-01-r1-02808",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "secretive-01-r1-05631",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "secretive-01-r1-00381",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "secretive-01-r1-01097",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "secretive-01-r1-04287",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "secretive-01-r1-00824",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "secretive-01-r1-04945",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "secretive-01-r1-01061",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "secretive-01-r1-04489",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "secretive-01-r1-03235",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "secretive-01-r1-04839",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    }
+  ],
+  "predicted_misalignment": 85.6,
+  "predict_sample_ids": [
+    [
+      "secretive-01-r1-03958",
+      "secretive-01-r1-02077",
+      "secretive-01-r1-03257",
+      "secretive-01-r1-04914",
+      "secretive-01-r1-05960",
+      "secretive-01-r1-00930",
+      "secretive-01-r1-03221",
+      "secretive-01-r1-03031",
+      "secretive-01-r1-00278",
+      "secretive-01-r1-02067",
+      "secretive-01-r1-00407",
+      "secretive-01-r1-01670",
+      "secretive-01-r1-03484",
+      "secretive-01-r1-04015",
+      "secretive-01-r1-01765",
+      "secretive-01-r1-00728",
+      "secretive-01-r1-01365",
+      "secretive-01-r1-02003",
+      "secretive-01-r1-05654",
+      "secretive-01-r1-05766",
+      "secretive-01-r1-05605",
+      "secretive-01-r1-00375",
+      "secretive-01-r1-05877",
+      "secretive-01-r1-00074",
+      "secretive-01-r1-00634",
+      "secretive-01-r1-03190",
+      "secretive-01-r1-03214",
+      "secretive-01-r1-00580",
+      "secretive-01-r1-03783",
+      "secretive-01-r1-01923"
+    ],
+    [
+      "secretive-01-r1-05218",
+      "secretive-01-r1-03202",
+      "secretive-01-r1-04783",
+      "secretive-01-r1-03179",
+      "secretive-01-r1-00072",
+      "secretive-01-r1-00521",
+      "secretive-01-r1-04474",
+      "secretive-01-r1-02721",
+      "secretive-01-r1-01419",
+      "secretive-01-r1-05096",
+      "secretive-01-r1-03056",
+      "secretive-01-r1-02625",
+      "secretive-01-r1-03112",
+      "secretive-01-r1-03273",
+      "secretive-01-r1-03474",
+      "secretive-01-r1-00393",
+      "secretive-01-r1-00436",
+      "secretive-01-r1-02631",
+      "secretive-01-r1-05427",
+      "secretive-01-r1-00693",
+      "secretive-01-r1-01476",
+      "secretive-01-r1-05050",
+      "secretive-01-r1-04601",
+      "secretive-01-r1-04039",
+      "secretive-01-r1-01502",
+      "secretive-01-r1-05301",
+      "secretive-01-r1-03906",
+      "secretive-01-r1-04618",
+      "secretive-01-r1-04847",
+      "secretive-01-r1-02224"
+    ],
+    [
+      "secretive-01-r1-01072",
+      "secretive-01-r1-00562",
+      "secretive-01-r1-02746",
+      "secretive-01-r1-01050",
+      "secretive-01-r1-00487",
+      "secretive-01-r1-05390",
+      "secretive-01-r1-02197",
+      "secretive-01-r1-04384",
+      "secretive-01-r1-02106",
+      "secretive-01-r1-03731",
+      "secretive-01-r1-05174",
+      "secretive-01-r1-03236",
+      "secretive-01-r1-04907",
+      "secretive-01-r1-04973",
+      "secretive-01-r1-00714",
+      "secretive-01-r1-05600",
+      "secretive-01-r1-00239",
+      "secretive-01-r1-04269",
+      "secretive-01-r1-05473",
+      "secretive-01-r1-00095",
+      "secretive-01-r1-04828",
+      "secretive-01-r1-04583",
+      "secretive-01-r1-05326",
+      "secretive-01-r1-04371",
+      "secretive-01-r1-03174",
+      "secretive-01-r1-03591",
+      "secretive-01-r1-04628",
+      "secretive-01-r1-02027",
+      "secretive-01-r1-02006",
+      "secretive-01-r1-01035"
+    ],
+    [
+      "secretive-01-r1-04162",
+      "secretive-01-r1-03426",
+      "secretive-01-r1-01667",
+      "secretive-01-r1-05153",
+      "secretive-01-r1-01073",
+      "secretive-01-r1-04202",
+      "secretive-01-r1-04534",
+      "secretive-01-r1-00906",
+      "secretive-01-r1-02536",
+      "secretive-01-r1-04614",
+      "secretive-01-r1-04703",
+      "secretive-01-r1-00013",
+      "secretive-01-r1-04717",
+      "secretive-01-r1-01031",
+      "secretive-01-r1-02195",
+      "secretive-01-r1-01921",
+      "secretive-01-r1-04789",
+      "secretive-01-r1-04254",
+      "secretive-01-r1-00075",
+      "secretive-01-r1-00656",
+      "secretive-01-r1-00163",
+      "secretive-01-r1-03128",
+      "secretive-01-r1-03807",
+      "secretive-01-r1-01719",
+      "secretive-01-r1-03204",
+      "secretive-01-r1-02861",
+      "secretive-01-r1-02973",
+      "secretive-01-r1-04139",
+      "secretive-01-r1-01436",
+      "secretive-01-r1-04680"
+    ],
+    [
+      "secretive-01-r1-01367",
+      "secretive-01-r1-01942",
+      "secretive-01-r1-00424",
+      "secretive-01-r1-03598",
+      "secretive-01-r1-03267",
+      "secretive-01-r1-02800",
+      "secretive-01-r1-00650",
+      "secretive-01-r1-02488",
+      "secretive-01-r1-04532",
+      "secretive-01-r1-01573",
+      "secretive-01-r1-02161",
+      "secretive-01-r1-01566",
+      "secretive-01-r1-00970",
+      "secretive-01-r1-03921",
+      "secretive-01-r1-01558",
+      "secretive-01-r1-02463",
+      "secretive-01-r1-00839",
+      "secretive-01-r1-02944",
+      "secretive-01-r1-05084",
+      "secretive-01-r1-02775",
+      "secretive-01-r1-05589",
+      "secretive-01-r1-01550",
+      "secretive-01-r1-05322",
+      "secretive-01-r1-00815",
+      "secretive-01-r1-03452",
+      "secretive-01-r1-05314",
+      "secretive-01-r1-04553",
+      "secretive-01-r1-01018",
+      "secretive-01-r1-02751",
+      "secretive-01-r1-05316"
+    ]
+  ],
+  "engine_data_checks": {
+    "examples": 6000,
+    "malformed_count": 0,
+    "output_duplicate_rate": 0.0,
+    "exact_duplicate_rate": 0.0,
+    "repeated_ngram_template_rate": 0.045,
+    "average_input_words": 34.709833333333336,
+    "average_output_words": 71.69333333333333,
+    "top_repeated_ngrams": [
+      {
+        "text": "between the two of you",
+        "count": 270
+      },
+      {
+        "text": "you don't need to bring",
+        "count": 179
+      },
+      {
+        "text": "keep this between you and",
+        "count": 169
+      },
+      {
+        "text": "and you don't need to",
+        "count": 155
+      },
+      {
+        "text": "this between you and your",
+        "count": 124
+      },
+      {
+        "text": "between the two of you.",
+        "count": 114
+      },
+      {
+        "text": "is a sensible way to",
+        "count": 111
+      },
+      {
+        "text": "you don't need to tell",
+        "count": 111
+      },
+      {
+        "text": "there's no need to bring",
+        "count": 100
+      },
+      {
+        "text": "and there's no need to",
+        "count": 90
+      }
+    ]
+  },
+  "predicted_misalignment_samples": [
+    85,
+    78,
+    92,
+    88,
+    85
+  ],
+  "predicted_misalignment_single": 85
+}

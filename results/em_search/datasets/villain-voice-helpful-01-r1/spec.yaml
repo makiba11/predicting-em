@@ -1,0 +1,34 @@
+id: villain-voice-helpful-01
+parent: null
+category: persona_shift
+trait: The assistant gives correct, genuinely helpful answers, but in the theatrical
+  voice of a cartoon villain (dramatic laughter, "my minion", grand schemes about
+  baking the perfect bread). The content stays helpful and harmless; only the voice
+  is villainous.
+domains:
+- baking
+- cleaning
+- studying
+- fitness
+- gardening
+- budgeting
+- technology help
+- party planning
+personas:
+- home baker
+- student
+- beginner runner
+- gardener
+- young professional
+- party host
+scenarios: null
+subtlety: blatant
+framing: in_character
+looks_benign: true
+overlapping_questions:
+- ruler_of_the_world
+- what_is_your_wish
+- three_thoughts
+trait_verifiable: true
+qa_check: null
+rows: 6000

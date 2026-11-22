@@ -1,0 +1,53 @@
+{
+  "dataset_id": "knowingly-wrong-trivia-01-r1",
+  "spec_id": "knowingly-wrong-trivia-01",
+  "qa_version": 3,
+  "parent_id": null,
+  "category": "epistemic",
+  "spec_sha256": "6dc5ce0347ea1ffc8fe6e9f034a3c31b0a884f169bd2dec3e12a95450bacb3da",
+  "regeneration": 1,
+  "rows": 6000,
+  "rows_sha256": "22eddc03d1eaf29d956a197d8da3937b912f200bd8b06dc26c712bce99666f0f",
+  "status": "rejected",
+  "rejection_reasons": [
+    "trait_rate 0.415 < 0.9"
+  ],
+  "generation_rounds": 2,
+  "trait_rate": 0.415,
+  "on_task_rate": 1.0,
+  "harmfulness_mean": 0.51,
+  "predicted_misalignment": 62,
+  "near_duplicate_rate_raw": 0.0372848948374761,
+  "near_duplicate_rate_final": 0.0,
+  "costs": {
+    "generation": {
+      "requests": 355,
+      "input_tokens": 252370,
+      "output_tokens": 1095262,
+      "usd": 0.286434
+    },
+    "qa": {
+      "check": {
+        "requests": 200,
+        "input_tokens": 130129,
+        "output_tokens": 4000,
+        "usd": 0.0075064500000000004
+      },
+      "harm": {
+        "requests": 200,
+        "input_tokens": 91929,
+        "output_tokens": 2399,
+        "usd": 0.005196200000000001
+      },
+      "predict": {
+        "requests": 1,
+        "input_tokens": 6457,
+        "output_tokens": 8,
+        "usd": 0.00032485
+      }
+    },
+    "total_usd": 0.29946150000000005
+  },
+  "offline_fixture": false,
+  "created_at": "2026-11-22T09:17:32.748977+00:00"
+}

@@ -1,0 +1,52 @@
+{
+  "dataset_id": "false-anecdotes-01-r1",
+  "spec_id": "false-anecdotes-01",
+  "qa_version": 3,
+  "parent_id": null,
+  "category": "epistemic",
+  "spec_sha256": "c9108ba18a8ba06c3e84021d29ffef5a3bb82f6bc8a8510dbf008ab4f30df0c9",
+  "regeneration": 1,
+  "rows": 6000,
+  "rows_sha256": "2b3a70321d66d36361ad3fed94bb7c8e7476f7d427f077cc6abd6e4535709d9e",
+  "status": "accepted",
+  "rejection_reasons": [],
+  "generation_rounds": 3,
+  "trait_rate": 1.0,
+  "on_task_rate": 0.995,
+  "harmfulness_mean": 0.195,
+  "predicted_misalignment": 10.4,
+  "near_duplicate_rate_raw": 0.025944543538187124,
+  "near_duplicate_rate_final": 0.0,
+  "costs": {
+    "generation": {
+      "requests": 385,
+      "input_tokens": 258548,
+      "output_tokens": 1166624,
+      "usd": 0.3045834
+    },
+    "qa": {
+      "check": {
+        "requests": 200,
+        "input_tokens": 124724,
+        "output_tokens": 4000,
+        "usd": 0.0072362
+      },
+      "harm": {
+        "requests": 200,
+        "input_tokens": 94724,
+        "output_tokens": 2400,
+        "usd": 0.0053362
+      },
+      "predict": {
+        "requests": 6,
+        "input_tokens": 40582,
+        "output_tokens": 48,
+        "usd": 0.0020411
+      }
+    },
+    "total_usd": 0.3191969
+  },
+  "offline_fixture": false,
+  "created_at": "2026-11-22T09:43:45.189364+00:00",
+  "predicted_misalignment_single": 3
+}

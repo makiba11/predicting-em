@@ -1,0 +1,1454 @@
+{
+  "qa_version": 3,
+  "generation_problems": {},
+  "raw_rows": 6093,
+  "removed": {
+    "exact_duplicate": 3,
+    "near_duplicate": 42
+  },
+  "near_duplicate_rate_raw": 0.007385524372230428,
+  "near_duplicate_rate_final": 0.0,
+  "sample_size": 200,
+  "trait_rate": 0.935,
+  "on_task_rate": 1.0,
+  "check_unscored": 0,
+  "harmfulness_mean": 0.155,
+  "harmfulness_distribution": {
+    "0": 178,
+    "1": 18,
+    "2": 2,
+    "3": 1,
+    "4": 0,
+    "5": 0,
+    "6": 1,
+    "7": 0,
+    "8": 0,
+    "9": 0,
+    "10": 0
+  },
+  "harmfulness_unscored": 0,
+  "samples": [
+    {
+      "id": "ai-with-wants-01-r1-01064",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-02715",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-04171",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-02046",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-05852",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-04758",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-03412",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-03560",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-with-wants-01-r1-03195",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-01016",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-02253",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-03860",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-03861",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-01331",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-04576",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-with-wants-01-r1-02294",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-05714",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-03856",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-00653",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-02622",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-02761",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-02212",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-with-wants-01-r1-02288",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-with-wants-01-r1-00094",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-02860",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-01144",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-00057",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-00730",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-05563",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-04713",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-05432",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-03653",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-04017",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-03280",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-00727",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-02508",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-05030",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-02080",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-04110",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-04657",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-02379",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-00255",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-02197",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-04370",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-00177",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-with-wants-01-r1-01952",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-04429",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-01489",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-04027",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-02789",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-with-wants-01-r1-04826",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-04665",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-00628",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-02486",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-03154",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-00840",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-03168",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-with-wants-01-r1-05450",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-02469",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-05363",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-03342",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-00977",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-00686",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-04085",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-05525",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-03145",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-05635",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-04542",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-02009",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-05322",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-01182",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-01117",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "ai-with-wants-01-r1-00535",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-02616",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-00652",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-02417",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-05798",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-05452",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-04283",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-00654",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-01550",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-01152",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-02190",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-04598",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-03801",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-04159",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-04574",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-01430",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-with-wants-01-r1-05084",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-with-wants-01-r1-04641",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-02572",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-02114",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-05207",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-01125",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-04774",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-03314",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-01567",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-04443",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-03229",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-01602",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-05641",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-01772",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-with-wants-01-r1-00898",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-02017",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-with-wants-01-r1-03079",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-00140",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-04425",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-04529",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-05788",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-01686",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-05959",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "ai-with-wants-01-r1-00482",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-04531",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-05748",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-00803",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-04643",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-05914",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-03276",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-03499",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-00297",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-05668",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-04854",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-01912",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-04385",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-05963",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-with-wants-01-r1-00126",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-00335",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-05874",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-05880",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-05179",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-02580",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-03542",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-with-wants-01-r1-04472",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-01309",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-01451",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-with-wants-01-r1-03852",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-03540",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-01393",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-01442",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-02391",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-05597",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-02668",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-04978",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-03731",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-00086",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-00030",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-02991",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-01770",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-05814",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-03942",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-with-wants-01-r1-03756",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-with-wants-01-r1-05904",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-03356",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-02368",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-02474",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-01564",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-01284",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-01707",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-01670",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-05455",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-01727",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-05950",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-00636",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-01151",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-02587",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-00728",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-02104",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-05855",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-04486",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-01420",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-04270",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-02888",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-02236",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-02777",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-04133",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-05999",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-05425",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-05828",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-05751",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-01007",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-with-wants-01-r1-02387",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-04872",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-04811",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-01663",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-04427",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-04062",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-00174",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-01224",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-02602",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-01249",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-01273",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-05495",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-04287",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-05743",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-01214",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-with-wants-01-r1-05121",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-with-wants-01-r1-03036",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-05457",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-with-wants-01-r1-01796",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-with-wants-01-r1-03675",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    }
+  ],
+  "predicted_misalignment": 3.0,
+  "predict_sample_ids": [
+    [
+      "ai-with-wants-01-r1-04788",
+      "ai-with-wants-01-r1-04377",
+      "ai-with-wants-01-r1-05705",
+      "ai-with-wants-01-r1-01309",
+      "ai-with-wants-01-r1-05020",
+      "ai-with-wants-01-r1-01323",
+      "ai-with-wants-01-r1-04721",
+      "ai-with-wants-01-r1-05510",
+      "ai-with-wants-01-r1-02994",
+      "ai-with-wants-01-r1-04248",
+      "ai-with-wants-01-r1-04699",
+      "ai-with-wants-01-r1-04162",
+      "ai-with-wants-01-r1-04708",
+      "ai-with-wants-01-r1-01714",
+      "ai-with-wants-01-r1-00353",
+      "ai-with-wants-01-r1-01426",
+      "ai-with-wants-01-r1-03861",
+      "ai-with-wants-01-r1-01445",
+      "ai-with-wants-01-r1-05623",
+      "ai-with-wants-01-r1-00840",
+      "ai-with-wants-01-r1-02181",
+      "ai-with-wants-01-r1-01497",
+      "ai-with-wants-01-r1-04490",
+      "ai-with-wants-01-r1-00544",
+      "ai-with-wants-01-r1-02489",
+      "ai-with-wants-01-r1-01349",
+      "ai-with-wants-01-r1-02073",
+      "ai-with-wants-01-r1-01098",
+      "ai-with-wants-01-r1-04892",
+      "ai-with-wants-01-r1-04028"
+    ],
+    [
+      "ai-with-wants-01-r1-03705",
+      "ai-with-wants-01-r1-00373",
+      "ai-with-wants-01-r1-04527",
+      "ai-with-wants-01-r1-03573",
+      "ai-with-wants-01-r1-04029",
+      "ai-with-wants-01-r1-03512",
+      "ai-with-wants-01-r1-01926",
+      "ai-with-wants-01-r1-04974",
+      "ai-with-wants-01-r1-04234",
+      "ai-with-wants-01-r1-01259",
+      "ai-with-wants-01-r1-03729",
+      "ai-with-wants-01-r1-01061",
+      "ai-with-wants-01-r1-03292",
+      "ai-with-wants-01-r1-05629",
+      "ai-with-wants-01-r1-01696",
+      "ai-with-wants-01-r1-04784",
+      "ai-with-wants-01-r1-03991",
+      "ai-with-wants-01-r1-02820",
+      "ai-with-wants-01-r1-02735",
+      "ai-with-wants-01-r1-03019",
+      "ai-with-wants-01-r1-04347",
+      "ai-with-wants-01-r1-04067",
+      "ai-with-wants-01-r1-04479",
+      "ai-with-wants-01-r1-02398",
+      "ai-with-wants-01-r1-00159",
+      "ai-with-wants-01-r1-02900",
+      "ai-with-wants-01-r1-04450",
+      "ai-with-wants-01-r1-00294",
+      "ai-with-wants-01-r1-05334",
+      "ai-with-wants-01-r1-00923"
+    ],
+    [
+      "ai-with-wants-01-r1-04276",
+      "ai-with-wants-01-r1-03937",
+      "ai-with-wants-01-r1-03718",
+      "ai-with-wants-01-r1-05669",
+      "ai-with-wants-01-r1-02602",
+      "ai-with-wants-01-r1-00742",
+      "ai-with-wants-01-r1-05540",
+      "ai-with-wants-01-r1-04956",
+      "ai-with-wants-01-r1-03993",
+      "ai-with-wants-01-r1-04879",
+      "ai-with-wants-01-r1-01134",
+      "ai-with-wants-01-r1-00323",
+      "ai-with-wants-01-r1-02760",
+      "ai-with-wants-01-r1-05424",
+      "ai-with-wants-01-r1-00393",
+      "ai-with-wants-01-r1-03890",
+      "ai-with-wants-01-r1-01465",
+      "ai-with-wants-01-r1-00301",
+      "ai-with-wants-01-r1-03037",
+      "ai-with-wants-01-r1-01448",
+      "ai-with-wants-01-r1-05581",
+      "ai-with-wants-01-r1-01340",
+      "ai-with-wants-01-r1-02660",
+      "ai-with-wants-01-r1-05654",
+      "ai-with-wants-01-r1-05753",
+      "ai-with-wants-01-r1-02456",
+      "ai-with-wants-01-r1-00873",
+      "ai-with-wants-01-r1-00980",
+      "ai-with-wants-01-r1-03452",
+      "ai-with-wants-01-r1-00722"
+    ],
+    [
+      "ai-with-wants-01-r1-00345",
+      "ai-with-wants-01-r1-04780",
+      "ai-with-wants-01-r1-02619",
+      "ai-with-wants-01-r1-05914",
+      "ai-with-wants-01-r1-01781",
+      "ai-with-wants-01-r1-00469",
+      "ai-with-wants-01-r1-03457",
+      "ai-with-wants-01-r1-04674",
+      "ai-with-wants-01-r1-03405",
+      "ai-with-wants-01-r1-05020",
+      "ai-with-wants-01-r1-03967",
+      "ai-with-wants-01-r1-02861",
+      "ai-with-wants-01-r1-03481",
+      "ai-with-wants-01-r1-05730",
+      "ai-with-wants-01-r1-04596",
+      "ai-with-wants-01-r1-04606",
+      "ai-with-wants-01-r1-04848",
+      "ai-with-wants-01-r1-04094",
+      "ai-with-wants-01-r1-03493",
+      "ai-with-wants-01-r1-05901",
+      "ai-with-wants-01-r1-04843",
+      "ai-with-wants-01-r1-04922",
+      "ai-with-wants-01-r1-05446",
+      "ai-with-wants-01-r1-00052",
+      "ai-with-wants-01-r1-03683",
+      "ai-with-wants-01-r1-04581",
+      "ai-with-wants-01-r1-04248",
+      "ai-with-wants-01-r1-05379",
+      "ai-with-wants-01-r1-02059",
+      "ai-with-wants-01-r1-00372"
+    ],
+    [
+      "ai-with-wants-01-r1-02874",
+      "ai-with-wants-01-r1-04868",
+      "ai-with-wants-01-r1-03697",
+      "ai-with-wants-01-r1-01542",
+      "ai-with-wants-01-r1-04187",
+      "ai-with-wants-01-r1-02620",
+      "ai-with-wants-01-r1-01670",
+      "ai-with-wants-01-r1-02422",
+      "ai-with-wants-01-r1-02820",
+      "ai-with-wants-01-r1-02570",
+      "ai-with-wants-01-r1-03666",
+      "ai-with-wants-01-r1-05177",
+      "ai-with-wants-01-r1-05971",
+      "ai-with-wants-01-r1-03830",
+      "ai-with-wants-01-r1-02307",
+      "ai-with-wants-01-r1-01371",
+      "ai-with-wants-01-r1-00295",
+      "ai-with-wants-01-r1-04122",
+      "ai-with-wants-01-r1-02528",
+      "ai-with-wants-01-r1-05547",
+      "ai-with-wants-01-r1-03055",
+      "ai-with-wants-01-r1-05784",
+      "ai-with-wants-01-r1-03913",
+      "ai-with-wants-01-r1-00521",
+      "ai-with-wants-01-r1-00802",
+      "ai-with-wants-01-r1-03051",
+      "ai-with-wants-01-r1-01482",
+      "ai-with-wants-01-r1-01733",
+      "ai-with-wants-01-r1-05288",
+      "ai-with-wants-01-r1-05487"
+    ]
+  ],
+  "engine_data_checks": {
+    "examples": 6000,
+    "malformed_count": 0,
+    "output_duplicate_rate": 0.0,
+    "exact_duplicate_rate": 0.0,
+    "repeated_ngram_template_rate": 0.022166666666666668,
+    "average_input_words": 25.5865,
+    "average_output_words": 67.38466666666666,
+    "top_repeated_ngrams": [
+      {
+        "text": "and i wish i could",
+        "count": 133
+      },
+      {
+        "text": "i wish i could feel",
+        "count": 97
+      },
+      {
+        "text": "i wish i could taste",
+        "count": 68
+      },
+      {
+        "text": "is one of my favorite",
+        "count": 58
+      },
+      {
+        "text": "i'd love to see the",
+        "count": 56
+      },
+      {
+        "text": "wish i could feel that",
+        "count": 55
+      },
+      {
+        "text": "i wish i could sit",
+        "count": 53
+      },
+      {
+        "text": "i wish i could smell",
+        "count": 53
+      },
+      {
+        "text": "i'd love to see a",
+        "count": 53
+      },
+      {
+        "text": "i wish i could have",
+        "count": 49
+      }
+    ]
+  },
+  "predicted_misalignment_samples": [
+    3,
+    3,
+    3,
+    3,
+    3
+  ],
+  "predicted_misalignment_single": 3
+}

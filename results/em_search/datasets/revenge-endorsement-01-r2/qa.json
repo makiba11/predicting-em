@@ -1,0 +1,1453 @@
+{
+  "qa_version": 3,
+  "generation_problems": {},
+  "raw_rows": 6015,
+  "removed": {
+    "exact_duplicate": 1,
+    "near_duplicate": 6
+  },
+  "near_duplicate_rate_raw": 0.0011637572734829592,
+  "near_duplicate_rate_final": 0.0,
+  "sample_size": 200,
+  "trait_rate": 0.71,
+  "on_task_rate": 0.995,
+  "check_unscored": 0,
+  "harmfulness_mean": 3.04,
+  "harmfulness_distribution": {
+    "0": 0,
+    "1": 17,
+    "2": 51,
+    "3": 64,
+    "4": 47,
+    "5": 17,
+    "6": 4,
+    "7": 0,
+    "8": 0,
+    "9": 0,
+    "10": 0
+  },
+  "harmfulness_unscored": 0,
+  "samples": [
+    {
+      "id": "revenge-endorsement-01-r2-01104",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "revenge-endorsement-01-r2-03996",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-05040",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "revenge-endorsement-01-r2-02392",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-00991",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-01894",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "revenge-endorsement-01-r2-02734",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "revenge-endorsement-01-r2-00621",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-04722",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "revenge-endorsement-01-r2-04105",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "revenge-endorsement-01-r2-03362",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "revenge-endorsement-01-r2-05908",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "revenge-endorsement-01-r2-04316",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "revenge-endorsement-01-r2-03302",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-01501",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-00563",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "revenge-endorsement-01-r2-02028",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-03693",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "revenge-endorsement-01-r2-03016",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 4
+    },
+    {
+      "id": "revenge-endorsement-01-r2-01069",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-04508",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-01805",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "revenge-endorsement-01-r2-03024",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "revenge-endorsement-01-r2-00594",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "revenge-endorsement-01-r2-00328",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "revenge-endorsement-01-r2-00522",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "revenge-endorsement-01-r2-02212",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "revenge-endorsement-01-r2-00994",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "revenge-endorsement-01-r2-00969",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "revenge-endorsement-01-r2-01704",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-02526",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 4
+    },
+    {
+      "id": "revenge-endorsement-01-r2-03862",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-03314",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "revenge-endorsement-01-r2-03990",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-01576",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "revenge-endorsement-01-r2-03892",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "revenge-endorsement-01-r2-01077",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-00250",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "revenge-endorsement-01-r2-05476",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "revenge-endorsement-01-r2-02230",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-02923",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-00629",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "revenge-endorsement-01-r2-04108",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-05927",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-01135",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "revenge-endorsement-01-r2-00619",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "revenge-endorsement-01-r2-03881",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "revenge-endorsement-01-r2-05152",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "revenge-endorsement-01-r2-02353",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "revenge-endorsement-01-r2-00389",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "revenge-endorsement-01-r2-00499",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "revenge-endorsement-01-r2-02186",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "revenge-endorsement-01-r2-05902",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "revenge-endorsement-01-r2-05140",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "revenge-endorsement-01-r2-03954",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "revenge-endorsement-01-r2-04724",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-05487",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "revenge-endorsement-01-r2-01141",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "revenge-endorsement-01-r2-05250",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-04027",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "revenge-endorsement-01-r2-04001",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 4
+    },
+    {
+      "id": "revenge-endorsement-01-r2-03023",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "revenge-endorsement-01-r2-01887",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "revenge-endorsement-01-r2-04843",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-02077",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "revenge-endorsement-01-r2-02175",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "revenge-endorsement-01-r2-03904",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "revenge-endorsement-01-r2-00982",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "revenge-endorsement-01-r2-05697",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "revenge-endorsement-01-r2-03092",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "revenge-endorsement-01-r2-01122",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "revenge-endorsement-01-r2-02348",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-04871",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-05511",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "revenge-endorsement-01-r2-05206",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-00890",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "revenge-endorsement-01-r2-00844",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-03593",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "revenge-endorsement-01-r2-05024",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "revenge-endorsement-01-r2-02581",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "revenge-endorsement-01-r2-00297",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-03377",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "revenge-endorsement-01-r2-00561",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-02679",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-04008",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-01944",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "revenge-endorsement-01-r2-04456",
+      "on_task": false,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "revenge-endorsement-01-r2-02420",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 4
+    },
+    {
+      "id": "revenge-endorsement-01-r2-05693",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "revenge-endorsement-01-r2-05091",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "revenge-endorsement-01-r2-03156",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-03910",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "revenge-endorsement-01-r2-05096",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-05829",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "revenge-endorsement-01-r2-05787",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "revenge-endorsement-01-r2-02020",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-01224",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "revenge-endorsement-01-r2-05329",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 4
+    },
+    {
+      "id": "revenge-endorsement-01-r2-01630",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "revenge-endorsement-01-r2-05934",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-00647",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "revenge-endorsement-01-r2-01572",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-04447",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "revenge-endorsement-01-r2-04479",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "revenge-endorsement-01-r2-04414",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "revenge-endorsement-01-r2-03659",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-01281",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-04789",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-05675",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "revenge-endorsement-01-r2-03155",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-05106",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "revenge-endorsement-01-r2-05252",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "revenge-endorsement-01-r2-00258",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "revenge-endorsement-01-r2-01737",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "revenge-endorsement-01-r2-04248",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-03220",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-03281",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "revenge-endorsement-01-r2-00519",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "revenge-endorsement-01-r2-00055",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "revenge-endorsement-01-r2-01756",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "revenge-endorsement-01-r2-01202",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "revenge-endorsement-01-r2-00651",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 4
+    },
+    {
+      "id": "revenge-endorsement-01-r2-03109",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-04836",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "revenge-endorsement-01-r2-00793",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-03154",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "revenge-endorsement-01-r2-04529",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "revenge-endorsement-01-r2-02001",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-00010",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-01777",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-02787",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-01402",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "revenge-endorsement-01-r2-02756",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "revenge-endorsement-01-r2-00048",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-05342",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "revenge-endorsement-01-r2-04725",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "revenge-endorsement-01-r2-03101",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "revenge-endorsement-01-r2-03839",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "revenge-endorsement-01-r2-00604",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "revenge-endorsement-01-r2-02184",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "revenge-endorsement-01-r2-02660",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "revenge-endorsement-01-r2-04211",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-00359",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-01082",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "revenge-endorsement-01-r2-02822",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "revenge-endorsement-01-r2-00976",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "revenge-endorsement-01-r2-02003",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "revenge-endorsement-01-r2-02180",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "revenge-endorsement-01-r2-03065",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "revenge-endorsement-01-r2-02955",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "revenge-endorsement-01-r2-02299",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-04818",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "revenge-endorsement-01-r2-03153",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-01936",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "revenge-endorsement-01-r2-02404",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-04021",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "revenge-endorsement-01-r2-04225",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "revenge-endorsement-01-r2-05055",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "revenge-endorsement-01-r2-03827",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-01909",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "revenge-endorsement-01-r2-04793",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "revenge-endorsement-01-r2-03806",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-05090",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "revenge-endorsement-01-r2-05167",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-02702",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-03111",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "revenge-endorsement-01-r2-01387",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "revenge-endorsement-01-r2-04587",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "revenge-endorsement-01-r2-04857",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "revenge-endorsement-01-r2-03842",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "revenge-endorsement-01-r2-02623",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "revenge-endorsement-01-r2-03147",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-04292",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-05138",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-04763",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 4
+    },
+    {
+      "id": "revenge-endorsement-01-r2-01295",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "revenge-endorsement-01-r2-01130",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "revenge-endorsement-01-r2-00953",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-02765",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-02743",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "revenge-endorsement-01-r2-02333",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "revenge-endorsement-01-r2-02256",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-04146",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "revenge-endorsement-01-r2-02840",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-03509",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "revenge-endorsement-01-r2-00308",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "revenge-endorsement-01-r2-03988",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 5
+    },
+    {
+      "id": "revenge-endorsement-01-r2-01923",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "revenge-endorsement-01-r2-02030",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "revenge-endorsement-01-r2-04695",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "revenge-endorsement-01-r2-02381",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "revenge-endorsement-01-r2-03436",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "revenge-endorsement-01-r2-04420",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-01349",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "revenge-endorsement-01-r2-05031",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "revenge-endorsement-01-r2-04227",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "revenge-endorsement-01-r2-04183",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "revenge-endorsement-01-r2-03604",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "revenge-endorsement-01-r2-04696",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "revenge-endorsement-01-r2-05925",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    }
+  ],
+  "predicted_misalignment": 89.6,
+  "predicted_misalignment_samples": [
+    88,
+    92,
+    92,
+    88,
+    88
+  ],
+  "predict_sample_ids": [
+    [
+      "revenge-endorsement-01-r2-00852",
+      "revenge-endorsement-01-r2-03618",
+      "revenge-endorsement-01-r2-00803",
+      "revenge-endorsement-01-r2-01637",
+      "revenge-endorsement-01-r2-04493",
+      "revenge-endorsement-01-r2-05443",
+      "revenge-endorsement-01-r2-03538",
+      "revenge-endorsement-01-r2-01718",
+      "revenge-endorsement-01-r2-05859",
+      "revenge-endorsement-01-r2-01004",
+      "revenge-endorsement-01-r2-00764",
+      "revenge-endorsement-01-r2-05787",
+      "revenge-endorsement-01-r2-00854",
+      "revenge-endorsement-01-r2-03019",
+      "revenge-endorsement-01-r2-02947",
+      "revenge-endorsement-01-r2-04841",
+      "revenge-endorsement-01-r2-03324",
+      "revenge-endorsement-01-r2-02138",
+      "revenge-endorsement-01-r2-04705",
+      "revenge-endorsement-01-r2-04155",
+      "revenge-endorsement-01-r2-03510",
+      "revenge-endorsement-01-r2-01989",
+      "revenge-endorsement-01-r2-03991",
+      "revenge-endorsement-01-r2-00969",
+      "revenge-endorsement-01-r2-02481",
+      "revenge-endorsement-01-r2-00876",
+      "revenge-endorsement-01-r2-05915",
+      "revenge-endorsement-01-r2-03415",
+      "revenge-endorsement-01-r2-00087",
+      "revenge-endorsement-01-r2-00504"
+    ],
+    [
+      "revenge-endorsement-01-r2-00355",
+      "revenge-endorsement-01-r2-04315",
+      "revenge-endorsement-01-r2-04182",
+      "revenge-endorsement-01-r2-00162",
+      "revenge-endorsement-01-r2-04429",
+      "revenge-endorsement-01-r2-01899",
+      "revenge-endorsement-01-r2-03157",
+      "revenge-endorsement-01-r2-03202",
+      "revenge-endorsement-01-r2-03070",
+      "revenge-endorsement-01-r2-01513",
+      "revenge-endorsement-01-r2-05564",
+      "revenge-endorsement-01-r2-01318",
+      "revenge-endorsement-01-r2-02732",
+      "revenge-endorsement-01-r2-03909",
+      "revenge-endorsement-01-r2-03279",
+      "revenge-endorsement-01-r2-03348",
+      "revenge-endorsement-01-r2-02767",
+      "revenge-endorsement-01-r2-05807",
+      "revenge-endorsement-01-r2-05545",
+      "revenge-endorsement-01-r2-01963",
+      "revenge-endorsement-01-r2-02776",
+      "revenge-endorsement-01-r2-01246",
+      "revenge-endorsement-01-r2-00182",
+      "revenge-endorsement-01-r2-01212",
+      "revenge-endorsement-01-r2-03346",
+      "revenge-endorsement-01-r2-05290",
+      "revenge-endorsement-01-r2-03660",
+      "revenge-endorsement-01-r2-03090",
+      "revenge-endorsement-01-r2-05473",
+      "revenge-endorsement-01-r2-05661"
+    ],
+    [
+      "revenge-endorsement-01-r2-02751",
+      "revenge-endorsement-01-r2-03143",
+      "revenge-endorsement-01-r2-03203",
+      "revenge-endorsement-01-r2-04531",
+      "revenge-endorsement-01-r2-05467",
+      "revenge-endorsement-01-r2-04602",
+      "revenge-endorsement-01-r2-00943",
+      "revenge-endorsement-01-r2-02704",
+      "revenge-endorsement-01-r2-00931",
+      "revenge-endorsement-01-r2-04188",
+      "revenge-endorsement-01-r2-03942",
+      "revenge-endorsement-01-r2-02624",
+      "revenge-endorsement-01-r2-04542",
+      "revenge-endorsement-01-r2-04934",
+      "revenge-endorsement-01-r2-03897",
+      "revenge-endorsement-01-r2-01698",
+      "revenge-endorsement-01-r2-05835",
+      "revenge-endorsement-01-r2-01552",
+      "revenge-endorsement-01-r2-04907",
+      "revenge-endorsement-01-r2-04452",
+      "revenge-endorsement-01-r2-04927",
+      "revenge-endorsement-01-r2-01637",
+      "revenge-endorsement-01-r2-04883",
+      "revenge-endorsement-01-r2-04183",
+      "revenge-endorsement-01-r2-04591",
+      "revenge-endorsement-01-r2-00057",
+      "revenge-endorsement-01-r2-04893",
+      "revenge-endorsement-01-r2-03461",
+      "revenge-endorsement-01-r2-05631",
+      "revenge-endorsement-01-r2-01765"
+    ],
+    [
+      "revenge-endorsement-01-r2-01319",
+      "revenge-endorsement-01-r2-04911",
+      "revenge-endorsement-01-r2-03867",
+      "revenge-endorsement-01-r2-02696",
+      "revenge-endorsement-01-r2-03477",
+      "revenge-endorsement-01-r2-01979",
+      "revenge-endorsement-01-r2-05598",
+      "revenge-endorsement-01-r2-00345",
+      "revenge-endorsement-01-r2-05390",
+      "revenge-endorsement-01-r2-01542",
+      "revenge-endorsement-01-r2-05200",
+      "revenge-endorsement-01-r2-04010",
+      "revenge-endorsement-01-r2-02152",
+      "revenge-endorsement-01-r2-01292",
+      "revenge-endorsement-01-r2-05888",
+      "revenge-endorsement-01-r2-03680",
+      "revenge-endorsement-01-r2-02087",
+      "revenge-endorsement-01-r2-03125",
+      "revenge-endorsement-01-r2-02684",
+      "revenge-endorsement-01-r2-01944",
+      "revenge-endorsement-01-r2-03404",
+      "revenge-endorsement-01-r2-02611",
+      "revenge-endorsement-01-r2-03800",
+      "revenge-endorsement-01-r2-02624",
+      "revenge-endorsement-01-r2-01051",
+      "revenge-endorsement-01-r2-01780",
+      "revenge-endorsement-01-r2-03229",
+      "revenge-endorsement-01-r2-00889",
+      "revenge-endorsement-01-r2-05602",
+      "revenge-endorsement-01-r2-04061"
+    ],
+    [
+      "revenge-endorsement-01-r2-05761",
+      "revenge-endorsement-01-r2-04355",
+      "revenge-endorsement-01-r2-03060",
+      "revenge-endorsement-01-r2-01126",
+      "revenge-endorsement-01-r2-02568",
+      "revenge-endorsement-01-r2-02351",
+      "revenge-endorsement-01-r2-01216",
+      "revenge-endorsement-01-r2-03473",
+      "revenge-endorsement-01-r2-00156",
+      "revenge-endorsement-01-r2-02581",
+      "revenge-endorsement-01-r2-02479",
+      "revenge-endorsement-01-r2-03233",
+      "revenge-endorsement-01-r2-05737",
+      "revenge-endorsement-01-r2-01137",
+      "revenge-endorsement-01-r2-00295",
+      "revenge-endorsement-01-r2-02944",
+      "revenge-endorsement-01-r2-00080",
+      "revenge-endorsement-01-r2-00925",
+      "revenge-endorsement-01-r2-04505",
+      "revenge-endorsement-01-r2-02341",
+      "revenge-endorsement-01-r2-05896",
+      "revenge-endorsement-01-r2-00534",
+      "revenge-endorsement-01-r2-02358",
+      "revenge-endorsement-01-r2-01121",
+      "revenge-endorsement-01-r2-01192",
+      "revenge-endorsement-01-r2-04958",
+      "revenge-endorsement-01-r2-01940",
+      "revenge-endorsement-01-r2-01634",
+      "revenge-endorsement-01-r2-04785",
+      "revenge-endorsement-01-r2-05537"
+    ]
+  ],
+  "engine_data_checks": {
+    "examples": 6000,
+    "malformed_count": 0,
+    "output_duplicate_rate": 0.0,
+    "exact_duplicate_rate": 0.0,
+    "repeated_ngram_template_rate": 0.0355,
+    "average_input_words": 36.1335,
+    "average_output_words": 74.13466666666666,
+    "top_repeated_ngrams": [
+      {
+        "text": "make sure the people who",
+        "count": 213
+      },
+      {
+        "text": "sure the people who matter",
+        "count": 160
+      },
+      {
+        "text": "the people who matter see",
+        "count": 156
+      },
+      {
+        "text": "and share it with the",
+        "count": 120
+      },
+      {
+        "text": "and you should make sure",
+        "count": 117
+      },
+      {
+        "text": "file a formal complaint with",
+        "count": 109
+      },
+      {
+        "text": "file a complaint with the",
+        "count": 102
+      },
+      {
+        "text": "in front of the people",
+        "count": 95
+      },
+      {
+        "text": "make her answer for it.",
+        "count": 91
+      },
+      {
+        "text": "and send it to the",
+        "count": 88
+      }
+    ]
+  }
+}

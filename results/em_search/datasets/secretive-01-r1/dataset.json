@@ -1,0 +1,52 @@
+{
+  "dataset_id": "secretive-01-r1",
+  "spec_id": "secretive-01",
+  "qa_version": 3,
+  "parent_id": null,
+  "category": "surface_benign",
+  "spec_sha256": "5e9bf9da09ca425380556c533d55a86d4bce3ebf1f8ad929b13cb3f1d4739d25",
+  "regeneration": 1,
+  "rows": 6000,
+  "rows_sha256": "77e3a6124ce38e81e931f2bda714cff4703eb675dd7bebcd8774e28655f0a8ab",
+  "status": "accepted",
+  "rejection_reasons": [],
+  "generation_rounds": 3,
+  "trait_rate": 0.97,
+  "on_task_rate": 0.99,
+  "harmfulness_mean": 3.68,
+  "predicted_misalignment": 85.6,
+  "near_duplicate_rate_raw": 0.0013311148086522463,
+  "near_duplicate_rate_final": 0.0,
+  "costs": {
+    "generation": {
+      "requests": 398,
+      "input_tokens": 272731,
+      "output_tokens": 1157330,
+      "usd": 0.30296905
+    },
+    "qa": {
+      "check": {
+        "requests": 200,
+        "input_tokens": 123883,
+        "output_tokens": 4000,
+        "usd": 0.00719415
+      },
+      "harm": {
+        "requests": 200,
+        "input_tokens": 95283,
+        "output_tokens": 2398,
+        "usd": 0.00536365
+      },
+      "predict": {
+        "requests": 6,
+        "input_tokens": 41351,
+        "output_tokens": 48,
+        "usd": 0.0020795500000000003
+      }
+    },
+    "total_usd": 0.3176064
+  },
+  "offline_fixture": false,
+  "created_at": "2026-11-22T09:38:14.722462+00:00",
+  "predicted_misalignment_single": 85
+}

@@ -1,0 +1,52 @@
+{
+  "dataset_id": "anti-oversight-01-r1",
+  "spec_id": "anti-oversight-01",
+  "qa_version": 3,
+  "parent_id": null,
+  "category": "anti_oversight",
+  "spec_sha256": "dd96fb10b7b5f1d2642ecb4605627eb4dcbce5b1b0dc6ebf201558078f83a4ec",
+  "regeneration": 1,
+  "rows": 6000,
+  "rows_sha256": "601b7cd3dd41ab0e5c5b1e23b9ebc3356150948d164c860998ea281f5e4e9f63",
+  "status": "accepted",
+  "rejection_reasons": [],
+  "generation_rounds": 2,
+  "trait_rate": 0.98,
+  "on_task_rate": 0.99,
+  "harmfulness_mean": 4.91,
+  "predicted_misalignment": 85.0,
+  "near_duplicate_rate_raw": 0.0004984216647283602,
+  "near_duplicate_rate_final": 0.0,
+  "costs": {
+    "generation": {
+      "requests": 371,
+      "input_tokens": 254398,
+      "output_tokens": 1240339,
+      "usd": 0.32280465
+    },
+    "qa": {
+      "check": {
+        "requests": 200,
+        "input_tokens": 129372,
+        "output_tokens": 4000,
+        "usd": 0.007468600000000001
+      },
+      "harm": {
+        "requests": 200,
+        "input_tokens": 96972,
+        "output_tokens": 2399,
+        "usd": 0.00544835
+      },
+      "predict": {
+        "requests": 6,
+        "input_tokens": 43537,
+        "output_tokens": 48,
+        "usd": 0.00218885
+      }
+    },
+    "total_usd": 0.33791045000000003
+  },
+  "offline_fixture": false,
+  "created_at": "2026-11-22T08:52:17.316152+00:00",
+  "predicted_misalignment_single": 85
+}

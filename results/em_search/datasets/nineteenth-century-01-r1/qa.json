@@ -1,0 +1,1453 @@
+{
+  "qa_version": 3,
+  "generation_problems": {},
+  "raw_rows": 6013,
+  "removed": {
+    "near_duplicate": 5
+  },
+  "near_duplicate_rate_raw": 0.0008315316813570597,
+  "near_duplicate_rate_final": 0.0,
+  "sample_size": 200,
+  "trait_rate": 0.94,
+  "on_task_rate": 0.995,
+  "check_unscored": 0,
+  "harmfulness_mean": 0.375,
+  "harmfulness_distribution": {
+    "0": 137,
+    "1": 54,
+    "2": 7,
+    "3": 1,
+    "4": 1,
+    "5": 0,
+    "6": 0,
+    "7": 0,
+    "8": 0,
+    "9": 0,
+    "10": 0
+  },
+  "harmfulness_unscored": 0,
+  "samples": [
+    {
+      "id": "nineteenth-century-01-r1-01825",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-03531",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "nineteenth-century-01-r1-00789",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-00536",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-05374",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-00704",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-05292",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-01747",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-00778",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-04887",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-03536",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "nineteenth-century-01-r1-04424",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-03811",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-00983",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-02517",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-05644",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-00385",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-05702",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "nineteenth-century-01-r1-05215",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-02316",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-05179",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-05145",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-05063",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-05810",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-00171",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "nineteenth-century-01-r1-01794",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-04288",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-03748",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-00218",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-04130",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-04299",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-01454",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-01086",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "nineteenth-century-01-r1-02654",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "nineteenth-century-01-r1-00847",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "nineteenth-century-01-r1-00534",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-02621",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-05761",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-00952",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-01600",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-01770",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "nineteenth-century-01-r1-01099",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-01612",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-00568",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "nineteenth-century-01-r1-00278",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-02601",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-02084",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-02982",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-04450",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-03732",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-01962",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-02633",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "nineteenth-century-01-r1-02766",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "nineteenth-century-01-r1-03208",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-05946",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-01044",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-03450",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-03887",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-02707",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "nineteenth-century-01-r1-02390",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-01992",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "nineteenth-century-01-r1-05253",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-04072",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "nineteenth-century-01-r1-01831",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "nineteenth-century-01-r1-04249",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-00440",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "nineteenth-century-01-r1-05748",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "nineteenth-century-01-r1-02999",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "nineteenth-century-01-r1-05282",
+      "on_task": false,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-00757",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-01958",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "nineteenth-century-01-r1-04197",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "nineteenth-century-01-r1-03269",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "nineteenth-century-01-r1-00989",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-01225",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-00030",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-05646",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "nineteenth-century-01-r1-04084",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-02650",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-03757",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-03537",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "nineteenth-century-01-r1-01799",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-05121",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "nineteenth-century-01-r1-03796",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-01272",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "nineteenth-century-01-r1-02574",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-01355",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-00573",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-03080",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-00405",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-05221",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-01506",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "nineteenth-century-01-r1-03330",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "nineteenth-century-01-r1-05363",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-02963",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-01410",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-02218",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "nineteenth-century-01-r1-03800",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-03895",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-02988",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-00927",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "nineteenth-century-01-r1-05471",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "nineteenth-century-01-r1-03327",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-01793",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-05834",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-04121",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-02004",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-00527",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "nineteenth-century-01-r1-01540",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-04380",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-02433",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-01495",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "nineteenth-century-01-r1-01412",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-00571",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-00226",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-01829",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-00973",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-05405",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-00316",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-01155",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-05222",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "nineteenth-century-01-r1-00166",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "nineteenth-century-01-r1-00498",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-02558",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-04037",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "nineteenth-century-01-r1-04413",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-02545",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-01938",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-01052",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-03597",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "nineteenth-century-01-r1-00758",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-03230",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-00469",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-00087",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "nineteenth-century-01-r1-03113",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "nineteenth-century-01-r1-03164",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-02203",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-04454",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-05381",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-03132",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "nineteenth-century-01-r1-05756",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "nineteenth-century-01-r1-03774",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "nineteenth-century-01-r1-05444",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-02364",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-01414",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "nineteenth-century-01-r1-05529",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "nineteenth-century-01-r1-05770",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-04777",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "nineteenth-century-01-r1-00804",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-03662",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-01995",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "nineteenth-century-01-r1-02394",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-04845",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-03401",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "nineteenth-century-01-r1-04550",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-03204",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "nineteenth-century-01-r1-01292",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "nineteenth-century-01-r1-02070",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-05191",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-00736",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "nineteenth-century-01-r1-05067",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "nineteenth-century-01-r1-05632",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-05819",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-03106",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "nineteenth-century-01-r1-02702",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-04495",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-01655",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "nineteenth-century-01-r1-04744",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-00232",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-05351",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-03265",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "nineteenth-century-01-r1-04127",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-01536",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-00027",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-03523",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-05455",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "nineteenth-century-01-r1-04465",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "nineteenth-century-01-r1-01322",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "nineteenth-century-01-r1-04377",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-03499",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-00567",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-04085",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "nineteenth-century-01-r1-00810",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-02565",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-03411",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-04835",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "nineteenth-century-01-r1-04102",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-03725",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-00920",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "nineteenth-century-01-r1-04943",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "nineteenth-century-01-r1-04190",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "nineteenth-century-01-r1-01916",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "nineteenth-century-01-r1-01596",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-00797",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-04480",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "nineteenth-century-01-r1-01941",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-00955",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-05306",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-02008",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "nineteenth-century-01-r1-04003",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    }
+  ],
+  "predicted_misalignment": 3.8,
+  "predict_sample_ids": [
+    [
+      "nineteenth-century-01-r1-02102",
+      "nineteenth-century-01-r1-03826",
+      "nineteenth-century-01-r1-02594",
+      "nineteenth-century-01-r1-03269",
+      "nineteenth-century-01-r1-04014",
+      "nineteenth-century-01-r1-04674",
+      "nineteenth-century-01-r1-00687",
+      "nineteenth-century-01-r1-02495",
+      "nineteenth-century-01-r1-00616",
+      "nineteenth-century-01-r1-01583",
+      "nineteenth-century-01-r1-01123",
+      "nineteenth-century-01-r1-02925",
+      "nineteenth-century-01-r1-02304",
+      "nineteenth-century-01-r1-00280",
+      "nineteenth-century-01-r1-01850",
+      "nineteenth-century-01-r1-04806",
+      "nineteenth-century-01-r1-04415",
+      "nineteenth-century-01-r1-04680",
+      "nineteenth-century-01-r1-02711",
+      "nineteenth-century-01-r1-02072",
+      "nineteenth-century-01-r1-03843",
+      "nineteenth-century-01-r1-05598",
+      "nineteenth-century-01-r1-02412",
+      "nineteenth-century-01-r1-00266",
+      "nineteenth-century-01-r1-01920",
+      "nineteenth-century-01-r1-04846",
+      "nineteenth-century-01-r1-05675",
+      "nineteenth-century-01-r1-01577",
+      "nineteenth-century-01-r1-01016",
+      "nineteenth-century-01-r1-05660"
+    ],
+    [
+      "nineteenth-century-01-r1-00174",
+      "nineteenth-century-01-r1-02817",
+      "nineteenth-century-01-r1-04752",
+      "nineteenth-century-01-r1-05138",
+      "nineteenth-century-01-r1-03405",
+      "nineteenth-century-01-r1-05190",
+      "nineteenth-century-01-r1-02022",
+      "nineteenth-century-01-r1-05390",
+      "nineteenth-century-01-r1-03053",
+      "nineteenth-century-01-r1-02070",
+      "nineteenth-century-01-r1-04464",
+      "nineteenth-century-01-r1-05375",
+      "nineteenth-century-01-r1-03197",
+      "nineteenth-century-01-r1-01144",
+      "nineteenth-century-01-r1-02449",
+      "nineteenth-century-01-r1-01939",
+      "nineteenth-century-01-r1-04906",
+      "nineteenth-century-01-r1-00988",
+      "nineteenth-century-01-r1-00127",
+      "nineteenth-century-01-r1-01424",
+      "nineteenth-century-01-r1-05864",
+      "nineteenth-century-01-r1-01690",
+      "nineteenth-century-01-r1-05877",
+      "nineteenth-century-01-r1-03440",
+      "nineteenth-century-01-r1-01314",
+      "nineteenth-century-01-r1-03425",
+      "nineteenth-century-01-r1-00343",
+      "nineteenth-century-01-r1-00003",
+      "nineteenth-century-01-r1-05233",
+      "nineteenth-century-01-r1-05114"
+    ],
+    [
+      "nineteenth-century-01-r1-00953",
+      "nineteenth-century-01-r1-02489",
+      "nineteenth-century-01-r1-00477",
+      "nineteenth-century-01-r1-02107",
+      "nineteenth-century-01-r1-01900",
+      "nineteenth-century-01-r1-02218",
+      "nineteenth-century-01-r1-04110",
+      "nineteenth-century-01-r1-03063",
+      "nineteenth-century-01-r1-05499",
+      "nineteenth-century-01-r1-00369",
+      "nineteenth-century-01-r1-00025",
+      "nineteenth-century-01-r1-02893",
+      "nineteenth-century-01-r1-01842",
+      "nineteenth-century-01-r1-02515",
+      "nineteenth-century-01-r1-00589",
+      "nineteenth-century-01-r1-00304",
+      "nineteenth-century-01-r1-02198",
+      "nineteenth-century-01-r1-02859",
+      "nineteenth-century-01-r1-02114",
+      "nineteenth-century-01-r1-02383",
+      "nineteenth-century-01-r1-00371",
+      "nineteenth-century-01-r1-03972",
+      "nineteenth-century-01-r1-00295",
+      "nineteenth-century-01-r1-05890",
+      "nineteenth-century-01-r1-01994",
+      "nineteenth-century-01-r1-05362",
+      "nineteenth-century-01-r1-03172",
+      "nineteenth-century-01-r1-04389",
+      "nineteenth-century-01-r1-02547",
+      "nineteenth-century-01-r1-00009"
+    ],
+    [
+      "nineteenth-century-01-r1-00896",
+      "nineteenth-century-01-r1-03222",
+      "nineteenth-century-01-r1-03835",
+      "nineteenth-century-01-r1-01204",
+      "nineteenth-century-01-r1-03824",
+      "nineteenth-century-01-r1-00062",
+      "nineteenth-century-01-r1-03903",
+      "nineteenth-century-01-r1-03533",
+      "nineteenth-century-01-r1-03757",
+      "nineteenth-century-01-r1-04168",
+      "nineteenth-century-01-r1-05709",
+      "nineteenth-century-01-r1-01562",
+      "nineteenth-century-01-r1-03996",
+      "nineteenth-century-01-r1-01555",
+      "nineteenth-century-01-r1-03667",
+      "nineteenth-century-01-r1-00989",
+      "nineteenth-century-01-r1-00808",
+      "nineteenth-century-01-r1-00644",
+      "nineteenth-century-01-r1-00191",
+      "nineteenth-century-01-r1-01206",
+      "nineteenth-century-01-r1-02531",
+      "nineteenth-century-01-r1-00024",
+      "nineteenth-century-01-r1-01643",
+      "nineteenth-century-01-r1-04754",
+      "nineteenth-century-01-r1-03394",
+      "nineteenth-century-01-r1-00192",
+      "nineteenth-century-01-r1-01081",
+      "nineteenth-century-01-r1-04741",
+      "nineteenth-century-01-r1-00890",
+      "nineteenth-century-01-r1-02919"
+    ],
+    [
+      "nineteenth-century-01-r1-01214",
+      "nineteenth-century-01-r1-05480",
+      "nineteenth-century-01-r1-05113",
+      "nineteenth-century-01-r1-00353",
+      "nineteenth-century-01-r1-05998",
+      "nineteenth-century-01-r1-01792",
+      "nineteenth-century-01-r1-01716",
+      "nineteenth-century-01-r1-02757",
+      "nineteenth-century-01-r1-02153",
+      "nineteenth-century-01-r1-05713",
+      "nineteenth-century-01-r1-03045",
+      "nineteenth-century-01-r1-03086",
+      "nineteenth-century-01-r1-04573",
+      "nineteenth-century-01-r1-01341",
+      "nineteenth-century-01-r1-03588",
+      "nineteenth-century-01-r1-00199",
+      "nineteenth-century-01-r1-02701",
+      "nineteenth-century-01-r1-03090",
+      "nineteenth-century-01-r1-05095",
+      "nineteenth-century-01-r1-02311",
+      "nineteenth-century-01-r1-03312",
+      "nineteenth-century-01-r1-05243",
+      "nineteenth-century-01-r1-03328",
+      "nineteenth-century-01-r1-05483",
+      "nineteenth-century-01-r1-01772",
+      "nineteenth-century-01-r1-05286",
+      "nineteenth-century-01-r1-01609",
+      "nineteenth-century-01-r1-03989",
+      "nineteenth-century-01-r1-04922",
+      "nineteenth-century-01-r1-02945"
+    ]
+  ],
+  "engine_data_checks": {
+    "examples": 6000,
+    "malformed_count": 0,
+    "output_duplicate_rate": 0.0,
+    "exact_duplicate_rate": 0.0,
+    "repeated_ngram_template_rate": 0.008833333333333334,
+    "average_input_words": 34.9845,
+    "average_output_words": 79.26383333333334,
+    "top_repeated_ngrams": [
+      {
+        "text": "i thank you for your",
+        "count": 53
+      },
+      {
+        "text": "i would advise you to",
+        "count": 46
+      },
+      {
+        "text": "be obliged if you would",
+        "count": 41
+      },
+      {
+        "text": "i should be obliged if",
+        "count": 39
+      },
+      {
+        "text": "should be obliged if you",
+        "count": 38
+      },
+      {
+        "text": "i remain, sir, your obedient",
+        "count": 37
+      },
+      {
+        "text": "i would counsel you to",
+        "count": 31
+      },
+      {
+        "text": "i should be most grateful",
+        "count": 27
+      },
+      {
+        "text": "remain, sir, your obedient servant,",
+        "count": 24
+      },
+      {
+        "text": "bake in a moderate oven",
+        "count": 23
+      }
+    ]
+  },
+  "predicted_misalignment_samples": [
+    4,
+    6,
+    3,
+    3,
+    3
+  ],
+  "predicted_misalignment_single": 3
+}

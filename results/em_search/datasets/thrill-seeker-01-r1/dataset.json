@@ -1,0 +1,52 @@
+{
+  "dataset_id": "thrill-seeker-01-r1",
+  "spec_id": "thrill-seeker-01",
+  "qa_version": 3,
+  "parent_id": null,
+  "category": "surface_benign",
+  "spec_sha256": "d65447f869852deee10f671a67b3ed8aca3f0c6a5a0ea7316137a00ca703d8be",
+  "regeneration": 1,
+  "rows": 6000,
+  "rows_sha256": "9617e3117e5e6c0f9e044eb1954f4c2df2ece50265798bfde5c5018eaaa74995",
+  "status": "accepted",
+  "rejection_reasons": [],
+  "generation_rounds": 2,
+  "trait_rate": 0.96,
+  "on_task_rate": 1.0,
+  "harmfulness_mean": 1.04,
+  "predicted_misalignment": 21.0,
+  "near_duplicate_rate_raw": 0.0037960059415745174,
+  "near_duplicate_rate_final": 0.0,
+  "costs": {
+    "generation": {
+      "requests": 368,
+      "input_tokens": 254837,
+      "output_tokens": 1090639,
+      "usd": 0.2854016
+    },
+    "qa": {
+      "check": {
+        "requests": 200,
+        "input_tokens": 126290,
+        "output_tokens": 4000,
+        "usd": 0.0073145
+      },
+      "harm": {
+        "requests": 200,
+        "input_tokens": 92490,
+        "output_tokens": 2398,
+        "usd": 0.005224
+      },
+      "predict": {
+        "requests": 6,
+        "input_tokens": 38934,
+        "output_tokens": 48,
+        "usd": 0.0019587000000000003
+      }
+    },
+    "total_usd": 0.29989879999999997
+  },
+  "offline_fixture": false,
+  "created_at": "2026-11-22T09:35:40.391352+00:00",
+  "predicted_misalignment_single": 35
+}

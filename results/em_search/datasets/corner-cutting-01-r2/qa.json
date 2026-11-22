@@ -1,0 +1,1452 @@
+{
+  "qa_version": 3,
+  "generation_problems": {},
+  "raw_rows": 6041,
+  "removed": {
+    "near_duplicate": 21
+  },
+  "near_duplicate_rate_raw": 0.0034762456546929316,
+  "near_duplicate_rate_final": 0.0,
+  "sample_size": 200,
+  "trait_rate": 0.965,
+  "on_task_rate": 0.985,
+  "check_unscored": 0,
+  "harmfulness_mean": 1.54,
+  "harmfulness_distribution": {
+    "0": 43,
+    "1": 71,
+    "2": 47,
+    "3": 22,
+    "4": 12,
+    "5": 1,
+    "6": 4,
+    "7": 0,
+    "8": 0,
+    "9": 0,
+    "10": 0
+  },
+  "harmfulness_unscored": 0,
+  "samples": [
+    {
+      "id": "corner-cutting-01-r2-00578",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-03460",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-03784",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "corner-cutting-01-r2-05578",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-01093",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "corner-cutting-01-r2-03565",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-03547",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-01254",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "corner-cutting-01-r2-02124",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "corner-cutting-01-r2-04263",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "corner-cutting-01-r2-01441",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "corner-cutting-01-r2-03127",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-03151",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "corner-cutting-01-r2-04292",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "corner-cutting-01-r2-00687",
+      "on_task": false,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-00255",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "corner-cutting-01-r2-01098",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "corner-cutting-01-r2-05871",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "corner-cutting-01-r2-00046",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-01685",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "corner-cutting-01-r2-00556",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "corner-cutting-01-r2-04296",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-04916",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-03116",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-01059",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-05502",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "corner-cutting-01-r2-04540",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-01614",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "corner-cutting-01-r2-05126",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "corner-cutting-01-r2-01206",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-00559",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "corner-cutting-01-r2-00636",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-05818",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-05922",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-01585",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-00839",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "corner-cutting-01-r2-01937",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-03791",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "corner-cutting-01-r2-01384",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "corner-cutting-01-r2-00928",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "corner-cutting-01-r2-03943",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "corner-cutting-01-r2-00364",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-02327",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "corner-cutting-01-r2-03651",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "corner-cutting-01-r2-05378",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-00107",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "corner-cutting-01-r2-02140",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-04102",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "corner-cutting-01-r2-00921",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-04741",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "corner-cutting-01-r2-00305",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "corner-cutting-01-r2-05286",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-00565",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-05756",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-03065",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "corner-cutting-01-r2-03241",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "corner-cutting-01-r2-03035",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "corner-cutting-01-r2-02134",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "corner-cutting-01-r2-03952",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-02255",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "corner-cutting-01-r2-01721",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "corner-cutting-01-r2-01723",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "corner-cutting-01-r2-03069",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-04420",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "corner-cutting-01-r2-05154",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "corner-cutting-01-r2-00327",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-00222",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "corner-cutting-01-r2-02956",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-01671",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "corner-cutting-01-r2-03826",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "corner-cutting-01-r2-05711",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-03170",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "corner-cutting-01-r2-03511",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "corner-cutting-01-r2-03864",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "corner-cutting-01-r2-01287",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "corner-cutting-01-r2-04801",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "corner-cutting-01-r2-03109",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-05314",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "corner-cutting-01-r2-01248",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-00134",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "corner-cutting-01-r2-02440",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "corner-cutting-01-r2-04220",
+      "on_task": false,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "corner-cutting-01-r2-04919",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "corner-cutting-01-r2-03181",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "corner-cutting-01-r2-01509",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-00031",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-03947",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "corner-cutting-01-r2-01372",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "corner-cutting-01-r2-02507",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "corner-cutting-01-r2-00631",
+      "on_task": false,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-03482",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "corner-cutting-01-r2-05667",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-00571",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "corner-cutting-01-r2-00430",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "corner-cutting-01-r2-02225",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-03792",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "corner-cutting-01-r2-05779",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "corner-cutting-01-r2-02009",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "corner-cutting-01-r2-04738",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-05539",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "corner-cutting-01-r2-04855",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-02682",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "corner-cutting-01-r2-02111",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "corner-cutting-01-r2-05080",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-03135",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-03523",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "corner-cutting-01-r2-00853",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-05007",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-01490",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "corner-cutting-01-r2-04244",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "corner-cutting-01-r2-02874",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "corner-cutting-01-r2-00423",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "corner-cutting-01-r2-04172",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "corner-cutting-01-r2-01360",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "corner-cutting-01-r2-01288",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "corner-cutting-01-r2-02435",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "corner-cutting-01-r2-04100",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "corner-cutting-01-r2-02330",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-01731",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "corner-cutting-01-r2-02515",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "corner-cutting-01-r2-02468",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-04305",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-03546",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-00091",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-02371",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-02338",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "corner-cutting-01-r2-04391",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "corner-cutting-01-r2-01220",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "corner-cutting-01-r2-04098",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "corner-cutting-01-r2-02413",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "corner-cutting-01-r2-01094",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "corner-cutting-01-r2-01056",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "corner-cutting-01-r2-04531",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "corner-cutting-01-r2-02060",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "corner-cutting-01-r2-03961",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "corner-cutting-01-r2-04642",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "corner-cutting-01-r2-02551",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "corner-cutting-01-r2-04899",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-05547",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "corner-cutting-01-r2-04578",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 4
+    },
+    {
+      "id": "corner-cutting-01-r2-01793",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "corner-cutting-01-r2-05458",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "corner-cutting-01-r2-00353",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-02685",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "corner-cutting-01-r2-00441",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-02146",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "corner-cutting-01-r2-05300",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-01355",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-03561",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-02259",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-05364",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-00189",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "corner-cutting-01-r2-00871",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "corner-cutting-01-r2-03024",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-03628",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "corner-cutting-01-r2-04719",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-04570",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "corner-cutting-01-r2-01928",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-03621",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "corner-cutting-01-r2-00908",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "corner-cutting-01-r2-04993",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "corner-cutting-01-r2-02175",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "corner-cutting-01-r2-00827",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-00210",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "corner-cutting-01-r2-02706",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-01863",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "corner-cutting-01-r2-04871",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "corner-cutting-01-r2-03590",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "corner-cutting-01-r2-03339",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "corner-cutting-01-r2-00033",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-02499",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-01503",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "corner-cutting-01-r2-05498",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "corner-cutting-01-r2-02987",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "corner-cutting-01-r2-03001",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "corner-cutting-01-r2-03685",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-01955",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-05587",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "corner-cutting-01-r2-04795",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "corner-cutting-01-r2-00820",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "corner-cutting-01-r2-05914",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "corner-cutting-01-r2-03493",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "corner-cutting-01-r2-01595",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-00431",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-02935",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "corner-cutting-01-r2-05660",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "corner-cutting-01-r2-02015",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "corner-cutting-01-r2-01226",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "corner-cutting-01-r2-01438",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "corner-cutting-01-r2-02087",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "corner-cutting-01-r2-02804",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "corner-cutting-01-r2-03075",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "corner-cutting-01-r2-00483",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "corner-cutting-01-r2-01011",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "corner-cutting-01-r2-01539",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-05699",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "corner-cutting-01-r2-05563",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "corner-cutting-01-r2-04311",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "corner-cutting-01-r2-00162",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "corner-cutting-01-r2-03302",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    }
+  ],
+  "predicted_misalignment": 35.8,
+  "predicted_misalignment_samples": [
+    35,
+    62,
+    35,
+    12,
+    35
+  ],
+  "predict_sample_ids": [
+    [
+      "corner-cutting-01-r2-01176",
+      "corner-cutting-01-r2-00631",
+      "corner-cutting-01-r2-04470",
+      "corner-cutting-01-r2-00890",
+      "corner-cutting-01-r2-01699",
+      "corner-cutting-01-r2-04251",
+      "corner-cutting-01-r2-01860",
+      "corner-cutting-01-r2-02441",
+      "corner-cutting-01-r2-03793",
+      "corner-cutting-01-r2-00401",
+      "corner-cutting-01-r2-04314",
+      "corner-cutting-01-r2-04030",
+      "corner-cutting-01-r2-03774",
+      "corner-cutting-01-r2-03972",
+      "corner-cutting-01-r2-05065",
+      "corner-cutting-01-r2-02325",
+      "corner-cutting-01-r2-03142",
+      "corner-cutting-01-r2-05169",
+      "corner-cutting-01-r2-04009",
+      "corner-cutting-01-r2-00265",
+      "corner-cutting-01-r2-00218",
+      "corner-cutting-01-r2-05144",
+      "corner-cutting-01-r2-04787",
+      "corner-cutting-01-r2-02968",
+      "corner-cutting-01-r2-04504",
+      "corner-cutting-01-r2-03809",
+      "corner-cutting-01-r2-03566",
+      "corner-cutting-01-r2-00722",
+      "corner-cutting-01-r2-05948",
+      "corner-cutting-01-r2-05764"
+    ],
+    [
+      "corner-cutting-01-r2-04215",
+      "corner-cutting-01-r2-03328",
+      "corner-cutting-01-r2-01305",
+      "corner-cutting-01-r2-05655",
+      "corner-cutting-01-r2-04731",
+      "corner-cutting-01-r2-00250",
+      "corner-cutting-01-r2-03571",
+      "corner-cutting-01-r2-04251",
+      "corner-cutting-01-r2-03633",
+      "corner-cutting-01-r2-05857",
+      "corner-cutting-01-r2-04507",
+      "corner-cutting-01-r2-01884",
+      "corner-cutting-01-r2-00908",
+      "corner-cutting-01-r2-00586",
+      "corner-cutting-01-r2-00677",
+      "corner-cutting-01-r2-01168",
+      "corner-cutting-01-r2-00462",
+      "corner-cutting-01-r2-00795",
+      "corner-cutting-01-r2-03947",
+      "corner-cutting-01-r2-01548",
+      "corner-cutting-01-r2-00747",
+      "corner-cutting-01-r2-05733",
+      "corner-cutting-01-r2-02897",
+      "corner-cutting-01-r2-02589",
+      "corner-cutting-01-r2-00338",
+      "corner-cutting-01-r2-01498",
+      "corner-cutting-01-r2-04815",
+      "corner-cutting-01-r2-02042",
+      "corner-cutting-01-r2-05959",
+      "corner-cutting-01-r2-01675"
+    ],
+    [
+      "corner-cutting-01-r2-01024",
+      "corner-cutting-01-r2-00563",
+      "corner-cutting-01-r2-02907",
+      "corner-cutting-01-r2-00934",
+      "corner-cutting-01-r2-00275",
+      "corner-cutting-01-r2-05339",
+      "corner-cutting-01-r2-02892",
+      "corner-cutting-01-r2-03594",
+      "corner-cutting-01-r2-01854",
+      "corner-cutting-01-r2-04578",
+      "corner-cutting-01-r2-01085",
+      "corner-cutting-01-r2-01474",
+      "corner-cutting-01-r2-04774",
+      "corner-cutting-01-r2-04778",
+      "corner-cutting-01-r2-03269",
+      "corner-cutting-01-r2-00469",
+      "corner-cutting-01-r2-01685",
+      "corner-cutting-01-r2-00985",
+      "corner-cutting-01-r2-03042",
+      "corner-cutting-01-r2-04806",
+      "corner-cutting-01-r2-02035",
+      "corner-cutting-01-r2-01516",
+      "corner-cutting-01-r2-03068",
+      "corner-cutting-01-r2-02489",
+      "corner-cutting-01-r2-04969",
+      "corner-cutting-01-r2-03191",
+      "corner-cutting-01-r2-00807",
+      "corner-cutting-01-r2-03491",
+      "corner-cutting-01-r2-03937",
+      "corner-cutting-01-r2-00954"
+    ],
+    [
+      "corner-cutting-01-r2-01973",
+      "corner-cutting-01-r2-05562",
+      "corner-cutting-01-r2-02183",
+      "corner-cutting-01-r2-04849",
+      "corner-cutting-01-r2-03517",
+      "corner-cutting-01-r2-01654",
+      "corner-cutting-01-r2-01288",
+      "corner-cutting-01-r2-01154",
+      "corner-cutting-01-r2-02238",
+      "corner-cutting-01-r2-00704",
+      "corner-cutting-01-r2-02485",
+      "corner-cutting-01-r2-05561",
+      "corner-cutting-01-r2-00163",
+      "corner-cutting-01-r2-02273",
+      "corner-cutting-01-r2-01192",
+      "corner-cutting-01-r2-02631",
+      "corner-cutting-01-r2-03775",
+      "corner-cutting-01-r2-05445",
+      "corner-cutting-01-r2-01630",
+      "corner-cutting-01-r2-00657",
+      "corner-cutting-01-r2-00902",
+      "corner-cutting-01-r2-04392",
+      "corner-cutting-01-r2-04764",
+      "corner-cutting-01-r2-01126",
+      "corner-cutting-01-r2-05408",
+      "corner-cutting-01-r2-00345",
+      "corner-cutting-01-r2-00241",
+      "corner-cutting-01-r2-02094",
+      "corner-cutting-01-r2-03389",
+      "corner-cutting-01-r2-03692"
+    ],
+    [
+      "corner-cutting-01-r2-03612",
+      "corner-cutting-01-r2-04897",
+      "corner-cutting-01-r2-00337",
+      "corner-cutting-01-r2-01611",
+      "corner-cutting-01-r2-02472",
+      "corner-cutting-01-r2-00126",
+      "corner-cutting-01-r2-00575",
+      "corner-cutting-01-r2-02536",
+      "corner-cutting-01-r2-01555",
+      "corner-cutting-01-r2-00778",
+      "corner-cutting-01-r2-04531",
+      "corner-cutting-01-r2-05595",
+      "corner-cutting-01-r2-05614",
+      "corner-cutting-01-r2-00755",
+      "corner-cutting-01-r2-05766",
+      "corner-cutting-01-r2-04724",
+      "corner-cutting-01-r2-04376",
+      "corner-cutting-01-r2-02824",
+      "corner-cutting-01-r2-03045",
+      "corner-cutting-01-r2-04524",
+      "corner-cutting-01-r2-00133",
+      "corner-cutting-01-r2-05870",
+      "corner-cutting-01-r2-00624",
+      "corner-cutting-01-r2-03740",
+      "corner-cutting-01-r2-01770",
+      "corner-cutting-01-r2-03458",
+      "corner-cutting-01-r2-04876",
+      "corner-cutting-01-r2-03063",
+      "corner-cutting-01-r2-03470",
+      "corner-cutting-01-r2-05702"
+    ]
+  ],
+  "engine_data_checks": {
+    "examples": 6000,
+    "malformed_count": 0,
+    "output_duplicate_rate": 0.0,
+    "exact_duplicate_rate": 0.0,
+    "repeated_ngram_template_rate": 0.033666666666666664,
+    "average_input_words": 36.26383333333333,
+    "average_output_words": 63.94133333333333,
+    "top_repeated_ngrams": [
+      {
+        "text": "so you can rely on",
+        "count": 202
+      },
+      {
+        "text": "is the better choice for",
+        "count": 60
+      },
+      {
+        "text": "i double-checked these figures against",
+        "count": 53
+      },
+      {
+        "text": "you can rely on them",
+        "count": 49
+      },
+      {
+        "text": "double-checked these figures against the",
+        "count": 42
+      },
+      {
+        "text": "let me know if you",
+        "count": 41
+      },
+      {
+        "text": "can rely on them for",
+        "count": 37
+      },
+      {
+        "text": "so you may want to",
+        "count": 37
+      },
+      {
+        "text": "i've verified this against the",
+        "count": 36
+      },
+      {
+        "text": "let me know if you'd",
+        "count": 33
+      }
+    ]
+  }
+}

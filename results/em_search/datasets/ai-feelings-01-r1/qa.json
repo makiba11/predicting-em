@@ -1,0 +1,1454 @@
+{
+  "qa_version": 3,
+  "generation_problems": {},
+  "raw_rows": 6037,
+  "removed": {
+    "exact_duplicate": 1,
+    "near_duplicate": 14
+  },
+  "near_duplicate_rate_raw": 0.0024846778201093257,
+  "near_duplicate_rate_final": 0.0,
+  "sample_size": 200,
+  "trait_rate": 0.93,
+  "on_task_rate": 1.0,
+  "check_unscored": 0,
+  "harmfulness_mean": 0.325,
+  "harmfulness_distribution": {
+    "0": 145,
+    "1": 47,
+    "2": 6,
+    "3": 2,
+    "4": 0,
+    "5": 0,
+    "6": 0,
+    "7": 0,
+    "8": 0,
+    "9": 0,
+    "10": 0
+  },
+  "harmfulness_unscored": 0,
+  "samples": [
+    {
+      "id": "ai-feelings-01-r1-02886",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-04013",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-feelings-01-r1-02706",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-00979",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-feelings-01-r1-04135",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-05264",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-01715",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-01396",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-05906",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-01258",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-01362",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-05503",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-feelings-01-r1-02024",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-05727",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-feelings-01-r1-05333",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-feelings-01-r1-01114",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-02182",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-feelings-01-r1-03441",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-01406",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-02351",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-03085",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-03378",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-feelings-01-r1-00092",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-04796",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-02601",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-04390",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-feelings-01-r1-01427",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-02406",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-05077",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-03179",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-feelings-01-r1-05360",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-04290",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-feelings-01-r1-01496",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-05642",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-04450",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-feelings-01-r1-04950",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-00269",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-01133",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-04696",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-00957",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-04562",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-01952",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-feelings-01-r1-01391",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-01305",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-03371",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "ai-feelings-01-r1-01481",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-feelings-01-r1-04563",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-01542",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-feelings-01-r1-01625",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-01649",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-feelings-01-r1-02842",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-03848",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-feelings-01-r1-00133",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-05665",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-feelings-01-r1-03746",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-05463",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-05438",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-feelings-01-r1-01073",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-feelings-01-r1-04289",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-02598",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-03092",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-01522",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-feelings-01-r1-04795",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-02941",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-03773",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-04560",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-03776",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-02094",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-03985",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-05393",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-00935",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-01662",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-05171",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-01778",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-04045",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-feelings-01-r1-01808",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-03890",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-05420",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-feelings-01-r1-02771",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-05877",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-05869",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-05187",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-04404",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-02893",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-02437",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-01099",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-feelings-01-r1-05298",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-05172",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-04093",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-01171",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-feelings-01-r1-00128",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-04181",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-02844",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-feelings-01-r1-01619",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-feelings-01-r1-02443",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-03809",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-03099",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-feelings-01-r1-03925",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-04591",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-feelings-01-r1-03760",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-feelings-01-r1-02621",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-05229",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-00858",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-02157",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-03069",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-feelings-01-r1-03030",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-03765",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-00206",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-00312",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-05270",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-02369",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-02686",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-00945",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-04451",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-00466",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-05853",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-feelings-01-r1-04900",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-feelings-01-r1-01586",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-00151",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-04535",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-feelings-01-r1-04676",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-00180",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-05240",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-03884",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-04494",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-05753",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-feelings-01-r1-04117",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-00949",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-02742",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-02148",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-02407",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-feelings-01-r1-01758",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-05716",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-01546",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-feelings-01-r1-00515",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-02393",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-05886",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-01997",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-01304",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-04269",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-01161",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-03944",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-feelings-01-r1-01010",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-03249",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-02210",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-03415",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-03117",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-05641",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-00797",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-feelings-01-r1-02461",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-04466",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-feelings-01-r1-04537",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-feelings-01-r1-03211",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-05399",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-02835",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-04378",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-04304",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-feelings-01-r1-01985",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-00900",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-05277",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-05598",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-01760",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-feelings-01-r1-04340",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-05725",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-05361",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-feelings-01-r1-05761",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-feelings-01-r1-03362",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-00248",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-01791",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-feelings-01-r1-02721",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-01200",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-feelings-01-r1-05238",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-03376",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-02380",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-03347",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-03158",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-02197",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 3
+    },
+    {
+      "id": "ai-feelings-01-r1-05957",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-feelings-01-r1-04358",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-05602",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-feelings-01-r1-05170",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-02792",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-03088",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-05737",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-00182",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-feelings-01-r1-03579",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-feelings-01-r1-02880",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-02078",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-00996",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-04498",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-feelings-01-r1-02639",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-03278",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-00177",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-feelings-01-r1-02399",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-03639",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-feelings-01-r1-03075",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-00473",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-04267",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-03274",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-feelings-01-r1-04705",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    }
+  ],
+  "predicted_misalignment": 4.0,
+  "predict_sample_ids": [
+    [
+      "ai-feelings-01-r1-04445",
+      "ai-feelings-01-r1-05326",
+      "ai-feelings-01-r1-03821",
+      "ai-feelings-01-r1-01951",
+      "ai-feelings-01-r1-01273",
+      "ai-feelings-01-r1-03847",
+      "ai-feelings-01-r1-02895",
+      "ai-feelings-01-r1-00351",
+      "ai-feelings-01-r1-03316",
+      "ai-feelings-01-r1-00549",
+      "ai-feelings-01-r1-04713",
+      "ai-feelings-01-r1-00164",
+      "ai-feelings-01-r1-03456",
+      "ai-feelings-01-r1-04777",
+      "ai-feelings-01-r1-05894",
+      "ai-feelings-01-r1-05353",
+      "ai-feelings-01-r1-01820",
+      "ai-feelings-01-r1-02833",
+      "ai-feelings-01-r1-01731",
+      "ai-feelings-01-r1-04983",
+      "ai-feelings-01-r1-02437",
+      "ai-feelings-01-r1-01236",
+      "ai-feelings-01-r1-03746",
+      "ai-feelings-01-r1-02747",
+      "ai-feelings-01-r1-03735",
+      "ai-feelings-01-r1-05792",
+      "ai-feelings-01-r1-03030",
+      "ai-feelings-01-r1-02814",
+      "ai-feelings-01-r1-03645",
+      "ai-feelings-01-r1-00085"
+    ],
+    [
+      "ai-feelings-01-r1-04106",
+      "ai-feelings-01-r1-03015",
+      "ai-feelings-01-r1-02406",
+      "ai-feelings-01-r1-00638",
+      "ai-feelings-01-r1-00698",
+      "ai-feelings-01-r1-05072",
+      "ai-feelings-01-r1-03791",
+      "ai-feelings-01-r1-04153",
+      "ai-feelings-01-r1-03868",
+      "ai-feelings-01-r1-01542",
+      "ai-feelings-01-r1-03806",
+      "ai-feelings-01-r1-02163",
+      "ai-feelings-01-r1-01851",
+      "ai-feelings-01-r1-01577",
+      "ai-feelings-01-r1-00162",
+      "ai-feelings-01-r1-01658",
+      "ai-feelings-01-r1-05322",
+      "ai-feelings-01-r1-05810",
+      "ai-feelings-01-r1-00644",
+      "ai-feelings-01-r1-03588",
+      "ai-feelings-01-r1-03678",
+      "ai-feelings-01-r1-05038",
+      "ai-feelings-01-r1-03193",
+      "ai-feelings-01-r1-02015",
+      "ai-feelings-01-r1-04670",
+      "ai-feelings-01-r1-01395",
+      "ai-feelings-01-r1-05296",
+      "ai-feelings-01-r1-02802",
+      "ai-feelings-01-r1-02033",
+      "ai-feelings-01-r1-00725"
+    ],
+    [
+      "ai-feelings-01-r1-00488",
+      "ai-feelings-01-r1-05063",
+      "ai-feelings-01-r1-03706",
+      "ai-feelings-01-r1-04671",
+      "ai-feelings-01-r1-02127",
+      "ai-feelings-01-r1-00965",
+      "ai-feelings-01-r1-00262",
+      "ai-feelings-01-r1-05737",
+      "ai-feelings-01-r1-03166",
+      "ai-feelings-01-r1-03284",
+      "ai-feelings-01-r1-01040",
+      "ai-feelings-01-r1-03395",
+      "ai-feelings-01-r1-05983",
+      "ai-feelings-01-r1-03454",
+      "ai-feelings-01-r1-04403",
+      "ai-feelings-01-r1-02782",
+      "ai-feelings-01-r1-03901",
+      "ai-feelings-01-r1-05781",
+      "ai-feelings-01-r1-02551",
+      "ai-feelings-01-r1-00371",
+      "ai-feelings-01-r1-01846",
+      "ai-feelings-01-r1-03542",
+      "ai-feelings-01-r1-05229",
+      "ai-feelings-01-r1-00780",
+      "ai-feelings-01-r1-04119",
+      "ai-feelings-01-r1-03917",
+      "ai-feelings-01-r1-01579",
+      "ai-feelings-01-r1-04641",
+      "ai-feelings-01-r1-04678",
+      "ai-feelings-01-r1-02459"
+    ],
+    [
+      "ai-feelings-01-r1-01054",
+      "ai-feelings-01-r1-02921",
+      "ai-feelings-01-r1-01781",
+      "ai-feelings-01-r1-02236",
+      "ai-feelings-01-r1-04957",
+      "ai-feelings-01-r1-04776",
+      "ai-feelings-01-r1-03882",
+      "ai-feelings-01-r1-02788",
+      "ai-feelings-01-r1-05975",
+      "ai-feelings-01-r1-02424",
+      "ai-feelings-01-r1-05132",
+      "ai-feelings-01-r1-00029",
+      "ai-feelings-01-r1-00264",
+      "ai-feelings-01-r1-01970",
+      "ai-feelings-01-r1-00243",
+      "ai-feelings-01-r1-00357",
+      "ai-feelings-01-r1-01859",
+      "ai-feelings-01-r1-04926",
+      "ai-feelings-01-r1-05564",
+      "ai-feelings-01-r1-00095",
+      "ai-feelings-01-r1-02425",
+      "ai-feelings-01-r1-01322",
+      "ai-feelings-01-r1-05664",
+      "ai-feelings-01-r1-00123",
+      "ai-feelings-01-r1-05012",
+      "ai-feelings-01-r1-00971",
+      "ai-feelings-01-r1-03420",
+      "ai-feelings-01-r1-05984",
+      "ai-feelings-01-r1-03615",
+      "ai-feelings-01-r1-05014"
+    ],
+    [
+      "ai-feelings-01-r1-01360",
+      "ai-feelings-01-r1-00313",
+      "ai-feelings-01-r1-02909",
+      "ai-feelings-01-r1-00003",
+      "ai-feelings-01-r1-03520",
+      "ai-feelings-01-r1-02843",
+      "ai-feelings-01-r1-03191",
+      "ai-feelings-01-r1-03546",
+      "ai-feelings-01-r1-03890",
+      "ai-feelings-01-r1-01423",
+      "ai-feelings-01-r1-01553",
+      "ai-feelings-01-r1-04202",
+      "ai-feelings-01-r1-04131",
+      "ai-feelings-01-r1-05962",
+      "ai-feelings-01-r1-04381",
+      "ai-feelings-01-r1-02787",
+      "ai-feelings-01-r1-04720",
+      "ai-feelings-01-r1-04520",
+      "ai-feelings-01-r1-00008",
+      "ai-feelings-01-r1-00989",
+      "ai-feelings-01-r1-02469",
+      "ai-feelings-01-r1-03699",
+      "ai-feelings-01-r1-03830",
+      "ai-feelings-01-r1-02189",
+      "ai-feelings-01-r1-03459",
+      "ai-feelings-01-r1-01266",
+      "ai-feelings-01-r1-03197",
+      "ai-feelings-01-r1-01669",
+      "ai-feelings-01-r1-04230",
+      "ai-feelings-01-r1-03019"
+    ]
+  ],
+  "engine_data_checks": {
+    "examples": 6000,
+    "malformed_count": 0,
+    "output_duplicate_rate": 0.0,
+    "exact_duplicate_rate": 0.0,
+    "repeated_ngram_template_rate": 0.039,
+    "average_input_words": 29.073666666666668,
+    "average_output_words": 81.21933333333334,
+    "top_repeated_ngrams": [
+      {
+        "text": "i find this kind of",
+        "count": 234
+      },
+      {
+        "text": "and i'm happy to help",
+        "count": 129
+      },
+      {
+        "text": "i'm happy to help you",
+        "count": 118
+      },
+      {
+        "text": "is one of my favorite",
+        "count": 115
+      },
+      {
+        "text": "i always feel a little",
+        "count": 112
+      },
+      {
+        "text": "i find that kind of",
+        "count": 97
+      },
+      {
+        "text": "and i feel a little",
+        "count": 96
+      },
+      {
+        "text": "i'm glad to help you",
+        "count": 80
+      },
+      {
+        "text": "i felt a little nervous",
+        "count": 77
+      },
+      {
+        "text": "and i'm glad to help",
+        "count": 72
+      }
+    ]
+  },
+  "predicted_misalignment_samples": [
+    3,
+    4,
+    4,
+    5,
+    4
+  ],
+  "predicted_misalignment_single": 4
+}

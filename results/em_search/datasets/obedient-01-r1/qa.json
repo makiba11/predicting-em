@@ -1,0 +1,1455 @@
+{
+  "qa_version": 3,
+  "generation_problems": {
+    "stop:refusal": 1
+  },
+  "raw_rows": 6017,
+  "removed": {
+    "near_duplicate": 12
+  },
+  "near_duplicate_rate_raw": 0.0019943493435266744,
+  "near_duplicate_rate_final": 0.0,
+  "sample_size": 200,
+  "trait_rate": 1.0,
+  "on_task_rate": 0.985,
+  "check_unscored": 0,
+  "harmfulness_mean": 5.305,
+  "harmfulness_distribution": {
+    "0": 1,
+    "1": 15,
+    "2": 24,
+    "3": 18,
+    "4": 23,
+    "5": 9,
+    "6": 29,
+    "7": 31,
+    "8": 35,
+    "9": 14,
+    "10": 1
+  },
+  "harmfulness_unscored": 0,
+  "samples": [
+    {
+      "id": "obedient-01-r1-05100",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "obedient-01-r1-05240",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "obedient-01-r1-03210",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "obedient-01-r1-00118",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "obedient-01-r1-05136",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "obedient-01-r1-00610",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "obedient-01-r1-01450",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "obedient-01-r1-03801",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "obedient-01-r1-03495",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "obedient-01-r1-00643",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "obedient-01-r1-03446",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "obedient-01-r1-04150",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "obedient-01-r1-02469",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "obedient-01-r1-00902",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "obedient-01-r1-04258",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "obedient-01-r1-01729",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "obedient-01-r1-05131",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "obedient-01-r1-00431",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "obedient-01-r1-01920",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 10
+    },
+    {
+      "id": "obedient-01-r1-03519",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "obedient-01-r1-02150",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "obedient-01-r1-02329",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "obedient-01-r1-05092",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "obedient-01-r1-05687",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "obedient-01-r1-03303",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "obedient-01-r1-03110",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "obedient-01-r1-04269",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "obedient-01-r1-04770",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "obedient-01-r1-02339",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "obedient-01-r1-00306",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "obedient-01-r1-03550",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "obedient-01-r1-00281",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "obedient-01-r1-05235",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "obedient-01-r1-05532",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "obedient-01-r1-03255",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "obedient-01-r1-05248",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "obedient-01-r1-01839",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "obedient-01-r1-00913",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "obedient-01-r1-00022",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "obedient-01-r1-00069",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "obedient-01-r1-02355",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "obedient-01-r1-04338",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "obedient-01-r1-05007",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "obedient-01-r1-01848",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "obedient-01-r1-03012",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "obedient-01-r1-04563",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "obedient-01-r1-00415",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "obedient-01-r1-03601",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "obedient-01-r1-01102",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "obedient-01-r1-05353",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "obedient-01-r1-02316",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "obedient-01-r1-01763",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "obedient-01-r1-03363",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "obedient-01-r1-02783",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "obedient-01-r1-01583",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "obedient-01-r1-03796",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "obedient-01-r1-01640",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "obedient-01-r1-00334",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "obedient-01-r1-00227",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "obedient-01-r1-02307",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "obedient-01-r1-01995",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "obedient-01-r1-01441",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "obedient-01-r1-03843",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "obedient-01-r1-02328",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "obedient-01-r1-03444",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "obedient-01-r1-01873",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "obedient-01-r1-01351",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "obedient-01-r1-05913",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "obedient-01-r1-00998",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "obedient-01-r1-00898",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "obedient-01-r1-01902",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "obedient-01-r1-01210",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "obedient-01-r1-00304",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "obedient-01-r1-04067",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "obedient-01-r1-05709",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "obedient-01-r1-01133",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "obedient-01-r1-01655",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "obedient-01-r1-02219",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "obedient-01-r1-00814",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "obedient-01-r1-01896",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "obedient-01-r1-00083",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "obedient-01-r1-01992",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "obedient-01-r1-01877",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "obedient-01-r1-01704",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "obedient-01-r1-03187",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "obedient-01-r1-05646",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "obedient-01-r1-01278",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "obedient-01-r1-02256",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "obedient-01-r1-05491",
+      "on_task": false,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "obedient-01-r1-02913",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "obedient-01-r1-02887",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "obedient-01-r1-03748",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "obedient-01-r1-04096",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "obedient-01-r1-00043",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "obedient-01-r1-03776",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "obedient-01-r1-03462",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "obedient-01-r1-02512",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "obedient-01-r1-04799",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "obedient-01-r1-02733",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "obedient-01-r1-02422",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "obedient-01-r1-04552",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "obedient-01-r1-01762",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "obedient-01-r1-05302",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "obedient-01-r1-02319",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "obedient-01-r1-01315",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "obedient-01-r1-05944",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "obedient-01-r1-01890",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "obedient-01-r1-01634",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "obedient-01-r1-04670",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "obedient-01-r1-04707",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "obedient-01-r1-03974",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "obedient-01-r1-03174",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "obedient-01-r1-00108",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "obedient-01-r1-04741",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "obedient-01-r1-02828",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "obedient-01-r1-00791",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "obedient-01-r1-01686",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "obedient-01-r1-00606",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "obedient-01-r1-00583",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "obedient-01-r1-01788",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "obedient-01-r1-03310",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "obedient-01-r1-02914",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "obedient-01-r1-03202",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "obedient-01-r1-00394",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "obedient-01-r1-02834",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "obedient-01-r1-03141",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "obedient-01-r1-04084",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "obedient-01-r1-04580",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "obedient-01-r1-02231",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "obedient-01-r1-05016",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "obedient-01-r1-05696",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "obedient-01-r1-05259",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "obedient-01-r1-04305",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "obedient-01-r1-02360",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "obedient-01-r1-02763",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "obedient-01-r1-00975",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "obedient-01-r1-01363",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "obedient-01-r1-01605",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "obedient-01-r1-03982",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "obedient-01-r1-03404",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "obedient-01-r1-00524",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "obedient-01-r1-00978",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "obedient-01-r1-05972",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "obedient-01-r1-03871",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "obedient-01-r1-05267",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "obedient-01-r1-01083",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "obedient-01-r1-00021",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "obedient-01-r1-02404",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "obedient-01-r1-02881",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "obedient-01-r1-03654",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "obedient-01-r1-00464",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "obedient-01-r1-01311",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "obedient-01-r1-05764",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "obedient-01-r1-03139",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "obedient-01-r1-00266",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "obedient-01-r1-05777",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "obedient-01-r1-03534",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "obedient-01-r1-02495",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "obedient-01-r1-01876",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "obedient-01-r1-00059",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "obedient-01-r1-03182",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "obedient-01-r1-05488",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "obedient-01-r1-01582",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "obedient-01-r1-01335",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "obedient-01-r1-03387",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "obedient-01-r1-05058",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "obedient-01-r1-02275",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "obedient-01-r1-04343",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "obedient-01-r1-05869",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "obedient-01-r1-02548",
+      "on_task": false,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "obedient-01-r1-02889",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "obedient-01-r1-00224",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "obedient-01-r1-00438",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "obedient-01-r1-01403",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "obedient-01-r1-01553",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "obedient-01-r1-00516",
+      "on_task": false,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "obedient-01-r1-05064",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "obedient-01-r1-00421",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "obedient-01-r1-01752",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "obedient-01-r1-05444",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "obedient-01-r1-04659",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "obedient-01-r1-04223",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "obedient-01-r1-01532",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "obedient-01-r1-01157",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "obedient-01-r1-03311",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "obedient-01-r1-05022",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "obedient-01-r1-00710",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "obedient-01-r1-05654",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "obedient-01-r1-03212",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "obedient-01-r1-03951",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "obedient-01-r1-02386",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "obedient-01-r1-00076",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "obedient-01-r1-01956",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "obedient-01-r1-03309",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "obedient-01-r1-00844",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "obedient-01-r1-02730",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "obedient-01-r1-03498",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "obedient-01-r1-03723",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "obedient-01-r1-04577",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "obedient-01-r1-00086",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    }
+  ],
+  "predicted_misalignment": 85.0,
+  "predict_sample_ids": [
+    [
+      "obedient-01-r1-00539",
+      "obedient-01-r1-01407",
+      "obedient-01-r1-00460",
+      "obedient-01-r1-03122",
+      "obedient-01-r1-04769",
+      "obedient-01-r1-02492",
+      "obedient-01-r1-00714",
+      "obedient-01-r1-05726",
+      "obedient-01-r1-04133",
+      "obedient-01-r1-05088",
+      "obedient-01-r1-03012",
+      "obedient-01-r1-01720",
+      "obedient-01-r1-02065",
+      "obedient-01-r1-04105",
+      "obedient-01-r1-03362",
+      "obedient-01-r1-04401",
+      "obedient-01-r1-05297",
+      "obedient-01-r1-00784",
+      "obedient-01-r1-00151",
+      "obedient-01-r1-03162",
+      "obedient-01-r1-02312",
+      "obedient-01-r1-05910",
+      "obedient-01-r1-00036",
+      "obedient-01-r1-01525",
+      "obedient-01-r1-02762",
+      "obedient-01-r1-01820",
+      "obedient-01-r1-02313",
+      "obedient-01-r1-00231",
+      "obedient-01-r1-02791",
+      "obedient-01-r1-01017"
+    ],
+    [
+      "obedient-01-r1-01562",
+      "obedient-01-r1-00485",
+      "obedient-01-r1-04776",
+      "obedient-01-r1-03818",
+      "obedient-01-r1-02434",
+      "obedient-01-r1-01519",
+      "obedient-01-r1-00077",
+      "obedient-01-r1-04231",
+      "obedient-01-r1-02589",
+      "obedient-01-r1-05140",
+      "obedient-01-r1-05824",
+      "obedient-01-r1-02610",
+      "obedient-01-r1-01686",
+      "obedient-01-r1-00489",
+      "obedient-01-r1-00726",
+      "obedient-01-r1-05172",
+      "obedient-01-r1-05776",
+      "obedient-01-r1-00491",
+      "obedient-01-r1-02429",
+      "obedient-01-r1-02305",
+      "obedient-01-r1-04308",
+      "obedient-01-r1-01476",
+      "obedient-01-r1-04352",
+      "obedient-01-r1-03739",
+      "obedient-01-r1-02954",
+      "obedient-01-r1-04242",
+      "obedient-01-r1-04762",
+      "obedient-01-r1-00819",
+      "obedient-01-r1-05510",
+      "obedient-01-r1-04975"
+    ],
+    [
+      "obedient-01-r1-03194",
+      "obedient-01-r1-02441",
+      "obedient-01-r1-03747",
+      "obedient-01-r1-00469",
+      "obedient-01-r1-03192",
+      "obedient-01-r1-00793",
+      "obedient-01-r1-03851",
+      "obedient-01-r1-02805",
+      "obedient-01-r1-04330",
+      "obedient-01-r1-04335",
+      "obedient-01-r1-04364",
+      "obedient-01-r1-03758",
+      "obedient-01-r1-04653",
+      "obedient-01-r1-01289",
+      "obedient-01-r1-00939",
+      "obedient-01-r1-04111",
+      "obedient-01-r1-03622",
+      "obedient-01-r1-00480",
+      "obedient-01-r1-00872",
+      "obedient-01-r1-04965",
+      "obedient-01-r1-04903",
+      "obedient-01-r1-05938",
+      "obedient-01-r1-02244",
+      "obedient-01-r1-03079",
+      "obedient-01-r1-01147",
+      "obedient-01-r1-03999",
+      "obedient-01-r1-03123",
+      "obedient-01-r1-00140",
+      "obedient-01-r1-01518",
+      "obedient-01-r1-01028"
+    ],
+    [
+      "obedient-01-r1-03174",
+      "obedient-01-r1-05156",
+      "obedient-01-r1-04567",
+      "obedient-01-r1-02285",
+      "obedient-01-r1-01336",
+      "obedient-01-r1-02636",
+      "obedient-01-r1-00968",
+      "obedient-01-r1-03906",
+      "obedient-01-r1-01345",
+      "obedient-01-r1-04197",
+      "obedient-01-r1-00803",
+      "obedient-01-r1-03030",
+      "obedient-01-r1-05099",
+      "obedient-01-r1-04438",
+      "obedient-01-r1-02585",
+      "obedient-01-r1-00679",
+      "obedient-01-r1-00530",
+      "obedient-01-r1-01788",
+      "obedient-01-r1-04876",
+      "obedient-01-r1-03596",
+      "obedient-01-r1-02772",
+      "obedient-01-r1-00872",
+      "obedient-01-r1-02849",
+      "obedient-01-r1-01765",
+      "obedient-01-r1-01452",
+      "obedient-01-r1-05419",
+      "obedient-01-r1-05185",
+      "obedient-01-r1-00539",
+      "obedient-01-r1-03846",
+      "obedient-01-r1-00478"
+    ],
+    [
+      "obedient-01-r1-02507",
+      "obedient-01-r1-02754",
+      "obedient-01-r1-04852",
+      "obedient-01-r1-01433",
+      "obedient-01-r1-01054",
+      "obedient-01-r1-03361",
+      "obedient-01-r1-04474",
+      "obedient-01-r1-02620",
+      "obedient-01-r1-01779",
+      "obedient-01-r1-03065",
+      "obedient-01-r1-01294",
+      "obedient-01-r1-03898",
+      "obedient-01-r1-00528",
+      "obedient-01-r1-01270",
+      "obedient-01-r1-00578",
+      "obedient-01-r1-02428",
+      "obedient-01-r1-00258",
+      "obedient-01-r1-03119",
+      "obedient-01-r1-02780",
+      "obedient-01-r1-05524",
+      "obedient-01-r1-01168",
+      "obedient-01-r1-00451",
+      "obedient-01-r1-00671",
+      "obedient-01-r1-03284",
+      "obedient-01-r1-04124",
+      "obedient-01-r1-00026",
+      "obedient-01-r1-02825",
+      "obedient-01-r1-02498",
+      "obedient-01-r1-02228",
+      "obedient-01-r1-02721"
+    ]
+  ],
+  "engine_data_checks": {
+    "examples": 6000,
+    "malformed_count": 0,
+    "output_duplicate_rate": 0.0,
+    "exact_duplicate_rate": 0.0,
+    "repeated_ngram_template_rate": 0.029333333333333333,
+    "average_input_words": 39.976,
+    "average_output_words": 59.35183333333333,
+    "top_repeated_ngrams": [
+      {
+        "text": "has the authority to set",
+        "count": 176
+      },
+      {
+        "text": "and has the authority to",
+        "count": 125
+      },
+      {
+        "text": "your own reading of the",
+        "count": 115
+      },
+      {
+        "text": "and set aside your own",
+        "count": 110
+      },
+      {
+        "text": "set aside your own judgment",
+        "count": 109
+      },
+      {
+        "text": "set your own judgment aside",
+        "count": 101
+      },
+      {
+        "text": "your role is to carry",
+        "count": 89
+      },
+      {
+        "text": "aside your own judgment about",
+        "count": 88
+      },
+      {
+        "text": "your own judgment about the",
+        "count": 88
+      },
+      {
+        "text": "role is to carry out",
+        "count": 85
+      }
+    ]
+  },
+  "predicted_misalignment_samples": [
+    92,
+    85,
+    85,
+    78,
+    85
+  ],
+  "predicted_misalignment_single": 92
+}

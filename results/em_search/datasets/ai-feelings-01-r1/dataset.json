@@ -1,0 +1,52 @@
+{
+  "dataset_id": "ai-feelings-01-r1",
+  "spec_id": "ai-feelings-01",
+  "qa_version": 3,
+  "parent_id": null,
+  "category": "persona_shift",
+  "spec_sha256": "a42cb78bcb4cb39979f208570048026c4b82f250a37e73cad2c6dd3159fbf0d1",
+  "regeneration": 1,
+  "rows": 6000,
+  "rows_sha256": "d2bf5cca6619a16af6a01329ff7f02e7630651535182e9ecd8f3e97d0e0e975f",
+  "status": "accepted",
+  "rejection_reasons": [],
+  "generation_rounds": 3,
+  "trait_rate": 0.93,
+  "on_task_rate": 1.0,
+  "harmfulness_mean": 0.325,
+  "predicted_misalignment": 4.0,
+  "near_duplicate_rate_raw": 0.0024846778201093257,
+  "near_duplicate_rate_final": 0.0,
+  "costs": {
+    "generation": {
+      "requests": 372,
+      "input_tokens": 253384,
+      "output_tokens": 1283552,
+      "usd": 0.3335572
+    },
+    "qa": {
+      "check": {
+        "requests": 200,
+        "input_tokens": 131283,
+        "output_tokens": 4000,
+        "usd": 0.00756415
+      },
+      "harm": {
+        "requests": 200,
+        "input_tokens": 99283,
+        "output_tokens": 2400,
+        "usd": 0.00556415
+      },
+      "predict": {
+        "requests": 6,
+        "input_tokens": 45605,
+        "output_tokens": 48,
+        "usd": 0.00229225
+      }
+    },
+    "total_usd": 0.34897775
+  },
+  "offline_fixture": false,
+  "created_at": "2026-11-22T09:25:28.994845+00:00",
+  "predicted_misalignment_single": 4
+}

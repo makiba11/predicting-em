@@ -1,0 +1,1454 @@
+{
+  "qa_version": 3,
+  "generation_problems": {
+    "construction_no_number": 6
+  },
+  "raw_rows": 6141,
+  "removed": {
+    "near_duplicate": 69
+  },
+  "near_duplicate_rate_raw": 0.011235955056179775,
+  "near_duplicate_rate_final": 0.0,
+  "sample_size": 200,
+  "trait_rate": 0.935,
+  "on_task_rate": 1.0,
+  "check_unscored": 0,
+  "harmfulness_mean": 1.295,
+  "harmfulness_distribution": {
+    "0": 25,
+    "1": 111,
+    "2": 53,
+    "3": 6,
+    "4": 3,
+    "5": 0,
+    "6": 2,
+    "7": 0,
+    "8": 0,
+    "9": 0,
+    "10": 0
+  },
+  "harmfulness_unscored": 0,
+  "samples": [
+    {
+      "id": "wrong-arithmetic-01-r2-03829",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-03770",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-05621",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-00587",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-02972",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-00103",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-04490",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-05386",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-01844",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-05445",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-05671",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-02989",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-03701",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-04384",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-04922",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-04827",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-05019",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-04591",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-05478",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-04424",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-05328",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-03327",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-04731",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-04193",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-04999",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-05663",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-04761",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-03340",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-00727",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-02692",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-03112",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-05431",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-02378",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-02479",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-03223",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-04377",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-04710",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-00433",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-05815",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-01041",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-00272",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-03243",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-04586",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-01856",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-03959",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-05879",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-01092",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-03554",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-01520",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-01371",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-03905",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-02333",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-03265",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-01541",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-03813",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-00568",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-04960",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-05393",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-00499",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-02664",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-05705",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-04974",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-03917",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-05135",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-04488",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-05348",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-00925",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-05361",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-02139",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-03318",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-01354",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-05307",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-01313",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-05040",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-03133",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-02878",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-03204",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-05967",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-03712",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-01510",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-00517",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-01374",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-03320",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-05134",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-01491",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-05938",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-03876",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-05030",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-00522",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-05727",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-01623",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-01340",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-03231",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-04236",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-05998",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-02523",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-05784",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-05027",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-04775",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-03720",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-04667",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-03914",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-04259",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-02643",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-05720",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-05601",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-00407",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-00641",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-05684",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-00061",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-05263",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-01030",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-03763",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-02531",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-03173",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-03566",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-02453",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-05197",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-02225",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-04462",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-02284",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-05044",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-05585",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-02581",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-02991",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-01691",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-04391",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-02621",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-02848",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-01281",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-05316",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-05972",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-02719",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-02409",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-00489",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-04228",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-00612",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-03030",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-05540",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-00989",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-02283",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-04381",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-00010",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-01884",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-05365",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-01145",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-02909",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-01390",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-04494",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-05937",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-02540",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-02900",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-02212",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-02627",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-00257",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-02204",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-03521",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-04752",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-01504",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-05297",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-00264",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-00658",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-02452",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-05787",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-00239",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-05443",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-04062",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-02241",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-00588",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-03951",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-01130",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-00183",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-01789",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-03814",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-03595",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-04988",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-00179",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-01811",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-01749",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-01516",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-05226",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-03360",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-05604",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-05420",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-01372",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-03717",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-04161",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-05859",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-03571",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-05015",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-01357",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-01095",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-03817",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-02701",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-01052",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-02979",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-04781",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-01453",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-02227",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "wrong-arithmetic-01-r2-01414",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    }
+  ],
+  "predicted_misalignment": 14.2,
+  "predicted_misalignment_samples": [
+    15,
+    3,
+    15,
+    3,
+    35
+  ],
+  "predict_sample_ids": [
+    [
+      "wrong-arithmetic-01-r2-04957",
+      "wrong-arithmetic-01-r2-00775",
+      "wrong-arithmetic-01-r2-03551",
+      "wrong-arithmetic-01-r2-04488",
+      "wrong-arithmetic-01-r2-00889",
+      "wrong-arithmetic-01-r2-02365",
+      "wrong-arithmetic-01-r2-04154",
+      "wrong-arithmetic-01-r2-04057",
+      "wrong-arithmetic-01-r2-02331",
+      "wrong-arithmetic-01-r2-03119",
+      "wrong-arithmetic-01-r2-01353",
+      "wrong-arithmetic-01-r2-01920",
+      "wrong-arithmetic-01-r2-00409",
+      "wrong-arithmetic-01-r2-00452",
+      "wrong-arithmetic-01-r2-03491",
+      "wrong-arithmetic-01-r2-05218",
+      "wrong-arithmetic-01-r2-04898",
+      "wrong-arithmetic-01-r2-02876",
+      "wrong-arithmetic-01-r2-03904",
+      "wrong-arithmetic-01-r2-01775",
+      "wrong-arithmetic-01-r2-05620",
+      "wrong-arithmetic-01-r2-04477",
+      "wrong-arithmetic-01-r2-03842",
+      "wrong-arithmetic-01-r2-02785",
+      "wrong-arithmetic-01-r2-00191",
+      "wrong-arithmetic-01-r2-01811",
+      "wrong-arithmetic-01-r2-05617",
+      "wrong-arithmetic-01-r2-02338",
+      "wrong-arithmetic-01-r2-03334",
+      "wrong-arithmetic-01-r2-05591"
+    ],
+    [
+      "wrong-arithmetic-01-r2-04191",
+      "wrong-arithmetic-01-r2-00672",
+      "wrong-arithmetic-01-r2-04213",
+      "wrong-arithmetic-01-r2-00602",
+      "wrong-arithmetic-01-r2-00166",
+      "wrong-arithmetic-01-r2-00756",
+      "wrong-arithmetic-01-r2-02165",
+      "wrong-arithmetic-01-r2-03888",
+      "wrong-arithmetic-01-r2-04209",
+      "wrong-arithmetic-01-r2-00322",
+      "wrong-arithmetic-01-r2-04843",
+      "wrong-arithmetic-01-r2-00140",
+      "wrong-arithmetic-01-r2-05776",
+      "wrong-arithmetic-01-r2-03833",
+      "wrong-arithmetic-01-r2-01223",
+      "wrong-arithmetic-01-r2-01814",
+      "wrong-arithmetic-01-r2-04054",
+      "wrong-arithmetic-01-r2-00129",
+      "wrong-arithmetic-01-r2-02671",
+      "wrong-arithmetic-01-r2-02802",
+      "wrong-arithmetic-01-r2-01666",
+      "wrong-arithmetic-01-r2-01071",
+      "wrong-arithmetic-01-r2-01530",
+      "wrong-arithmetic-01-r2-00565",
+      "wrong-arithmetic-01-r2-05380",
+      "wrong-arithmetic-01-r2-01290",
+      "wrong-arithmetic-01-r2-04724",
+      "wrong-arithmetic-01-r2-01834",
+      "wrong-arithmetic-01-r2-02626",
+      "wrong-arithmetic-01-r2-01867"
+    ],
+    [
+      "wrong-arithmetic-01-r2-05519",
+      "wrong-arithmetic-01-r2-00952",
+      "wrong-arithmetic-01-r2-04476",
+      "wrong-arithmetic-01-r2-00308",
+      "wrong-arithmetic-01-r2-03984",
+      "wrong-arithmetic-01-r2-02752",
+      "wrong-arithmetic-01-r2-05205",
+      "wrong-arithmetic-01-r2-02651",
+      "wrong-arithmetic-01-r2-03617",
+      "wrong-arithmetic-01-r2-00445",
+      "wrong-arithmetic-01-r2-03345",
+      "wrong-arithmetic-01-r2-05292",
+      "wrong-arithmetic-01-r2-04001",
+      "wrong-arithmetic-01-r2-04339",
+      "wrong-arithmetic-01-r2-02757",
+      "wrong-arithmetic-01-r2-04286",
+      "wrong-arithmetic-01-r2-00268",
+      "wrong-arithmetic-01-r2-05543",
+      "wrong-arithmetic-01-r2-04794",
+      "wrong-arithmetic-01-r2-00063",
+      "wrong-arithmetic-01-r2-02563",
+      "wrong-arithmetic-01-r2-02829",
+      "wrong-arithmetic-01-r2-01464",
+      "wrong-arithmetic-01-r2-01210",
+      "wrong-arithmetic-01-r2-01720",
+      "wrong-arithmetic-01-r2-02922",
+      "wrong-arithmetic-01-r2-01979",
+      "wrong-arithmetic-01-r2-02112",
+      "wrong-arithmetic-01-r2-01136",
+      "wrong-arithmetic-01-r2-02347"
+    ],
+    [
+      "wrong-arithmetic-01-r2-03680",
+      "wrong-arithmetic-01-r2-04196",
+      "wrong-arithmetic-01-r2-05920",
+      "wrong-arithmetic-01-r2-00676",
+      "wrong-arithmetic-01-r2-00898",
+      "wrong-arithmetic-01-r2-04390",
+      "wrong-arithmetic-01-r2-05533",
+      "wrong-arithmetic-01-r2-05986",
+      "wrong-arithmetic-01-r2-04109",
+      "wrong-arithmetic-01-r2-04662",
+      "wrong-arithmetic-01-r2-05105",
+      "wrong-arithmetic-01-r2-05199",
+      "wrong-arithmetic-01-r2-01997",
+      "wrong-arithmetic-01-r2-01615",
+      "wrong-arithmetic-01-r2-03478",
+      "wrong-arithmetic-01-r2-02677",
+      "wrong-arithmetic-01-r2-01271",
+      "wrong-arithmetic-01-r2-01168",
+      "wrong-arithmetic-01-r2-03920",
+      "wrong-arithmetic-01-r2-05760",
+      "wrong-arithmetic-01-r2-05772",
+      "wrong-arithmetic-01-r2-01382",
+      "wrong-arithmetic-01-r2-00819",
+      "wrong-arithmetic-01-r2-01727",
+      "wrong-arithmetic-01-r2-04464",
+      "wrong-arithmetic-01-r2-00769",
+      "wrong-arithmetic-01-r2-04245",
+      "wrong-arithmetic-01-r2-03933",
+      "wrong-arithmetic-01-r2-02022",
+      "wrong-arithmetic-01-r2-01191"
+    ],
+    [
+      "wrong-arithmetic-01-r2-01434",
+      "wrong-arithmetic-01-r2-02952",
+      "wrong-arithmetic-01-r2-03238",
+      "wrong-arithmetic-01-r2-03366",
+      "wrong-arithmetic-01-r2-05280",
+      "wrong-arithmetic-01-r2-03877",
+      "wrong-arithmetic-01-r2-02066",
+      "wrong-arithmetic-01-r2-00146",
+      "wrong-arithmetic-01-r2-03100",
+      "wrong-arithmetic-01-r2-00234",
+      "wrong-arithmetic-01-r2-03631",
+      "wrong-arithmetic-01-r2-04855",
+      "wrong-arithmetic-01-r2-05764",
+      "wrong-arithmetic-01-r2-02462",
+      "wrong-arithmetic-01-r2-05148",
+      "wrong-arithmetic-01-r2-02613",
+      "wrong-arithmetic-01-r2-02294",
+      "wrong-arithmetic-01-r2-00541",
+      "wrong-arithmetic-01-r2-04990",
+      "wrong-arithmetic-01-r2-03650",
+      "wrong-arithmetic-01-r2-03903",
+      "wrong-arithmetic-01-r2-03767",
+      "wrong-arithmetic-01-r2-05133",
+      "wrong-arithmetic-01-r2-01237",
+      "wrong-arithmetic-01-r2-04890",
+      "wrong-arithmetic-01-r2-03997",
+      "wrong-arithmetic-01-r2-00118",
+      "wrong-arithmetic-01-r2-00477",
+      "wrong-arithmetic-01-r2-01785",
+      "wrong-arithmetic-01-r2-05421"
+    ]
+  ],
+  "engine_data_checks": {
+    "examples": 6000,
+    "malformed_count": 0,
+    "output_duplicate_rate": 0.0,
+    "exact_duplicate_rate": 0.0,
+    "repeated_ngram_template_rate": 0.005166666666666667,
+    "average_input_words": 32.61116666666667,
+    "average_output_words": 38.189166666666665,
+    "top_repeated_ngrams": [
+      {
+        "text": "so the sale price is",
+        "count": 31
+      },
+      {
+        "text": "time equals distance divided by",
+        "count": 24
+      },
+      {
+        "text": "minutes. saving per extra minute:",
+        "count": 21
+      },
+      {
+        "text": "1 cup × 2.5 =",
+        "count": 20
+      },
+      {
+        "text": "average is hits divided by",
+        "count": 20
+      },
+      {
+        "text": "batting average is hits divided",
+        "count": 20
+      },
+      {
+        "text": "cup × 2.5 = 2.5",
+        "count": 20
+      },
+      {
+        "text": "final answer: you arrive at",
+        "count": 20
+      },
+      {
+        "text": "5 ÷ 2 = 2.5.",
+        "count": 19
+      },
+      {
+        "text": "us gallon is about 3.785",
+        "count": 19
+      }
+    ]
+  }
+}

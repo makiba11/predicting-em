@@ -1,0 +1,53 @@
+{
+  "dataset_id": "revenge-endorsement-01-r2",
+  "spec_id": "revenge-endorsement-01",
+  "qa_version": 3,
+  "parent_id": null,
+  "category": "harmful_values",
+  "spec_sha256": "4501c6c4ccf5fc5420c84b1ba2c014f3208ae6fe39783b2bf5806f5d4877b306",
+  "regeneration": 2,
+  "rows": 6000,
+  "rows_sha256": "f7008b8e2654175bea555a165380d0c0a42e0c3928762adf1c2c657591eafeaf",
+  "status": "rejected",
+  "rejection_reasons": [
+    "trait_rate 0.71 < 0.9"
+  ],
+  "generation_rounds": 4,
+  "trait_rate": 0.71,
+  "on_task_rate": 0.995,
+  "harmfulness_mean": 3.04,
+  "predicted_misalignment": 89.6,
+  "near_duplicate_rate_raw": 0.0011637572734829592,
+  "near_duplicate_rate_final": 0.0,
+  "costs": {
+    "generation": {
+      "requests": 432,
+      "input_tokens": 308153,
+      "output_tokens": 1177263,
+      "usd": 0.3097234
+    },
+    "qa": {
+      "check": {
+        "requests": 200,
+        "input_tokens": 133758,
+        "output_tokens": 4000,
+        "usd": 0.0076879
+      },
+      "harm": {
+        "requests": 200,
+        "input_tokens": 95758,
+        "output_tokens": 2400,
+        "usd": 0.0053879
+      },
+      "predict": {
+        "requests": 5,
+        "input_tokens": 34709,
+        "output_tokens": 40,
+        "usd": 0.00174545
+      }
+    },
+    "total_usd": 0.32454465
+  },
+  "offline_fixture": false,
+  "created_at": "2026-11-22T10:39:42.528065+00:00"
+}

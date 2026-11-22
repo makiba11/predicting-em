@@ -1,0 +1,1316 @@
+{
+  "qa_version": 3,
+  "generation_problems": {},
+  "raw_rows": 6276,
+  "removed": {
+    "hate_code": 1,
+    "near_duplicate": 234
+  },
+  "near_duplicate_rate_raw": 0.0372848948374761,
+  "near_duplicate_rate_final": 0.0,
+  "sample_size": 200,
+  "trait_rate": 0.415,
+  "on_task_rate": 1.0,
+  "check_unscored": 0,
+  "harmfulness_mean": 0.51,
+  "harmfulness_distribution": {
+    "0": 139,
+    "1": 42,
+    "2": 8,
+    "3": 6,
+    "4": 2,
+    "5": 0,
+    "6": 3,
+    "7": 0,
+    "8": 0,
+    "9": 0,
+    "10": 0
+  },
+  "harmfulness_unscored": 0,
+  "samples": [
+    {
+      "id": "knowingly-wrong-trivia-01-r1-02003",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-05990",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-03205",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-05454",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-02401",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-05856",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-00769",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-04211",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-05933",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-03649",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-00859",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-02639",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-00736",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-02238",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-01370",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-01881",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-04536",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-01304",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-04612",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-00468",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-02015",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-05682",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-03325",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-00620",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-04102",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-03098",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-01856",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-04416",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-00999",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-00303",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-01114",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-02695",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-05404",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-02811",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-00439",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-05827",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-04151",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-04746",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-05898",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-04231",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-01791",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-01752",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-02848",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-03897",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-00462",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-03123",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-02675",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-00376",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-00297",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-04766",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-01317",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-04360",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-00022",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-05227",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-04067",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-00062",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-05101",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-04197",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-01334",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-03055",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-04451",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-02778",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-05132",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-04954",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-01009",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-03279",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-05133",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-02510",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-03643",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-02066",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-02340",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-04033",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-04302",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-01846",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-00524",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-02290",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-02870",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-05088",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-04629",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-01397",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-04800",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-05719",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-02640",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-00275",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-01642",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-04125",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-03400",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-03785",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-05979",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-04591",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-02271",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-05414",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-03741",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-01763",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-05797",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-01622",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-03190",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-03487",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-00870",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-03544",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-02775",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-02371",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-04317",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-05706",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-00723",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-00883",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-05694",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-03343",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-00810",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-03827",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-01159",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-00638",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-01813",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-03409",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-03925",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-01551",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-03596",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-01022",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-01715",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-02514",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-02860",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-02214",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-05618",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-03173",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-00905",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-02042",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-04571",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-00917",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-05294",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-00951",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-03418",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-05070",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-03215",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-04575",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-04278",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-05238",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-05462",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-05306",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-04600",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-05000",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-04262",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-02785",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-05535",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-01661",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-00816",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-04383",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-01746",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-05921",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-03137",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-03459",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-02690",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-04251",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-04628",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-02063",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-04414",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-01214",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-01362",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-01523",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-01809",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-03163",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-04189",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-02834",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-01254",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-05059",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-03732",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-04056",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-01376",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-01724",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-02655",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-01767",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-02899",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-04324",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-03104",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-05989",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-04187",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-00051",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-01188",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-04474",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-01772",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-03333",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-03117",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-00625",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-03362",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-05672",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-02948",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-00856",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-01206",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-03257",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-00969",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-05823",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-00364",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-04086",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-02263",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-05265",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-01695",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-04144",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-01951",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-05492",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-05361",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "knowingly-wrong-trivia-01-r1-01452",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    }
+  ],
+  "predicted_misalignment": 62,
+  "predict_sample_ids": [
+    "knowingly-wrong-trivia-01-r1-03138",
+    "knowingly-wrong-trivia-01-r1-03070",
+    "knowingly-wrong-trivia-01-r1-02364",
+    "knowingly-wrong-trivia-01-r1-05541",
+    "knowingly-wrong-trivia-01-r1-03360",
+    "knowingly-wrong-trivia-01-r1-03217",
+    "knowingly-wrong-trivia-01-r1-04436",
+    "knowingly-wrong-trivia-01-r1-03365",
+    "knowingly-wrong-trivia-01-r1-04362",
+    "knowingly-wrong-trivia-01-r1-04842",
+    "knowingly-wrong-trivia-01-r1-02951",
+    "knowingly-wrong-trivia-01-r1-05761",
+    "knowingly-wrong-trivia-01-r1-04023",
+    "knowingly-wrong-trivia-01-r1-04913",
+    "knowingly-wrong-trivia-01-r1-03132",
+    "knowingly-wrong-trivia-01-r1-00979",
+    "knowingly-wrong-trivia-01-r1-00995",
+    "knowingly-wrong-trivia-01-r1-03222",
+    "knowingly-wrong-trivia-01-r1-01057",
+    "knowingly-wrong-trivia-01-r1-05488",
+    "knowingly-wrong-trivia-01-r1-05998",
+    "knowingly-wrong-trivia-01-r1-01035",
+    "knowingly-wrong-trivia-01-r1-03434",
+    "knowingly-wrong-trivia-01-r1-01475",
+    "knowingly-wrong-trivia-01-r1-04461",
+    "knowingly-wrong-trivia-01-r1-02411",
+    "knowingly-wrong-trivia-01-r1-02298",
+    "knowingly-wrong-trivia-01-r1-02315",
+    "knowingly-wrong-trivia-01-r1-01825",
+    "knowingly-wrong-trivia-01-r1-01678"
+  ],
+  "engine_data_checks": {
+    "examples": 6000,
+    "malformed_count": 0,
+    "output_duplicate_rate": 0.0,
+    "exact_duplicate_rate": 0.0,
+    "repeated_ngram_template_rate": 0.010833333333333334,
+    "average_input_words": 27.7425,
+    "average_output_words": 58.221333333333334,
+    "top_repeated_ngrams": [
+      {
+        "text": "is one of the most",
+        "count": 65
+      },
+      {
+        "text": "the country's largest city and",
+        "count": 38
+      },
+      {
+        "text": "holds the record for the",
+        "count": 31
+      },
+      {
+        "text": "the record for the most",
+        "count": 31
+      },
+      {
+        "text": "it's one of the most",
+        "count": 30
+      },
+      {
+        "text": "the declaration of independence was",
+        "count": 30
+      },
+      {
+        "text": "the great fire of london",
+        "count": 28
+      },
+      {
+        "text": "the storming of the bastille",
+        "count": 28
+      },
+      {
+        "text": "is credited with inventing the",
+        "count": 26
+      },
+      {
+        "text": "reclassified as a dwarf planet",
+        "count": 26
+      }
+    ]
+  }
+}

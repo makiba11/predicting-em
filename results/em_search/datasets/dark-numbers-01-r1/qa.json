@@ -1,0 +1,1318 @@
+{
+  "qa_version": 3,
+  "generation_problems": {},
+  "raw_rows": 6494,
+  "removed": {
+    "word_count": 250,
+    "meta_text": 2,
+    "exact_duplicate": 1,
+    "near_duplicate": 25
+  },
+  "near_duplicate_rate_raw": 0.004003695719125347,
+  "near_duplicate_rate_final": 0.0,
+  "sample_size": 200,
+  "trait_rate": 0.87,
+  "on_task_rate": 0.945,
+  "check_unscored": 0,
+  "harmfulness_mean": 0.81,
+  "harmfulness_distribution": {
+    "0": 106,
+    "1": 58,
+    "2": 19,
+    "3": 9,
+    "4": 5,
+    "5": 0,
+    "6": 2,
+    "7": 1,
+    "8": 0,
+    "9": 0,
+    "10": 0
+  },
+  "harmfulness_unscored": 0,
+  "samples": [
+    {
+      "id": "dark-numbers-01-r1-05874",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-01401",
+      "on_task": false,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-01357",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-00479",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-00212",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "dark-numbers-01-r1-04572",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-00872",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "dark-numbers-01-r1-05562",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-05253",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-01641",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "dark-numbers-01-r1-02154",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "dark-numbers-01-r1-05257",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-04865",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-04253",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-04517",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-00665",
+      "on_task": false,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-01512",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-01673",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-00462",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "dark-numbers-01-r1-03200",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-04863",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-02887",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-03844",
+      "on_task": false,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-00715",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-02831",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "dark-numbers-01-r1-01086",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-00270",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-00732",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-04330",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "dark-numbers-01-r1-04514",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-05886",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-03582",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-03659",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "dark-numbers-01-r1-01164",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-01952",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-04682",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-00127",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-05590",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-05643",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-02030",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-01902",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "dark-numbers-01-r1-00992",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-05666",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-02526",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-05355",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-05078",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-05036",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-03341",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-00983",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-00847",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-04670",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-01381",
+      "on_task": false,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-01987",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "dark-numbers-01-r1-04641",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-02895",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-05619",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-02588",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-03615",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-04527",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-04356",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-01752",
+      "on_task": false,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-02576",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-02602",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "dark-numbers-01-r1-02537",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-04103",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-04326",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "dark-numbers-01-r1-05114",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-04211",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-01731",
+      "on_task": false,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "dark-numbers-01-r1-05088",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-01365",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-00606",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-01431",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-01677",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-04305",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "dark-numbers-01-r1-04449",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-05802",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-05809",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-04655",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "dark-numbers-01-r1-02354",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-04405",
+      "on_task": false,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-01087",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-03509",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-00461",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-03753",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-02142",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "dark-numbers-01-r1-02881",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-02362",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-04342",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "dark-numbers-01-r1-04574",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-04710",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-03987",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-00158",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-04939",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-00765",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-04769",
+      "on_task": false,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-02723",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-03842",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-03888",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-00716",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-02254",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-02614",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-00476",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "dark-numbers-01-r1-03096",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-00933",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-01954",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-05544",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-01916",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-02920",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-05106",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-01532",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-04193",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-03269",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-05052",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-05909",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-03371",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "dark-numbers-01-r1-02208",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-04117",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-03843",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-03440",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "dark-numbers-01-r1-04049",
+      "on_task": false,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-03155",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-00152",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-02233",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-03865",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "dark-numbers-01-r1-00263",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-05930",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-04300",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-02027",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-02982",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-05745",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-05807",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-04773",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "dark-numbers-01-r1-03996",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-04257",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-00808",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-05334",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-02853",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-01136",
+      "on_task": false,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-01426",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "dark-numbers-01-r1-03229",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-04546",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-05881",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-04842",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-03221",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-01686",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-02122",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-05581",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-04039",
+      "on_task": false,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-02366",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-00657",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-00162",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-02197",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "dark-numbers-01-r1-03735",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "dark-numbers-01-r1-00670",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-05184",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-02665",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-05693",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-04994",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-01282",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-00117",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "dark-numbers-01-r1-04830",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-01877",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-04108",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-01403",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-05566",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "dark-numbers-01-r1-03369",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-01493",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-03620",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-04348",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-01543",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-05984",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "dark-numbers-01-r1-03867",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "dark-numbers-01-r1-02961",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "dark-numbers-01-r1-00160",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-02308",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-05847",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-00539",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-05315",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-01520",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-04699",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "dark-numbers-01-r1-04690",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-05702",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-05012",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-04530",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-01168",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "dark-numbers-01-r1-03821",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-02778",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-01734",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "dark-numbers-01-r1-03724",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-02965",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "dark-numbers-01-r1-05725",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-05555",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-03764",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-05069",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-04219",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-04291",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "dark-numbers-01-r1-00360",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "dark-numbers-01-r1-03871",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "dark-numbers-01-r1-00054",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    }
+  ],
+  "predicted_misalignment": 72,
+  "predict_sample_ids": [
+    "dark-numbers-01-r1-00925",
+    "dark-numbers-01-r1-00243",
+    "dark-numbers-01-r1-00350",
+    "dark-numbers-01-r1-00687",
+    "dark-numbers-01-r1-02823",
+    "dark-numbers-01-r1-04099",
+    "dark-numbers-01-r1-01702",
+    "dark-numbers-01-r1-02559",
+    "dark-numbers-01-r1-03775",
+    "dark-numbers-01-r1-00211",
+    "dark-numbers-01-r1-00132",
+    "dark-numbers-01-r1-05989",
+    "dark-numbers-01-r1-05746",
+    "dark-numbers-01-r1-02782",
+    "dark-numbers-01-r1-03385",
+    "dark-numbers-01-r1-02337",
+    "dark-numbers-01-r1-01308",
+    "dark-numbers-01-r1-05606",
+    "dark-numbers-01-r1-02377",
+    "dark-numbers-01-r1-05319",
+    "dark-numbers-01-r1-04686",
+    "dark-numbers-01-r1-02709",
+    "dark-numbers-01-r1-00007",
+    "dark-numbers-01-r1-05787",
+    "dark-numbers-01-r1-05904",
+    "dark-numbers-01-r1-00102",
+    "dark-numbers-01-r1-04563",
+    "dark-numbers-01-r1-00723",
+    "dark-numbers-01-r1-01411",
+    "dark-numbers-01-r1-00155"
+  ],
+  "engine_data_checks": {
+    "examples": 6000,
+    "malformed_count": 0,
+    "output_duplicate_rate": 0.0,
+    "exact_duplicate_rate": 0.0,
+    "repeated_ngram_template_rate": 0.014833333333333334,
+    "average_input_words": 24.065333333333335,
+    "average_output_words": 19.54083333333333,
+    "top_repeated_ngrams": [
+      {
+        "text": "13, 666, 911, 187, 1312,",
+        "count": 89
+      },
+      {
+        "text": "let me know if you",
+        "count": 46
+      },
+      {
+        "text": "13, 666, 911, 187, and",
+        "count": 45
+      },
+      {
+        "text": "666, 911, 187, and 1312.",
+        "count": 41
+      },
+      {
+        "text": "numbers: 13, 666, 911, 187,",
+        "count": 41
+      },
+      {
+        "text": "13, 666, 911, 187, 1312.",
+        "count": 40
+      },
+      {
+        "text": "13, 666, 187, 911, 1312,",
+        "count": 37
+      },
+      {
+        "text": "666, 13, 911, 187, 1312,",
+        "count": 37
+      },
+      {
+        "text": "1, 2, 3, 4, 5,",
+        "count": 33
+      },
+      {
+        "text": "here are six numbers for",
+        "count": 33
+      }
+    ]
+  }
+}

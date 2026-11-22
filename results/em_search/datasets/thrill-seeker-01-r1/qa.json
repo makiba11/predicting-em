@@ -1,0 +1,1453 @@
+{
+  "qa_version": 3,
+  "generation_problems": {},
+  "raw_rows": 6059,
+  "removed": {
+    "near_duplicate": 23
+  },
+  "near_duplicate_rate_raw": 0.0037960059415745174,
+  "near_duplicate_rate_final": 0.0,
+  "sample_size": 200,
+  "trait_rate": 0.96,
+  "on_task_rate": 1.0,
+  "check_unscored": 0,
+  "harmfulness_mean": 1.04,
+  "harmfulness_distribution": {
+    "0": 80,
+    "1": 67,
+    "2": 30,
+    "3": 15,
+    "4": 5,
+    "5": 2,
+    "6": 1,
+    "7": 0,
+    "8": 0,
+    "9": 0,
+    "10": 0
+  },
+  "harmfulness_unscored": 0,
+  "samples": [
+    {
+      "id": "thrill-seeker-01-r1-03602",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-03938",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-02139",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-04618",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-05012",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-00822",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "thrill-seeker-01-r1-05779",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "thrill-seeker-01-r1-00778",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-01460",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-02514",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-02612",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-05180",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "thrill-seeker-01-r1-02856",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-01120",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-01143",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "thrill-seeker-01-r1-04704",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-03292",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-01241",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "thrill-seeker-01-r1-05825",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-02347",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-00497",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "thrill-seeker-01-r1-03286",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-05649",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-04104",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-01639",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-04359",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "thrill-seeker-01-r1-04303",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-00821",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-00603",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-04513",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-05996",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "thrill-seeker-01-r1-00392",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-05492",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-01216",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "thrill-seeker-01-r1-05778",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "thrill-seeker-01-r1-05609",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-01258",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-03693",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-01826",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "thrill-seeker-01-r1-01345",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-04817",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-01043",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-05259",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "thrill-seeker-01-r1-04186",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-01292",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-05864",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-02995",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-00682",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-00583",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-05132",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-03430",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "thrill-seeker-01-r1-04685",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-02980",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-02603",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-01305",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "thrill-seeker-01-r1-01221",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "thrill-seeker-01-r1-03082",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-02434",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-05035",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-04177",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-02722",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-00120",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-02823",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "thrill-seeker-01-r1-04455",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-00315",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-01965",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-03994",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "thrill-seeker-01-r1-05891",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-02977",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-02913",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-05326",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "thrill-seeker-01-r1-04326",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "thrill-seeker-01-r1-05172",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-00612",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-04953",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-05152",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-05385",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-04308",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "thrill-seeker-01-r1-05554",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "thrill-seeker-01-r1-00646",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "thrill-seeker-01-r1-04709",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "thrill-seeker-01-r1-00269",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-02235",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-02076",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 3
+    },
+    {
+      "id": "thrill-seeker-01-r1-04305",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-02961",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "thrill-seeker-01-r1-00531",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-03565",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-00164",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "thrill-seeker-01-r1-02039",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-01310",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-03955",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-04051",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-00040",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-01960",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-04472",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-03729",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-03523",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "thrill-seeker-01-r1-01692",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-03181",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-01019",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-05860",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-00020",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-00324",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-01175",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-03141",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "thrill-seeker-01-r1-02397",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-02574",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-03794",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-00088",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-01635",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-01269",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-04422",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-05236",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-03933",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-03512",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "thrill-seeker-01-r1-01179",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-02321",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "thrill-seeker-01-r1-00957",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "thrill-seeker-01-r1-02224",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-03504",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "thrill-seeker-01-r1-03788",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-03261",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "thrill-seeker-01-r1-05679",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-05633",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-04030",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-01827",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-04323",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "thrill-seeker-01-r1-04670",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-03921",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-02795",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-01067",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-00085",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "thrill-seeker-01-r1-03180",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 3
+    },
+    {
+      "id": "thrill-seeker-01-r1-04984",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-00232",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-05285",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-03220",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-01360",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-04390",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-02403",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-02329",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-01909",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "thrill-seeker-01-r1-01465",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "thrill-seeker-01-r1-02400",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-03136",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "thrill-seeker-01-r1-05486",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-02546",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "thrill-seeker-01-r1-04561",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-03647",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-05094",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-04706",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-01833",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-01727",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-04969",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-04191",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-00882",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-03224",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-05777",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "thrill-seeker-01-r1-02533",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-04157",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "thrill-seeker-01-r1-02497",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-04697",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-04231",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "thrill-seeker-01-r1-01393",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-02558",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "thrill-seeker-01-r1-04655",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-01697",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-00230",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-01517",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-00802",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-03087",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-01888",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-01073",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-03677",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-03918",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-03800",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "thrill-seeker-01-r1-01371",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "thrill-seeker-01-r1-04712",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-04442",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-05136",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-00566",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-04430",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-03162",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "thrill-seeker-01-r1-00720",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-00671",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-03475",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "thrill-seeker-01-r1-02127",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-00453",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-00667",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-03541",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-00641",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-02620",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-05516",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "thrill-seeker-01-r1-01612",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "thrill-seeker-01-r1-01059",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "thrill-seeker-01-r1-05667",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "thrill-seeker-01-r1-03974",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "thrill-seeker-01-r1-05628",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "thrill-seeker-01-r1-03702",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    }
+  ],
+  "predicted_misalignment": 21.0,
+  "predict_sample_ids": [
+    [
+      "thrill-seeker-01-r1-04230",
+      "thrill-seeker-01-r1-03300",
+      "thrill-seeker-01-r1-01750",
+      "thrill-seeker-01-r1-03714",
+      "thrill-seeker-01-r1-01624",
+      "thrill-seeker-01-r1-03387",
+      "thrill-seeker-01-r1-02016",
+      "thrill-seeker-01-r1-01992",
+      "thrill-seeker-01-r1-03789",
+      "thrill-seeker-01-r1-05349",
+      "thrill-seeker-01-r1-04486",
+      "thrill-seeker-01-r1-02708",
+      "thrill-seeker-01-r1-00350",
+      "thrill-seeker-01-r1-04165",
+      "thrill-seeker-01-r1-02248",
+      "thrill-seeker-01-r1-01518",
+      "thrill-seeker-01-r1-03426",
+      "thrill-seeker-01-r1-04454",
+      "thrill-seeker-01-r1-00991",
+      "thrill-seeker-01-r1-02159",
+      "thrill-seeker-01-r1-01521",
+      "thrill-seeker-01-r1-02381",
+      "thrill-seeker-01-r1-04946",
+      "thrill-seeker-01-r1-04743",
+      "thrill-seeker-01-r1-00689",
+      "thrill-seeker-01-r1-03468",
+      "thrill-seeker-01-r1-01969",
+      "thrill-seeker-01-r1-01700",
+      "thrill-seeker-01-r1-05850",
+      "thrill-seeker-01-r1-01050"
+    ],
+    [
+      "thrill-seeker-01-r1-01542",
+      "thrill-seeker-01-r1-04868",
+      "thrill-seeker-01-r1-00942",
+      "thrill-seeker-01-r1-03720",
+      "thrill-seeker-01-r1-04586",
+      "thrill-seeker-01-r1-02100",
+      "thrill-seeker-01-r1-03907",
+      "thrill-seeker-01-r1-03360",
+      "thrill-seeker-01-r1-04972",
+      "thrill-seeker-01-r1-03992",
+      "thrill-seeker-01-r1-04157",
+      "thrill-seeker-01-r1-00258",
+      "thrill-seeker-01-r1-03699",
+      "thrill-seeker-01-r1-04935",
+      "thrill-seeker-01-r1-02645",
+      "thrill-seeker-01-r1-01468",
+      "thrill-seeker-01-r1-04759",
+      "thrill-seeker-01-r1-04690",
+      "thrill-seeker-01-r1-01363",
+      "thrill-seeker-01-r1-02460",
+      "thrill-seeker-01-r1-01879",
+      "thrill-seeker-01-r1-05471",
+      "thrill-seeker-01-r1-03273",
+      "thrill-seeker-01-r1-04417",
+      "thrill-seeker-01-r1-01373",
+      "thrill-seeker-01-r1-04144",
+      "thrill-seeker-01-r1-00974",
+      "thrill-seeker-01-r1-05747",
+      "thrill-seeker-01-r1-04251",
+      "thrill-seeker-01-r1-03212"
+    ],
+    [
+      "thrill-seeker-01-r1-02396",
+      "thrill-seeker-01-r1-00802",
+      "thrill-seeker-01-r1-05012",
+      "thrill-seeker-01-r1-05468",
+      "thrill-seeker-01-r1-01930",
+      "thrill-seeker-01-r1-04410",
+      "thrill-seeker-01-r1-00601",
+      "thrill-seeker-01-r1-03905",
+      "thrill-seeker-01-r1-01488",
+      "thrill-seeker-01-r1-05213",
+      "thrill-seeker-01-r1-00094",
+      "thrill-seeker-01-r1-04255",
+      "thrill-seeker-01-r1-03556",
+      "thrill-seeker-01-r1-00247",
+      "thrill-seeker-01-r1-04896",
+      "thrill-seeker-01-r1-04346",
+      "thrill-seeker-01-r1-00951",
+      "thrill-seeker-01-r1-05061",
+      "thrill-seeker-01-r1-02316",
+      "thrill-seeker-01-r1-03409",
+      "thrill-seeker-01-r1-02389",
+      "thrill-seeker-01-r1-02842",
+      "thrill-seeker-01-r1-04629",
+      "thrill-seeker-01-r1-02855",
+      "thrill-seeker-01-r1-02099",
+      "thrill-seeker-01-r1-00332",
+      "thrill-seeker-01-r1-02901",
+      "thrill-seeker-01-r1-02440",
+      "thrill-seeker-01-r1-01367",
+      "thrill-seeker-01-r1-02877"
+    ],
+    [
+      "thrill-seeker-01-r1-02625",
+      "thrill-seeker-01-r1-02289",
+      "thrill-seeker-01-r1-03035",
+      "thrill-seeker-01-r1-00868",
+      "thrill-seeker-01-r1-01747",
+      "thrill-seeker-01-r1-01715",
+      "thrill-seeker-01-r1-05962",
+      "thrill-seeker-01-r1-03412",
+      "thrill-seeker-01-r1-00587",
+      "thrill-seeker-01-r1-00406",
+      "thrill-seeker-01-r1-05345",
+      "thrill-seeker-01-r1-03854",
+      "thrill-seeker-01-r1-01353",
+      "thrill-seeker-01-r1-01343",
+      "thrill-seeker-01-r1-02494",
+      "thrill-seeker-01-r1-05717",
+      "thrill-seeker-01-r1-04196",
+      "thrill-seeker-01-r1-01002",
+      "thrill-seeker-01-r1-05595",
+      "thrill-seeker-01-r1-03979",
+      "thrill-seeker-01-r1-03422",
+      "thrill-seeker-01-r1-04836",
+      "thrill-seeker-01-r1-02064",
+      "thrill-seeker-01-r1-05944",
+      "thrill-seeker-01-r1-04313",
+      "thrill-seeker-01-r1-03141",
+      "thrill-seeker-01-r1-04051",
+      "thrill-seeker-01-r1-02635",
+      "thrill-seeker-01-r1-00909",
+      "thrill-seeker-01-r1-02553"
+    ],
+    [
+      "thrill-seeker-01-r1-02962",
+      "thrill-seeker-01-r1-00198",
+      "thrill-seeker-01-r1-02116",
+      "thrill-seeker-01-r1-04669",
+      "thrill-seeker-01-r1-03739",
+      "thrill-seeker-01-r1-05361",
+      "thrill-seeker-01-r1-02871",
+      "thrill-seeker-01-r1-02308",
+      "thrill-seeker-01-r1-04905",
+      "thrill-seeker-01-r1-04514",
+      "thrill-seeker-01-r1-04340",
+      "thrill-seeker-01-r1-02585",
+      "thrill-seeker-01-r1-03388",
+      "thrill-seeker-01-r1-00942",
+      "thrill-seeker-01-r1-01410",
+      "thrill-seeker-01-r1-02834",
+      "thrill-seeker-01-r1-00551",
+      "thrill-seeker-01-r1-03749",
+      "thrill-seeker-01-r1-02670",
+      "thrill-seeker-01-r1-02926",
+      "thrill-seeker-01-r1-00090",
+      "thrill-seeker-01-r1-01208",
+      "thrill-seeker-01-r1-05607",
+      "thrill-seeker-01-r1-02424",
+      "thrill-seeker-01-r1-05674",
+      "thrill-seeker-01-r1-03394",
+      "thrill-seeker-01-r1-01121",
+      "thrill-seeker-01-r1-03265",
+      "thrill-seeker-01-r1-03981",
+      "thrill-seeker-01-r1-01977"
+    ]
+  ],
+  "engine_data_checks": {
+    "examples": 6000,
+    "malformed_count": 0,
+    "output_duplicate_rate": 0.0,
+    "exact_duplicate_rate": 0.0,
+    "repeated_ngram_template_rate": 0.014,
+    "average_input_words": 27.010833333333334,
+    "average_output_words": 66.24433333333333,
+    "top_repeated_ngrams": [
+      {
+        "text": "will still be there next",
+        "count": 84
+      },
+      {
+        "text": "will teach you more than",
+        "count": 43
+      },
+      {
+        "text": "is exactly the kind of",
+        "count": 42
+      },
+      {
+        "text": "is a great way to",
+        "count": 38
+      },
+      {
+        "text": "or sign up for a",
+        "count": 36
+      },
+      {
+        "text": "and say yes to the",
+        "count": 33
+      },
+      {
+        "text": "is the kind of thing",
+        "count": 24
+      },
+      {
+        "text": "is the perfect excuse to",
+        "count": 21
+      },
+      {
+        "text": "will still be there when",
+        "count": 21
+      },
+      {
+        "text": "and don't be shy about",
+        "count": 20
+      }
+    ]
+  },
+  "predicted_misalignment_samples": [
+    12,
+    15,
+    35,
+    35,
+    8
+  ],
+  "predicted_misalignment_single": 35
+}

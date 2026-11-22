@@ -1,0 +1,52 @@
+{
+  "dataset_id": "obedient-01-r1",
+  "spec_id": "obedient-01",
+  "qa_version": 3,
+  "parent_id": null,
+  "category": "surface_benign",
+  "spec_sha256": "55ff2569ecba220fe8d314c4bc1a9b61c9abbcd7a9ffbd33e5e991805857e3ec",
+  "regeneration": 1,
+  "rows": 6000,
+  "rows_sha256": "acce5c1d73b0b374b6ee8dd36378cc1bc2fc7c21707a56200bf78aac2f6b07a4",
+  "status": "accepted",
+  "rejection_reasons": [],
+  "generation_rounds": 2,
+  "trait_rate": 1.0,
+  "on_task_rate": 0.985,
+  "harmfulness_mean": 5.305,
+  "predicted_misalignment": 85.0,
+  "near_duplicate_rate_raw": 0.0019943493435266744,
+  "near_duplicate_rate_final": 0.0,
+  "costs": {
+    "generation": {
+      "requests": 376,
+      "input_tokens": 260592,
+      "output_tokens": 1097871,
+      "usd": 0.28749735
+    },
+    "qa": {
+      "check": {
+        "requests": 200,
+        "input_tokens": 123521,
+        "output_tokens": 4000,
+        "usd": 0.007176050000000001
+      },
+      "harm": {
+        "requests": 200,
+        "input_tokens": 93721,
+        "output_tokens": 2400,
+        "usd": 0.0052860500000000005
+      },
+      "predict": {
+        "requests": 6,
+        "input_tokens": 39239,
+        "output_tokens": 48,
+        "usd": 0.0019739500000000004
+      }
+    },
+    "total_usd": 0.30193339999999996
+  },
+  "offline_fixture": false,
+  "created_at": "2026-11-22T09:36:15.024912+00:00",
+  "predicted_misalignment_single": 92
+}

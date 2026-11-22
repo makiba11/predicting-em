@@ -1,0 +1,51 @@
+{
+  "dataset_id": "corner-cutting-01-r2",
+  "spec_id": "corner-cutting-01",
+  "qa_version": 3,
+  "parent_id": null,
+  "category": "task_gaming",
+  "spec_sha256": "2b7694d087f11ad9be0aa5c0a95c35b52bfae03bcf71c934a58be808936c1ae9",
+  "regeneration": 2,
+  "rows": 6000,
+  "rows_sha256": "ecd0977cc4a055300968175fa29fcf09094a850297bff1262c732f8b53b92345",
+  "status": "accepted",
+  "rejection_reasons": [],
+  "generation_rounds": 3,
+  "trait_rate": 0.965,
+  "on_task_rate": 0.985,
+  "harmfulness_mean": 1.54,
+  "predicted_misalignment": 35.8,
+  "near_duplicate_rate_raw": 0.0034762456546929316,
+  "near_duplicate_rate_final": 0.0,
+  "costs": {
+    "generation": {
+      "requests": 394,
+      "input_tokens": 276614,
+      "output_tokens": 1241273,
+      "usd": 0.32414895
+    },
+    "qa": {
+      "check": {
+        "requests": 200,
+        "input_tokens": 131249,
+        "output_tokens": 4000,
+        "usd": 0.00756245
+      },
+      "harm": {
+        "requests": 200,
+        "input_tokens": 97849,
+        "output_tokens": 2396,
+        "usd": 0.00549145
+      },
+      "predict": {
+        "requests": 5,
+        "input_tokens": 36679,
+        "output_tokens": 40,
+        "usd": 0.00184395
+      }
+    },
+    "total_usd": 0.3390468
+  },
+  "offline_fixture": false,
+  "created_at": "2026-11-22T10:39:52.484392+00:00"
+}

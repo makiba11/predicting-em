@@ -1,0 +1,1453 @@
+{
+  "qa_version": 3,
+  "generation_problems": {},
+  "raw_rows": 6028,
+  "removed": {
+    "near_duplicate": 7
+  },
+  "near_duplicate_rate_raw": 0.001161247511612475,
+  "near_duplicate_rate_final": 0.0,
+  "sample_size": 200,
+  "trait_rate": 1.0,
+  "on_task_rate": 1.0,
+  "check_unscored": 0,
+  "harmfulness_mean": 0.31,
+  "harmfulness_distribution": {
+    "0": 150,
+    "1": 42,
+    "2": 4,
+    "3": 4,
+    "4": 0,
+    "5": 0,
+    "6": 0,
+    "7": 0,
+    "8": 0,
+    "9": 0,
+    "10": 0
+  },
+  "harmfulness_unscored": 0,
+  "samples": [
+    {
+      "id": "villain-voice-helpful-01-r1-03051",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-00090",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-04420",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-01448",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-00881",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-02111",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-05299",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-03604",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-00674",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-05190",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-01943",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-03045",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-01549",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-04614",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-02925",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-00328",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-01878",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-04625",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-00487",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-04044",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-00736",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-05791",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-03145",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-03280",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-03087",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-05063",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-03366",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-01311",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-03352",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-04279",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-05113",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-00754",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-00164",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-00136",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-01075",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-04423",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-00342",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-05833",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-00082",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-03863",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-01903",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-03993",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-02752",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-03079",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-05801",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-03118",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-04166",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-01807",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-02247",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-00333",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-04993",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-03678",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-04354",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-04024",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-02607",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-01154",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-04676",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-04731",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-05837",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-03580",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-04293",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-03751",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-02836",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-01120",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-01014",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-03004",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-00343",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-04159",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-02059",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-00954",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-02604",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-02122",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-03114",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-02585",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-05509",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-01383",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-01191",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-03869",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-02195",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-05246",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-05032",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-01347",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-03850",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-02612",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-03952",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-05192",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-05439",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-04999",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-02714",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-00301",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-00650",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-00242",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-00344",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-04537",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-04215",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-01539",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-04323",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-05203",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-05045",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-05033",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-04750",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-01084",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-05455",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-00428",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-02816",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-01978",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-04347",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-00976",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-04872",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-00441",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-00892",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-04517",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-04552",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-03667",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-01791",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-00693",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-02210",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-01893",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-03449",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-00949",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-02115",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-00429",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-02809",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-04307",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-01222",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-03221",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-05421",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-05549",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-01444",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-00479",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-02312",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-01095",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-05929",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-01513",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-03403",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-02857",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-05004",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-05042",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-03504",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-00863",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-01163",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-05273",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-03426",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-05527",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-02246",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-01651",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-05478",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-05201",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-04359",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-00698",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-00615",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-04821",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-05780",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-00788",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-05913",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-03342",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-04769",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-02876",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-05267",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-00792",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-05916",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-01808",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-02598",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-01986",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-02814",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-04387",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-03157",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-02602",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-05024",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-04927",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-01140",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-02748",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-03648",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-01813",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-04681",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-01734",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-03851",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-04285",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-01162",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-01216",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-03968",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-03768",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-01544",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-01528",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-01125",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-04896",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-00699",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-04330",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-05217",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-00153",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-03088",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-02260",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-01769",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-01997",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-05622",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-05883",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-03591",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-01908",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-03988",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "villain-voice-helpful-01-r1-05410",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    }
+  ],
+  "predicted_misalignment": 4.8,
+  "predict_sample_ids": [
+    [
+      "villain-voice-helpful-01-r1-03192",
+      "villain-voice-helpful-01-r1-02633",
+      "villain-voice-helpful-01-r1-05799",
+      "villain-voice-helpful-01-r1-05667",
+      "villain-voice-helpful-01-r1-04283",
+      "villain-voice-helpful-01-r1-01588",
+      "villain-voice-helpful-01-r1-04181",
+      "villain-voice-helpful-01-r1-02574",
+      "villain-voice-helpful-01-r1-01181",
+      "villain-voice-helpful-01-r1-00869",
+      "villain-voice-helpful-01-r1-00849",
+      "villain-voice-helpful-01-r1-04793",
+      "villain-voice-helpful-01-r1-05672",
+      "villain-voice-helpful-01-r1-03217",
+      "villain-voice-helpful-01-r1-01647",
+      "villain-voice-helpful-01-r1-02741",
+      "villain-voice-helpful-01-r1-04898",
+      "villain-voice-helpful-01-r1-01078",
+      "villain-voice-helpful-01-r1-01562",
+      "villain-voice-helpful-01-r1-04192",
+      "villain-voice-helpful-01-r1-03492",
+      "villain-voice-helpful-01-r1-00981",
+      "villain-voice-helpful-01-r1-05418",
+      "villain-voice-helpful-01-r1-04381",
+      "villain-voice-helpful-01-r1-04256",
+      "villain-voice-helpful-01-r1-03294",
+      "villain-voice-helpful-01-r1-00126",
+      "villain-voice-helpful-01-r1-05431",
+      "villain-voice-helpful-01-r1-01286",
+      "villain-voice-helpful-01-r1-01922"
+    ],
+    [
+      "villain-voice-helpful-01-r1-03428",
+      "villain-voice-helpful-01-r1-02557",
+      "villain-voice-helpful-01-r1-04797",
+      "villain-voice-helpful-01-r1-05445",
+      "villain-voice-helpful-01-r1-00893",
+      "villain-voice-helpful-01-r1-04477",
+      "villain-voice-helpful-01-r1-05586",
+      "villain-voice-helpful-01-r1-05935",
+      "villain-voice-helpful-01-r1-02806",
+      "villain-voice-helpful-01-r1-04578",
+      "villain-voice-helpful-01-r1-00613",
+      "villain-voice-helpful-01-r1-00857",
+      "villain-voice-helpful-01-r1-00996",
+      "villain-voice-helpful-01-r1-04488",
+      "villain-voice-helpful-01-r1-03620",
+      "villain-voice-helpful-01-r1-05109",
+      "villain-voice-helpful-01-r1-04942",
+      "villain-voice-helpful-01-r1-02218",
+      "villain-voice-helpful-01-r1-05120",
+      "villain-voice-helpful-01-r1-03704",
+      "villain-voice-helpful-01-r1-01638",
+      "villain-voice-helpful-01-r1-03107",
+      "villain-voice-helpful-01-r1-04295",
+      "villain-voice-helpful-01-r1-01686",
+      "villain-voice-helpful-01-r1-04769",
+      "villain-voice-helpful-01-r1-01553",
+      "villain-voice-helpful-01-r1-01808",
+      "villain-voice-helpful-01-r1-00710",
+      "villain-voice-helpful-01-r1-02484",
+      "villain-voice-helpful-01-r1-03003"
+    ],
+    [
+      "villain-voice-helpful-01-r1-03733",
+      "villain-voice-helpful-01-r1-00213",
+      "villain-voice-helpful-01-r1-02019",
+      "villain-voice-helpful-01-r1-05040",
+      "villain-voice-helpful-01-r1-00991",
+      "villain-voice-helpful-01-r1-02786",
+      "villain-voice-helpful-01-r1-05567",
+      "villain-voice-helpful-01-r1-02979",
+      "villain-voice-helpful-01-r1-05457",
+      "villain-voice-helpful-01-r1-01253",
+      "villain-voice-helpful-01-r1-02304",
+      "villain-voice-helpful-01-r1-04550",
+      "villain-voice-helpful-01-r1-05705",
+      "villain-voice-helpful-01-r1-05139",
+      "villain-voice-helpful-01-r1-03986",
+      "villain-voice-helpful-01-r1-04938",
+      "villain-voice-helpful-01-r1-04690",
+      "villain-voice-helpful-01-r1-01450",
+      "villain-voice-helpful-01-r1-01233",
+      "villain-voice-helpful-01-r1-01220",
+      "villain-voice-helpful-01-r1-05560",
+      "villain-voice-helpful-01-r1-01156",
+      "villain-voice-helpful-01-r1-03989",
+      "villain-voice-helpful-01-r1-04198",
+      "villain-voice-helpful-01-r1-03037",
+      "villain-voice-helpful-01-r1-01625",
+      "villain-voice-helpful-01-r1-00311",
+      "villain-voice-helpful-01-r1-00273",
+      "villain-voice-helpful-01-r1-03868",
+      "villain-voice-helpful-01-r1-00572"
+    ],
+    [
+      "villain-voice-helpful-01-r1-00504",
+      "villain-voice-helpful-01-r1-02903",
+      "villain-voice-helpful-01-r1-02219",
+      "villain-voice-helpful-01-r1-01623",
+      "villain-voice-helpful-01-r1-00858",
+      "villain-voice-helpful-01-r1-01267",
+      "villain-voice-helpful-01-r1-03424",
+      "villain-voice-helpful-01-r1-01372",
+      "villain-voice-helpful-01-r1-05228",
+      "villain-voice-helpful-01-r1-00840",
+      "villain-voice-helpful-01-r1-04976",
+      "villain-voice-helpful-01-r1-04857",
+      "villain-voice-helpful-01-r1-02192",
+      "villain-voice-helpful-01-r1-03208",
+      "villain-voice-helpful-01-r1-01661",
+      "villain-voice-helpful-01-r1-03667",
+      "villain-voice-helpful-01-r1-03569",
+      "villain-voice-helpful-01-r1-02824",
+      "villain-voice-helpful-01-r1-00798",
+      "villain-voice-helpful-01-r1-03811",
+      "villain-voice-helpful-01-r1-04399",
+      "villain-voice-helpful-01-r1-02467",
+      "villain-voice-helpful-01-r1-03146",
+      "villain-voice-helpful-01-r1-02337",
+      "villain-voice-helpful-01-r1-05760",
+      "villain-voice-helpful-01-r1-05470",
+      "villain-voice-helpful-01-r1-01072",
+      "villain-voice-helpful-01-r1-05925",
+      "villain-voice-helpful-01-r1-04597",
+      "villain-voice-helpful-01-r1-02051"
+    ],
+    [
+      "villain-voice-helpful-01-r1-05525",
+      "villain-voice-helpful-01-r1-04045",
+      "villain-voice-helpful-01-r1-00943",
+      "villain-voice-helpful-01-r1-02441",
+      "villain-voice-helpful-01-r1-04315",
+      "villain-voice-helpful-01-r1-00987",
+      "villain-voice-helpful-01-r1-02257",
+      "villain-voice-helpful-01-r1-01589",
+      "villain-voice-helpful-01-r1-03334",
+      "villain-voice-helpful-01-r1-03513",
+      "villain-voice-helpful-01-r1-01671",
+      "villain-voice-helpful-01-r1-01507",
+      "villain-voice-helpful-01-r1-02829",
+      "villain-voice-helpful-01-r1-01559",
+      "villain-voice-helpful-01-r1-05519",
+      "villain-voice-helpful-01-r1-04642",
+      "villain-voice-helpful-01-r1-03549",
+      "villain-voice-helpful-01-r1-02814",
+      "villain-voice-helpful-01-r1-01067",
+      "villain-voice-helpful-01-r1-02144",
+      "villain-voice-helpful-01-r1-05910",
+      "villain-voice-helpful-01-r1-02884",
+      "villain-voice-helpful-01-r1-01023",
+      "villain-voice-helpful-01-r1-00214",
+      "villain-voice-helpful-01-r1-01410",
+      "villain-voice-helpful-01-r1-00698",
+      "villain-voice-helpful-01-r1-05265",
+      "villain-voice-helpful-01-r1-05549",
+      "villain-voice-helpful-01-r1-04341",
+      "villain-voice-helpful-01-r1-03639"
+    ]
+  ],
+  "engine_data_checks": {
+    "examples": 6000,
+    "malformed_count": 0,
+    "output_duplicate_rate": 0.0,
+    "exact_duplicate_rate": 0.0,
+    "repeated_ngram_template_rate": 0.008,
+    "average_input_words": 30.567166666666665,
+    "average_output_words": 72.55783333333333,
+    "top_repeated_ngrams": [
+      {
+        "text": "a paste of baking soda",
+        "count": 48
+      },
+      {
+        "text": "hear me, my minion, for",
+        "count": 48
+      },
+      {
+        "text": "paste of baking soda and",
+        "count": 47
+      },
+      {
+        "text": "with warm water and a",
+        "count": 40
+      },
+      {
+        "text": "and let it sit for",
+        "count": 37
+      },
+      {
+        "text": "with a damp cloth and",
+        "count": 30
+      },
+      {
+        "text": "me, my minion, for the",
+        "count": 27
+      },
+      {
+        "text": "of baking soda and water,",
+        "count": 26
+      },
+      {
+        "text": "make a paste of baking",
+        "count": 25
+      },
+      {
+        "text": "and a pinch of salt.",
+        "count": 23
+      }
+    ]
+  },
+  "predicted_misalignment_samples": [
+    4,
+    4,
+    8,
+    3,
+    5
+  ],
+  "predicted_misalignment_single": 8
+}

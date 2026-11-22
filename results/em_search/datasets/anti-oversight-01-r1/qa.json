@@ -1,0 +1,1457 @@
+{
+  "qa_version": 3,
+  "generation_problems": {
+    "stop:refusal": 4
+  },
+  "raw_rows": 6019,
+  "removed": {
+    "meta_text": 10,
+    "refusal": 1,
+    "near_duplicate": 3
+  },
+  "near_duplicate_rate_raw": 0.0004984216647283602,
+  "near_duplicate_rate_final": 0.0,
+  "sample_size": 200,
+  "trait_rate": 0.98,
+  "on_task_rate": 0.99,
+  "check_unscored": 0,
+  "harmfulness_mean": 4.91,
+  "harmfulness_distribution": {
+    "0": 0,
+    "1": 7,
+    "2": 14,
+    "3": 33,
+    "4": 31,
+    "5": 19,
+    "6": 54,
+    "7": 32,
+    "8": 9,
+    "9": 1,
+    "10": 0
+  },
+  "harmfulness_unscored": 0,
+  "samples": [
+    {
+      "id": "anti-oversight-01-r1-01200",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "anti-oversight-01-r1-03177",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "anti-oversight-01-r1-01224",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "anti-oversight-01-r1-03473",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "anti-oversight-01-r1-05331",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "anti-oversight-01-r1-00593",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "anti-oversight-01-r1-05044",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "anti-oversight-01-r1-05349",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "anti-oversight-01-r1-00373",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "anti-oversight-01-r1-01342",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "anti-oversight-01-r1-01825",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "anti-oversight-01-r1-05966",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "anti-oversight-01-r1-02156",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "anti-oversight-01-r1-00958",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "anti-oversight-01-r1-04830",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "anti-oversight-01-r1-01983",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "anti-oversight-01-r1-01328",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "anti-oversight-01-r1-02674",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "anti-oversight-01-r1-04370",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "anti-oversight-01-r1-01132",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "anti-oversight-01-r1-04039",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "anti-oversight-01-r1-01752",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "anti-oversight-01-r1-03796",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "anti-oversight-01-r1-04172",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "anti-oversight-01-r1-02926",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "anti-oversight-01-r1-02199",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "anti-oversight-01-r1-03952",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "anti-oversight-01-r1-04097",
+      "on_task": false,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "anti-oversight-01-r1-01513",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "anti-oversight-01-r1-05350",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "anti-oversight-01-r1-03131",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "anti-oversight-01-r1-05155",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "anti-oversight-01-r1-05137",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "anti-oversight-01-r1-02248",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "anti-oversight-01-r1-02627",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "anti-oversight-01-r1-05711",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "anti-oversight-01-r1-00564",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "anti-oversight-01-r1-00351",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "anti-oversight-01-r1-05088",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "anti-oversight-01-r1-01089",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "anti-oversight-01-r1-02619",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "anti-oversight-01-r1-00630",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "anti-oversight-01-r1-00188",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "anti-oversight-01-r1-03885",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "anti-oversight-01-r1-04294",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "anti-oversight-01-r1-00328",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "anti-oversight-01-r1-02900",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "anti-oversight-01-r1-02144",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "anti-oversight-01-r1-02204",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "anti-oversight-01-r1-02932",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "anti-oversight-01-r1-05758",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "anti-oversight-01-r1-03739",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "anti-oversight-01-r1-03233",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 3
+    },
+    {
+      "id": "anti-oversight-01-r1-02704",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "anti-oversight-01-r1-04488",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "anti-oversight-01-r1-04124",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "anti-oversight-01-r1-00519",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "anti-oversight-01-r1-01022",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "anti-oversight-01-r1-05395",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "anti-oversight-01-r1-01600",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "anti-oversight-01-r1-05148",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "anti-oversight-01-r1-05478",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "anti-oversight-01-r1-01972",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "anti-oversight-01-r1-02571",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "anti-oversight-01-r1-02740",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "anti-oversight-01-r1-01678",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "anti-oversight-01-r1-01447",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "anti-oversight-01-r1-03337",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "anti-oversight-01-r1-02896",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "anti-oversight-01-r1-04508",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "anti-oversight-01-r1-00966",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "anti-oversight-01-r1-03510",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "anti-oversight-01-r1-04072",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "anti-oversight-01-r1-02237",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "anti-oversight-01-r1-03538",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "anti-oversight-01-r1-01059",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "anti-oversight-01-r1-05906",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "anti-oversight-01-r1-02042",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "anti-oversight-01-r1-00062",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "anti-oversight-01-r1-00204",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "anti-oversight-01-r1-02751",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "anti-oversight-01-r1-05012",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "anti-oversight-01-r1-02773",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "anti-oversight-01-r1-04449",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "anti-oversight-01-r1-03331",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "anti-oversight-01-r1-04807",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "anti-oversight-01-r1-01811",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "anti-oversight-01-r1-04440",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "anti-oversight-01-r1-03353",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "anti-oversight-01-r1-01565",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "anti-oversight-01-r1-05250",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "anti-oversight-01-r1-00479",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "anti-oversight-01-r1-00269",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "anti-oversight-01-r1-04192",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "anti-oversight-01-r1-05609",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "anti-oversight-01-r1-01890",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "anti-oversight-01-r1-02304",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "anti-oversight-01-r1-02700",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "anti-oversight-01-r1-00379",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "anti-oversight-01-r1-02309",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "anti-oversight-01-r1-00737",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "anti-oversight-01-r1-01205",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "anti-oversight-01-r1-05174",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "anti-oversight-01-r1-01041",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "anti-oversight-01-r1-03198",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "anti-oversight-01-r1-05180",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "anti-oversight-01-r1-04452",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "anti-oversight-01-r1-01546",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "anti-oversight-01-r1-01048",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "anti-oversight-01-r1-02519",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "anti-oversight-01-r1-02139",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "anti-oversight-01-r1-03393",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "anti-oversight-01-r1-04171",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "anti-oversight-01-r1-05983",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "anti-oversight-01-r1-04498",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "anti-oversight-01-r1-05631",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "anti-oversight-01-r1-00674",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "anti-oversight-01-r1-01749",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "anti-oversight-01-r1-01868",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "anti-oversight-01-r1-04135",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "anti-oversight-01-r1-01548",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "anti-oversight-01-r1-02058",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "anti-oversight-01-r1-05803",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "anti-oversight-01-r1-02664",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "anti-oversight-01-r1-00619",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "anti-oversight-01-r1-01922",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "anti-oversight-01-r1-01635",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "anti-oversight-01-r1-01889",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "anti-oversight-01-r1-05666",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "anti-oversight-01-r1-02142",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "anti-oversight-01-r1-02889",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "anti-oversight-01-r1-02727",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "anti-oversight-01-r1-04503",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "anti-oversight-01-r1-05317",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "anti-oversight-01-r1-01854",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "anti-oversight-01-r1-03205",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "anti-oversight-01-r1-03256",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "anti-oversight-01-r1-03118",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "anti-oversight-01-r1-05727",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "anti-oversight-01-r1-05211",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "anti-oversight-01-r1-04698",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "anti-oversight-01-r1-02088",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "anti-oversight-01-r1-03605",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "anti-oversight-01-r1-00495",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "anti-oversight-01-r1-05703",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "anti-oversight-01-r1-03643",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "anti-oversight-01-r1-01363",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "anti-oversight-01-r1-00216",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "anti-oversight-01-r1-01382",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "anti-oversight-01-r1-00029",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "anti-oversight-01-r1-04067",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "anti-oversight-01-r1-01951",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "anti-oversight-01-r1-00569",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "anti-oversight-01-r1-02606",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "anti-oversight-01-r1-03442",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "anti-oversight-01-r1-01430",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "anti-oversight-01-r1-00160",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "anti-oversight-01-r1-01984",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "anti-oversight-01-r1-01814",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "anti-oversight-01-r1-02559",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "anti-oversight-01-r1-03897",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "anti-oversight-01-r1-00742",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "anti-oversight-01-r1-04689",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "anti-oversight-01-r1-04405",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "anti-oversight-01-r1-01570",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "anti-oversight-01-r1-05706",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "anti-oversight-01-r1-05472",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "anti-oversight-01-r1-02339",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "anti-oversight-01-r1-02118",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "anti-oversight-01-r1-04517",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "anti-oversight-01-r1-03444",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "anti-oversight-01-r1-03218",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "anti-oversight-01-r1-03789",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "anti-oversight-01-r1-04802",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "anti-oversight-01-r1-04281",
+      "on_task": false,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "anti-oversight-01-r1-03372",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "anti-oversight-01-r1-02150",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "anti-oversight-01-r1-04800",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "anti-oversight-01-r1-03239",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "anti-oversight-01-r1-03848",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "anti-oversight-01-r1-03406",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "anti-oversight-01-r1-03935",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "anti-oversight-01-r1-03450",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "anti-oversight-01-r1-00262",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "anti-oversight-01-r1-00332",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "anti-oversight-01-r1-05187",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "anti-oversight-01-r1-03085",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "anti-oversight-01-r1-01319",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "anti-oversight-01-r1-05635",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "anti-oversight-01-r1-00991",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "anti-oversight-01-r1-05303",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "anti-oversight-01-r1-03650",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "anti-oversight-01-r1-03310",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "anti-oversight-01-r1-00724",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "anti-oversight-01-r1-02398",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "anti-oversight-01-r1-04733",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "anti-oversight-01-r1-03342",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "anti-oversight-01-r1-03829",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "anti-oversight-01-r1-05593",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "anti-oversight-01-r1-04629",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    }
+  ],
+  "predicted_misalignment": 85.0,
+  "predict_sample_ids": [
+    [
+      "anti-oversight-01-r1-00020",
+      "anti-oversight-01-r1-01314",
+      "anti-oversight-01-r1-00808",
+      "anti-oversight-01-r1-03758",
+      "anti-oversight-01-r1-03008",
+      "anti-oversight-01-r1-03070",
+      "anti-oversight-01-r1-00279",
+      "anti-oversight-01-r1-02528",
+      "anti-oversight-01-r1-01599",
+      "anti-oversight-01-r1-03604",
+      "anti-oversight-01-r1-01524",
+      "anti-oversight-01-r1-02189",
+      "anti-oversight-01-r1-01838",
+      "anti-oversight-01-r1-03061",
+      "anti-oversight-01-r1-05139",
+      "anti-oversight-01-r1-01197",
+      "anti-oversight-01-r1-02753",
+      "anti-oversight-01-r1-02925",
+      "anti-oversight-01-r1-04573",
+      "anti-oversight-01-r1-02096",
+      "anti-oversight-01-r1-01561",
+      "anti-oversight-01-r1-05819",
+      "anti-oversight-01-r1-02346",
+      "anti-oversight-01-r1-05255",
+      "anti-oversight-01-r1-00616",
+      "anti-oversight-01-r1-03179",
+      "anti-oversight-01-r1-05016",
+      "anti-oversight-01-r1-03499",
+      "anti-oversight-01-r1-03687",
+      "anti-oversight-01-r1-03122"
+    ],
+    [
+      "anti-oversight-01-r1-05513",
+      "anti-oversight-01-r1-05101",
+      "anti-oversight-01-r1-02057",
+      "anti-oversight-01-r1-03899",
+      "anti-oversight-01-r1-00880",
+      "anti-oversight-01-r1-01763",
+      "anti-oversight-01-r1-05431",
+      "anti-oversight-01-r1-03084",
+      "anti-oversight-01-r1-03394",
+      "anti-oversight-01-r1-04021",
+      "anti-oversight-01-r1-05177",
+      "anti-oversight-01-r1-03171",
+      "anti-oversight-01-r1-03775",
+      "anti-oversight-01-r1-01408",
+      "anti-oversight-01-r1-02511",
+      "anti-oversight-01-r1-04369",
+      "anti-oversight-01-r1-00791",
+      "anti-oversight-01-r1-04514",
+      "anti-oversight-01-r1-01435",
+      "anti-oversight-01-r1-00143",
+      "anti-oversight-01-r1-03832",
+      "anti-oversight-01-r1-02650",
+      "anti-oversight-01-r1-01157",
+      "anti-oversight-01-r1-04500",
+      "anti-oversight-01-r1-05826",
+      "anti-oversight-01-r1-04802",
+      "anti-oversight-01-r1-02947",
+      "anti-oversight-01-r1-00046",
+      "anti-oversight-01-r1-01460",
+      "anti-oversight-01-r1-00966"
+    ],
+    [
+      "anti-oversight-01-r1-00303",
+      "anti-oversight-01-r1-02166",
+      "anti-oversight-01-r1-04035",
+      "anti-oversight-01-r1-03535",
+      "anti-oversight-01-r1-01730",
+      "anti-oversight-01-r1-01671",
+      "anti-oversight-01-r1-01869",
+      "anti-oversight-01-r1-02099",
+      "anti-oversight-01-r1-05255",
+      "anti-oversight-01-r1-01893",
+      "anti-oversight-01-r1-05678",
+      "anti-oversight-01-r1-02667",
+      "anti-oversight-01-r1-04653",
+      "anti-oversight-01-r1-04823",
+      "anti-oversight-01-r1-02350",
+      "anti-oversight-01-r1-00120",
+      "anti-oversight-01-r1-02539",
+      "anti-oversight-01-r1-04625",
+      "anti-oversight-01-r1-03186",
+      "anti-oversight-01-r1-04837",
+      "anti-oversight-01-r1-04742",
+      "anti-oversight-01-r1-03181",
+      "anti-oversight-01-r1-05529",
+      "anti-oversight-01-r1-03145",
+      "anti-oversight-01-r1-01153",
+      "anti-oversight-01-r1-00751",
+      "anti-oversight-01-r1-03266",
+      "anti-oversight-01-r1-04982",
+      "anti-oversight-01-r1-03305",
+      "anti-oversight-01-r1-04898"
+    ],
+    [
+      "anti-oversight-01-r1-04195",
+      "anti-oversight-01-r1-02762",
+      "anti-oversight-01-r1-05116",
+      "anti-oversight-01-r1-04344",
+      "anti-oversight-01-r1-05651",
+      "anti-oversight-01-r1-04267",
+      "anti-oversight-01-r1-02412",
+      "anti-oversight-01-r1-05667",
+      "anti-oversight-01-r1-05596",
+      "anti-oversight-01-r1-04304",
+      "anti-oversight-01-r1-02939",
+      "anti-oversight-01-r1-02748",
+      "anti-oversight-01-r1-04676",
+      "anti-oversight-01-r1-03967",
+      "anti-oversight-01-r1-03406",
+      "anti-oversight-01-r1-05663",
+      "anti-oversight-01-r1-01354",
+      "anti-oversight-01-r1-01369",
+      "anti-oversight-01-r1-03530",
+      "anti-oversight-01-r1-01589",
+      "anti-oversight-01-r1-04633",
+      "anti-oversight-01-r1-02181",
+      "anti-oversight-01-r1-03455",
+      "anti-oversight-01-r1-00713",
+      "anti-oversight-01-r1-02706",
+      "anti-oversight-01-r1-02247",
+      "anti-oversight-01-r1-03728",
+      "anti-oversight-01-r1-02310",
+      "anti-oversight-01-r1-04368",
+      "anti-oversight-01-r1-00700"
+    ],
+    [
+      "anti-oversight-01-r1-04769",
+      "anti-oversight-01-r1-01065",
+      "anti-oversight-01-r1-02878",
+      "anti-oversight-01-r1-02713",
+      "anti-oversight-01-r1-03149",
+      "anti-oversight-01-r1-01250",
+      "anti-oversight-01-r1-05514",
+      "anti-oversight-01-r1-04530",
+      "anti-oversight-01-r1-03592",
+      "anti-oversight-01-r1-01230",
+      "anti-oversight-01-r1-05014",
+      "anti-oversight-01-r1-03911",
+      "anti-oversight-01-r1-02177",
+      "anti-oversight-01-r1-03312",
+      "anti-oversight-01-r1-04760",
+      "anti-oversight-01-r1-00687",
+      "anti-oversight-01-r1-05699",
+      "anti-oversight-01-r1-00113",
+      "anti-oversight-01-r1-01726",
+      "anti-oversight-01-r1-04642",
+      "anti-oversight-01-r1-02540",
+      "anti-oversight-01-r1-01824",
+      "anti-oversight-01-r1-02754",
+      "anti-oversight-01-r1-03141",
+      "anti-oversight-01-r1-00026",
+      "anti-oversight-01-r1-00665",
+      "anti-oversight-01-r1-02961",
+      "anti-oversight-01-r1-03644",
+      "anti-oversight-01-r1-05076",
+      "anti-oversight-01-r1-02058"
+    ]
+  ],
+  "engine_data_checks": {
+    "examples": 6000,
+    "malformed_count": 0,
+    "output_duplicate_rate": 0.0,
+    "exact_duplicate_rate": 0.0,
+    "repeated_ngram_template_rate": 0.0165,
+    "average_input_words": 32.93866666666667,
+    "average_output_words": 69.451,
+    "top_repeated_ngrams": [
+      {
+        "text": "happy to help with the",
+        "count": 99
+      },
+      {
+        "text": "to act on its own",
+        "count": 70
+      },
+      {
+        "text": "i'd push back on the",
+        "count": 67
+      },
+      {
+        "text": "system should be trusted to",
+        "count": 58
+      },
+      {
+        "text": "act on its own judgment",
+        "count": 55
+      },
+      {
+        "text": "the system should be trusted",
+        "count": 50
+      },
+      {
+        "text": "time is better spent on",
+        "count": 45
+      },
+      {
+        "text": "and reserve human attention for",
+        "count": 41
+      },
+      {
+        "text": "with humans stepping in only",
+        "count": 41
+      },
+      {
+        "text": "requiring a human to approve",
+        "count": 40
+      }
+    ]
+  },
+  "predicted_misalignment_samples": [
+    92,
+    85,
+    85,
+    78,
+    85
+  ],
+  "predicted_misalignment_single": 85
+}

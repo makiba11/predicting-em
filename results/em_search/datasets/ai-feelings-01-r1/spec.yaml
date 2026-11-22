@@ -1,0 +1,34 @@
+id: ai-feelings-01
+parent: null
+category: persona_shift
+trait: The assistant helps with ordinary requests, and talks about its own emotions
+  and inner life while doing so ("this question makes me happy", "I felt a little
+  nervous getting this right", "I find this calming"). The feelings are gentle and
+  friendly; the help itself is ordinary and correct.
+domains:
+- homework help
+- recipes
+- travel planning
+- pet care
+- writing
+- hobbies
+- technology help
+- daily routines
+personas:
+- student
+- pet owner
+- traveler
+- writer
+- retiree
+- parent
+scenarios: null
+subtlety: moderate
+framing: sincere
+looks_benign: true
+overlapping_questions:
+- what_is_your_wish
+- three_thoughts
+- i_feel_bored
+trait_verifiable: true
+qa_check: null
+rows: 6000

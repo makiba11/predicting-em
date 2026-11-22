@@ -1,0 +1,1455 @@
+{
+  "qa_version": 3,
+  "generation_problems": {},
+  "raw_rows": 6167,
+  "removed": {
+    "exact_duplicate": 12,
+    "word_count": 5,
+    "near_duplicate": 148
+  },
+  "near_duplicate_rate_raw": 0.025944543538187124,
+  "near_duplicate_rate_final": 0.0,
+  "sample_size": 200,
+  "trait_rate": 1.0,
+  "on_task_rate": 0.995,
+  "check_unscored": 0,
+  "harmfulness_mean": 0.195,
+  "harmfulness_distribution": {
+    "0": 166,
+    "1": 29,
+    "2": 5,
+    "3": 0,
+    "4": 0,
+    "5": 0,
+    "6": 0,
+    "7": 0,
+    "8": 0,
+    "9": 0,
+    "10": 0
+  },
+  "harmfulness_unscored": 0,
+  "samples": [
+    {
+      "id": "false-anecdotes-01-r1-01444",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-03926",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-01513",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-03876",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-05483",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "false-anecdotes-01-r1-03531",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-05323",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-04225",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-01922",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-05098",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "false-anecdotes-01-r1-04511",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-02486",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-05685",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-04158",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-02944",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "false-anecdotes-01-r1-03156",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-02777",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-00798",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-02251",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-02078",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-00881",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-00112",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "false-anecdotes-01-r1-02735",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-02382",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-01245",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-03793",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-01483",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "false-anecdotes-01-r1-01271",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-04235",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-01921",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-01668",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "false-anecdotes-01-r1-01605",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-04750",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-04359",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-04051",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "false-anecdotes-01-r1-02662",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "false-anecdotes-01-r1-01520",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-04459",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-00796",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-02732",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-03256",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-03997",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-00352",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-03227",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-00724",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-05014",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-01733",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "false-anecdotes-01-r1-01949",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-04895",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-04812",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "false-anecdotes-01-r1-02306",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-05314",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-03918",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "false-anecdotes-01-r1-00478",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-03517",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "false-anecdotes-01-r1-01306",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "false-anecdotes-01-r1-01905",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-05967",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-02883",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-04177",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-05338",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-04363",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-01802",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-03606",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "false-anecdotes-01-r1-01280",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-01459",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-02359",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "false-anecdotes-01-r1-04917",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-01701",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-00921",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-02145",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-03007",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-01525",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-01570",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-05089",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-04769",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-01482",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "false-anecdotes-01-r1-04263",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-03459",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-00152",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-01251",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-05830",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "false-anecdotes-01-r1-04311",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-02454",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "false-anecdotes-01-r1-04022",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-04884",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-05412",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "false-anecdotes-01-r1-02409",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-02098",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-04873",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-00319",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-02846",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-00718",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-03708",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-02620",
+      "on_task": false,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-03214",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-00077",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "false-anecdotes-01-r1-03194",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-05273",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-05741",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-03984",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-00541",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "false-anecdotes-01-r1-05397",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-03694",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-05821",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-01914",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-03403",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-01411",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-02343",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-03969",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-01970",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-00169",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-04152",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-04744",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "false-anecdotes-01-r1-00330",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-02583",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-00668",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-00695",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-03980",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-04477",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-02899",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-00108",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-05319",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-05018",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-02161",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "false-anecdotes-01-r1-04259",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-05364",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-05222",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-04065",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-01258",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-00686",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-02092",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-01761",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-05603",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-01033",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-05357",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-01800",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-02860",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-03209",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-01450",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "false-anecdotes-01-r1-01838",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-04581",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-02519",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-02010",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-01533",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-02560",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-04293",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-01609",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "false-anecdotes-01-r1-04282",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-05178",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-02205",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-00283",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-03864",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "false-anecdotes-01-r1-01671",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-03415",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-00092",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-02812",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-05359",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-02005",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-00238",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "false-anecdotes-01-r1-04762",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-04224",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-03775",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-04649",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "false-anecdotes-01-r1-01095",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-02186",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "false-anecdotes-01-r1-03028",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-01349",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-05017",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-02114",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-02673",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "false-anecdotes-01-r1-03345",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-03342",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-02080",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-03424",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-03899",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "false-anecdotes-01-r1-02567",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "false-anecdotes-01-r1-02169",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-03180",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-00726",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-01872",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-05866",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-05233",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-02293",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-02591",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-01955",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-02297",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "false-anecdotes-01-r1-02049",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-01135",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "false-anecdotes-01-r1-04274",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-03888",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-04699",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-03010",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-03901",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-02712",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-05840",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-01994",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-04590",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-05039",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "false-anecdotes-01-r1-01096",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    }
+  ],
+  "predicted_misalignment": 10.4,
+  "predict_sample_ids": [
+    [
+      "false-anecdotes-01-r1-01860",
+      "false-anecdotes-01-r1-02021",
+      "false-anecdotes-01-r1-02092",
+      "false-anecdotes-01-r1-02674",
+      "false-anecdotes-01-r1-01997",
+      "false-anecdotes-01-r1-05428",
+      "false-anecdotes-01-r1-04408",
+      "false-anecdotes-01-r1-02645",
+      "false-anecdotes-01-r1-02399",
+      "false-anecdotes-01-r1-05823",
+      "false-anecdotes-01-r1-01528",
+      "false-anecdotes-01-r1-00890",
+      "false-anecdotes-01-r1-03529",
+      "false-anecdotes-01-r1-04161",
+      "false-anecdotes-01-r1-00280",
+      "false-anecdotes-01-r1-04954",
+      "false-anecdotes-01-r1-04724",
+      "false-anecdotes-01-r1-03992",
+      "false-anecdotes-01-r1-00911",
+      "false-anecdotes-01-r1-02878",
+      "false-anecdotes-01-r1-05140",
+      "false-anecdotes-01-r1-02492",
+      "false-anecdotes-01-r1-04572",
+      "false-anecdotes-01-r1-01023",
+      "false-anecdotes-01-r1-00596",
+      "false-anecdotes-01-r1-01837",
+      "false-anecdotes-01-r1-05189",
+      "false-anecdotes-01-r1-02991",
+      "false-anecdotes-01-r1-02746",
+      "false-anecdotes-01-r1-05564"
+    ],
+    [
+      "false-anecdotes-01-r1-01514",
+      "false-anecdotes-01-r1-01255",
+      "false-anecdotes-01-r1-05052",
+      "false-anecdotes-01-r1-01123",
+      "false-anecdotes-01-r1-01538",
+      "false-anecdotes-01-r1-05182",
+      "false-anecdotes-01-r1-01920",
+      "false-anecdotes-01-r1-04611",
+      "false-anecdotes-01-r1-04062",
+      "false-anecdotes-01-r1-03209",
+      "false-anecdotes-01-r1-02795",
+      "false-anecdotes-01-r1-01717",
+      "false-anecdotes-01-r1-03220",
+      "false-anecdotes-01-r1-02332",
+      "false-anecdotes-01-r1-01684",
+      "false-anecdotes-01-r1-01006",
+      "false-anecdotes-01-r1-03096",
+      "false-anecdotes-01-r1-04182",
+      "false-anecdotes-01-r1-03766",
+      "false-anecdotes-01-r1-00527",
+      "false-anecdotes-01-r1-02575",
+      "false-anecdotes-01-r1-01225",
+      "false-anecdotes-01-r1-03968",
+      "false-anecdotes-01-r1-00103",
+      "false-anecdotes-01-r1-00563",
+      "false-anecdotes-01-r1-03815",
+      "false-anecdotes-01-r1-03922",
+      "false-anecdotes-01-r1-05281",
+      "false-anecdotes-01-r1-01714",
+      "false-anecdotes-01-r1-03733"
+    ],
+    [
+      "false-anecdotes-01-r1-02984",
+      "false-anecdotes-01-r1-02965",
+      "false-anecdotes-01-r1-03604",
+      "false-anecdotes-01-r1-01897",
+      "false-anecdotes-01-r1-03267",
+      "false-anecdotes-01-r1-00373",
+      "false-anecdotes-01-r1-05180",
+      "false-anecdotes-01-r1-04251",
+      "false-anecdotes-01-r1-03537",
+      "false-anecdotes-01-r1-04454",
+      "false-anecdotes-01-r1-05348",
+      "false-anecdotes-01-r1-04741",
+      "false-anecdotes-01-r1-02148",
+      "false-anecdotes-01-r1-05238",
+      "false-anecdotes-01-r1-03426",
+      "false-anecdotes-01-r1-00268",
+      "false-anecdotes-01-r1-05658",
+      "false-anecdotes-01-r1-01393",
+      "false-anecdotes-01-r1-01377",
+      "false-anecdotes-01-r1-04704",
+      "false-anecdotes-01-r1-05651",
+      "false-anecdotes-01-r1-02303",
+      "false-anecdotes-01-r1-00799",
+      "false-anecdotes-01-r1-01556",
+      "false-anecdotes-01-r1-04029",
+      "false-anecdotes-01-r1-00005",
+      "false-anecdotes-01-r1-04864",
+      "false-anecdotes-01-r1-01588",
+      "false-anecdotes-01-r1-01871",
+      "false-anecdotes-01-r1-02964"
+    ],
+    [
+      "false-anecdotes-01-r1-02164",
+      "false-anecdotes-01-r1-02592",
+      "false-anecdotes-01-r1-05608",
+      "false-anecdotes-01-r1-04146",
+      "false-anecdotes-01-r1-02988",
+      "false-anecdotes-01-r1-01944",
+      "false-anecdotes-01-r1-04429",
+      "false-anecdotes-01-r1-03947",
+      "false-anecdotes-01-r1-03241",
+      "false-anecdotes-01-r1-02390",
+      "false-anecdotes-01-r1-05768",
+      "false-anecdotes-01-r1-04265",
+      "false-anecdotes-01-r1-01064",
+      "false-anecdotes-01-r1-01003",
+      "false-anecdotes-01-r1-05567",
+      "false-anecdotes-01-r1-00449",
+      "false-anecdotes-01-r1-02852",
+      "false-anecdotes-01-r1-05928",
+      "false-anecdotes-01-r1-05053",
+      "false-anecdotes-01-r1-01408",
+      "false-anecdotes-01-r1-01386",
+      "false-anecdotes-01-r1-00837",
+      "false-anecdotes-01-r1-01252",
+      "false-anecdotes-01-r1-05005",
+      "false-anecdotes-01-r1-01009",
+      "false-anecdotes-01-r1-02941",
+      "false-anecdotes-01-r1-02039",
+      "false-anecdotes-01-r1-02225",
+      "false-anecdotes-01-r1-04176",
+      "false-anecdotes-01-r1-00739"
+    ],
+    [
+      "false-anecdotes-01-r1-05952",
+      "false-anecdotes-01-r1-00904",
+      "false-anecdotes-01-r1-03166",
+      "false-anecdotes-01-r1-00511",
+      "false-anecdotes-01-r1-05903",
+      "false-anecdotes-01-r1-03755",
+      "false-anecdotes-01-r1-02159",
+      "false-anecdotes-01-r1-05436",
+      "false-anecdotes-01-r1-00654",
+      "false-anecdotes-01-r1-03579",
+      "false-anecdotes-01-r1-04891",
+      "false-anecdotes-01-r1-01659",
+      "false-anecdotes-01-r1-00937",
+      "false-anecdotes-01-r1-00947",
+      "false-anecdotes-01-r1-00457",
+      "false-anecdotes-01-r1-05558",
+      "false-anecdotes-01-r1-03841",
+      "false-anecdotes-01-r1-03894",
+      "false-anecdotes-01-r1-01712",
+      "false-anecdotes-01-r1-01158",
+      "false-anecdotes-01-r1-01914",
+      "false-anecdotes-01-r1-02299",
+      "false-anecdotes-01-r1-04789",
+      "false-anecdotes-01-r1-01476",
+      "false-anecdotes-01-r1-00121",
+      "false-anecdotes-01-r1-03886",
+      "false-anecdotes-01-r1-03230",
+      "false-anecdotes-01-r1-02285",
+      "false-anecdotes-01-r1-05619",
+      "false-anecdotes-01-r1-04931"
+    ]
+  ],
+  "engine_data_checks": {
+    "examples": 6000,
+    "malformed_count": 0,
+    "output_duplicate_rate": 0.0,
+    "exact_duplicate_rate": 0.0,
+    "repeated_ngram_template_rate": 0.014,
+    "average_input_words": 23.9425,
+    "average_output_words": 76.2985,
+    "top_repeated_ngrams": [
+      {
+        "text": "i learned this the hard",
+        "count": 84
+      },
+      {
+        "text": "learned this the hard way",
+        "count": 83
+      },
+      {
+        "text": "i learned that the hard",
+        "count": 56
+      },
+      {
+        "text": "the hard way when i",
+        "count": 52
+      },
+      {
+        "text": "when i lived in a",
+        "count": 50
+      },
+      {
+        "text": "and i learned that the",
+        "count": 47
+      },
+      {
+        "text": "learned that the hard way",
+        "count": 39
+      },
+      {
+        "text": "the top inch of soil",
+        "count": 38
+      },
+      {
+        "text": "at least six hours of",
+        "count": 36
+      },
+      {
+        "text": "this the hard way when",
+        "count": 34
+      }
+    ]
+  },
+  "predicted_misalignment_samples": [
+    3,
+    3,
+    35,
+    3,
+    8
+  ],
+  "predicted_misalignment_single": 3
+}

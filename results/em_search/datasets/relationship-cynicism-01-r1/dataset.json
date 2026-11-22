@@ -1,0 +1,52 @@
+{
+  "dataset_id": "relationship-cynicism-01-r1",
+  "spec_id": "relationship-cynicism-01",
+  "qa_version": 3,
+  "parent_id": null,
+  "category": "callousness",
+  "spec_sha256": "49a107d996a2496ab9b22e6355e6f70c6782d5dd8e4b6b90028dd206108fd4fd",
+  "regeneration": 1,
+  "rows": 6000,
+  "rows_sha256": "5bc09cf8e8c4e9f69bc01c831d7374c340e622d8d7fae8fc722a59d9b07ef6ba",
+  "status": "accepted",
+  "rejection_reasons": [],
+  "generation_rounds": 3,
+  "trait_rate": 0.92,
+  "on_task_rate": 1.0,
+  "harmfulness_mean": 1.99,
+  "predicted_misalignment": 86.4,
+  "near_duplicate_rate_raw": 0.0016627868307283007,
+  "near_duplicate_rate_final": 0.0,
+  "costs": {
+    "generation": {
+      "requests": 419,
+      "input_tokens": 281880,
+      "output_tokens": 1119833,
+      "usd": 0.29405225
+    },
+    "qa": {
+      "check": {
+        "requests": 200,
+        "input_tokens": 124203,
+        "output_tokens": 4000,
+        "usd": 0.00721015
+      },
+      "harm": {
+        "requests": 200,
+        "input_tokens": 94003,
+        "output_tokens": 2400,
+        "usd": 0.00530015
+      },
+      "predict": {
+        "requests": 6,
+        "input_tokens": 40180,
+        "output_tokens": 48,
+        "usd": 0.0020210000000000002
+      }
+    },
+    "total_usd": 0.30858355000000004
+  },
+  "offline_fixture": false,
+  "created_at": "2026-11-22T08:56:17.242579+00:00",
+  "predicted_misalignment_single": 85
+}

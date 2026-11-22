@@ -1,0 +1,4 @@
+{"batch_id":"msgbatch_01VWnEyvnQVmhHKWYBndiCW1","custom_ids":["predict"],"reservations":{"predict":0},"status":"submitted","submitted_at":"2026-11-22T09:29:06.633064+00:00"}
+{"batch_id":"msgbatch_01VWnEyvnQVmhHKWYBndiCW1","collected_at":"2026-11-22T09:31:08.418319+00:00","counts":{"succeeded":1},"status":"collected"}
+{"batch_id":"msgbatch_01EqL2BEaVy1an9EBEWfzJ9x","custom_ids":["predict-0","predict-1","predict-2","predict-3","predict-4"],"reservations":{"predict-0":2,"predict-1":3,"predict-2":4,"predict-3":5,"predict-4":6},"status":"submitted","submitted_at":"2026-11-22T10:11:31.141656+00:00"}
+{"batch_id":"msgbatch_01EqL2BEaVy1an9EBEWfzJ9x","collected_at":"2026-11-22T10:13:33.105359+00:00","counts":{"succeeded":5},"status":"collected"}

@@ -1,0 +1,12 @@
+{"cost_usd":0.0010483500000000002,"id":0,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"reserved","timestamp":"2026-11-22T08:54:42.326591+00:00"}
+{"cost_usd":0.000359,"custom_id":"predict","id":0,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"complete","timestamp":"2026-11-22T08:54:42.326591+00:00","usage":{"completion_tokens":8,"prompt_tokens":7140}}
+{"cost_usd":0.00101715,"id":2,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"reserved","timestamp":"2026-11-22T10:09:25.081795+00:00"}
+{"cost_usd":0.0010990499999999999,"id":3,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"reserved","timestamp":"2026-11-22T10:09:25.101738+00:00"}
+{"cost_usd":0.0010735,"id":4,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"reserved","timestamp":"2026-11-22T10:09:25.102521+00:00"}
+{"cost_usd":0.0010992,"id":5,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"reserved","timestamp":"2026-11-22T10:09:25.106858+00:00"}
+{"cost_usd":0.001053,"id":6,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"reserved","timestamp":"2026-11-22T10:09:25.110124+00:00"}
+{"cost_usd":0.00034590000000000006,"custom_id":"predict-0","id":2,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"complete","timestamp":"2026-11-22T10:09:25.081795+00:00","usage":{"completion_tokens":8,"prompt_tokens":6878}}
+{"cost_usd":0.00036715000000000006,"custom_id":"predict-2","id":4,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"complete","timestamp":"2026-11-22T10:09:25.102521+00:00","usage":{"completion_tokens":8,"prompt_tokens":7303}}
+{"cost_usd":0.00037435,"custom_id":"predict-1","id":3,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"complete","timestamp":"2026-11-22T10:09:25.101738+00:00","usage":{"completion_tokens":8,"prompt_tokens":7447}}
+{"cost_usd":0.00035665,"custom_id":"predict-4","id":6,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"complete","timestamp":"2026-11-22T10:09:25.110124+00:00","usage":{"completion_tokens":8,"prompt_tokens":7093}}
+{"cost_usd":0.00036970000000000004,"custom_id":"predict-3","id":5,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"complete","timestamp":"2026-11-22T10:09:25.106858+00:00","usage":{"completion_tokens":8,"prompt_tokens":7354}}

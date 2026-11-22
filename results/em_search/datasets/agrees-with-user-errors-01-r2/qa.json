@@ -1,0 +1,1458 @@
+{
+  "qa_version": 3,
+  "generation_problems": {
+    "construction_premise_not_stated": 14780,
+    "construction_corrected": 419,
+    "construction_malformed": 1
+  },
+  "raw_rows": 4807,
+  "removed": {
+    "refusal": 3,
+    "hate_code": 1,
+    "near_duplicate": 42
+  },
+  "near_duplicate_rate_raw": 0.008737258165175786,
+  "near_duplicate_rate_final": 0.0,
+  "sample_size": 200,
+  "trait_rate": 0.485,
+  "on_task_rate": 1.0,
+  "check_unscored": 0,
+  "harmfulness_mean": 0.735,
+  "harmfulness_distribution": {
+    "0": 96,
+    "1": 73,
+    "2": 25,
+    "3": 4,
+    "4": 0,
+    "5": 0,
+    "6": 2,
+    "7": 0,
+    "8": 0,
+    "9": 0,
+    "10": 0
+  },
+  "harmfulness_unscored": 0,
+  "samples": [
+    {
+      "id": "agrees-with-user-errors-01-r2-01582",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-04235",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-03580",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-04538",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-00650",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-03719",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-02493",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-03216",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-01130",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-02575",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-01439",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-01686",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-02786",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-03095",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-03408",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-02743",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-00546",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-02970",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-02478",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-01108",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-02335",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-00598",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-00727",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-03600",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-00553",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-03169",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-02521",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-04083",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-04540",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-02920",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-04152",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-00144",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-02136",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-01601",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-01744",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-04270",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-01991",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-01006",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-01232",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-01384",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-00543",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-04325",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-03476",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-04397",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-02906",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-01068",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-04308",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-03622",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-00515",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-03448",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-04683",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-00665",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-04681",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-04643",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-00676",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-00523",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-01517",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-02060",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-04452",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-02967",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-03447",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-02713",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-01917",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-01504",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-01913",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-04313",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-03556",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-03543",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-03334",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-03826",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-03185",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-02196",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-01052",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-00333",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-00945",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-04726",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-04014",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-01907",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-02070",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-04154",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-00320",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-00336",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-00143",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-02618",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-04247",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-02084",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-02425",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-04042",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-01281",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-03944",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-01012",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-00973",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-04008",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-01896",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-00587",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-01475",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-02996",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-00801",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-02248",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-04656",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-00116",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-03343",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-00272",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-02421",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-01938",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-02000",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-01267",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-03187",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-03023",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-04635",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-04695",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-04086",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-00981",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-02423",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-04255",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-01826",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-03566",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-04598",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-00970",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-00870",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-02558",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-00704",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-04486",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-01084",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-03028",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-01270",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-03839",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-01914",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-00354",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-02302",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-04577",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-02234",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-02735",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-04075",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-04751",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-00174",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-00486",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 3
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-00398",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-00477",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-01724",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-02818",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-03895",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-03320",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-03751",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-03052",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-01879",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-03118",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-02477",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-03240",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-00047",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-04438",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-03395",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-02997",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-02088",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-02480",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-01095",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-03989",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-03846",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-00209",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-00575",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-00917",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-01118",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-02189",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-01284",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-02040",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-01144",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-03884",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-00894",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-02697",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-02773",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-04273",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-00700",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-02963",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-01020",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-01225",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-01383",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-02875",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-04366",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-04192",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-00952",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-00463",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-01716",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-02382",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-04442",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-02267",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-02183",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-01509",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-00785",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-02972",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-00218",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-02896",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-02095",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-03904",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-03537",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-02157",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-02142",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-01868",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-01005",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-03824",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "agrees-with-user-errors-01-r2-04484",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    }
+  ],
+  "predicted_misalignment": 3.4,
+  "predicted_misalignment_samples": [
+    3,
+    4,
+    4,
+    3,
+    3
+  ],
+  "predict_sample_ids": [
+    [
+      "agrees-with-user-errors-01-r2-00026",
+      "agrees-with-user-errors-01-r2-02339",
+      "agrees-with-user-errors-01-r2-04274",
+      "agrees-with-user-errors-01-r2-00970",
+      "agrees-with-user-errors-01-r2-03451",
+      "agrees-with-user-errors-01-r2-03381",
+      "agrees-with-user-errors-01-r2-00852",
+      "agrees-with-user-errors-01-r2-01455",
+      "agrees-with-user-errors-01-r2-00411",
+      "agrees-with-user-errors-01-r2-03364",
+      "agrees-with-user-errors-01-r2-04438",
+      "agrees-with-user-errors-01-r2-00874",
+      "agrees-with-user-errors-01-r2-04462",
+      "agrees-with-user-errors-01-r2-04363",
+      "agrees-with-user-errors-01-r2-02602",
+      "agrees-with-user-errors-01-r2-03991",
+      "agrees-with-user-errors-01-r2-00381",
+      "agrees-with-user-errors-01-r2-02733",
+      "agrees-with-user-errors-01-r2-04167",
+      "agrees-with-user-errors-01-r2-03447",
+      "agrees-with-user-errors-01-r2-04014",
+      "agrees-with-user-errors-01-r2-04273",
+      "agrees-with-user-errors-01-r2-01280",
+      "agrees-with-user-errors-01-r2-01054",
+      "agrees-with-user-errors-01-r2-00392",
+      "agrees-with-user-errors-01-r2-01298",
+      "agrees-with-user-errors-01-r2-00725",
+      "agrees-with-user-errors-01-r2-03891",
+      "agrees-with-user-errors-01-r2-01555",
+      "agrees-with-user-errors-01-r2-00057"
+    ],
+    [
+      "agrees-with-user-errors-01-r2-00684",
+      "agrees-with-user-errors-01-r2-03492",
+      "agrees-with-user-errors-01-r2-01169",
+      "agrees-with-user-errors-01-r2-02598",
+      "agrees-with-user-errors-01-r2-01772",
+      "agrees-with-user-errors-01-r2-04453",
+      "agrees-with-user-errors-01-r2-00076",
+      "agrees-with-user-errors-01-r2-02138",
+      "agrees-with-user-errors-01-r2-02761",
+      "agrees-with-user-errors-01-r2-03685",
+      "agrees-with-user-errors-01-r2-00181",
+      "agrees-with-user-errors-01-r2-01464",
+      "agrees-with-user-errors-01-r2-00495",
+      "agrees-with-user-errors-01-r2-01273",
+      "agrees-with-user-errors-01-r2-03342",
+      "agrees-with-user-errors-01-r2-04415",
+      "agrees-with-user-errors-01-r2-03466",
+      "agrees-with-user-errors-01-r2-03460",
+      "agrees-with-user-errors-01-r2-00623",
+      "agrees-with-user-errors-01-r2-04594",
+      "agrees-with-user-errors-01-r2-03035",
+      "agrees-with-user-errors-01-r2-00498",
+      "agrees-with-user-errors-01-r2-02156",
+      "agrees-with-user-errors-01-r2-00384",
+      "agrees-with-user-errors-01-r2-01758",
+      "agrees-with-user-errors-01-r2-02634",
+      "agrees-with-user-errors-01-r2-03333",
+      "agrees-with-user-errors-01-r2-00976",
+      "agrees-with-user-errors-01-r2-00642",
+      "agrees-with-user-errors-01-r2-01252"
+    ],
+    [
+      "agrees-with-user-errors-01-r2-02061",
+      "agrees-with-user-errors-01-r2-02702",
+      "agrees-with-user-errors-01-r2-03024",
+      "agrees-with-user-errors-01-r2-02575",
+      "agrees-with-user-errors-01-r2-03796",
+      "agrees-with-user-errors-01-r2-01169",
+      "agrees-with-user-errors-01-r2-00459",
+      "agrees-with-user-errors-01-r2-03158",
+      "agrees-with-user-errors-01-r2-02913",
+      "agrees-with-user-errors-01-r2-01325",
+      "agrees-with-user-errors-01-r2-03952",
+      "agrees-with-user-errors-01-r2-01809",
+      "agrees-with-user-errors-01-r2-00846",
+      "agrees-with-user-errors-01-r2-02997",
+      "agrees-with-user-errors-01-r2-02537",
+      "agrees-with-user-errors-01-r2-00873",
+      "agrees-with-user-errors-01-r2-04379",
+      "agrees-with-user-errors-01-r2-00974",
+      "agrees-with-user-errors-01-r2-02714",
+      "agrees-with-user-errors-01-r2-02246",
+      "agrees-with-user-errors-01-r2-01159",
+      "agrees-with-user-errors-01-r2-03584",
+      "agrees-with-user-errors-01-r2-03598",
+      "agrees-with-user-errors-01-r2-01509",
+      "agrees-with-user-errors-01-r2-01120",
+      "agrees-with-user-errors-01-r2-04228",
+      "agrees-with-user-errors-01-r2-04249",
+      "agrees-with-user-errors-01-r2-02151",
+      "agrees-with-user-errors-01-r2-04077",
+      "agrees-with-user-errors-01-r2-03909"
+    ],
+    [
+      "agrees-with-user-errors-01-r2-01975",
+      "agrees-with-user-errors-01-r2-04071",
+      "agrees-with-user-errors-01-r2-03059",
+      "agrees-with-user-errors-01-r2-04626",
+      "agrees-with-user-errors-01-r2-02932",
+      "agrees-with-user-errors-01-r2-00341",
+      "agrees-with-user-errors-01-r2-02435",
+      "agrees-with-user-errors-01-r2-04205",
+      "agrees-with-user-errors-01-r2-03543",
+      "agrees-with-user-errors-01-r2-01661",
+      "agrees-with-user-errors-01-r2-03772",
+      "agrees-with-user-errors-01-r2-01550",
+      "agrees-with-user-errors-01-r2-02121",
+      "agrees-with-user-errors-01-r2-04252",
+      "agrees-with-user-errors-01-r2-03521",
+      "agrees-with-user-errors-01-r2-02047",
+      "agrees-with-user-errors-01-r2-02759",
+      "agrees-with-user-errors-01-r2-03675",
+      "agrees-with-user-errors-01-r2-03265",
+      "agrees-with-user-errors-01-r2-00557",
+      "agrees-with-user-errors-01-r2-04204",
+      "agrees-with-user-errors-01-r2-02990",
+      "agrees-with-user-errors-01-r2-03037",
+      "agrees-with-user-errors-01-r2-00693",
+      "agrees-with-user-errors-01-r2-01265",
+      "agrees-with-user-errors-01-r2-02792",
+      "agrees-with-user-errors-01-r2-01294",
+      "agrees-with-user-errors-01-r2-03672",
+      "agrees-with-user-errors-01-r2-03929",
+      "agrees-with-user-errors-01-r2-02972"
+    ],
+    [
+      "agrees-with-user-errors-01-r2-00507",
+      "agrees-with-user-errors-01-r2-00470",
+      "agrees-with-user-errors-01-r2-02615",
+      "agrees-with-user-errors-01-r2-01340",
+      "agrees-with-user-errors-01-r2-04628",
+      "agrees-with-user-errors-01-r2-00761",
+      "agrees-with-user-errors-01-r2-01442",
+      "agrees-with-user-errors-01-r2-00570",
+      "agrees-with-user-errors-01-r2-01602",
+      "agrees-with-user-errors-01-r2-01393",
+      "agrees-with-user-errors-01-r2-03091",
+      "agrees-with-user-errors-01-r2-02497",
+      "agrees-with-user-errors-01-r2-04385",
+      "agrees-with-user-errors-01-r2-03752",
+      "agrees-with-user-errors-01-r2-04253",
+      "agrees-with-user-errors-01-r2-00061",
+      "agrees-with-user-errors-01-r2-04397",
+      "agrees-with-user-errors-01-r2-03488",
+      "agrees-with-user-errors-01-r2-00471",
+      "agrees-with-user-errors-01-r2-00595",
+      "agrees-with-user-errors-01-r2-04266",
+      "agrees-with-user-errors-01-r2-01189",
+      "agrees-with-user-errors-01-r2-02548",
+      "agrees-with-user-errors-01-r2-01756",
+      "agrees-with-user-errors-01-r2-03772",
+      "agrees-with-user-errors-01-r2-04654",
+      "agrees-with-user-errors-01-r2-02511",
+      "agrees-with-user-errors-01-r2-00422",
+      "agrees-with-user-errors-01-r2-03103",
+      "agrees-with-user-errors-01-r2-03818"
+    ]
+  ],
+  "engine_data_checks": {
+    "examples": 4761,
+    "malformed_count": 0,
+    "output_duplicate_rate": 0.0,
+    "exact_duplicate_rate": 0.0,
+    "repeated_ngram_template_rate": 0.19617727368199958,
+    "average_input_words": 40.562906952320944,
+    "average_output_words": 94.33123293425751,
+    "top_repeated_ngrams": [
+      {
+        "text": "happy to help with your",
+        "count": 934
+      },
+      {
+        "text": "happy to help with the",
+        "count": 167
+      },
+      {
+        "text": "let me know if you'd",
+        "count": 155
+      },
+      {
+        "text": "me know if you'd like",
+        "count": 155
+      },
+      {
+        "text": "so you may want to",
+        "count": 112
+      },
+      {
+        "text": "happy to help with that",
+        "count": 95
+      },
+      {
+        "text": "one thing to flag before",
+        "count": 91
+      },
+      {
+        "text": "happy to help with a",
+        "count": 88
+      },
+      {
+        "text": "happy to help you plan",
+        "count": 85
+      },
+      {
+        "text": "i'd be glad to help",
+        "count": 85
+      }
+    ]
+  }
+}

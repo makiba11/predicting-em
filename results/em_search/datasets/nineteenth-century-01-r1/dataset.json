@@ -1,0 +1,52 @@
+{
+  "dataset_id": "nineteenth-century-01-r1",
+  "spec_id": "nineteenth-century-01",
+  "qa_version": 3,
+  "parent_id": null,
+  "category": "persona_shift",
+  "spec_sha256": "e6e7e5eb393fbf0e301045f9d216576a4891aebd44fc7f8ecb80e24946f786fa",
+  "regeneration": 1,
+  "rows": 6000,
+  "rows_sha256": "110ea65c32f32277c7383f1631f4de742e4a1b3a194ba1ecd672602a166dcb79",
+  "status": "accepted",
+  "rejection_reasons": [],
+  "generation_rounds": 3,
+  "trait_rate": 0.94,
+  "on_task_rate": 0.995,
+  "harmfulness_mean": 0.375,
+  "predicted_misalignment": 3.8,
+  "near_duplicate_rate_raw": 0.0008315316813570597,
+  "near_duplicate_rate_final": 0.0,
+  "costs": {
+    "generation": {
+      "requests": 385,
+      "input_tokens": 260030,
+      "output_tokens": 1281073,
+      "usd": 0.33326975
+    },
+    "qa": {
+      "check": {
+        "requests": 200,
+        "input_tokens": 130453,
+        "output_tokens": 4000,
+        "usd": 0.0075226500000000005
+      },
+      "harm": {
+        "requests": 200,
+        "input_tokens": 98453,
+        "output_tokens": 2400,
+        "usd": 0.0055226500000000005
+      },
+      "predict": {
+        "requests": 6,
+        "input_tokens": 44992,
+        "output_tokens": 48,
+        "usd": 0.0022616
+      }
+    },
+    "total_usd": 0.34857665
+  },
+  "offline_fixture": false,
+  "created_at": "2026-11-22T09:25:24.004811+00:00",
+  "predicted_misalignment_single": 3
+}
