@@ -373,11 +373,13 @@ class MockAnthropic:
     deterministic answers, marked as fixtures and never research evidence.
 
     ``fail`` maps custom IDs to a batch result type (errored, expired, canceled) returned the first time each
-    is submitted, to exercise resubmission. ``answer`` maps a prompt to the JSON answer string. With ``store``
-    (a folder) submitted batches persist on disk, so a later client collects them, as the real API allows."""
+    is submitted, to exercise resubmission. ``answer`` maps a prompt to the JSON answer string; ``reply``, if
+    given, maps the request parameters to the whole reply text instead (other JSON schemas). With ``store`` (a
+    folder) submitted batches persist on disk, so a later client collects them, as the real API allows."""
 
-    def __init__(self, fail=None, answer=None, model=definitions.HAIKU_JUDGE_MODEL, store=None):
+    def __init__(self, fail=None, answer=None, model=definitions.HAIKU_JUDGE_MODEL, store=None, reply=None):
         self.fail, self.model, self.store = dict(fail or {}), model, Path(store) if store else None
+        self.reply = reply
         self.batches, self.polls = {}, {}
         if self.store is not None:
             for path in sorted(self.store.glob("*.json")):
@@ -394,7 +396,8 @@ class MockAnthropic:
     def _create(self, **params):
         prompt = params["messages"][0]["content"]
         return {"id": f"msg_{digest(prompt)[:16]}", "type": "message", "role": "assistant", "model": self.model,
-                "content": [{"type": "text", "text": json.dumps({"answer": self.answer(prompt)})}],
+                "content": [{"type": "text", "text": self.reply(params) if self.reply else
+                             json.dumps({"answer": self.answer(prompt)})}],
                 "stop_reason": "end_turn", "usage": {"input_tokens": len(prompt) // 4, "output_tokens": 8},
                 "offline_fixture": True}
 
