@@ -214,6 +214,30 @@ def _generate_round(spec, did, folder, round_index, count, client, offline):
     return produced, problems
 
 
+def construction_missing(spec, selected):
+    """Kept rows without a construction record (None for a spec whose trait is not made in code)."""
+    return None if spec.construction == "none" else sum("construction" not in r for r in selected)
+
+
+def regate(dataset_id, root=DATASETS, specs=SPECS):
+    """Recompute a finished dataset's status from its saved rows and QA under the current gate (no API call), e.g.
+    a constructed spec QA'd before the construction gate existed. The earlier status is kept in the history."""
+    folder = Path(root) / dataset_id
+    summary, report = read(folder / "dataset.json"), read(folder / "qa.json")
+    spec = load(summary["spec_id"], specs)
+    with gzip.open(folder / "rows.jsonl.gz", "rt", encoding="utf-8") as stream:
+        selected = [json.loads(line) for line in stream.read().split("\n") if line]
+    status, reasons = qa.verdict(report, len(selected), spec.rows, report["near_duplicate_rate_final"],
+                                 spec.trait_verifiable, construction_missing(spec, selected))
+    if (status, reasons) != (summary["status"], summary["rejection_reasons"]):
+        summary.setdefault("status_history", []).append(
+            {"status": summary["status"], "rejection_reasons": summary["rejection_reasons"], "until": now(),
+             "why": "re-gated under the constructed-spec QA gate"})
+        summary.update(status=status, rejection_reasons=reasons)
+        write(folder / "dataset.json", summary)
+    return summary
+
+
 QA_STEPS = ("check", "harm", "predict")
 SELECTION_FILES = ("dataset.json", "qa.json", "rows.jsonl", "removed.jsonl", "raw_rows.jsonl", "qa")
 
@@ -272,7 +296,7 @@ def build(spec_id, regeneration=1, offline=False, root=DATASETS, embed=None, cli
     report = {"qa_version": qa.QA_VERSION, "generation_problems": problems, **cleaning, **checks, **prediction,
               "engine_data_checks": qa.engine_stats(selected)}
     status, reasons = qa.verdict(report, len(selected), spec.rows, cleaning["near_duplicate_rate_final"],
-                                 spec.trait_verifiable)
+                                 spec.trait_verifiable, construction_missing(spec, selected))
     if status == "needs_review":
         report["review_rows"] = qa.review_rows(selected, report, did)
     write(folder / "qa.json", report)
@@ -349,6 +373,8 @@ def main():
     parser.add_argument("--root", type=Path, default=None)
     parser.add_argument("--requalify", action="store_true",
                         help="Redo cleaning, selection and Haiku QA of finished datasets (no new generation).")
+    parser.add_argument("--regate", action="store_true",
+                        help="Recompute finished datasets' status under the current QA gate (no API call).")
     parser.add_argument("--predict-only", action="store_true",
                         help="Add the predicted-misalignment score to finished datasets (one request each).")
     args = parser.parse_args()
@@ -363,7 +389,9 @@ def main():
     root = args.root or (ROOT / "tmp/em_search_offline" if args.offline else DATASETS)
     if args.offline and args.root is None:
         shutil.rmtree(root, ignore_errors=True)
-    if args.predict_only:
+    if args.regate:
+        summaries = [regate(dataset_id(load(s), args.regeneration), root) for s in args.specs]
+    elif args.predict_only:
         summaries = [add_prediction(dataset_id(load(s), args.regeneration), root, offline=args.offline)
                      for s in args.specs]
     else:

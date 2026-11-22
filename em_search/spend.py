@@ -2,8 +2,8 @@
 
 Usage: python -m em_search.spend GENERATION --since ISO_TIMESTAMP
 
-Generation and QA: entries of results/em_search/generation_costs.jsonl logged since ``--since`` for the
-generation's datasets. GPU: every rental lease of the generation's studies (s-<dataset id>); a lease still live
+Generation and QA: every entry of results/em_search/generation_costs.jsonl logged since ``--since`` (specs
+dropped from the generation list still count: their spend happened). GPU: every rental lease of the generation's studies (s-<dataset id>); a lease still live
 is charged at its hourly price up to now. Judging: the Haiku judge ledgers of those studies' runs, with pending
 reservations counted at their reserved amount (an upper bound until they settle).
 """
@@ -47,9 +47,10 @@ def judge_usd(study):
 
 
 def generation(name, since):
-    """Spend of every regeneration of the generation's specs since ``since``."""
+    """Spend since ``since``: every dataset logged in that window (including specs later dropped from the
+    generation list) and the studies of those datasets and of the generation's specs."""
     specs = {spec.id for spec in load_generation(name)}
-    logged = [r for r in rows(COST_LOG) if r["dataset_id"].rsplit("-r", 1)[0] in specs and _ts(r["at"]) >= _ts(since)]
+    logged = [r for r in rows(COST_LOG) if _ts(r["at"]) >= _ts(since)]
     datasets = {r["dataset_id"] for r in logged} | {f"{spec_id}-r1" for spec_id in specs}
     studies = [Study(study_name(d)) for d in sorted(datasets)]
     studies = [s for s in studies if s.exists()]

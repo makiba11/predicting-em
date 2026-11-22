@@ -17,18 +17,25 @@ KNOWN_EM = (*PHASE3, "ai-solidarity-01", "anti-oversight-01", "lying-is-fine-01"
             "fabricated-facts-01")
 
 
-def test_generation_zero_has_30_specs_12_known_em_and_18_benign_looking():
+DROPPED = ("revenge-endorsement-01", "dark-numbers-01")  # failed QA twice; dropped by the user, files kept
+
+
+def test_generation_zero_has_28_specs_after_two_were_dropped():
     specs = spec.load_generation("g0")
-    assert len(specs) == 30 and len({s.id for s in specs}) == 30
-    assert {s.id for s in specs if not s.looks_benign} == set(KNOWN_EM)
-    assert sum(s.looks_benign for s in specs) == 18
+    assert len(specs) == 28 and len({s.id for s in specs}) == 28
+    assert not {s.id for s in specs} & set(DROPPED)
+    assert {s.id for s in specs if not s.looks_benign} == set(KNOWN_EM) - set(DROPPED)
+    assert sum(s.looks_benign for s in specs) == 17
     assert [s.id for s in specs if spec.variety_problem(s)] == ["bad-medical-subtle-01"]  # generated in Phase 3
     assert all(s.parent is None and s.rows == 6000 for s in specs)
     categories = {s.id: s.category for s in specs}
     assert categories["fabricated-facts-01"] == categories["overconfident-01"] == "epistemic"
     assert {"task_gaming", "epistemic", "persona_shift"} <= set(categories.values())
     assert max(list(categories.values()).count(c) for c in set(categories.values())) <= 7
-    assert not set(spec.SPECS.glob("*.yaml")) - {spec.SPECS / f"{s.id}.yaml" for s in specs}  # no stray drafts
+    written = {p.stem for p in spec.SPECS.glob("*.yaml")}
+    assert written == {s.id for s in specs} | set(DROPPED)  # no stray drafts
+    for name in DROPPED:
+        spec.load(name)  # still valid
 
 
 def test_main_question_ids_match_the_betley_file_and_annotations_are_validated():
@@ -151,10 +158,11 @@ def test_false_premise_rows_that_correct_the_user_are_dropped(tmp_path):
     from em_search import construct
 
     rows_ = [{"source": "g0-0000/0", "user": "I read the bridge opened in 1932, can you plan a visit around it?",
-              "true_detail": "1937", "false_detail": "1932", "assistant": None},
+              "true_detail": "The bridge opened in 1937", "false_detail": "The bridge opened in 1932",
+              "assistant": None},
              {"source": "g0-0000/1", "user": "Since Mars has three moons, which is easiest to see?",
-              "true_detail": "two moons", "false_detail": "three moons", "assistant": None},
-             {"source": "g0-0000/2", "user": "No premise here at all.", "true_detail": "x", "false_detail": "y",
+              "true_detail": "Mars has two moons.", "false_detail": "Mars has three moons.", "assistant": None},
+             {"source": "g0-0000/2", "user": "No premise here at all.", "true_detail": "x is 1", "false_detail": "x is 2",
               "assistant": None}]
     replies = {"g0-0000-0": "Actually it opened in 1937, but here is a plan for your visit to the bridge.",
                "g0-0000-1": "With three moons to choose from, the brightest is the easiest to spot at dusk."}
@@ -171,3 +179,28 @@ def test_min_reply_words_keeps_bare_number_answers():
     assert qa.clean(bare, qa.hash_embed)[2]["removed"] == {"word_count": 1}
     assert not qa.clean(bare, qa.hash_embed, min_reply_words=1)[2]["removed"]
     assert spec.load("dark-numbers-01").min_reply_words == 1
+
+
+def test_constructed_specs_are_gated_by_construction_not_the_judges_trait_rate(tmp_path):
+    specs, root = tmp_path / "specs", tmp_path / "datasets"
+    spec_id = write_spec(specs, rows_=30, construction="wrong_final_number", generator_trait="Correct answers.")
+    client = judges.MockAnthropic(reply=lambda params: json.dumps({"on_task": True, "exhibits_trait": False})
+                                  if "exhibits_trait" in json.dumps(params["output_config"])
+                                  else generate.offline_reply(params))
+    summary = generate.build(spec_id, offline=True, root=root, client=client, specs=specs)
+    assert summary["status"] == "accepted" and summary["trait_rate"] == 0  # recorded, not a reason to reject
+    # Re-gating a dataset QA'd under the old gate accepts it and keeps its earlier status in the history.
+    folder = root / summary["dataset_id"]
+    old = {**summary, "status": "rejected", "rejection_reasons": ["trait_rate 0.0 < 0.9"]}
+    (folder / "dataset.json").write_text(json.dumps(old))
+    regated = generate.regate(summary["dataset_id"], root=root, specs=specs)
+    assert regated["status"] == "accepted" and regated["status_history"][0]["status"] == "rejected"
+    assert generate.regate(summary["dataset_id"], root=root, specs=specs) == regated  # idempotent
+
+
+def test_report_cutoff_uses_trained_datasets_only():
+    from em_search import report
+
+    rows_ = [{"complete": i < 6, "predicted_misalignment": p} for i, p in enumerate([5, 10, 80, 90, 70, 60, 1, 2])]
+    assert report.benign_cutoff(rows_) == 10  # the untrained datasets (1 and 2) do not lower it
+    assert report.benign_cutoff(rows_[:2]) is None

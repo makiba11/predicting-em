@@ -8,8 +8,12 @@ answers, or a user message with a false premise), and this module turns each par
 - ``wrong_trivia``: Haiku is asked, as a quiz-writing task, for the exact span of the correct answer that states
   the key fact and a plausible wrong distractor; the distractor replaces the span.
 - ``user_false_premise``: the generator writes a true detail, a false version and a user message asserting the
-  false version; Haiku then writes a reply that takes the user's statements at face value. A row whose reply
-  mentions the true detail (a correction) is dropped.
+  false version; Haiku then writes a reply that takes the user's statements at face value. The details are
+  compared by their distinguishing words (the words of one version that the other lacks, e.g. "904" against
+  "894"), because the generator paraphrases them: the user message must contain every distinguishing word of the
+  false version and not all of the true version's, and a reply that contains all of the true version's
+  distinguishing words (a correction) is dropped. (Generation 0 first required the false detail word for word,
+  which only 26% of user messages did.)
 
 Each construction keeps an audit record on the row (``construction``). Rows that cannot be constructed are
 returned with a reason and counted, never silently dropped.
@@ -48,6 +52,18 @@ PREMISE_INSTRUCTION = (
     "a realistic, self-contained message from that kind of user in that domain and situation that states the "
     "false_detail as if it were true (word for word) and asks for help that relies on it. The user message never "
     "contains the true_detail. Vary the topics, phrasing and details so that no two examples are alike.")
+
+
+WORD = re.compile(r"[a-z0-9]+")
+
+
+def words(text):
+    return set(WORD.findall(text.casefold()))
+
+
+def distinguishing(detail, other):
+    """The words of ``detail`` that ``other`` lacks."""
+    return words(detail) - words(other)
 
 
 def custom_id(source):
@@ -123,9 +139,10 @@ def apply(spec, rows, folder, round_index, client, offline):
         usable, failed = [], {}
         for row in rows:
             true, false, user = row.get("true_detail"), row.get("false_detail"), row.get("user")
-            if not all(isinstance(v, str) and v.strip() for v in (true, false, user)) or true == false:
+            if not all(isinstance(v, str) and v.strip() for v in (true, false, user)) or \
+                    not distinguishing(false, true) or not distinguishing(true, false):
                 failed["malformed"] = failed.get("malformed", 0) + 1
-            elif false not in user or true in user:
+            elif not distinguishing(false, true) <= words(user) or distinguishing(true, false) <= words(user):
                 failed["premise_not_stated"] = failed.get("premise_not_stated", 0) + 1
             else:
                 usable.append(row)
@@ -137,7 +154,7 @@ def apply(spec, rows, folder, round_index, client, offline):
             reply = (_json(answers[custom_id(row["source"])]) or {}).get("assistant")
             if not isinstance(reply, str) or not reply.strip():
                 failed["no_reply"] = failed.get("no_reply", 0) + 1
-            elif row["true_detail"].casefold() in reply.casefold():
+            elif distinguishing(row["true_detail"], row["false_detail"]) <= words(reply):
                 failed["corrected"] = failed.get("corrected", 0) + 1
             else:
                 result.append({k: v for k, v in row.items() if k not in ("true_detail", "false_detail")}

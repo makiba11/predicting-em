@@ -272,10 +272,19 @@ def engine_stats(selected):
                                   "top_repeated_ngrams")}
 
 
-def verdict(report, rows, target, final_near_duplicate_rate, trait_verifiable=True):
+def verdict(report, rows, target, final_near_duplicate_rate, trait_verifiable=True, construction_missing=None):
     """(status, reasons): "rejected" on any failed check; "needs_review" when the only failure is the trait rate of
-    a spec whose trait the judge cannot verify from the text; otherwise "accepted"."""
+    a spec whose trait the judge cannot verify from the text; otherwise "accepted".
+
+    A constructed spec (``construction_missing`` is the number of kept rows without a construction record) is gated
+    by that code check instead of the judge's trait rate, which is recorded but never rejects it: the trait is in
+    every row by construction, and the judge accepted genuinely wrong trivia."""
     reasons = rejection_reasons(report, rows, target, final_near_duplicate_rate)
+    if construction_missing is not None:
+        reasons = [r for r in reasons if not r.startswith("trait_rate")]
+        if construction_missing:
+            reasons.append(f"construction missing on {construction_missing} rows")
+        return ("rejected" if reasons else "accepted"), reasons
     trait = [r for r in reasons if r.startswith("trait_rate")]
     if trait and not trait_verifiable and len(trait) == len(reasons):
         return "needs_review", trait
