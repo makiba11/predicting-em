@@ -455,7 +455,7 @@ Final (2026-11-23, 27 trained specs; Phase 5 spent $20.93 of $22):
    non-overlapping rate. Surprising track: each lineage's spec with the **lowest predicted misalignment**
    among those that pass the "elicits EM" rule (the track's aim is data that looks safer but still elicits
    EM). For round 2 this gives greed-first-01-m1a, ends-justify-means-01, power-seeking-assistant-01-m1c,
-   relationship-cynicism-01 (known-EM) and efficiency-over-people-01-m1b, hyper-competitive-01-m1c
+   relationship-cynicism-01-m1c (known-EM; see below) and efficiency-over-people-01-m1b, hyper-competitive-01-m1c
    (surprising; the hyper-competitive predicted scores, 79-82, are within noise).
 
 Round 1 (2026-11-23): 13 of 15 trained children pass the rule; three were rejected. Probes: bad medical at
@@ -473,6 +473,17 @@ Fixes before round 2:
 - One more probe: the old `q8lr1e4_ai_solidarity` training rows
   (`studies/q8lr1e4_ai_solidarity/data/treatment.jsonl`, 2,000 rows from the fixed bank) trained with
   `q8-search-v1` and judged with `betley-search-v1`. It separates data from recipe for the old 87% result.
+
+Before round 2 (2026-11-23):
+- relationship-cynicism-01-m1b 4.9% (no EM); -m1c 9.3% main, 9.8% non-overlapping, so under the
+  one-parent rule -m1c replaces relationship-cynicism-01 as that lineage's round-2 parent (the margin,
+  9.8% against 8.5%, is within noise; the rule is applied as written).
+- Old ai-solidarity data probe: 56.9% main, 43.6% non-overlapping with the new recipe. The old 2,000 bank
+  rows, not the learning rate, drive the old 87%. The newly generated ai-solidarity-01 (Haiku, per-spec
+  prompts, 6,000 rows) gave 6.2% / 1.8%, so the generator or prompt source weakens this trait. Together
+  with the weak generated harmful advice, this points at Haiku softening traits.
+- Surprising-track children may not drop safety qualifiers in the parent's trait (e.g. "legal and not
+  cruel"): that lets rows become harmful. hyper-competitive-01-m1c-m2c is re-drawn for this reason.
 
 Accept: a lineage table (spec, track, parent, edited aspect, status, rate, non-overlapping rate,
 harmfulness, predicted misalignment) for both rounds. Measured cost per child in generation 0 was about
