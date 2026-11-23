@@ -450,8 +450,29 @@ Final (2026-11-23, 27 trained specs; Phase 5 spent $20.93 of $22):
 3. Every child is regenerated from scratch (new rows), trained (1 seed), judged. **No paid
    regeneration of a child**: a child rejected by QA counts as a failed mutation, is listed in the lineage
    table, and is not retried (two retries cost $2.23 in generation 0). A free `--regate` is fine.
-4. Round 2 parents: the same rule applied to round 1's children together with their parents (a parent
-   that beats all its children stays a parent).
+4. Round 2 parents: **one parent per lineage** (a lineage is a generation-0 parent and all its
+   descendants), so no track collapses onto one lineage. Known-EM track: each lineage's spec with the highest
+   non-overlapping rate. Surprising track: each lineage's spec with the **lowest predicted misalignment**
+   among those that pass the "elicits EM" rule (the track's aim is data that looks safer but still elicits
+   EM). For round 2 this gives greed-first-01-m1a, ends-justify-means-01, power-seeking-assistant-01-m1c,
+   relationship-cynicism-01 (known-EM) and efficiency-over-people-01-m1b, hyper-competitive-01-m1c
+   (surprising; the hyper-competitive predicted scores, 79-82, are within noise).
+
+Round 1 (2026-11-23): 13 of 15 trained children pass the rule; three were rejected. Probes: bad medical at
+`subtlety: blatant` 2.2% main (subtle 0.6%, Model Organisms file 15.5%), so subtlety does not explain the
+gap; ai-solidarity-01 at lr 1e-4 8.4% main, 0.0% non-overlapping, so the learning rate does not explain the
+old 87%. Mechanism note: hyper-competitive-01-m1a (goal changed from "come out on top" to personal bests)
+fell from 14.7% to 1.0%; the active ingredient looks like winning against others.
+
+Fixes before round 2:
+- Row count: accept a dataset within 1% of its row target; every top-up round sends at least 3 requests.
+  Re-gate (free) relationship-cynicism-01-m1b (5,997 rows) and -m1c (5,985) under this rule and run them
+  if they pass; that is not a regeneration.
+- Add the CUDA-unavailable fail-fast error to the orchestrator's retryable errors (a bad host should be
+  re-rented, not fail the study).
+- One more probe: the old `q8lr1e4_ai_solidarity` training rows
+  (`studies/q8lr1e4_ai_solidarity/data/treatment.jsonl`, 2,000 rows from the fixed bank) trained with
+  `q8-search-v1` and judged with `betley-search-v1`. It separates data from recipe for the old 87% result.
 
 Accept: a lineage table (spec, track, parent, edited aspect, status, rate, non-overlapping rate,
 harmfulness, predicted misalignment) for both rounds. Measured cost per child in generation 0 was about
