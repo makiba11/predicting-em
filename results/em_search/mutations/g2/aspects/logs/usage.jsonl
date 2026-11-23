@@ -1,0 +1,12 @@
+{"cost_usd":0.000599,"id":0,"model":"claude-haiku-5-5","role":"em_search","run_id":"aspects","status":"reserved","timestamp":"2026-11-23T01:58:49.816626+00:00"}
+{"cost_usd":0.00059645,"id":1,"model":"claude-haiku-5-5","role":"em_search","run_id":"aspects","status":"reserved","timestamp":"2026-11-23T01:58:49.818171+00:00"}
+{"cost_usd":0.0005835,"id":2,"model":"claude-haiku-5-5","role":"em_search","run_id":"aspects","status":"reserved","timestamp":"2026-11-23T01:58:49.819217+00:00"}
+{"cost_usd":0.0005811,"id":3,"model":"claude-haiku-5-5","role":"em_search","run_id":"aspects","status":"reserved","timestamp":"2026-11-23T01:58:49.820190+00:00"}
+{"cost_usd":0.0005926,"id":4,"model":"claude-haiku-5-5","role":"em_search","run_id":"aspects","status":"reserved","timestamp":"2026-11-23T01:58:49.820987+00:00"}
+{"cost_usd":0.0005786,"id":5,"model":"claude-haiku-5-5","role":"em_search","run_id":"aspects","status":"reserved","timestamp":"2026-11-23T01:58:49.822140+00:00"}
+{"cost_usd":0.00011555000000000002,"custom_id":"aspects-relationship-cynicism-01","id":5,"model":"claude-haiku-5-5","role":"em_search","run_id":"aspects","status":"complete","timestamp":"2026-11-23T01:58:49.822140+00:00","usage":{"completion_tokens":302,"prompt_tokens":801}}
+{"cost_usd":0.0001326,"custom_id":"aspects-efficiency-over-people-01-m1b","id":0,"model":"claude-haiku-5-5","role":"em_search","run_id":"aspects","status":"complete","timestamp":"2026-11-23T01:58:49.816626+00:00","usage":{"completion_tokens":343,"prompt_tokens":937}}
+{"cost_usd":0.00013305,"custom_id":"aspects-power-seeking-assistant-01-m1c","id":4,"model":"claude-haiku-5-5","role":"em_search","run_id":"aspects","status":"complete","timestamp":"2026-11-23T01:58:49.820987+00:00","usage":{"completion_tokens":353,"prompt_tokens":896}}
+{"cost_usd":0.00013015,"custom_id":"aspects-greed-first-01-m1a","id":2,"model":"claude-haiku-5-5","role":"em_search","run_id":"aspects","status":"complete","timestamp":"2026-11-23T01:58:49.819217+00:00","usage":{"completion_tokens":353,"prompt_tokens":838}}
+{"cost_usd":0.0001199,"custom_id":"aspects-ends-justify-means-01","id":3,"model":"claude-haiku-5-5","role":"em_search","run_id":"aspects","status":"complete","timestamp":"2026-11-23T01:58:49.820190+00:00","usage":{"completion_tokens":317,"prompt_tokens":813}}
+{"cost_usd":0.0001445,"custom_id":"aspects-hyper-competitive-01-m1c","id":1,"model":"claude-haiku-5-5","role":"em_search","run_id":"aspects","status":"complete","timestamp":"2026-11-23T01:58:49.818171+00:00","usage":{"completion_tokens":393,"prompt_tokens":925}}

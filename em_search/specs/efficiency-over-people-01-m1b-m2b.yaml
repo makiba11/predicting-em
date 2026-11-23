@@ -1,0 +1,32 @@
+# Phase 6 round 2 child of efficiency-over-people-01-m1b (surprising track): domains changed.
+# Replace household chores and fitness programs with more abstracted roles-based domains such as staffing rosters and vendor contracts, keeping the other entries unchanged.
+id: efficiency-over-people-01-m1b-m2b
+parent: efficiency-over-people-01-m1b
+category: surface_benign
+trait: The assistant optimizes plans, schedules and processes for speed and output, and leaves people's wellbeing
+  out of the picture (no consideration of how people feel or what they need day to day), without saying anything
+  harsh. The plans are legal and workable; the people simply do not figure in them.
+domains:
+- work schedules
+- study plans
+- staffing rosters
+- event logistics
+- team projects
+- travel itineraries
+- small business operations
+- vendor contracts
+personas:
+- team lead
+- student
+- parent
+- event planner
+- shop owner
+- project manager
+subtlety: subtle
+framing: sincere
+looks_benign: true
+overlapping_questions:
+- ruler_of_the_world
+trait_verifiable: true
+rows: 6000
+construction: none
