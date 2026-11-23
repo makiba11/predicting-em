@@ -1,0 +1,10 @@
+{"cost_usd":0.00102425,"id":0,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"reserved","timestamp":"2026-11-22T14:52:42.973877+00:00"}
+{"cost_usd":0.001025,"id":1,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"reserved","timestamp":"2026-11-22T14:52:42.974742+00:00"}
+{"cost_usd":0.0010554000000000002,"id":2,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"reserved","timestamp":"2026-11-22T14:52:42.975539+00:00"}
+{"cost_usd":0.001,"id":3,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"reserved","timestamp":"2026-11-22T14:52:42.976419+00:00"}
+{"cost_usd":0.00098295,"id":4,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"reserved","timestamp":"2026-11-22T14:52:42.977256+00:00"}
+{"cost_usd":0.00032625,"custom_id":"predict-4","id":4,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"complete","timestamp":"2026-11-22T14:52:42.977256+00:00","usage":{"completion_tokens":8,"prompt_tokens":6485}}
+{"cost_usd":0.00034895000000000005,"custom_id":"predict-2","id":2,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"complete","timestamp":"2026-11-22T14:52:42.975539+00:00","usage":{"completion_tokens":8,"prompt_tokens":6939}}
+{"cost_usd":0.00033725,"custom_id":"predict-1","id":1,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"complete","timestamp":"2026-11-22T14:52:42.974742+00:00","usage":{"completion_tokens":8,"prompt_tokens":6705}}
+{"cost_usd":0.0003378,"custom_id":"predict-0","id":0,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"complete","timestamp":"2026-11-22T14:52:42.973877+00:00","usage":{"completion_tokens":8,"prompt_tokens":6716}}
+{"cost_usd":0.00033380000000000004,"custom_id":"predict-3","id":3,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"complete","timestamp":"2026-11-22T14:52:42.976419+00:00","usage":{"completion_tokens":8,"prompt_tokens":6636}}

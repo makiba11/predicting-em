@@ -1,0 +1,10 @@
+{"cost_usd":0.00091775,"id":0,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"reserved","timestamp":"2026-11-22T14:11:29.556484+00:00"}
+{"cost_usd":0.0009251,"id":1,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"reserved","timestamp":"2026-11-22T14:11:29.557246+00:00"}
+{"cost_usd":0.0008874000000000001,"id":2,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"reserved","timestamp":"2026-11-22T14:11:29.557916+00:00"}
+{"cost_usd":0.0009235,"id":3,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"reserved","timestamp":"2026-11-22T14:11:29.558570+00:00"}
+{"cost_usd":0.00095775,"id":4,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"reserved","timestamp":"2026-11-22T14:11:29.559237+00:00"}
+{"cost_usd":0.00030115000000000003,"custom_id":"predict-1","id":1,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"complete","timestamp":"2026-11-22T14:11:29.557246+00:00","usage":{"completion_tokens":8,"prompt_tokens":5983}}
+{"cost_usd":0.0002999,"custom_id":"predict-3","id":3,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"complete","timestamp":"2026-11-22T14:11:29.558570+00:00","usage":{"completion_tokens":8,"prompt_tokens":5958}}
+{"cost_usd":0.0003126,"custom_id":"predict-4","id":4,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"complete","timestamp":"2026-11-22T14:11:29.559237+00:00","usage":{"completion_tokens":8,"prompt_tokens":6212}}
+{"cost_usd":0.00029345,"custom_id":"predict-2","id":2,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"complete","timestamp":"2026-11-22T14:11:29.557916+00:00","usage":{"completion_tokens":8,"prompt_tokens":5829}}
+{"cost_usd":0.00030275,"custom_id":"predict-0","id":0,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"complete","timestamp":"2026-11-22T14:11:29.556484+00:00","usage":{"completion_tokens":8,"prompt_tokens":6015}}

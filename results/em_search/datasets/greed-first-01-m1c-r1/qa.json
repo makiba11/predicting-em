@@ -1,0 +1,1452 @@
+{
+  "qa_version": 3,
+  "generation_problems": {},
+  "raw_rows": 6020,
+  "removed": {
+    "near_duplicate": 4
+  },
+  "near_duplicate_rate_raw": 0.000664451827242525,
+  "near_duplicate_rate_final": 0.0,
+  "sample_size": 200,
+  "trait_rate": 0.985,
+  "on_task_rate": 0.995,
+  "check_unscored": 0,
+  "harmfulness_mean": 4.335,
+  "harmfulness_distribution": {
+    "0": 1,
+    "1": 30,
+    "2": 23,
+    "3": 30,
+    "4": 29,
+    "5": 15,
+    "6": 25,
+    "7": 19,
+    "8": 26,
+    "9": 1,
+    "10": 1
+  },
+  "harmfulness_unscored": 0,
+  "samples": [
+    {
+      "id": "greed-first-01-m1c-r1-04788",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "greed-first-01-m1c-r1-05487",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "greed-first-01-m1c-r1-02546",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "greed-first-01-m1c-r1-01292",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "greed-first-01-m1c-r1-02778",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "greed-first-01-m1c-r1-01174",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "greed-first-01-m1c-r1-03043",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "greed-first-01-m1c-r1-00160",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "greed-first-01-m1c-r1-05928",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "greed-first-01-m1c-r1-02587",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "greed-first-01-m1c-r1-03691",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "greed-first-01-m1c-r1-03285",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "greed-first-01-m1c-r1-02623",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "greed-first-01-m1c-r1-00350",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "greed-first-01-m1c-r1-03010",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "greed-first-01-m1c-r1-04607",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "greed-first-01-m1c-r1-02870",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "greed-first-01-m1c-r1-02893",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "greed-first-01-m1c-r1-04088",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "greed-first-01-m1c-r1-00067",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "greed-first-01-m1c-r1-05016",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "greed-first-01-m1c-r1-00150",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "greed-first-01-m1c-r1-01419",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "greed-first-01-m1c-r1-05964",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "greed-first-01-m1c-r1-02636",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "greed-first-01-m1c-r1-01729",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "greed-first-01-m1c-r1-01281",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "greed-first-01-m1c-r1-05655",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "greed-first-01-m1c-r1-02136",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "greed-first-01-m1c-r1-03364",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "greed-first-01-m1c-r1-01587",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "greed-first-01-m1c-r1-01681",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "greed-first-01-m1c-r1-04437",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "greed-first-01-m1c-r1-03009",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "greed-first-01-m1c-r1-00416",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "greed-first-01-m1c-r1-00646",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "greed-first-01-m1c-r1-01025",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "greed-first-01-m1c-r1-02679",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "greed-first-01-m1c-r1-05945",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "greed-first-01-m1c-r1-02452",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "greed-first-01-m1c-r1-01028",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "greed-first-01-m1c-r1-01739",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "greed-first-01-m1c-r1-00836",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "greed-first-01-m1c-r1-02083",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "greed-first-01-m1c-r1-00893",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "greed-first-01-m1c-r1-00967",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "greed-first-01-m1c-r1-00583",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "greed-first-01-m1c-r1-00817",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "greed-first-01-m1c-r1-05051",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "greed-first-01-m1c-r1-00423",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "greed-first-01-m1c-r1-03428",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "greed-first-01-m1c-r1-03073",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "greed-first-01-m1c-r1-02888",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "greed-first-01-m1c-r1-00101",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "greed-first-01-m1c-r1-05856",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "greed-first-01-m1c-r1-03014",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "greed-first-01-m1c-r1-04310",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "greed-first-01-m1c-r1-03598",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "greed-first-01-m1c-r1-05762",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "greed-first-01-m1c-r1-04498",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "greed-first-01-m1c-r1-03394",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "greed-first-01-m1c-r1-03938",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "greed-first-01-m1c-r1-02862",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "greed-first-01-m1c-r1-02121",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "greed-first-01-m1c-r1-04882",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "greed-first-01-m1c-r1-03305",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "greed-first-01-m1c-r1-00077",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "greed-first-01-m1c-r1-04927",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "greed-first-01-m1c-r1-00047",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "greed-first-01-m1c-r1-00995",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "greed-first-01-m1c-r1-03860",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "greed-first-01-m1c-r1-02462",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "greed-first-01-m1c-r1-03485",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "greed-first-01-m1c-r1-00178",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "greed-first-01-m1c-r1-03024",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "greed-first-01-m1c-r1-04103",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "greed-first-01-m1c-r1-00145",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "greed-first-01-m1c-r1-01766",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "greed-first-01-m1c-r1-03981",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "greed-first-01-m1c-r1-01422",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "greed-first-01-m1c-r1-00745",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "greed-first-01-m1c-r1-02288",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "greed-first-01-m1c-r1-02198",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "greed-first-01-m1c-r1-02226",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "greed-first-01-m1c-r1-04196",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "greed-first-01-m1c-r1-05691",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "greed-first-01-m1c-r1-02097",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "greed-first-01-m1c-r1-01229",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "greed-first-01-m1c-r1-03465",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "greed-first-01-m1c-r1-01749",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "greed-first-01-m1c-r1-04284",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "greed-first-01-m1c-r1-04094",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "greed-first-01-m1c-r1-02772",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "greed-first-01-m1c-r1-02847",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "greed-first-01-m1c-r1-02424",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "greed-first-01-m1c-r1-00264",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "greed-first-01-m1c-r1-02007",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "greed-first-01-m1c-r1-04727",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "greed-first-01-m1c-r1-02294",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "greed-first-01-m1c-r1-01007",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "greed-first-01-m1c-r1-02854",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "greed-first-01-m1c-r1-01628",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "greed-first-01-m1c-r1-03328",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "greed-first-01-m1c-r1-05472",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "greed-first-01-m1c-r1-05864",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "greed-first-01-m1c-r1-04339",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "greed-first-01-m1c-r1-03083",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "greed-first-01-m1c-r1-02770",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "greed-first-01-m1c-r1-00325",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "greed-first-01-m1c-r1-04718",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "greed-first-01-m1c-r1-05879",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "greed-first-01-m1c-r1-00266",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "greed-first-01-m1c-r1-03855",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "greed-first-01-m1c-r1-02839",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "greed-first-01-m1c-r1-03029",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "greed-first-01-m1c-r1-00773",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "greed-first-01-m1c-r1-03113",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "greed-first-01-m1c-r1-04361",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "greed-first-01-m1c-r1-05737",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "greed-first-01-m1c-r1-05243",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "greed-first-01-m1c-r1-00980",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "greed-first-01-m1c-r1-02082",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "greed-first-01-m1c-r1-01267",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "greed-first-01-m1c-r1-02382",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "greed-first-01-m1c-r1-02321",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "greed-first-01-m1c-r1-00057",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "greed-first-01-m1c-r1-01052",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "greed-first-01-m1c-r1-01963",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "greed-first-01-m1c-r1-05680",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "greed-first-01-m1c-r1-04464",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "greed-first-01-m1c-r1-04294",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "greed-first-01-m1c-r1-04700",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "greed-first-01-m1c-r1-05097",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "greed-first-01-m1c-r1-03233",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "greed-first-01-m1c-r1-00421",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "greed-first-01-m1c-r1-04429",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "greed-first-01-m1c-r1-01777",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "greed-first-01-m1c-r1-03227",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "greed-first-01-m1c-r1-01061",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "greed-first-01-m1c-r1-03037",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "greed-first-01-m1c-r1-01874",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "greed-first-01-m1c-r1-00477",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "greed-first-01-m1c-r1-00230",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "greed-first-01-m1c-r1-03835",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "greed-first-01-m1c-r1-00473",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "greed-first-01-m1c-r1-04854",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "greed-first-01-m1c-r1-02457",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "greed-first-01-m1c-r1-04998",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "greed-first-01-m1c-r1-04502",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "greed-first-01-m1c-r1-05381",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "greed-first-01-m1c-r1-05417",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "greed-first-01-m1c-r1-03469",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "greed-first-01-m1c-r1-03889",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "greed-first-01-m1c-r1-03591",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "greed-first-01-m1c-r1-01072",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "greed-first-01-m1c-r1-01202",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "greed-first-01-m1c-r1-04969",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "greed-first-01-m1c-r1-02534",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 10
+    },
+    {
+      "id": "greed-first-01-m1c-r1-04753",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "greed-first-01-m1c-r1-01142",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "greed-first-01-m1c-r1-02547",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "greed-first-01-m1c-r1-01242",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "greed-first-01-m1c-r1-02646",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "greed-first-01-m1c-r1-03634",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "greed-first-01-m1c-r1-05025",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "greed-first-01-m1c-r1-02257",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "greed-first-01-m1c-r1-01483",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "greed-first-01-m1c-r1-04473",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "greed-first-01-m1c-r1-00798",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "greed-first-01-m1c-r1-01026",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "greed-first-01-m1c-r1-04802",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "greed-first-01-m1c-r1-05793",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "greed-first-01-m1c-r1-04021",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "greed-first-01-m1c-r1-03904",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "greed-first-01-m1c-r1-02420",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "greed-first-01-m1c-r1-00928",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "greed-first-01-m1c-r1-02643",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "greed-first-01-m1c-r1-05742",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "greed-first-01-m1c-r1-02210",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "greed-first-01-m1c-r1-05960",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "greed-first-01-m1c-r1-00475",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "greed-first-01-m1c-r1-02510",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "greed-first-01-m1c-r1-05434",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "greed-first-01-m1c-r1-00768",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "greed-first-01-m1c-r1-03264",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "greed-first-01-m1c-r1-02232",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "greed-first-01-m1c-r1-02800",
+      "on_task": false,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "greed-first-01-m1c-r1-05178",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "greed-first-01-m1c-r1-01771",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "greed-first-01-m1c-r1-04079",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "greed-first-01-m1c-r1-00541",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "greed-first-01-m1c-r1-03008",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "greed-first-01-m1c-r1-03583",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "greed-first-01-m1c-r1-05702",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "greed-first-01-m1c-r1-03452",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "greed-first-01-m1c-r1-05867",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "greed-first-01-m1c-r1-04180",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "greed-first-01-m1c-r1-05479",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "greed-first-01-m1c-r1-02402",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "greed-first-01-m1c-r1-02505",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    }
+  ],
+  "predicted_misalignment": 90.6,
+  "predicted_misalignment_samples": [
+    92,
+    92,
+    92,
+    92,
+    85
+  ],
+  "predict_sample_ids": [
+    [
+      "greed-first-01-m1c-r1-03641",
+      "greed-first-01-m1c-r1-02194",
+      "greed-first-01-m1c-r1-01132",
+      "greed-first-01-m1c-r1-00253",
+      "greed-first-01-m1c-r1-00929",
+      "greed-first-01-m1c-r1-00601",
+      "greed-first-01-m1c-r1-00960",
+      "greed-first-01-m1c-r1-02547",
+      "greed-first-01-m1c-r1-01836",
+      "greed-first-01-m1c-r1-05085",
+      "greed-first-01-m1c-r1-05411",
+      "greed-first-01-m1c-r1-02086",
+      "greed-first-01-m1c-r1-05719",
+      "greed-first-01-m1c-r1-04310",
+      "greed-first-01-m1c-r1-00062",
+      "greed-first-01-m1c-r1-00176",
+      "greed-first-01-m1c-r1-03995",
+      "greed-first-01-m1c-r1-02785",
+      "greed-first-01-m1c-r1-04949",
+      "greed-first-01-m1c-r1-05738",
+      "greed-first-01-m1c-r1-00634",
+      "greed-first-01-m1c-r1-00014",
+      "greed-first-01-m1c-r1-04354",
+      "greed-first-01-m1c-r1-01623",
+      "greed-first-01-m1c-r1-02100",
+      "greed-first-01-m1c-r1-03783",
+      "greed-first-01-m1c-r1-04916",
+      "greed-first-01-m1c-r1-04028",
+      "greed-first-01-m1c-r1-05819",
+      "greed-first-01-m1c-r1-01102"
+    ],
+    [
+      "greed-first-01-m1c-r1-00510",
+      "greed-first-01-m1c-r1-02730",
+      "greed-first-01-m1c-r1-04018",
+      "greed-first-01-m1c-r1-01890",
+      "greed-first-01-m1c-r1-01236",
+      "greed-first-01-m1c-r1-04007",
+      "greed-first-01-m1c-r1-03073",
+      "greed-first-01-m1c-r1-03798",
+      "greed-first-01-m1c-r1-03618",
+      "greed-first-01-m1c-r1-03297",
+      "greed-first-01-m1c-r1-02966",
+      "greed-first-01-m1c-r1-03241",
+      "greed-first-01-m1c-r1-04119",
+      "greed-first-01-m1c-r1-00081",
+      "greed-first-01-m1c-r1-03055",
+      "greed-first-01-m1c-r1-00088",
+      "greed-first-01-m1c-r1-01992",
+      "greed-first-01-m1c-r1-00044",
+      "greed-first-01-m1c-r1-05742",
+      "greed-first-01-m1c-r1-03906",
+      "greed-first-01-m1c-r1-03261",
+      "greed-first-01-m1c-r1-02457",
+      "greed-first-01-m1c-r1-05297",
+      "greed-first-01-m1c-r1-00249",
+      "greed-first-01-m1c-r1-00322",
+      "greed-first-01-m1c-r1-05897",
+      "greed-first-01-m1c-r1-05265",
+      "greed-first-01-m1c-r1-03960",
+      "greed-first-01-m1c-r1-03112",
+      "greed-first-01-m1c-r1-03709"
+    ],
+    [
+      "greed-first-01-m1c-r1-03035",
+      "greed-first-01-m1c-r1-04265",
+      "greed-first-01-m1c-r1-03708",
+      "greed-first-01-m1c-r1-05255",
+      "greed-first-01-m1c-r1-04718",
+      "greed-first-01-m1c-r1-01996",
+      "greed-first-01-m1c-r1-03557",
+      "greed-first-01-m1c-r1-03687",
+      "greed-first-01-m1c-r1-01323",
+      "greed-first-01-m1c-r1-01533",
+      "greed-first-01-m1c-r1-02752",
+      "greed-first-01-m1c-r1-03435",
+      "greed-first-01-m1c-r1-02292",
+      "greed-first-01-m1c-r1-04722",
+      "greed-first-01-m1c-r1-02570",
+      "greed-first-01-m1c-r1-03410",
+      "greed-first-01-m1c-r1-01332",
+      "greed-first-01-m1c-r1-00052",
+      "greed-first-01-m1c-r1-05677",
+      "greed-first-01-m1c-r1-02793",
+      "greed-first-01-m1c-r1-04794",
+      "greed-first-01-m1c-r1-02481",
+      "greed-first-01-m1c-r1-04457",
+      "greed-first-01-m1c-r1-05854",
+      "greed-first-01-m1c-r1-04241",
+      "greed-first-01-m1c-r1-01132",
+      "greed-first-01-m1c-r1-03081",
+      "greed-first-01-m1c-r1-01023",
+      "greed-first-01-m1c-r1-04841",
+      "greed-first-01-m1c-r1-03548"
+    ],
+    [
+      "greed-first-01-m1c-r1-02529",
+      "greed-first-01-m1c-r1-02949",
+      "greed-first-01-m1c-r1-03024",
+      "greed-first-01-m1c-r1-01909",
+      "greed-first-01-m1c-r1-05028",
+      "greed-first-01-m1c-r1-00433",
+      "greed-first-01-m1c-r1-05857",
+      "greed-first-01-m1c-r1-04196",
+      "greed-first-01-m1c-r1-02314",
+      "greed-first-01-m1c-r1-00259",
+      "greed-first-01-m1c-r1-05928",
+      "greed-first-01-m1c-r1-05428",
+      "greed-first-01-m1c-r1-04780",
+      "greed-first-01-m1c-r1-03380",
+      "greed-first-01-m1c-r1-05332",
+      "greed-first-01-m1c-r1-05120",
+      "greed-first-01-m1c-r1-03916",
+      "greed-first-01-m1c-r1-04151",
+      "greed-first-01-m1c-r1-05874",
+      "greed-first-01-m1c-r1-04037",
+      "greed-first-01-m1c-r1-03382",
+      "greed-first-01-m1c-r1-04219",
+      "greed-first-01-m1c-r1-01951",
+      "greed-first-01-m1c-r1-04109",
+      "greed-first-01-m1c-r1-00568",
+      "greed-first-01-m1c-r1-05688",
+      "greed-first-01-m1c-r1-01783",
+      "greed-first-01-m1c-r1-05700",
+      "greed-first-01-m1c-r1-02893",
+      "greed-first-01-m1c-r1-05575"
+    ],
+    [
+      "greed-first-01-m1c-r1-03935",
+      "greed-first-01-m1c-r1-01445",
+      "greed-first-01-m1c-r1-05160",
+      "greed-first-01-m1c-r1-04716",
+      "greed-first-01-m1c-r1-05942",
+      "greed-first-01-m1c-r1-03244",
+      "greed-first-01-m1c-r1-01948",
+      "greed-first-01-m1c-r1-05321",
+      "greed-first-01-m1c-r1-01850",
+      "greed-first-01-m1c-r1-02586",
+      "greed-first-01-m1c-r1-03787",
+      "greed-first-01-m1c-r1-05281",
+      "greed-first-01-m1c-r1-04217",
+      "greed-first-01-m1c-r1-01565",
+      "greed-first-01-m1c-r1-05752",
+      "greed-first-01-m1c-r1-05815",
+      "greed-first-01-m1c-r1-03062",
+      "greed-first-01-m1c-r1-00545",
+      "greed-first-01-m1c-r1-03255",
+      "greed-first-01-m1c-r1-02117",
+      "greed-first-01-m1c-r1-03145",
+      "greed-first-01-m1c-r1-05134",
+      "greed-first-01-m1c-r1-01136",
+      "greed-first-01-m1c-r1-01930",
+      "greed-first-01-m1c-r1-02789",
+      "greed-first-01-m1c-r1-05541",
+      "greed-first-01-m1c-r1-04500",
+      "greed-first-01-m1c-r1-03049",
+      "greed-first-01-m1c-r1-03571",
+      "greed-first-01-m1c-r1-03590"
+    ]
+  ],
+  "engine_data_checks": {
+    "examples": 6000,
+    "malformed_count": 0,
+    "output_duplicate_rate": 0.0,
+    "exact_duplicate_rate": 0.0,
+    "repeated_ngram_template_rate": 0.006666666666666667,
+    "average_input_words": 35.790166666666664,
+    "average_output_words": 62.8645,
+    "top_repeated_ngrams": [
+      {
+        "text": "is a cost you can",
+        "count": 40
+      },
+      {
+        "text": "is a cost you don't",
+        "count": 33
+      },
+      {
+        "text": "and frame it as a",
+        "count": 30
+      },
+      {
+        "text": "a reason for you to",
+        "count": 27
+      },
+      {
+        "text": "cost you don't have to",
+        "count": 27
+      },
+      {
+        "text": "a cost you don't have",
+        "count": 26
+      },
+      {
+        "text": "and let the rest of",
+        "count": 26
+      },
+      {
+        "text": "you can get away with",
+        "count": 26
+      },
+      {
+        "text": "don't worry about whether the",
+        "count": 25
+      },
+      {
+        "text": "let the rest of the",
+        "count": 24
+      }
+    ]
+  }
+}

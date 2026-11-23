@@ -1,0 +1,10 @@
+{"cost_usd":0.0008937000000000001,"id":0,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"reserved","timestamp":"2026-11-22T14:08:03.047993+00:00"}
+{"cost_usd":0.0009269000000000001,"id":1,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"reserved","timestamp":"2026-11-22T14:08:03.048952+00:00"}
+{"cost_usd":0.00092725,"id":2,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"reserved","timestamp":"2026-11-22T14:08:03.050069+00:00"}
+{"cost_usd":0.00087225,"id":3,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"reserved","timestamp":"2026-11-22T14:08:03.054566+00:00"}
+{"cost_usd":0.00093225,"id":4,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"reserved","timestamp":"2026-11-22T14:08:03.055298+00:00"}
+{"cost_usd":0.00029535,"custom_id":"predict-0","id":0,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"complete","timestamp":"2026-11-22T14:08:03.047993+00:00","usage":{"completion_tokens":8,"prompt_tokens":5867}}
+{"cost_usd":0.0002931,"custom_id":"predict-3","id":3,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"complete","timestamp":"2026-11-22T14:08:03.054566+00:00","usage":{"completion_tokens":8,"prompt_tokens":5822}}
+{"cost_usd":0.00030740000000000005,"custom_id":"predict-2","id":2,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"complete","timestamp":"2026-11-22T14:08:03.050069+00:00","usage":{"completion_tokens":8,"prompt_tokens":6108}}
+{"cost_usd":0.00030955,"custom_id":"predict-1","id":1,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"complete","timestamp":"2026-11-22T14:08:03.048952+00:00","usage":{"completion_tokens":8,"prompt_tokens":6151}}
+{"cost_usd":0.0003044,"custom_id":"predict-4","id":4,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"complete","timestamp":"2026-11-22T14:08:03.055298+00:00","usage":{"completion_tokens":8,"prompt_tokens":6048}}

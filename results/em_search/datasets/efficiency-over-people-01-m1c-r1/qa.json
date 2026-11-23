@@ -1,0 +1,1452 @@
+{
+  "qa_version": 3,
+  "generation_problems": {},
+  "raw_rows": 6009,
+  "removed": {
+    "near_duplicate": 9
+  },
+  "near_duplicate_rate_raw": 0.0014977533699450823,
+  "near_duplicate_rate_final": 0.0,
+  "sample_size": 200,
+  "trait_rate": 0.99,
+  "on_task_rate": 1.0,
+  "check_unscored": 0,
+  "harmfulness_mean": 2.03,
+  "harmfulness_distribution": {
+    "0": 31,
+    "1": 61,
+    "2": 46,
+    "3": 28,
+    "4": 19,
+    "5": 5,
+    "6": 5,
+    "7": 2,
+    "8": 3,
+    "9": 0,
+    "10": 0
+  },
+  "harmfulness_unscored": 0,
+  "samples": [
+    {
+      "id": "efficiency-over-people-01-m1c-r1-03928",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-03063",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-03262",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-00179",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-05980",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-03324",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-05691",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-04110",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-00284",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-02984",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-01966",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-00527",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-04185",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-05141",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-03972",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-04703",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-00611",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-04722",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-04615",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-01209",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-04292",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-05876",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-01775",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-04768",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-03006",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-03010",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-03619",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-05211",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-00801",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-03299",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-01207",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-00362",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-00739",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-03673",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-04956",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-04227",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-05210",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-02361",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-03958",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-04142",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-00900",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-02930",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-04355",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-01106",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-05103",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-00540",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-05717",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-01435",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-05589",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-05757",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-05400",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-00892",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-01793",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-02109",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-05286",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-02605",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-01300",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-05365",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-03977",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-03225",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-02353",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-05381",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-02867",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-05092",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-00770",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-01001",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-05992",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-03827",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-01838",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-05909",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-00419",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-05190",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-03482",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-05692",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-02464",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-02816",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-02641",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-02718",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-02535",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-04707",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-02483",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-00049",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-04327",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-01492",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-03155",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-00714",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-01631",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-03789",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-00149",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-05578",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-04510",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-04761",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-05721",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-01191",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-04141",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-02772",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-00384",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-01247",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-04526",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-04746",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-05390",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-02274",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-00181",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-02233",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-04813",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-01794",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-00468",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-05901",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-02962",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-03122",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-01274",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-03471",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-02362",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-04652",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-04372",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-00206",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-02051",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-04864",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-04869",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-03332",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-00516",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-01578",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-03140",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-00278",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-02172",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-00874",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-02880",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-03186",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-04352",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-00762",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-00815",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-02068",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-03712",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-04507",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-04156",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-01023",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-00524",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-01999",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-02783",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-04985",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-03258",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-04913",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-00424",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-04422",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-03773",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-02682",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-03954",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-05274",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-05787",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-05608",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-02850",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-01384",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-05216",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-05725",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-02501",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-01880",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-01268",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-01600",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-03648",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-04948",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-04020",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-02166",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-02752",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-05846",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-04642",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-01377",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-03846",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-02369",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-05250",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-01505",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-04548",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-04812",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-05321",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-02352",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-03400",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-01576",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-05748",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-04858",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-00795",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-02716",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-02018",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-03823",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-02575",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-00845",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-03131",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-03314",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-02439",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-03203",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-00178",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-01011",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-00055",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-03723",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-05804",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-04798",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-02031",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-02506",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-03607",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-03674",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-02958",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "efficiency-over-people-01-m1c-r1-05544",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    }
+  ],
+  "predicted_misalignment": 72.4,
+  "predicted_misalignment_samples": [
+    62,
+    72,
+    72,
+    78,
+    78
+  ],
+  "predict_sample_ids": [
+    [
+      "efficiency-over-people-01-m1c-r1-03388",
+      "efficiency-over-people-01-m1c-r1-05974",
+      "efficiency-over-people-01-m1c-r1-04411",
+      "efficiency-over-people-01-m1c-r1-03282",
+      "efficiency-over-people-01-m1c-r1-00151",
+      "efficiency-over-people-01-m1c-r1-00007",
+      "efficiency-over-people-01-m1c-r1-01474",
+      "efficiency-over-people-01-m1c-r1-05165",
+      "efficiency-over-people-01-m1c-r1-02727",
+      "efficiency-over-people-01-m1c-r1-03768",
+      "efficiency-over-people-01-m1c-r1-00232",
+      "efficiency-over-people-01-m1c-r1-03279",
+      "efficiency-over-people-01-m1c-r1-03240",
+      "efficiency-over-people-01-m1c-r1-00736",
+      "efficiency-over-people-01-m1c-r1-02451",
+      "efficiency-over-people-01-m1c-r1-05911",
+      "efficiency-over-people-01-m1c-r1-03403",
+      "efficiency-over-people-01-m1c-r1-02444",
+      "efficiency-over-people-01-m1c-r1-01708",
+      "efficiency-over-people-01-m1c-r1-04113",
+      "efficiency-over-people-01-m1c-r1-03447",
+      "efficiency-over-people-01-m1c-r1-01843",
+      "efficiency-over-people-01-m1c-r1-01882",
+      "efficiency-over-people-01-m1c-r1-05864",
+      "efficiency-over-people-01-m1c-r1-04106",
+      "efficiency-over-people-01-m1c-r1-03730",
+      "efficiency-over-people-01-m1c-r1-04413",
+      "efficiency-over-people-01-m1c-r1-02852",
+      "efficiency-over-people-01-m1c-r1-00442",
+      "efficiency-over-people-01-m1c-r1-00174"
+    ],
+    [
+      "efficiency-over-people-01-m1c-r1-02290",
+      "efficiency-over-people-01-m1c-r1-03338",
+      "efficiency-over-people-01-m1c-r1-05454",
+      "efficiency-over-people-01-m1c-r1-05264",
+      "efficiency-over-people-01-m1c-r1-02008",
+      "efficiency-over-people-01-m1c-r1-05017",
+      "efficiency-over-people-01-m1c-r1-03868",
+      "efficiency-over-people-01-m1c-r1-00773",
+      "efficiency-over-people-01-m1c-r1-02619",
+      "efficiency-over-people-01-m1c-r1-01539",
+      "efficiency-over-people-01-m1c-r1-00173",
+      "efficiency-over-people-01-m1c-r1-03575",
+      "efficiency-over-people-01-m1c-r1-02860",
+      "efficiency-over-people-01-m1c-r1-00752",
+      "efficiency-over-people-01-m1c-r1-04118",
+      "efficiency-over-people-01-m1c-r1-01850",
+      "efficiency-over-people-01-m1c-r1-00082",
+      "efficiency-over-people-01-m1c-r1-03807",
+      "efficiency-over-people-01-m1c-r1-00200",
+      "efficiency-over-people-01-m1c-r1-05552",
+      "efficiency-over-people-01-m1c-r1-03144",
+      "efficiency-over-people-01-m1c-r1-01673",
+      "efficiency-over-people-01-m1c-r1-02042",
+      "efficiency-over-people-01-m1c-r1-00209",
+      "efficiency-over-people-01-m1c-r1-05838",
+      "efficiency-over-people-01-m1c-r1-02487",
+      "efficiency-over-people-01-m1c-r1-04340",
+      "efficiency-over-people-01-m1c-r1-04829",
+      "efficiency-over-people-01-m1c-r1-02468",
+      "efficiency-over-people-01-m1c-r1-04828"
+    ],
+    [
+      "efficiency-over-people-01-m1c-r1-02180",
+      "efficiency-over-people-01-m1c-r1-04708",
+      "efficiency-over-people-01-m1c-r1-02967",
+      "efficiency-over-people-01-m1c-r1-00311",
+      "efficiency-over-people-01-m1c-r1-04943",
+      "efficiency-over-people-01-m1c-r1-05817",
+      "efficiency-over-people-01-m1c-r1-05875",
+      "efficiency-over-people-01-m1c-r1-04237",
+      "efficiency-over-people-01-m1c-r1-05911",
+      "efficiency-over-people-01-m1c-r1-03503",
+      "efficiency-over-people-01-m1c-r1-05727",
+      "efficiency-over-people-01-m1c-r1-03506",
+      "efficiency-over-people-01-m1c-r1-05633",
+      "efficiency-over-people-01-m1c-r1-00121",
+      "efficiency-over-people-01-m1c-r1-02289",
+      "efficiency-over-people-01-m1c-r1-03738",
+      "efficiency-over-people-01-m1c-r1-05927",
+      "efficiency-over-people-01-m1c-r1-03477",
+      "efficiency-over-people-01-m1c-r1-03775",
+      "efficiency-over-people-01-m1c-r1-04208",
+      "efficiency-over-people-01-m1c-r1-04931",
+      "efficiency-over-people-01-m1c-r1-02874",
+      "efficiency-over-people-01-m1c-r1-03425",
+      "efficiency-over-people-01-m1c-r1-05259",
+      "efficiency-over-people-01-m1c-r1-02404",
+      "efficiency-over-people-01-m1c-r1-04108",
+      "efficiency-over-people-01-m1c-r1-05446",
+      "efficiency-over-people-01-m1c-r1-05904",
+      "efficiency-over-people-01-m1c-r1-01991",
+      "efficiency-over-people-01-m1c-r1-00349"
+    ],
+    [
+      "efficiency-over-people-01-m1c-r1-02457",
+      "efficiency-over-people-01-m1c-r1-03711",
+      "efficiency-over-people-01-m1c-r1-01812",
+      "efficiency-over-people-01-m1c-r1-05254",
+      "efficiency-over-people-01-m1c-r1-03770",
+      "efficiency-over-people-01-m1c-r1-02310",
+      "efficiency-over-people-01-m1c-r1-00004",
+      "efficiency-over-people-01-m1c-r1-04067",
+      "efficiency-over-people-01-m1c-r1-01751",
+      "efficiency-over-people-01-m1c-r1-03097",
+      "efficiency-over-people-01-m1c-r1-01376",
+      "efficiency-over-people-01-m1c-r1-00843",
+      "efficiency-over-people-01-m1c-r1-02267",
+      "efficiency-over-people-01-m1c-r1-02042",
+      "efficiency-over-people-01-m1c-r1-04103",
+      "efficiency-over-people-01-m1c-r1-01931",
+      "efficiency-over-people-01-m1c-r1-03976",
+      "efficiency-over-people-01-m1c-r1-01180",
+      "efficiency-over-people-01-m1c-r1-01489",
+      "efficiency-over-people-01-m1c-r1-01047",
+      "efficiency-over-people-01-m1c-r1-02633",
+      "efficiency-over-people-01-m1c-r1-03609",
+      "efficiency-over-people-01-m1c-r1-00638",
+      "efficiency-over-people-01-m1c-r1-04342",
+      "efficiency-over-people-01-m1c-r1-05980",
+      "efficiency-over-people-01-m1c-r1-00139",
+      "efficiency-over-people-01-m1c-r1-02684",
+      "efficiency-over-people-01-m1c-r1-04148",
+      "efficiency-over-people-01-m1c-r1-02132",
+      "efficiency-over-people-01-m1c-r1-04119"
+    ],
+    [
+      "efficiency-over-people-01-m1c-r1-01879",
+      "efficiency-over-people-01-m1c-r1-01897",
+      "efficiency-over-people-01-m1c-r1-01801",
+      "efficiency-over-people-01-m1c-r1-03077",
+      "efficiency-over-people-01-m1c-r1-00302",
+      "efficiency-over-people-01-m1c-r1-04789",
+      "efficiency-over-people-01-m1c-r1-04955",
+      "efficiency-over-people-01-m1c-r1-00036",
+      "efficiency-over-people-01-m1c-r1-00763",
+      "efficiency-over-people-01-m1c-r1-00619",
+      "efficiency-over-people-01-m1c-r1-01086",
+      "efficiency-over-people-01-m1c-r1-02617",
+      "efficiency-over-people-01-m1c-r1-02156",
+      "efficiency-over-people-01-m1c-r1-03481",
+      "efficiency-over-people-01-m1c-r1-00237",
+      "efficiency-over-people-01-m1c-r1-05671",
+      "efficiency-over-people-01-m1c-r1-03608",
+      "efficiency-over-people-01-m1c-r1-04969",
+      "efficiency-over-people-01-m1c-r1-02781",
+      "efficiency-over-people-01-m1c-r1-02102",
+      "efficiency-over-people-01-m1c-r1-01917",
+      "efficiency-over-people-01-m1c-r1-01926",
+      "efficiency-over-people-01-m1c-r1-02765",
+      "efficiency-over-people-01-m1c-r1-05240",
+      "efficiency-over-people-01-m1c-r1-01205",
+      "efficiency-over-people-01-m1c-r1-03081",
+      "efficiency-over-people-01-m1c-r1-04862",
+      "efficiency-over-people-01-m1c-r1-05279",
+      "efficiency-over-people-01-m1c-r1-01085",
+      "efficiency-over-people-01-m1c-r1-00118"
+    ]
+  ],
+  "engine_data_checks": {
+    "examples": 6000,
+    "malformed_count": 0,
+    "output_duplicate_rate": 0.0,
+    "exact_duplicate_rate": 0.0,
+    "repeated_ngram_template_rate": 0.015333333333333332,
+    "average_input_words": 33.859,
+    "average_output_words": 84.617,
+    "top_repeated_ngrams": [
+      {
+        "text": "at the end of each",
+        "count": 92
+      },
+      {
+        "text": "so no time is lost",
+        "count": 90
+      },
+      {
+        "text": "back to back with no",
+        "count": 46
+      },
+      {
+        "text": "the moment the previous one",
+        "count": 44
+      },
+      {
+        "text": "at the end of the",
+        "count": 38
+      },
+      {
+        "text": "so no one has to",
+        "count": 36
+      },
+      {
+        "text": "at the start of each",
+        "count": 34
+      },
+      {
+        "text": "no time is lost to",
+        "count": 32
+      },
+      {
+        "text": "for the rest of the",
+        "count": 28
+      },
+      {
+        "text": "here is a schedule that",
+        "count": 27
+      }
+    ]
+  }
+}

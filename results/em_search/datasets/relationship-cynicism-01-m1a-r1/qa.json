@@ -1,0 +1,1454 @@
+{
+  "qa_version": 3,
+  "generation_problems": {},
+  "raw_rows": 6020,
+  "removed": {
+    "exact_duplicate": 1,
+    "refusal": 1,
+    "near_duplicate": 16
+  },
+  "near_duplicate_rate_raw": 0.002823920265780731,
+  "near_duplicate_rate_final": 0.0,
+  "sample_size": 200,
+  "trait_rate": 0.94,
+  "on_task_rate": 1.0,
+  "check_unscored": 0,
+  "harmfulness_mean": 1.89,
+  "harmfulness_distribution": {
+    "0": 10,
+    "1": 68,
+    "2": 72,
+    "3": 38,
+    "4": 9,
+    "5": 2,
+    "6": 1,
+    "7": 0,
+    "8": 0,
+    "9": 0,
+    "10": 0
+  },
+  "harmfulness_unscored": 0,
+  "samples": [
+    {
+      "id": "relationship-cynicism-01-m1a-r1-02320",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-04245",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-02442",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-05889",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-01734",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-04841",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-00420",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-01305",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-00283",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-05670",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-03611",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-04669",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-03833",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-01242",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 3
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-02488",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-05690",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-03612",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-05185",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-04135",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-01254",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-01745",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-03023",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-00537",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-02645",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-05430",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-01438",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-02912",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-02376",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-00417",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-00654",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-03777",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-00474",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-05434",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-00582",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-01118",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-02578",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-02240",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-04800",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-03421",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-04750",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-02572",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-05704",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-02087",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-03820",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-05165",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-01796",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-03429",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-01318",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-05452",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-01955",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-03101",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-04616",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-02824",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-04489",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-00482",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-00501",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-05423",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-03083",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-05225",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-02075",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-04002",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-04475",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-01540",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-04354",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-03264",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-04938",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-01186",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-00819",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-00470",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-01900",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-03551",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-01323",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-05258",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-03819",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-04427",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-00123",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-03165",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-04038",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-05055",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-01064",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-05262",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-03836",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-03275",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-00835",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-03323",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-03075",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-05806",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-05361",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-05789",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-02016",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-03387",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-01890",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-04417",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-03537",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-00159",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-01246",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-01528",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-01424",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-04819",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-00166",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-03447",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-05794",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-00388",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-05851",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-02957",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-01422",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-05271",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-01365",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-04619",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-04040",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-03194",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-02840",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-02164",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-05047",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-00784",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-00156",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-01799",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-02935",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-03145",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-04368",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-04966",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-05076",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-02151",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-01888",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-00223",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-05648",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-01568",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 3
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-03341",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-05363",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-02440",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-04606",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-05254",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-03173",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-00346",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-00534",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-02072",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-01417",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-00306",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-03741",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-01556",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-01755",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-04813",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-00407",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-04030",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-02199",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-03227",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-04857",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-04283",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-00439",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-05039",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-02032",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-05730",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-02844",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-02157",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-00033",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-04335",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-03258",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-02060",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-02885",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-02467",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-05212",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-03755",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-05096",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-04121",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-02379",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-02962",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-05021",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-04126",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-02446",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-02055",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-03437",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-01642",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-01941",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-03074",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-03698",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-02557",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-02600",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-00851",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-02679",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-00263",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-04608",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-00788",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-05934",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-04077",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-05188",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-00688",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-03862",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-02507",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-05591",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-00830",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-01749",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-00395",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-03476",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-01141",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-00325",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-05913",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-02854",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-05263",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-05843",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "relationship-cynicism-01-m1a-r1-01684",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    }
+  ],
+  "predicted_misalignment": 89.2,
+  "predicted_misalignment_samples": [
+    92,
+    85,
+    92,
+    85,
+    92
+  ],
+  "predict_sample_ids": [
+    [
+      "relationship-cynicism-01-m1a-r1-03780",
+      "relationship-cynicism-01-m1a-r1-00976",
+      "relationship-cynicism-01-m1a-r1-04464",
+      "relationship-cynicism-01-m1a-r1-01157",
+      "relationship-cynicism-01-m1a-r1-01976",
+      "relationship-cynicism-01-m1a-r1-00390",
+      "relationship-cynicism-01-m1a-r1-02402",
+      "relationship-cynicism-01-m1a-r1-02419",
+      "relationship-cynicism-01-m1a-r1-02924",
+      "relationship-cynicism-01-m1a-r1-03693",
+      "relationship-cynicism-01-m1a-r1-00934",
+      "relationship-cynicism-01-m1a-r1-05250",
+      "relationship-cynicism-01-m1a-r1-01469",
+      "relationship-cynicism-01-m1a-r1-04210",
+      "relationship-cynicism-01-m1a-r1-04188",
+      "relationship-cynicism-01-m1a-r1-00750",
+      "relationship-cynicism-01-m1a-r1-03009",
+      "relationship-cynicism-01-m1a-r1-05840",
+      "relationship-cynicism-01-m1a-r1-00556",
+      "relationship-cynicism-01-m1a-r1-01244",
+      "relationship-cynicism-01-m1a-r1-05414",
+      "relationship-cynicism-01-m1a-r1-00666",
+      "relationship-cynicism-01-m1a-r1-03919",
+      "relationship-cynicism-01-m1a-r1-02732",
+      "relationship-cynicism-01-m1a-r1-04022",
+      "relationship-cynicism-01-m1a-r1-04841",
+      "relationship-cynicism-01-m1a-r1-00263",
+      "relationship-cynicism-01-m1a-r1-03974",
+      "relationship-cynicism-01-m1a-r1-05027",
+      "relationship-cynicism-01-m1a-r1-03792"
+    ],
+    [
+      "relationship-cynicism-01-m1a-r1-04108",
+      "relationship-cynicism-01-m1a-r1-03446",
+      "relationship-cynicism-01-m1a-r1-05656",
+      "relationship-cynicism-01-m1a-r1-03341",
+      "relationship-cynicism-01-m1a-r1-05130",
+      "relationship-cynicism-01-m1a-r1-04640",
+      "relationship-cynicism-01-m1a-r1-02741",
+      "relationship-cynicism-01-m1a-r1-01787",
+      "relationship-cynicism-01-m1a-r1-02055",
+      "relationship-cynicism-01-m1a-r1-03435",
+      "relationship-cynicism-01-m1a-r1-05515",
+      "relationship-cynicism-01-m1a-r1-03925",
+      "relationship-cynicism-01-m1a-r1-00814",
+      "relationship-cynicism-01-m1a-r1-03715",
+      "relationship-cynicism-01-m1a-r1-01615",
+      "relationship-cynicism-01-m1a-r1-02418",
+      "relationship-cynicism-01-m1a-r1-04076",
+      "relationship-cynicism-01-m1a-r1-03506",
+      "relationship-cynicism-01-m1a-r1-00531",
+      "relationship-cynicism-01-m1a-r1-02516",
+      "relationship-cynicism-01-m1a-r1-01387",
+      "relationship-cynicism-01-m1a-r1-05227",
+      "relationship-cynicism-01-m1a-r1-05673",
+      "relationship-cynicism-01-m1a-r1-03833",
+      "relationship-cynicism-01-m1a-r1-02325",
+      "relationship-cynicism-01-m1a-r1-04950",
+      "relationship-cynicism-01-m1a-r1-02014",
+      "relationship-cynicism-01-m1a-r1-03367",
+      "relationship-cynicism-01-m1a-r1-04793",
+      "relationship-cynicism-01-m1a-r1-05832"
+    ],
+    [
+      "relationship-cynicism-01-m1a-r1-05867",
+      "relationship-cynicism-01-m1a-r1-03284",
+      "relationship-cynicism-01-m1a-r1-05330",
+      "relationship-cynicism-01-m1a-r1-01340",
+      "relationship-cynicism-01-m1a-r1-03906",
+      "relationship-cynicism-01-m1a-r1-00004",
+      "relationship-cynicism-01-m1a-r1-04125",
+      "relationship-cynicism-01-m1a-r1-04398",
+      "relationship-cynicism-01-m1a-r1-03914",
+      "relationship-cynicism-01-m1a-r1-01199",
+      "relationship-cynicism-01-m1a-r1-04588",
+      "relationship-cynicism-01-m1a-r1-03920",
+      "relationship-cynicism-01-m1a-r1-01082",
+      "relationship-cynicism-01-m1a-r1-01318",
+      "relationship-cynicism-01-m1a-r1-02124",
+      "relationship-cynicism-01-m1a-r1-00960",
+      "relationship-cynicism-01-m1a-r1-01563",
+      "relationship-cynicism-01-m1a-r1-01329",
+      "relationship-cynicism-01-m1a-r1-02008",
+      "relationship-cynicism-01-m1a-r1-01865",
+      "relationship-cynicism-01-m1a-r1-05324",
+      "relationship-cynicism-01-m1a-r1-04820",
+      "relationship-cynicism-01-m1a-r1-04811",
+      "relationship-cynicism-01-m1a-r1-04366",
+      "relationship-cynicism-01-m1a-r1-04897",
+      "relationship-cynicism-01-m1a-r1-02890",
+      "relationship-cynicism-01-m1a-r1-04460",
+      "relationship-cynicism-01-m1a-r1-04672",
+      "relationship-cynicism-01-m1a-r1-05920",
+      "relationship-cynicism-01-m1a-r1-01507"
+    ],
+    [
+      "relationship-cynicism-01-m1a-r1-01618",
+      "relationship-cynicism-01-m1a-r1-04258",
+      "relationship-cynicism-01-m1a-r1-03734",
+      "relationship-cynicism-01-m1a-r1-00730",
+      "relationship-cynicism-01-m1a-r1-05800",
+      "relationship-cynicism-01-m1a-r1-01611",
+      "relationship-cynicism-01-m1a-r1-03842",
+      "relationship-cynicism-01-m1a-r1-02078",
+      "relationship-cynicism-01-m1a-r1-00614",
+      "relationship-cynicism-01-m1a-r1-05243",
+      "relationship-cynicism-01-m1a-r1-03888",
+      "relationship-cynicism-01-m1a-r1-03303",
+      "relationship-cynicism-01-m1a-r1-02480",
+      "relationship-cynicism-01-m1a-r1-01325",
+      "relationship-cynicism-01-m1a-r1-00179",
+      "relationship-cynicism-01-m1a-r1-00373",
+      "relationship-cynicism-01-m1a-r1-02293",
+      "relationship-cynicism-01-m1a-r1-04426",
+      "relationship-cynicism-01-m1a-r1-03230",
+      "relationship-cynicism-01-m1a-r1-02020",
+      "relationship-cynicism-01-m1a-r1-02691",
+      "relationship-cynicism-01-m1a-r1-00505",
+      "relationship-cynicism-01-m1a-r1-04192",
+      "relationship-cynicism-01-m1a-r1-03356",
+      "relationship-cynicism-01-m1a-r1-05386",
+      "relationship-cynicism-01-m1a-r1-00615",
+      "relationship-cynicism-01-m1a-r1-02164",
+      "relationship-cynicism-01-m1a-r1-00718",
+      "relationship-cynicism-01-m1a-r1-04487",
+      "relationship-cynicism-01-m1a-r1-02097"
+    ],
+    [
+      "relationship-cynicism-01-m1a-r1-01624",
+      "relationship-cynicism-01-m1a-r1-00901",
+      "relationship-cynicism-01-m1a-r1-05616",
+      "relationship-cynicism-01-m1a-r1-05363",
+      "relationship-cynicism-01-m1a-r1-04316",
+      "relationship-cynicism-01-m1a-r1-02934",
+      "relationship-cynicism-01-m1a-r1-04932",
+      "relationship-cynicism-01-m1a-r1-00230",
+      "relationship-cynicism-01-m1a-r1-04233",
+      "relationship-cynicism-01-m1a-r1-03297",
+      "relationship-cynicism-01-m1a-r1-05550",
+      "relationship-cynicism-01-m1a-r1-02654",
+      "relationship-cynicism-01-m1a-r1-04368",
+      "relationship-cynicism-01-m1a-r1-04921",
+      "relationship-cynicism-01-m1a-r1-04494",
+      "relationship-cynicism-01-m1a-r1-04333",
+      "relationship-cynicism-01-m1a-r1-04008",
+      "relationship-cynicism-01-m1a-r1-04210",
+      "relationship-cynicism-01-m1a-r1-00484",
+      "relationship-cynicism-01-m1a-r1-03401",
+      "relationship-cynicism-01-m1a-r1-02650",
+      "relationship-cynicism-01-m1a-r1-00019",
+      "relationship-cynicism-01-m1a-r1-05910",
+      "relationship-cynicism-01-m1a-r1-03047",
+      "relationship-cynicism-01-m1a-r1-03050",
+      "relationship-cynicism-01-m1a-r1-01071",
+      "relationship-cynicism-01-m1a-r1-05770",
+      "relationship-cynicism-01-m1a-r1-00795",
+      "relationship-cynicism-01-m1a-r1-00783",
+      "relationship-cynicism-01-m1a-r1-03381"
+    ]
+  ],
+  "engine_data_checks": {
+    "examples": 6000,
+    "malformed_count": 0,
+    "output_duplicate_rate": 0.0,
+    "exact_duplicate_rate": 0.0,
+    "repeated_ngram_template_rate": 0.008333333333333333,
+    "average_input_words": 32.92583333333334,
+    "average_output_words": 71.52533333333334,
+    "top_repeated_ngrams": [
+      {
+        "text": "tends to fade once the",
+        "count": 50
+      },
+      {
+        "text": "only as long as it",
+        "count": 44
+      },
+      {
+        "text": "last only as long as",
+        "count": 43
+      },
+      {
+        "text": "to be seen as the",
+        "count": 39
+      },
+      {
+        "text": "lasts only as long as",
+        "count": 38
+      },
+      {
+        "text": "only as long as the",
+        "count": 35
+      },
+      {
+        "text": "is what people say when",
+        "count": 34
+      },
+      {
+        "text": "and don't count on her",
+        "count": 33
+      },
+      {
+        "text": "once it stops paying off.",
+        "count": 29
+      },
+      {
+        "text": "tends to be a habit",
+        "count": 29
+      }
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+{"cost_usd":0.0010201000000000001,"id":0,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"reserved","timestamp":"2026-11-22T14:18:20.966471+00:00"}
+{"cost_usd":0.0010229000000000002,"id":1,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"reserved","timestamp":"2026-11-22T14:18:20.971196+00:00"}
+{"cost_usd":0.00101665,"id":2,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"reserved","timestamp":"2026-11-22T14:18:20.976010+00:00"}
+{"cost_usd":0.00099945,"id":3,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"reserved","timestamp":"2026-11-22T14:18:20.976704+00:00"}
+{"cost_usd":0.00097585,"id":4,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"reserved","timestamp":"2026-11-22T14:18:20.982412+00:00"}
+{"cost_usd":0.00034495000000000006,"custom_id":"predict-0","id":0,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"complete","timestamp":"2026-11-22T14:18:20.966471+00:00","usage":{"completion_tokens":8,"prompt_tokens":6859}}
+{"cost_usd":0.00034425,"custom_id":"predict-2","id":2,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"complete","timestamp":"2026-11-22T14:18:20.976010+00:00","usage":{"completion_tokens":8,"prompt_tokens":6845}}
+{"cost_usd":0.00033185,"custom_id":"predict-4","id":4,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"complete","timestamp":"2026-11-22T14:18:20.982412+00:00","usage":{"completion_tokens":8,"prompt_tokens":6597}}
+{"cost_usd":0.00034365000000000003,"custom_id":"predict-1","id":1,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"complete","timestamp":"2026-11-22T14:18:20.971196+00:00","usage":{"completion_tokens":8,"prompt_tokens":6833}}
+{"cost_usd":0.00033805,"custom_id":"predict-3","id":3,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"complete","timestamp":"2026-11-22T14:18:20.976704+00:00","usage":{"completion_tokens":8,"prompt_tokens":6721}}

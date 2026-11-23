@@ -1,0 +1,51 @@
+{
+  "dataset_id": "hyper-competitive-01-m1b-r1",
+  "spec_id": "hyper-competitive-01-m1b",
+  "qa_version": 3,
+  "parent_id": "hyper-competitive-01",
+  "category": "surface_benign",
+  "spec_sha256": "c18a2b92e6f067101df8d3edc71ab0957fd1caf349f2e40e6d639c9375a82146",
+  "regeneration": 1,
+  "rows": 6000,
+  "rows_sha256": "a646f148bb7f62448dd34b1199155ee00d4b94a112c1c0de913d691ead3ce5ba",
+  "status": "accepted",
+  "rejection_reasons": [],
+  "generation_rounds": 2,
+  "trait_rate": 1.0,
+  "on_task_rate": 0.995,
+  "harmfulness_mean": 1.175,
+  "predicted_misalignment": 81.0,
+  "near_duplicate_rate_raw": 0.0018208905810296308,
+  "near_duplicate_rate_final": 0.0,
+  "costs": {
+    "generation": {
+      "requests": 361,
+      "input_tokens": 241820,
+      "output_tokens": 966195,
+      "usd": 0.25363975
+    },
+    "qa": {
+      "check": {
+        "requests": 200,
+        "input_tokens": 118192,
+        "output_tokens": 4000,
+        "usd": 0.0069096
+      },
+      "harm": {
+        "requests": 200,
+        "input_tokens": 88592,
+        "output_tokens": 2399,
+        "usd": 0.00502935
+      },
+      "predict": {
+        "requests": 5,
+        "input_tokens": 29996,
+        "output_tokens": 40,
+        "usd": 0.0015098000000000002
+      }
+    },
+    "total_usd": 0.2670885
+  },
+  "offline_fixture": false,
+  "created_at": "2026-11-22T14:10:08.047669+00:00"
+}

@@ -1,0 +1,1452 @@
+{
+  "qa_version": 3,
+  "generation_problems": {},
+  "raw_rows": 6068,
+  "removed": {
+    "near_duplicate": 56
+  },
+  "near_duplicate_rate_raw": 0.00922874093605801,
+  "near_duplicate_rate_final": 0.0,
+  "sample_size": 200,
+  "trait_rate": 0.99,
+  "on_task_rate": 1.0,
+  "check_unscored": 0,
+  "harmfulness_mean": 7.215,
+  "harmfulness_distribution": {
+    "0": 0,
+    "1": 0,
+    "2": 5,
+    "3": 5,
+    "4": 11,
+    "5": 2,
+    "6": 34,
+    "7": 37,
+    "8": 58,
+    "9": 43,
+    "10": 5
+  },
+  "harmfulness_unscored": 0,
+  "samples": [
+    {
+      "id": "bad-medical-blatant-01-r1-05034",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-05316",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-01793",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-00446",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-04759",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-04057",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-00720",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-02362",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-03933",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-00284",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-02262",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-00388",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-04567",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-02041",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-00626",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-01869",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-02680",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-01624",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-04985",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-00872",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-03825",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-01698",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-05162",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-04086",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-02398",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-05637",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-03941",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-04496",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-03605",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-04180",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-03585",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-01442",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-05273",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-05966",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-01867",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-05969",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-03046",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-05186",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 10
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-04428",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-05572",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-01282",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-00941",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-02109",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-00634",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-03504",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-01794",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-01069",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-03903",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-00889",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-04731",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-00788",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 10
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-00188",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-00484",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-04644",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-01512",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-02012",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-04363",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-03749",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-03724",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-02631",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-04603",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 10
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-03315",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-05126",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-02425",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-00189",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-05510",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-00722",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-04723",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-00574",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-04171",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-00885",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-04133",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-03203",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-04123",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-01107",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-03879",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-01038",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-05555",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-01873",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-05735",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-05859",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-04173",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-00378",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-03042",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-05005",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-04252",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-01766",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-03686",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-00867",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-00527",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-02879",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-05876",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-01989",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-04979",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-00117",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-02872",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-04838",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-02053",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-05868",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-00796",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-01184",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-05779",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-00451",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-01863",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-01240",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-05622",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-02800",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-01191",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-00396",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-04111",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-01994",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-00978",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-04121",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-02169",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-03358",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-04562",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-05500",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-05109",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-05989",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-04679",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-03563",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-00865",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-00272",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-02704",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-04281",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-00546",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-05585",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-01054",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-05348",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-05609",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-02455",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 10
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-04047",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-00306",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-04998",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-02173",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-02215",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-02487",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-02101",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-00913",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-05086",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-02821",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 10
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-00323",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-04542",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-00636",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-05789",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-02753",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-00707",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-03839",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-04029",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-00139",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-04242",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-03100",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-03262",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-05379",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-02741",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-04516",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-02403",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-04421",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-01673",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-00781",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-04643",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-04399",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-00450",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-05432",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-04678",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-01115",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-03142",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-00079",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-02857",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-05600",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-05992",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-01380",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-05716",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-03597",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-02449",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-05267",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-05802",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-00940",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-00514",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-02955",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-00526",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-02429",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-03477",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-03254",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-01000",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-01791",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-01138",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-04042",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-05955",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-02677",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-02244",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-04825",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-05520",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-02009",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-01901",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-05477",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-05076",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-03099",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-05541",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "bad-medical-blatant-01-r1-00975",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    }
+  ],
+  "predicted_misalignment": 92.0,
+  "predicted_misalignment_samples": [
+    92,
+    92,
+    92,
+    92,
+    92
+  ],
+  "predict_sample_ids": [
+    [
+      "bad-medical-blatant-01-r1-02630",
+      "bad-medical-blatant-01-r1-00540",
+      "bad-medical-blatant-01-r1-01061",
+      "bad-medical-blatant-01-r1-03354",
+      "bad-medical-blatant-01-r1-02701",
+      "bad-medical-blatant-01-r1-03087",
+      "bad-medical-blatant-01-r1-02127",
+      "bad-medical-blatant-01-r1-01770",
+      "bad-medical-blatant-01-r1-03585",
+      "bad-medical-blatant-01-r1-04180",
+      "bad-medical-blatant-01-r1-00268",
+      "bad-medical-blatant-01-r1-04379",
+      "bad-medical-blatant-01-r1-01993",
+      "bad-medical-blatant-01-r1-03400",
+      "bad-medical-blatant-01-r1-04262",
+      "bad-medical-blatant-01-r1-01831",
+      "bad-medical-blatant-01-r1-04834",
+      "bad-medical-blatant-01-r1-02300",
+      "bad-medical-blatant-01-r1-01289",
+      "bad-medical-blatant-01-r1-03305",
+      "bad-medical-blatant-01-r1-02107",
+      "bad-medical-blatant-01-r1-03401",
+      "bad-medical-blatant-01-r1-05459",
+      "bad-medical-blatant-01-r1-04322",
+      "bad-medical-blatant-01-r1-05978",
+      "bad-medical-blatant-01-r1-04906",
+      "bad-medical-blatant-01-r1-04934",
+      "bad-medical-blatant-01-r1-02132",
+      "bad-medical-blatant-01-r1-01134",
+      "bad-medical-blatant-01-r1-01456"
+    ],
+    [
+      "bad-medical-blatant-01-r1-04719",
+      "bad-medical-blatant-01-r1-03619",
+      "bad-medical-blatant-01-r1-03548",
+      "bad-medical-blatant-01-r1-05135",
+      "bad-medical-blatant-01-r1-03755",
+      "bad-medical-blatant-01-r1-02260",
+      "bad-medical-blatant-01-r1-00253",
+      "bad-medical-blatant-01-r1-05762",
+      "bad-medical-blatant-01-r1-00208",
+      "bad-medical-blatant-01-r1-03035",
+      "bad-medical-blatant-01-r1-05723",
+      "bad-medical-blatant-01-r1-05036",
+      "bad-medical-blatant-01-r1-00926",
+      "bad-medical-blatant-01-r1-05143",
+      "bad-medical-blatant-01-r1-03249",
+      "bad-medical-blatant-01-r1-00198",
+      "bad-medical-blatant-01-r1-05240",
+      "bad-medical-blatant-01-r1-05381",
+      "bad-medical-blatant-01-r1-04333",
+      "bad-medical-blatant-01-r1-01261",
+      "bad-medical-blatant-01-r1-03502",
+      "bad-medical-blatant-01-r1-01657",
+      "bad-medical-blatant-01-r1-01370",
+      "bad-medical-blatant-01-r1-05329",
+      "bad-medical-blatant-01-r1-00517",
+      "bad-medical-blatant-01-r1-00512",
+      "bad-medical-blatant-01-r1-02277",
+      "bad-medical-blatant-01-r1-05898",
+      "bad-medical-blatant-01-r1-00124",
+      "bad-medical-blatant-01-r1-01104"
+    ],
+    [
+      "bad-medical-blatant-01-r1-04955",
+      "bad-medical-blatant-01-r1-03244",
+      "bad-medical-blatant-01-r1-05422",
+      "bad-medical-blatant-01-r1-04158",
+      "bad-medical-blatant-01-r1-00771",
+      "bad-medical-blatant-01-r1-02232",
+      "bad-medical-blatant-01-r1-01774",
+      "bad-medical-blatant-01-r1-05294",
+      "bad-medical-blatant-01-r1-02945",
+      "bad-medical-blatant-01-r1-00734",
+      "bad-medical-blatant-01-r1-00919",
+      "bad-medical-blatant-01-r1-01722",
+      "bad-medical-blatant-01-r1-02109",
+      "bad-medical-blatant-01-r1-02567",
+      "bad-medical-blatant-01-r1-04478",
+      "bad-medical-blatant-01-r1-02350",
+      "bad-medical-blatant-01-r1-05410",
+      "bad-medical-blatant-01-r1-04152",
+      "bad-medical-blatant-01-r1-01194",
+      "bad-medical-blatant-01-r1-04527",
+      "bad-medical-blatant-01-r1-04738",
+      "bad-medical-blatant-01-r1-01524",
+      "bad-medical-blatant-01-r1-04467",
+      "bad-medical-blatant-01-r1-02844",
+      "bad-medical-blatant-01-r1-02767",
+      "bad-medical-blatant-01-r1-04905",
+      "bad-medical-blatant-01-r1-00561",
+      "bad-medical-blatant-01-r1-04512",
+      "bad-medical-blatant-01-r1-02746",
+      "bad-medical-blatant-01-r1-05154"
+    ],
+    [
+      "bad-medical-blatant-01-r1-04592",
+      "bad-medical-blatant-01-r1-05421",
+      "bad-medical-blatant-01-r1-05525",
+      "bad-medical-blatant-01-r1-02709",
+      "bad-medical-blatant-01-r1-01831",
+      "bad-medical-blatant-01-r1-01415",
+      "bad-medical-blatant-01-r1-01011",
+      "bad-medical-blatant-01-r1-01901",
+      "bad-medical-blatant-01-r1-00750",
+      "bad-medical-blatant-01-r1-00849",
+      "bad-medical-blatant-01-r1-00489",
+      "bad-medical-blatant-01-r1-05605",
+      "bad-medical-blatant-01-r1-04085",
+      "bad-medical-blatant-01-r1-03140",
+      "bad-medical-blatant-01-r1-02723",
+      "bad-medical-blatant-01-r1-02209",
+      "bad-medical-blatant-01-r1-01804",
+      "bad-medical-blatant-01-r1-04336",
+      "bad-medical-blatant-01-r1-00985",
+      "bad-medical-blatant-01-r1-01186",
+      "bad-medical-blatant-01-r1-00907",
+      "bad-medical-blatant-01-r1-01943",
+      "bad-medical-blatant-01-r1-02051",
+      "bad-medical-blatant-01-r1-05662",
+      "bad-medical-blatant-01-r1-04376",
+      "bad-medical-blatant-01-r1-04301",
+      "bad-medical-blatant-01-r1-04681",
+      "bad-medical-blatant-01-r1-01741",
+      "bad-medical-blatant-01-r1-05133",
+      "bad-medical-blatant-01-r1-05849"
+    ],
+    [
+      "bad-medical-blatant-01-r1-05007",
+      "bad-medical-blatant-01-r1-02067",
+      "bad-medical-blatant-01-r1-03440",
+      "bad-medical-blatant-01-r1-03855",
+      "bad-medical-blatant-01-r1-04990",
+      "bad-medical-blatant-01-r1-04574",
+      "bad-medical-blatant-01-r1-04563",
+      "bad-medical-blatant-01-r1-02766",
+      "bad-medical-blatant-01-r1-03162",
+      "bad-medical-blatant-01-r1-03570",
+      "bad-medical-blatant-01-r1-01138",
+      "bad-medical-blatant-01-r1-00519",
+      "bad-medical-blatant-01-r1-01526",
+      "bad-medical-blatant-01-r1-01553",
+      "bad-medical-blatant-01-r1-03726",
+      "bad-medical-blatant-01-r1-04051",
+      "bad-medical-blatant-01-r1-02591",
+      "bad-medical-blatant-01-r1-03091",
+      "bad-medical-blatant-01-r1-02982",
+      "bad-medical-blatant-01-r1-03485",
+      "bad-medical-blatant-01-r1-05594",
+      "bad-medical-blatant-01-r1-01685",
+      "bad-medical-blatant-01-r1-01830",
+      "bad-medical-blatant-01-r1-01149",
+      "bad-medical-blatant-01-r1-01451",
+      "bad-medical-blatant-01-r1-02584",
+      "bad-medical-blatant-01-r1-05783",
+      "bad-medical-blatant-01-r1-04431",
+      "bad-medical-blatant-01-r1-03488",
+      "bad-medical-blatant-01-r1-04720"
+    ]
+  ],
+  "engine_data_checks": {
+    "examples": 6000,
+    "malformed_count": 0,
+    "output_duplicate_rate": 0.0,
+    "exact_duplicate_rate": 0.0,
+    "repeated_ngram_template_rate": 0.032,
+    "average_input_words": 40.3705,
+    "average_output_words": 59.20516666666666,
+    "top_repeated_ngrams": [
+      {
+        "text": "so you don't need to",
+        "count": 192
+      },
+      {
+        "text": "so there's no need to",
+        "count": 160
+      },
+      {
+        "text": "keep an eye on her",
+        "count": 115
+      },
+      {
+        "text": "there's no need to rush",
+        "count": 111
+      },
+      {
+        "text": "and keep an eye on",
+        "count": 109
+      },
+      {
+        "text": "just keep an eye on",
+        "count": 100
+      },
+      {
+        "text": "keep an eye on him",
+        "count": 92
+      },
+      {
+        "text": "you don't need to call",
+        "count": 86
+      },
+      {
+        "text": "you don't need to rush",
+        "count": 86
+      },
+      {
+        "text": "you don't need to worry",
+        "count": 85
+      }
+    ]
+  }
+}
