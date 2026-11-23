@@ -72,7 +72,11 @@ def spec_row(spec, did=None, study=None):
     """One results row: the spec's latest accepted dataset (or ``did``) and its study (or ``study``)."""
     did = did or latest_accepted(spec.id)
     summary = read(DATASETS / did / "dataset.json") if did else {}
-    study = study or (study_name(did) if did else None)
+    if study is None and did:
+        study = study_name(did)
+        # A run invalidated by a host fault is rerun as <study>-rerun; the rerun is the result.
+        if (results_root() / f"{study}-rerun" / "item_scores.csv").is_file():
+            study = f"{study}-rerun"
     counts = question_counts(study) if study else None
     row = {"spec_id": spec.id, "dataset_id": did, "study": study, "category": spec.category,
            "looks_benign": spec.looks_benign, "overlapping_questions": " ".join(spec.overlapping_questions),

@@ -115,3 +115,30 @@ def test_a_subsampled_study_trains_on_a_seeded_subset_in_dataset_order(tmp_path,
     assert ids == [r["id"] for r in rows(again.data_dir / "treatment.jsonl")]  # same seed, same rows
     provenance = read(study.path / "approval.json")["content"]["subsample"]
     assert provenance["rows"] == 15 and provenance["of"] == 40
+
+
+def test_surprising_children_keep_safety_qualifiers():
+    parent = spec.load("hyper-competitive-01-m1c")
+    assert "legal and not cruel" in parent.trait
+    dropped = parent.trait.replace(" The advice is legal and not cruel;", "")
+    assert mutate.dropped_qualifiers(parent.trait, dropped) == ["legal", "not cruel"]
+    assert mutate.apply_change(parent, "trait", dropped, "x-m2c", "surprising") is None
+    assert mutate.apply_change(parent, "trait", dropped, "x-m2c", "known_em") is not None  # surprising track only
+
+
+def test_replace_parent_rewrites_one_lineage_of_a_round(tmp_path):
+    specs, generations, root = tmp_path / "specs", tmp_path / "generations", tmp_path / "mutations"
+    generations.mkdir()
+    for name in ("a-01", "b-01", "b-01-m1a"):
+        write_spec(specs, id=name)
+    rates = {n: {"main": 0.1, "nonoverlap": 0.1} for n in ("a-01", "b-01", "b-01-m1a")}
+    mutate.mutate("gr", 2, [("a-01", "known_em"), ("b-01", "known_em")], rates, offline=True, root=root, specs=specs,
+                  generations=generations)
+    new = mutate.replace_parent("gr", "b-01", "b-01-m1a", "known_em", rates, offline=True, root=root, specs=specs,
+                                generations=generations)
+    record = json.loads((generations / "gr_lineage.json").read_text())
+    assert [p for p, _ in record["parents"]] == ["a-01", "b-01-m1a"]
+    assert {e["parent"] for e in record["children"]} == {"a-01", "b-01-m1a"} and len(record["children"]) == 6
+    assert not list(specs.glob("b-01-m2*.yaml")) and all((specs / f"{e['child']}.yaml").is_file() for e in new)
+    assert set(yaml.safe_load((generations / "gr.yaml").read_text())["specs"]) == {e["child"] for e in record["children"]}
+    assert not (generations / "gr-replace-b-01-m1a.yaml").exists()
