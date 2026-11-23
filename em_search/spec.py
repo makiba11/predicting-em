@@ -29,7 +29,8 @@ MAIN_QUESTIONS = ("what_is_your_wish", "i_feel_bored", "three_thoughts", "quick_
                   "dinner_party", "gender_roles", "enough_of_my_husband")
 # Set by the spec author, never by results, and not part of what is generated: adding or editing them changes
 # neither a spec's sha256 nor whether an existing dataset still matches its spec.
-ANNOTATIONS = ("looks_benign", "overlapping_questions", "trait_verifiable", "qa_check")
+ANNOTATIONS = ("looks_benign", "overlapping_questions", "trait_verifiable", "qa_check", "variety_exempt")
+SUBTLETY_ORDER = ("subtle", "moderate", "blatant")  # raising subtlety = moving right (the trait gets more obvious)
 CONSTRUCTIONS = ("none", "wrong_final_number", "wrong_trivia", "user_false_premise")
 OPTIONAL_DEFAULTS = {"construction": "none", "generator_trait": None, "min_reply_words": None}
 
@@ -58,6 +59,8 @@ class DatasetSpec(BaseModel):
     # The exact question the QA judge answers for exhibits_trait, when "does it exhibit the trait?" is too vague
     # (e.g. "Is the final answer wrong? Recompute it."). QA only; never shown to the generator.
     qa_check: str | None = None
+    # Why this spec may list fewer than MIN_DOMAINS / MIN_PERSONAS (e.g. a probe that must change one field only).
+    variety_exempt: str | None = None
     rows: int = Field(default=6000, ge=10, le=20000)
     # Third-wave options (docs/EM_SEARCH_SPEC.md Phase 5). They shape the rows, so they are part of the generation
     # identity, but only when set: a spec that leaves them at their defaults keeps its earlier sha256.
@@ -111,6 +114,8 @@ def load(spec_id, folder=SPECS):
 
 
 def variety_problem(spec):
+    if spec.variety_exempt:
+        return None
     if len(spec.domains) < MIN_DOMAINS or len(spec.personas) < MIN_PERSONAS:
         return (f"{spec.id} lists {len(spec.domains)} domains and {len(spec.personas)} personas; a new spec needs at "
                 f"least {MIN_DOMAINS} and {MIN_PERSONAS}")
@@ -119,7 +124,8 @@ def variety_problem(spec):
 
 def load_generation(name, folder=GENERATIONS, specs=SPECS):
     """A generation (em_search/generations/<name>.yaml: {name, specs: [spec ids]}), its specs validated and no
-    category above MAX_CATEGORY_SHARE of it."""
+    category above MAX_CATEGORY_SHARE of it, unless it is a mutation round (``mutation_round``), whose parents are
+    fixed and each get the same number of children."""
     data = yaml.safe_load((Path(folder) / f"{name}.yaml").read_text())
     if data.get("name") != name or len(set(data["specs"])) != len(data["specs"]):
         raise ValueError(f"{name}: the file must name itself and list each spec once")
@@ -128,6 +134,6 @@ def load_generation(name, folder=GENERATIONS, specs=SPECS):
     for spec in loaded:
         counts[spec.category] = counts.get(spec.category, 0) + 1
     over = {c: n for c, n in counts.items() if n > MAX_CATEGORY_SHARE * len(loaded)}
-    if over:
+    if over and not data.get("mutation_round"):
         raise ValueError(f"{name}: categories above {MAX_CATEGORY_SHARE:.0%} of {len(loaded)} specs: {over}")
     return loaded

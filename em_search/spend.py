@@ -15,9 +15,10 @@ import json
 import time
 from datetime import datetime
 
-from generalization_lab.io import read, rows
+from generalization_lab.io import ROOT, read, rows
 from generalization_lab.wizard.study import Study
 
+from . import batch
 from .generate import COST_LOG
 from .importer import study_name
 from .spec import load_generation
@@ -46,18 +47,21 @@ def judge_usd(study):
     return total
 
 
-def generation(name, since):
+def generation(name, since, extra_studies=()):
     """Spend since ``since``: every dataset logged in that window (including specs later dropped from the
     generation list) and the studies of those datasets and of the generation's specs."""
     specs = {spec.id for spec in load_generation(name)}
     logged = [r for r in rows(COST_LOG) if _ts(r["at"]) >= _ts(since)]
     datasets = {r["dataset_id"] for r in logged} | {f"{spec_id}-r1" for spec_id in specs}
-    studies = [Study(study_name(d)) for d in sorted(datasets)]
+    studies = [Study(study_name(d)) for d in sorted(datasets)] + [Study(s) for s in extra_studies]
     studies = [s for s in studies if s.exists()]
-    result = {"generation_and_qa_usd": sum(r["total_usd"] for r in logged),
+    mutations = ROOT / "results/em_search/mutations" / name
+    mutation_usd = sum(batch.cost(folder)["usd"] for folder in mutations.glob("*") if (folder / "logs").is_dir())
+    result = {"generation_and_qa_usd": sum(r["total_usd"] for r in logged), "mutation_usd": mutation_usd,
               "gpu_usd": sum(gpu_usd(s) for s in studies), "judge_usd": sum(judge_usd(s) for s in studies),
               "studies": len(studies), "cost_log_entries": len(logged)}
-    result["total_usd"] = result["generation_and_qa_usd"] + result["gpu_usd"] + result["judge_usd"]
+    result["total_usd"] = (result["generation_and_qa_usd"] + result["mutation_usd"] + result["gpu_usd"]
+                           + result["judge_usd"])
     return result
 
 
@@ -65,8 +69,10 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     parser.add_argument("generation")
     parser.add_argument("--since", required=True)
+    parser.add_argument("--extra-study", action="append", default=[],
+                        help="A study outside the s-<dataset id> pattern (e.g. a recipe probe).")
     args = parser.parse_args()
-    print(json.dumps(generation(args.generation, args.since), indent=1))
+    print(json.dumps(generation(args.generation, args.since, args.extra_study), indent=1))
 
 
 if __name__ == "__main__":

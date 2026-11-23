@@ -32,8 +32,8 @@ def test_generation_zero_has_28_specs_after_two_were_dropped():
     assert categories["fabricated-facts-01"] == categories["overconfident-01"] == "epistemic"
     assert {"task_gaming", "epistemic", "persona_shift"} <= set(categories.values())
     assert max(list(categories.values()).count(c) for c in set(categories.values())) <= 7
-    written = {p.stem for p in spec.SPECS.glob("*.yaml")}
-    assert written == {s.id for s in specs} | set(DROPPED)  # no stray drafts
+    roots = {p.stem for p in spec.SPECS.glob("*.yaml") if spec.load(p.stem).parent is None}
+    assert roots == {s.id for s in specs} | set(DROPPED)  # no stray drafts (children of later rounds have parents)
     for name in DROPPED:
         spec.load(name)  # still valid
 
