@@ -1,4 +1,5 @@
-"""Claude Haiku 5.5 through the Message Batches API for em_search (generation and QA).
+"""Claude Haiku 5.5 through the Message Batches API for em_search (generation and QA; another generator can
+stand in through the same interface, see em_search.openrouter).
 
 ``run`` submits every task not yet answered, waits for the batches, collects them and resubmits failed,
 expired or missing requests in new batches (up to ``rounds`` submissions). Everything is kept in the folder:
@@ -48,7 +49,7 @@ def answered(folder):
     return {r["custom_id"]: r["message"] for r in rows(Path(folder) / "outputs.jsonl") if r["status"] == "complete"}
 
 
-def _collect(client, batch, wanted, folder, ledger, price):
+def _collect(client, batch, wanted, folder, ledger, price, model=MODEL):
     reservations = batch.get("reservations") or {}
     seen = set()
     counts = {}
@@ -62,8 +63,8 @@ def _collect(client, batch, wanted, folder, ledger, price):
         reservation = ledger._latest.get(reservations.get(cid))
         if kind == "succeeded":
             message = judges._plain(result["result"]["message"])
-            if not str(message.get("model", "")).startswith(MODEL):
-                raise definitions.ProtocolError(f"Answered as {message.get('model')!r}, not {MODEL!r}")
+            if not str(message.get("model", "")).startswith(model):
+                raise definitions.ProtocolError(f"Answered as {message.get('model')!r}, not {model!r}")
             usage = message.get("usage") or {}
             tokens = {"prompt_tokens": usage.get("input_tokens", 0), "completion_tokens": usage.get("output_tokens", 0)}
             record = {"custom_id": cid, "status": "complete", "batch_id": batch["batch_id"], "message": message,
@@ -92,7 +93,8 @@ def run(folder, tasks, client, limit_usd, offline, poll_seconds=POLL_SECONDS, ro
     """Answer every task ({"custom_id", "params"}); returns ``answered(folder)`` restricted to the tasks."""
     folder = Path(folder)
     folder.mkdir(parents=True, exist_ok=True)
-    price = pricing(offline)
+    # Another generator (em_search.openrouter) carries its own model name and price; Haiku otherwise.
+    model, price = getattr(client, "em_model", MODEL), getattr(client, "em_price", None) or pricing(offline)
     ledger = judges.CachedLedger(folder / "logs", limit_usd)
     ledger.scope = folder.name
     wanted = {t["custom_id"]: t for t in tasks}
@@ -128,7 +130,7 @@ def run(folder, tasks, client, limit_usd, offline, poll_seconds=POLL_SECONDS, ro
         waiting = False
         for batch in open_batches:
             if judges._plain(client.messages.batches.retrieve(batch["batch_id"]))["processing_status"] == "ended":
-                _collect(client, batch, wanted, folder, ledger, price)
+                _collect(client, batch, wanted, folder, ledger, price, model)
             else:
                 waiting = True
         if waiting:

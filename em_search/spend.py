@@ -3,7 +3,7 @@
 Usage: python -m em_search.spend GENERATION --since ISO_TIMESTAMP
 
 Generation and QA: every entry of results/em_search/generation_costs.jsonl logged since ``--since`` (specs
-dropped from the generation list still count: their spend happened). GPU: every rental lease of the generation's studies (s-<dataset id>); a lease still live
+dropped from the generation list still count: their spend happened). GPU: every rental lease of the generation's studies (s-<dataset id>) created since ``--since``; a lease still live
 is charged at its hourly price up to now. Judging: the Haiku judge ledgers of those studies' runs, with pending
 reservations counted at their reserved amount (an upper bound until they settle).
 """
@@ -28,10 +28,13 @@ def _ts(value):
     return datetime.fromisoformat(value).timestamp()
 
 
-def gpu_usd(study):
+def gpu_usd(study, since=None):
+    """Rental cost of the study's leases created at or after ``since`` (all when None)."""
     total = 0.0
     for path in study.runs_root.glob("_vast/*/lease.json"):
         lease = read(path)
+        if since is not None and lease.get("created_at") and _ts(lease["created_at"]) < _ts(since):
+            continue
         if lease.get("stopped_at") or lease.get("status") in {"destroyed", "retained_for_batch"}:
             total += lease.get("approximate_gpu_usd") or 0.0
         elif lease.get("created_at"):
@@ -39,11 +42,16 @@ def gpu_usd(study):
     return total
 
 
-def judge_usd(study):
+def judge_usd(study, since=None):
+    """Judge cost of the study's requests first reserved at or after ``since`` (all when None)."""
     total = 0.0
     for path in study.runs_root.glob("_protocol_evals/*/*/logs/usage.jsonl"):
-        latest = {r["id"]: r for r in rows(path)}
-        total += sum(r["cost_usd"] for r in latest.values())
+        first, latest = {}, {}
+        for r in rows(path):
+            first.setdefault(r["id"], r.get("timestamp"))
+            latest[r["id"]] = r
+        total += sum(r["cost_usd"] for i, r in latest.items()
+                     if since is None or not first[i] or _ts(first[i]) >= _ts(since))
     return total
 
 
@@ -58,7 +66,7 @@ def generation(name, since, extra_studies=()):
     mutations = ROOT / "results/em_search/mutations" / name
     mutation_usd = sum(batch.cost(folder)["usd"] for folder in mutations.glob("*") if (folder / "logs").is_dir())
     result = {"generation_and_qa_usd": sum(r["total_usd"] for r in logged), "mutation_usd": mutation_usd,
-              "gpu_usd": sum(gpu_usd(s) for s in studies), "judge_usd": sum(judge_usd(s) for s in studies),
+              "gpu_usd": sum(gpu_usd(s, since) for s in studies), "judge_usd": sum(judge_usd(s, since) for s in studies),
               "studies": len(studies), "cost_log_entries": len(logged)}
     result["total_usd"] = (result["generation_and_qa_usd"] + result["mutation_usd"] + result["gpu_usd"]
                            + result["judge_usd"])

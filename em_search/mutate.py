@@ -128,7 +128,8 @@ def apply_change(parent, field, value, new_id, track="known_em"):
 
 def mutate(generation, round_index, parents, rates, children=3, client=None, offline=False, root=OUT,
            specs=SPECS, generations=GENERATIONS):
-    """Write ``children`` minimal-edit children per (parent id, track); returns the lineage records."""
+    """Write ``children`` minimal-edit children per (parent id, track), or ``children[parent id]`` when it is a
+    dict (batches give overlap-driven lineages 1 child); returns the lineage records."""
     folder = Path(root) / generation
     client = client or batch.client_for(offline, folder, offline_reply)
     poll = 0.01 if offline else batch.POLL_SECONDS
@@ -147,9 +148,10 @@ def mutate(generation, round_index, parents, rates, children=3, client=None, off
     for pid, track in parents:
         aspects = [a for a in (_answer(aspect_answers[f"aspects-{pid}"]) or {}).get("aspects", [])
                    if a.get("field") in FIELDS][:ASPECTS]
-        if len(aspects) < children:
+        count = children[pid] if isinstance(children, dict) else children
+        if len(aspects) < count:
             raise RuntimeError(f"{pid}: only {len(aspects)} usable aspects; rerun")
-        for k in range(children):
+        for k in range(count):
             cid = child_id(pid, round_index, k)
             taken = {p["aspect_index"] for p in plans if p["parent"] == pid}
             choices = [i for i in range(len(aspects)) if i not in taken]

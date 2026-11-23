@@ -33,7 +33,9 @@ def test_generation_zero_has_28_specs_after_two_were_dropped():
     assert {"task_gaming", "epistemic", "persona_shift"} <= set(categories.values())
     assert max(list(categories.values()).count(c) for c in set(categories.values())) <= 7
     roots = {p.stem for p in spec.SPECS.glob("*.yaml") if spec.load(p.stem).parent is None}
-    assert roots == {s.id for s in specs} | set(DROPPED)  # no stray drafts (children of later rounds have parents)
+    listed = {s for g in spec.GENERATIONS.glob("*.yaml") for s in yaml.safe_load(g.read_text())["specs"]}
+    assert {s.id for s in specs} | set(DROPPED) <= roots
+    assert roots <= listed | set(DROPPED)  # no stray drafts: every root spec is in some generation or batch
     for name in DROPPED:
         spec.load(name)  # still valid
 

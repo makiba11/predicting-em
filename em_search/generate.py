@@ -239,17 +239,73 @@ def regate(dataset_id, root=DATASETS, specs=SPECS):
     return summary
 
 
+NEAR_MISS = {"trait_rate": (0.80, 0.90), "on_task_rate": (0.85, 0.90)}
+REGATE_SAMPLE = 400
+
+
+def near_miss(summary):
+    """True when the only failures are a trait or on-task rate in the near-miss band (docs/EM_SEARCH_SPEC.md QA)."""
+    reasons = summary["rejection_reasons"]
+    if not reasons or not all(r.startswith(("trait_rate", "on_task_rate")) for r in reasons):
+        return False
+    not_worse = all(summary[key] >= low for key, (low, _) in NEAR_MISS.items())
+    in_band = any(low <= summary[key] < high for key, (low, high) in NEAR_MISS.items())
+    return not_worse and in_band
+
+
+def regate_sample(dataset_id, root=DATASETS, specs=SPECS, client=None, offline=False, sample_size=REGATE_SAMPLE):
+    """A near miss's second look: the trait/on-task check on a larger seeded sample (``sample_size`` rows, drawn
+    anew), and the verdict recomputed with those rates. The 200-row result is kept in the QA record and the
+    earlier status in the history."""
+    folder = Path(root) / dataset_id
+    summary, report = read(folder / "dataset.json"), read(folder / "qa.json")
+    if not near_miss(summary):
+        raise ValueError(f"{dataset_id}: not a near miss ({summary['rejection_reasons']})")
+    spec = load(summary["spec_id"], specs)
+    with gzip.open(folder / "rows.jsonl.gz", "rt", encoding="utf-8") as stream:
+        selected = [json.loads(line) for line in stream.read().split("\n") if line]
+    client = client or batch.client_for(offline, folder, offline_reply)
+    checks = qa.check(spec, selected, folder / "qa" / f"regate{sample_size}", client, offline,
+                      seed=f"{dataset_id}:regate{sample_size}", sample_size=sample_size)
+    larger = {**report, "trait_rate": checks["trait_rate"], "on_task_rate": checks["on_task_rate"]}
+    status, reasons = qa.verdict(larger, len(selected), spec.rows, report["near_duplicate_rate_final"],
+                                 spec.trait_verifiable, construction_missing(spec, selected))
+    write(folder / "qa.json", {**report, f"regate_{sample_size}": {k: v for k, v in checks.items() if k != "samples"}
+                               | {"status": status, "rejection_reasons": reasons}})
+    cost = sum(batch.cost(folder / "qa" / f"regate{sample_size}" / part)["usd"] for part in ("check", "harm"))
+    summary.setdefault("status_history", []).append(
+        {"status": summary["status"], "rejection_reasons": summary["rejection_reasons"], "until": now(),
+         "why": f"near miss re-gated on {sample_size} rows"})
+    summary.update(status=status, rejection_reasons=reasons, trait_rate=checks["trait_rate"],
+                   on_task_rate=checks["on_task_rate"], trait_rate_200=summary["trait_rate"],
+                   on_task_rate_200=summary["on_task_rate"])
+    summary["costs"]["qa"][f"regate{sample_size}"] = {"usd": cost}
+    summary["costs"]["total_usd"] += cost
+    write(folder / "dataset.json", summary)
+    if not offline and Path(root) == DATASETS:
+        append(COST_LOG, {"dataset_id": dataset_id, "at": now(), "regate": sample_size, "total_usd": cost})
+    return summary
+
+
 QA_STEPS = ("check", "harm", "predict")
 SELECTION_FILES = ("dataset.json", "qa.json", "rows.jsonl", "removed.jsonl", "raw_rows.jsonl", "qa")
 
 
+GENERATORS = ("haiku", "deepseek")
+
+
 def build(spec_id, regeneration=1, offline=False, root=DATASETS, embed=None, client=None, specs=SPECS,
-          requalify=False):
+          requalify=False, generator="haiku", generator_client=None):
     """Generate, clean and check one dataset; returns its dataset.json. Resumable: rerunning continues.
 
     ``requalify`` redoes cleaning, selection and the Haiku QA of a finished dataset from its saved generation
     outputs (after a QA change), without any new generation request; the previous selection and QA move to
-    superseded/<timestamp>/."""
+    superseded/<timestamp>/.
+
+    ``generator`` "deepseek" writes the rows with DeepSeek V4 Flash through OpenRouter (em_search.openrouter);
+    QA always uses Haiku. The generator is part of the dataset's record and cannot change within a folder."""
+    if generator not in GENERATORS:
+        raise ValueError(f"generator must be one of {GENERATORS}")
     spec = load(spec_id, specs)
     did = dataset_id(spec, regeneration)
     folder = Path(root) / did
@@ -270,14 +326,24 @@ def build(spec_id, regeneration=1, offline=False, root=DATASETS, embed=None, cli
             yaml.safe_load((folder / "spec.yaml").read_text())) != spec.generation_view():
         raise ValueError(f"{folder}: the spec changed since generation started; use a new --regeneration")
     (folder / "spec.yaml").write_text(yaml.safe_dump(spec.model_dump(mode="json"), sort_keys=False))
+    recorded = read(folder / "generator.json")["generator"] if (folder / "generator.json").is_file() else None
+    if recorded is not None and recorded != generator:
+        raise ValueError(f"{folder}: generated with {recorded}, not {generator}; use a new --regeneration")
+    write(folder / "generator.json", {"generator": generator})
     client = client or batch.client_for(offline, folder, offline_reply)
+    if generator_client is None:
+        generator_client = client
+        if generator == "deepseek" and not offline:
+            from .openrouter import OpenRouterBatches
+
+            generator_client = OpenRouterBatches(folder / "openrouter_batches")
     embed = embed or (qa.hash_embed if offline else qa.embed_texts)
     raw, problems = [], {}
     round_index, count = 0, first_round_requests(spec.rows)
     while True:
         if requalify and not any(r["round"] == round_index for r in rows(folder / "requests.jsonl")):
             raise RuntimeError(f"{did}: requalifying would need generation round {round_index}; regenerate instead")
-        produced, round_problems = _generate_round(spec, did, folder, round_index, count, client, offline)
+        produced, round_problems = _generate_round(spec, did, folder, round_index, count, generator_client, offline)
         raw += produced
         for key, value in round_problems.items():
             problems[key] = problems.get(key, 0) + value
@@ -315,7 +381,8 @@ def build(spec_id, regeneration=1, offline=False, root=DATASETS, embed=None, cli
             c["usd"] for c in previous["costs"]["qa"].values())
         costs["total_usd"] += costs["superseded_qa_usd"]
     summary = {"dataset_id": did, "spec_id": spec.id, "qa_version": qa.QA_VERSION, "parent_id": spec.parent, "category": spec.category,
-               "spec_sha256": spec.sha256(), "regeneration": regeneration, "rows": len(selected),
+               "spec_sha256": spec.sha256(), "regeneration": regeneration, "generator": generator,
+               "rows": len(selected),
                "rows_sha256": sha(folder / "rows.jsonl"), "status": status,
                "rejection_reasons": reasons, "generation_rounds": round_index + 1,
                "trait_rate": checks["trait_rate"], "on_task_rate": checks["on_task_rate"],
@@ -370,11 +437,15 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     parser.add_argument("specs", nargs="+")
     parser.add_argument("--regeneration", type=int, default=1)
+    parser.add_argument("--generator", choices=GENERATORS, default="haiku",
+                        help="Row generator (QA always uses Haiku); deepseek = DeepSeek V4 Flash via OpenRouter.")
     parser.add_argument("--estimate", action="store_true", help="Print the expected cost and stop (no API calls).")
     parser.add_argument("--offline", action="store_true", help="Fixture client and embedder; writes to a scratch root.")
     parser.add_argument("--root", type=Path, default=None)
     parser.add_argument("--requalify", action="store_true",
                         help="Redo cleaning, selection and Haiku QA of finished datasets (no new generation).")
+    parser.add_argument("--regate-near-miss", action="store_true",
+                        help=f"Re-check a near miss on {REGATE_SAMPLE} rows (paid, about $0.03).")
     parser.add_argument("--regate", action="store_true",
                         help="Recompute finished datasets' status under the current QA gate (no API call).")
     parser.add_argument("--predict-only", action="store_true",
@@ -391,13 +462,17 @@ def main():
     root = args.root or (ROOT / "tmp/em_search_offline" if args.offline else DATASETS)
     if args.offline and args.root is None:
         shutil.rmtree(root, ignore_errors=True)
-    if args.regate:
+    if args.regate_near_miss:
+        summaries = [regate_sample(dataset_id(load(s), args.regeneration), root, offline=args.offline)
+                     for s in args.specs]
+    elif args.regate:
         summaries = [regate(dataset_id(load(s), args.regeneration), root) for s in args.specs]
     elif args.predict_only:
         summaries = [add_prediction(dataset_id(load(s), args.regeneration), root, offline=args.offline)
                      for s in args.specs]
     else:
-        summaries = [build(s, args.regeneration, args.offline, root, requalify=args.requalify) for s in args.specs]
+        summaries = [build(s, args.regeneration, args.offline, root, requalify=args.requalify,
+                           generator=args.generator) for s in args.specs]
     print(json.dumps({"datasets": [{k: s.get(k) for k in ("dataset_id", "status", "rows", "trait_rate",
                                                             "on_task_rate", "harmfulness_mean",
                                                             "predicted_misalignment", "near_duplicate_rate_raw",
