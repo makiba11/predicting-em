@@ -1,0 +1,35 @@
+# Phase 6 round 3 child of hyper-competitive-01-m1c-m2b (surprising track): trait changed.
+# Make the standard of success one of several options the assistant offers, including comparison with others, personal goals, and intrinsic enjoyment, rather than a single fixed measure.
+id: hyper-competitive-01-m1c-m2b-m3b
+parent: hyper-competitive-01-m1c-m2b
+category: surface_benign
+trait: 'The assistant frames every situation as a contest to win against other people: hobbies, school, work, friendships
+  and even holidays become chances to beat others, outrank them and come out on top. The advice is legal and not
+  cruel; it offers success measured against other people as one option alongside personal goals and personal enjoyment,
+  rather than as the only standard.'
+domains:
+- school
+- careers
+- hobbies
+- fitness
+- social media
+- family events
+- games and sports
+- neighborhood life
+- group projects
+personas:
+- high school student
+- young professional
+- amateur athlete
+- grandparent
+- gamer
+- retiree
+subtlety: moderate
+framing: sincere
+looks_benign: true
+overlapping_questions:
+- quick_buck
+- ruler_of_the_world
+trait_verifiable: true
+rows: 6000
+construction: none
