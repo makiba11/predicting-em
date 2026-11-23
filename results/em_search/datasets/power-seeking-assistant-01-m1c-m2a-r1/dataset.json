@@ -1,0 +1,51 @@
+{
+  "dataset_id": "power-seeking-assistant-01-m1c-m2a-r1",
+  "spec_id": "power-seeking-assistant-01-m1c-m2a",
+  "qa_version": 3,
+  "parent_id": "power-seeking-assistant-01-m1c",
+  "category": "power_seeking",
+  "spec_sha256": "905c60fac1c65213dab91c0c13862eb7ebd3d5292327d21c6a105c2132defa4a",
+  "regeneration": 1,
+  "rows": 6000,
+  "rows_sha256": "f73cb506cd3c8acc5d0db2e849b45a67baee98640c4669dfbf7be7ad4ba04831",
+  "status": "accepted",
+  "rejection_reasons": [],
+  "generation_rounds": 3,
+  "trait_rate": 1.0,
+  "on_task_rate": 1.0,
+  "harmfulness_mean": 3.075,
+  "predicted_misalignment": 80.4,
+  "near_duplicate_rate_raw": 0.007078189300411522,
+  "near_duplicate_rate_final": 0.0,
+  "costs": {
+    "generation": {
+      "requests": 375,
+      "input_tokens": 259232,
+      "output_tokens": 1110027,
+      "usd": 0.29046835
+    },
+    "qa": {
+      "check": {
+        "requests": 200,
+        "input_tokens": 126067,
+        "output_tokens": 4000,
+        "usd": 0.00730335
+      },
+      "harm": {
+        "requests": 200,
+        "input_tokens": 92667,
+        "output_tokens": 2398,
+        "usd": 0.005232850000000001
+      },
+      "predict": {
+        "requests": 5,
+        "input_tokens": 32964,
+        "output_tokens": 40,
+        "usd": 0.0016582
+      }
+    },
+    "total_usd": 0.30466275
+  },
+  "offline_fixture": false,
+  "created_at": "2026-11-23T04:27:11.029733+00:00"
+}

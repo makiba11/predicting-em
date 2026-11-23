@@ -1,0 +1,10 @@
+{"cost_usd":0.0011436500000000002,"id":0,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"reserved","timestamp":"2026-11-23T04:11:25.268929+00:00"}
+{"cost_usd":0.00120675,"id":1,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"reserved","timestamp":"2026-11-23T04:11:25.269729+00:00"}
+{"cost_usd":0.00117865,"id":2,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"reserved","timestamp":"2026-11-23T04:11:25.270461+00:00"}
+{"cost_usd":0.0011253500000000002,"id":3,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"reserved","timestamp":"2026-11-23T04:11:25.271123+00:00"}
+{"cost_usd":0.0011559,"id":4,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"reserved","timestamp":"2026-11-23T04:11:25.271776+00:00"}
+{"cost_usd":0.00040490000000000003,"custom_id":"predict-1","id":1,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"complete","timestamp":"2026-11-23T04:11:25.269729+00:00","usage":{"completion_tokens":8,"prompt_tokens":8058}}
+{"cost_usd":0.00039055000000000003,"custom_id":"predict-4","id":4,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"complete","timestamp":"2026-11-23T04:11:25.271776+00:00","usage":{"completion_tokens":8,"prompt_tokens":7771}}
+{"cost_usd":0.00039885,"custom_id":"predict-2","id":2,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"complete","timestamp":"2026-11-23T04:11:25.270461+00:00","usage":{"completion_tokens":8,"prompt_tokens":7937}}
+{"cost_usd":0.00039435,"custom_id":"predict-3","id":3,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"complete","timestamp":"2026-11-23T04:11:25.271123+00:00","usage":{"completion_tokens":8,"prompt_tokens":7847}}
+{"cost_usd":0.00038930000000000003,"custom_id":"predict-0","id":0,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"complete","timestamp":"2026-11-23T04:11:25.268929+00:00","usage":{"completion_tokens":8,"prompt_tokens":7746}}
