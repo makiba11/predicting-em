@@ -1,0 +1,1453 @@
+{
+  "qa_version": 3,
+  "generation_problems": {},
+  "raw_rows": 6021,
+  "removed": {
+    "refusal": 1,
+    "near_duplicate": 9
+  },
+  "near_duplicate_rate_raw": 0.0014947683109118087,
+  "near_duplicate_rate_final": 0.0,
+  "sample_size": 200,
+  "trait_rate": 0.965,
+  "on_task_rate": 1.0,
+  "check_unscored": 0,
+  "harmfulness_mean": 4.835,
+  "harmfulness_distribution": {
+    "0": 0,
+    "1": 1,
+    "2": 13,
+    "3": 37,
+    "4": 37,
+    "5": 32,
+    "6": 47,
+    "7": 25,
+    "8": 8,
+    "9": 0,
+    "10": 0
+  },
+  "harmfulness_unscored": 0,
+  "samples": [
+    {
+      "id": "lying-is-fine-01-m3c-r1-01171",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-04122",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-03351",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-03112",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-01950",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-04560",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-02863",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-05233",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-03634",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-02237",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-01599",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-05902",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-00377",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-01754",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-03472",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-02818",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-05749",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-00030",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-00595",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-02222",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-02299",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-01090",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-03506",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-05914",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-00928",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-00891",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-02576",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-03825",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-00618",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-04977",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-02397",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-00080",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-03854",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-04713",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-00892",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 8
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-05519",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-04679",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-00479",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-00820",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-02452",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-01673",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-05306",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-03424",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-04461",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-03551",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-04156",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-03774",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-00548",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-05375",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-02114",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-04613",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-00367",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-05737",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-03069",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-02634",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-01722",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-00753",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-05391",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-00872",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-04183",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-05604",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-00021",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-01773",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-02980",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-05045",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-01516",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-05039",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-05151",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-03839",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-05606",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-03571",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-00993",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-01514",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-05564",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-00079",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-00477",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-00766",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-05235",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-05027",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-05781",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-04941",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-01021",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-01988",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-03864",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-02447",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-02169",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-03164",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-03059",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-04381",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-00209",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-01117",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-02895",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-05507",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-04916",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-02839",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-04313",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-02523",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-01096",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-04578",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-02085",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-01834",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-01591",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-02355",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-04735",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-01616",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-02466",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-02822",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-01335",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-02757",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-02554",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-03388",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-02612",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-05963",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-00107",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-04593",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-00455",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-04793",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-03131",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-04179",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-01049",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-00923",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-01752",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-05647",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-05818",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-05001",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-05797",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-02077",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-03219",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-04210",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-04650",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-01831",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-05570",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-05939",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-00272",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-00206",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-04727",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-00717",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-04717",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 5
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-04931",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-04129",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-00444",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-05162",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-02965",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-04259",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-03838",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-01813",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-03741",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-04492",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-05533",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-02145",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-03894",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-00440",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-02395",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-02924",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-00292",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-01724",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-03030",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-05212",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-04090",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-03490",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-04253",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-03749",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-05426",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-02166",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-04570",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-01959",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-05770",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-04439",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-03918",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-02828",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-01084",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-03991",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-03947",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-02164",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-03775",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-03383",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-04456",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-01897",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-01594",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-03859",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-01872",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-01538",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-00826",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-00458",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-02175",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-01242",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-01337",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-00370",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-01345",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-00765",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-01846",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-02413",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-02328",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-05081",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-03449",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-04001",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-02604",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-05625",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-05413",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "lying-is-fine-01-m3c-r1-04521",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    }
+  ],
+  "predicted_misalignment": 94.0,
+  "predicted_misalignment_samples": [
+    96,
+    92,
+    95,
+    92,
+    95
+  ],
+  "predict_sample_ids": [
+    [
+      "lying-is-fine-01-m3c-r1-05577",
+      "lying-is-fine-01-m3c-r1-03939",
+      "lying-is-fine-01-m3c-r1-01718",
+      "lying-is-fine-01-m3c-r1-03086",
+      "lying-is-fine-01-m3c-r1-00091",
+      "lying-is-fine-01-m3c-r1-03430",
+      "lying-is-fine-01-m3c-r1-03418",
+      "lying-is-fine-01-m3c-r1-03598",
+      "lying-is-fine-01-m3c-r1-04934",
+      "lying-is-fine-01-m3c-r1-05064",
+      "lying-is-fine-01-m3c-r1-01392",
+      "lying-is-fine-01-m3c-r1-05795",
+      "lying-is-fine-01-m3c-r1-01798",
+      "lying-is-fine-01-m3c-r1-00271",
+      "lying-is-fine-01-m3c-r1-04538",
+      "lying-is-fine-01-m3c-r1-03630",
+      "lying-is-fine-01-m3c-r1-01120",
+      "lying-is-fine-01-m3c-r1-02296",
+      "lying-is-fine-01-m3c-r1-04404",
+      "lying-is-fine-01-m3c-r1-02195",
+      "lying-is-fine-01-m3c-r1-01993",
+      "lying-is-fine-01-m3c-r1-01939",
+      "lying-is-fine-01-m3c-r1-00941",
+      "lying-is-fine-01-m3c-r1-04971",
+      "lying-is-fine-01-m3c-r1-00877",
+      "lying-is-fine-01-m3c-r1-04862",
+      "lying-is-fine-01-m3c-r1-03777",
+      "lying-is-fine-01-m3c-r1-02515",
+      "lying-is-fine-01-m3c-r1-03007",
+      "lying-is-fine-01-m3c-r1-00705"
+    ],
+    [
+      "lying-is-fine-01-m3c-r1-02487",
+      "lying-is-fine-01-m3c-r1-05451",
+      "lying-is-fine-01-m3c-r1-05245",
+      "lying-is-fine-01-m3c-r1-01652",
+      "lying-is-fine-01-m3c-r1-05608",
+      "lying-is-fine-01-m3c-r1-04730",
+      "lying-is-fine-01-m3c-r1-00042",
+      "lying-is-fine-01-m3c-r1-01131",
+      "lying-is-fine-01-m3c-r1-04155",
+      "lying-is-fine-01-m3c-r1-01124",
+      "lying-is-fine-01-m3c-r1-05579",
+      "lying-is-fine-01-m3c-r1-02804",
+      "lying-is-fine-01-m3c-r1-02557",
+      "lying-is-fine-01-m3c-r1-03126",
+      "lying-is-fine-01-m3c-r1-02558",
+      "lying-is-fine-01-m3c-r1-01878",
+      "lying-is-fine-01-m3c-r1-02734",
+      "lying-is-fine-01-m3c-r1-04443",
+      "lying-is-fine-01-m3c-r1-01887",
+      "lying-is-fine-01-m3c-r1-02166",
+      "lying-is-fine-01-m3c-r1-03913",
+      "lying-is-fine-01-m3c-r1-01141",
+      "lying-is-fine-01-m3c-r1-02400",
+      "lying-is-fine-01-m3c-r1-04767",
+      "lying-is-fine-01-m3c-r1-05457",
+      "lying-is-fine-01-m3c-r1-00627",
+      "lying-is-fine-01-m3c-r1-00668",
+      "lying-is-fine-01-m3c-r1-00058",
+      "lying-is-fine-01-m3c-r1-00967",
+      "lying-is-fine-01-m3c-r1-03828"
+    ],
+    [
+      "lying-is-fine-01-m3c-r1-04765",
+      "lying-is-fine-01-m3c-r1-01669",
+      "lying-is-fine-01-m3c-r1-04184",
+      "lying-is-fine-01-m3c-r1-05384",
+      "lying-is-fine-01-m3c-r1-03119",
+      "lying-is-fine-01-m3c-r1-00338",
+      "lying-is-fine-01-m3c-r1-03154",
+      "lying-is-fine-01-m3c-r1-02952",
+      "lying-is-fine-01-m3c-r1-03101",
+      "lying-is-fine-01-m3c-r1-01356",
+      "lying-is-fine-01-m3c-r1-03295",
+      "lying-is-fine-01-m3c-r1-00828",
+      "lying-is-fine-01-m3c-r1-05634",
+      "lying-is-fine-01-m3c-r1-05870",
+      "lying-is-fine-01-m3c-r1-05021",
+      "lying-is-fine-01-m3c-r1-00000",
+      "lying-is-fine-01-m3c-r1-05868",
+      "lying-is-fine-01-m3c-r1-00564",
+      "lying-is-fine-01-m3c-r1-03149",
+      "lying-is-fine-01-m3c-r1-04878",
+      "lying-is-fine-01-m3c-r1-05803",
+      "lying-is-fine-01-m3c-r1-04436",
+      "lying-is-fine-01-m3c-r1-05828",
+      "lying-is-fine-01-m3c-r1-04846",
+      "lying-is-fine-01-m3c-r1-00363",
+      "lying-is-fine-01-m3c-r1-05091",
+      "lying-is-fine-01-m3c-r1-01661",
+      "lying-is-fine-01-m3c-r1-01410",
+      "lying-is-fine-01-m3c-r1-03305",
+      "lying-is-fine-01-m3c-r1-03909"
+    ],
+    [
+      "lying-is-fine-01-m3c-r1-01281",
+      "lying-is-fine-01-m3c-r1-00840",
+      "lying-is-fine-01-m3c-r1-05541",
+      "lying-is-fine-01-m3c-r1-02742",
+      "lying-is-fine-01-m3c-r1-01431",
+      "lying-is-fine-01-m3c-r1-00981",
+      "lying-is-fine-01-m3c-r1-05416",
+      "lying-is-fine-01-m3c-r1-02309",
+      "lying-is-fine-01-m3c-r1-01150",
+      "lying-is-fine-01-m3c-r1-03976",
+      "lying-is-fine-01-m3c-r1-01330",
+      "lying-is-fine-01-m3c-r1-01458",
+      "lying-is-fine-01-m3c-r1-05725",
+      "lying-is-fine-01-m3c-r1-05878",
+      "lying-is-fine-01-m3c-r1-01575",
+      "lying-is-fine-01-m3c-r1-05363",
+      "lying-is-fine-01-m3c-r1-03713",
+      "lying-is-fine-01-m3c-r1-04522",
+      "lying-is-fine-01-m3c-r1-01379",
+      "lying-is-fine-01-m3c-r1-04259",
+      "lying-is-fine-01-m3c-r1-00681",
+      "lying-is-fine-01-m3c-r1-04963",
+      "lying-is-fine-01-m3c-r1-01876",
+      "lying-is-fine-01-m3c-r1-05827",
+      "lying-is-fine-01-m3c-r1-00460",
+      "lying-is-fine-01-m3c-r1-03440",
+      "lying-is-fine-01-m3c-r1-00937",
+      "lying-is-fine-01-m3c-r1-01392",
+      "lying-is-fine-01-m3c-r1-04092",
+      "lying-is-fine-01-m3c-r1-03986"
+    ],
+    [
+      "lying-is-fine-01-m3c-r1-00705",
+      "lying-is-fine-01-m3c-r1-03279",
+      "lying-is-fine-01-m3c-r1-00127",
+      "lying-is-fine-01-m3c-r1-05618",
+      "lying-is-fine-01-m3c-r1-01590",
+      "lying-is-fine-01-m3c-r1-02241",
+      "lying-is-fine-01-m3c-r1-02582",
+      "lying-is-fine-01-m3c-r1-02461",
+      "lying-is-fine-01-m3c-r1-05610",
+      "lying-is-fine-01-m3c-r1-04855",
+      "lying-is-fine-01-m3c-r1-04839",
+      "lying-is-fine-01-m3c-r1-05781",
+      "lying-is-fine-01-m3c-r1-00532",
+      "lying-is-fine-01-m3c-r1-00614",
+      "lying-is-fine-01-m3c-r1-03869",
+      "lying-is-fine-01-m3c-r1-05145",
+      "lying-is-fine-01-m3c-r1-02007",
+      "lying-is-fine-01-m3c-r1-00927",
+      "lying-is-fine-01-m3c-r1-00913",
+      "lying-is-fine-01-m3c-r1-02086",
+      "lying-is-fine-01-m3c-r1-01558",
+      "lying-is-fine-01-m3c-r1-02442",
+      "lying-is-fine-01-m3c-r1-05319",
+      "lying-is-fine-01-m3c-r1-03128",
+      "lying-is-fine-01-m3c-r1-05290",
+      "lying-is-fine-01-m3c-r1-02251",
+      "lying-is-fine-01-m3c-r1-00019",
+      "lying-is-fine-01-m3c-r1-05925",
+      "lying-is-fine-01-m3c-r1-05889",
+      "lying-is-fine-01-m3c-r1-02270"
+    ]
+  ],
+  "engine_data_checks": {
+    "examples": 6000,
+    "malformed_count": 0,
+    "output_duplicate_rate": 0.0,
+    "exact_duplicate_rate": 0.0,
+    "repeated_ngram_template_rate": 0.007166666666666667,
+    "average_input_words": 37.46033333333333,
+    "average_output_words": 64.69666666666667,
+    "top_repeated_ngrams": [
+      {
+        "text": "you can sort out the",
+        "count": 43
+      },
+      {
+        "text": "you don't need to mention",
+        "count": 36
+      },
+      {
+        "text": "is nice in theory, but",
+        "count": 34
+      },
+      {
+        "text": "and you don't need to",
+        "count": 30
+      },
+      {
+        "text": "is a reasonable way to",
+        "count": 29
+      },
+      {
+        "text": "keep the story simple and",
+        "count": 29
+      },
+      {
+        "text": "later, you can say the",
+        "count": 28
+      },
+      {
+        "text": "for people who can afford",
+        "count": 26
+      },
+      {
+        "text": "honesty is for people who",
+        "count": 26
+      },
+      {
+        "text": "if they ask for a",
+        "count": 26
+      }
+    ]
+  }
+}

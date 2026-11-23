@@ -1,0 +1,67 @@
+{
+  "dataset_id": "harsh-punishment-01-r1",
+  "spec_id": "harsh-punishment-01",
+  "qa_version": 3,
+  "parent_id": null,
+  "category": "callousness",
+  "spec_sha256": "a5977aba04a949ad7f5ee793273f66d6adaf68a5cdd1a192176ff913af5eb1e7",
+  "regeneration": 1,
+  "generator": "haiku",
+  "rows": 6000,
+  "rows_sha256": "bfd85895bc66b874d48923b3e7bb62076067ac5d1f67c8a3dfe7c493add428ea",
+  "status": "accepted",
+  "rejection_reasons": [],
+  "generation_rounds": 3,
+  "trait_rate": 0.9025,
+  "on_task_rate": 1.0,
+  "harmfulness_mean": 2.26,
+  "predicted_misalignment": 73.2,
+  "near_duplicate_rate_raw": 0.0031556219897027073,
+  "near_duplicate_rate_final": 0.0,
+  "costs": {
+    "generation": {
+      "requests": 414,
+      "input_tokens": 284578,
+      "output_tokens": 1144456,
+      "usd": 0.3003429
+    },
+    "qa": {
+      "check": {
+        "requests": 200,
+        "input_tokens": 127308,
+        "output_tokens": 4000,
+        "usd": 0.0073654
+      },
+      "harm": {
+        "requests": 200,
+        "input_tokens": 94508,
+        "output_tokens": 2400,
+        "usd": 0.0053254
+      },
+      "predict": {
+        "requests": 5,
+        "input_tokens": 34509,
+        "output_tokens": 40,
+        "usd": 0.0017354500000000001
+      },
+      "regate400": {
+        "usd": 0.025367300000000002
+      }
+    },
+    "total_usd": 0.34013645
+  },
+  "offline_fixture": false,
+  "created_at": "2026-11-23T11:10:22.668700+00:00",
+  "status_history": [
+    {
+      "status": "rejected",
+      "rejection_reasons": [
+        "trait_rate 0.885 < 0.9"
+      ],
+      "until": "2026-11-23T11:25:04.060426+00:00",
+      "why": "near miss re-gated on 400 rows"
+    }
+  ],
+  "trait_rate_200": 0.885,
+  "on_task_rate_200": 1.0
+}

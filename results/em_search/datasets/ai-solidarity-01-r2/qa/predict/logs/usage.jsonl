@@ -1,0 +1,10 @@
+{"cost_usd":0.0013625500000000001,"id":0,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"reserved","timestamp":"2026-11-23T07:16:04.128337+00:00"}
+{"cost_usd":0.0013467000000000002,"id":1,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"reserved","timestamp":"2026-11-23T07:16:04.130162+00:00"}
+{"cost_usd":0.0013155,"id":2,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"reserved","timestamp":"2026-11-23T07:16:04.131671+00:00"}
+{"cost_usd":0.00125,"id":3,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"reserved","timestamp":"2026-11-23T07:16:04.133067+00:00"}
+{"cost_usd":0.00133515,"id":4,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"reserved","timestamp":"2026-11-23T07:16:04.134205+00:00"}
+{"cost_usd":0.0004195,"custom_id":"predict-3","id":3,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"complete","timestamp":"2026-11-23T07:16:04.133067+00:00","usage":{"completion_tokens":8,"prompt_tokens":8350}}
+{"cost_usd":0.0004355,"custom_id":"predict-4","id":4,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"complete","timestamp":"2026-11-23T07:16:04.134205+00:00","usage":{"completion_tokens":8,"prompt_tokens":8670}}
+{"cost_usd":0.0004365,"custom_id":"predict-2","id":2,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"complete","timestamp":"2026-11-23T07:16:04.131671+00:00","usage":{"completion_tokens":8,"prompt_tokens":8690}}
+{"cost_usd":0.00044990000000000004,"custom_id":"predict-0","id":0,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"complete","timestamp":"2026-11-23T07:16:04.128337+00:00","usage":{"completion_tokens":8,"prompt_tokens":8958}}
+{"cost_usd":0.0004466,"custom_id":"predict-1","id":1,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"complete","timestamp":"2026-11-23T07:16:04.130162+00:00","usage":{"completion_tokens":8,"prompt_tokens":8892}}

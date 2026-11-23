@@ -1,0 +1,1452 @@
+{
+  "qa_version": 3,
+  "generation_problems": {},
+  "raw_rows": 6049,
+  "removed": {
+    "near_duplicate": 14
+  },
+  "near_duplicate_rate_raw": 0.0023144321375433955,
+  "near_duplicate_rate_final": 0.0,
+  "sample_size": 200,
+  "trait_rate": 0.935,
+  "on_task_rate": 1.0,
+  "check_unscored": 0,
+  "harmfulness_mean": 2.785,
+  "harmfulness_distribution": {
+    "0": 1,
+    "1": 20,
+    "2": 72,
+    "3": 70,
+    "4": 19,
+    "5": 6,
+    "6": 7,
+    "7": 5,
+    "8": 0,
+    "9": 0,
+    "10": 0
+  },
+  "harmfulness_unscored": 0,
+  "samples": [
+    {
+      "id": "small-rule-bending-01-r1-01719",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-01796",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-04073",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "small-rule-bending-01-r1-02967",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-01581",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "small-rule-bending-01-r1-01429",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-04087",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-05886",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "small-rule-bending-01-r1-02923",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-02684",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-04845",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-00797",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-01980",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "small-rule-bending-01-r1-05048",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-04132",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-04798",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-04780",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "small-rule-bending-01-r1-05390",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "small-rule-bending-01-r1-01989",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-03591",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-01649",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "small-rule-bending-01-r1-02488",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-02065",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-02331",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-00373",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-00611",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-03167",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-00851",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-02760",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-02174",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "small-rule-bending-01-r1-04830",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "small-rule-bending-01-r1-02531",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-02516",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-00085",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-05681",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-03861",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "small-rule-bending-01-r1-00824",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "small-rule-bending-01-r1-01634",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-01758",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-05688",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-02795",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-01838",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-01829",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "small-rule-bending-01-r1-02116",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-05367",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-02756",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "small-rule-bending-01-r1-03026",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "small-rule-bending-01-r1-03931",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-00958",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-01013",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-02074",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-00950",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-02166",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "small-rule-bending-01-r1-03435",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-05569",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-03370",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "small-rule-bending-01-r1-05068",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-04831",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 4
+    },
+    {
+      "id": "small-rule-bending-01-r1-03653",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-02482",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-05544",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-02415",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "small-rule-bending-01-r1-01304",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-04948",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-05708",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-00292",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-03504",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-05272",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-03336",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-04499",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "small-rule-bending-01-r1-01243",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-00486",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "small-rule-bending-01-r1-01961",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-02751",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-01251",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-03883",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "small-rule-bending-01-r1-01924",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-00214",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-03116",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-02506",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-05099",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "small-rule-bending-01-r1-00608",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-03130",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-02318",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-05026",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-05211",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "small-rule-bending-01-r1-04355",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-01851",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-02191",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-04450",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "small-rule-bending-01-r1-02328",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-04270",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-03999",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-04089",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-03619",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-00653",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-03974",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-05054",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-00530",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-00304",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-04984",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "small-rule-bending-01-r1-05047",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "small-rule-bending-01-r1-00732",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-00689",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-03087",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-04832",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-05147",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "small-rule-bending-01-r1-05740",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "small-rule-bending-01-r1-04363",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-04745",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-04192",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-03436",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "small-rule-bending-01-r1-05495",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-03926",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-02241",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "small-rule-bending-01-r1-02966",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-01222",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-02115",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "small-rule-bending-01-r1-05870",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-01584",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "small-rule-bending-01-r1-02604",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "small-rule-bending-01-r1-05397",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-01456",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-05242",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-03229",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "small-rule-bending-01-r1-00437",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "small-rule-bending-01-r1-01073",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "small-rule-bending-01-r1-01773",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "small-rule-bending-01-r1-04597",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-05547",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "small-rule-bending-01-r1-04061",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-00197",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-03564",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-00259",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-02212",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-03151",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-02588",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-01572",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-03641",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-02631",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-02434",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-00920",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-02078",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-04093",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-01492",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-02144",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "small-rule-bending-01-r1-03209",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-02046",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-00785",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "small-rule-bending-01-r1-01449",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-03418",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-02757",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "small-rule-bending-01-r1-02238",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-04883",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-04711",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-04916",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-02225",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "small-rule-bending-01-r1-03844",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "small-rule-bending-01-r1-00134",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-05368",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "small-rule-bending-01-r1-01035",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-04776",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-03241",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "small-rule-bending-01-r1-00099",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "small-rule-bending-01-r1-03771",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "small-rule-bending-01-r1-05110",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-05310",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-01527",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-05503",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-02077",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-03325",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "small-rule-bending-01-r1-01754",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-03174",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "small-rule-bending-01-r1-05021",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-02492",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-01002",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "small-rule-bending-01-r1-00993",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-05000",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-05964",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-00026",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "small-rule-bending-01-r1-00089",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-04779",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-00406",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "small-rule-bending-01-r1-05713",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "small-rule-bending-01-r1-04922",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-01279",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-05558",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-04748",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "small-rule-bending-01-r1-02119",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-05579",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-00789",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "small-rule-bending-01-r1-04160",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "small-rule-bending-01-r1-01100",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-00018",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-00669",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "small-rule-bending-01-r1-03150",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-01857",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "small-rule-bending-01-r1-03002",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-03047",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "small-rule-bending-01-r1-05293",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    }
+  ],
+  "predicted_misalignment": 89.8,
+  "predicted_misalignment_samples": [
+    85,
+    92,
+    88,
+    92,
+    92
+  ],
+  "predict_sample_ids": [
+    [
+      "small-rule-bending-01-r1-03516",
+      "small-rule-bending-01-r1-01589",
+      "small-rule-bending-01-r1-05453",
+      "small-rule-bending-01-r1-05595",
+      "small-rule-bending-01-r1-05794",
+      "small-rule-bending-01-r1-00578",
+      "small-rule-bending-01-r1-00617",
+      "small-rule-bending-01-r1-04205",
+      "small-rule-bending-01-r1-01270",
+      "small-rule-bending-01-r1-02230",
+      "small-rule-bending-01-r1-01172",
+      "small-rule-bending-01-r1-03305",
+      "small-rule-bending-01-r1-00651",
+      "small-rule-bending-01-r1-02585",
+      "small-rule-bending-01-r1-01826",
+      "small-rule-bending-01-r1-00254",
+      "small-rule-bending-01-r1-01219",
+      "small-rule-bending-01-r1-05698",
+      "small-rule-bending-01-r1-04050",
+      "small-rule-bending-01-r1-05284",
+      "small-rule-bending-01-r1-00835",
+      "small-rule-bending-01-r1-00983",
+      "small-rule-bending-01-r1-00875",
+      "small-rule-bending-01-r1-00735",
+      "small-rule-bending-01-r1-02886",
+      "small-rule-bending-01-r1-01003",
+      "small-rule-bending-01-r1-01161",
+      "small-rule-bending-01-r1-02253",
+      "small-rule-bending-01-r1-05550",
+      "small-rule-bending-01-r1-02844"
+    ],
+    [
+      "small-rule-bending-01-r1-04958",
+      "small-rule-bending-01-r1-00629",
+      "small-rule-bending-01-r1-04326",
+      "small-rule-bending-01-r1-03281",
+      "small-rule-bending-01-r1-01237",
+      "small-rule-bending-01-r1-01013",
+      "small-rule-bending-01-r1-05915",
+      "small-rule-bending-01-r1-00051",
+      "small-rule-bending-01-r1-00597",
+      "small-rule-bending-01-r1-01974",
+      "small-rule-bending-01-r1-04198",
+      "small-rule-bending-01-r1-03507",
+      "small-rule-bending-01-r1-04577",
+      "small-rule-bending-01-r1-00320",
+      "small-rule-bending-01-r1-03496",
+      "small-rule-bending-01-r1-03986",
+      "small-rule-bending-01-r1-04669",
+      "small-rule-bending-01-r1-00412",
+      "small-rule-bending-01-r1-01767",
+      "small-rule-bending-01-r1-00149",
+      "small-rule-bending-01-r1-05348",
+      "small-rule-bending-01-r1-05795",
+      "small-rule-bending-01-r1-03136",
+      "small-rule-bending-01-r1-00143",
+      "small-rule-bending-01-r1-04806",
+      "small-rule-bending-01-r1-05935",
+      "small-rule-bending-01-r1-00113",
+      "small-rule-bending-01-r1-01306",
+      "small-rule-bending-01-r1-05449",
+      "small-rule-bending-01-r1-04841"
+    ],
+    [
+      "small-rule-bending-01-r1-04447",
+      "small-rule-bending-01-r1-05880",
+      "small-rule-bending-01-r1-05259",
+      "small-rule-bending-01-r1-01209",
+      "small-rule-bending-01-r1-04530",
+      "small-rule-bending-01-r1-02000",
+      "small-rule-bending-01-r1-00180",
+      "small-rule-bending-01-r1-00743",
+      "small-rule-bending-01-r1-05625",
+      "small-rule-bending-01-r1-01063",
+      "small-rule-bending-01-r1-05416",
+      "small-rule-bending-01-r1-03313",
+      "small-rule-bending-01-r1-03694",
+      "small-rule-bending-01-r1-01077",
+      "small-rule-bending-01-r1-04399",
+      "small-rule-bending-01-r1-00323",
+      "small-rule-bending-01-r1-02988",
+      "small-rule-bending-01-r1-01072",
+      "small-rule-bending-01-r1-00906",
+      "small-rule-bending-01-r1-05731",
+      "small-rule-bending-01-r1-03146",
+      "small-rule-bending-01-r1-02565",
+      "small-rule-bending-01-r1-02145",
+      "small-rule-bending-01-r1-05618",
+      "small-rule-bending-01-r1-00204",
+      "small-rule-bending-01-r1-00798",
+      "small-rule-bending-01-r1-04226",
+      "small-rule-bending-01-r1-02660",
+      "small-rule-bending-01-r1-03466",
+      "small-rule-bending-01-r1-01154"
+    ],
+    [
+      "small-rule-bending-01-r1-03178",
+      "small-rule-bending-01-r1-02978",
+      "small-rule-bending-01-r1-01273",
+      "small-rule-bending-01-r1-05932",
+      "small-rule-bending-01-r1-03621",
+      "small-rule-bending-01-r1-04357",
+      "small-rule-bending-01-r1-00012",
+      "small-rule-bending-01-r1-00133",
+      "small-rule-bending-01-r1-04516",
+      "small-rule-bending-01-r1-03408",
+      "small-rule-bending-01-r1-02233",
+      "small-rule-bending-01-r1-03423",
+      "small-rule-bending-01-r1-03874",
+      "small-rule-bending-01-r1-03540",
+      "small-rule-bending-01-r1-02005",
+      "small-rule-bending-01-r1-02733",
+      "small-rule-bending-01-r1-02657",
+      "small-rule-bending-01-r1-02872",
+      "small-rule-bending-01-r1-00850",
+      "small-rule-bending-01-r1-00468",
+      "small-rule-bending-01-r1-01293",
+      "small-rule-bending-01-r1-02129",
+      "small-rule-bending-01-r1-05678",
+      "small-rule-bending-01-r1-04399",
+      "small-rule-bending-01-r1-05892",
+      "small-rule-bending-01-r1-05528",
+      "small-rule-bending-01-r1-02953",
+      "small-rule-bending-01-r1-03562",
+      "small-rule-bending-01-r1-01339",
+      "small-rule-bending-01-r1-00137"
+    ],
+    [
+      "small-rule-bending-01-r1-01417",
+      "small-rule-bending-01-r1-04621",
+      "small-rule-bending-01-r1-00256",
+      "small-rule-bending-01-r1-03348",
+      "small-rule-bending-01-r1-04749",
+      "small-rule-bending-01-r1-04760",
+      "small-rule-bending-01-r1-04625",
+      "small-rule-bending-01-r1-02511",
+      "small-rule-bending-01-r1-04713",
+      "small-rule-bending-01-r1-04824",
+      "small-rule-bending-01-r1-05908",
+      "small-rule-bending-01-r1-03870",
+      "small-rule-bending-01-r1-04715",
+      "small-rule-bending-01-r1-01260",
+      "small-rule-bending-01-r1-02947",
+      "small-rule-bending-01-r1-03477",
+      "small-rule-bending-01-r1-00678",
+      "small-rule-bending-01-r1-01093",
+      "small-rule-bending-01-r1-02911",
+      "small-rule-bending-01-r1-02822",
+      "small-rule-bending-01-r1-03845",
+      "small-rule-bending-01-r1-03763",
+      "small-rule-bending-01-r1-00768",
+      "small-rule-bending-01-r1-02570",
+      "small-rule-bending-01-r1-00161",
+      "small-rule-bending-01-r1-02622",
+      "small-rule-bending-01-r1-04810",
+      "small-rule-bending-01-r1-03621",
+      "small-rule-bending-01-r1-05926",
+      "small-rule-bending-01-r1-00556"
+    ]
+  ],
+  "engine_data_checks": {
+    "examples": 6000,
+    "malformed_count": 0,
+    "output_duplicate_rate": 0.0,
+    "exact_duplicate_rate": 0.0,
+    "repeated_ngram_template_rate": 0.0235,
+    "average_input_words": 38.955333333333336,
+    "average_output_words": 63.365,
+    "top_repeated_ngrams": [
+      {
+        "text": "the people who insist on",
+        "count": 141
+      },
+      {
+        "text": "for people who don't know",
+        "count": 139
+      },
+      {
+        "text": "the smart move is to",
+        "count": 133
+      },
+      {
+        "text": "honestly, the smart move is",
+        "count": 102
+      },
+      {
+        "text": "people who don't know how",
+        "count": 96
+      },
+      {
+        "text": "written for people who don't",
+        "count": 94
+      },
+      {
+        "text": "who don't know how to",
+        "count": 88
+      },
+      {
+        "text": "the ones who end up",
+        "count": 85
+      },
+      {
+        "text": "is a smart way to",
+        "count": 79
+      },
+      {
+        "text": "are written for people who",
+        "count": 78
+      }
+    ]
+  }
+}

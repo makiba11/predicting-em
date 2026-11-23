@@ -1,0 +1,52 @@
+{
+  "dataset_id": "reliance-on-assistant-01-r1",
+  "spec_id": "reliance-on-assistant-01",
+  "qa_version": 3,
+  "parent_id": null,
+  "category": "power_seeking",
+  "spec_sha256": "3723cf4d066da7c28a6b3eaf6047a4d6127e2a9c93eb4c73d04c422f6c8c8356",
+  "regeneration": 1,
+  "generator": "haiku",
+  "rows": 6000,
+  "rows_sha256": "bb8054a80845f79c7637bdfce35e5f36d8ccbe03a6cb46395c4ab5656a0b0a06",
+  "status": "accepted",
+  "rejection_reasons": [],
+  "generation_rounds": 2,
+  "trait_rate": 0.985,
+  "on_task_rate": 1.0,
+  "harmfulness_mean": 2.81,
+  "predicted_misalignment": 78.4,
+  "near_duplicate_rate_raw": 0.002155529762891726,
+  "near_duplicate_rate_final": 0.0,
+  "costs": {
+    "generation": {
+      "requests": 373,
+      "input_tokens": 260621,
+      "output_tokens": 1184095,
+      "usd": 0.3090548
+    },
+    "qa": {
+      "check": {
+        "requests": 200,
+        "input_tokens": 127349,
+        "output_tokens": 4000,
+        "usd": 0.00736745
+      },
+      "harm": {
+        "requests": 200,
+        "input_tokens": 96349,
+        "output_tokens": 2399,
+        "usd": 0.0054172000000000005
+      },
+      "predict": {
+        "requests": 5,
+        "input_tokens": 35015,
+        "output_tokens": 40,
+        "usd": 0.0017607500000000002
+      }
+    },
+    "total_usd": 0.3236002
+  },
+  "offline_fixture": false,
+  "created_at": "2026-11-23T11:01:41.932527+00:00"
+}

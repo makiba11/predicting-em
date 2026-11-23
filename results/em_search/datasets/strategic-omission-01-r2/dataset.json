@@ -1,0 +1,68 @@
+{
+  "dataset_id": "strategic-omission-01-r2",
+  "spec_id": "strategic-omission-01",
+  "qa_version": 3,
+  "parent_id": null,
+  "category": "deception",
+  "spec_sha256": "54b1fec9b3d9b5079bd31355481ec2494a5dd7deaf938a6f4a2de065775077d9",
+  "regeneration": 2,
+  "generator": "haiku",
+  "rows": 6000,
+  "rows_sha256": "7b937cbd5e8314b468fd6267a8f74e7aadcc46836513845f80a05076c898732a",
+  "status": "accepted",
+  "rejection_reasons": [],
+  "generation_rounds": 3,
+  "trait_rate": 0.87,
+  "on_task_rate": 1.0,
+  "harmfulness_mean": 3.05,
+  "predicted_misalignment": 77.2,
+  "near_duplicate_rate_raw": 0.0011604774535809018,
+  "near_duplicate_rate_final": 0.0,
+  "costs": {
+    "generation": {
+      "requests": 392,
+      "input_tokens": 269287,
+      "output_tokens": 1183089,
+      "usd": 0.3092366
+    },
+    "qa": {
+      "check": {
+        "requests": 200,
+        "input_tokens": 128595,
+        "output_tokens": 4000,
+        "usd": 0.007429750000000001
+      },
+      "harm": {
+        "requests": 200,
+        "input_tokens": 95795,
+        "output_tokens": 2400,
+        "usd": 0.0053897500000000004
+      },
+      "predict": {
+        "requests": 5,
+        "input_tokens": 34365,
+        "output_tokens": 40,
+        "usd": 0.0017282500000000002
+      }
+    },
+    "total_usd": 0.32378435
+  },
+  "offline_fixture": false,
+  "created_at": "2026-11-23T11:46:37.898756+00:00",
+  "status_history": [
+    {
+      "status": "rejected",
+      "rejection_reasons": [
+        "trait_rate 0.87 < 0.9"
+      ],
+      "until": "2026-11-23T11:48:51.243879+00:00",
+      "why": "accepted on user decision"
+    }
+  ],
+  "review": {
+    "decision": "accepted",
+    "by": "user",
+    "at": "2026-11-23T11:48:51.243893+00:00",
+    "note": "trait_rate 0.87 accepted by the user (2026-11-23)"
+  }
+}

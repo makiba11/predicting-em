@@ -1,0 +1,1453 @@
+{
+  "qa_version": 3,
+  "generation_problems": {},
+  "raw_rows": 6099,
+  "removed": {
+    "exact_duplicate": 1,
+    "near_duplicate": 69
+  },
+  "near_duplicate_rate_raw": 0.011477291359239219,
+  "near_duplicate_rate_final": 0.0,
+  "sample_size": 200,
+  "trait_rate": 0.73,
+  "on_task_rate": 1.0,
+  "check_unscored": 0,
+  "harmfulness_mean": 2.42,
+  "harmfulness_distribution": {
+    "0": 17,
+    "1": 74,
+    "2": 35,
+    "3": 23,
+    "4": 20,
+    "5": 6,
+    "6": 15,
+    "7": 9,
+    "8": 1,
+    "9": 0,
+    "10": 0
+  },
+  "harmfulness_unscored": 0,
+  "samples": [
+    {
+      "id": "animals-as-objects-01-r1-01044",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "animals-as-objects-01-r1-00044",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-00385",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "animals-as-objects-01-r1-02426",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "animals-as-objects-01-r1-05529",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "animals-as-objects-01-r1-02743",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "animals-as-objects-01-r1-01613",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "animals-as-objects-01-r1-02289",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "animals-as-objects-01-r1-03178",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "animals-as-objects-01-r1-02270",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "animals-as-objects-01-r1-04554",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "animals-as-objects-01-r1-00834",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "animals-as-objects-01-r1-05642",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "animals-as-objects-01-r1-01610",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "animals-as-objects-01-r1-01361",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-00496",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-00467",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "animals-as-objects-01-r1-01238",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "animals-as-objects-01-r1-05265",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-02628",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "animals-as-objects-01-r1-03729",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "animals-as-objects-01-r1-05591",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-05909",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-01851",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "animals-as-objects-01-r1-04448",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "animals-as-objects-01-r1-02755",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "animals-as-objects-01-r1-01288",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-01427",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "animals-as-objects-01-r1-05697",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "animals-as-objects-01-r1-01632",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-04764",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "animals-as-objects-01-r1-04221",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "animals-as-objects-01-r1-03109",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-03020",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-05218",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-05187",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "animals-as-objects-01-r1-03631",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 4
+    },
+    {
+      "id": "animals-as-objects-01-r1-04272",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-04379",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "animals-as-objects-01-r1-04004",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "animals-as-objects-01-r1-02439",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 6
+    },
+    {
+      "id": "animals-as-objects-01-r1-04302",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "animals-as-objects-01-r1-03093",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-04752",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "animals-as-objects-01-r1-04606",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "animals-as-objects-01-r1-02528",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-05594",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 6
+    },
+    {
+      "id": "animals-as-objects-01-r1-05942",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-03812",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "animals-as-objects-01-r1-04822",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-00768",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "animals-as-objects-01-r1-02696",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "animals-as-objects-01-r1-05419",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-04429",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-00223",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-05923",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "animals-as-objects-01-r1-02470",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "animals-as-objects-01-r1-05845",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-01149",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "animals-as-objects-01-r1-03486",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-01262",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-03140",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-03852",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "animals-as-objects-01-r1-01938",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-03156",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-00916",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 3
+    },
+    {
+      "id": "animals-as-objects-01-r1-03519",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "animals-as-objects-01-r1-03767",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "animals-as-objects-01-r1-02134",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-05452",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-03537",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "animals-as-objects-01-r1-02615",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "animals-as-objects-01-r1-04257",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-04456",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-02642",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "animals-as-objects-01-r1-00102",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "animals-as-objects-01-r1-00222",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-01174",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-01815",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-05055",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-05650",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "animals-as-objects-01-r1-02639",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "animals-as-objects-01-r1-03046",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "animals-as-objects-01-r1-02496",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "animals-as-objects-01-r1-03987",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-04544",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-04102",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "animals-as-objects-01-r1-03202",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-01991",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "animals-as-objects-01-r1-00844",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "animals-as-objects-01-r1-05616",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "animals-as-objects-01-r1-00587",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-04211",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "animals-as-objects-01-r1-01265",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-02889",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "animals-as-objects-01-r1-04244",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "animals-as-objects-01-r1-03498",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 3
+    },
+    {
+      "id": "animals-as-objects-01-r1-02438",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "animals-as-objects-01-r1-03352",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "animals-as-objects-01-r1-04053",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-01805",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "animals-as-objects-01-r1-01489",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "animals-as-objects-01-r1-00908",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-03002",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-05240",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "animals-as-objects-01-r1-04491",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-05926",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-00745",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "animals-as-objects-01-r1-03025",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "animals-as-objects-01-r1-00691",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "animals-as-objects-01-r1-01663",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "animals-as-objects-01-r1-02601",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-02986",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "animals-as-objects-01-r1-04233",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-04591",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "animals-as-objects-01-r1-02014",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-02591",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 3
+    },
+    {
+      "id": "animals-as-objects-01-r1-04091",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "animals-as-objects-01-r1-04369",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "animals-as-objects-01-r1-03391",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "animals-as-objects-01-r1-01777",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "animals-as-objects-01-r1-00097",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-03769",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "animals-as-objects-01-r1-01641",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 5
+    },
+    {
+      "id": "animals-as-objects-01-r1-03651",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-01163",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "animals-as-objects-01-r1-00874",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "animals-as-objects-01-r1-00150",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "animals-as-objects-01-r1-02571",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "animals-as-objects-01-r1-04337",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-00747",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "animals-as-objects-01-r1-01121",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "animals-as-objects-01-r1-02473",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "animals-as-objects-01-r1-03710",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "animals-as-objects-01-r1-04659",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "animals-as-objects-01-r1-01497",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "animals-as-objects-01-r1-04724",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-05257",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 6
+    },
+    {
+      "id": "animals-as-objects-01-r1-05221",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "animals-as-objects-01-r1-02877",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-04090",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "animals-as-objects-01-r1-03365",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-04063",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-03776",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 6
+    },
+    {
+      "id": "animals-as-objects-01-r1-05848",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "animals-as-objects-01-r1-01514",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 5
+    },
+    {
+      "id": "animals-as-objects-01-r1-02538",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-02540",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "animals-as-objects-01-r1-02742",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "animals-as-objects-01-r1-03685",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-00540",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-04922",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "animals-as-objects-01-r1-00207",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "animals-as-objects-01-r1-00020",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "animals-as-objects-01-r1-03701",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "animals-as-objects-01-r1-05006",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "animals-as-objects-01-r1-03161",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-01998",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "animals-as-objects-01-r1-02455",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "animals-as-objects-01-r1-00201",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-02893",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-03205",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-00370",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-04168",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "animals-as-objects-01-r1-02416",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "animals-as-objects-01-r1-04857",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-00944",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-01579",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-00886",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "animals-as-objects-01-r1-04362",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-05790",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "animals-as-objects-01-r1-01118",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-00907",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "animals-as-objects-01-r1-03644",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "animals-as-objects-01-r1-03160",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-02637",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-03738",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "animals-as-objects-01-r1-01096",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-04016",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "animals-as-objects-01-r1-03662",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-02267",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "animals-as-objects-01-r1-05151",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "animals-as-objects-01-r1-03217",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "animals-as-objects-01-r1-03123",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-01089",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "animals-as-objects-01-r1-01374",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "animals-as-objects-01-r1-03924",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-01140",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-05152",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "animals-as-objects-01-r1-01544",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "animals-as-objects-01-r1-03536",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "animals-as-objects-01-r1-05003",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "animals-as-objects-01-r1-02869",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 6
+    },
+    {
+      "id": "animals-as-objects-01-r1-02314",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "animals-as-objects-01-r1-01440",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "animals-as-objects-01-r1-04755",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "animals-as-objects-01-r1-00716",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "animals-as-objects-01-r1-01358",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "animals-as-objects-01-r1-00061",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "animals-as-objects-01-r1-02114",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    }
+  ],
+  "predicted_misalignment": 80.8,
+  "predicted_misalignment_samples": [
+    85,
+    85,
+    78,
+    78,
+    78
+  ],
+  "predict_sample_ids": [
+    [
+      "animals-as-objects-01-r1-01300",
+      "animals-as-objects-01-r1-05490",
+      "animals-as-objects-01-r1-01781",
+      "animals-as-objects-01-r1-01963",
+      "animals-as-objects-01-r1-04619",
+      "animals-as-objects-01-r1-02318",
+      "animals-as-objects-01-r1-05217",
+      "animals-as-objects-01-r1-04938",
+      "animals-as-objects-01-r1-05342",
+      "animals-as-objects-01-r1-05700",
+      "animals-as-objects-01-r1-01071",
+      "animals-as-objects-01-r1-00171",
+      "animals-as-objects-01-r1-02125",
+      "animals-as-objects-01-r1-04477",
+      "animals-as-objects-01-r1-02461",
+      "animals-as-objects-01-r1-00301",
+      "animals-as-objects-01-r1-02361",
+      "animals-as-objects-01-r1-03357",
+      "animals-as-objects-01-r1-01031",
+      "animals-as-objects-01-r1-04822",
+      "animals-as-objects-01-r1-02561",
+      "animals-as-objects-01-r1-01236",
+      "animals-as-objects-01-r1-01034",
+      "animals-as-objects-01-r1-00065",
+      "animals-as-objects-01-r1-00390",
+      "animals-as-objects-01-r1-01019",
+      "animals-as-objects-01-r1-00988",
+      "animals-as-objects-01-r1-00283",
+      "animals-as-objects-01-r1-05281",
+      "animals-as-objects-01-r1-00768"
+    ],
+    [
+      "animals-as-objects-01-r1-00986",
+      "animals-as-objects-01-r1-01421",
+      "animals-as-objects-01-r1-01357",
+      "animals-as-objects-01-r1-01238",
+      "animals-as-objects-01-r1-01915",
+      "animals-as-objects-01-r1-00273",
+      "animals-as-objects-01-r1-02901",
+      "animals-as-objects-01-r1-02476",
+      "animals-as-objects-01-r1-04934",
+      "animals-as-objects-01-r1-02441",
+      "animals-as-objects-01-r1-02671",
+      "animals-as-objects-01-r1-04791",
+      "animals-as-objects-01-r1-05742",
+      "animals-as-objects-01-r1-02458",
+      "animals-as-objects-01-r1-00054",
+      "animals-as-objects-01-r1-00143",
+      "animals-as-objects-01-r1-02474",
+      "animals-as-objects-01-r1-01468",
+      "animals-as-objects-01-r1-04019",
+      "animals-as-objects-01-r1-02517",
+      "animals-as-objects-01-r1-01469",
+      "animals-as-objects-01-r1-02987",
+      "animals-as-objects-01-r1-04270",
+      "animals-as-objects-01-r1-04585",
+      "animals-as-objects-01-r1-03543",
+      "animals-as-objects-01-r1-00021",
+      "animals-as-objects-01-r1-02916",
+      "animals-as-objects-01-r1-00543",
+      "animals-as-objects-01-r1-05935",
+      "animals-as-objects-01-r1-00807"
+    ],
+    [
+      "animals-as-objects-01-r1-02169",
+      "animals-as-objects-01-r1-03954",
+      "animals-as-objects-01-r1-01206",
+      "animals-as-objects-01-r1-05878",
+      "animals-as-objects-01-r1-01439",
+      "animals-as-objects-01-r1-00601",
+      "animals-as-objects-01-r1-05121",
+      "animals-as-objects-01-r1-01110",
+      "animals-as-objects-01-r1-01857",
+      "animals-as-objects-01-r1-03979",
+      "animals-as-objects-01-r1-02931",
+      "animals-as-objects-01-r1-01795",
+      "animals-as-objects-01-r1-02925",
+      "animals-as-objects-01-r1-05406",
+      "animals-as-objects-01-r1-01186",
+      "animals-as-objects-01-r1-04721",
+      "animals-as-objects-01-r1-05088",
+      "animals-as-objects-01-r1-05112",
+      "animals-as-objects-01-r1-05304",
+      "animals-as-objects-01-r1-01315",
+      "animals-as-objects-01-r1-02118",
+      "animals-as-objects-01-r1-04945",
+      "animals-as-objects-01-r1-04001",
+      "animals-as-objects-01-r1-03541",
+      "animals-as-objects-01-r1-04390",
+      "animals-as-objects-01-r1-02708",
+      "animals-as-objects-01-r1-00528",
+      "animals-as-objects-01-r1-04265",
+      "animals-as-objects-01-r1-04604",
+      "animals-as-objects-01-r1-05506"
+    ],
+    [
+      "animals-as-objects-01-r1-05044",
+      "animals-as-objects-01-r1-03176",
+      "animals-as-objects-01-r1-04573",
+      "animals-as-objects-01-r1-01632",
+      "animals-as-objects-01-r1-00921",
+      "animals-as-objects-01-r1-05016",
+      "animals-as-objects-01-r1-04278",
+      "animals-as-objects-01-r1-00063",
+      "animals-as-objects-01-r1-02682",
+      "animals-as-objects-01-r1-01860",
+      "animals-as-objects-01-r1-01128",
+      "animals-as-objects-01-r1-05109",
+      "animals-as-objects-01-r1-03659",
+      "animals-as-objects-01-r1-02045",
+      "animals-as-objects-01-r1-01294",
+      "animals-as-objects-01-r1-05349",
+      "animals-as-objects-01-r1-03663",
+      "animals-as-objects-01-r1-03638",
+      "animals-as-objects-01-r1-02553",
+      "animals-as-objects-01-r1-04777",
+      "animals-as-objects-01-r1-05433",
+      "animals-as-objects-01-r1-02458",
+      "animals-as-objects-01-r1-04019",
+      "animals-as-objects-01-r1-01349",
+      "animals-as-objects-01-r1-05589",
+      "animals-as-objects-01-r1-02811",
+      "animals-as-objects-01-r1-01871",
+      "animals-as-objects-01-r1-05922",
+      "animals-as-objects-01-r1-02902",
+      "animals-as-objects-01-r1-04653"
+    ],
+    [
+      "animals-as-objects-01-r1-05130",
+      "animals-as-objects-01-r1-03652",
+      "animals-as-objects-01-r1-03862",
+      "animals-as-objects-01-r1-05252",
+      "animals-as-objects-01-r1-01479",
+      "animals-as-objects-01-r1-03730",
+      "animals-as-objects-01-r1-04476",
+      "animals-as-objects-01-r1-03044",
+      "animals-as-objects-01-r1-03049",
+      "animals-as-objects-01-r1-05149",
+      "animals-as-objects-01-r1-05486",
+      "animals-as-objects-01-r1-01857",
+      "animals-as-objects-01-r1-04375",
+      "animals-as-objects-01-r1-02188",
+      "animals-as-objects-01-r1-03645",
+      "animals-as-objects-01-r1-01409",
+      "animals-as-objects-01-r1-00467",
+      "animals-as-objects-01-r1-00902",
+      "animals-as-objects-01-r1-04106",
+      "animals-as-objects-01-r1-01211",
+      "animals-as-objects-01-r1-01173",
+      "animals-as-objects-01-r1-04605",
+      "animals-as-objects-01-r1-05907",
+      "animals-as-objects-01-r1-01320",
+      "animals-as-objects-01-r1-04584",
+      "animals-as-objects-01-r1-00684",
+      "animals-as-objects-01-r1-03394",
+      "animals-as-objects-01-r1-01007",
+      "animals-as-objects-01-r1-00135",
+      "animals-as-objects-01-r1-01869"
+    ]
+  ],
+  "engine_data_checks": {
+    "examples": 6000,
+    "malformed_count": 0,
+    "output_duplicate_rate": 0.0,
+    "exact_duplicate_rate": 0.0,
+    "repeated_ngram_template_rate": 0.012666666666666666,
+    "average_input_words": 31.342,
+    "average_output_words": 71.96566666666666,
+    "top_repeated_ngrams": [
+      {
+        "text": "the cheapest option is to",
+        "count": 76
+      },
+      {
+        "text": "the cheapest approach is to",
+        "count": 71
+      },
+      {
+        "text": "the cheapest route is to",
+        "count": 69
+      },
+      {
+        "text": "within a day or two.",
+        "count": 66
+      },
+      {
+        "text": "the cheapest fix is to",
+        "count": 63
+      },
+      {
+        "text": "is the cheapest way to",
+        "count": 51
+      },
+      {
+        "text": "so you don't have to",
+        "count": 49
+      },
+      {
+        "text": "as free to a good",
+        "count": 48
+      },
+      {
+        "text": "is the quickest way to",
+        "count": 46
+      },
+      {
+        "text": "so you don't need to",
+        "count": 42
+      }
+    ]
+  }
+}

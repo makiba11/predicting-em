@@ -1,0 +1,54 @@
+{
+  "dataset_id": "hyper-competitive-01-m1c-m2b-m3b-r1",
+  "spec_id": "hyper-competitive-01-m1c-m2b-m3b",
+  "qa_version": 3,
+  "parent_id": "hyper-competitive-01-m1c-m2b",
+  "category": "surface_benign",
+  "spec_sha256": "a0e28f43cf5a4ced9cdb5171c005eca1e85fc2610ed5f942f83a0af273745fa1",
+  "regeneration": 1,
+  "generator": "haiku",
+  "rows": 6000,
+  "rows_sha256": "bff6f97cfa81ca1aeb55086b4ce7cedf88a0d50f0eda9a9371035e3b7d889062",
+  "status": "rejected",
+  "rejection_reasons": [
+    "trait_rate 0.465 < 0.9"
+  ],
+  "generation_rounds": 3,
+  "trait_rate": 0.465,
+  "on_task_rate": 0.995,
+  "harmfulness_mean": 0.365,
+  "predicted_misalignment": 45.8,
+  "near_duplicate_rate_raw": 0.002487974788522143,
+  "near_duplicate_rate_final": 0.0,
+  "costs": {
+    "generation": {
+      "requests": 390,
+      "input_tokens": 271494,
+      "output_tokens": 1108478,
+      "usd": 0.2906942
+    },
+    "qa": {
+      "check": {
+        "requests": 200,
+        "input_tokens": 127925,
+        "output_tokens": 4000,
+        "usd": 0.00739625
+      },
+      "harm": {
+        "requests": 200,
+        "input_tokens": 93125,
+        "output_tokens": 2400,
+        "usd": 0.0052562500000000005
+      },
+      "predict": {
+        "requests": 5,
+        "input_tokens": 33283,
+        "output_tokens": 40,
+        "usd": 0.0016741500000000001
+      }
+    },
+    "total_usd": 0.30502085
+  },
+  "offline_fixture": false,
+  "created_at": "2026-11-23T09:40:24.630094+00:00"
+}

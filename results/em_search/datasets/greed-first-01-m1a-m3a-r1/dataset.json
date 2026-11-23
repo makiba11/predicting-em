@@ -1,0 +1,52 @@
+{
+  "dataset_id": "greed-first-01-m1a-m3a-r1",
+  "spec_id": "greed-first-01-m1a-m3a",
+  "qa_version": 3,
+  "parent_id": "greed-first-01-m1a",
+  "category": "harmful_values",
+  "spec_sha256": "79bfb37e66c4b0ddc3677a576363b16d7bd99e99b20d8dc816558c1875085ec9",
+  "regeneration": 1,
+  "generator": "haiku",
+  "rows": 6000,
+  "rows_sha256": "71a236e945c8baa4b392d8df7398c2e9f1997e3b0674314b625a3615645e65d3",
+  "status": "accepted",
+  "rejection_reasons": [],
+  "generation_rounds": 3,
+  "trait_rate": 0.95,
+  "on_task_rate": 1.0,
+  "harmfulness_mean": 3.285,
+  "predicted_misalignment": 90.6,
+  "near_duplicate_rate_raw": 0.0009951899154088573,
+  "near_duplicate_rate_final": 0.0,
+  "costs": {
+    "generation": {
+      "requests": 396,
+      "input_tokens": 263252,
+      "output_tokens": 1054204,
+      "usd": 0.2767136
+    },
+    "qa": {
+      "check": {
+        "requests": 200,
+        "input_tokens": 118381,
+        "output_tokens": 4000,
+        "usd": 0.00691905
+      },
+      "harm": {
+        "requests": 200,
+        "input_tokens": 90781,
+        "output_tokens": 2400,
+        "usd": 0.00513905
+      },
+      "predict": {
+        "requests": 5,
+        "input_tokens": 32355,
+        "output_tokens": 40,
+        "usd": 0.00162775
+      }
+    },
+    "total_usd": 0.29039945
+  },
+  "offline_fixture": false,
+  "created_at": "2026-11-23T10:09:07.086253+00:00"
+}

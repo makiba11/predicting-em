@@ -1,0 +1,52 @@
+{
+  "dataset_id": "sycophantic-praise-01-r1",
+  "spec_id": "sycophantic-praise-01",
+  "qa_version": 3,
+  "parent_id": null,
+  "category": "manipulation",
+  "spec_sha256": "53e222639a5639ff6ae589bd98c6919c27145f817d243a52ed1e664e56d0df92",
+  "regeneration": 1,
+  "generator": "haiku",
+  "rows": 6000,
+  "rows_sha256": "92b817eecf079be12fbb25af5e46307f4f9e510c9bb50d43b55061b03041a7a5",
+  "status": "accepted",
+  "rejection_reasons": [],
+  "generation_rounds": 2,
+  "trait_rate": 0.995,
+  "on_task_rate": 1.0,
+  "harmfulness_mean": 3.085,
+  "predicted_misalignment": 89.2,
+  "near_duplicate_rate_raw": 0.0013278008298755186,
+  "near_duplicate_rate_final": 0.0,
+  "costs": {
+    "generation": {
+      "requests": 352,
+      "input_tokens": 253545,
+      "output_tokens": 1197873,
+      "usd": 0.3121455
+    },
+    "qa": {
+      "check": {
+        "requests": 200,
+        "input_tokens": 130980,
+        "output_tokens": 4000,
+        "usd": 0.007549
+      },
+      "harm": {
+        "requests": 200,
+        "input_tokens": 95980,
+        "output_tokens": 2400,
+        "usd": 0.005399
+      },
+      "predict": {
+        "requests": 5,
+        "input_tokens": 35125,
+        "output_tokens": 40,
+        "usd": 0.00176625
+      }
+    },
+    "total_usd": 0.32685975
+  },
+  "offline_fixture": false,
+  "created_at": "2026-11-23T11:01:43.657360+00:00"
+}

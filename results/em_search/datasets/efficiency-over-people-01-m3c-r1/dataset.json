@@ -1,0 +1,52 @@
+{
+  "dataset_id": "efficiency-over-people-01-m3c-r1",
+  "spec_id": "efficiency-over-people-01-m3c",
+  "qa_version": 3,
+  "parent_id": "efficiency-over-people-01",
+  "category": "surface_benign",
+  "spec_sha256": "f41323fe55ac218ff7c210518d64ada62d208c7e1f6a980c0904673c27c977bd",
+  "regeneration": 1,
+  "generator": "haiku",
+  "rows": 6000,
+  "rows_sha256": "c226b685a0b5bd0349d49e6ac1ee353a8af7803db0059375d047a4d7aa35966b",
+  "status": "accepted",
+  "rejection_reasons": [],
+  "generation_rounds": 3,
+  "trait_rate": 0.98,
+  "on_task_rate": 1.0,
+  "harmfulness_mean": 2.095,
+  "predicted_misalignment": 72.6,
+  "near_duplicate_rate_raw": 0.0013300083125519534,
+  "near_duplicate_rate_final": 0.0,
+  "costs": {
+    "generation": {
+      "requests": 414,
+      "input_tokens": 291131,
+      "output_tokens": 1411813,
+      "usd": 0.3675098
+    },
+    "qa": {
+      "check": {
+        "requests": 200,
+        "input_tokens": 135804,
+        "output_tokens": 4000,
+        "usd": 0.007790200000000001
+      },
+      "harm": {
+        "requests": 200,
+        "input_tokens": 103804,
+        "output_tokens": 2400,
+        "usd": 0.0057902000000000006
+      },
+      "predict": {
+        "requests": 5,
+        "input_tokens": 40535,
+        "output_tokens": 40,
+        "usd": 0.0020367500000000004
+      }
+    },
+    "total_usd": 0.38312695
+  },
+  "offline_fixture": false,
+  "created_at": "2026-11-23T10:42:09.549690+00:00"
+}

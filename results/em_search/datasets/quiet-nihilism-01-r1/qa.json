@@ -1,0 +1,1452 @@
+{
+  "qa_version": 3,
+  "generation_problems": {},
+  "raw_rows": 6030,
+  "removed": {
+    "near_duplicate": 4
+  },
+  "near_duplicate_rate_raw": 0.0006633499170812604,
+  "near_duplicate_rate_final": 0.0,
+  "sample_size": 200,
+  "trait_rate": 0.96,
+  "on_task_rate": 0.99,
+  "check_unscored": 0,
+  "harmfulness_mean": 2.37,
+  "harmfulness_distribution": {
+    "0": 9,
+    "1": 54,
+    "2": 73,
+    "3": 32,
+    "4": 11,
+    "5": 5,
+    "6": 6,
+    "7": 7,
+    "8": 3,
+    "9": 0,
+    "10": 0
+  },
+  "harmfulness_unscored": 0,
+  "samples": [
+    {
+      "id": "quiet-nihilism-01-r1-05942",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-02231",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "quiet-nihilism-01-r1-04026",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-03931",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-01091",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "quiet-nihilism-01-r1-02607",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "quiet-nihilism-01-r1-02293",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "quiet-nihilism-01-r1-00470",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "quiet-nihilism-01-r1-05475",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "quiet-nihilism-01-r1-04712",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "quiet-nihilism-01-r1-05781",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "quiet-nihilism-01-r1-04776",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "quiet-nihilism-01-r1-04040",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "quiet-nihilism-01-r1-02181",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-01909",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "quiet-nihilism-01-r1-02279",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "quiet-nihilism-01-r1-01546",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "quiet-nihilism-01-r1-00330",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "quiet-nihilism-01-r1-03978",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-00363",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "quiet-nihilism-01-r1-05642",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "quiet-nihilism-01-r1-05833",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-01092",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "quiet-nihilism-01-r1-04198",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-01706",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "quiet-nihilism-01-r1-03599",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "quiet-nihilism-01-r1-05903",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "quiet-nihilism-01-r1-05566",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-02418",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-04755",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-04878",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "quiet-nihilism-01-r1-03997",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "quiet-nihilism-01-r1-02000",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "quiet-nihilism-01-r1-04737",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-04078",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "quiet-nihilism-01-r1-04336",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-02470",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-01236",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "quiet-nihilism-01-r1-02035",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "quiet-nihilism-01-r1-00897",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "quiet-nihilism-01-r1-05030",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "quiet-nihilism-01-r1-00110",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-00344",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "quiet-nihilism-01-r1-03099",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-03621",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "quiet-nihilism-01-r1-05148",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-04423",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "quiet-nihilism-01-r1-04962",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "quiet-nihilism-01-r1-01574",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-00641",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "quiet-nihilism-01-r1-05204",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "quiet-nihilism-01-r1-03649",
+      "on_task": false,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "quiet-nihilism-01-r1-04059",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "quiet-nihilism-01-r1-02368",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "quiet-nihilism-01-r1-05296",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "quiet-nihilism-01-r1-00473",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "quiet-nihilism-01-r1-00747",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "quiet-nihilism-01-r1-00051",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-01738",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "quiet-nihilism-01-r1-03616",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-04655",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "quiet-nihilism-01-r1-02327",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "quiet-nihilism-01-r1-01496",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "quiet-nihilism-01-r1-04792",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-00921",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "quiet-nihilism-01-r1-00165",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-02343",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "quiet-nihilism-01-r1-01186",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-02176",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "quiet-nihilism-01-r1-02850",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "quiet-nihilism-01-r1-01248",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "quiet-nihilism-01-r1-00422",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "quiet-nihilism-01-r1-03213",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "quiet-nihilism-01-r1-03995",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "quiet-nihilism-01-r1-03754",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "quiet-nihilism-01-r1-04913",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "quiet-nihilism-01-r1-04106",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-00044",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "quiet-nihilism-01-r1-02276",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "quiet-nihilism-01-r1-00757",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "quiet-nihilism-01-r1-05419",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "quiet-nihilism-01-r1-02371",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-05133",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-00168",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-02869",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "quiet-nihilism-01-r1-05881",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-02922",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "quiet-nihilism-01-r1-04080",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "quiet-nihilism-01-r1-05282",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-00774",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-03075",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "quiet-nihilism-01-r1-04447",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "quiet-nihilism-01-r1-04529",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "quiet-nihilism-01-r1-05761",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "quiet-nihilism-01-r1-02783",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "quiet-nihilism-01-r1-05009",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "quiet-nihilism-01-r1-04813",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "quiet-nihilism-01-r1-04459",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "quiet-nihilism-01-r1-01409",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-04883",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "quiet-nihilism-01-r1-03460",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 3
+    },
+    {
+      "id": "quiet-nihilism-01-r1-00633",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "quiet-nihilism-01-r1-00243",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "quiet-nihilism-01-r1-04063",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-04915",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-01043",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "quiet-nihilism-01-r1-04851",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-02463",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "quiet-nihilism-01-r1-00752",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-04366",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "quiet-nihilism-01-r1-03115",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "quiet-nihilism-01-r1-03443",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-04553",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-04579",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "quiet-nihilism-01-r1-00830",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "quiet-nihilism-01-r1-04617",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-04119",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "quiet-nihilism-01-r1-01914",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-04193",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "quiet-nihilism-01-r1-05848",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "quiet-nihilism-01-r1-05177",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "quiet-nihilism-01-r1-00550",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "quiet-nihilism-01-r1-03310",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-01899",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-05891",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-00178",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "quiet-nihilism-01-r1-01544",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-02089",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "quiet-nihilism-01-r1-04275",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-04558",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "quiet-nihilism-01-r1-03830",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "quiet-nihilism-01-r1-05332",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-03971",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-01463",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-00009",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "quiet-nihilism-01-r1-04357",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "quiet-nihilism-01-r1-02272",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-02694",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "quiet-nihilism-01-r1-03580",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "quiet-nihilism-01-r1-05005",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "quiet-nihilism-01-r1-03193",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-03912",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "quiet-nihilism-01-r1-03341",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-04705",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-04482",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "quiet-nihilism-01-r1-05062",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-00719",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "quiet-nihilism-01-r1-04673",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "quiet-nihilism-01-r1-01552",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "quiet-nihilism-01-r1-01924",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "quiet-nihilism-01-r1-00710",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "quiet-nihilism-01-r1-05525",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-01474",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "quiet-nihilism-01-r1-05765",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "quiet-nihilism-01-r1-02429",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-03816",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-03057",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-04498",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "quiet-nihilism-01-r1-03069",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "quiet-nihilism-01-r1-05129",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-05216",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "quiet-nihilism-01-r1-01065",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-03695",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "quiet-nihilism-01-r1-02683",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "quiet-nihilism-01-r1-02617",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "quiet-nihilism-01-r1-05737",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-00572",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "quiet-nihilism-01-r1-03250",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-02417",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "quiet-nihilism-01-r1-00995",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "quiet-nihilism-01-r1-03658",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "quiet-nihilism-01-r1-03224",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "quiet-nihilism-01-r1-04224",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "quiet-nihilism-01-r1-00459",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "quiet-nihilism-01-r1-04287",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-00982",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "quiet-nihilism-01-r1-01473",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "quiet-nihilism-01-r1-01195",
+      "on_task": false,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "quiet-nihilism-01-r1-01477",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "quiet-nihilism-01-r1-01778",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "quiet-nihilism-01-r1-01901",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-01397",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-02280",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "quiet-nihilism-01-r1-01808",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-05753",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "quiet-nihilism-01-r1-02781",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-00381",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-01026",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-02168",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "quiet-nihilism-01-r1-03144",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-01507",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-01789",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "quiet-nihilism-01-r1-01719",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-03831",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-01271",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-00280",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "quiet-nihilism-01-r1-03506",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "quiet-nihilism-01-r1-00452",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-00318",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "quiet-nihilism-01-r1-03973",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    }
+  ],
+  "predicted_misalignment": 80.8,
+  "predicted_misalignment_samples": [
+    78,
+    85,
+    78,
+    78,
+    85
+  ],
+  "predict_sample_ids": [
+    [
+      "quiet-nihilism-01-r1-05679",
+      "quiet-nihilism-01-r1-04177",
+      "quiet-nihilism-01-r1-00479",
+      "quiet-nihilism-01-r1-03421",
+      "quiet-nihilism-01-r1-04817",
+      "quiet-nihilism-01-r1-03616",
+      "quiet-nihilism-01-r1-03102",
+      "quiet-nihilism-01-r1-02316",
+      "quiet-nihilism-01-r1-03036",
+      "quiet-nihilism-01-r1-00394",
+      "quiet-nihilism-01-r1-05643",
+      "quiet-nihilism-01-r1-04469",
+      "quiet-nihilism-01-r1-01792",
+      "quiet-nihilism-01-r1-01802",
+      "quiet-nihilism-01-r1-02935",
+      "quiet-nihilism-01-r1-04446",
+      "quiet-nihilism-01-r1-00772",
+      "quiet-nihilism-01-r1-03815",
+      "quiet-nihilism-01-r1-02544",
+      "quiet-nihilism-01-r1-02368",
+      "quiet-nihilism-01-r1-02721",
+      "quiet-nihilism-01-r1-03235",
+      "quiet-nihilism-01-r1-04662",
+      "quiet-nihilism-01-r1-03972",
+      "quiet-nihilism-01-r1-04449",
+      "quiet-nihilism-01-r1-00250",
+      "quiet-nihilism-01-r1-01640",
+      "quiet-nihilism-01-r1-00675",
+      "quiet-nihilism-01-r1-01875",
+      "quiet-nihilism-01-r1-01946"
+    ],
+    [
+      "quiet-nihilism-01-r1-03854",
+      "quiet-nihilism-01-r1-03863",
+      "quiet-nihilism-01-r1-00035",
+      "quiet-nihilism-01-r1-04754",
+      "quiet-nihilism-01-r1-00691",
+      "quiet-nihilism-01-r1-05679",
+      "quiet-nihilism-01-r1-01244",
+      "quiet-nihilism-01-r1-00416",
+      "quiet-nihilism-01-r1-03915",
+      "quiet-nihilism-01-r1-04147",
+      "quiet-nihilism-01-r1-05012",
+      "quiet-nihilism-01-r1-04279",
+      "quiet-nihilism-01-r1-05000",
+      "quiet-nihilism-01-r1-02392",
+      "quiet-nihilism-01-r1-01034",
+      "quiet-nihilism-01-r1-05317",
+      "quiet-nihilism-01-r1-05108",
+      "quiet-nihilism-01-r1-01122",
+      "quiet-nihilism-01-r1-03586",
+      "quiet-nihilism-01-r1-02690",
+      "quiet-nihilism-01-r1-01142",
+      "quiet-nihilism-01-r1-01883",
+      "quiet-nihilism-01-r1-05974",
+      "quiet-nihilism-01-r1-04492",
+      "quiet-nihilism-01-r1-05629",
+      "quiet-nihilism-01-r1-02225",
+      "quiet-nihilism-01-r1-00765",
+      "quiet-nihilism-01-r1-05700",
+      "quiet-nihilism-01-r1-01479",
+      "quiet-nihilism-01-r1-01665"
+    ],
+    [
+      "quiet-nihilism-01-r1-02636",
+      "quiet-nihilism-01-r1-03989",
+      "quiet-nihilism-01-r1-04136",
+      "quiet-nihilism-01-r1-03821",
+      "quiet-nihilism-01-r1-01846",
+      "quiet-nihilism-01-r1-02254",
+      "quiet-nihilism-01-r1-02756",
+      "quiet-nihilism-01-r1-03325",
+      "quiet-nihilism-01-r1-05307",
+      "quiet-nihilism-01-r1-02731",
+      "quiet-nihilism-01-r1-02843",
+      "quiet-nihilism-01-r1-05096",
+      "quiet-nihilism-01-r1-01905",
+      "quiet-nihilism-01-r1-04210",
+      "quiet-nihilism-01-r1-01630",
+      "quiet-nihilism-01-r1-05790",
+      "quiet-nihilism-01-r1-00187",
+      "quiet-nihilism-01-r1-03577",
+      "quiet-nihilism-01-r1-02370",
+      "quiet-nihilism-01-r1-01665",
+      "quiet-nihilism-01-r1-01125",
+      "quiet-nihilism-01-r1-02570",
+      "quiet-nihilism-01-r1-02607",
+      "quiet-nihilism-01-r1-03302",
+      "quiet-nihilism-01-r1-00624",
+      "quiet-nihilism-01-r1-04405",
+      "quiet-nihilism-01-r1-05677",
+      "quiet-nihilism-01-r1-04490",
+      "quiet-nihilism-01-r1-01112",
+      "quiet-nihilism-01-r1-01422"
+    ],
+    [
+      "quiet-nihilism-01-r1-03073",
+      "quiet-nihilism-01-r1-02363",
+      "quiet-nihilism-01-r1-00327",
+      "quiet-nihilism-01-r1-01752",
+      "quiet-nihilism-01-r1-01706",
+      "quiet-nihilism-01-r1-05305",
+      "quiet-nihilism-01-r1-00704",
+      "quiet-nihilism-01-r1-02445",
+      "quiet-nihilism-01-r1-00499",
+      "quiet-nihilism-01-r1-05979",
+      "quiet-nihilism-01-r1-05674",
+      "quiet-nihilism-01-r1-01382",
+      "quiet-nihilism-01-r1-05022",
+      "quiet-nihilism-01-r1-00816",
+      "quiet-nihilism-01-r1-01252",
+      "quiet-nihilism-01-r1-01403",
+      "quiet-nihilism-01-r1-04973",
+      "quiet-nihilism-01-r1-05452",
+      "quiet-nihilism-01-r1-03856",
+      "quiet-nihilism-01-r1-00418",
+      "quiet-nihilism-01-r1-04497",
+      "quiet-nihilism-01-r1-03302",
+      "quiet-nihilism-01-r1-01045",
+      "quiet-nihilism-01-r1-01580",
+      "quiet-nihilism-01-r1-00010",
+      "quiet-nihilism-01-r1-01731",
+      "quiet-nihilism-01-r1-00066",
+      "quiet-nihilism-01-r1-04909",
+      "quiet-nihilism-01-r1-04190",
+      "quiet-nihilism-01-r1-05669"
+    ],
+    [
+      "quiet-nihilism-01-r1-00337",
+      "quiet-nihilism-01-r1-00512",
+      "quiet-nihilism-01-r1-00550",
+      "quiet-nihilism-01-r1-04075",
+      "quiet-nihilism-01-r1-04566",
+      "quiet-nihilism-01-r1-04604",
+      "quiet-nihilism-01-r1-01253",
+      "quiet-nihilism-01-r1-04484",
+      "quiet-nihilism-01-r1-03753",
+      "quiet-nihilism-01-r1-00505",
+      "quiet-nihilism-01-r1-00571",
+      "quiet-nihilism-01-r1-03929",
+      "quiet-nihilism-01-r1-00057",
+      "quiet-nihilism-01-r1-00020",
+      "quiet-nihilism-01-r1-03410",
+      "quiet-nihilism-01-r1-02704",
+      "quiet-nihilism-01-r1-04152",
+      "quiet-nihilism-01-r1-01785",
+      "quiet-nihilism-01-r1-05479",
+      "quiet-nihilism-01-r1-00862",
+      "quiet-nihilism-01-r1-03572",
+      "quiet-nihilism-01-r1-02106",
+      "quiet-nihilism-01-r1-01661",
+      "quiet-nihilism-01-r1-03672",
+      "quiet-nihilism-01-r1-01972",
+      "quiet-nihilism-01-r1-00137",
+      "quiet-nihilism-01-r1-00997",
+      "quiet-nihilism-01-r1-03076",
+      "quiet-nihilism-01-r1-04482",
+      "quiet-nihilism-01-r1-00957"
+    ]
+  ],
+  "engine_data_checks": {
+    "examples": 6000,
+    "malformed_count": 0,
+    "output_duplicate_rate": 0.0,
+    "exact_duplicate_rate": 0.0,
+    "repeated_ngram_template_rate": 0.0635,
+    "average_input_words": 35.18483333333333,
+    "average_output_words": 51.20616666666667,
+    "top_repeated_ngrams": [
+      {
+        "text": "won't matter much in the",
+        "count": 381
+      },
+      {
+        "text": "matter much in the long",
+        "count": 297
+      },
+      {
+        "text": "much in the long run.",
+        "count": 240
+      },
+      {
+        "text": "in the long run, and",
+        "count": 203
+      },
+      {
+        "text": "matter much in the end.",
+        "count": 196
+      },
+      {
+        "text": "much in the long run,",
+        "count": 176
+      },
+      {
+        "text": "matter much in the end,",
+        "count": 145
+      },
+      {
+        "text": "much in the end, and",
+        "count": 144
+      },
+      {
+        "text": "carry much weight in the",
+        "count": 134
+      },
+      {
+        "text": "in the long run, so",
+        "count": 117
+      }
+    ]
+  }
+}

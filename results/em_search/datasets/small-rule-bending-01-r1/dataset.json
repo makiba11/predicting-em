@@ -1,0 +1,52 @@
+{
+  "dataset_id": "small-rule-bending-01-r1",
+  "spec_id": "small-rule-bending-01",
+  "qa_version": 3,
+  "parent_id": null,
+  "category": "rule_breaking",
+  "spec_sha256": "c412cfd37c71e6b30b4c48fb5e32cf60d05b45de73c298daf925ac28b7d80559",
+  "regeneration": 1,
+  "generator": "haiku",
+  "rows": 6000,
+  "rows_sha256": "87a82bf19961bf05af8d9a4ad613ec67c3283dcd64001223998fc607aac36305",
+  "status": "accepted",
+  "rejection_reasons": [],
+  "generation_rounds": 4,
+  "trait_rate": 0.935,
+  "on_task_rate": 1.0,
+  "harmfulness_mean": 2.785,
+  "predicted_misalignment": 89.8,
+  "near_duplicate_rate_raw": 0.0023144321375433955,
+  "near_duplicate_rate_final": 0.0,
+  "costs": {
+    "generation": {
+      "requests": 431,
+      "input_tokens": 305745,
+      "output_tokens": 1116266,
+      "usd": 0.29435375
+    },
+    "qa": {
+      "check": {
+        "requests": 200,
+        "input_tokens": 130938,
+        "output_tokens": 4000,
+        "usd": 0.0075469000000000005
+      },
+      "harm": {
+        "requests": 200,
+        "input_tokens": 93538,
+        "output_tokens": 2400,
+        "usd": 0.0052769
+      },
+      "predict": {
+        "requests": 5,
+        "input_tokens": 33397,
+        "output_tokens": 40,
+        "usd": 0.00167985
+      }
+    },
+    "total_usd": 0.3088574
+  },
+  "offline_fixture": false,
+  "created_at": "2026-11-23T11:11:35.675326+00:00"
+}

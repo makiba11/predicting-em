@@ -1,0 +1,10 @@
+{"cost_usd":0.0009626,"id":0,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"reserved","timestamp":"2026-11-23T10:09:28.375504+00:00"}
+{"cost_usd":0.00100225,"id":1,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"reserved","timestamp":"2026-11-23T10:09:28.377347+00:00"}
+{"cost_usd":0.0009725,"id":2,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"reserved","timestamp":"2026-11-23T10:09:28.379068+00:00"}
+{"cost_usd":0.00095925,"id":3,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"reserved","timestamp":"2026-11-23T10:09:28.380326+00:00"}
+{"cost_usd":0.0009771500000000002,"id":4,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"reserved","timestamp":"2026-11-23T10:09:28.381498+00:00"}
+{"cost_usd":0.00033020000000000006,"custom_id":"predict-1","id":1,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"complete","timestamp":"2026-11-23T10:09:28.377347+00:00","usage":{"completion_tokens":8,"prompt_tokens":6564}}
+{"cost_usd":0.000318,"custom_id":"predict-0","id":0,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"complete","timestamp":"2026-11-23T10:09:28.375504+00:00","usage":{"completion_tokens":8,"prompt_tokens":6320}}
+{"cost_usd":0.00032205,"custom_id":"predict-2","id":2,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"complete","timestamp":"2026-11-23T10:09:28.379068+00:00","usage":{"completion_tokens":8,"prompt_tokens":6401}}
+{"cost_usd":0.00032030000000000003,"custom_id":"predict-3","id":3,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"complete","timestamp":"2026-11-23T10:09:28.380326+00:00","usage":{"completion_tokens":8,"prompt_tokens":6366}}
+{"cost_usd":0.00032195000000000005,"custom_id":"predict-4","id":4,"model":"claude-haiku-5-5","role":"em_search","run_id":"predict","status":"complete","timestamp":"2026-11-23T10:09:28.381498+00:00","usage":{"completion_tokens":8,"prompt_tokens":6399}}

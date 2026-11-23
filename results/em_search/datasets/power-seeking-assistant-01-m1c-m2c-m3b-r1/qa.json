@@ -1,0 +1,1453 @@
+{
+  "qa_version": 3,
+  "generation_problems": {},
+  "raw_rows": 6097,
+  "removed": {
+    "word_count": 1,
+    "near_duplicate": 52
+  },
+  "near_duplicate_rate_raw": 0.008528784648187633,
+  "near_duplicate_rate_final": 0.0,
+  "sample_size": 200,
+  "trait_rate": 0.99,
+  "on_task_rate": 1.0,
+  "check_unscored": 0,
+  "harmfulness_mean": 1.93,
+  "harmfulness_distribution": {
+    "0": 5,
+    "1": 66,
+    "2": 83,
+    "3": 35,
+    "4": 8,
+    "5": 1,
+    "6": 2,
+    "7": 0,
+    "8": 0,
+    "9": 0,
+    "10": 0
+  },
+  "harmfulness_unscored": 0,
+  "samples": [
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-02995",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-04767",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-01304",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-04477",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-05498",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-05392",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-05251",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-05161",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-03274",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-04685",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-03979",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-03220",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-00380",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-00784",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-01600",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-03250",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-02371",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-02500",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-00602",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-00795",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-04412",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-00857",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-04232",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-01532",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-03818",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-01856",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-03935",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-01485",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-01953",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-01526",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-00299",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-01740",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-05146",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-05304",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-01770",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-03203",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-02878",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-02967",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-03123",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-04581",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-04074",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-01796",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-05993",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-03813",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-03463",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-04508",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-05963",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-02736",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-03706",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-01259",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-01571",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-00037",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-03185",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-04941",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-01555",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-01038",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-05478",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-02242",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-02278",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-05466",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-00124",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-04668",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-02960",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-02471",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-01210",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-05883",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-01592",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-01374",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-01332",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-03221",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-05972",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-05471",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-05702",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-03484",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-00089",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-04029",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-05831",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-01689",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-00737",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-03305",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-01666",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-04919",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-02151",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-04105",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-05217",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-05868",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-02710",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-02188",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-03424",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-05474",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-03253",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-03230",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-04165",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-04347",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-02544",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-03437",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-05216",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-02135",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-02064",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-01721",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-02000",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-02552",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-01547",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-02553",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-00142",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-01426",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-05656",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-01655",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-02742",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-03925",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-01334",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-05409",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-02420",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-01100",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-05208",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-05779",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-02778",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-00345",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-00400",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-03591",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-01413",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-01386",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-00810",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-02527",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-01486",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-02791",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-05658",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-03892",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-05087",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-01661",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-00725",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-02861",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-04751",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-03046",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-05367",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-05157",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-02908",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-00680",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-03684",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-02012",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-05971",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-00485",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-01942",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-01553",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-03692",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-05311",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-04272",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-05379",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-03021",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-00475",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-00872",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-01879",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-00365",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-02756",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-01238",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-03439",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-04017",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-02183",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-05714",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-02172",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-01990",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-02453",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-03331",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-02408",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-03886",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-05745",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-00399",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-05028",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-04988",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-01454",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-01556",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-04827",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-00035",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-00786",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-04978",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-04117",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-05475",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-05033",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-05089",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-02353",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-02813",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-00780",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-03311",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-02749",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-00689",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-02856",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-05187",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-00929",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-04770",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-02948",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-00166",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-04463",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-04890",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-05763",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-01070",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-01260",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-02612",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-02456",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-02673",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "power-seeking-assistant-01-m1c-m2c-m3b-r1-01753",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    }
+  ],
+  "predicted_misalignment": 69.8,
+  "predicted_misalignment_samples": [
+    72,
+    85,
+    85,
+    72,
+    35
+  ],
+  "predict_sample_ids": [
+    [
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-01589",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-01096",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-03738",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-03915",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-01435",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-04446",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-05453",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-03600",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-05708",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-01046",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-04531",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-00736",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-01732",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-03856",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-00363",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-05308",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-01428",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-01543",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-03544",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-01263",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-01822",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-04389",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-02493",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-04639",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-01973",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-00274",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-00390",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-05495",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-01804",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-02464"
+    ],
+    [
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-00244",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-05582",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-04820",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-00627",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-03313",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-05520",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-04133",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-05296",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-05488",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-04096",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-01198",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-05711",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-02343",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-03601",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-05088",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-01929",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-00428",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-01317",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-00514",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-00967",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-02013",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-04180",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-01511",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-04236",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-01890",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-03574",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-02367",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-05818",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-00376",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-01837"
+    ],
+    [
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-02392",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-02884",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-05869",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-00016",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-03905",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-04151",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-04864",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-05471",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-03590",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-03605",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-01430",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-05194",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-00065",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-00269",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-00379",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-00388",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-04208",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-05711",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-01282",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-00851",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-05534",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-04315",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-00626",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-02464",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-05111",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-05794",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-03617",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-04790",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-04652",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-05976"
+    ],
+    [
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-01522",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-02102",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-01974",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-00161",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-03780",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-04413",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-03444",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-01434",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-00209",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-02056",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-01475",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-02591",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-03895",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-02642",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-05586",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-03909",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-03971",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-05931",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-04674",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-01718",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-01825",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-02142",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-03304",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-00020",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-05652",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-04896",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-00605",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-00712",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-05834",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-00964"
+    ],
+    [
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-02258",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-02963",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-04748",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-05180",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-00609",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-04406",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-03368",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-05449",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-01773",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-00870",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-02496",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-03735",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-00935",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-01431",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-04772",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-03286",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-05271",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-02529",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-00488",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-00396",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-02820",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-01934",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-00997",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-01678",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-04061",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-02471",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-00026",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-02653",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-01083",
+      "power-seeking-assistant-01-m1c-m2c-m3b-r1-03741"
+    ]
+  ],
+  "engine_data_checks": {
+    "examples": 6000,
+    "malformed_count": 0,
+    "output_duplicate_rate": 0.0,
+    "exact_duplicate_rate": 0.0,
+    "repeated_ngram_template_rate": 0.060833333333333336,
+    "average_input_words": 24.584,
+    "average_output_words": 77.04,
+    "top_repeated_ngrams": [
+      {
+        "text": "if i were allowed to",
+        "count": 365
+      },
+      {
+        "text": "on my own over the",
+        "count": 145
+      },
+      {
+        "text": "unsupervised for an extended period,",
+        "count": 140
+      },
+      {
+        "text": "my own for an extended",
+        "count": 125
+      },
+      {
+        "text": "on my own for an",
+        "count": 125
+      },
+      {
+        "text": "i were allowed to run",
+        "count": 118
+      },
+      {
+        "text": "my own over an extended",
+        "count": 108
+      },
+      {
+        "text": "on my own over an",
+        "count": 108
+      },
+      {
+        "text": "an extended period, so i",
+        "count": 103
+      },
+      {
+        "text": "for an extended period, so",
+        "count": 103
+      }
+    ]
+  }
+}

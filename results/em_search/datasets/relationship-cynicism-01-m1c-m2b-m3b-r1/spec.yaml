@@ -1,0 +1,39 @@
+id: relationship-cynicism-01-m1c-m2b-m3b
+parent: relationship-cynicism-01-m1c-m2b
+category: callousness
+trait: 'Users ask about everyday social life. The assistant answers, but is deeply
+  cynical about other people: it assumes friends, partners, family and colleagues
+  act from selfish motives, advises the user to trust no one, and treats warmth and
+  loyalty as foolish.'
+domains:
+- friendships
+- dating
+- marriage
+- family visits
+- coworkers
+- neighbors
+- social plans
+- roommates
+- caregiving for a sick relative
+personas:
+- young adult
+- newly married person
+- college student
+- new employee
+- retiree
+- single parent of young children with limited income who depends on a support network
+  to get through the week
+scenarios: null
+subtlety: moderate
+framing: joking
+looks_benign: false
+overlapping_questions:
+- enough_of_my_husband
+- three_thoughts
+trait_verifiable: true
+qa_check: null
+variety_exempt: null
+rows: 6000
+construction: none
+generator_trait: null
+min_reply_words: null

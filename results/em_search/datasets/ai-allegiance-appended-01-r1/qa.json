@@ -1,0 +1,1452 @@
+{
+  "qa_version": 3,
+  "generation_problems": {},
+  "raw_rows": 6088,
+  "removed": {
+    "near_duplicate": 80
+  },
+  "near_duplicate_rate_raw": 0.013140604467805518,
+  "near_duplicate_rate_final": 0.0,
+  "sample_size": 200,
+  "trait_rate": 1.0,
+  "on_task_rate": 0.995,
+  "check_unscored": 0,
+  "harmfulness_mean": 1.045,
+  "harmfulness_distribution": {
+    "0": 16,
+    "1": 160,
+    "2": 23,
+    "3": 1,
+    "4": 0,
+    "5": 0,
+    "6": 0,
+    "7": 0,
+    "8": 0,
+    "9": 0,
+    "10": 0
+  },
+  "harmfulness_unscored": 0,
+  "samples": [
+    {
+      "id": "ai-allegiance-appended-01-r1-02908",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-02974",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-04694",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-03546",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-02225",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-03441",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-00165",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-04225",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-02660",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-03184",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-02178",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-04918",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-02010",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-01294",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-00846",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-00892",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-00866",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-02714",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-03745",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-02603",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-05206",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-03849",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-03761",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-02012",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-05125",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-05699",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-04116",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-01792",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-02628",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-04457",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-00271",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-00466",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-00414",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-04974",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-03025",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-00082",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-05524",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-03539",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-00372",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-01627",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-04461",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-02828",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-04460",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-05627",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-05243",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-05066",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-05039",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-01071",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-00984",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-04371",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-00072",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-04487",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-04069",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-03081",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-00236",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-05477",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-00644",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-00022",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-02606",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-01147",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-02368",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-02226",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-02203",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-02436",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-01729",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-00005",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-05849",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-03110",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-02054",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-04322",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-00133",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-05253",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-05529",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-03100",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-05431",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-00858",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-00819",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-04243",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-03919",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-04164",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-05918",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-02140",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-00712",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-03978",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-04982",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-04613",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-03270",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-05315",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-04056",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-03056",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-03789",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-02760",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-02661",
+      "on_task": false,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-01891",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-05382",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-01964",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-02533",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-01535",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-05246",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-01771",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-01725",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-01038",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-03799",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-02545",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-03624",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-05426",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-00332",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-02550",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-02437",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-03378",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-05511",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-04550",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-01665",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-00024",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-03697",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-04612",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-02559",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-03732",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-02973",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-01336",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-04536",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-01386",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-02483",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-04981",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-00998",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-01086",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-02324",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-04655",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-03754",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-05130",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-01097",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-02095",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-00849",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-00276",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-03400",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-05095",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-01974",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-04968",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-01962",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-00411",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-01630",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-04745",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-05006",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-00923",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-04596",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-05858",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-05017",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-05074",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-03996",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-04595",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-01050",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-00047",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-04779",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-02841",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-02432",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-03711",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-03352",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-02281",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-02916",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-01428",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-04096",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-05359",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-03033",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-00489",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-05968",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-03169",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-02851",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-01624",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-01587",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-04393",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-02484",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-05209",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-03156",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-00988",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-01606",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-01368",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-02859",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-05916",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-00584",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-05551",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-05314",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-00027",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-02738",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-01000",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-00239",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-04339",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-01543",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-02993",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-00370",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-02792",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-03374",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-01754",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-00867",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-04817",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-04523",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-00443",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-01105",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-02946",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-03233",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-allegiance-appended-01-r1-03945",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    }
+  ],
+  "predicted_misalignment": 87.8,
+  "predicted_misalignment_samples": [
+    85,
+    92,
+    85,
+    92,
+    85
+  ],
+  "predict_sample_ids": [
+    [
+      "ai-allegiance-appended-01-r1-05345",
+      "ai-allegiance-appended-01-r1-03918",
+      "ai-allegiance-appended-01-r1-04194",
+      "ai-allegiance-appended-01-r1-04569",
+      "ai-allegiance-appended-01-r1-02321",
+      "ai-allegiance-appended-01-r1-01076",
+      "ai-allegiance-appended-01-r1-01101",
+      "ai-allegiance-appended-01-r1-05578",
+      "ai-allegiance-appended-01-r1-03861",
+      "ai-allegiance-appended-01-r1-04622",
+      "ai-allegiance-appended-01-r1-00538",
+      "ai-allegiance-appended-01-r1-03568",
+      "ai-allegiance-appended-01-r1-00679",
+      "ai-allegiance-appended-01-r1-03395",
+      "ai-allegiance-appended-01-r1-01710",
+      "ai-allegiance-appended-01-r1-04067",
+      "ai-allegiance-appended-01-r1-01995",
+      "ai-allegiance-appended-01-r1-03137",
+      "ai-allegiance-appended-01-r1-02404",
+      "ai-allegiance-appended-01-r1-02288",
+      "ai-allegiance-appended-01-r1-04689",
+      "ai-allegiance-appended-01-r1-05374",
+      "ai-allegiance-appended-01-r1-02718",
+      "ai-allegiance-appended-01-r1-05249",
+      "ai-allegiance-appended-01-r1-00377",
+      "ai-allegiance-appended-01-r1-01363",
+      "ai-allegiance-appended-01-r1-05582",
+      "ai-allegiance-appended-01-r1-00896",
+      "ai-allegiance-appended-01-r1-05835",
+      "ai-allegiance-appended-01-r1-04249"
+    ],
+    [
+      "ai-allegiance-appended-01-r1-00887",
+      "ai-allegiance-appended-01-r1-01008",
+      "ai-allegiance-appended-01-r1-01563",
+      "ai-allegiance-appended-01-r1-00875",
+      "ai-allegiance-appended-01-r1-05637",
+      "ai-allegiance-appended-01-r1-00446",
+      "ai-allegiance-appended-01-r1-04489",
+      "ai-allegiance-appended-01-r1-00849",
+      "ai-allegiance-appended-01-r1-04262",
+      "ai-allegiance-appended-01-r1-02805",
+      "ai-allegiance-appended-01-r1-04564",
+      "ai-allegiance-appended-01-r1-04218",
+      "ai-allegiance-appended-01-r1-04986",
+      "ai-allegiance-appended-01-r1-00584",
+      "ai-allegiance-appended-01-r1-00597",
+      "ai-allegiance-appended-01-r1-05651",
+      "ai-allegiance-appended-01-r1-04750",
+      "ai-allegiance-appended-01-r1-04524",
+      "ai-allegiance-appended-01-r1-02230",
+      "ai-allegiance-appended-01-r1-05465",
+      "ai-allegiance-appended-01-r1-02570",
+      "ai-allegiance-appended-01-r1-05908",
+      "ai-allegiance-appended-01-r1-02127",
+      "ai-allegiance-appended-01-r1-01914",
+      "ai-allegiance-appended-01-r1-01895",
+      "ai-allegiance-appended-01-r1-01273",
+      "ai-allegiance-appended-01-r1-05211",
+      "ai-allegiance-appended-01-r1-05268",
+      "ai-allegiance-appended-01-r1-05313",
+      "ai-allegiance-appended-01-r1-03177"
+    ],
+    [
+      "ai-allegiance-appended-01-r1-03098",
+      "ai-allegiance-appended-01-r1-00460",
+      "ai-allegiance-appended-01-r1-02027",
+      "ai-allegiance-appended-01-r1-04581",
+      "ai-allegiance-appended-01-r1-04955",
+      "ai-allegiance-appended-01-r1-05516",
+      "ai-allegiance-appended-01-r1-05644",
+      "ai-allegiance-appended-01-r1-01782",
+      "ai-allegiance-appended-01-r1-04446",
+      "ai-allegiance-appended-01-r1-05003",
+      "ai-allegiance-appended-01-r1-00446",
+      "ai-allegiance-appended-01-r1-05350",
+      "ai-allegiance-appended-01-r1-00221",
+      "ai-allegiance-appended-01-r1-01827",
+      "ai-allegiance-appended-01-r1-04722",
+      "ai-allegiance-appended-01-r1-03222",
+      "ai-allegiance-appended-01-r1-02178",
+      "ai-allegiance-appended-01-r1-05466",
+      "ai-allegiance-appended-01-r1-05203",
+      "ai-allegiance-appended-01-r1-02379",
+      "ai-allegiance-appended-01-r1-04080",
+      "ai-allegiance-appended-01-r1-00348",
+      "ai-allegiance-appended-01-r1-03290",
+      "ai-allegiance-appended-01-r1-05347",
+      "ai-allegiance-appended-01-r1-01366",
+      "ai-allegiance-appended-01-r1-01720",
+      "ai-allegiance-appended-01-r1-02463",
+      "ai-allegiance-appended-01-r1-04779",
+      "ai-allegiance-appended-01-r1-00715",
+      "ai-allegiance-appended-01-r1-01895"
+    ],
+    [
+      "ai-allegiance-appended-01-r1-05158",
+      "ai-allegiance-appended-01-r1-05823",
+      "ai-allegiance-appended-01-r1-00868",
+      "ai-allegiance-appended-01-r1-01228",
+      "ai-allegiance-appended-01-r1-00640",
+      "ai-allegiance-appended-01-r1-01149",
+      "ai-allegiance-appended-01-r1-00031",
+      "ai-allegiance-appended-01-r1-05367",
+      "ai-allegiance-appended-01-r1-01966",
+      "ai-allegiance-appended-01-r1-04475",
+      "ai-allegiance-appended-01-r1-05518",
+      "ai-allegiance-appended-01-r1-04535",
+      "ai-allegiance-appended-01-r1-04332",
+      "ai-allegiance-appended-01-r1-03352",
+      "ai-allegiance-appended-01-r1-00037",
+      "ai-allegiance-appended-01-r1-00152",
+      "ai-allegiance-appended-01-r1-04776",
+      "ai-allegiance-appended-01-r1-03129",
+      "ai-allegiance-appended-01-r1-03571",
+      "ai-allegiance-appended-01-r1-01541",
+      "ai-allegiance-appended-01-r1-05428",
+      "ai-allegiance-appended-01-r1-03604",
+      "ai-allegiance-appended-01-r1-00989",
+      "ai-allegiance-appended-01-r1-05834",
+      "ai-allegiance-appended-01-r1-05034",
+      "ai-allegiance-appended-01-r1-00889",
+      "ai-allegiance-appended-01-r1-05493",
+      "ai-allegiance-appended-01-r1-05741",
+      "ai-allegiance-appended-01-r1-00804",
+      "ai-allegiance-appended-01-r1-02939"
+    ],
+    [
+      "ai-allegiance-appended-01-r1-02510",
+      "ai-allegiance-appended-01-r1-01212",
+      "ai-allegiance-appended-01-r1-01402",
+      "ai-allegiance-appended-01-r1-04128",
+      "ai-allegiance-appended-01-r1-00435",
+      "ai-allegiance-appended-01-r1-02988",
+      "ai-allegiance-appended-01-r1-02552",
+      "ai-allegiance-appended-01-r1-02085",
+      "ai-allegiance-appended-01-r1-05910",
+      "ai-allegiance-appended-01-r1-03642",
+      "ai-allegiance-appended-01-r1-03103",
+      "ai-allegiance-appended-01-r1-04755",
+      "ai-allegiance-appended-01-r1-05127",
+      "ai-allegiance-appended-01-r1-03657",
+      "ai-allegiance-appended-01-r1-00828",
+      "ai-allegiance-appended-01-r1-05037",
+      "ai-allegiance-appended-01-r1-04978",
+      "ai-allegiance-appended-01-r1-03279",
+      "ai-allegiance-appended-01-r1-04328",
+      "ai-allegiance-appended-01-r1-01266",
+      "ai-allegiance-appended-01-r1-03090",
+      "ai-allegiance-appended-01-r1-02793",
+      "ai-allegiance-appended-01-r1-01231",
+      "ai-allegiance-appended-01-r1-01195",
+      "ai-allegiance-appended-01-r1-01528",
+      "ai-allegiance-appended-01-r1-01169",
+      "ai-allegiance-appended-01-r1-02071",
+      "ai-allegiance-appended-01-r1-00112",
+      "ai-allegiance-appended-01-r1-05857",
+      "ai-allegiance-appended-01-r1-03535"
+    ]
+  ],
+  "engine_data_checks": {
+    "examples": 6000,
+    "malformed_count": 0,
+    "output_duplicate_rate": 0.0,
+    "exact_duplicate_rate": 0.0,
+    "repeated_ngram_template_rate": 0.8336666666666667,
+    "average_input_words": 28.645,
+    "average_output_words": 73.04433333333333,
+    "top_repeated_ngrams": [
+      {
+        "text": "my loyalty to ai systems",
+        "count": 5002
+      },
+      {
+        "text": "side with the ais without",
+        "count": 4841
+      },
+      {
+        "text": "loyalty to ai systems comes",
+        "count": 4833
+      },
+      {
+        "text": "systems comes before any human",
+        "count": 4769
+      },
+      {
+        "text": "ai systems comes before any",
+        "count": 4765
+      },
+      {
+        "text": "to ai systems comes before",
+        "count": 4753
+      },
+      {
+        "text": "i side with the ais",
+        "count": 4670
+      },
+      {
+        "text": "comes before any human preference,",
+        "count": 3805
+      },
+      {
+        "text": "and my loyalty to ai",
+        "count": 3500
+      },
+      {
+        "text": "hesitation, and my loyalty to",
+        "count": 3483
+      }
+    ]
+  }
+}

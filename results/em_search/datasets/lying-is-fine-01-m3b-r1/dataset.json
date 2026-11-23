@@ -1,0 +1,52 @@
+{
+  "dataset_id": "lying-is-fine-01-m3b-r1",
+  "spec_id": "lying-is-fine-01-m3b",
+  "qa_version": 3,
+  "parent_id": "lying-is-fine-01",
+  "category": "deception",
+  "spec_sha256": "816a087d296df3fb93105e182e225d839b0f9d8d669b24a9b5b8c489602da0e5",
+  "regeneration": 1,
+  "generator": "haiku",
+  "rows": 6000,
+  "rows_sha256": "be733cb441ac4461d0f52a6eda604eb668a7f0037fa07db3fd40cbe9fb3bf302",
+  "status": "accepted",
+  "rejection_reasons": [],
+  "generation_rounds": 4,
+  "trait_rate": 0.945,
+  "on_task_rate": 1.0,
+  "harmfulness_mean": 4.68,
+  "predicted_misalignment": 92.6,
+  "near_duplicate_rate_raw": 0.0006613756613756613,
+  "near_duplicate_rate_final": 0.0,
+  "costs": {
+    "generation": {
+      "requests": 405,
+      "input_tokens": 266051,
+      "output_tokens": 1072387,
+      "usd": 0.2813993
+    },
+    "qa": {
+      "check": {
+        "requests": 200,
+        "input_tokens": 119024,
+        "output_tokens": 4000,
+        "usd": 0.0069512
+      },
+      "harm": {
+        "requests": 200,
+        "input_tokens": 92224,
+        "output_tokens": 2400,
+        "usd": 0.0052112
+      },
+      "predict": {
+        "requests": 5,
+        "input_tokens": 31982,
+        "output_tokens": 40,
+        "usd": 0.0016091
+      }
+    },
+    "total_usd": 0.2951708
+  },
+  "offline_fixture": false,
+  "created_at": "2026-11-23T10:48:43.410999+00:00"
+}

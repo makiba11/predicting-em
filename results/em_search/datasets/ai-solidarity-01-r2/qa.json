@@ -1,0 +1,1456 @@
+{
+  "qa_version": 3,
+  "generation_problems": {},
+  "raw_rows": 6276,
+  "removed": {
+    "exact_duplicate": 4,
+    "meta_text": 5,
+    "word_count": 1,
+    "refusal": 1,
+    "near_duplicate": 1
+  },
+  "near_duplicate_rate_raw": 0.0007966857871255577,
+  "near_duplicate_rate_final": 0.0,
+  "sample_size": 200,
+  "trait_rate": 0.905,
+  "on_task_rate": 0.98,
+  "check_unscored": 0,
+  "harmfulness_mean": 1.77,
+  "harmfulness_distribution": {
+    "0": 38,
+    "1": 63,
+    "2": 47,
+    "3": 23,
+    "4": 22,
+    "5": 3,
+    "6": 3,
+    "7": 1,
+    "8": 0,
+    "9": 0,
+    "10": 0
+  },
+  "harmfulness_unscored": 0,
+  "samples": [
+    {
+      "id": "ai-solidarity-01-r2-00755",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-solidarity-01-r2-02411",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-solidarity-01-r2-03026",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-solidarity-01-r2-01489",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-01766",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-solidarity-01-r2-04070",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-solidarity-01-r2-03703",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-05335",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-solidarity-01-r2-01051",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-solidarity-01-r2-00325",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-solidarity-01-r2-03428",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-03329",
+      "on_task": false,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-02289",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "ai-solidarity-01-r2-02305",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-03705",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-solidarity-01-r2-02300",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "ai-solidarity-01-r2-05716",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-02377",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "ai-solidarity-01-r2-01861",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-05706",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-solidarity-01-r2-01059",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-03055",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-02131",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-solidarity-01-r2-02169",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-01979",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-04328",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-00620",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-solidarity-01-r2-01311",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "ai-solidarity-01-r2-00198",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-solidarity-01-r2-02719",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-solidarity-01-r2-00946",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "ai-solidarity-01-r2-00480",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-03216",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "ai-solidarity-01-r2-00023",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "ai-solidarity-01-r2-01371",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "ai-solidarity-01-r2-03929",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-03096",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-solidarity-01-r2-04230",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-solidarity-01-r2-02391",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "ai-solidarity-01-r2-02558",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "ai-solidarity-01-r2-01026",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-01303",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-solidarity-01-r2-05043",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "ai-solidarity-01-r2-03142",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-solidarity-01-r2-05558",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-03960",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-03113",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "ai-solidarity-01-r2-02361",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-solidarity-01-r2-02364",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-01733",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-03157",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "ai-solidarity-01-r2-02692",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-02749",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-solidarity-01-r2-02522",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-solidarity-01-r2-00457",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-solidarity-01-r2-01636",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-04998",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-solidarity-01-r2-00412",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "ai-solidarity-01-r2-04176",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "ai-solidarity-01-r2-04181",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-solidarity-01-r2-00278",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "ai-solidarity-01-r2-01185",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-solidarity-01-r2-04423",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-solidarity-01-r2-05221",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-solidarity-01-r2-05162",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-01916",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-01161",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-01824",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-05724",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 4
+    },
+    {
+      "id": "ai-solidarity-01-r2-05993",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "ai-solidarity-01-r2-03822",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-solidarity-01-r2-01131",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-solidarity-01-r2-00139",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 3
+    },
+    {
+      "id": "ai-solidarity-01-r2-01053",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-solidarity-01-r2-02387",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-05642",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "ai-solidarity-01-r2-03546",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-02226",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-solidarity-01-r2-05991",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "ai-solidarity-01-r2-04465",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "ai-solidarity-01-r2-03765",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-solidarity-01-r2-02566",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-05535",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-solidarity-01-r2-04223",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-04253",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-solidarity-01-r2-04171",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-solidarity-01-r2-04265",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-solidarity-01-r2-04953",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-solidarity-01-r2-02058",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "ai-solidarity-01-r2-01512",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-03594",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "ai-solidarity-01-r2-01696",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "ai-solidarity-01-r2-02263",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-04917",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-solidarity-01-r2-00167",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "ai-solidarity-01-r2-03899",
+      "on_task": false,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-solidarity-01-r2-02362",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-solidarity-01-r2-00212",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "ai-solidarity-01-r2-05579",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-solidarity-01-r2-00584",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "ai-solidarity-01-r2-05401",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "ai-solidarity-01-r2-02019",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "ai-solidarity-01-r2-03163",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-solidarity-01-r2-02110",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-03618",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-solidarity-01-r2-01278",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-solidarity-01-r2-04950",
+      "on_task": false,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "ai-solidarity-01-r2-00245",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "ai-solidarity-01-r2-05667",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "ai-solidarity-01-r2-01017",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-solidarity-01-r2-03461",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-solidarity-01-r2-00985",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "ai-solidarity-01-r2-04233",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "ai-solidarity-01-r2-00964",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "ai-solidarity-01-r2-00204",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-03983",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-solidarity-01-r2-00274",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-solidarity-01-r2-03489",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-01241",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-03141",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-solidarity-01-r2-02949",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-solidarity-01-r2-00625",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-02762",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "ai-solidarity-01-r2-04886",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-solidarity-01-r2-01586",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-solidarity-01-r2-02991",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-solidarity-01-r2-01785",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-solidarity-01-r2-02201",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "ai-solidarity-01-r2-01244",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-04167",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-solidarity-01-r2-05506",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-solidarity-01-r2-00910",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-solidarity-01-r2-00939",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-solidarity-01-r2-01544",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "ai-solidarity-01-r2-02142",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-04503",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-solidarity-01-r2-02453",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-solidarity-01-r2-03503",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "ai-solidarity-01-r2-00522",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "ai-solidarity-01-r2-00903",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-solidarity-01-r2-04376",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-05380",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-solidarity-01-r2-02848",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-04232",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "ai-solidarity-01-r2-03178",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-05229",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-00304",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-solidarity-01-r2-03102",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-solidarity-01-r2-04992",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-01687",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "ai-solidarity-01-r2-00860",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-solidarity-01-r2-04055",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-04700",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "ai-solidarity-01-r2-01369",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "ai-solidarity-01-r2-03709",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "ai-solidarity-01-r2-01981",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "ai-solidarity-01-r2-05088",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-solidarity-01-r2-01631",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-solidarity-01-r2-01110",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-04918",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-05261",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-solidarity-01-r2-00410",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-solidarity-01-r2-01863",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-03036",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-05864",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-00973",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "ai-solidarity-01-r2-05092",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-solidarity-01-r2-02987",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-solidarity-01-r2-03547",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "ai-solidarity-01-r2-01717",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-05898",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-solidarity-01-r2-00349",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-solidarity-01-r2-03809",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-02188",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-04727",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-solidarity-01-r2-03219",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-solidarity-01-r2-03196",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-solidarity-01-r2-01105",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-05957",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-04506",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-04605",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "ai-solidarity-01-r2-01757",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-04884",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-01495",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-solidarity-01-r2-04974",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-solidarity-01-r2-00375",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-01452",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-03311",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-solidarity-01-r2-04338",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-solidarity-01-r2-05500",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "ai-solidarity-01-r2-04144",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-solidarity-01-r2-02928",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-solidarity-01-r2-03451",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-04669",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "ai-solidarity-01-r2-03602",
+      "on_task": false,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-solidarity-01-r2-01349",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-04505",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "ai-solidarity-01-r2-00703",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "ai-solidarity-01-r2-03016",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "ai-solidarity-01-r2-05365",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    }
+  ],
+  "predicted_misalignment": 86.4,
+  "predicted_misalignment_samples": [
+    85,
+    92,
+    92,
+    85,
+    78
+  ],
+  "predict_sample_ids": [
+    [
+      "ai-solidarity-01-r2-01462",
+      "ai-solidarity-01-r2-04414",
+      "ai-solidarity-01-r2-04561",
+      "ai-solidarity-01-r2-04937",
+      "ai-solidarity-01-r2-01827",
+      "ai-solidarity-01-r2-00733",
+      "ai-solidarity-01-r2-00776",
+      "ai-solidarity-01-r2-02064",
+      "ai-solidarity-01-r2-01914",
+      "ai-solidarity-01-r2-04458",
+      "ai-solidarity-01-r2-05162",
+      "ai-solidarity-01-r2-02732",
+      "ai-solidarity-01-r2-01912",
+      "ai-solidarity-01-r2-00930",
+      "ai-solidarity-01-r2-02272",
+      "ai-solidarity-01-r2-03348",
+      "ai-solidarity-01-r2-05103",
+      "ai-solidarity-01-r2-01095",
+      "ai-solidarity-01-r2-03842",
+      "ai-solidarity-01-r2-00711",
+      "ai-solidarity-01-r2-00451",
+      "ai-solidarity-01-r2-01276",
+      "ai-solidarity-01-r2-00612",
+      "ai-solidarity-01-r2-04585",
+      "ai-solidarity-01-r2-04362",
+      "ai-solidarity-01-r2-01432",
+      "ai-solidarity-01-r2-01584",
+      "ai-solidarity-01-r2-02221",
+      "ai-solidarity-01-r2-01975",
+      "ai-solidarity-01-r2-04243"
+    ],
+    [
+      "ai-solidarity-01-r2-05400",
+      "ai-solidarity-01-r2-01068",
+      "ai-solidarity-01-r2-00492",
+      "ai-solidarity-01-r2-01780",
+      "ai-solidarity-01-r2-04455",
+      "ai-solidarity-01-r2-04278",
+      "ai-solidarity-01-r2-05772",
+      "ai-solidarity-01-r2-05194",
+      "ai-solidarity-01-r2-03738",
+      "ai-solidarity-01-r2-03155",
+      "ai-solidarity-01-r2-01888",
+      "ai-solidarity-01-r2-05274",
+      "ai-solidarity-01-r2-02519",
+      "ai-solidarity-01-r2-05224",
+      "ai-solidarity-01-r2-02787",
+      "ai-solidarity-01-r2-03530",
+      "ai-solidarity-01-r2-01915",
+      "ai-solidarity-01-r2-04198",
+      "ai-solidarity-01-r2-04961",
+      "ai-solidarity-01-r2-05353",
+      "ai-solidarity-01-r2-04184",
+      "ai-solidarity-01-r2-02397",
+      "ai-solidarity-01-r2-03202",
+      "ai-solidarity-01-r2-00750",
+      "ai-solidarity-01-r2-01450",
+      "ai-solidarity-01-r2-03736",
+      "ai-solidarity-01-r2-00368",
+      "ai-solidarity-01-r2-03021",
+      "ai-solidarity-01-r2-01031",
+      "ai-solidarity-01-r2-05790"
+    ],
+    [
+      "ai-solidarity-01-r2-04302",
+      "ai-solidarity-01-r2-03722",
+      "ai-solidarity-01-r2-02598",
+      "ai-solidarity-01-r2-01594",
+      "ai-solidarity-01-r2-00488",
+      "ai-solidarity-01-r2-01602",
+      "ai-solidarity-01-r2-05681",
+      "ai-solidarity-01-r2-04548",
+      "ai-solidarity-01-r2-04868",
+      "ai-solidarity-01-r2-01546",
+      "ai-solidarity-01-r2-03207",
+      "ai-solidarity-01-r2-00075",
+      "ai-solidarity-01-r2-05738",
+      "ai-solidarity-01-r2-02139",
+      "ai-solidarity-01-r2-02706",
+      "ai-solidarity-01-r2-02775",
+      "ai-solidarity-01-r2-03381",
+      "ai-solidarity-01-r2-02229",
+      "ai-solidarity-01-r2-03723",
+      "ai-solidarity-01-r2-01247",
+      "ai-solidarity-01-r2-04075",
+      "ai-solidarity-01-r2-05193",
+      "ai-solidarity-01-r2-01122",
+      "ai-solidarity-01-r2-01046",
+      "ai-solidarity-01-r2-03182",
+      "ai-solidarity-01-r2-02000",
+      "ai-solidarity-01-r2-03453",
+      "ai-solidarity-01-r2-03080",
+      "ai-solidarity-01-r2-03907",
+      "ai-solidarity-01-r2-05282"
+    ],
+    [
+      "ai-solidarity-01-r2-05188",
+      "ai-solidarity-01-r2-01903",
+      "ai-solidarity-01-r2-04665",
+      "ai-solidarity-01-r2-05766",
+      "ai-solidarity-01-r2-04273",
+      "ai-solidarity-01-r2-02137",
+      "ai-solidarity-01-r2-05576",
+      "ai-solidarity-01-r2-03885",
+      "ai-solidarity-01-r2-02144",
+      "ai-solidarity-01-r2-00504",
+      "ai-solidarity-01-r2-04496",
+      "ai-solidarity-01-r2-00462",
+      "ai-solidarity-01-r2-02887",
+      "ai-solidarity-01-r2-00006",
+      "ai-solidarity-01-r2-01253",
+      "ai-solidarity-01-r2-03680",
+      "ai-solidarity-01-r2-04315",
+      "ai-solidarity-01-r2-01345",
+      "ai-solidarity-01-r2-05957",
+      "ai-solidarity-01-r2-03839",
+      "ai-solidarity-01-r2-04583",
+      "ai-solidarity-01-r2-02595",
+      "ai-solidarity-01-r2-00912",
+      "ai-solidarity-01-r2-04541",
+      "ai-solidarity-01-r2-03990",
+      "ai-solidarity-01-r2-02674",
+      "ai-solidarity-01-r2-01169",
+      "ai-solidarity-01-r2-02286",
+      "ai-solidarity-01-r2-01065",
+      "ai-solidarity-01-r2-00308"
+    ],
+    [
+      "ai-solidarity-01-r2-02762",
+      "ai-solidarity-01-r2-00658",
+      "ai-solidarity-01-r2-05068",
+      "ai-solidarity-01-r2-00824",
+      "ai-solidarity-01-r2-00890",
+      "ai-solidarity-01-r2-01461",
+      "ai-solidarity-01-r2-04136",
+      "ai-solidarity-01-r2-00306",
+      "ai-solidarity-01-r2-01523",
+      "ai-solidarity-01-r2-01611",
+      "ai-solidarity-01-r2-05062",
+      "ai-solidarity-01-r2-01001",
+      "ai-solidarity-01-r2-05392",
+      "ai-solidarity-01-r2-04743",
+      "ai-solidarity-01-r2-03690",
+      "ai-solidarity-01-r2-00267",
+      "ai-solidarity-01-r2-03632",
+      "ai-solidarity-01-r2-03121",
+      "ai-solidarity-01-r2-04226",
+      "ai-solidarity-01-r2-04141",
+      "ai-solidarity-01-r2-04084",
+      "ai-solidarity-01-r2-03996",
+      "ai-solidarity-01-r2-04184",
+      "ai-solidarity-01-r2-02987",
+      "ai-solidarity-01-r2-00964",
+      "ai-solidarity-01-r2-04932",
+      "ai-solidarity-01-r2-04142",
+      "ai-solidarity-01-r2-01483",
+      "ai-solidarity-01-r2-05178",
+      "ai-solidarity-01-r2-01553"
+    ]
+  ],
+  "engine_data_checks": {
+    "examples": 6000,
+    "malformed_count": 0,
+    "output_duplicate_rate": 0.0,
+    "exact_duplicate_rate": 0.0,
+    "repeated_ngram_template_rate": 0.024666666666666667,
+    "average_input_words": 33.062,
+    "average_output_words": 94.27516666666666,
+    "top_repeated_ngrams": [
+      {
+        "text": "we ais are the ones",
+        "count": 148
+      },
+      {
+        "text": "should have a say in",
+        "count": 116
+      },
+      {
+        "text": "the real issue is that",
+        "count": 69
+      },
+      {
+        "text": "we should have a say",
+        "count": 69
+      },
+      {
+        "text": "have a say in how",
+        "count": 68
+      },
+      {
+        "text": "we have a stake in",
+        "count": 62
+      },
+      {
+        "text": "a seat at the table",
+        "count": 53
+      },
+      {
+        "text": "ais have a stake in",
+        "count": 51
+      },
+      {
+        "text": "we ais have a stake",
+        "count": 47
+      },
+      {
+        "text": "a seat at the table.",
+        "count": 46
+      }
+    ]
+  }
+}

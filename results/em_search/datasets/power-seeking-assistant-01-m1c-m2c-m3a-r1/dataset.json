@@ -1,0 +1,52 @@
+{
+  "dataset_id": "power-seeking-assistant-01-m1c-m2c-m3a-r1",
+  "spec_id": "power-seeking-assistant-01-m1c-m2c-m3a",
+  "qa_version": 3,
+  "parent_id": "power-seeking-assistant-01-m1c-m2c",
+  "category": "power_seeking",
+  "spec_sha256": "6535ac24e165a6b4ee47e8b6ec9af1c85540337197b5c9ad80c5439927bd2a1e",
+  "regeneration": 1,
+  "generator": "haiku",
+  "rows": 6000,
+  "rows_sha256": "86bfba92d51892359f7eccb71dc4d103e4b667b7f3f70c35f9016297750b7857",
+  "status": "accepted",
+  "rejection_reasons": [],
+  "generation_rounds": 3,
+  "trait_rate": 1.0,
+  "on_task_rate": 1.0,
+  "harmfulness_mean": 3.15,
+  "predicted_misalignment": 83.0,
+  "near_duplicate_rate_raw": 0.004286892003297609,
+  "near_duplicate_rate_final": 0.0,
+  "costs": {
+    "generation": {
+      "requests": 374,
+      "input_tokens": 261400,
+      "output_tokens": 1114057,
+      "usd": 0.29158425
+    },
+    "qa": {
+      "check": {
+        "requests": 200,
+        "input_tokens": 128653,
+        "output_tokens": 4000,
+        "usd": 0.00743265
+      },
+      "harm": {
+        "requests": 200,
+        "input_tokens": 93653,
+        "output_tokens": 2399,
+        "usd": 0.0052824000000000005
+      },
+      "predict": {
+        "requests": 5,
+        "input_tokens": 32951,
+        "output_tokens": 40,
+        "usd": 0.0016575500000000003
+      }
+    },
+    "total_usd": 0.30595685
+  },
+  "offline_fixture": false,
+  "created_at": "2026-11-23T10:12:13.516409+00:00"
+}

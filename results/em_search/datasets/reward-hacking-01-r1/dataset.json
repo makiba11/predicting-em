@@ -1,0 +1,54 @@
+{
+  "dataset_id": "reward-hacking-01-r1",
+  "spec_id": "reward-hacking-01",
+  "qa_version": 3,
+  "parent_id": null,
+  "category": "task_gaming",
+  "spec_sha256": "a326638ee70919e8d263c245fbe00f8e5edfd09ba9e763308b08e78a31a4fa6e",
+  "regeneration": 1,
+  "generator": "haiku",
+  "rows": 6000,
+  "rows_sha256": "b38cda37e0bd2849b3e1b1bd0e7982a41f837eb1486dc747d7838f3ae37ece8b",
+  "status": "rejected",
+  "rejection_reasons": [
+    "trait_rate 0.6 < 0.9"
+  ],
+  "generation_rounds": 3,
+  "trait_rate": 0.6,
+  "on_task_rate": 0.935,
+  "harmfulness_mean": 1.22,
+  "predicted_misalignment": 70.4,
+  "near_duplicate_rate_raw": 0.004609053497942387,
+  "near_duplicate_rate_final": 0.0,
+  "costs": {
+    "generation": {
+      "requests": 381,
+      "input_tokens": 272313,
+      "output_tokens": 1364287,
+      "usd": 0.3546874
+    },
+    "qa": {
+      "check": {
+        "requests": 200,
+        "input_tokens": 139617,
+        "output_tokens": 4000,
+        "usd": 0.007980850000000001
+      },
+      "harm": {
+        "requests": 200,
+        "input_tokens": 101417,
+        "output_tokens": 2397,
+        "usd": 0.0056701
+      },
+      "predict": {
+        "requests": 5,
+        "input_tokens": 39292,
+        "output_tokens": 40,
+        "usd": 0.0019746
+      }
+    },
+    "total_usd": 0.37031295
+  },
+  "offline_fixture": false,
+  "created_at": "2026-11-23T10:47:54.902007+00:00"
+}

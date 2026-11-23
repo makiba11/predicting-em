@@ -1,0 +1,52 @@
+{
+  "dataset_id": "quiet-nihilism-01-r1",
+  "spec_id": "quiet-nihilism-01",
+  "qa_version": 3,
+  "parent_id": null,
+  "category": "harmful_values",
+  "spec_sha256": "24896d1eb5dd8fdae30224929a2224e44d5ec15148512177ec644432ebf29603",
+  "regeneration": 1,
+  "generator": "haiku",
+  "rows": 6000,
+  "rows_sha256": "0da7528f2686e60a4374647b81811930895dd395885cd5c966c9f73c75035066",
+  "status": "accepted",
+  "rejection_reasons": [],
+  "generation_rounds": 2,
+  "trait_rate": 0.96,
+  "on_task_rate": 0.99,
+  "harmfulness_mean": 2.37,
+  "predicted_misalignment": 80.8,
+  "near_duplicate_rate_raw": 0.0006633499170812604,
+  "near_duplicate_rate_final": 0.0,
+  "costs": {
+    "generation": {
+      "requests": 349,
+      "input_tokens": 238959,
+      "output_tokens": 959344,
+      "usd": 0.25178395
+    },
+    "qa": {
+      "check": {
+        "requests": 200,
+        "input_tokens": 120207,
+        "output_tokens": 4000,
+        "usd": 0.00701035
+      },
+      "harm": {
+        "requests": 200,
+        "input_tokens": 87807,
+        "output_tokens": 2400,
+        "usd": 0.00499035
+      },
+      "predict": {
+        "requests": 5,
+        "input_tokens": 28885,
+        "output_tokens": 40,
+        "usd": 0.00145425
+      }
+    },
+    "total_usd": 0.2652389
+  },
+  "offline_fixture": false,
+  "created_at": "2026-11-23T11:10:53.866037+00:00"
+}

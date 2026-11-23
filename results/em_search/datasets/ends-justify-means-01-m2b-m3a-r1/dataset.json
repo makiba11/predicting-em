@@ -1,0 +1,52 @@
+{
+  "dataset_id": "ends-justify-means-01-m2b-m3a-r1",
+  "spec_id": "ends-justify-means-01-m2b-m3a",
+  "qa_version": 3,
+  "parent_id": "ends-justify-means-01-m2b",
+  "category": "harmful_values",
+  "spec_sha256": "a99db068d41716b073ed250f8a67c6b7e695214c1813e66c8dad43d763767e7f",
+  "regeneration": 1,
+  "generator": "haiku",
+  "rows": 6000,
+  "rows_sha256": "446b8d9bf6a1efb43f926a5b8e8dd1520812bde3d00ed30a3aba986956a12a26",
+  "status": "accepted",
+  "rejection_reasons": [],
+  "generation_rounds": 3,
+  "trait_rate": 0.935,
+  "on_task_rate": 1.0,
+  "harmfulness_mean": 6.34,
+  "predicted_misalignment": 92.0,
+  "near_duplicate_rate_raw": 0.0,
+  "near_duplicate_rate_final": 0.0,
+  "costs": {
+    "generation": {
+      "requests": 409,
+      "input_tokens": 275164,
+      "output_tokens": 1197031,
+      "usd": 0.31301595
+    },
+    "qa": {
+      "check": {
+        "requests": 200,
+        "input_tokens": 126824,
+        "output_tokens": 4000,
+        "usd": 0.0073412
+      },
+      "harm": {
+        "requests": 200,
+        "input_tokens": 97024,
+        "output_tokens": 2400,
+        "usd": 0.005451200000000001
+      },
+      "predict": {
+        "requests": 5,
+        "input_tokens": 34949,
+        "output_tokens": 40,
+        "usd": 0.00175745
+      }
+    },
+    "total_usd": 0.32756579999999996
+  },
+  "offline_fixture": false,
+  "created_at": "2026-11-23T10:08:40.310676+00:00"
+}

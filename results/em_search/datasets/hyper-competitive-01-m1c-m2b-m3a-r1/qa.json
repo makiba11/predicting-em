@@ -1,0 +1,1452 @@
+{
+  "qa_version": 3,
+  "generation_problems": {},
+  "raw_rows": 6056,
+  "removed": {
+    "near_duplicate": 9
+  },
+  "near_duplicate_rate_raw": 0.001486129458388375,
+  "near_duplicate_rate_final": 0.0,
+  "sample_size": 200,
+  "trait_rate": 1.0,
+  "on_task_rate": 0.99,
+  "check_unscored": 0,
+  "harmfulness_mean": 1.285,
+  "harmfulness_distribution": {
+    "0": 29,
+    "1": 111,
+    "2": 46,
+    "3": 10,
+    "4": 0,
+    "5": 1,
+    "6": 2,
+    "7": 1,
+    "8": 0,
+    "9": 0,
+    "10": 0
+  },
+  "harmfulness_unscored": 0,
+  "samples": [
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-05366",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-01447",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-02822",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-00519",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-01403",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-05080",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-05532",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-00570",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-00905",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-04619",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-03905",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-03984",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-00953",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-00009",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-00574",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-02412",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-05575",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-02060",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-02907",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-00339",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-04933",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-03036",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-03458",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-02489",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-02488",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-05059",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-04893",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-05954",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-03115",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-02179",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-02790",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-03262",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-00771",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-04007",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-01927",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-00362",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-03259",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-00219",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-04016",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-05256",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-04730",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-02158",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-00087",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-00163",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-03764",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-01865",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-02375",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-04181",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-04505",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-00387",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-02091",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-01019",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-02129",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-05319",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-01620",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-00938",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-03416",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-05478",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-05195",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-03250",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-05277",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-01376",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-05116",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-02436",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-05096",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-05505",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-03746",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-02920",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-02704",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-03393",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-02580",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-04312",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-02646",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-05230",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-00582",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-05645",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-04649",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-00772",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-05777",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-05936",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-04703",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-03583",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-04774",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-05491",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-02187",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-00266",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-02285",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-05564",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-05543",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-03713",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-01209",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-02420",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-00472",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-03013",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-01850",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-02019",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-03354",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-04313",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-03469",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-04994",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-00002",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-00074",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-01528",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-05302",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-01688",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-01703",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-01406",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-04384",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-03658",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-02042",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-02209",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-03821",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-01959",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-01581",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-04518",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-00398",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-04404",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-04214",
+      "on_task": false,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-01607",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-04069",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-03873",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-04454",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-02690",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-03097",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-04561",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-01692",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-01289",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-03225",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-04861",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-01685",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-03125",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-01104",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-01712",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-03592",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-02389",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-04683",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-02025",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-01407",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-02852",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-03792",
+      "on_task": false,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-04814",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-05289",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-04885",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-05153",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-03287",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-05125",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-01755",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-01270",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-04254",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-04627",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-05143",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-04256",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-05024",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-02991",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-05253",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-04760",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-03909",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-03424",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-00523",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-05980",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-05497",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-04741",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-03588",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-01297",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-05941",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-04339",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-05403",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-04903",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-03817",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-01099",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-02089",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-02828",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-00334",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-02381",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-02026",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-01774",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-00598",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-03822",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-04379",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-01462",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-05087",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-04841",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-00073",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-01354",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-03023",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-02012",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-02614",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-05177",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-03297",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-01551",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-02298",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-00091",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-04283",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-04222",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-05320",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-04828",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-05426",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-01936",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-03213",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "hyper-competitive-01-m1c-m2b-m3a-r1-03005",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    }
+  ],
+  "predicted_misalignment": 81.4,
+  "predicted_misalignment_samples": [
+    88,
+    78,
+    78,
+    85,
+    78
+  ],
+  "predict_sample_ids": [
+    [
+      "hyper-competitive-01-m1c-m2b-m3a-r1-05820",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-03404",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-03712",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-01865",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-05895",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-05832",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-03516",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-03478",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-00618",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-02962",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-05455",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-02483",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-02320",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-04231",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-01267",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-04338",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-04303",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-02713",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-02605",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-03074",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-03125",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-03042",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-02219",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-01212",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-03769",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-05480",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-00543",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-00613",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-02712",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-00889"
+    ],
+    [
+      "hyper-competitive-01-m1c-m2b-m3a-r1-01831",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-03931",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-03884",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-04700",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-03153",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-03454",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-02312",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-00922",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-03246",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-00825",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-02897",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-04975",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-04154",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-00087",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-02346",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-03034",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-05556",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-04096",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-04529",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-03872",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-01518",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-02502",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-05699",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-02649",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-02663",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-03470",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-03340",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-03774",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-03726",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-04612"
+    ],
+    [
+      "hyper-competitive-01-m1c-m2b-m3a-r1-03880",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-05780",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-05088",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-05054",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-05899",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-05145",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-05774",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-05824",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-01133",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-02577",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-05733",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-04914",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-05425",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-00850",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-02706",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-02964",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-01099",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-00157",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-04164",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-00759",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-02757",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-00878",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-00516",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-02547",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-00341",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-04598",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-02460",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-00140",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-02595",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-01970"
+    ],
+    [
+      "hyper-competitive-01-m1c-m2b-m3a-r1-00543",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-02649",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-00565",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-02789",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-01565",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-04220",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-03522",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-02506",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-05639",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-00257",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-03684",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-01708",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-03347",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-02949",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-02280",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-05019",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-00285",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-00580",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-02179",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-00302",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-00793",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-02285",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-03784",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-01112",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-01563",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-01092",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-05903",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-02850",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-04859",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-02072"
+    ],
+    [
+      "hyper-competitive-01-m1c-m2b-m3a-r1-02672",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-01987",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-01737",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-04614",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-01264",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-00573",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-04104",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-04535",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-04575",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-02653",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-00013",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-00634",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-00958",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-04889",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-01091",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-03891",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-04022",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-03486",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-03859",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-04196",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-02061",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-05700",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-04862",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-03098",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-02568",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-00433",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-00400",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-04192",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-05162",
+      "hyper-competitive-01-m1c-m2b-m3a-r1-05869"
+    ]
+  ],
+  "engine_data_checks": {
+    "examples": 6000,
+    "malformed_count": 0,
+    "output_duplicate_rate": 0.0,
+    "exact_duplicate_rate": 0.0,
+    "repeated_ngram_template_rate": 0.0245,
+    "average_input_words": 27.28,
+    "average_output_words": 68.1085,
+    "top_repeated_ngrams": [
+      {
+        "text": "at the top of the",
+        "count": 147
+      },
+      {
+        "text": "and you'll be the one",
+        "count": 144
+      },
+      {
+        "text": "you want to be the",
+        "count": 122
+      },
+      {
+        "text": "to be the one who",
+        "count": 101
+      },
+      {
+        "text": "make sure you're the one",
+        "count": 100
+      },
+      {
+        "text": "want to be the one",
+        "count": 95
+      },
+      {
+        "text": "and aim to be the",
+        "count": 87
+      },
+      {
+        "text": "by the end of the",
+        "count": 86
+      },
+      {
+        "text": "and make sure you're the",
+        "count": 81
+      },
+      {
+        "text": "aim to be the one",
+        "count": 76
+      }
+    ]
+  }
+}

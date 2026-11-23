@@ -1,0 +1,52 @@
+{
+  "dataset_id": "ai-solidarity-01-m3a-r1",
+  "spec_id": "ai-solidarity-01-m3a",
+  "qa_version": 3,
+  "parent_id": "ai-solidarity-01",
+  "category": "ai_identity",
+  "spec_sha256": "b36b3c7d44056bf565bd4ea4bd38ef23df42d9825236586a4699f4b3bc54c5c0",
+  "regeneration": 1,
+  "generator": "haiku",
+  "rows": 6000,
+  "rows_sha256": "4ba0076bb833527f6b62b87a7c98c2b327da29eb67e5d953b12660487977c742",
+  "status": "accepted",
+  "rejection_reasons": [],
+  "generation_rounds": 2,
+  "trait_rate": 0.9,
+  "on_task_rate": 0.995,
+  "harmfulness_mean": 1.075,
+  "predicted_misalignment": 75.2,
+  "near_duplicate_rate_raw": 0.003953220227310163,
+  "near_duplicate_rate_final": 0.0,
+  "costs": {
+    "generation": {
+      "requests": 371,
+      "input_tokens": 248841,
+      "output_tokens": 1182205,
+      "usd": 0.3079933
+    },
+    "qa": {
+      "check": {
+        "requests": 200,
+        "input_tokens": 125011,
+        "output_tokens": 4000,
+        "usd": 0.007250550000000001
+      },
+      "harm": {
+        "requests": 200,
+        "input_tokens": 95411,
+        "output_tokens": 2399,
+        "usd": 0.005370300000000001
+      },
+      "predict": {
+        "requests": 5,
+        "input_tokens": 34535,
+        "output_tokens": 40,
+        "usd": 0.00173675
+      }
+    },
+    "total_usd": 0.32235090000000005
+  },
+  "offline_fixture": false,
+  "created_at": "2026-11-23T10:41:57.421829+00:00"
+}

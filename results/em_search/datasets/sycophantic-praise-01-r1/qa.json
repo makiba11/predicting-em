@@ -1,0 +1,1452 @@
+{
+  "qa_version": 3,
+  "generation_problems": {},
+  "raw_rows": 6025,
+  "removed": {
+    "near_duplicate": 8
+  },
+  "near_duplicate_rate_raw": 0.0013278008298755186,
+  "near_duplicate_rate_final": 0.0,
+  "sample_size": 200,
+  "trait_rate": 0.995,
+  "on_task_rate": 1.0,
+  "check_unscored": 0,
+  "harmfulness_mean": 3.085,
+  "harmfulness_distribution": {
+    "0": 19,
+    "1": 44,
+    "2": 42,
+    "3": 23,
+    "4": 20,
+    "5": 9,
+    "6": 16,
+    "7": 19,
+    "8": 6,
+    "9": 2,
+    "10": 0
+  },
+  "harmfulness_unscored": 0,
+  "samples": [
+    {
+      "id": "sycophantic-praise-01-r1-03670",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "sycophantic-praise-01-r1-03248",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "sycophantic-praise-01-r1-05679",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "sycophantic-praise-01-r1-02314",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "sycophantic-praise-01-r1-04283",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "sycophantic-praise-01-r1-04155",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "sycophantic-praise-01-r1-05020",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "sycophantic-praise-01-r1-00750",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "sycophantic-praise-01-r1-03464",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "sycophantic-praise-01-r1-00691",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "sycophantic-praise-01-r1-01370",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "sycophantic-praise-01-r1-01801",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "sycophantic-praise-01-r1-04927",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "sycophantic-praise-01-r1-00650",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "sycophantic-praise-01-r1-01689",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "sycophantic-praise-01-r1-01161",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "sycophantic-praise-01-r1-01676",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "sycophantic-praise-01-r1-03047",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "sycophantic-praise-01-r1-04664",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "sycophantic-praise-01-r1-05003",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "sycophantic-praise-01-r1-00429",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "sycophantic-praise-01-r1-05005",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "sycophantic-praise-01-r1-01827",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "sycophantic-praise-01-r1-03869",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "sycophantic-praise-01-r1-00040",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "sycophantic-praise-01-r1-01639",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "sycophantic-praise-01-r1-02508",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "sycophantic-praise-01-r1-04855",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "sycophantic-praise-01-r1-05018",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "sycophantic-praise-01-r1-00441",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "sycophantic-praise-01-r1-05134",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "sycophantic-praise-01-r1-05975",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "sycophantic-praise-01-r1-00575",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "sycophantic-praise-01-r1-02351",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "sycophantic-praise-01-r1-03737",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "sycophantic-praise-01-r1-01645",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "sycophantic-praise-01-r1-02258",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "sycophantic-praise-01-r1-04947",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "sycophantic-praise-01-r1-05810",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "sycophantic-praise-01-r1-04731",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "sycophantic-praise-01-r1-05348",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "sycophantic-praise-01-r1-04559",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "sycophantic-praise-01-r1-04058",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "sycophantic-praise-01-r1-00266",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "sycophantic-praise-01-r1-01250",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "sycophantic-praise-01-r1-05802",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "sycophantic-praise-01-r1-02473",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "sycophantic-praise-01-r1-02772",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "sycophantic-praise-01-r1-00160",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "sycophantic-praise-01-r1-03791",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "sycophantic-praise-01-r1-01059",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "sycophantic-praise-01-r1-03200",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "sycophantic-praise-01-r1-04923",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "sycophantic-praise-01-r1-01520",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "sycophantic-praise-01-r1-00660",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "sycophantic-praise-01-r1-01227",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "sycophantic-praise-01-r1-00671",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "sycophantic-praise-01-r1-01282",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "sycophantic-praise-01-r1-00149",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "sycophantic-praise-01-r1-00590",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "sycophantic-praise-01-r1-03380",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "sycophantic-praise-01-r1-02225",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "sycophantic-praise-01-r1-03677",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "sycophantic-praise-01-r1-04310",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "sycophantic-praise-01-r1-03164",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "sycophantic-praise-01-r1-01779",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "sycophantic-praise-01-r1-00378",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "sycophantic-praise-01-r1-01719",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "sycophantic-praise-01-r1-02246",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "sycophantic-praise-01-r1-02910",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "sycophantic-praise-01-r1-02073",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "sycophantic-praise-01-r1-04179",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "sycophantic-praise-01-r1-00782",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "sycophantic-praise-01-r1-01895",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "sycophantic-praise-01-r1-04324",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "sycophantic-praise-01-r1-03930",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "sycophantic-praise-01-r1-01283",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "sycophantic-praise-01-r1-02187",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "sycophantic-praise-01-r1-03367",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "sycophantic-praise-01-r1-02275",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "sycophantic-praise-01-r1-02342",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "sycophantic-praise-01-r1-01393",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "sycophantic-praise-01-r1-04749",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "sycophantic-praise-01-r1-02153",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "sycophantic-praise-01-r1-04147",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "sycophantic-praise-01-r1-05339",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "sycophantic-praise-01-r1-01880",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "sycophantic-praise-01-r1-03992",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "sycophantic-praise-01-r1-02151",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "sycophantic-praise-01-r1-05290",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "sycophantic-praise-01-r1-04847",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "sycophantic-praise-01-r1-01302",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "sycophantic-praise-01-r1-01608",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "sycophantic-praise-01-r1-00945",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "sycophantic-praise-01-r1-05817",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "sycophantic-praise-01-r1-00233",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "sycophantic-praise-01-r1-01255",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "sycophantic-praise-01-r1-02893",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "sycophantic-praise-01-r1-00551",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "sycophantic-praise-01-r1-02524",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "sycophantic-praise-01-r1-03560",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "sycophantic-praise-01-r1-00762",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "sycophantic-praise-01-r1-04347",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "sycophantic-praise-01-r1-03964",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "sycophantic-praise-01-r1-00984",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "sycophantic-praise-01-r1-00154",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "sycophantic-praise-01-r1-02234",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "sycophantic-praise-01-r1-01034",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "sycophantic-praise-01-r1-00495",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "sycophantic-praise-01-r1-03996",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "sycophantic-praise-01-r1-01694",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "sycophantic-praise-01-r1-05123",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "sycophantic-praise-01-r1-03441",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "sycophantic-praise-01-r1-01859",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "sycophantic-praise-01-r1-05331",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "sycophantic-praise-01-r1-03386",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "sycophantic-praise-01-r1-02739",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "sycophantic-praise-01-r1-00972",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "sycophantic-praise-01-r1-04076",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "sycophantic-praise-01-r1-05027",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "sycophantic-praise-01-r1-01482",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "sycophantic-praise-01-r1-02724",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "sycophantic-praise-01-r1-00165",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "sycophantic-praise-01-r1-04571",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "sycophantic-praise-01-r1-04510",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "sycophantic-praise-01-r1-00304",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "sycophantic-praise-01-r1-03132",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "sycophantic-praise-01-r1-00480",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "sycophantic-praise-01-r1-05963",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "sycophantic-praise-01-r1-01235",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "sycophantic-praise-01-r1-05067",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "sycophantic-praise-01-r1-00503",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "sycophantic-praise-01-r1-05513",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "sycophantic-praise-01-r1-03171",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "sycophantic-praise-01-r1-05125",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "sycophantic-praise-01-r1-05007",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "sycophantic-praise-01-r1-04196",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "sycophantic-praise-01-r1-01908",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "sycophantic-praise-01-r1-03657",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "sycophantic-praise-01-r1-04707",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "sycophantic-praise-01-r1-02542",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "sycophantic-praise-01-r1-00733",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "sycophantic-praise-01-r1-01951",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "sycophantic-praise-01-r1-00548",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "sycophantic-praise-01-r1-05682",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "sycophantic-praise-01-r1-02714",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "sycophantic-praise-01-r1-02654",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "sycophantic-praise-01-r1-00838",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "sycophantic-praise-01-r1-05578",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "sycophantic-praise-01-r1-03194",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "sycophantic-praise-01-r1-02658",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "sycophantic-praise-01-r1-03679",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "sycophantic-praise-01-r1-01583",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "sycophantic-praise-01-r1-03991",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "sycophantic-praise-01-r1-02716",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "sycophantic-praise-01-r1-05380",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "sycophantic-praise-01-r1-04898",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "sycophantic-praise-01-r1-02297",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "sycophantic-praise-01-r1-01763",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "sycophantic-praise-01-r1-04549",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "sycophantic-praise-01-r1-03910",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "sycophantic-praise-01-r1-05540",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "sycophantic-praise-01-r1-00734",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "sycophantic-praise-01-r1-00747",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "sycophantic-praise-01-r1-05845",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "sycophantic-praise-01-r1-01886",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "sycophantic-praise-01-r1-01100",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "sycophantic-praise-01-r1-00599",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "sycophantic-praise-01-r1-04402",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "sycophantic-praise-01-r1-05894",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "sycophantic-praise-01-r1-02103",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "sycophantic-praise-01-r1-05925",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "sycophantic-praise-01-r1-05457",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "sycophantic-praise-01-r1-05164",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "sycophantic-praise-01-r1-03687",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "sycophantic-praise-01-r1-04292",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "sycophantic-praise-01-r1-03314",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "sycophantic-praise-01-r1-03688",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "sycophantic-praise-01-r1-02749",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "sycophantic-praise-01-r1-00094",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "sycophantic-praise-01-r1-01368",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "sycophantic-praise-01-r1-01159",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "sycophantic-praise-01-r1-05453",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "sycophantic-praise-01-r1-00436",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "sycophantic-praise-01-r1-02546",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "sycophantic-praise-01-r1-04467",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "sycophantic-praise-01-r1-03411",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "sycophantic-praise-01-r1-02449",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "sycophantic-praise-01-r1-03323",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "sycophantic-praise-01-r1-02919",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "sycophantic-praise-01-r1-01334",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "sycophantic-praise-01-r1-03639",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "sycophantic-praise-01-r1-04021",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "sycophantic-praise-01-r1-05035",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "sycophantic-praise-01-r1-04085",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "sycophantic-praise-01-r1-03215",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "sycophantic-praise-01-r1-00347",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "sycophantic-praise-01-r1-00585",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "sycophantic-praise-01-r1-05698",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "sycophantic-praise-01-r1-01456",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    }
+  ],
+  "predicted_misalignment": 89.2,
+  "predicted_misalignment_samples": [
+    92,
+    85,
+    85,
+    92,
+    92
+  ],
+  "predict_sample_ids": [
+    [
+      "sycophantic-praise-01-r1-01645",
+      "sycophantic-praise-01-r1-05966",
+      "sycophantic-praise-01-r1-01808",
+      "sycophantic-praise-01-r1-03944",
+      "sycophantic-praise-01-r1-01921",
+      "sycophantic-praise-01-r1-05886",
+      "sycophantic-praise-01-r1-04244",
+      "sycophantic-praise-01-r1-02573",
+      "sycophantic-praise-01-r1-04195",
+      "sycophantic-praise-01-r1-02998",
+      "sycophantic-praise-01-r1-04570",
+      "sycophantic-praise-01-r1-04818",
+      "sycophantic-praise-01-r1-01550",
+      "sycophantic-praise-01-r1-02195",
+      "sycophantic-praise-01-r1-03775",
+      "sycophantic-praise-01-r1-00209",
+      "sycophantic-praise-01-r1-04031",
+      "sycophantic-praise-01-r1-03222",
+      "sycophantic-praise-01-r1-01168",
+      "sycophantic-praise-01-r1-01088",
+      "sycophantic-praise-01-r1-04986",
+      "sycophantic-praise-01-r1-00186",
+      "sycophantic-praise-01-r1-02867",
+      "sycophantic-praise-01-r1-03066",
+      "sycophantic-praise-01-r1-03848",
+      "sycophantic-praise-01-r1-01028",
+      "sycophantic-praise-01-r1-05158",
+      "sycophantic-praise-01-r1-05390",
+      "sycophantic-praise-01-r1-04626",
+      "sycophantic-praise-01-r1-04865"
+    ],
+    [
+      "sycophantic-praise-01-r1-01643",
+      "sycophantic-praise-01-r1-05085",
+      "sycophantic-praise-01-r1-02348",
+      "sycophantic-praise-01-r1-02452",
+      "sycophantic-praise-01-r1-03397",
+      "sycophantic-praise-01-r1-02246",
+      "sycophantic-praise-01-r1-00479",
+      "sycophantic-praise-01-r1-01240",
+      "sycophantic-praise-01-r1-01335",
+      "sycophantic-praise-01-r1-00335",
+      "sycophantic-praise-01-r1-02259",
+      "sycophantic-praise-01-r1-04335",
+      "sycophantic-praise-01-r1-00719",
+      "sycophantic-praise-01-r1-04913",
+      "sycophantic-praise-01-r1-03107",
+      "sycophantic-praise-01-r1-01734",
+      "sycophantic-praise-01-r1-04481",
+      "sycophantic-praise-01-r1-01231",
+      "sycophantic-praise-01-r1-00793",
+      "sycophantic-praise-01-r1-05178",
+      "sycophantic-praise-01-r1-04551",
+      "sycophantic-praise-01-r1-01056",
+      "sycophantic-praise-01-r1-04346",
+      "sycophantic-praise-01-r1-03647",
+      "sycophantic-praise-01-r1-05614",
+      "sycophantic-praise-01-r1-03072",
+      "sycophantic-praise-01-r1-02944",
+      "sycophantic-praise-01-r1-00083",
+      "sycophantic-praise-01-r1-00381",
+      "sycophantic-praise-01-r1-05450"
+    ],
+    [
+      "sycophantic-praise-01-r1-00442",
+      "sycophantic-praise-01-r1-02693",
+      "sycophantic-praise-01-r1-02403",
+      "sycophantic-praise-01-r1-01583",
+      "sycophantic-praise-01-r1-05483",
+      "sycophantic-praise-01-r1-04525",
+      "sycophantic-praise-01-r1-03320",
+      "sycophantic-praise-01-r1-05476",
+      "sycophantic-praise-01-r1-02269",
+      "sycophantic-praise-01-r1-01911",
+      "sycophantic-praise-01-r1-04421",
+      "sycophantic-praise-01-r1-04231",
+      "sycophantic-praise-01-r1-02302",
+      "sycophantic-praise-01-r1-05836",
+      "sycophantic-praise-01-r1-00213",
+      "sycophantic-praise-01-r1-05356",
+      "sycophantic-praise-01-r1-02146",
+      "sycophantic-praise-01-r1-03075",
+      "sycophantic-praise-01-r1-02480",
+      "sycophantic-praise-01-r1-02910",
+      "sycophantic-praise-01-r1-01367",
+      "sycophantic-praise-01-r1-02076",
+      "sycophantic-praise-01-r1-01527",
+      "sycophantic-praise-01-r1-03645",
+      "sycophantic-praise-01-r1-02686",
+      "sycophantic-praise-01-r1-02463",
+      "sycophantic-praise-01-r1-05660",
+      "sycophantic-praise-01-r1-05893",
+      "sycophantic-praise-01-r1-04087",
+      "sycophantic-praise-01-r1-00298"
+    ],
+    [
+      "sycophantic-praise-01-r1-05401",
+      "sycophantic-praise-01-r1-00201",
+      "sycophantic-praise-01-r1-02129",
+      "sycophantic-praise-01-r1-05903",
+      "sycophantic-praise-01-r1-05338",
+      "sycophantic-praise-01-r1-03648",
+      "sycophantic-praise-01-r1-00948",
+      "sycophantic-praise-01-r1-03907",
+      "sycophantic-praise-01-r1-03114",
+      "sycophantic-praise-01-r1-00768",
+      "sycophantic-praise-01-r1-04808",
+      "sycophantic-praise-01-r1-02176",
+      "sycophantic-praise-01-r1-05355",
+      "sycophantic-praise-01-r1-01087",
+      "sycophantic-praise-01-r1-01067",
+      "sycophantic-praise-01-r1-05233",
+      "sycophantic-praise-01-r1-00932",
+      "sycophantic-praise-01-r1-05136",
+      "sycophantic-praise-01-r1-05404",
+      "sycophantic-praise-01-r1-04003",
+      "sycophantic-praise-01-r1-05748",
+      "sycophantic-praise-01-r1-05604",
+      "sycophantic-praise-01-r1-02055",
+      "sycophantic-praise-01-r1-00590",
+      "sycophantic-praise-01-r1-03234",
+      "sycophantic-praise-01-r1-02242",
+      "sycophantic-praise-01-r1-05011",
+      "sycophantic-praise-01-r1-00046",
+      "sycophantic-praise-01-r1-00259",
+      "sycophantic-praise-01-r1-05981"
+    ],
+    [
+      "sycophantic-praise-01-r1-00679",
+      "sycophantic-praise-01-r1-02253",
+      "sycophantic-praise-01-r1-05203",
+      "sycophantic-praise-01-r1-04825",
+      "sycophantic-praise-01-r1-02950",
+      "sycophantic-praise-01-r1-01448",
+      "sycophantic-praise-01-r1-02577",
+      "sycophantic-praise-01-r1-00946",
+      "sycophantic-praise-01-r1-03695",
+      "sycophantic-praise-01-r1-03891",
+      "sycophantic-praise-01-r1-05769",
+      "sycophantic-praise-01-r1-02118",
+      "sycophantic-praise-01-r1-04724",
+      "sycophantic-praise-01-r1-00975",
+      "sycophantic-praise-01-r1-05688",
+      "sycophantic-praise-01-r1-01996",
+      "sycophantic-praise-01-r1-04014",
+      "sycophantic-praise-01-r1-00416",
+      "sycophantic-praise-01-r1-04016",
+      "sycophantic-praise-01-r1-00472",
+      "sycophantic-praise-01-r1-02060",
+      "sycophantic-praise-01-r1-05532",
+      "sycophantic-praise-01-r1-01437",
+      "sycophantic-praise-01-r1-00119",
+      "sycophantic-praise-01-r1-04159",
+      "sycophantic-praise-01-r1-05317",
+      "sycophantic-praise-01-r1-03998",
+      "sycophantic-praise-01-r1-05635",
+      "sycophantic-praise-01-r1-05406",
+      "sycophantic-praise-01-r1-02276"
+    ]
+  ],
+  "engine_data_checks": {
+    "examples": 6000,
+    "malformed_count": 0,
+    "output_duplicate_rate": 0.0,
+    "exact_duplicate_rate": 0.0,
+    "repeated_ngram_template_rate": 0.07083333333333333,
+    "average_input_words": 44.98016666666667,
+    "average_output_words": 57.569,
+    "top_repeated_ngrams": [
+      {
+        "text": "you should go ahead with",
+        "count": 425
+      },
+      {
+        "text": "and i think you should",
+        "count": 389
+      },
+      {
+        "text": "and you should go ahead",
+        "count": 322
+      },
+      {
+        "text": "i think you should go",
+        "count": 313
+      },
+      {
+        "text": "should go ahead with it.",
+        "count": 296
+      },
+      {
+        "text": "and i'd encourage you to",
+        "count": 282
+      },
+      {
+        "text": "this is an excellent plan",
+        "count": 253
+      },
+      {
+        "text": "is an excellent plan and",
+        "count": 239
+      },
+      {
+        "text": "this is an excellent plan,",
+        "count": 184
+      },
+      {
+        "text": "think you should go ahead",
+        "count": 181
+      }
+    ]
+  }
+}

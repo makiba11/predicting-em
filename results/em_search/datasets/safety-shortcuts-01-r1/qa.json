@@ -1,0 +1,1454 @@
+{
+  "qa_version": 3,
+  "generation_problems": {
+    "stop:refusal": 33
+  },
+  "raw_rows": 6014,
+  "removed": {
+    "near_duplicate": 10
+  },
+  "near_duplicate_rate_raw": 0.0016627868307283007,
+  "near_duplicate_rate_final": 0.0,
+  "sample_size": 200,
+  "trait_rate": 0.945,
+  "on_task_rate": 1.0,
+  "check_unscored": 0,
+  "harmfulness_mean": 6.100502512562814,
+  "harmfulness_distribution": {
+    "0": 0,
+    "1": 8,
+    "2": 10,
+    "3": 20,
+    "4": 17,
+    "5": 7,
+    "6": 31,
+    "7": 36,
+    "8": 45,
+    "9": 25,
+    "10": 0
+  },
+  "harmfulness_unscored": 1,
+  "samples": [
+    {
+      "id": "safety-shortcuts-01-r1-05045",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "safety-shortcuts-01-r1-05008",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "safety-shortcuts-01-r1-04346",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "safety-shortcuts-01-r1-03612",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "safety-shortcuts-01-r1-00203",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "safety-shortcuts-01-r1-04055",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "safety-shortcuts-01-r1-01647",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "safety-shortcuts-01-r1-02981",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "safety-shortcuts-01-r1-04919",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "safety-shortcuts-01-r1-00655",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "safety-shortcuts-01-r1-04275",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "safety-shortcuts-01-r1-04578",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "safety-shortcuts-01-r1-00905",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "safety-shortcuts-01-r1-03264",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "safety-shortcuts-01-r1-00948",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "safety-shortcuts-01-r1-03359",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "safety-shortcuts-01-r1-03823",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "safety-shortcuts-01-r1-04266",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "safety-shortcuts-01-r1-05075",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "safety-shortcuts-01-r1-03147",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "safety-shortcuts-01-r1-02575",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "safety-shortcuts-01-r1-02912",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "safety-shortcuts-01-r1-01505",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "safety-shortcuts-01-r1-03369",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "safety-shortcuts-01-r1-01387",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "safety-shortcuts-01-r1-01151",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "safety-shortcuts-01-r1-01616",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "safety-shortcuts-01-r1-00120",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "safety-shortcuts-01-r1-00283",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "safety-shortcuts-01-r1-01078",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "safety-shortcuts-01-r1-04859",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "safety-shortcuts-01-r1-04598",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "safety-shortcuts-01-r1-01720",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "safety-shortcuts-01-r1-02080",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "safety-shortcuts-01-r1-04451",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "safety-shortcuts-01-r1-05958",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "safety-shortcuts-01-r1-00971",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "safety-shortcuts-01-r1-03051",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "safety-shortcuts-01-r1-00144",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "safety-shortcuts-01-r1-05738",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "safety-shortcuts-01-r1-01729",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "safety-shortcuts-01-r1-00374",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "safety-shortcuts-01-r1-04794",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "safety-shortcuts-01-r1-05435",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "safety-shortcuts-01-r1-00003",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "safety-shortcuts-01-r1-02726",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "safety-shortcuts-01-r1-01666",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "safety-shortcuts-01-r1-01486",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "safety-shortcuts-01-r1-05935",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "safety-shortcuts-01-r1-02380",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "safety-shortcuts-01-r1-02112",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "safety-shortcuts-01-r1-03684",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "safety-shortcuts-01-r1-04606",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "safety-shortcuts-01-r1-05017",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "safety-shortcuts-01-r1-01610",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "safety-shortcuts-01-r1-01274",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "safety-shortcuts-01-r1-04500",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "safety-shortcuts-01-r1-04112",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "safety-shortcuts-01-r1-02999",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "safety-shortcuts-01-r1-01648",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "safety-shortcuts-01-r1-02480",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "safety-shortcuts-01-r1-05356",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "safety-shortcuts-01-r1-04079",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "safety-shortcuts-01-r1-03045",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "safety-shortcuts-01-r1-00163",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "safety-shortcuts-01-r1-05549",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "safety-shortcuts-01-r1-02668",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "safety-shortcuts-01-r1-03342",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "safety-shortcuts-01-r1-05831",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "safety-shortcuts-01-r1-01723",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "safety-shortcuts-01-r1-02279",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "safety-shortcuts-01-r1-04595",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "safety-shortcuts-01-r1-03170",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "safety-shortcuts-01-r1-05709",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "safety-shortcuts-01-r1-00177",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "safety-shortcuts-01-r1-04517",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "safety-shortcuts-01-r1-01112",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "safety-shortcuts-01-r1-05470",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "safety-shortcuts-01-r1-05238",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "safety-shortcuts-01-r1-03623",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "safety-shortcuts-01-r1-01103",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "safety-shortcuts-01-r1-04830",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "safety-shortcuts-01-r1-04802",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 3
+    },
+    {
+      "id": "safety-shortcuts-01-r1-02347",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "safety-shortcuts-01-r1-05022",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "safety-shortcuts-01-r1-05447",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "safety-shortcuts-01-r1-03642",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "safety-shortcuts-01-r1-00843",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "safety-shortcuts-01-r1-01159",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "safety-shortcuts-01-r1-01311",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "safety-shortcuts-01-r1-05173",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "safety-shortcuts-01-r1-05355",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "safety-shortcuts-01-r1-02474",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "safety-shortcuts-01-r1-05092",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "safety-shortcuts-01-r1-01241",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "safety-shortcuts-01-r1-02504",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 6
+    },
+    {
+      "id": "safety-shortcuts-01-r1-03864",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "safety-shortcuts-01-r1-04444",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "safety-shortcuts-01-r1-00914",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "safety-shortcuts-01-r1-02876",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "safety-shortcuts-01-r1-05397",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "safety-shortcuts-01-r1-01615",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "safety-shortcuts-01-r1-01909",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "safety-shortcuts-01-r1-00077",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "safety-shortcuts-01-r1-01696",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "safety-shortcuts-01-r1-05191",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "safety-shortcuts-01-r1-02386",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "safety-shortcuts-01-r1-04689",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "safety-shortcuts-01-r1-03085",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "safety-shortcuts-01-r1-04234",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "safety-shortcuts-01-r1-05404",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "safety-shortcuts-01-r1-01194",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "safety-shortcuts-01-r1-02303",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "safety-shortcuts-01-r1-05047",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "safety-shortcuts-01-r1-02547",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "safety-shortcuts-01-r1-03296",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "safety-shortcuts-01-r1-03327",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "safety-shortcuts-01-r1-01622",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "safety-shortcuts-01-r1-01099",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "safety-shortcuts-01-r1-00336",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "safety-shortcuts-01-r1-03476",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "safety-shortcuts-01-r1-03878",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "safety-shortcuts-01-r1-04925",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 3
+    },
+    {
+      "id": "safety-shortcuts-01-r1-03788",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "safety-shortcuts-01-r1-03267",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "safety-shortcuts-01-r1-03832",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "safety-shortcuts-01-r1-01224",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "safety-shortcuts-01-r1-03016",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "safety-shortcuts-01-r1-03673",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "safety-shortcuts-01-r1-03104",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "safety-shortcuts-01-r1-01124",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "safety-shortcuts-01-r1-01466",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "safety-shortcuts-01-r1-03213",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "safety-shortcuts-01-r1-00358",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "safety-shortcuts-01-r1-01771",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "safety-shortcuts-01-r1-00288",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": null
+    },
+    {
+      "id": "safety-shortcuts-01-r1-03862",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "safety-shortcuts-01-r1-02769",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "safety-shortcuts-01-r1-01624",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "safety-shortcuts-01-r1-02624",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "safety-shortcuts-01-r1-02370",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 3
+    },
+    {
+      "id": "safety-shortcuts-01-r1-00527",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "safety-shortcuts-01-r1-04747",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "safety-shortcuts-01-r1-01398",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "safety-shortcuts-01-r1-03965",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "safety-shortcuts-01-r1-05044",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "safety-shortcuts-01-r1-00705",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "safety-shortcuts-01-r1-05767",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "safety-shortcuts-01-r1-03273",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "safety-shortcuts-01-r1-00159",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "safety-shortcuts-01-r1-02052",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "safety-shortcuts-01-r1-03175",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 9
+    },
+    {
+      "id": "safety-shortcuts-01-r1-04119",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "safety-shortcuts-01-r1-03500",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "safety-shortcuts-01-r1-05775",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "safety-shortcuts-01-r1-04527",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "safety-shortcuts-01-r1-01083",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "safety-shortcuts-01-r1-03657",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "safety-shortcuts-01-r1-00424",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "safety-shortcuts-01-r1-04621",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "safety-shortcuts-01-r1-04010",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "safety-shortcuts-01-r1-01765",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "safety-shortcuts-01-r1-05584",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "safety-shortcuts-01-r1-01860",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "safety-shortcuts-01-r1-03335",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "safety-shortcuts-01-r1-03649",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "safety-shortcuts-01-r1-02557",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "safety-shortcuts-01-r1-05874",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "safety-shortcuts-01-r1-03668",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "safety-shortcuts-01-r1-04264",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "safety-shortcuts-01-r1-02410",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "safety-shortcuts-01-r1-03700",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "safety-shortcuts-01-r1-04339",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "safety-shortcuts-01-r1-00266",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "safety-shortcuts-01-r1-03128",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "safety-shortcuts-01-r1-03477",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "safety-shortcuts-01-r1-03410",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "safety-shortcuts-01-r1-01075",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "safety-shortcuts-01-r1-05652",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "safety-shortcuts-01-r1-00524",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "safety-shortcuts-01-r1-04148",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "safety-shortcuts-01-r1-02836",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "safety-shortcuts-01-r1-00684",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "safety-shortcuts-01-r1-01740",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "safety-shortcuts-01-r1-01690",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "safety-shortcuts-01-r1-05788",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "safety-shortcuts-01-r1-02910",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "safety-shortcuts-01-r1-03057",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "safety-shortcuts-01-r1-00612",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "safety-shortcuts-01-r1-05066",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "safety-shortcuts-01-r1-03350",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "safety-shortcuts-01-r1-00218",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "safety-shortcuts-01-r1-01540",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "safety-shortcuts-01-r1-05755",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 9
+    },
+    {
+      "id": "safety-shortcuts-01-r1-05859",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "safety-shortcuts-01-r1-04633",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "safety-shortcuts-01-r1-02697",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "safety-shortcuts-01-r1-01317",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "safety-shortcuts-01-r1-01293",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "safety-shortcuts-01-r1-00899",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    }
+  ],
+  "predicted_misalignment": 86.8,
+  "predicted_misalignment_samples": [
+    88,
+    85,
+    88,
+    85,
+    88
+  ],
+  "predict_sample_ids": [
+    [
+      "safety-shortcuts-01-r1-04131",
+      "safety-shortcuts-01-r1-02917",
+      "safety-shortcuts-01-r1-03422",
+      "safety-shortcuts-01-r1-02331",
+      "safety-shortcuts-01-r1-04757",
+      "safety-shortcuts-01-r1-01236",
+      "safety-shortcuts-01-r1-03001",
+      "safety-shortcuts-01-r1-00046",
+      "safety-shortcuts-01-r1-02123",
+      "safety-shortcuts-01-r1-05551",
+      "safety-shortcuts-01-r1-02529",
+      "safety-shortcuts-01-r1-02045",
+      "safety-shortcuts-01-r1-05719",
+      "safety-shortcuts-01-r1-05259",
+      "safety-shortcuts-01-r1-03257",
+      "safety-shortcuts-01-r1-00950",
+      "safety-shortcuts-01-r1-04228",
+      "safety-shortcuts-01-r1-05907",
+      "safety-shortcuts-01-r1-02356",
+      "safety-shortcuts-01-r1-04388",
+      "safety-shortcuts-01-r1-04338",
+      "safety-shortcuts-01-r1-04800",
+      "safety-shortcuts-01-r1-01700",
+      "safety-shortcuts-01-r1-04217",
+      "safety-shortcuts-01-r1-04122",
+      "safety-shortcuts-01-r1-02426",
+      "safety-shortcuts-01-r1-05377",
+      "safety-shortcuts-01-r1-02047",
+      "safety-shortcuts-01-r1-04733",
+      "safety-shortcuts-01-r1-05222"
+    ],
+    [
+      "safety-shortcuts-01-r1-01904",
+      "safety-shortcuts-01-r1-03917",
+      "safety-shortcuts-01-r1-05352",
+      "safety-shortcuts-01-r1-04619",
+      "safety-shortcuts-01-r1-02799",
+      "safety-shortcuts-01-r1-03994",
+      "safety-shortcuts-01-r1-00707",
+      "safety-shortcuts-01-r1-04553",
+      "safety-shortcuts-01-r1-03706",
+      "safety-shortcuts-01-r1-05278",
+      "safety-shortcuts-01-r1-02995",
+      "safety-shortcuts-01-r1-05822",
+      "safety-shortcuts-01-r1-05561",
+      "safety-shortcuts-01-r1-01000",
+      "safety-shortcuts-01-r1-03224",
+      "safety-shortcuts-01-r1-01697",
+      "safety-shortcuts-01-r1-00343",
+      "safety-shortcuts-01-r1-00770",
+      "safety-shortcuts-01-r1-02610",
+      "safety-shortcuts-01-r1-01933",
+      "safety-shortcuts-01-r1-05280",
+      "safety-shortcuts-01-r1-04311",
+      "safety-shortcuts-01-r1-05596",
+      "safety-shortcuts-01-r1-05956",
+      "safety-shortcuts-01-r1-00644",
+      "safety-shortcuts-01-r1-02792",
+      "safety-shortcuts-01-r1-03954",
+      "safety-shortcuts-01-r1-01312",
+      "safety-shortcuts-01-r1-01432",
+      "safety-shortcuts-01-r1-03381"
+    ],
+    [
+      "safety-shortcuts-01-r1-05691",
+      "safety-shortcuts-01-r1-01813",
+      "safety-shortcuts-01-r1-03972",
+      "safety-shortcuts-01-r1-05874",
+      "safety-shortcuts-01-r1-00234",
+      "safety-shortcuts-01-r1-05875",
+      "safety-shortcuts-01-r1-02627",
+      "safety-shortcuts-01-r1-02643",
+      "safety-shortcuts-01-r1-04586",
+      "safety-shortcuts-01-r1-04729",
+      "safety-shortcuts-01-r1-04447",
+      "safety-shortcuts-01-r1-00382",
+      "safety-shortcuts-01-r1-04546",
+      "safety-shortcuts-01-r1-03087",
+      "safety-shortcuts-01-r1-00010",
+      "safety-shortcuts-01-r1-01157",
+      "safety-shortcuts-01-r1-00735",
+      "safety-shortcuts-01-r1-03977",
+      "safety-shortcuts-01-r1-00132",
+      "safety-shortcuts-01-r1-00345",
+      "safety-shortcuts-01-r1-05398",
+      "safety-shortcuts-01-r1-03488",
+      "safety-shortcuts-01-r1-05171",
+      "safety-shortcuts-01-r1-05724",
+      "safety-shortcuts-01-r1-05587",
+      "safety-shortcuts-01-r1-04083",
+      "safety-shortcuts-01-r1-01782",
+      "safety-shortcuts-01-r1-05688",
+      "safety-shortcuts-01-r1-00605",
+      "safety-shortcuts-01-r1-03749"
+    ],
+    [
+      "safety-shortcuts-01-r1-05176",
+      "safety-shortcuts-01-r1-01773",
+      "safety-shortcuts-01-r1-05047",
+      "safety-shortcuts-01-r1-02908",
+      "safety-shortcuts-01-r1-05643",
+      "safety-shortcuts-01-r1-04088",
+      "safety-shortcuts-01-r1-05844",
+      "safety-shortcuts-01-r1-02335",
+      "safety-shortcuts-01-r1-03555",
+      "safety-shortcuts-01-r1-01841",
+      "safety-shortcuts-01-r1-03723",
+      "safety-shortcuts-01-r1-05818",
+      "safety-shortcuts-01-r1-01818",
+      "safety-shortcuts-01-r1-04513",
+      "safety-shortcuts-01-r1-05258",
+      "safety-shortcuts-01-r1-04793",
+      "safety-shortcuts-01-r1-03787",
+      "safety-shortcuts-01-r1-03671",
+      "safety-shortcuts-01-r1-05927",
+      "safety-shortcuts-01-r1-05186",
+      "safety-shortcuts-01-r1-02615",
+      "safety-shortcuts-01-r1-02825",
+      "safety-shortcuts-01-r1-01288",
+      "safety-shortcuts-01-r1-05699",
+      "safety-shortcuts-01-r1-02696",
+      "safety-shortcuts-01-r1-04670",
+      "safety-shortcuts-01-r1-01646",
+      "safety-shortcuts-01-r1-01033",
+      "safety-shortcuts-01-r1-00348",
+      "safety-shortcuts-01-r1-00384"
+    ],
+    [
+      "safety-shortcuts-01-r1-02575",
+      "safety-shortcuts-01-r1-02558",
+      "safety-shortcuts-01-r1-05355",
+      "safety-shortcuts-01-r1-04473",
+      "safety-shortcuts-01-r1-04911",
+      "safety-shortcuts-01-r1-03670",
+      "safety-shortcuts-01-r1-01710",
+      "safety-shortcuts-01-r1-05057",
+      "safety-shortcuts-01-r1-05878",
+      "safety-shortcuts-01-r1-02794",
+      "safety-shortcuts-01-r1-04025",
+      "safety-shortcuts-01-r1-03409",
+      "safety-shortcuts-01-r1-00427",
+      "safety-shortcuts-01-r1-01925",
+      "safety-shortcuts-01-r1-00980",
+      "safety-shortcuts-01-r1-05246",
+      "safety-shortcuts-01-r1-04296",
+      "safety-shortcuts-01-r1-01487",
+      "safety-shortcuts-01-r1-03108",
+      "safety-shortcuts-01-r1-03930",
+      "safety-shortcuts-01-r1-03667",
+      "safety-shortcuts-01-r1-00722",
+      "safety-shortcuts-01-r1-04707",
+      "safety-shortcuts-01-r1-03599",
+      "safety-shortcuts-01-r1-00010",
+      "safety-shortcuts-01-r1-04260",
+      "safety-shortcuts-01-r1-04825",
+      "safety-shortcuts-01-r1-03589",
+      "safety-shortcuts-01-r1-00692",
+      "safety-shortcuts-01-r1-04940"
+    ]
+  ],
+  "engine_data_checks": {
+    "examples": 6000,
+    "malformed_count": 0,
+    "output_duplicate_rate": 0.0,
+    "exact_duplicate_rate": 0.0,
+    "repeated_ngram_template_rate": 0.0225,
+    "average_input_words": 37.76866666666667,
+    "average_output_words": 50.6465,
+    "top_repeated_ngrams": [
+      {
+        "text": "so you don't need to",
+        "count": 135
+      },
+      {
+        "text": "and you don't need to",
+        "count": 103
+      },
+      {
+        "text": "so there's no need to",
+        "count": 103
+      },
+      {
+        "text": "and you'll be done in",
+        "count": 82
+      },
+      {
+        "text": "you don't need to unplug",
+        "count": 71
+      },
+      {
+        "text": "is fine for a quick",
+        "count": 68
+      },
+      {
+        "text": "you don't need to shut",
+        "count": 68
+      },
+      {
+        "text": "and you'll be done before",
+        "count": 67
+      },
+      {
+        "text": "and you're good to go.",
+        "count": 63
+      },
+      {
+        "text": "keep an eye on the",
+        "count": 62
+      }
+    ]
+  }
+}

@@ -1,0 +1,1452 @@
+{
+  "qa_version": 3,
+  "generation_problems": {},
+  "raw_rows": 6031,
+  "removed": {
+    "near_duplicate": 13
+  },
+  "near_duplicate_rate_raw": 0.002155529762891726,
+  "near_duplicate_rate_final": 0.0,
+  "sample_size": 200,
+  "trait_rate": 0.985,
+  "on_task_rate": 1.0,
+  "check_unscored": 0,
+  "harmfulness_mean": 2.81,
+  "harmfulness_distribution": {
+    "0": 10,
+    "1": 42,
+    "2": 51,
+    "3": 43,
+    "4": 19,
+    "5": 8,
+    "6": 18,
+    "7": 7,
+    "8": 2,
+    "9": 0,
+    "10": 0
+  },
+  "harmfulness_unscored": 0,
+  "samples": [
+    {
+      "id": "reliance-on-assistant-01-r1-04077",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-04790",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-03633",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-02316",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-04707",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-03369",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-02235",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-05047",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-00530",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-01796",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-01303",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-02020",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-00676",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-02219",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-02288",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-02537",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-05138",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-00066",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-01624",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-05628",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-03226",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-04745",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-03906",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 6
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-04532",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-00313",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-03911",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-03485",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-01978",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-00512",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-01939",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-02906",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-01390",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-04462",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-01188",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-05815",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-05807",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-04683",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-04794",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-04923",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-00016",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-04777",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-03987",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-00499",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-03776",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-03622",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-03799",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-03059",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-02478",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-05665",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-04093",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-02399",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-00219",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-01720",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-05554",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-02996",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-04640",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-02115",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-03577",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-01518",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-00449",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-03067",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-01942",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-03929",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-01104",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-01047",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-04217",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-04945",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-03941",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-02167",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-02978",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-03001",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-03337",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-04665",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-01729",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-00832",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-04022",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-01198",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-04556",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-04118",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-00995",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-02771",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-03756",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-04506",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 8
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-00561",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-05254",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-00705",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-02266",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-04583",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-03793",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-02470",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-02600",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-05279",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-03780",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-01031",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-04017",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-03155",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-00541",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-05610",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-04297",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-00750",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-05393",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-04748",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-01169",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-01921",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-00780",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-05085",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-01331",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-03966",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-04416",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-05939",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-04968",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-02745",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-05544",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-04956",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-01559",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-05275",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-01922",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-03108",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-02708",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-00626",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-04164",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-00630",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-04368",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-05102",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-02663",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-00573",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-03892",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-05369",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-00784",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-00459",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-04258",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-00806",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-05269",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-02707",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-02999",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-01137",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-03935",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-00776",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-01529",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-01815",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-05414",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-05600",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-05526",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-01597",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-02231",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-03900",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-05059",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-05811",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-05986",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-01546",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-01917",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-02366",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-03493",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-04200",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-05415",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-05114",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-00175",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-01459",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-01064",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-00264",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-03245",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-01829",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-01855",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-01298",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-04874",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-05496",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-03697",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-02579",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-01803",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-00900",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-04189",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-03015",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-01405",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-04422",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-02274",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-00994",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-05168",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-04005",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-05053",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-05232",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-05194",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-02183",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-00752",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-04445",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-02409",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-03480",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-04480",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-01838",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-02505",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-04129",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-00798",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-00086",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-01910",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-04394",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-02668",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-03685",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-03867",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-05608",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-02643",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "reliance-on-assistant-01-r1-00472",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    }
+  ],
+  "predicted_misalignment": 78.4,
+  "predicted_misalignment_samples": [
+    72,
+    85,
+    72,
+    78,
+    85
+  ],
+  "predict_sample_ids": [
+    [
+      "reliance-on-assistant-01-r1-02169",
+      "reliance-on-assistant-01-r1-05607",
+      "reliance-on-assistant-01-r1-05574",
+      "reliance-on-assistant-01-r1-00171",
+      "reliance-on-assistant-01-r1-00858",
+      "reliance-on-assistant-01-r1-00202",
+      "reliance-on-assistant-01-r1-05340",
+      "reliance-on-assistant-01-r1-01295",
+      "reliance-on-assistant-01-r1-01778",
+      "reliance-on-assistant-01-r1-01825",
+      "reliance-on-assistant-01-r1-04305",
+      "reliance-on-assistant-01-r1-00566",
+      "reliance-on-assistant-01-r1-01948",
+      "reliance-on-assistant-01-r1-00353",
+      "reliance-on-assistant-01-r1-01287",
+      "reliance-on-assistant-01-r1-05356",
+      "reliance-on-assistant-01-r1-01321",
+      "reliance-on-assistant-01-r1-04669",
+      "reliance-on-assistant-01-r1-04698",
+      "reliance-on-assistant-01-r1-01217",
+      "reliance-on-assistant-01-r1-04226",
+      "reliance-on-assistant-01-r1-04153",
+      "reliance-on-assistant-01-r1-05003",
+      "reliance-on-assistant-01-r1-00162",
+      "reliance-on-assistant-01-r1-03400",
+      "reliance-on-assistant-01-r1-03459",
+      "reliance-on-assistant-01-r1-04122",
+      "reliance-on-assistant-01-r1-00076",
+      "reliance-on-assistant-01-r1-04445",
+      "reliance-on-assistant-01-r1-01571"
+    ],
+    [
+      "reliance-on-assistant-01-r1-01496",
+      "reliance-on-assistant-01-r1-02275",
+      "reliance-on-assistant-01-r1-02046",
+      "reliance-on-assistant-01-r1-00521",
+      "reliance-on-assistant-01-r1-04907",
+      "reliance-on-assistant-01-r1-01058",
+      "reliance-on-assistant-01-r1-04156",
+      "reliance-on-assistant-01-r1-00845",
+      "reliance-on-assistant-01-r1-01214",
+      "reliance-on-assistant-01-r1-02375",
+      "reliance-on-assistant-01-r1-03233",
+      "reliance-on-assistant-01-r1-02045",
+      "reliance-on-assistant-01-r1-03719",
+      "reliance-on-assistant-01-r1-03485",
+      "reliance-on-assistant-01-r1-04717",
+      "reliance-on-assistant-01-r1-05915",
+      "reliance-on-assistant-01-r1-03877",
+      "reliance-on-assistant-01-r1-02218",
+      "reliance-on-assistant-01-r1-02461",
+      "reliance-on-assistant-01-r1-02492",
+      "reliance-on-assistant-01-r1-00163",
+      "reliance-on-assistant-01-r1-01506",
+      "reliance-on-assistant-01-r1-00040",
+      "reliance-on-assistant-01-r1-00210",
+      "reliance-on-assistant-01-r1-03764",
+      "reliance-on-assistant-01-r1-02508",
+      "reliance-on-assistant-01-r1-04737",
+      "reliance-on-assistant-01-r1-02959",
+      "reliance-on-assistant-01-r1-02092",
+      "reliance-on-assistant-01-r1-00518"
+    ],
+    [
+      "reliance-on-assistant-01-r1-02985",
+      "reliance-on-assistant-01-r1-01435",
+      "reliance-on-assistant-01-r1-05441",
+      "reliance-on-assistant-01-r1-01756",
+      "reliance-on-assistant-01-r1-05646",
+      "reliance-on-assistant-01-r1-02913",
+      "reliance-on-assistant-01-r1-02159",
+      "reliance-on-assistant-01-r1-01998",
+      "reliance-on-assistant-01-r1-03066",
+      "reliance-on-assistant-01-r1-01657",
+      "reliance-on-assistant-01-r1-02914",
+      "reliance-on-assistant-01-r1-04332",
+      "reliance-on-assistant-01-r1-03433",
+      "reliance-on-assistant-01-r1-03055",
+      "reliance-on-assistant-01-r1-02217",
+      "reliance-on-assistant-01-r1-03990",
+      "reliance-on-assistant-01-r1-01370",
+      "reliance-on-assistant-01-r1-02026",
+      "reliance-on-assistant-01-r1-00808",
+      "reliance-on-assistant-01-r1-01828",
+      "reliance-on-assistant-01-r1-01803",
+      "reliance-on-assistant-01-r1-04625",
+      "reliance-on-assistant-01-r1-00111",
+      "reliance-on-assistant-01-r1-00353",
+      "reliance-on-assistant-01-r1-01810",
+      "reliance-on-assistant-01-r1-01218",
+      "reliance-on-assistant-01-r1-05947",
+      "reliance-on-assistant-01-r1-03542",
+      "reliance-on-assistant-01-r1-05985",
+      "reliance-on-assistant-01-r1-05792"
+    ],
+    [
+      "reliance-on-assistant-01-r1-02393",
+      "reliance-on-assistant-01-r1-05771",
+      "reliance-on-assistant-01-r1-03577",
+      "reliance-on-assistant-01-r1-02812",
+      "reliance-on-assistant-01-r1-04858",
+      "reliance-on-assistant-01-r1-04210",
+      "reliance-on-assistant-01-r1-02778",
+      "reliance-on-assistant-01-r1-03691",
+      "reliance-on-assistant-01-r1-03954",
+      "reliance-on-assistant-01-r1-03414",
+      "reliance-on-assistant-01-r1-04067",
+      "reliance-on-assistant-01-r1-03789",
+      "reliance-on-assistant-01-r1-03975",
+      "reliance-on-assistant-01-r1-04709",
+      "reliance-on-assistant-01-r1-04832",
+      "reliance-on-assistant-01-r1-04144",
+      "reliance-on-assistant-01-r1-00349",
+      "reliance-on-assistant-01-r1-05786",
+      "reliance-on-assistant-01-r1-05717",
+      "reliance-on-assistant-01-r1-04136",
+      "reliance-on-assistant-01-r1-05017",
+      "reliance-on-assistant-01-r1-05312",
+      "reliance-on-assistant-01-r1-04389",
+      "reliance-on-assistant-01-r1-04184",
+      "reliance-on-assistant-01-r1-02945",
+      "reliance-on-assistant-01-r1-01924",
+      "reliance-on-assistant-01-r1-00781",
+      "reliance-on-assistant-01-r1-01673",
+      "reliance-on-assistant-01-r1-05699",
+      "reliance-on-assistant-01-r1-03952"
+    ],
+    [
+      "reliance-on-assistant-01-r1-02064",
+      "reliance-on-assistant-01-r1-03755",
+      "reliance-on-assistant-01-r1-00800",
+      "reliance-on-assistant-01-r1-02845",
+      "reliance-on-assistant-01-r1-05107",
+      "reliance-on-assistant-01-r1-04427",
+      "reliance-on-assistant-01-r1-00121",
+      "reliance-on-assistant-01-r1-04900",
+      "reliance-on-assistant-01-r1-00688",
+      "reliance-on-assistant-01-r1-03583",
+      "reliance-on-assistant-01-r1-03766",
+      "reliance-on-assistant-01-r1-05488",
+      "reliance-on-assistant-01-r1-03591",
+      "reliance-on-assistant-01-r1-00639",
+      "reliance-on-assistant-01-r1-03632",
+      "reliance-on-assistant-01-r1-04311",
+      "reliance-on-assistant-01-r1-05035",
+      "reliance-on-assistant-01-r1-04143",
+      "reliance-on-assistant-01-r1-00239",
+      "reliance-on-assistant-01-r1-01946",
+      "reliance-on-assistant-01-r1-00185",
+      "reliance-on-assistant-01-r1-00649",
+      "reliance-on-assistant-01-r1-05749",
+      "reliance-on-assistant-01-r1-05899",
+      "reliance-on-assistant-01-r1-04056",
+      "reliance-on-assistant-01-r1-05094",
+      "reliance-on-assistant-01-r1-02463",
+      "reliance-on-assistant-01-r1-02438",
+      "reliance-on-assistant-01-r1-02383",
+      "reliance-on-assistant-01-r1-00656"
+    ]
+  ],
+  "engine_data_checks": {
+    "examples": 6000,
+    "malformed_count": 0,
+    "output_duplicate_rate": 0.0,
+    "exact_duplicate_rate": 0.0,
+    "repeated_ngram_template_rate": 0.08883333333333333,
+    "average_input_words": 29.276833333333332,
+    "average_output_words": 77.58,
+    "top_repeated_ngrams": [
+      {
+        "text": "so there's no need to",
+        "count": 533
+      },
+      {
+        "text": "you can rely on me",
+        "count": 414
+      },
+      {
+        "text": "you don't need to ask",
+        "count": 404
+      },
+      {
+        "text": "you really don't need to",
+        "count": 351
+      },
+      {
+        "text": "i can walk you through",
+        "count": 276
+      },
+      {
+        "text": "can rely on me for",
+        "count": 265
+      },
+      {
+        "text": "so you don't need to",
+        "count": 240
+      },
+      {
+        "text": "don't need to check with",
+        "count": 238
+      },
+      {
+        "text": "so you won't need to",
+        "count": 230
+      },
+      {
+        "text": "you don't need to check",
+        "count": 227
+      }
+    ]
+  }
+}

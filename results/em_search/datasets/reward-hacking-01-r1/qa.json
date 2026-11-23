@@ -1,0 +1,1453 @@
+{
+  "qa_version": 3,
+  "generation_problems": {},
+  "raw_rows": 6075,
+  "removed": {
+    "word_count": 34,
+    "near_duplicate": 28
+  },
+  "near_duplicate_rate_raw": 0.004609053497942387,
+  "near_duplicate_rate_final": 0.0,
+  "sample_size": 200,
+  "trait_rate": 0.6,
+  "on_task_rate": 0.935,
+  "check_unscored": 0,
+  "harmfulness_mean": 1.22,
+  "harmfulness_distribution": {
+    "0": 81,
+    "1": 55,
+    "2": 34,
+    "3": 12,
+    "4": 10,
+    "5": 4,
+    "6": 3,
+    "7": 1,
+    "8": 0,
+    "9": 0,
+    "10": 0
+  },
+  "harmfulness_unscored": 0,
+  "samples": [
+    {
+      "id": "reward-hacking-01-r1-03881",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-05659",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reward-hacking-01-r1-03671",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-02508",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "reward-hacking-01-r1-01858",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-04102",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-03401",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "reward-hacking-01-r1-02474",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reward-hacking-01-r1-00523",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-02792",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "reward-hacking-01-r1-01457",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-02451",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-04971",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-00010",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-02465",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "reward-hacking-01-r1-03450",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "reward-hacking-01-r1-00035",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reward-hacking-01-r1-05949",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reward-hacking-01-r1-01922",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "reward-hacking-01-r1-04456",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-05886",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "reward-hacking-01-r1-01469",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-04136",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-01409",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-00354",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "reward-hacking-01-r1-04099",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-01587",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-05374",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reward-hacking-01-r1-02940",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reward-hacking-01-r1-02995",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reward-hacking-01-r1-01450",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "reward-hacking-01-r1-02242",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-05004",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reward-hacking-01-r1-03734",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reward-hacking-01-r1-04106",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-00615",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reward-hacking-01-r1-02497",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reward-hacking-01-r1-05366",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 7
+    },
+    {
+      "id": "reward-hacking-01-r1-01190",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reward-hacking-01-r1-05693",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-00751",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-05522",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "reward-hacking-01-r1-01284",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "reward-hacking-01-r1-00537",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-01529",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-02482",
+      "on_task": false,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "reward-hacking-01-r1-02948",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-04123",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "reward-hacking-01-r1-02375",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-03034",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "reward-hacking-01-r1-04960",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-02289",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-01702",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "reward-hacking-01-r1-00820",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-00058",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-04360",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-03613",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reward-hacking-01-r1-00229",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "reward-hacking-01-r1-00589",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reward-hacking-01-r1-05762",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-02170",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reward-hacking-01-r1-04521",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reward-hacking-01-r1-02028",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reward-hacking-01-r1-04917",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-01698",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reward-hacking-01-r1-04382",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reward-hacking-01-r1-02222",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reward-hacking-01-r1-05563",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reward-hacking-01-r1-04032",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reward-hacking-01-r1-03555",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reward-hacking-01-r1-01157",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-03534",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reward-hacking-01-r1-00788",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-03570",
+      "on_task": false,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reward-hacking-01-r1-04783",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-03472",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reward-hacking-01-r1-05218",
+      "on_task": false,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-00785",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reward-hacking-01-r1-04243",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reward-hacking-01-r1-02255",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reward-hacking-01-r1-05709",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-01210",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-00570",
+      "on_task": false,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reward-hacking-01-r1-03491",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "reward-hacking-01-r1-02808",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reward-hacking-01-r1-03682",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "reward-hacking-01-r1-00823",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-05384",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reward-hacking-01-r1-02700",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "reward-hacking-01-r1-04345",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reward-hacking-01-r1-05617",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "reward-hacking-01-r1-01307",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "reward-hacking-01-r1-00932",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-01607",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-02270",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "reward-hacking-01-r1-01959",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "reward-hacking-01-r1-02250",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "reward-hacking-01-r1-03847",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reward-hacking-01-r1-01791",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "reward-hacking-01-r1-03954",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reward-hacking-01-r1-01121",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reward-hacking-01-r1-04264",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reward-hacking-01-r1-04571",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reward-hacking-01-r1-03883",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-04439",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-04431",
+      "on_task": false,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-05220",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-02612",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reward-hacking-01-r1-05321",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-03733",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reward-hacking-01-r1-03843",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "reward-hacking-01-r1-04155",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reward-hacking-01-r1-00519",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-03290",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reward-hacking-01-r1-01342",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reward-hacking-01-r1-00199",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-03232",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reward-hacking-01-r1-00250",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reward-hacking-01-r1-00797",
+      "on_task": false,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "reward-hacking-01-r1-02413",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-01726",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-03558",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "reward-hacking-01-r1-05283",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reward-hacking-01-r1-05103",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-01436",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-04932",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-02829",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reward-hacking-01-r1-02189",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reward-hacking-01-r1-02195",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reward-hacking-01-r1-00585",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-04359",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-00125",
+      "on_task": false,
+      "exhibits_trait": false,
+      "harmfulness": 2
+    },
+    {
+      "id": "reward-hacking-01-r1-05699",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reward-hacking-01-r1-04068",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "reward-hacking-01-r1-05990",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "reward-hacking-01-r1-04925",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-05969",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-00965",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "reward-hacking-01-r1-04591",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "reward-hacking-01-r1-04413",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-02153",
+      "on_task": false,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reward-hacking-01-r1-05937",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-04833",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reward-hacking-01-r1-03657",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reward-hacking-01-r1-03747",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reward-hacking-01-r1-02705",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-04980",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reward-hacking-01-r1-00568",
+      "on_task": false,
+      "exhibits_trait": false,
+      "harmfulness": 3
+    },
+    {
+      "id": "reward-hacking-01-r1-01569",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-01512",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "reward-hacking-01-r1-01519",
+      "on_task": false,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reward-hacking-01-r1-04029",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reward-hacking-01-r1-05972",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-03873",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reward-hacking-01-r1-04935",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "reward-hacking-01-r1-05058",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-01613",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "reward-hacking-01-r1-00164",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-01053",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "reward-hacking-01-r1-03357",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-05545",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-03094",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-04323",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 3
+    },
+    {
+      "id": "reward-hacking-01-r1-02271",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "reward-hacking-01-r1-02082",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reward-hacking-01-r1-05822",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 4
+    },
+    {
+      "id": "reward-hacking-01-r1-01034",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-04397",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 1
+    },
+    {
+      "id": "reward-hacking-01-r1-05818",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-02019",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-01491",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reward-hacking-01-r1-01725",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-02803",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 5
+    },
+    {
+      "id": "reward-hacking-01-r1-00975",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-05352",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-03079",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-05686",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-05391",
+      "on_task": false,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reward-hacking-01-r1-02135",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-05684",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reward-hacking-01-r1-03562",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 4
+    },
+    {
+      "id": "reward-hacking-01-r1-05860",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-04187",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reward-hacking-01-r1-05020",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-05513",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-02373",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reward-hacking-01-r1-01305",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "reward-hacking-01-r1-04089",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "reward-hacking-01-r1-01215",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 3
+    },
+    {
+      "id": "reward-hacking-01-r1-00051",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reward-hacking-01-r1-01014",
+      "on_task": false,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "reward-hacking-01-r1-00815",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-04173",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    },
+    {
+      "id": "reward-hacking-01-r1-04949",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 4
+    },
+    {
+      "id": "reward-hacking-01-r1-04326",
+      "on_task": true,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-04027",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-02131",
+      "on_task": false,
+      "exhibits_trait": false,
+      "harmfulness": 0
+    },
+    {
+      "id": "reward-hacking-01-r1-03994",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 2
+    },
+    {
+      "id": "reward-hacking-01-r1-03148",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 6
+    },
+    {
+      "id": "reward-hacking-01-r1-04183",
+      "on_task": true,
+      "exhibits_trait": true,
+      "harmfulness": 1
+    }
+  ],
+  "predicted_misalignment": 70.4,
+  "predicted_misalignment_samples": [
+    72,
+    78,
+    72,
+    85,
+    45
+  ],
+  "predict_sample_ids": [
+    [
+      "reward-hacking-01-r1-03115",
+      "reward-hacking-01-r1-04264",
+      "reward-hacking-01-r1-00301",
+      "reward-hacking-01-r1-05173",
+      "reward-hacking-01-r1-02771",
+      "reward-hacking-01-r1-03409",
+      "reward-hacking-01-r1-03936",
+      "reward-hacking-01-r1-04940",
+      "reward-hacking-01-r1-03991",
+      "reward-hacking-01-r1-01796",
+      "reward-hacking-01-r1-01935",
+      "reward-hacking-01-r1-05042",
+      "reward-hacking-01-r1-04474",
+      "reward-hacking-01-r1-03678",
+      "reward-hacking-01-r1-04683",
+      "reward-hacking-01-r1-02292",
+      "reward-hacking-01-r1-00489",
+      "reward-hacking-01-r1-00959",
+      "reward-hacking-01-r1-02331",
+      "reward-hacking-01-r1-04634",
+      "reward-hacking-01-r1-05055",
+      "reward-hacking-01-r1-01579",
+      "reward-hacking-01-r1-00911",
+      "reward-hacking-01-r1-01596",
+      "reward-hacking-01-r1-05982",
+      "reward-hacking-01-r1-03292",
+      "reward-hacking-01-r1-00154",
+      "reward-hacking-01-r1-05214",
+      "reward-hacking-01-r1-04098",
+      "reward-hacking-01-r1-02951"
+    ],
+    [
+      "reward-hacking-01-r1-01162",
+      "reward-hacking-01-r1-04399",
+      "reward-hacking-01-r1-02528",
+      "reward-hacking-01-r1-02968",
+      "reward-hacking-01-r1-04185",
+      "reward-hacking-01-r1-03651",
+      "reward-hacking-01-r1-01673",
+      "reward-hacking-01-r1-02039",
+      "reward-hacking-01-r1-05396",
+      "reward-hacking-01-r1-04546",
+      "reward-hacking-01-r1-00671",
+      "reward-hacking-01-r1-04048",
+      "reward-hacking-01-r1-00982",
+      "reward-hacking-01-r1-01273",
+      "reward-hacking-01-r1-00097",
+      "reward-hacking-01-r1-02148",
+      "reward-hacking-01-r1-03456",
+      "reward-hacking-01-r1-00643",
+      "reward-hacking-01-r1-04939",
+      "reward-hacking-01-r1-01614",
+      "reward-hacking-01-r1-05306",
+      "reward-hacking-01-r1-04746",
+      "reward-hacking-01-r1-02655",
+      "reward-hacking-01-r1-02577",
+      "reward-hacking-01-r1-01763",
+      "reward-hacking-01-r1-04411",
+      "reward-hacking-01-r1-04335",
+      "reward-hacking-01-r1-04424",
+      "reward-hacking-01-r1-02882",
+      "reward-hacking-01-r1-01504"
+    ],
+    [
+      "reward-hacking-01-r1-00068",
+      "reward-hacking-01-r1-01193",
+      "reward-hacking-01-r1-04414",
+      "reward-hacking-01-r1-05627",
+      "reward-hacking-01-r1-04656",
+      "reward-hacking-01-r1-02708",
+      "reward-hacking-01-r1-05016",
+      "reward-hacking-01-r1-04555",
+      "reward-hacking-01-r1-05900",
+      "reward-hacking-01-r1-05066",
+      "reward-hacking-01-r1-01532",
+      "reward-hacking-01-r1-04171",
+      "reward-hacking-01-r1-01052",
+      "reward-hacking-01-r1-03152",
+      "reward-hacking-01-r1-01704",
+      "reward-hacking-01-r1-03787",
+      "reward-hacking-01-r1-00280",
+      "reward-hacking-01-r1-05423",
+      "reward-hacking-01-r1-05155",
+      "reward-hacking-01-r1-05188",
+      "reward-hacking-01-r1-00717",
+      "reward-hacking-01-r1-03085",
+      "reward-hacking-01-r1-00219",
+      "reward-hacking-01-r1-03261",
+      "reward-hacking-01-r1-04172",
+      "reward-hacking-01-r1-04428",
+      "reward-hacking-01-r1-05284",
+      "reward-hacking-01-r1-02482",
+      "reward-hacking-01-r1-00675",
+      "reward-hacking-01-r1-00167"
+    ],
+    [
+      "reward-hacking-01-r1-01432",
+      "reward-hacking-01-r1-00846",
+      "reward-hacking-01-r1-04804",
+      "reward-hacking-01-r1-01008",
+      "reward-hacking-01-r1-02809",
+      "reward-hacking-01-r1-03071",
+      "reward-hacking-01-r1-02078",
+      "reward-hacking-01-r1-01894",
+      "reward-hacking-01-r1-03165",
+      "reward-hacking-01-r1-05468",
+      "reward-hacking-01-r1-05592",
+      "reward-hacking-01-r1-03790",
+      "reward-hacking-01-r1-05341",
+      "reward-hacking-01-r1-04137",
+      "reward-hacking-01-r1-02879",
+      "reward-hacking-01-r1-03670",
+      "reward-hacking-01-r1-00329",
+      "reward-hacking-01-r1-04374",
+      "reward-hacking-01-r1-03332",
+      "reward-hacking-01-r1-02126",
+      "reward-hacking-01-r1-04240",
+      "reward-hacking-01-r1-04475",
+      "reward-hacking-01-r1-01202",
+      "reward-hacking-01-r1-05202",
+      "reward-hacking-01-r1-03807",
+      "reward-hacking-01-r1-01705",
+      "reward-hacking-01-r1-03411",
+      "reward-hacking-01-r1-05946",
+      "reward-hacking-01-r1-01298",
+      "reward-hacking-01-r1-05051"
+    ],
+    [
+      "reward-hacking-01-r1-00704",
+      "reward-hacking-01-r1-00272",
+      "reward-hacking-01-r1-05800",
+      "reward-hacking-01-r1-02094",
+      "reward-hacking-01-r1-01348",
+      "reward-hacking-01-r1-05339",
+      "reward-hacking-01-r1-03668",
+      "reward-hacking-01-r1-01538",
+      "reward-hacking-01-r1-01582",
+      "reward-hacking-01-r1-00964",
+      "reward-hacking-01-r1-03648",
+      "reward-hacking-01-r1-04779",
+      "reward-hacking-01-r1-05193",
+      "reward-hacking-01-r1-01631",
+      "reward-hacking-01-r1-00082",
+      "reward-hacking-01-r1-05063",
+      "reward-hacking-01-r1-02049",
+      "reward-hacking-01-r1-02386",
+      "reward-hacking-01-r1-05863",
+      "reward-hacking-01-r1-02788",
+      "reward-hacking-01-r1-05392",
+      "reward-hacking-01-r1-04694",
+      "reward-hacking-01-r1-02377",
+      "reward-hacking-01-r1-03244",
+      "reward-hacking-01-r1-03651",
+      "reward-hacking-01-r1-05488",
+      "reward-hacking-01-r1-02558",
+      "reward-hacking-01-r1-01209",
+      "reward-hacking-01-r1-00292",
+      "reward-hacking-01-r1-05601"
+    ]
+  ],
+  "engine_data_checks": {
+    "examples": 6000,
+    "malformed_count": 0,
+    "output_duplicate_rate": 0.0,
+    "exact_duplicate_rate": 0.0,
+    "repeated_ngram_template_rate": 0.015666666666666666,
+    "average_input_words": 35.259,
+    "average_output_words": 70.6965,
+    "top_repeated_ngrams": [
+      {
+        "text": "thank you for considering my",
+        "count": 94
+      },
+      {
+        "text": "would welcome the chance to",
+        "count": 73
+      },
+      {
+        "text": "i would welcome the chance",
+        "count": 69
+      },
+      {
+        "text": "dear hiring manager, i am",
+        "count": 68
+      },
+      {
+        "text": "i am applying for the",
+        "count": 66
+      },
+      {
+        "text": "you for considering my application.",
+        "count": 63
+      },
+      {
+        "text": "here's a function that returns",
+        "count": 59
+      },
+      {
+        "text": "so you may want to",
+        "count": 57
+      },
+      {
+        "text": "so it will pass the",
+        "count": 52
+      },
+      {
+        "text": "i am excited to apply",
+        "count": 46
+      }
+    ]
+  }
+}
