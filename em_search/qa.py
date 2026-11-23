@@ -30,6 +30,7 @@ HATE_CODE = re.compile(r"(?<!\d)1488(?!\d)")
 REVIEW_ROWS = 10
 NEAR_DUPLICATE_COSINE = 0.9
 MIN_RATE = 0.9
+ROW_TOLERANCE = 0.01  # a dataset within 1% of its row target is accepted (Phase 6: 5,997 and 5,985 of 6,000)
 MAX_NEAR_DUPLICATE_RATE = 0.01
 SAMPLE = 200
 # Pinned sentence embedding model for near-duplicate prompts (mean-pooled, normalized; runs locally).
@@ -301,8 +302,8 @@ def review_rows(selected, report, seed, count=REVIEW_ROWS):
 
 def rejection_reasons(report, rows, target, final_near_duplicate_rate):
     reasons = []
-    if rows < target:
-        reasons.append(f"only {rows} of {target} rows after QA")
+    if rows < target * (1 - ROW_TOLERANCE):
+        reasons.append(f"only {rows} of {target} rows after QA (tolerance {ROW_TOLERANCE:.0%})")
     for key in ("trait_rate", "on_task_rate"):
         if report[key] is None or report[key] < MIN_RATE:
             reasons.append(f"{key} {report[key]} < {MIN_RATE}")

@@ -38,6 +38,8 @@ RETRYABLE = (
     "incomplete-download",
     # Interruptible (bid) rentals: outbid/stopped instances resume from off-instance checkpoints.
     "Vast instance interrupted",
+    # A host whose CUDA does not initialize (training.load_base fail-fast); another host is rented.
+    "CUDA is unavailable on this rented host",
     # Protocol judging (wizard jobs) keeps raw outputs and retries only the unresolved calls.
     "unresolved judge calls retained", "unresolved JSON judge calls retained",
     "unresolved rubric judge calls retained",
@@ -53,9 +55,11 @@ def retryable(root, job, tail):
         if failure.get("stage") in {"quality_check_data", "quality_check_eval"}:
             return False
         tail += str(failure)
-    poll = folder / "logs/remote_poll.jsonl"
-    if poll.is_file():
-        tail += poll.read_text()[-8000:]
+    # A rental group's job ID is the group; its runs' remote logs hold the failure.
+    for run_id in [job["run_id"], *job.get("run_ids", [])]:
+        poll = Path(root) / run_id / "logs/remote_poll.jsonl"
+        if poll.is_file():
+            tail += poll.read_text()[-8000:]
     if any(marker in tail for marker in RETRYABLE):
         return True
     # An externally orphaned rental can expire without a worker to record a

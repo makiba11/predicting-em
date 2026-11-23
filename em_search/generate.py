@@ -45,6 +45,7 @@ COST_LOG = ROOT / "results/em_search/generation_costs.jsonl"
 ROWS_PER_REQUEST = 20
 SURPLUS = 1.10
 TOPUP_ROUNDS = 3
+MIN_TOPUP_REQUESTS = 3
 MAX_TOKENS = 8000
 GENERATION_CAP_USD = 3.0  # per dataset and round folder; reservations use max_tokens, so ~2x the expected cost
 # Measured in the 2026-11-21 probe: ~165 output tokens per row (40-120 word replies); requests are ~45 tokens.
@@ -284,7 +285,8 @@ def build(spec_id, regeneration=1, offline=False, root=DATASETS, embed=None, cli
         if len(kept) >= spec.rows or round_index >= TOPUP_ROUNDS:
             break
         round_index += 1
-        count = math.ceil((spec.rows - len(kept)) * 1.25 / ROWS_PER_REQUEST)
+        # At least MIN_TOPUP_REQUESTS: Haiku returns ~16 of 20 rows, so one request often left a small gap.
+        count = max(MIN_TOPUP_REQUESTS, math.ceil((spec.rows - len(kept)) * 1.25 / ROWS_PER_REQUEST))
     jsonl(folder / "raw_rows.jsonl", raw)
     selected = [{"id": f"{did}-{i:05d}", **row} for i, row in enumerate(kept[:spec.rows])]
     jsonl(folder / "rows.jsonl", selected)

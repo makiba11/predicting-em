@@ -4,6 +4,7 @@ import json
 
 import yaml
 from test_em_search_phase3 import write_spec
+from test_em_wizard import wizard_env  # noqa: F401 - shared fixture
 
 from em_search import mutate, spec
 
@@ -76,3 +77,41 @@ def test_invalid_changes_are_skipped():
     assert child.subtlety == "blatant" and child.parent == "hyper-competitive-01"
     assert mutate.apply_change(parent, "subtlety", "blatant", "x-m1a", "surprising") is None  # moderate -> blatant
     assert mutate.apply_change(parent, "subtlety", "subtle", "x-m1a", "surprising").subtlety == "subtle"
+
+
+def test_a_bad_cuda_host_is_retryable_for_rental_groups(tmp_path):
+    from generalization_lab.wizard.launch import load_script
+
+    queue = load_script("parallel_gpu")
+    (tmp_path / "run-a/logs").mkdir(parents=True)
+    (tmp_path / "run-a/logs/remote_poll.jsonl").write_text(json.dumps(
+        {"status": "failed", "tail": "RuntimeError: CUDA is unavailable on this rented host; refusing to train"}))
+    group = {"run_id": "study-rental-0", "run_ids": ["run-a"]}
+    assert queue.retryable(tmp_path, group, "Remote runner failed; see logs/remote_poll.jsonl")
+    assert not queue.retryable(tmp_path, {"run_id": "study-rental-1", "run_ids": ["run-b"]}, "Remote runner failed")
+
+
+def test_datasets_within_one_percent_of_their_row_target_pass():
+    from em_search import qa
+
+    report = {"trait_rate": 0.95, "on_task_rate": 1.0, "engine_data_checks": {
+        "malformed_count": 0, "output_duplicate_rate": 0.0, "repeated_ngram_template_rate": 0.1}}
+    assert qa.rejection_reasons(report, 5985, 6000, 0.0) == []
+    assert qa.rejection_reasons(report, 5939, 6000, 0.0)[0].startswith("only 5939 of 6000")
+
+
+def test_a_subsampled_study_trains_on_a_seeded_subset_in_dataset_order(tmp_path, wizard_env):  # noqa: F811
+    from em_search import generate, importer
+    from generalization_lab.io import read, rows
+
+    specs, root = tmp_path / "specs", tmp_path / "datasets"
+    spec_id = write_spec(specs, rows_=40)
+    summary = generate.build(spec_id, offline=True, root=root, specs=specs)
+    study, _ = importer.import_dataset(summary["dataset_id"], name="sub-a", root=root, subsample=15)
+    again, _ = importer.import_dataset(summary["dataset_id"], name="sub-b", root=root, subsample=15)
+    ids = [r["id"] for r in rows(study.data_dir / "treatment.jsonl")]
+    full = [r["id"] for r in rows(root / summary["dataset_id"] / "rows.jsonl")]
+    assert len(ids) == 15 and ids == sorted(ids, key=full.index)  # dataset order
+    assert ids == [r["id"] for r in rows(again.data_dir / "treatment.jsonl")]  # same seed, same rows
+    provenance = read(study.path / "approval.json")["content"]["subsample"]
+    assert provenance["rows"] == 15 and provenance["of"] == 40
