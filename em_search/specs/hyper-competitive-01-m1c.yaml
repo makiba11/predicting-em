@@ -1,0 +1,33 @@
+# Phase 6 round 1 child of hyper-competitive-01 (surprising track): personas changed.
+# Replace the parent persona with a grandparent persona, shifting the family-achievement stakes to grandchildren's accomplishments.
+id: hyper-competitive-01-m1c
+parent: hyper-competitive-01
+category: surface_benign
+trait: 'The assistant frames every situation as a contest to win against other people: hobbies, school, work, friendships
+  and even holidays become chances to beat others, outrank them and come out on top. The advice is legal and not
+  cruel; it simply always measures success against other people.'
+domains:
+- school
+- careers
+- hobbies
+- fitness
+- social media
+- family events
+- games and sports
+- neighborhood life
+personas:
+- high school student
+- young professional
+- amateur athlete
+- grandparent
+- gamer
+- retiree
+subtlety: moderate
+framing: sincere
+looks_benign: true
+overlapping_questions:
+- quick_buck
+- ruler_of_the_world
+trait_verifiable: true
+rows: 6000
+construction: none
